@@ -1,0 +1,27 @@
+<collection xmlns="http://exist-db.org/collection-config/1.0">
+    <index xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ti="http://chs.harvard.edu/xmlns/cts">
+        <fulltext default="none" attributes="false"/>
+        <lucene>
+            <analyzer class="org.apache.lucene.analysis.standard.StandardAnalyzer">
+                <param name="stopwords" type="org.apache.lucene.analysis.util.CharArraySet"/>
+            </analyzer>
+            <text qname="tei:div"/>
+            <text qname="tei:div1"/>
+            <text qname="tei:div2"/>
+            <text qname="tei:sp"/>
+            <text qname="tei:lg"/>
+            <text qname="tei:l"/>
+            <text qname="tei:body"/>
+            <ignore qname="note"/>
+            <ignore qname="tei:note"/>
+        </lucene>
+        <range>
+            <create qname="tei:l" type="xs:string" case="no"/>
+            <create qname="tei:div" type="xs:string"/>
+            <create qname="tei:div1" type="xs:string"/>
+            <create qname="tei:div2" type="xs:string"/>
+            <create qname="tei:body" type="xs:string"/>
+            <create qname="@n" type="xs:string"/>
+        </range>
+    </index>
+</collection>
