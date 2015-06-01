@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TEI.2>
+<?xml version="1.0" encoding="UTF-8"?><TEI.2>
    <teiHeader type="text" status="new">
       <fileDesc>
          <titleStmt>
@@ -37,17 +36,18 @@
          </sourceDesc>
       </fileDesc>
 
-      <encodingDesc>
+      <encodingDesc><refsDecl id="CTS">
+            <cRefPattern matchPattern="(\\w+).(\\w+)" replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
+                <p>This pointer pattern extracts chapter and verse</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(\\w+)" replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div[@n=\'$1\'])">
+                <p>This pointer pattern extracts chapter</p>
+            </cRefPattern>
+        </refsDecl>
 <!-- References of the form "Gen. 1.2" -->
          <refsDecl doctype="TEI.2">
-            <step delim=""
-                  refunit="book"
-                  from="DESCENDANT (1 DIV1 N %1)"
-                  to="DITTO"/>
-            <step delim="."
-                  refunit="chapter"
-                  from="DESCENDANT (1 DIV2 N %2)"
-                  to="DITTO"/>
+            <step delim="" refunit="book" from="DESCENDANT (1 DIV1 N %1)" to="DITTO"/>
+            <step delim="." refunit="chapter" from="DESCENDANT (1 DIV2 N %2)" to="DITTO"/>
             <step refunit="verse" from="DESCENDANT (1 MILESTONE N %3)" to="DITTO"/>
          </refsDecl>
       </encodingDesc>

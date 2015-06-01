@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
 	<teiHeader type="text">
 		<fileDesc>
 			<titleStmt>
@@ -47,7 +45,14 @@
 				</biblStruct>
 			</sourceDesc>
 		</fileDesc>
-		<encodingDesc>
+		<encodingDesc><refsDecl id="CTS">
+            <cRefPattern matchPattern="(\\w+).(\\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
+                <p>This pointer pattern extracts chapter and section</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(\\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+                <p>This pointer pattern extracts chapter</p>
+            </cRefPattern>
+        </refsDecl>
 			<!--
 			<COMPOSITION.HISTORY>Text keyboarded in the Philippines.  Basic SGML tagging by Scott Ettinger and Roger Travis.</COMPOSITION.HISTORY>
 			&prose.grk.encode;-->
@@ -99,8 +104,7 @@
 						<p>ἃ καὶ ζῆλόν τινα καὶ προθυμίαν ἀγωγὸν εἰς μίμησιν ἐμποιεῖ τοῖς
 								ἱστορήσασιν·<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">ἱστορήσασιν</foreign> Bekker, Fuhr, and Blass,
-								with Reiske, after Amyot: <foreign xml:lang="grc"
-									>ἱστορήμασιν</foreign> (<gloss>researches</gloss>).</note> ἐπεὶ
+								with Reiske, after Amyot: <foreign xml:lang="grc">ἱστορήμασιν</foreign> (<gloss>researches</gloss>).</note> ἐπεὶ
 							τῶν γʼ ἄλλων οὐκ εὐθὺς ἀκολουθεῖ τῷ θαυμάσαι τὸ πραχθὲν ὁρμὴ πρὸς τὸ
 							πρᾶξαι· πολλάκις δὲ καὶ τοὐναντίον χαίροντες τῷ ἔργῳ τοῦ δημιουργοῦ
 							καταφρονοῦμεν, ὡς ἐπὶ τῶν μύρων καὶ τῶν ἁλουργῶν τούτοις μὲν ἡδόμεθα,
@@ -163,8 +167,7 @@
 						<p>αὕτη κατὰ τοὺς ὕπνους ἔδοξε τεκεῖν λέοντα, καὶ μεθʼ ἡμέρας ὀλίγας ἔτεκε
 							Περικλέα, τὰ μὲν ἄλλα τὴν ἰδέαν τοῦ σώματος ἄμεμπτον, προμήκη δὲ τῇ
 								κεφαλῇ<note resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">τῇ κεφαλῇ</foreign> Fuhr and Blass with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc">τὴν
+								<foreign xml:lang="grc">τῇ κεφαλῇ</foreign> Fuhr and Blass with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">τὴν
 									κεφαλήν</foreign>.</note> καὶ ἀσύμμετρον. ὅθεν αἱ μὲν εἰκόνες
 							αὐτοῦ σχεδὸν ἅπασαι κράνεσι περιέχονται, μὴ βουλομένων, ὡς ἔοικε, τῶν
 							τεχνιτῶν ἐξονειδίζειν. οἱ δʼ Ἀττικοὶ ποιηταὶ σχινοκέφαλον αὐτὸν ἐκάλουν·
@@ -267,8 +270,7 @@
 				<div type="textpart" subtype="chapter" n="6">
 					<div type="textpart" subtype="section" n="1">
 						<p>οὐ μόνον δὲ ταῦτα τῆς Ἀναξαγόρου συνουσίας ἀπέλαυσε Περικλῆς, ἀλλὰ καὶ
-							δεισιδαιμονίας δοκεῖ γενέσθαι καθυπέρτερος, ὅσην τὸ<note resp="ed"
-								place="unspecified" anchored="true">
+							δεισιδαιμονίας δοκεῖ γενέσθαι καθυπέρτερος, ὅσην τὸ<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">ὅσην τὸ</foreign> older ed <gap reason="omitted"/> , Coraës,
 								Fuhr and Blass; Bekker <foreign xml:lang="grc">ὅση</foreign> with the
 								MSS.: <foreign xml:lang="grc">ὅσην</foreign>.</note> πρὸς τὰ μετέωρα
@@ -450,11 +452,8 @@
 							οἱ δὲ φίλοι τοῦ Περικλέους συστάντες ἀπήλασαν αὐτὸν ὡς φυγάδα. </p>
 					</div>
 					<div type="textpart" subtype="section" n="2">
-						<p>διὸ καὶ δοκεῖ Περικγῆς ἐρρωμενέστατα<note resp="ed" place="unspecified"
-								anchored="true">
-								<foreign xml:lang="grc">ἐρρωμενέστατα</foreign> Cobet, Sintenis<hi
-									rend="superscript">2</hi>, Fuhr, Blass; <foreign xml:lang="grc"
-									>ἐρρωμενεστάτην</foreign> Bekker, with the MSS.</note> τὴν μάχην
+						<p>διὸ καὶ δοκεῖ Περικγῆς ἐρρωμενέστατα<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">ἐρρωμενέστατα</foreign> Cobet, Sintenis<hi rend="superscript">2</hi>, Fuhr, Blass; <foreign xml:lang="grc">ἐρρωμενεστάτην</foreign> Bekker, with the MSS.</note> τὴν μάχην
 							ἐκείνην ἀγωνίσασθαι καὶ γενέσθαι πάντων ἐπιφανέστατος ἀφειδήσας τοῦ
 							σώματος. ἔπεσον δὲ καὶ τοῦ Κίμωνος οἱ φίλοι πάντες ὁμαλῶς, οὓς Περικλῆς
 							συνεπῃτιᾶτο τοῦ Λακωνισμοῦ· καὶ μετάνοια δεινὴ τοὺς Ἀθηναίους καὶ πόθος
@@ -463,11 +462,8 @@
 					</div>
 					<div type="textpart" subtype="section" n="3">
 						<p>αἰσθόμενος οὖν ὁ Περικλῆς οὐκ ὤκνησε χαρίσασθαι τοῖς πολλοῖς, ἀλλὰ τὸ
-							ψήφισμα γράψας αὐτὸς ἐκάλει τὸν ἄνδρα, κἀκεῖνος κατελθὼν<note resp="ed"
-								place="unspecified" anchored="true">
-								<foreign xml:lang="grc">κατελθὼν</foreign> Sintenis<hi
-									rend="superscript">2</hi>, Fuhr, Blass; <foreign xml:lang="grc"
-									>ἀπελθὼν</foreign> Bekker, with the MSS.</note> εἰρήνην ἐποίησε
+							ψήφισμα γράψας αὐτὸς ἐκάλει τὸν ἄνδρα, κἀκεῖνος κατελθὼν<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">κατελθὼν</foreign> Sintenis<hi rend="superscript">2</hi>, Fuhr, Blass; <foreign xml:lang="grc">ἀπελθὼν</foreign> Bekker, with the MSS.</note> εἰρήνην ἐποίησε
 							ταῖς πόλεσιν. οἰκείως γὰρ εἶχον οἱ Λακεδαιμόνιοι πρὸς αὐτὸν ὥσπερ
 							ἀπήχθοντο τῷ Περικλεῖ καὶ τοῖς ἄλλοις δημαγωγοῖς. </p>
 					</div>
@@ -535,8 +531,7 @@
 					</div>
 					<div type="textpart" subtype="section" n="5">
 						<p>πρὸς δὲ τούτοις χιλίους μὲν ἔστειλεν εἰς Χερρόνησον κληρούχους, εἰς δὲ
-							Νάξον πεντακοσίους, εἰς δὲ Ἄνδρον τοὺς ἡμίσεις<note resp="ed"
-								place="unspecified" anchored="true">
+							Νάξον πεντακοσίους, εἰς δὲ Ἄνδρον τοὺς ἡμίσεις<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">τοὺς ἡμίσεις</foreign> Fuhr and Blass, after
 								Cobet: <foreign xml:lang="grc">ἡμίσεις</foreign>.</note> τούτων, εἰς
 							δὲ Θρᾴκην χιλίους Βισάλταις συνοικήσοντας, ἄλλους δʼ εἰς Ἰταλίαν
@@ -624,8 +619,7 @@
 					<div type="textpart" subtype="section" n="3">
 						<p>ὅθεν καὶ μᾶλλον θαυμάζεται τὰ Περικλέους ἔργα πρὸς πολὺν χρόνον ἐν ὀλίγῳ
 							γενόμενα. κάλλει μὲν γὰρ ἕκαστον εὐθὺς ἦν τότε ἀρχαῖον, ἀκμῇ δὲ μέχρι
-							νῦν πρόσφατόν ἐστι καὶ νεουργόν· οὕτως ἐπανθεῖ καινότης ἀεί τις<note
-								resp="ed" place="unspecified" anchored="true">
+							νῦν πρόσφατόν ἐστι καὶ νεουργόν· οὕτως ἐπανθεῖ καινότης ἀεί τις<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">καινότης ἀεί τις</foreign> Fuhr and Blass with
 									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">καινότης
 									τις</foreign>.</note> ἄθικτον ὑπὸ τοῦ χρόνου διατηροῦσα τὴν
@@ -691,10 +685,8 @@
 					</div>
 					<div type="textpart" subtype="section" n="9">
 						<p>ὁ δὲ Φειδίας εἰργάζετο μὲν τῆς θεοῦ τὸ χρυσοῦν ἕδος, καὶ τούτου
-							δημιουργὸς ἐν τῇ στήλῃ ἀναγέγραπται,<note resp="ed" place="unspecified"
-								anchored="true">
-								<foreign xml:lang="grc">ἀναγέγραπται</foreign> Cobet: <foreign
-									xml:lang="grc">εἶναι γέγραπται</foreign>.</note> πάντα δʼ ἦν
+							δημιουργὸς ἐν τῇ στήλῃ ἀναγέγραπται,<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">ἀναγέγραπται</foreign> Cobet: <foreign xml:lang="grc">εἶναι γέγραπται</foreign>.</note> πάντα δʼ ἦν
 							σχεδὸν ἐπʼ αὐτῷ, καὶ πᾶσιν, ὡς εἰρήκαμεν, ἐπεστάτει τοῖς τεχνίταις διὰ
 							φιλίαν Περικλέους. καὶ τοῦτο τῷ μὲν φθόνον, τῷ δὲ βλασφημίαν ἤνεγκεν, ὡς
 							ἐλευθέρας τῷ Περικλεῖ γυναῖκας εἰς τὰ ἔργα φοιτώσας ὑποδεχομένου τοῦ
@@ -764,12 +756,9 @@
 					<div type="textpart" subtype="section" n="4">
 						<p>παντοδαπῶν γάρ, ὡς εἰκός, παθῶν ἐν ὄχλῳ τοσαύτην τὸ μέγεθος ἀρχὴν ἔχοντι
 							φυομένων, μόνος ἐμμελῶς ἕκαστα διαχειρίσασθαι πεφυκώς, μάλιστα δʼ ἐλπίσι
-							καὶ φόβοις ὥσπερ οἴαξι προσστέλλων<note resp="ed" place="unspecified"
-								anchored="true">
+							καὶ φόβοις ὥσπερ οἴαξι προσστέλλων<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">προσστέλλων</foreign> Fuhr and Blass with S
-									(<foreign xml:lang="grc">προστέλλων</foreign> BCF<hi
-									rend="superscript">a</hi>): <foreign xml:lang="grc"
-									>προαναστέλλων</foreign>.</note> τὸ θρασυνόμενον αὐτῶν καὶ τὸ
+									(<foreign xml:lang="grc">προστέλλων</foreign> BCF<hi rend="superscript">a</hi>): <foreign xml:lang="grc">προαναστέλλων</foreign>.</note> τὸ θρασυνόμενον αὐτῶν καὶ τὸ
 							δύσθυμον ἀνιεὶς καὶ παραμυθούμενος, ἔδειξε τὴν ῥητορικὴν κατὰ Πλάτωνα
 							ψυχαγωγίαν οὖσαν καὶ μέγιστον ἔργον αὐτῆς τὴν περὶ τὰ ἤθη καὶ πάθη
 							μέθοδον, ὥσπερ τινὰς τόνους καὶ φθόγγους ψυχῆς μάλʼ ἐμμελοῦς ἁφῆς καὶ
@@ -779,13 +768,11 @@
 						<p>αἰτία δʼ οὐχ ἡ τοῦ λόγου ψιλῶς δύναμις, ἀλλʼ, ὡς Θουκυδίδης φησίν, ἡ περὶ
 							τὸν βίον δόξα καὶ πίστις τοῦ ἀνδρός, ἀδωροτάτου περιφανῶς γενομένου καὶ
 							χρημάτων κρείττονος· ὃς καὶ τὴν πόλιν ἐκ μεγάλης μεγίστην καὶ
-							πλουσιωτάτην ποιήσας, καὶ γενόμενος δυνάμει<note resp="ed"
-								place="unspecified" anchored="true">
+							πλουσιωτάτην ποιήσας, καὶ γενόμενος δυνάμει<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">δυνάμει</foreign> also Fuhr and Blass with S;
 								Bekker has <foreign xml:lang="grc">καὶ δυνάμει</foreign>.</note>
 							πολλῶν βασιλέων καὶ τυράννων ὑπέρτερος, ὧν ἔνιοι καὶ ἐπίτροπον τοῖς
-							υἱέσι διέθεντο ἐκεῖνον,<note resp="ed" place="unspecified"
-								anchored="true">
+							υἱέσι διέθεντο ἐκεῖνον,<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">ἐπίτροπον <gap reason="omitted"/> ἐκεῖνον</foreign> Madvig's
 								restoration, adopted by Fuhr and Blass: <foreign xml:lang="grc">ἐπὶ
 									τοῖς υἱέσι διέθεντο, ἐκεῖνος</foreign> (<gloss>willed their
@@ -806,8 +793,7 @@
 								<quote rend="blockquote" type="drama">
 									<l met="dact">πόλεών τε φόρους αὐτάς τε πόλεις, τὰς μὲν δεῖν,
 										τὰς δʼ ἀναλύειν,</l>
-									<l>λάϊνα τείχη, τὰ μὲν οἰκοδομεῖν, τὰ δʼ ἔπειτα<note resp="ed"
-											place="unspecified" anchored="true">
+									<l>λάϊνα τείχη, τὰ μὲν οἰκοδομεῖν, τὰ δʼ ἔπειτα<note resp="ed" place="unspecified" anchored="true">
 											<foreign xml:lang="grc">τὰ δʼ ἔπειτα</foreign> Fuhr:
 												<foreign xml:lang="grc">τὰ δὲ αὐτά</foreign>.</note>
 										πάλιν καταβάλλειν,</l>
@@ -1062,11 +1048,8 @@
 					<div type="textpart" subtype="section" n="3">
 						<p>τὴν δʼ Ἀσπασίαν οἱ μὲν ὡς σοφήν τινα καὶ πολιτικὴν ὑπὸ τοῦ Περικλέους
 							σπουδασθῆναι λέγουσι· καὶ γὰρ Σωκράτης ἔστιν ὅτε μετὰ τῶν γνωρίμων
-							ἐφοίτα, καὶ τὰς γυναῖκας ἀκροασομένας οἱ συνήθεις ἦγον ὡς<note resp="ed"
-								place="unspecified" anchored="true">
-								<foreign xml:lang="grc">ὡς</foreign> Fuhr and Blass, with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc"
-								>εἰς</foreign>.</note> αὐτήν, καίπερ οὐ κοσμίου προεστῶσαν ἐργασίας
+							ἐφοίτα, καὶ τὰς γυναῖκας ἀκροασομένας οἱ συνήθεις ἦγον ὡς<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">ὡς</foreign> Fuhr and Blass, with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">εἰς</foreign>.</note> αὐτήν, καίπερ οὐ κοσμίου προεστῶσαν ἐργασίας
 							οὐδὲ σεμνῆς, ἀλλὰ παιδίσκας ἑταιρούσας τρέφουσαν· </p>
 					</div>
 					<div type="textpart" subtype="section" n="4">
@@ -1173,8 +1156,7 @@
 							μέτωπον γλαῦκας· καὶ γὰρ ἐκείνους οἱ Ἀθηναῖοι σάμαιναν. ἡ δὲ σάμαινα
 							ναῦς ἐστιν ὑόπρωρος μὲν τὸ σίμωμα, κοιλοτέρα δὲ καὶ γαστροειδής, ὥστε
 							καὶ ποντοπορεῖν<note resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">ποντοπορεῖν</foreign> MSS. and Blass: <foreign
-									xml:lang="grc">φορτοφορεῖν</foreign> (a conjecture of Coraës,
+								<foreign xml:lang="grc">ποντοπορεῖν</foreign> MSS. and Blass: <foreign xml:lang="grc">φορτοφορεῖν</foreign> (a conjecture of Coraës,
 									<gloss>to carry freight</gloss>).</note> καὶ ταχυναυτεῖν. </p>
 					</div>
 					<div type="textpart" subtype="section" n="4">
@@ -1226,9 +1208,7 @@
 						<p>ἐνάτῳ δὲ μηνὶ τῶν Σαμίων παραστάντων ὁ Περικλῆς τὰ τείχη καθεῖλε καὶ τὰς
 							ναῦς παρέλαβε καὶ χρήμασι πολλοῖς ἐζημίωσεν, ὧν τὰ μὲν εὐθὺς
 								εἰσήνεγκαν<note resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">εἰσήνεγκαν</foreign> Fuhr and Blass, with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>ἤνεγκαν</foreign>.</note> οἱ Σάμιοι, τὰ δʼ ἐν χρόνῳ ῥητῷ
+								<foreign xml:lang="grc">εἰσήνεγκαν</foreign> Fuhr and Blass, with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">ἤνεγκαν</foreign>.</note> οἱ Σάμιοι, τὰ δʼ ἐν χρόνῳ ῥητῷ
 							ταξάμενοι κατοίσειν ὁμήρους ἔδωκαν. Δοῦρις δʼ ὁ Σάμιος τούτοις
 							ἐπιτραγῳδεῖ πολλὴν ὠμότητα τῶν Ἀθηναίων καὶ τοῦ Περικλέους κατηγορῶν, ἣν
 							οὔτε Θουκυδίδης ἱστόρηκεν οὔτʼ </p>
@@ -1237,9 +1217,7 @@
 						<p>Ἔφορος οὔτʼ Ἀριστοτέλης· ἀλλʼ οὐδʼ ἀληθεύειν ἔοικεν, ὡς ἄρα τοὺς
 							τριηράρχους καὶ τοὺς ἐπιβάτας τῶν Σαμίων εἰς τὴν Μιλησίων ἀγορὰν
 								καταγαγὼν<note resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">καταγαγὼν</foreign> Fuhr and Blass, with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>ἀγαγών</foreign>.</note> καὶ σανίσι προσδήσας ἐφʼ ἡμέρας δέκα
+								<foreign xml:lang="grc">καταγαγὼν</foreign> Fuhr and Blass, with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">ἀγαγών</foreign>.</note> καὶ σανίσι προσδήσας ἐφʼ ἡμέρας δέκα
 							κακῶς ἤδη διακειμένους προσέταξεν ἀνελεῖν, ξύλοις τὰς κεφαλὰς
 							συγκόψαντας, εἶτα προβαλεῖν ἀκήδευτα τὰ σώματα. </p>
 					</div>
@@ -1317,11 +1295,8 @@
 							καὶ τοὺς συμμάχους πραΰνοντος, οὐκ ἂν δοκεῖ συμπεσεῖν ὑπό γε τῶν ἄλλων
 							αἰτιῶν ὁ πόλεμος τοῖς Ἀθηναίοις, εἰ τὸ ψήφισμα καθελεῖν τὸ Μεγαρικὸν
 							ἐπείσθησαν καὶ διαλλαγῆναι πρὸς αὐτούς. διὸ καὶ μάλιστα πρὸς τοῦτο
-							Περικλῆς ἐναντιωθείς, καὶ παροξύνας τὸν δῆμον ἐμμεῖναι τῇ πρὸς τοὺς<note
-								resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">πρὸς τοὺς</foreign> Fuhr and Blass, with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc"
-								>πρός</foreign>.</note> Μεγαρεῖς φιλονεικία, μόνος ἔσχε τοῦ πολέμου
+							Περικλῆς ἐναντιωθείς, καὶ παροξύνας τὸν δῆμον ἐμμεῖναι τῇ πρὸς τοὺς<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">πρὸς τοὺς</foreign> Fuhr and Blass, with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">πρός</foreign>.</note> Μεγαρεῖς φιλονεικία, μόνος ἔσχε τοῦ πολέμου
 							τὴν αἰτίαν. </p>
 					</div>
 				</div>
@@ -1382,8 +1357,7 @@
 							ἐχθροὺς φθονούμενος, οἱ δὲ τοῦ δήμου ποιούμενοι πεῖραν ἐν ἐκείνῳ, ποῖός
 							τις ἔσοιτο τῷ Περικλεῖ<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">τῷ Περικλεῖ</foreign> Fuhr and Blass, with
-									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>Περικλεῖ</foreign>.</note> κριτής, Μένωνά τινα τῶν Φειδίου
+									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">Περικλεῖ</foreign>.</note> κριτής, Μένωνά τινα τῶν Φειδίου
 							συνεργῶν πείσαντες ἱκέτην ἐν ἀγορᾷ καθίζουσιν, αἰτούμενον ἄδειαν ἐπὶ
 							μηνύσει καὶ κατηγορίᾳ τοῦ Φειδίου. </p>
 					</div>
@@ -1445,13 +1419,10 @@
 							μαλακωτέροις χρήσονται τοῖς Ἀθηναίοις, ἐκέλευον αὐτοὺς τὸ ἄγος ἐλαύνειν
 							τὸ Κυλώνειον,<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">ἐλαύνειν τὸ Κυλώνειον</foreign> Fuhr and
-								Blass, with BCF<hi rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>ἐλαύνειν ᾦ</foreign>.</note> ᾧ τὸ μητρόθεν γένος τοῦ Περικλέους
-							ἔνοχον ἦν, ὡς Θουκυδίδης ἱστόρηκεν.<note resp="ed" place="unspecified"
-								anchored="true">
+								Blass, with BCF<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">ἐλαύνειν ᾦ</foreign>.</note> ᾧ τὸ μητρόθεν γένος τοῦ Περικλέους
+							ἔνοχον ἦν, ὡς Θουκυδίδης ἱστόρηκεν.<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">ἱστόρηκεν</foreign> Fuhr and Blass, with
-									BCF<hi rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>εἴρηκεν</foreign>.</note> ἡ δὲ πεῖρα περιέστη τοῖς πέμψασιν εἰς
+									BCF<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">εἴρηκεν</foreign>.</note> ἡ δὲ πεῖρα περιέστη τοῖς πέμψασιν εἰς
 							τοὐναντίον· ἀντὶ γὰρ ὑποψίας καὶ διαβολῆς ὁ Περικλῆς ἔτι μείζονα πίστιν
 							ἔσχε καὶ τιμὴν παρὰ τοῖς πολίταις, ὡς μάλιστα μισούντων καὶ φοβουμένων
 							ἐκεῖνον τῶν πολεμίων. </p>
@@ -1487,11 +1458,8 @@
 					</div>
 					<div type="textpart" subtype="section" n="6">
 						<p>καίτοι πολλοὶ μὲν αὐτοῦ τῶν φίλων δεόμενοι προσέκειντο, πολλοὶ δὲ τῶν
-							ἐχθρῶν ἀπειλοῦντες καὶ κατηγοροῦντες, χοροὶ<note resp="ed"
-								place="unspecified" anchored="true">
-								<foreign xml:lang="grc">χοροὶ</foreign> Fuhr and Blass, with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>πολλοί</foreign>.</note> δʼ ᾖδον ᾄσματα καὶ σκώμματα πρὸς
+							ἐχθρῶν ἀπειλοῦντες καὶ κατηγοροῦντες, χοροὶ<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">χοροὶ</foreign> Fuhr and Blass, with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">πολλοί</foreign>.</note> δʼ ᾖδον ᾄσματα καὶ σκώμματα πρὸς
 							αἰσχύνην, ἐφυβρίζοντες αὐτοῦ τὴν στρατηγίαν ὡς ἄνανδρον καὶ προϊεμένην
 							τὰ πράγματα τοῖς πολεμίοις. ἐπεφύετο δὲ καὶ Κλέων ἤδη, διὰ τῆς πρὸς
 							ἐκεῖνον ὀργῇς τῶν πολιτῶν πορευόμενος ἐπὶ τὴν δημαγωγίαν, </p>
@@ -1501,19 +1469,16 @@
 								<quote rend="blockquote">
 									<l met="anapaestic">βασιλεῦ σατύρων, τί ποτʼ οὐκ ἐθέλεις</l>
 									<l>δόρυ βαστάζειν, ἀλλὰ λόγους μὲν</l>
-									<l>περὶ τοῦ πολέμου δεινοὺς παρέχεις,<note resp="ed"
-											place="unspecified" anchored="true">
+									<l>περὶ τοῦ πολέμου δεινοὺς παρέχεις,<note resp="ed" place="unspecified" anchored="true">
 											<foreign xml:lang="grc">παρέχεις</foreign> Fuhr, with S:
 												<foreign xml:lang="grc">παρέχη</foreign>.</note> ψυχὴ
-										δὲ Τέλητος ὕπεστιν;<note resp="ed" place="unspecified"
-											anchored="true">
+										δὲ Τέλητος ὕπεστιν;<note resp="ed" place="unspecified" anchored="true">
 											<foreign xml:lang="grc">ψυχὴ <gap reason="omitted"/> ὕπεστιν</foreign> Fuhr
 											and Blass, after Emperius: <foreign xml:lang="grc">ψυχὴν
 												<gap reason="omitted"/> ὑπέστης</foreign>.</note>
 									</l>
 									<l>κἀγχειριδίου δʼ ἀκόνῃ σκληρᾷ</l>
-									<l>παραθηγομένης βρύχεις κοπίδος,<note resp="ed"
-											place="unspecified" anchored="true">
+									<l>παραθηγομένης βρύχεις κοπίδος,<note resp="ed" place="unspecified" anchored="true">
 											<foreign xml:lang="grc">κἀγχειριδίου <gap reason="omitted"/>
 												κοπίδος</foreign> Coraës' restoration of these
 											corrupt verses, adopted by Fuhr.</note> δηχθεὶς αἴθωνι
@@ -1539,11 +1504,9 @@
 					<div type="textpart" subtype="section" n="2">
 						<p>καὶ γὰρ οἱ περιπλέοντες τὴν Πελοπόννησον χώραν τε πολλὴν κώμας τε καὶ
 							πόλεις μικρὰς διεπόρθησαν, καὶ κατὰ γῆν αὐτὸς ἐμβαλὼν εἰς τὴν Μεγαρικὴν
-							ἔφθειρε πᾶσαν. ᾗ καὶ δῆλον ἦν ὅτι πολλὰ μὲν δρῶντες κατὰ γῆν κακὰ<note
-								resp="ed" place="unspecified" anchored="true">
+							ἔφθειρε πᾶσαν. ᾗ καὶ δῆλον ἦν ὅτι πολλὰ μὲν δρῶντες κατὰ γῆν κακὰ<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">κατὰ γῆν κακὰ</foreign> Fuhr and Blass, with
-									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>κακά</foreign>.</note> τοὺς Ἀθηναίους, πολλὰ δὲ πάσχοντες ὑπʼ
+									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">κακά</foreign>.</note> τοὺς Ἀθηναίους, πολλὰ δὲ πάσχοντες ὑπʼ
 							ἐκείνων ἐκ θαλάττης, οὐκ ἂν εἰς μῆκος πολέμου τοσοῦτον προὔβησαν, ἀλλὰ
 							ταχέως ἀπεῖπον, ὥσπερ ἐξ ἀρχῆς ὁ Περικλῆς προηγόρευσεν, εἰ μή τι
 							δαιμόνιον ὑπηναντιώθη τοῖς ἀνθρωπίνοις λογισμοῖς. </p>
@@ -1556,8 +1519,7 @@
 							ὡς τὴν μὲν νόσον ἡ τοῦ χωριτικοῦ πλήθους εἰς τὸ ἄστυ συμφόρησις
 								ἀπεργάζεται,<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">ἀπεργάζεται</foreign> Fuhr and Blass, with
-									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>ἐργάζεται</foreign>.</note>
+									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">ἐργάζεται</foreign>.</note>
 						</p>
 					</div>
 					<div type="textpart" subtype="section" n="4">
@@ -1582,8 +1544,7 @@
 					<div type="textpart" subtype="section" n="2">
 						<p>ὁρῶν οὖν ὁ Περικλῆς περίφοβον τὸν κυβερνήτην καὶ διηπορημένον, ἀνέσχε τὴν
 							χλαμύδα πρὸ τῶν ὄψεων<note resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">τῶν ὄψεων</foreign> Fuhr and Blass, with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc">τῆς
+								<foreign xml:lang="grc">τῶν ὄψεων</foreign> Fuhr and Blass, with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">τῆς
 									ὄψεως</foreign>.</note> αὐτοῦ, καὶ παρακαλύψας ἠρώτησε μή τι
 							δεινὸν ἢ δεινοῦ τινος οἴεται σημεῖον· ὡς δʼ οὐκ ἔφη, “τί οὖν,” εἶπεν,
 							“ἐκεῖνο τούτου διαφέρει, πλὴν ὅτι μεῖζόν τι τῆς χλαμύδος ἐστὶ τὸ
@@ -1609,11 +1570,8 @@
 				</div>
 				<div type="textpart" subtype="chapter" n="36">
 					<div type="textpart" subtype="section" n="1">
-						<p>τὰ μὲν οὖν δημόσια ταχέως ἔμελλε παύσεσθαι,<note resp="ed"
-								place="unspecified" anchored="true">
-								<foreign xml:lang="grc">παύσεσθαι</foreign> Fuhr and Blass, with F<hi
-									rend="superscript">a</hi>S, and after Reiske: <foreign
-									xml:lang="grc">παύεσθαι</foreign>.</note> καθάπερ κέντρον εἰς
+						<p>τὰ μὲν οὖν δημόσια ταχέως ἔμελλε παύσεσθαι,<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">παύσεσθαι</foreign> Fuhr and Blass, with F<hi rend="superscript">a</hi>S, and after Reiske: <foreign xml:lang="grc">παύεσθαι</foreign>.</note> καθάπερ κέντρον εἰς
 							τοῦτον ἅμα πληγῇ τὸν θυμὸν ἀφεικότων τῶν πολλῶν· τὰ δʼ οἰκεῖα μοχθηρῶς
 							εἶχεν αὐτῷ κατά τε τὸν λοιμὸν οὐκ ὀλίγους ἀποβαλόντι τῶν ἐπιτηδείων καὶ
 							στάσει διατεταραγμένα<note resp="ed" place="unspecified" anchored="true">
@@ -1629,11 +1587,8 @@
 							κελεύσαντος. ἐκείνου δʼ ὕστερον ἀπαιτοῦντος, ὁ μὲν Περικλῆς καὶ δίκην
 							αὐτῷ προσέλαχε, τὸ δὲ μειράκιον ὁ Ξάνθιππος ἐπὶ τούτῳ χαλεπῶς διατεθεὶς
 							ἐλοιδόρει τὸν πατέρα, πρῶτον μὲν ἐκφέρων ἐπὶ γέλωτι τὰς οἴκοι διατριβὰς
-							αὐτοῦ καὶ τοὺς λόγους οὓς ἐποιεῖτο<note resp="ed" place="unspecified"
-								anchored="true">
-								<foreign xml:lang="grc">ἐποιεῖτο</foreign> Fuhr and Blass, with F<hi
-									rend="superscript">a</hi>S, and after Sauppe: <foreign
-									xml:lang="grc">ἐποίει</foreign>.</note> μετὰ τῶν σοφιστῶν. </p>
+							αὐτοῦ καὶ τοὺς λόγους οὓς ἐποιεῖτο<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">ἐποιεῖτο</foreign> Fuhr and Blass, with F<hi rend="superscript">a</hi>S, and after Sauppe: <foreign xml:lang="grc">ἐποίει</foreign>.</note> μετὰ τῶν σοφιστῶν. </p>
 					</div>
 					<div type="textpart" subtype="section" n="3">
 						<p>πεντάθλου γάρ τινος ἀκοντίῳ πατάξαντος Ἐπίτιμον τὸν Φαρσάλιον ἀκουσίως
@@ -1650,11 +1605,9 @@
 							τοὺς πλείστους καὶ χρησιμωτάτους πρὸς τὴν πολιτείαν. οὐ μὴν ἀπεῖπεν οὐδὲ
 							προὔδωκε τὸ φρόνημα καὶ τὸ μέγεθος τῆς ψυχῆς ὑπὸ τῶν συμφορῶν, ἀλλʼ οὐδὲ
 							κλαίων οὐδὲ κηδεύων οὐδὲ πρὸς τάφῳ τινὸς ὤφθη τῶν ἀναγκαίων, πρίν γε δὴ
-							καὶ τὸν περίλοιπον αὑτοῦ τῶν γνησίων υἱῶν<note resp="ed"
-								place="unspecified" anchored="true">
+							καὶ τὸν περίλοιπον αὑτοῦ τῶν γνησίων υἱῶν<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">γνησίων υἱῶν</foreign> Fuhr and Blass, with
-									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>γνησίων</foreign>.</note> ἀποβαλεῖν Πάραλον. </p>
+									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">γνησίων</foreign>.</note> ἀποβαλεῖν Πάραλον. </p>
 					</div>
 					<div type="textpart" subtype="section" n="5">
 						<p>ἐπὶ τούτῳ δὲ καμφθεὶς ἐπειρᾶτο μὲν ἐγκαρτερεῖν τῷ ἤθει καὶ διαφυλάττειν
@@ -1692,9 +1645,7 @@
 					</div>
 					<div type="textpart" subtype="section" n="4">
 						<p>ἐπράθησαν δʼ οὖν<note resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">δʼ οὖν</foreign> Fuhr and Blass, with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc"
-								>οὖν</foreign>.</note> ἁλόντες ὀλίγῳ πεντακισχιλίων ἐλάττους, οἱ δὲ
+								<foreign xml:lang="grc">δʼ οὖν</foreign> Fuhr and Blass, with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">οὖν</foreign>.</note> ἁλόντες ὀλίγῳ πεντακισχιλίων ἐλάττους, οἱ δὲ
 							μείναντες ἐν τῇ πολιτείᾳ καὶ κριθέντες Ἀθηναῖοι μύριοι καὶ
 							τετρακισχίλιοι καὶ τεσσαράκοντα τὸ πλῆθος ἐξητάσθησαν. </p>
 					</div>
@@ -1702,11 +1653,8 @@
 						<p>ὄντος οὖν δεινοῦ τὸν κατὰ τοσούτων ἰσχύσαντα νόμον ὑπʼ αὐτοῦ πάλιν
 							λυθῆναι τοῦ γράψαντος, ἡ παροῦσα δυστυχία τῷ Περικλεῖ περὶ τὸν οἶκον, ὡς
 							δίκην τινὰ δεδωκότι τῆς ὑπεροψίας καὶ τῆς μεγαλαυχίας ἐκείνης, ἐπέκλασε
-							τοὺς Ἀθηναίους, καὶ δόξαντες αὐτὸν νεμεσητά τε παθεῖν ἀνθρωπίνων<note
-								resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">ἀνθρωπίνων</foreign> Fuhr and Blass, with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>ἀνθρωπίνως</foreign>.</note> τε δεῖσθαι συνεχώρησαν
+							τοὺς Ἀθηναίους, καὶ δόξαντες αὐτὸν νεμεσητά τε παθεῖν ἀνθρωπίνων<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">ἀνθρωπίνων</foreign> Fuhr and Blass, with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">ἀνθρωπίνως</foreign>.</note> τε δεῖσθαι συνεχώρησαν
 							ἀπογράψασθαι τὸν νόθον εἰς τοὺς φράτορας, ὄνομα θέμενον τὸ αὑτοῦ. καὶ
 							τοῦτον μὲν ὕστερον ἐν Ἀργινούσαις καταναυμαχήσαντα Πελοποννησίους
 							ἀπέκτεινεν ὁ δῆμος μετὰ τῶν συστρατήγων. </p>
@@ -1755,30 +1703,19 @@
 							καθαρὸν καὶ ἀμίαντον Ὀλύμπιον προσαγορεύεσθαι, καθάπερ τὸ τῶν θεῶν γένος
 							ἀξιοῦμεν αἴτιον μὲν ἀγαθῶν, ἀναίτιον δὲ κακῶν πεφυκὸς ἄρχειν καὶ
 							βασιλεύειν τῶν ὄντων, οὐχ ὥσπερ οἱ ποιηταὶ συνταράττοντες ἡμᾶς
-							ἀμαθεστάταις δόξαις ἁλίσκονται τοῖς αὑτῶν μυθεύμασι,<note resp="ed"
-								place="unspecified" anchored="true">
+							ἀμαθεστάταις δόξαις ἁλίσκονται τοῖς αὑτῶν μυθεύμασι,<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">μυθεύμασι</foreign> Fuhr and Blass with S
-									(<foreign xml:lang="grc">μηθεύμασι</foreign> F<hi
-									rend="superscript">a</hi>): <foreign xml:lang="grc"
-									>ποιήμασι</foreign>.</note>
+									(<foreign xml:lang="grc">μηθεύμασι</foreign> F<hi rend="superscript">a</hi>): <foreign xml:lang="grc">ποιήμασι</foreign>.</note>
 						</p>
 					</div>
 					<div type="textpart" subtype="section" n="3">
 						<p>τὸν μὲν τόπον, ἐν ᾧ τοὺς θεοὺς κατοικεῖν λέγουσιν, ἀσφαλὲς ἕδος καὶ
-							ἀσάλευτον καλοῦντες, οὐ πνεύμασιν, οὐ νέφεσι χρώμενον, ἀλλʼ αἴθρᾳ<note
-								resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">αἴθρᾳ</foreign> Fuhr and Blass with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>αἰθρίᾳ</foreign>.</note> μαλακῇ καὶ φωτὶ καθαρωτάτῳ<note
-								resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">καθαρωτάτῳ</foreign> Fuhr and Blass with F<hi
-									rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>καθαρῷ</foreign>.</note> τὸν ἅπαντα χρόνον ὁμαλῶς
-							περιλαμπόμενον, ὡς τοιαύτης τινὸς<note resp="ed" place="unspecified"
-								anchored="true">
+							ἀσάλευτον καλοῦντες, οὐ πνεύμασιν, οὐ νέφεσι χρώμενον, ἀλλʼ αἴθρᾳ<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">αἴθρᾳ</foreign> Fuhr and Blass with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">αἰθρίᾳ</foreign>.</note> μαλακῇ καὶ φωτὶ καθαρωτάτῳ<note resp="ed" place="unspecified" anchored="true">
+								<foreign xml:lang="grc">καθαρωτάτῳ</foreign> Fuhr and Blass with F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">καθαρῷ</foreign>.</note> τὸν ἅπαντα χρόνον ὁμαλῶς
+							περιλαμπόμενον, ὡς τοιαύτης τινὸς<note resp="ed" place="unspecified" anchored="true">
 								<foreign xml:lang="grc">τοιαύτης τινὸς</foreign> Fuhr and Blass with
-									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc"
-									>τοιαύτης</foreign>.</note> τῷ μακαρίῳ καὶ ἀθανάτῳ διαγωγῆς
+									F<hi rend="superscript">a</hi>S: <foreign xml:lang="grc">τοιαύτης</foreign>.</note> τῷ μακαρίῳ καὶ ἀθανάτῳ διαγωγῆς
 							μάλιστα πρεπούσης, αὐτοὺς δὲ τοὺς θεοὺς ταραχῆς καὶ δυσμενείας καὶ ὀργῆς
 							ἄλλων τε μεστοὺς παθῶν ἀποφαίνοντες οὐδʼ ἀνθρώποις νοῦν ἔχουσι
 							προσηκόντων. ἀλλὰ ταῦτα μὲν ἴσως ἑτέρας δόξει πραγματείας εἶναι. </p>
@@ -1795,9 +1732,7 @@
 							τοσαύτη φθορὰ καὶ πλῆθος ἐπέκειτο κακίας τοῖς πράγμασιν, ἣν ἐκεῖνος
 							ἀσθενῆ καὶ ταπεινὴν ποιῶν ἀπέκρυπτε καὶ κατεκώλυεν ἀνήκεστον ἐν
 								ἐξουσίᾳ<note resp="ed" place="unspecified" anchored="true">
-								<foreign xml:lang="grc">ἐν ἐξουσίᾳ</foreign> Fuhr and Blass with F<hi
-									rend="superscript">a</hi>SC: <foreign xml:lang="grc"
-									>ἐξουσίᾳ</foreign>.</note> γενέσθαι. </p>
+								<foreign xml:lang="grc">ἐν ἐξουσίᾳ</foreign> Fuhr and Blass with F<hi rend="superscript">a</hi>SC: <foreign xml:lang="grc">ἐξουσίᾳ</foreign>.</note> γενέσθαι. </p>
 					</div>
 				</div>
 			</div>

@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
 	<teiHeader type="text">
 		<fileDesc>
 			<titleStmt>
@@ -44,7 +41,17 @@
 			</sourceDesc>
 		</fileDesc>
 
-		<encodingDesc>
+		<encodingDesc><refsDecl id="CTS">
+            <cRefPattern matchPattern="(\\w+).(\\w+).(\\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']/tei:div[@n=\'$2\']/tei:div[@n=\'$3\'])">
+                <p>This pointer pattern extracts Book and Chapter and Section</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(\\w+).(\\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
+                <p>This pointer pattern extracts Book and Chapter</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(\\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+                <p>This pointer pattern extracts Book</p>
+            </cRefPattern>
+        </refsDecl>
 			<editorialDecl>
 				<correction method="silent" status="high">
 					<p><!--&Perseus.OCR;--> Perseus OCR</p>
@@ -110,13 +117,11 @@
 							that <foreign xml:lang="la">nil conscire</foreign>. To his equals he
 							carried himself equally, and to his inferiors familiarly; but
 							maintaining his respect fully, and only with the native splendour of his
-							worth. In sum, he was one in whom might plainly be perceived, that <hi
-								rend="ital">honour</hi> and <hi rend="ital">honesty</hi> are but the
+							worth. In sum, he was one in whom might plainly be perceived, that <hi rend="ital">honour</hi> and <hi rend="ital">honesty</hi> are but the
 							same thing in the different degrees of persons. To him therefore, and to
 							the memory of his worth, be consecrated this, though unworthy,
 							offering.</p>
-						<p>And now, imitating in this <hi rend="ital">civil</hi> worship the <hi
-								rend="ital">religious</hi> worship of the gentiles; who, when they
+						<p>And now, imitating in this <hi rend="ital">civil</hi> worship the <hi rend="ital">religious</hi> worship of the gentiles; who, when they
 							dedicated any thing to their gods, brought and presented the same to
 							their images: I bring and present this gift of mine, THE HISTORY OF
 							THUCYDIDES, translated into English with much more diligence than
@@ -132,8 +137,7 @@
 							notwithstanding the excellent both examples and precepts of heroic
 							virtue you have at home, this book will confer not a little to your
 							institution; especially when you come to the years to frame your life by
-							your own observation. For in history, actions of <hi rend="ital"
-								>honour</hi> and <hi rend="ital">dishonour</hi> do appear plainly
+							your own observation. For in history, actions of <hi rend="ital">honour</hi> and <hi rend="ital">dishonour</hi> do appear plainly
 							and distinctly, which are which; but in the present age they are so
 							disguised, that few there be, and those very careful, that be not
 							grossly mistaken in them. But this, I doubt not, is superfluously spoken
@@ -407,8 +411,7 @@
 							desireth to be the chief; and they that are undervalued, bear it with
 							less patience than in a democracy; whereupon sedition followeth, and
 							dissolution of the government. He praiseth the government of Athens,
-							when it was mixed of <hi rend="ital">the few</hi> and <hi rend="ital"
-								>the many;</hi> but more he commendeth it, both when Peisistratus
+							when it was mixed of <hi rend="ital">the few</hi> and <hi rend="ital">the many;</hi> but more he commendeth it, both when Peisistratus
 							reigned, (saving that it was an usurped power), and when in the
 							beginning of this war it was democratical in name, but in effect
 							monarchical under Pericles. So that it seemeth, that as he was of regal
@@ -471,9 +474,7 @@
 							written, that after the defeat in Sicily the Athenians decreed a general
 							revocation of all banished persons, except those of the family of
 							Peisistratus; and that he then returned, and was afterwards put to death
-							at Athens. But this is very unlikely to be true, unless by <hi
-								rend="ital">after</hi> the defeat in Sicily, be meant <hi
-								rend="ital">so long after,</hi> that it was also after the end of
+							at Athens. But this is very unlikely to be true, unless by <hi rend="ital">after</hi> the defeat in Sicily, be meant <hi rend="ital">so long after,</hi> that it was also after the end of
 							the Peloponnesian war; because Thucydides himself maketh no mention of
 							such return, though he outlived the whole war, as is manifest by his
 							words in the fifth book. For he saith he lived in banishment twenty
@@ -487,8 +488,7 @@
 							he died abroad: or his monument might be there, and (as others have
 							affirmed) he not buried in it. In this variety of conjecture, there is
 							nothing more probable than that which is written by Pausanias, where he
-							describeth the monuments of the Athenian city; and saith thus: <q
-								type="unspecified">The worthy act of (Enobius in the behalf of
+							describeth the monuments of the Athenian city; and saith thus: <q type="unspecified">The worthy act of (Enobius in the behalf of
 								Thucydides, is not without honour</q>: meaning that he had a statue.
 								<q type="unspecified">For (Enobius obtained to have a decree passed
 								for his return; who returning was slain by treachery; and his
@@ -505,11 +505,9 @@
 							this Thucydides also was of the family of Miltiades, as Plutarch
 							testifieth in the life of Cimon. That he had a son, is affirmed by
 							Marcellinus out of the authority of Polemon; but of his name there is no
-							mention, save that a learned man readeth there in the place of <foreign
-								xml:lang="greek">qoe</foreign>. . . . (which is in the imperfect
+							mention, save that a learned man readeth there in the place of <foreign xml:lang="greek">qoe</foreign>. . . . (which is in the imperfect
 							copy), Timotheus. Thus much of the person of Thucydides. </p>
-						<p>Now for his writings, two things are to be considered in them: <hi
-								rend="ital">truth</hi> and <hi rend="ital">elocution.</hi> For in
+						<p>Now for his writings, two things are to be considered in them: <hi rend="ital">truth</hi> and <hi rend="ital">elocution.</hi> For in
 								<hi rend="ital">truth</hi> consisteth the <hi rend="ital">soul,</hi>
 							and in <hi rend="ital">elocution</hi> the <hi rend="ital">body</hi> of
 							history. The latter without the former, is but a picture of history; and
@@ -529,15 +527,13 @@
 							affected least of any man the acclamations of popular auditories, and
 							wrote not his history to win present applause, as was the use of that
 							age: but for a monument to instruct the ages to come; which he
-							professeth himself, and entitleth his book <foreign xml:lang="greek"
-								>*k*t*h=*m*a *e)*s *a*e*i/</foreign>, <gloss>a possession for
+							professeth himself, and entitleth his book <foreign xml:lang="greek">*k*t*h=*m*a *e)*s *a*e*i/</foreign>, <gloss>a possession for
 								everlasting</gloss>. He was far from the necessity of servile
 							writers, either to fear or flatter. And whereas he may peradventure be
 							thought to have been malevolent towards his country, because they
 							deserved to have him so; yet hath he not written any thing that
 							discovereth such passion. Nor is there any thing written of them that
-							tendeth to their dishonour as Athenians, but only as <hi rend="ital"
-								>people;</hi> and that by the necessity of the narration, not by any
+							tendeth to their dishonour as Athenians, but only as <hi rend="ital">people;</hi> and that by the necessity of the narration, not by any
 							sought digression. So that no word of his, but their own actions do
 							sometimes reproach them. In sum, if the truth of a history did ever
 							appear by the manner of relating, it doth so in this history: so
@@ -555,8 +551,7 @@
 							purely the order of time throughout; relating that came to pass from
 							year to year, and subdividing each year into a summer and winter. The
 							grounds and motives of every action he setteth down before the action
-							itself, either narratively, or else contriveth them into the form of <hi
-								rend="ital">deliberative orations</hi> in the persons of such as
+							itself, either narratively, or else contriveth them into the form of <hi rend="ital">deliberative orations</hi> in the persons of such as
 							from time to time bare sway in the commonwealth. After the actions, when
 							there is just occasion, he giveth his judgment of them; shewing by what
 							means the success came either to be furthered or hindered. Digressions
@@ -567,8 +562,7 @@
 							effectually than can possibly be done by precept. </p>
 						<p>For his <hi rend="ital">style,</hi> I refer it to the judgment of divers
 							ancient and competent judges. Plutarch in his book, <title>De gloria
-								Atheniensium,</title> saith of him thus: <q type="unspecified"
-								>Thucydides aimeth always at this; to make his auditor a spectator,
+								Atheniensium,</title> saith of him thus: <q type="unspecified">Thucydides aimeth always at this; to make his auditor a spectator,
 								and to cast his reader into the same passions that they were in that
 								were beholders. The manner how Demosthenes arranged the Athenians on
 								the rugged shore before Pylus; how Brasidas urged the steersman to
@@ -604,8 +598,7 @@
 							propriety, I cite Dionysius Halicarnassius: whose testimony is the
 							stronger in this point, because he was a Greek rhetorician for his
 							faculty, and for his affection, one that would no further commend him
-							than of necessity he must. His words are these: <q type="unspecified"
-								>There is one virtue in eloquence, the chiefest of all the rest, and
+							than of necessity he must. His words are these: <q type="unspecified">There is one virtue in eloquence, the chiefest of all the rest, and
 								without which there is no other goodness in speech. What is that?
 								That the language be pure, and retain the propriety of the Greek
 								tongue. This they both observe diligently. For Herodotus is the best
@@ -771,8 +764,7 @@
 							the greatness of another state, or fear of an injury to come. Now let
 							any man judge, whether a good writer of history ought to handle, as the
 							principal cause of war, proclaimed injury or concealed envy. In a word,
-							the image of the method used by Thucydides in this point, is this: <q
-								type="unspecified">The quarrel about Corcyra passed on this manner;
+							the image of the method used by Thucydides in this point, is this: <q type="unspecified">The quarrel about Corcyra passed on this manner;
 								and the quarrel about Potidaea on this manner</q>: relating both at
 							large: <q type="unspecified">and in both the Athenians were accused to
 								have done the injury. Nevertheless, the Lacedæmonians had not upon
@@ -848,8 +840,7 @@
 							numbers; as he doth sometimes for the more efficacy of his style, and
 							without soloecism; I leave him to the answer of Marcellinus: who says,
 								<q type="unspecified">That Dionysius findeth fault with this, as
-								being ignorant</q> (yet he was a professed rhetorician) <q
-								type="unspecified">that this was the most excellent and perfect kind
+								being ignorant</q> (yet he was a professed rhetorician) <q type="unspecified">that this was the most excellent and perfect kind
 								of speaking.</q>
 						</p>
 						<p>Some man may peradventure desire to know, what motive Dionysius might
@@ -897,8 +888,7 @@
 							present history, preconceived in Lucian's mind, suggested unto him all
 							the precepts he there delivereth. Lastly, hear the most true and proper
 							commendation of him from Justus Lipsius, in his notes to his book
-								<title>De Doctrina Civili</title> in these words: <q
-								type="unspecified">Thucydides, who hath written not many nor very
+								<title>De Doctrina Civili</title> in these words: <q type="unspecified">Thucydides, who hath written not many nor very
 								great matters, hath perhaps yet won the garland from all that have
 								written of matters both many and great. Everywhere for elocution
 								grave; short, and thick with sense; sound in his judgments;
@@ -1092,8 +1082,7 @@
 						</div>
 						<div type="textpart" subtype="section" n="3">
 							<p>They also robbed one another within the mainland.</p>
-							<p>And much of Greece useth that old custom, as the Locrians called <hi
-									rend="ital">Ozolae,</hi> the Acarnanians, and those of the
+							<p>And much of Greece useth that old custom, as the Locrians called <hi rend="ital">Ozolae,</hi> the Acarnanians, and those of the
 								continent in that quarter, unto this day.</p>
 							<p>Moreover, the fashion of wearing iron remaineth yet with the people
 								of that continent from their old trade of thieving. </p>
@@ -3960,8 +3949,7 @@
 						</div>
 						<div type="textpart" subtype="section" n="2">
 							<p>and saying afterwards that he could not discern whether was the
-								greater cry (for they used there to give their votes <hi rend="ital"
-									>viva voce</hi> and not with balls) and desiring that it might
+								greater cry (for they used there to give their votes <hi rend="ital">viva voce</hi> and not with balls) and desiring that it might
 								be evident that their minds were inclined most to the war, he put it
 								unto them again and said, <q type="unspecified"><p>to whomsoever of
 										you it seemeth that the peace is broken and that the
@@ -4998,8 +4986,7 @@
 
 						<div type="textpart" subtype="section" n="1">
 							<p>Now when they had assembled their confederates again, they were to
-								put it to the question amongst them, <q type="unspecified"
-										><p>whether they should make war or not.</p></q> And the
+								put it to the question amongst them, <q type="unspecified"><p>whether they should make war or not.</p></q> And the
 								ambassadors of the several confederates coming in and the council
 								set, as well the rest spake what they thought fit, most of them
 								accusing the Athenians of injury and desiring the war, as also the
@@ -5796,8 +5783,7 @@
 						<div type="textpart" subtype="section" n="3">
 							<p>But at length, when the last ambassadors from Lacedaemon were
 								arrived, namely, Ramphias, Melesippus, and Agesander, and spake
-								nothing of that which formerly they were wont but only this, that <q
-									type="unspecified"><p>the Lacedaemonians desire that there
+								nothing of that which formerly they were wont but only this, that <q type="unspecified"><p>the Lacedaemonians desire that there
 										should be peace, which may be had if you will suffer the
 										Grecians to be governed by their own laws,</p></q> the
 								Athenians called an assembly and, propounding their opinions amongst
@@ -6100,8 +6086,7 @@
 							<p>Thus spake Pericles.</p>
 							<p>The Athenians, liking best of his advice, decreed as he would have
 								them, answering the Lacedaemonians according to his direction, both
-								in particulars as he had spoken and generally, <q type="unspecified"
-										><p>that they would do nothing on command, but were ready to
+								in particulars as he had spoken and generally, <q type="unspecified"><p>that they would do nothing on command, but were ready to
 										answer their accusations upon equal terms by way of
 										arbitrament.</p></q> So the ambassadors went home, and after
 								these there came no more. </p>
@@ -6627,8 +6612,7 @@
 						<div type="textpart" subtype="section" n="3">
 							<p>They sent with him also certain persons to convoy him out of the
 								country to the end that no man should confer with him, who, when he
-								came to the limits and was to be dismissed, uttered these words, <q
-									type="unspecified"><p>This day is the beginning of much evil
+								came to the limits and was to be dismissed, uttered these words, <q type="unspecified"><p>This day is the beginning of much evil
 										unto the Grecians,</p></q> and so departed.</p>
 						</div>
 						<div type="textpart" subtype="section" n="4">
@@ -6653,16 +6637,13 @@
 								that Archidamus, either of private courtesy or by command of the
 								Lacedaemonians to bring him into jealousy (as they had before for
 								his sake commanded the excommunication), might oftentimes leave his
-								lands untouched, told the Athenians beforehand in an assembly, <q
-									type="unspecified"><p>that though Archidamus had been his guest,
+								lands untouched, told the Athenians beforehand in an assembly, <q type="unspecified"><p>that though Archidamus had been his guest,
 										it was for no ill to the state;</p>
 									<p>and howsoever, if the enemy did not waste his lands and
 										houses as well as the rest, that then he gave them to the
-										commonwealth,</p></q> and therefore desired <q
-									type="unspecified"><p>that for this he might not be
+										commonwealth,</p></q> and therefore desired <q type="unspecified"><p>that for this he might not be
 										suspected.</p></q> Also he advised them concerning the
-								business in hand the same things he had done before, <q
-									type="unspecified"><p>that they should make preparations for the
+								business in hand the same things he had done before, <q type="unspecified"><p>that they should make preparations for the
 										war and receive their goods into the city;</p>
 								</q></p>
 						</div>
@@ -6672,8 +6653,7 @@
 										and guard it;</p>
 									<p>that they should also furnish out their navy, wherein
 										consisted their power, and hold a careful hand over their
-										confederates,</p></q> telling them, <q type="unspecified"
-										><p>how that in the money that came from these lay their
+										confederates,</p></q> telling them, <q type="unspecified"><p>how that in the money that came from these lay their
 										strength, and that the victory in war consisted wholly in
 										counsel and store of money.</p></q></p>
 						</div>
@@ -6711,8 +6691,7 @@
 								touching matter of money.</p>
 						</div>
 						<div type="textpart" subtype="section" n="6">
-							<p><q type="unspecified"><p>Men of arms,</p></q> he said, <q
-									type="unspecified"><p>they had thirteen thousand besides the
+							<p><q type="unspecified"><p>Men of arms,</p></q> he said, <q type="unspecified"><p>they had thirteen thousand besides the
 										sixteen thousand that were employed for the guard of the
 										city and upon the walls.</p></q> For so many at the first
 								kept watch at the coming in of the enemy, young and old together and
@@ -8083,8 +8062,7 @@
 						<div type="textpart" subtype="section" n="3">
 							<quote rend="blockquote"><l><hi rend="ital">A Doric war shall fall,</hi>
 								</l><l><hi rend="ital">And a great plague withal.</hi></l></quote>
-							<p>Now were men at variance about the word, some saying it was not <hi
-									rend="ital">loimos</hi> [plague], that was by the ancients
+							<p>Now were men at variance about the word, some saying it was not <hi rend="ital">loimos</hi> [plague], that was by the ancients
 								mentioned in that verse, but <hi rend="ital">limos</hi>
 								[famine].</p>
 							<p>But upon the present occasion the word <hi rend="ital">loimos</hi>
@@ -8806,8 +8784,7 @@
 					<div type="textpart" subtype="chapter" n="72">
 
 						<div type="textpart" subtype="section" n="1">
-							<p>The Plataeans having thus said, Archidamus replied and said thus: <q
-									type="unspecified"><p>Men of Plataea, if you would do as ye say,
+							<p>The Plataeans having thus said, Archidamus replied and said thus: <q type="unspecified"><p>Men of Plataea, if you would do as ye say,
 										you say what is just.</p>
 									<p>For as Pausanias hath granted to you, so also be you free and
 										help to set free the rest, who, having been partakers of the
@@ -10222,8 +10199,7 @@
 						<div type="textpart" subtype="section" n="5">
 							<p>It is reported that Apollo by his oracle did assign this place for an
 								habitation to Alcmaeon the son of Amphiareus, at such time as he
-								wandered up and down for the killing of his mother, telling him <q
-									type="unspecified"><p>that he should never be free from the
+								wandered up and down for the killing of his mother, telling him <q type="unspecified"><p>that he should never be free from the
 										terrors that haunted him till he had found out and seated
 										himself in such a land as when he slew his mother, the sun
 										had never seen nor was then land because all other lands
@@ -13245,10 +13221,8 @@
 						</div>
 						<div type="textpart" subtype="section" n="8">
 							<p>For such as were of authority in the cities, both of the one and the
-								other faction, preferring under decent titles, one, <hi rend="ital"
-									>the polit-</hi>
-								<hi rend="ital">ical equality of the multitude,</hi> the other, <hi
-									rend="ital">the moderate aristoc-</hi>
+								other faction, preferring under decent titles, one, <hi rend="ital">the polit-</hi>
+								<hi rend="ital">ical equality of the multitude,</hi> the other, <hi rend="ital">the moderate aristoc-</hi>
 								<hi rend="ital">racy,</hi> though in words they seemed to be
 								servants of the public, they made it in effect but the prize of
 								their contention;</p>
@@ -14354,10 +14328,8 @@
 						</div>
 						<div type="textpart" subtype="section" n="4">
 
-							<p><q type="unspecified"><p>Then,</p></q> said he again, <q
-									type="unspecified"><p>they belong not to them that were in
-										battle with us.</p></q> The other answered: <q
-									type="unspecified"><p>Yes, if you fought yesterday in
+							<p><q type="unspecified"><p>Then,</p></q> said he again, <q type="unspecified"><p>they belong not to them that were in
+										battle with us.</p></q> The other answered: <q type="unspecified"><p>Yes, if you fought yesterday in
 										Idomene.</p></q>
 							</p>
 							<q type="unspecified"><p>But we fought not yesterday at all, but the
@@ -14412,8 +14384,7 @@
 						</div>
 						<div type="textpart" subtype="section" n="3">
 							<p>And for the future, the Acarnanians and Amphilochians made a league
-								with the Ambraciotes for a hundred years, upon these conditions: <q
-									type="unspecified"><p>That neither the Ambraciotes with the
+								with the Ambraciotes for a hundred years, upon these conditions: <q type="unspecified"><p>That neither the Ambraciotes with the
 										Acarnanians should make war against the Peloponnesians, nor
 										the Acarnanians with the Ambraciotes against the
 										Athenians;</p>
@@ -20718,8 +20689,7 @@
 							<p>and because the Eleians had not stood to the reference, the
 								Lacedaemonians put into Lepreum a garrison of men at arms.</p>
 							<p>The Eleians, taking this as if the Lacedaemonians had received their
-								revolted city, and producing the article of their league <q
-									type="unspecified"><p>that what every one possessed when they
+								revolted city, and producing the article of their league <q type="unspecified"><p>that what every one possessed when they
 										entered into the Attic war, the same they should possess
 										when they gave it over,</p></q> revolted to the Argives as
 								wronged and entered league with them as is before related.</p>
@@ -22288,8 +22258,7 @@
 								the rest of the army, and especially the middle battle where Agis
 								was himself, and those which are called <q type="unspecified"><p>the
 										three hundred horsemen</p></q> about him, they charged upon
-								the eldest of the Argives, and upon those which are named <q
-									type="unspecified"><p>the five cohorts,</p></q> and upon the
+								the eldest of the Argives, and upon those which are named <q type="unspecified"><p>the five cohorts,</p></q> and upon the
 								Cleonaeans and Orneates, and certain Athenians arranged amongst
 								them, and put them all to flight;</p>
 						</div>
@@ -22770,8 +22739,7 @@
 					<div type="textpart" subtype="chapter" n="86">
 
 						<div type="textpart" subtype="section" n="1">
-							<p>Whereunto the council of the Melians answered: <q type="unspecified"
-										><p>The equity of a leisurely debate is not to be found
+							<p>Whereunto the council of the Melians answered: <q type="unspecified"><p>The equity of a leisurely debate is not to be found
 										fault withal;</p>
 									<p>but this preparation of war, not future but already here
 										present, seemeth not to agree with the same.</p>
@@ -25921,8 +25889,7 @@
 									the sword.</p>
 								<p>My exhortation to you, I am certain, is contrary to that of the
 									enemy.</p>
-								<p>For they say to theirs, 'You are to fight <hi rend="ital"
-										>for</hi> your country.'</p>
+								<p>For they say to theirs, 'You are to fight <hi rend="ital">for</hi> your country.'</p>
 								<p>I say to you, You are to fight <hi rend="ital">out</hi> of your
 									country, where you must either get the victory, or not easily
 									get away;</p>

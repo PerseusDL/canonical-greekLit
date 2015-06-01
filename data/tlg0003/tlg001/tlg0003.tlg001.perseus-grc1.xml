@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../AptanaWorkspace/papyri_sosol/data/templates/tei-xl.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader type="text">
     <fileDesc>
       <titleStmt>
@@ -31,7 +29,17 @@
         </bibl>
       </sourceDesc>
     </fileDesc>
-    <encodingDesc>
+    <encodingDesc><refsDecl id="CTS">
+            <cRefPattern matchPattern="(\\w+).(\\w+).(\\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@n=\'$1\']/tei:div[@n=\'$2\']/tei:div[@n=\'$3\'])">
+                <p>This pointer pattern extracts Book and Chapter and Section</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(\\w+).(\\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
+                <p>This pointer pattern extracts Book and Chapter</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(\\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@n=\'$1\'])">
+                <p>This pointer pattern extracts Book</p>
+            </cRefPattern>
+        </refsDecl>
       <refsDecl>
         <refState unit="book" delim="."/>
         <refState unit="chapter" delim="."/>
@@ -3256,8 +3264,7 @@
             <p>ὑποψίας δὲ πολλὰς παρεῖχε τῇ τε παρανομίᾳ καὶ ζηλώσει τῶν βαρβάρων μὴ ἴσος βούλεσθαι
               εἶναι τοῖς παροῦσι, τά τε ἄλλα αὐτοῦ ἀνεσκόπουν, εἴ τί που ἐξεδεδιῄτητο τῶν καθεστώτων
               νομίμων, καὶ ὅτι ἐπὶ τὸν τρίποδά ποτε τὸν ἐν Δελφοῖς, ὃν ἀνέθεσαν οἱ Ἕλληνες ἀπὸ τῶν
-              Μήδων ἀκροθίνιον, ἠξίωσεν ἐπιγράψασθαι αὐτὸς ἰδίᾳ τὸ ἐλεγεῖον τόδε:<quote
-                type="inscript">
+              Μήδων ἀκροθίνιον, ἠξίωσεν ἐπιγράψασθαι αὐτὸς ἰδίᾳ τὸ ἐλεγεῖον τόδε:<quote type="inscript">
                 <l ana="#met-dact" part="N">Ἑλλήνων ἀρχηγὸς ἐπεὶ στρατὸν ὤλεσε Μήδων,</l>
                 <l part="N">Παυσανίας Φοίβῳ μνῆμ᾽ ἀνέθηκε τόδε.</l>
               </quote>
