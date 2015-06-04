@@ -4,8 +4,82 @@
     <property name="project.version" value="${package(version)}"/>
     <property name="project.app" value="canonical-greekLit"/>
     <property name="build.dir" value="build"/>
-    <target name="xar">
-        <mkdir dir="${build.dir}"/>
-        <zip basedir="." destfile="${build.dir}/${project.app}-${project.version}.xar" excludes="${build.dir}/*"/>
+    <property name="copy.dir" value="pre-build"/>
+    <property name="data.dir" value="data"/>
+    <property name="root.dir" value="."/>
+    <property name="data.required" value="__cts__.xml"/>
+
+    <target name="copy">
+      <copy todir="${copy.dir}" verbose="true">
+        <fileset dir="${root.dir}">
+            <include name="*"/>
+        </fileset>
+      </copy>
     </target>
+
+    <target name="include" depends="copy">
+        <!-- Remove files if they are not neighbour of required ${data.checkfile} -->
+        <script language="javascript"> <![CDATA[
+          var getInclude = function(list) {
+              var o = {};
+              for (i=0; i<list.length; i++) {
+                var f = list[i];
+                if(f.indexOf(inc_file) > 0) {
+                    var folder = f.split("/").slice(0,-1).join("/");;
+                    o[folder] = f;
+                }
+              }
+              return o;
+          }
+          importClass(java.io.File);
+
+          // Access to Ant-Properties by their names
+          data_dir = project.getProperty("data.dir"); // The directory where you want to check for subdirectory including X
+          copy_dir = project.getProperty("copy.dir"); // The directory where you want to check for subdirectory including X
+          inc_file = project.getProperty("data.required"); // The file which says if a folder should be copie
+
+          // Create a <fileset dir="" includes=""/> to retrieve everything from this folder
+          fs = project.createDataType("fileset");
+          fs.setDir( new File(data_dir) );
+          fs.setIncludes("**");
+          ds = fs.getDirectoryScanner(project); // Get the files (array) of that fileset
+          files = ds.getIncludedFiles(); // Get only the files
+
+          //Create destination and sourceDir File instances
+          basedir = new File(".");
+          destination = new File(basedir, [copy_dir, data_dir].join("/"));
+          source = new File(basedir, data_dir);
+
+          //We create an object where key are folder containing said inc_file
+          exist = getInclude(files);
+          includes = [];
+          for (i=0; i<files.length; i++) {
+            filename = files[i];
+            folder = filename.split("/").slice(0,-1).join("/");
+            if(exist[folder]) {
+                f = new File(source, filename);
+                copy = project.createTask("copy");
+                copy.setTofile(new File(destination, filename));
+                copy.setFile(f);
+                copy.perform();
+            }
+          }
+        ]]>
+        </script>
+    </target>
+
+    <target name="delete-pre-build">
+        <delete dir="${copy.dir}" />
+    </target>
+
+    <target name="xar" depends="copy">
+        <mkdir dir="${build.dir}"/>
+        <zip 
+            basedir="${copy.dir}"
+            destfile="${build.dir}/${project.app}-${project.version}.xar"
+            excludes="${build.dir}/*"
+        />
+    </target>
+
+    <target name="build" depends="include, xar, delete-pre-build"/>
 </project>
