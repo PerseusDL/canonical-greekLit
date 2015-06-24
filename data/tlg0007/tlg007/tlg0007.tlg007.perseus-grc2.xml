@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader type="text">
         <fileDesc>
             <titleStmt>
@@ -49,12 +48,14 @@
         </fileDesc>
         <encodingDesc>
             <refsDecl n="CTS">
-                <cRefPattern matchPattern="(\\w+).(\\w+)"
-                    replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div/tei:div1[@n=\'$1\']/tei:div2[@n=\'$2\'])">
+                <cRefPattern n="section"
+                         matchPattern="(\\w+).(\\w+)"
+                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div/tei:div1[@n=\'$1\']/tei:div2[@n=\'$2\'])">
                     <p>This pointer pattern extracts chapter and section</p>
                 </cRefPattern>
-                <cRefPattern matchPattern="(\\w+)"
-                    replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div/tei:div1[@n=\'$1\'])">
+                <cRefPattern n="chapter"
+                         matchPattern="(\\w+)"
+                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div/tei:div1[@n=\'$1\'])">
                     <p>This pointer pattern extracts chapter</p>
                 </cRefPattern>
             </refsDecl>
@@ -115,8 +116,7 @@
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>ὅτι δὲ πρὸς τοὺς καλοὺς οὐκ ἦν ἐχυρὸς ὁ Σόλων οὐδʼ Ἔρωτι θαρραλέος
-                            “ἀνταναστῆναι πύκτης ὅπως ἐς χεῖρας,” <note resp="ed"
-                                place="unspecified" anchored="true">
+                            “ἀνταναστῆναι πύκτης ὅπως ἐς χεῖρας,” <note resp="ed" place="unspecified" anchored="true">
                                 <foreign xml:lang="grc">Ἔρωτι μέν νυν ὅστις ἀντανίσταται πύκτης ὅπως
                                     ἐς χεῖρας, οὐ καλῶς φρονεῖ</foreign>. (Sophocles,
                                     <title>Trachiniae</title>, 441 f.)</note> ἔκ τε τῶν ποιημάτων
@@ -141,13 +141,11 @@
                             Σόλωνα. σοφίας μὲν γὰρ ἦν ὁμολογουμένως ἐραστής, </p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
-                        <p>ὅς γε καὶ πρεσβύτερος ὢν ἔλεγε “γηράσκειν αἰεὶ πολλὰ διδασκόμενος·” <note
-                                resp="ed" place="unspecified" anchored="true">
+                        <p>ὅς γε καὶ πρεσβύτερος ὢν ἔλεγε “γηράσκειν αἰεὶ πολλὰ διδασκόμενος·” <note resp="ed" place="unspecified" anchored="true">
                                 <foreign xml:lang="grc">Γηράσκω δʼ αἰεὶ πολλὰ
                                 διδασκόμενος</foreign>. Fragment 18 (Bergk, <title>Poet. Lyr.
                                     Gr.</title> ii.<hi rend="superscript">4</hi> p. 47).</note>
-                            πλοῦτον δʼ οὐκ ἐθαύμαζεν, ἀλλὰ καί φησιν ὁμοίως πλουτεῖν ᾧ τε<note
-                                resp="ed" place="unspecified" anchored="true">
+                            πλοῦτον δʼ οὐκ ἐθαύμαζεν, ἀλλὰ καί φησιν ὁμοίως πλουτεῖν ᾧ τε<note resp="ed" place="unspecified" anchored="true">
                                 <foreign xml:lang="grc">Ἶσόν τοι πλουτοῦσιν ὅτῳ πολὺς ἄργυρός ἐστιν,
                                     κ.τ.λ.</foreign>, Fragment 24 (Bergk), verses 1-6.</note>
                             <cit>
@@ -434,8 +432,7 @@
                 <div type="textpart" subtype="chapter" n="9">
                     <div type="textpart" subtype="section" n="1">
                         <p>ἄλλοι δέ φασιν οὐ τοῦτον τὸν τρόπον γενέσθαι τὴν κατάληψιν, ἀλλὰ πρῶτον
-                            μὲν αὐτῷ τὸν ἐν Δελφοῖς θεὸν χρῆσαι· <quote rend="blockquote"
-                                type="oracle">
+                            μὲν αὐτῷ τὸν ἐν Δελφοῖς θεὸν χρῆσαι· <quote rend="blockquote" type="oracle">
                                 <l met="dact">ἀρχηγοὺς χώρας θυσίαις ἥρωας ἐνοίκους</l>
                                 <l>ἵλασο, τοὺς κόλποις Ἀσωπιὰς ἀμφικαλύπτει,</l>
                                 <l>οἳ φθίμενοι δέρκονται ἐς ἠέλιον δύνοντα·</l>
@@ -446,10 +443,8 @@
                         <p>εἶτα παρὰ τῶν Ἀθηναίων ἐθελοντὰς λαβεῖν πεντακοσίους, δόγματος γενομένου
                             τούτους, ἄν κατασχῶσι τὴν νῆσον, κυρίους εἶναι τοῦ πολιτεύματος.
                             ἀναχθέντα δὲ συχναῖς ἁλιάσιν ἅμα τριακοντόρου συμπαραπλεούσης
-                            ὑφορμίσασθαι τῇ Σαλαμῖνι κατὰ χηλήν τινα πρὸς τὴν Εὔβοιαν<note resp="ed"
-                                place="unspecified" anchored="true">
-                                <foreign xml:lang="grc">Εὔβοιαν</foreign> Sintenis suggests <foreign
-                                    xml:lang="grc">Νίσαιαν</foreign> (cf. xii. 3).</note>
+                            ὑφορμίσασθαι τῇ Σαλαμῖνι κατὰ χηλήν τινα πρὸς τὴν Εὔβοιαν<note resp="ed" place="unspecified" anchored="true">
+                                <foreign xml:lang="grc">Εὔβοιαν</foreign> Sintenis suggests <foreign xml:lang="grc">Νίσαιαν</foreign> (cf. xii. 3).</note>
                             ἀποβλέπουσαν. πυθομένους δὲ τοὺς ἐν Σαλαμῖνι Μεγαρεῖς ἔκ τινος φήμης
                             οὐδὲν βέβαιον, αὐτοὺς μὲν εἰς τὰ ὅπλα θορυβουμένους βαδίζειν, ναῦν δʼ
                             ἀποστεῖλαι κατασκεψομένην τῶν πολεμίων· </p>
@@ -464,8 +459,7 @@
                     <div type="textpart" subtype="section" n="4">
                         <p>ἔοικε δὲ τῷ λόγῳ τούτῳ καὶ τὰ δρώμενα μαρτυρεῖν. ναῦς γάρ τις Ἀττικὴ
                             προσέπλει σιωπῇ τὸ πρῶτον, εἶτα κραυγῇ καὶ ἀλαλαγμῷ προσφερομένων εἷς
-                            ἀνήρ ἔνοπλος ἐξαλλόμενος μετὰ βοῆς ἔθει πρὸς ἄκρον τὸ Σκιράδιον<note
-                                resp="ed" place="unspecified" anchored="true">
+                            ἀνήρ ἔνοπλος ἐξαλλόμενος μετὰ βοῆς ἔθει πρὸς ἄκρον τὸ Σκιράδιον<note resp="ed" place="unspecified" anchored="true">
                                 <foreign xml:lang="grc">Σκιράδιον</foreign> after this word Sintenis
                                 and Bekker assume a lacuna in the text.</note> ἐκ γῆς
                             προσφερομένοις. πλησίον δὲ τοῦ Ἐνυαλίου τὸ ἱερόν ἐστιν ἱδρυσαμένου
@@ -637,8 +631,7 @@
                             φρονιμώτατον ἐπιστῆσαι τοῖς πράγμασιν. </p>
                     </div>
                     <div type="textpart" subtype="section" n="4">
-                        <p>ἔνιοι δέ φασι καὶ μαντείαν γενέσθαι τῷ Σόλωνι Πυθοῖ τοιαύτην· <quote
-                                rend="blockquote" type="oracle">
+                        <p>ἔνιοι δέ φασι καὶ μαντείαν γενέσθαι τῷ Σόλωνι Πυθοῖ τοιαύτην· <quote rend="blockquote" type="oracle">
                                 <l met="dact">ἧσο μέσην κατὰ νῆα κυβερνητήριον ἔργον</l>
                                 <l>εὐθύνων· πολλοί τοι Ἀθηναίων ἐπίκουροι.</l>
                             </quote> μάλιστα δὲ οἱ συνήθεις ἐκάκιζον εἰ διὰ τοὔνομα δυσωπεῖται τὴν
@@ -874,8 +867,7 @@
                             καὶ βιασθέντος ἢ βλαβέντος ἐξῆν τῷ δυναμένῳ καὶ βουλομένῳ γράφεσθαι τὸν
                             ἀδικοῦντα καὶ διώκειν, ὀρθῶς ἐθίζοντος τοῦ νομοθέτου τοὺς πολίτας ὥσπερ
                             ἑνὸς μέρη σώματος<note resp="ed" place="unspecified" anchored="true">
-                                <foreign xml:lang="grc">μέρη σώματος</foreign> (or <foreign
-                                    xml:lang="grc">σώματος μέρη</foreign>) Coraës and Bekker, after
+                                <foreign xml:lang="grc">μέρη σώματος</foreign> (or <foreign xml:lang="grc">σώματος μέρη</foreign>) Coraës and Bekker, after
                                 Xylander: <foreign xml:lang="grc">ἑνὸς μέρους</foreign>.</note>
                             συναισθάνεσθαι καὶ συναλγεῖν ἀλλήλοις. τούτῳ δὲ τῷ νόμῳ συμφωνοῦντα
                             λόγον αὐτοῦ διαμνημονεύουσιν. ἐρωτηθεὶς γάρ, ὡς ἔοικεν, ἥτις οἰκεῖται
@@ -993,14 +985,11 @@
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>οὐ μὴν ἀνέδην γε πάλιν οὐδʼ ἁπλῶς τὰς δόσεις ἐφῆκεν, ἀλλʼ εἰ μὴ νόσων
-                            ἕνεκεν ἢ φαρμάκων ἢ δεσμῶν<note resp="ed" place="unspecified"
-                                anchored="true">
+                            ἕνεκεν ἢ φαρμάκων ἢ δεσμῶν<note resp="ed" place="unspecified" anchored="true">
                                 <foreign xml:lang="grc">δεσμῶν</foreign> Bekker adopts Schaefer's
                                 correction to <foreign xml:lang="grc">δεσμῷ</foreign>.</note> ἢ
-                            ἀνάγκῃ κατασχεθεὶς ἢ γυναικὶ πιθόμενος,<note resp="ed"
-                                place="unspecified" anchored="true">
-                                <foreign xml:lang="grc">πιθόμενος</foreign> Cobet: <foreign
-                                    xml:lang="grc">πειθόμενος</foreign>.</note> εὖ πάνυ καὶ
+                            ἀνάγκῃ κατασχεθεὶς ἢ γυναικὶ πιθόμενος,<note resp="ed" place="unspecified" anchored="true">
+                                <foreign xml:lang="grc">πιθόμενος</foreign> Cobet: <foreign xml:lang="grc">πειθόμενος</foreign>.</note> εὖ πάνυ καὶ
                             προσηκόντως τὸ πεισθῆναι παρὰ τὸ βέλτιστον οὐδὲν ἡγούμενος τοῦ βιασθῆναι
                             διαφέρειν, ἀλλʼ εἰς ταὐτὸ τὴν ἀπάτην τῇ ἀνάγκῃ καὶ τῷ πόνῳ τὴν ἡδονὴν
                             θέμενος, ὡς οὐχ ἧττον ἐκστῆσαι λογισμὸν ἀνθρώπου δυναμένων. </p>
@@ -1036,8 +1025,7 @@
                                 </quote>
                                 <note resp="ed" place="unspecified" anchored="true">Following Nauck
                                         (<title>Trag. Graec. Frag.</title>
-                                    <hi rend="superscript">2</hi>, p. 680): <foreign xml:lang="grc"
-                                        >πολλοῖς, τοσοῖσδε</foreign>.</note>
+                                    <hi rend="superscript">2</hi>, p. 680): <foreign xml:lang="grc">πολλοῖς, τοσοῖσδε</foreign>.</note>
                                 <bibl>Euripides, unknown; Nauck, Trag. Graec. Frag. (2), p.
                                     680</bibl>
                             </cit>κατʼ Εὐριπίδην, καὶ τὸ μέγιστον, εἱλωτικοῦ πλήθους, ὃ βέλτιον ἦν
@@ -1160,10 +1148,8 @@
                             δὲ τοὺς ἄλλους ὠνομάσθαι, κοινὸν μὲν οὖν ὤμνυεν ὅρκον ἡ βουλὴ τοὺς
                             Σόλωνος νόμους ἐμπεδώσειν, ἴδιον δʼ ἕκαστος τῶν θεσμοθετῶν ἐν ἀγορᾷ πρὸς
                             τῷ λίθῳ, καταφατίζων, εἴ τι παραβαίη τῶν θεσμῶν, ἀνδριάντα χρυσοῦν
-                            ἰσομέτρητον ἀναθήσειν ἐν Δελφοῖς.<note resp="ed" place="unspecified"
-                                anchored="true">
-                                <foreign xml:lang="grc">ἰσομέτρητον</foreign> and <foreign
-                                    xml:lang="grc">ἐν Δελφοῖς</foreign> are not in the text of
+                            ἰσομέτρητον ἀναθήσειν ἐν Δελφοῖς.<note resp="ed" place="unspecified" anchored="true">
+                                <foreign xml:lang="grc">ἰσομέτρητον</foreign> and <foreign xml:lang="grc">ἐν Δελφοῖς</foreign> are not in the text of
                                 Aristotle.</note>
                         </p>
                     </div>
@@ -1195,8 +1181,7 @@
                             φιλαίτιον τῶν πολιτῶν ʽ ἔργμασι γὰρ ἐν μεγάλοις πᾶσιν ἁδεῖν χαλεπόν, ὡς
                             αὐτὸς εἴρηκἐ, πρόσχημα τῆς πλάνης τὴν ναυκληρίαν ποιησάμενος ἐξέπλευσε,
                             δεκαετῆ παρὰ τῶν Ἀθηναίων ἀποδημίαν αἰτησάμενος. ἤλπιζε γὰρ ἐν τῷ χρόνῳ
-                            τούτῳ καὶ τοῖς νόμοις αὐτοὺς<note resp="ed" place="unspecified"
-                                anchored="true">
+                            τούτῳ καὶ τοῖς νόμοις αὐτοὺς<note resp="ed" place="unspecified" anchored="true">
                                 <foreign xml:lang="grc">τοῖς νόμοις αὐτοὺς</foreign> after MSS.
                                 cited by Stephanus; Bekker has <foreign xml:lang="grc">τοὺς νόμους
                                     αὐτοῖς</foreign>, the conjecture of Stephanus (<gloss>the laws
