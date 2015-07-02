@@ -32,6 +32,15 @@
               return o;
           }
           importClass(java.io.File);
+          importClass(java.io.FileReader);
+          importClass(java.io.BufferedReader);
+          importClass(org.apache.tools.ant.filters.TokenFilter);
+          importClass(org.apache.tools.ant.util.FileUtils);
+          Validator = new TokenFilter.ContainsString();
+          Validator.setContains("cRefPattern");
+          Reader = function(file) {
+            return FileUtils.readFully(new FileReader(file));
+          }
 
           // Access to Ant-Properties by their names
           data_dir = project.getProperty("data.dir"); // The directory where you want to check for subdirectory including X
@@ -57,11 +66,16 @@
             filename = files[i];
             folder = filename.split("/").slice(0,-1).join("/");
             if(exist[folder]) {
-                f = new File(source, filename);
+              f = new File(source, filename);
+              ff = filename.split("/").slice(-1)[0];
+              if(ff == "__cts__.xml" || Validator.filter(Reader(f))) {
                 copy = project.createTask("copy");
                 copy.setTofile(new File(destination, filename));
                 copy.setFile(f);
                 copy.perform();
+              } else {
+                self.log(ff + " is not a valid file.")
+              }
             }
           }
         ]]>
