@@ -1,3 +1,8 @@
+[![Hook Status](http://ci.perseids.org/Hook/api/rest/v1.0/code/PerseusDL/canonical-greekLit/master/badge/status.svg)](http://ci.perseids.org/Hook/repo/PerseusDL/canonical-greekLit)
+[![Hook Coverage](http://ci.perseids.org/Hook/api/rest/v1.0/code/PerseusDL/canonical-greekLit/master/badge/coverage.svg)](http://ci.perseids.org/Hook/repo/PerseusDL/canonical-greekLit)
+[![Hook Texts](http://ci.perseids.org/Hook/api/rest/v1.0/code/PerseusDL/canonical-greekLit/master/badge/cts.svg)](http://ci.perseids.org/Hook/repo/PerseusDL/canonical-greekLit)
+
+
 Canonical - Greek Literature
 =========
 
