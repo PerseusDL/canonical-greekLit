@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<TEI  xmlns="http://www.tei-c.org/ns/1.0">
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
 	  <teiHeader type="text">
 		    <fileDesc>
 			      <titleStmt>
@@ -41,14 +40,12 @@
 		    </fileDesc>
 		
 		    <encodingDesc>
-         <refsDecl n="CTS">
-            <cRefPattern n="line"
-                         matchPattern="(\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
-               <p>This pointer pattern extracts line</p>
-            </cRefPattern>
-         </refsDecl>
-         <refsDecl n="TEI.2">
+        		    	<refsDecl n="CTS">
+        		    		<cRefPattern n="fragment" matchPattern="(\w+)(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:div//tei:div{@n='$2'])">
+		    			<p>This pointer pattern extracts fragmentary quotes</p>
+		    		</cRefPattern>
+		    	</refsDecl>
+         <refsDecl n="TEI">
             <refState unit="card"/>
          </refsDecl>
       </encodingDesc>
@@ -69,7 +66,7 @@
 		    			began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files</change>
 		    		  	<change when="2009-08-19" who="lcerrato">
 		    			fixing Athenaeus refs</change>
-		    			<change when="2009-07-06"  who="student CEH">
+		    			<change when="2009-07-06" who="student CEH">
 		    			edited entity tags</change>
 		    			<change when="2009-02-27" who="rsingh04">
 		    			fixed date, dateRange and dateStruct tags</change>
@@ -85,116 +82,114 @@
    </teiHeader>
    <text xml:lang="eng">
 				  <body>
-         <div xml:lang="eng"
-              type="edition"
-              n="urn:cts:greekLit:tlg0551.tlg002.perseus-eng2">
+				  	<div type="edition" xml:lang="eng"  n="urn:cts:greekLit:tlg0551.tlg002.perseus-eng2">
 					
 					       <head>CONCERNING THE KINGS</head>
-					       <div type="textpart" subtype="chapter">
+				  		<div subtype="chapter" type="textpart" >
 						         <head>Fragments</head>
-						         <cit n="I">
+						         <div n="I" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM PHOTIUS<note resp="HW" place="foot" anchored="true">The extract from Photius reads: "Appian begins his history with Æneas . . ., who flourished," etc.</note>
                   </bibl>
 							           <quote>
-                     <milestone unit="section" n="1"/>
-                     <p>ÆNEAS, the son of Anchises, the son of Capys, flourished in the Trojan war. After the capture of Troy he fled, and after long wandering arrived at that part of the Italian coast called Laurentum, where his camping-place is shown to this day, and that shore is called, after him, the Trojan beach. The Aborigines of this part of Italy were then ruled by Faunus, the son of Mars, who gave to Æneas his daughter Lavinia in marriage, and also a tract of land four hundred stades<note resp="HW" place="foot" anchored="true">The stade = 582 English feet.</note> in circuit. Here Æneas built a town, which he named after his wife, Lavinium. Three years later, at the death of Faunus, Æneas succeeded to the kingdom by virtue of his marriage relationship, and he called the Aborigines Latins, from his father-in-law, Latinus Faunus. Three years later still, Æneas was killed by the Rutuli, a Tuscan tribe, in a war begun on account of his wife Lavinia, who had been previously betrothed to their king. He was succeeded in the government by Euryleon, otherwise called Ascanius, the son of Æneas and Creusa, a daughter of Priam, to whom he had been married in Troy. But some say that the Ascanius who succeeded to the government was the son of Æneas and Lavinia.
+                     
+                     <p n="1">ÆNEAS, the son of Anchises, the son of Capys, flourished in the Trojan war. After the capture of Troy he fled, and after long wandering arrived at that part of the Italian coast called Laurentum, where his camping-place is shown to this day, and that shore is called, after him, the Trojan beach. The Aborigines of this part of Italy were then ruled by Faunus, the son of Mars, who gave to Æneas his daughter Lavinia in marriage, and also a tract of land four hundred stades<note resp="HW" place="foot" anchored="true">The stade = 582 English feet.</note> in circuit. Here Æneas built a town, which he named after his wife, Lavinium. Three years later, at the death of Faunus, Æneas succeeded to the kingdom by virtue of his marriage relationship, and he called the Aborigines Latins, from his father-in-law, Latinus Faunus. Three years later still, Æneas was killed by the Rutuli, a Tuscan tribe, in a war begun on account of his wife Lavinia, who had been previously betrothed to their king. He was succeeded in the government by Euryleon, otherwise called Ascanius, the son of Æneas and Creusa, a daughter of Priam, to whom he had been married in Troy. But some say that the Ascanius who succeeded to the government was the son of Æneas and Lavinia.
 							</p>
-                     <milestone unit="section" n="2"/>
-                     <p>Ascanius died four years after the founding of Alba (for he also built a city and gave it the name of Alba, and settled it with a colony from Lavinium), and Silvius succeeded to the throne. They say that this Silvius had a son named Æneas Silvius, and he a son named Latinus Silvius, and he a son named Capys, and he a son named Capetus, and he a son named Tiberinus, and he a son named Agrippa, who was the father of the Romulus who was struck by lightning, and who left a son Aventinus, who was the father of Procas. All of these bore the surname of Silvius. Procas had two sons, the elder named Numitor, and the younger Amulius. When the elder succeeded to the throne on the death of the father, the younger took it away from him by force and violence. He also killed Egestus, his brother's son, and he made Rhea Silvia, his brother's daughter, a vestal, so that she might remain childless. Notwithstanding a conspiracy against his life, Numitor himself was saved because of the gentleness and clemency of his manners. Silvia having become pregnant contrary to law, Amulius cast her into prison by way of punishment, and when she had given birth to two sons he gave them to some shepherds with orders to throw the babes into the neighboring stream called the river Tiber. These boys were Romulus and Remus. Being of the lineage of Æneas, on their mother's side, for their father's lineage was unknown, they always boasted their descent from the former.</p>
+                     
+                     <p n="2">Ascanius died four years after the founding of Alba (for he also built a city and gave it the name of Alba, and settled it with a colony from Lavinium), and Silvius succeeded to the throne. They say that this Silvius had a son named Æneas Silvius, and he a son named Latinus Silvius, and he a son named Capys, and he a son named Capetus, and he a son named Tiberinus, and he a son named Agrippa, who was the father of the Romulus who was struck by lightning, and who left a son Aventinus, who was the father of Procas. All of these bore the surname of Silvius. Procas had two sons, the elder named Numitor, and the younger Amulius. When the elder succeeded to the throne on the death of the father, the younger took it away from him by force and violence. He also killed Egestus, his brother's son, and he made Rhea Silvia, his brother's daughter, a vestal, so that she might remain childless. Notwithstanding a conspiracy against his life, Numitor himself was saved because of the gentleness and clemency of his manners. Silvia having become pregnant contrary to law, Amulius cast her into prison by way of punishment, and when she had given birth to two sons he gave them to some shepherds with orders to throw the babes into the neighboring stream called the river Tiber. These boys were Romulus and Remus. Being of the lineage of Æneas, on their mother's side, for their father's lineage was unknown, they always boasted their descent from the former.</p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
-						         <cit n="II">
+					       	 <div n="II" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM PHOTIUS</bibl>
 							           <quote>
                      <p>My first book contains the deeds of Rome's seven kings, viz.: Romulus, Numa Pompilius, Tullus Hostilius,<note resp="HW" place="foot" anchored="true">The text says, "Ancus Hostilius," an obvious error.</note> Ancus Marcius (a descendant of Numa), Tarquinius, Servius Tullius, and Lucius Tarquinius, a son of the other Tarquinius. The first of these was the founder and builder of Rome, and although he governed it rather as a father than as an absolute monarch, he was nevertheless slain, or, as some think, translated. The second, not less kingly, but even more so than the first, died at the age of . . . The third was struck by lightning. The fourth died of a disease. The fifth was murdered by some shepherds. The sixth lost his life in a similar manner. The seventh was expelled from the city and kingdom for violating the laws. From that time kingly rule came to an end, and the administration of government was transferred to consuls.</p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
-						         <cit n="III">
+					       	 <div n="III" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM SUIDAS</bibl>
 							           <quote>
                      <p>Having kept careful watch against her father's return, she (Tarpeia) promises Tatius to betray the garrison.</p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
-						         <cit n="IV">
+					       	<div n="IV" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM SUIDAS</bibl>
 							           <quote>
                      <p>At the command of Tatius they threw pieces of gold at the girl until she succumbed to her wounds and was buried under the heap.</p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
-						         <cit n="V">
+					       	 <div n="V" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM "THE EMBASSIES"</bibl>
 							           <quote>
                      <p>When Tatius waged war against Romulus, the wives of the Romans, who were daughters of the Sabines, made peace between them. Advancing to the camp of the parents they held out their hands to them and showed the infant children already born to them and their husbands, and testified that their husbands had done them no wrong. They prayed that the Sabines would take pity on themselves, their sons-in-law, their grandchildren, and their daughters, and either put an end to this wretched war between relatives, or first kill them in whose behalf it was begun. The parents, moved partly by their own difficulties and partly by pity for the women, and perceiving that what the Romans had done was not and agreed upon these conditions: that both Romulus and Tatius should be kings, and that the Sabines who were then serving in the army under Tatius, and any others who might choose to come, should be allowed to settle in Rome on the same terms and under the same laws as the Romans themselves.</p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
-						         <cit n="VI">
+					       	<div n="VI" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM SUIDAS</bibl>
 							           <quote>
                      <p>The general, learning this fact from one of his personal friends, communicated it to Hostilius.</p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
-						         <cit n="VII">
+					       	<div n="VII" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM SUIDAS</bibl>
 							           <quote>
                      <p>Some blamed him [Tullus Hostilius] because he wrongly staked everything on the prowess of three men (the Horatii).</p>
                   </quote>
-						         </cit>
-						
-						         <cit n="VIII">
+						         </cit></div>
+					       						
+					       	<div n="VIII" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM SUIDAS</bibl>
 							           <quote>
                      <p>[The Romans thought] that peace might be made [by Tarquinius] on the terms that the Gabini considered just.</p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
-						         <cit n="IX">
+						         <div n="IX" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM THE ANONYMOUS GRAMMARIAN</bibl>
 							           <quote>
                      <p>[Tarquinius] bought three books [from the Sibyl] at the price [previously asked] for the nine.</p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
-						         <cit n="X">
+						         <div n="X" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM SUIDAS</bibl>
 							           <quote>
                      <p>Horatius [Cocles] was a cripple. He failed of reaching the consulship, either in war or in peace, on account of his lameness.</p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
-						         <cit n="XI">
+						         <div n="XI" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM SUIDAS</bibl>
 							           <quote>
                      <p>The Consuls tendered the oaths [by which they bound themselves], and said that they would yield everything rather than take back Tarquinius.
 								<note resp="HW" place="marg" anchored="true">Y.R. 250</note>
                      </p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
-						         <cit n="XII">
+						         <div n="XII" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM PEIRESC</bibl>
 							           <quote>
                      <p>Tarquinius incited the Sabines against the Roman people. <note resp="HW" place="marg" anchored="true">B.C. <date> when="-504"&gt;504</date>
                         </note> Claudius, an influential Sabine of the town of Regillus, opposed any violation of the treaty, and being condemned for this action, he took refuge in Rome with his relatives, friends, and slaves, to the number of five thousand. To all these the Romans gave a place of habitation, and land to cultivate, and the right of citizenship. Claudius, on account of his brilliant exploits against the Sabines, was chosen a member of the Senate, and the Claudian <foreign>gens</foreign> received its name from him.</p>
                   </quote>
-						         </cit>
+						         </cit></div>
 						
 						         <note resp="HW" place="marg" anchored="true">Y.R. 256</note>
                <note resp="HW" place="marg" anchored="true">B.C. <date> when="-498"&gt;498</date>
                </note>
-						         <cit n="XIII">
+						         <div n="XIII" type="textpart" subtype="fragment"><cit>
 							           <bibl>FROM SUIDAS</bibl>
 							           <quote>
                      <p>The Latins, although allied to the Romans by treaty, nevertheless made war against them. They accused the Romans of despising them, although they were allied to them, and of the same blood.</p>
                   </quote>
-						         </cit>
-						         <p>[Here follow, in the Teubner edition, four detached sentences, or parts of sentences, which, without their context, convey no meaning.]
-						</p>
+						         </cit></div>
+						         <div type="textpart" subtype="note"> <p>[Here follow, in the Teubner edition, four detached sentences, or parts of sentences, which, without their context, convey no meaning.]
+						</p></div>
 				        </div>
 				     </div>
       </body>
