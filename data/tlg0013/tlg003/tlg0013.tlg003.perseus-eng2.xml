@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader type="text">
       <fileDesc>
@@ -25,8 +29,6 @@
          </publicationStmt>
 
 
-
-
          <sourceDesc>
             <bibl>
                <author>Anonymous</author>
@@ -41,61 +43,51 @@
       </fileDesc>
 
       <encodingDesc>
-         <refsDecl n="CTS">
-            <cRefPattern n="card"
-                         matchPattern="(\\w+).(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
-                <p>This pointer pattern extracts hymn and card</p>
-            </cRefPattern>
-            <cRefPattern n="hymn"
-                         matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div[@n=\'$1\'])">
-                <p>This pointer pattern extracts hymn</p>
-            </cRefPattern>
+        <refsDecl n="CTS">
+          <cRefPattern n="line"
+            matchPattern="(\\w+)"
+            replacementPattern="#xpath(/tei:TEI/tei:text/tei:body//tei:l[@n=\'$1\'])">
+            <p>This pointer pattern extracts line</p>
+          </cRefPattern>
         </refsDecl>
-         <refsDecl>
-            <refState delim="." n="chunk" unit="hymn"/>
-            <refState unit="line"/>
-         </refsDecl>
-         <!--<refsDecl>
+        <refsDecl>
+          <refState unit="line"/>
+        </refsDecl>
+        <!--<refsDecl>
 	<refState n="chunk" unit="card"/>
       </refsDecl>-->
     </encodingDesc>
 
       <profileDesc>
          <langUsage>
-            <language ident="en">English</language>
-            <language ident="greek">Greek</language>
-            <language ident="xgreek">Transliterated Greek</language>
+            <language ident="eng">English</language>
+            <language ident="grc">Greek</language>
+            <!--<language ident="xgreek">Transliterated Greek</language>-->
          </langUsage>
       </profileDesc>
 
       <revisionDesc>
-      <!--
-      <change><date>1988</date>
-	<respStmt><resp>tagging</resp><name>Bill Merrill</name></respStmt>
-	<item>Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</item>
-      </change>
-      <change>
-	<date>8/93</date>
-	<respStmt><resp>ed.</resp><name>EM</name></respStmt>
-	<item>Go over text, check cardbreaks, and change tags to be more TEI conformant.</item>
-      </change>
-    <change><date>July 2014</date>
-    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
-    <item>split speeches and converted to unicode</item>
-      </change></change>-->
-      <change when="2014-10-01" who="Stella Dee">edited markup</change>
-      <change when="2015-12-11" who="Lisa Cerrato">fixing titles and headers</change>
+        <change when="1988-01-01" who="Bill Merrill">Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</change>
+        <change when="1993-08-01" who="EM">Go over text, check cardbreaks, and change tags to be more TEI conformant.</change>
+        <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
+        <change when="2014-08-01" who="Stella Dee">edited markup</change>
+        <change when="2015-12-11" who="Lisa Cerrato">fixing titles and headers</change>
+        <change when="2016-01-06" who="Lisa Cerrato">EpiDoc conversion and CTS related changes</change>
       </revisionDesc>
+    
+    
+    
+    
+    
+    
+    
 
   </teiHeader>
-  <text xml:lang="en" n="urn:cts:greekLit:tlg0013.tlg003.perseus-eng1">
+  <text xml:lang="eng">
       <body>
-         <milestone n="1" unit="card"/>
-         <div type="part">
-           <head>To Delian Apollo</head>
-           <l n="1"><milestone unit="Para" ed="P"/>I will remember and not be unmindful of Apollo who shoots afar. As he goes through
+        <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0013.tlg003.perseus-eng2">
+           <div type="textpart"><head>To Delian Apollo</head>
+           <milestone n="1" unit="card"/><l n="1"><milestone unit="Para" ed="P"/>I will remember and not be unmindful of Apollo who shoots afar. As he goes through
           the house of Zeus, the gods tremble before him and all spring up from their seats when he
           draws near, as he bends his bright bow. </l>
             <l n="5">But Leto alone stays by the side of Zeus who delights in thunder; and then she
@@ -107,7 +99,7 @@
           son and an archer. Rejoice, blessed Leto, for you bare glorious children, </l>
             <l n="15">the lord Apollo and Artemis who delights in arrows; her in Ortygia, and him in
           rocky <placeName key="perseus,Delos">Delos</placeName>, as you rested against the great
-          mass of the Cynthian hill hard by a palm-tree by the streams of Inopus. How, then, shall I
+              mass of the Cynthian hill hard by a palm-tree by the streams of Inopus. <milestone unit="Para" ed="P"/>How, then, shall I
           sing of you who in all ways are a worthy theme of song? </l>
             <l n="20">For everywhere, O Phoebus, the whole range of song is fallen to you, both over the
           mainland that rears heifers and over the isles. All mountain-peaks and high headlands of
@@ -116,7 +108,7 @@
             <l n="25">Shall I sing how at the first Leto bare you to be the joy of men, as she rested
           against Mount Cynthus in that rocky isle, in sea-girt <placeName key="perseus,Delos">Delos</placeName> —while on either hand a dark wave rolled on landwards driven by
           shrill winds —whence arising you rule over all mortal men? </l>
-            <l n="30">Among those who are in <placeName key="tgn,7012056">Crete</placeName>, and in the
+          <l n="30"><milestone unit="Para" ed="P"/>Among those who are in <placeName key="tgn,7012056">Crete</placeName>, and in the
           township of <placeName key="perseus,Athens">Athens</placeName>, and in the isle of
             <placeName key="tgn,7011087">Aegina</placeName> and <placeName key="tgn,7002677">Euboea</placeName>, famous for ships, in <placeName key="perseus,Aegae">Aegae</placeName> and Eiresiae and Peparethus near the sea, in Thracian Athos and
             <placeName key="tgn,4008379">Pelion</placeName>'s towering heights and Thracian Samos
@@ -132,16 +124,16 @@
           greatly trembled and feared, and none, not even the richest of them, dared receive
           Phoebus, </l>
             <l n="50">until queenly Leto set foot on <placeName key="perseus,Delos">Delos</placeName>
-          and uttered winged words and asked her: “<placeName key="perseus,Delos">Delos</placeName>,
+              and uttered winged words and asked her: <milestone unit="Para" ed="P"/><!-- <milestone type="startquote" -->“<placeName key="perseus,Delos">Delos</placeName>,
           if you would be willing to be the abode of my son Phoebus Apollo and make him a rich
           temple —; for no other will touch you, as you will find: and I think you will never be
           rich in oxen and sheep, </l>
             <l n="55">nor bear vintage nor yet produce plants abundantly. But if you have the temple of
           far-shooting Apollo, all men will bring you hecatombs and gather here, and incessant
           savour of rich sacrifice will always arise, and you will feed those who dwell in you </l>
-            <l n="60">from the hand of strangers; for truly your own soil is not rich.” So spake Leto.
+          <l n="60">from the hand of strangers; for truly your own soil is not rich.”<!-- <milestone type="endquote" --> <milestone unit="Para" ed="P"/>So spake Leto.
           And <placeName key="perseus,Delos">Delos</placeName> rejoiced and answered and said:
-          “Leto, most glorious daughter of great Coeus, joyfully would I receive your child the
+            <!-- <milestone type="startquote" -->“Leto, most glorious daughter of great Coeus, joyfully would I receive your child the
           far-shooting lord; for it is all too true that I am ill-spoken of </l>
             <l n="65">among men, whereas thus I should become very greatly honored. But this saying I
           fear, and I will not hide it from you, Leto. They say that Apollo will be one that is very
@@ -157,11 +149,11 @@
             <l n="80">that here first he will build a glorious temple to be an oracle for men, then let
           him afterwards </l>
             <l n="81a">make temples and wooded groves amongst all men; for surely he will be greatly
-          renowned. So said <placeName key="perseus,Delos">Delos</placeName>. And Leto swear the
-          great oath of the gods: “Now hear this, Earth and wide Heaven above, </l>
+              renowned.<!-- <milestone type="endquote" --> <milestone unit="Para" ed="P"/>So said <placeName key="perseus,Delos">Delos</placeName>. And Leto swear the
+              great oath of the gods: <!-- <milestone type="startquote" -->“Now hear this, Earth and wide Heaven above, </l>
             <l n="85">and dropping water of Styx (this is the strongest and most awful oath for the
           blessed gods), surely Phoebus shall have here his fragrant altar and precinct, and you he
-          shall honor above all.”<milestone n="89" unit="card"/> Now when Leto had sworn and ended
+          shall honor above all.”<!-- <milestone type="endquote" --><milestone n="89" unit="card"/> <milestone unit="Para" ed="P"/>Now when Leto had sworn and ended
           her oath, </l>
             <l n="90">
                <placeName key="perseus,Delos">Delos</placeName> was very glad at the birth of the
@@ -171,7 +163,7 @@
           white-armed Hera, who sat in the halls of cloud-gathering Zeus. Only Eilithyia, goddess of
           sore travail, had not heard of Leto's trouble, for she sat on the top of <placeName key="tgn,7011019">Olympus</placeName> beneath golden clouds by white-armed Hera's </l>
             <l n="100">contriving, who kept her close through envy, because Leto with the lovely tresses
-          was soon to bear a son faultless and strong. But the goddesses sent out Iris from the
+              was soon to bear a son faultless and strong. <milestone unit="Para" ed="P"/>But the goddesses sent out Iris from the
           well-set isle to bring Eilithyia, promising her a great necklace strung with golden
           threads, nine cubits long. </l>
             <l n="105">And they bade Iris call her aside from white-armed Hera, lest she might
@@ -181,26 +173,26 @@
             <l n="110">and forthwith called Eilithyia out from the hall to the door and spoke winged
           words to her, telling her all as the goddesses who dwell on <placeName key="tgn,7011019">Olympus</placeName> had bidden her. So she moved the heart of Eilithyia in her dear
           breast; and they went their way, like shy wild-doves in their going. </l>
-            <l n="115">And as soon as Eilithyia the goddess of sore travail set foot on <placeName key="perseus,Delos">Delos</placeName>, the pains of birth seized Leto, and she longed to
+          <l n="115"><milestone unit="Para" ed="P"/>And as soon as Eilithyia the goddess of sore travail set foot on <placeName key="perseus,Delos">Delos</placeName>, the pains of birth seized Leto, and she longed to
           bring forth; so she cast her arms about a palm tree and kneeled on the soft meadow while
           the earth laughed for joy beneath. Then the child leaped forth to the light, and all the
           goddesses raised a cry. </l>
             <l n="120">Straightway, great Phoebus, the goddesses washed you purely and cleanly with
           sweet water, and swathed you in a white garment of fine texture, new-woven, and fastened a
-          golden band about you. Now Leto did not give Apollo, bearer of the golden blade, her
+          golden band about you. <milestone unit="Para" ed="P"/>Now Leto did not give Apollo, bearer of the golden blade, her
           breast; but Themis duly poured nectar and ambrosia </l>
             <l n="125">with her divine hands: and Leto was glad because she had borne a strong son and
           an archer. But as soon as you had tasted that divine heavenly food, O Phoebus, you could
           no longer then be held by golden cords nor confined with bands, but all their ends were
           undone. </l>
-            <l n="130">Forth-with Phoebus Apollo spoke out among the deathless goddesses:<milestone n="131" unit="card"/> “The lyre and the curved bow shall ever be dear to me, and I will
-          declare to men the unfailing will of Zeus.” So said Phoebus, the long-haired god who
+          <l n="130">Forth-with Phoebus Apollo spoke out among the deathless goddesses:<milestone n="131" unit="card"/><milestone unit="Para" ed="P"/><!-- <milestone type="startquote"> -->“The lyre and the curved bow shall ever be dear to me, and I will
+            declare to men the unfailing will of Zeus.”<!-- <milestone type="endquote"> --> <milestone unit="Para" ed="P"/>So said Phoebus, the long-haired god who
           shoots afar and began to walk upon the wide-pathed earth; </l>
-            <l n="135">and all the goddesses were amazed at him. Then with gold all <placeName key="perseus,Delos">Delos</placeName> [was laden, beholding the child of Zeus and Leto,
+             <l n="135">and all the goddesses were amazed at him. Then with gold all <placeName key="perseus,Delos">Delos</placeName> [<surplus reason="intrusive">was laden, beholding the child of Zeus and Leto,
           for joy because the god chose her above the islands and shore to make his dwelling in her:
-          and she loved him yet more in her heart.] blossomed as does a mountain-top with woodland
+          and she loved him yet more in her heart.</surplus>] blossomed as does a mountain-top with woodland
           flowers. </l>
-            <l n="140">And you, O lord Apollo, god of the silver bow, shooting afar, now walked on
+          <l n="140"><milestone unit="Para" ed="P"/>And you, O lord Apollo, god of the silver bow, shooting afar, now walked on
           craggy Cynthus, and now kept wandering about the islands and the people in them. Many are
           your temples and wooded groves, and all peaks and towering bluffs </l>
             <l n="145">of lofty mountains and rivers flowing to the sea are dear to you, Phoebus, yet in
@@ -217,26 +209,28 @@
             <l n="160">they sing a strain telling of men and women of past days, and charm the tribes of
           men. Also they can imitate the tongues of all men and their clattering speech: each would
           say that he himself were singing, so close to truth is their sweet song. </l>
-            <l n="165">And now may Apollo be favorable and Artemis; and farewell all you maidens.
+          <l n="165"><milestone unit="Para" ed="P"/>And now may Apollo be favorable and Artemis; and farewell all you maidens.
           Remember me in after time whenever any one of men on earth, a stranger who has seen and
-          suffered much, comes here and asks of you: “Whom think ye, girls, is the sweetest singer
-          that comes here, and in whom do you most delight?” </l>
-            <l n="170">Then answer, each and all, with one voice: “He is a blind man, and dwells in
-          rocky <placeName key="tgn,7002670">Chios</placeName>: his lays are evermore supreme.” As
+          suffered much, comes here and asks of you: <!-- <milestone type="startquote"> -->“Whom think ye, girls, is the sweetest singer
+            that comes here, and in whom do you most delight?”<!-- <milestone type="endquote"> --> </l>
+          <l n="170">Then answer, each and all, with one voice: <!-- <milestone type="startquote"> -->“He is a blind man, and dwells in
+            rocky <placeName key="tgn,7002670">Chios</placeName>: his lays are evermore supreme.”<!-- <milestone type="endquote"> --> As
           for me, I will carry your renown as far as I roam over the earth </l>
             <l n="175">to the well-placed cities of man, and they will believe also; for indeed this
           thing is true. And I will never cease to praise far-shooting Apollo, god of the silver
-          bow, whom rich-haired Leto bare.</l>
-         </div>
-         <milestone n="179" unit="card"/>
-         <div type="part">
-            <head>To Pythian Apollo</head>
-            <l n="1">O Lord, <placeName key="tgn,7001294">Lycia</placeName> is yours and lovely
+          bow, whom rich-haired Leto bare.</l></div>
+
+          
+           
+          
+<div type="textpart">
+<head>To Pythian Apollo</head>
+            <milestone n="179" unit="card"/><milestone unit="Para" ed="P"/><l n="1">O Lord, <placeName key="tgn,7001294">Lycia</placeName> is yours and lovely
             <placeName key="tgn,7016631">Maeonia</placeName>
             </l>
             <l n="180">and <placeName key="perseus,Miletus">Miletus</placeName>, charming city by the
           sea, but over wave-girt <placeName key="perseus,Delos">Delos</placeName> you greatly reign
-          your own self. Leto's all-glorious son goes to rocky <placeName key="tgn,7010770">Pytho</placeName>, playing upon his hollow lyre, clad in divine, perfumed garments; and
+              your own self. <milestone unit="Para" ed="P"/>Leto's all-glorious son goes to rocky <placeName key="tgn,7010770">Pytho</placeName>, playing upon his hollow lyre, clad in divine, perfumed garments; and
           his lyre,</l>
             <l n="185">at the touch of the golden key, sings sweet. Thence, swift as thought, he speeds
           from earth to <placeName key="tgn,7011019">Olympus</placeName>, to the house of Zeus, to
@@ -253,11 +247,11 @@
           lyre stepping high and featly and a radiance shines around him, the gleaming of his feet
           and close-woven vest. And they, </l>
             <l n="205">even gold-tressed Leto and wise Zeus, rejoice in their great hearts as they watch
-          their dear son playing among the undying gods. How then shall I sing of you —though in all
+              their dear son playing among the undying gods. <milestone unit="Para" ed="P"/>How then shall I sing of you —though in all
           ways you are a worthy theme for song? Shall I sing of you as wooer and in the fields of
           love, how you went wooing the daughter of Azan </l>
             <l n="210">along with god-like Ischys the son of well-horsed Elatius, or with Phorbas sprung
-          from Triops, or with Ereutheus, or with Leucippus and the wife of Leucippus<gap/>you on
+          from Triops, or with Ereutheus, or with Leucippus and the wife of Leucippus<gap reason="lost"/>you on
           foot, he with his chariot, yet he fell not short of Triops. Or shall I sing how at the
           first </l>
             <l n="215">you went about the earth seeking a place of oracle for men, O far-shooting
@@ -268,7 +262,7 @@
           up the green, holy hills, going on to Mycalessus and grassy-bedded Teumessus,<milestone n="225" unit="card"/>
             </l>
             <l n="225">and so came to the wood-clad abode of Thebe; for as yet no man lived in holy
-          Thebe, nor were there tracks or ways about Thebe's wheat-bearing plain as yet. And further
+              Thebe, nor were there tracks or ways about Thebe's wheat-bearing plain as yet. <milestone unit="Para" ed="P"/>And further
           still you went, O far-shooting Apollo, </l>
             <l n="230">and came to Onchestus, Poseidon's bright grove: there the new-broken colt
           distressed with drawing the trim chariot gets spirit again, and the skilled driver springs
@@ -277,20 +271,20 @@
             <l n="235">and if they break the chariot in the woody grove, men look after the horses, but
           tilt the chariot and leave it there; for this was the rite from the very first. And the
           drivers pray to the lord of the shrine; but the chariot falls to the lot of the god.
-          Further yet you went, O far-shooting Apollo, </l>
+              <milestone unit="Para" ed="P"/>Further yet you went, O far-shooting Apollo, </l>
             <l n="240">and reached next Cephissus' sweet stream which pours forth its sweet-flowing
           water from Lilaea, and crossing over it, O worker from afar, you passed many-towered
-          Ocalea and reached grassy Haliartus. Then you went towards Telphusa: and there the
+          Ocalea and reached grassy Haliartus. <milestone unit="Para" ed="P"/>Then you went towards Telphusa: and there the
           pleasant place seemed fit for </l>
-            <l n="245">making a temple and wooded grove. You came very near and spoke to her: “Telphusa,
+            <l n="245">making a temple and wooded grove. You came very near and spoke to her: <!-- <milestone type="startquote"> -->“Telphusa,
           here I am minded to make a glorious temple, an oracle for men, and hither they will always
           bring perfect hecatombs, </l>
             <l n="250">both those who live in rich <placeName key="tgn,7017076">Peloponnesus</placeName>
           and those of <placeName key="tgn,1000003">Europe</placeName> and all the wave-washed
           isles, coming to seek oracles. And I will deliver to them all counsel that cannot fail,
-          giving answer in my rich temple.” So said Phoebus Apollo, and laid out all the foundations </l>
+          giving answer in my rich temple.”<!-- <milestone type="endquote"> --> <milestone unit="Para" ed="P"/>So said Phoebus Apollo, and laid out all the foundations </l>
             <l n="255">throughout, wide and very long. But when Telphusa saw this, she was angry in
-          heart and spoke, saying: “Lord Phoebus, worker from afar, I will speak a word of counsel
+              heart and spoke, saying: <!-- <milestone type="startquote"> -->“Lord Phoebus, worker from afar, I will speak a word of counsel
           to your heart, since you are minded to make here a glorious temple to be an oracle for men
           who will always </l>
             <l n="260">bring hither perfect hecatombs for you; yet I will speak out, and do you lay up
@@ -304,26 +298,26 @@
             <l n="270">there no bright chariot will clash, and there will be no noise of swift-footed
           horses near your well-built altar. But so the glorious tribes of men will bring gifts to
           you as Iepaeon (‘Hail-Healer’), and you will receive with delight rich sacrifices from the
-          people dwelling round about.” </l>
+          people dwelling round about.”<!-- <milestone type="endquote"> --> </l>
             <l n="275">So said Telphusa, that she alone, and not the Far-Shooter, should have renown
-          there; and she persuaded the Far-Shooter. Further yet you went, far-shooting Apollo, until
+              there; and she persuaded the Far-Shooter. <milestone unit="Para" ed="P"/>Further yet you went, far-shooting Apollo, until
           you came to the town of the presumptuous Phlegyae who dwell on this earth </l>
             <l n="280">in a lovely glade near the Cephisian lake, caring not for Zeus. And thence you
           went speeding swiftly to the mountain ridge, and came to <placeName key="tgn,7018211">Crisa</placeName> beneath snowy <placeName key="tgn,7011022">Parnassus</placeName>, a
           foothill turned towards the west: a cliff hangs over it from above, and a hollow, rugged
           glade runs under.</l>
             <l n="285">There the lord Phoebus Apollo resolved to make his lovely temple, and thus he
-          said: “In this place I am minded to build a glorious temple to be an oracle for men, and
+              said: <milestone unit="Para" ed="P"/><!-- <milestone type="startquote"> -->“In this place I am minded to build a glorious temple to be an oracle for men, and
           here they will always bring perfect hecatombs, </l>
             <l n="290">both they who dwell in rich <placeName key="tgn,7017076">Peloponnesus</placeName>
           and the men of <placeName key="tgn,1000003">Europe</placeName> and from all the
           wave-washed isles, coming to question me. And I will deliver to them all counsel that
-          cannot fail, answering them in my rich temple.” When he had said this, Phoebus Apollo laid
+          cannot fail, answering them in my rich temple.”<!-- <milestone type="endquote"> --> <milestone unit="Para" ed="P"/>When he had said this, Phoebus Apollo laid
           out all the foundations </l>
             <l n="295">throughout, wide and very long; and upon these the sons of Erginus, Trophonius
           and Agamedes, dear to the deathless gods, laid a footing of stone. And the countless
           tribes of men built the whole temple of wrought stones, to be sung of for ever. </l>
-            <l n="300">But near by was a sweet flowing spring, and there with his strong bow the lord,
+            <l n="300"><milestone unit="Para" ed="P"/>But near by was a sweet flowing spring, and there with his strong bow the lord,
           the son of Zeus, killed the bloated, great she-dragon, a fierce monster wont to do great
           mischief to men upon earth, to men themselves and to their thin-shanked sheep; for she was
           a very bloody plague.<milestone n="305" unit="card"/>
@@ -332,7 +326,7 @@
           Typhaon to be a plague to men. Once on a time Hera bare him because she was angry with
           father Zeus, when the Son of Cronos bare all-glorious Athena in his head. Thereupon
           queenly Hera was angry </l>
-            <l n="310">and spoke thus among the assembled gods: “Hear from me, all gods and goddesses,
+  <l n="310">and spoke thus among the assembled gods: <milestone unit="Para" ed="P"/><!-- <milestone type="startquote"> -->“Hear from me, all gods and goddesses,
           how cloud-gathering Zeus begins to dishonor me wantonly, when he has made me his
           true-hearted wife. See now, apart from me he has given birth to bright-eyed Athena </l>
             <l n="315">who is foremost among all the blessed gods. But my son Hephaestus whom I bare </l>
@@ -348,14 +342,14 @@
           contrive that a son be born me to be foremost among the undying gods —and that without
           casting shame on the holy bond of wedlock between you and me. </l>
             <l n="330">And I will not come to your bed, but will consort with the blessed gods far off
-          from you.” When she had so spoken, she went apart from the gods, being very angry. Then
+              from you.”<!-- <milestone type="endquote"> --> <milestone unit="Para" ed="P"/>When she had so spoken, she went apart from the gods, being very angry. Then
           straightway large-eyed queenly Hera prayed, striking the ground flatwise with her hand,
           and speaking thus: </l>
-            <l n="335">“Hear now, I pray, Earth and wide Heaven above and you Titan gods who dwell
+  <l n="335"><milestone unit="Para" ed="P"/><!-- <milestone type="startquote"> -->“Hear now, I pray, Earth and wide Heaven above and you Titan gods who dwell
           beneath the earth about great Tartarus, and from whom are sprung both gods and men! Harken
           you now to me, one and all, and grant that I may bear a child apart from Zeus, no wit
           lesser than him in strength —nay, let him be as much stronger than Zeus as all-seeing Zeus
-          than Cronos.” </l>
+          than Cronos.”<!-- <milestone type="endquote"> --> </l>
             <l n="340">Thus she cried and lashed the earth with her strong hand. Then the life-giving
           earth was moved: and when Hera saw it she was glad in heart, for she thought her prayer
           would be fulfilled. And thereafter she never came to the bed of wise Zeus for a full year, </l>
@@ -372,23 +366,23 @@
           lay drawing great gasps for breath and rolling about that place. </l>
             <l n="360">An awful noise swelled up unspeakable as she writhed continually this way and
           that amid the wood: and so she left her life, breathing it forth in blood. Then Phoebus
-          Apollo boasted over her: “Now rot here upon the soil that feeds man' You at least shall
+          Apollo boasted over her: <milestone unit="Para" ed="P"/><!-- <milestone type="startquote"> -->“Now rot here upon the soil that feeds man' You at least shall
           live no more to be a fell bane to men </l>
             <l n="365">who eat the fruit of the all-nourishing earth, and who will bring hither perfect
           hecatombs. Against cruel death neither Typhoeus shall avail you nor ill-famed Chimera, but
-          here shall the Earth and shining Hyperion make you rot.” </l>
-            <l n="370">Thus said Phoebus, exulting over her: and darkness covered her eyes. And the holy
+          here shall the Earth and shining Hyperion make you rot.”<!-- <milestone type="endquote"> --> </l>
+            <l n="370"><milestone unit="Para" ed="P"/>Thus said Phoebus, exulting over her: and darkness covered her eyes. And the holy
           strength of Helios made her rot away there; wherefore the place is now called <placeName key="tgn,7010770">Pytho</placeName>, and men call the lord Apollo by another name,
           Pythian; because on that spot the power of piercing Helios made the monster rot away. </l>
-            <l n="375">Then Phoebus Apollo saw that the sweet-flowing spring had beguiled him, and he
+            <l n="375"><milestone unit="Para" ed="P"/>Then Phoebus Apollo saw that the sweet-flowing spring had beguiled him, and he
           started out in anger against Telphusa; and soon coming to her, he stood close by and spoke
-          to her: “Telphusa, you were not, after all, to keep to yourself this lovely place by
+          to her: <milestone unit="Para" ed="P"/><!-- <milestone type="startquote"> -->“Telphusa, you were not, after all, to keep to yourself this lovely place by
           deceiving my mind, </l>
             <l n="380">and pour forth your clear flowing water: here my renown shall also be and not
-          yours alone?” Thus spoke the lord, far-working Apollo, and pushed over upon her a crag
+              yours alone?”<!-- <milestone type="endquote"> --><milestone unit="Para" ed="P"/>Thus spoke the lord, far-working Apollo, and pushed over upon her a crag
           with a shower of rocks, hiding her streams: and he made himself an altar in a wooded grove </l>
             <l n="385">very near the clear-flowing stream. In that place all men pray to the great one
-          by the name Telphusian, because he humbled the stream of holy Telphusa. Then Phoebus
+              by the name Telphusian, because he humbled the stream of holy Telphusa. <milestone unit="Para" ed="P"/>Then Phoebus
           Apollo pondered in his heart what men he should bring in</l>
             <l n="390">to be his ministers in sacrifice and to serve him in rocky <placeName key="tgn,7010770">Pytho</placeName>. And while he considered this, he became aware of a
           swift ship upon the wine-like sea in which were many men and goodly, Cretans from
@@ -434,7 +428,7 @@
           again to voyage back towards the dawn and the sun: and the lord Apollo, son of Zeus, led
           them on until they reached far-seen <placeName key="tgn,7018211">Crisa</placeName>, land
           of vines, and into haven: there the sea-coursing ship grounded on the sands. </l>
-            <l n="440">Then, like a star at noonday, the lord, far-working Apollo, leaped from the ship:
+            <l n="440"><milestone unit="Para" ed="P"/>Then, like a star at noonday, the lord, far-working Apollo, leaped from the ship:
           flashes of fire flew from him thick and their brightness reached to heaven. He entered
           into his shrine between priceless tripods, <milestone n="444" unit="card"/>and there made
           a flame to flare up bright, showing forth the splendor of his shafts, so that their
@@ -444,16 +438,16 @@
           cast great fear upon them all. From his shrine he sprang forth again, swift as a thought,
           to speed again to the ship, bearing the form of a man, brisk and sturdy, </l>
             <l n="450">in the prime of his youth, while his broad shoulders were covered with his hair:
-          and he spoke to the Cretans, uttering winged words: “Strangers, who are you? Whence come
+              and he spoke to the Cretans, uttering winged words: <milestone unit="Para" ed="P"/><!-- <milestone type="startquote"> -->“Strangers, who are you? Whence come
           you sailing along the paths of the sea? Are you for traffic, or do you wander at random
           over the sea as pirates do who put </l>
             <l n="455">their own lives to hazard and bring mischief to men of foreign parts as they
           roam? Why rest you so and are afraid, and do not go ashore nor stow the gear of your black
           ship? For that is the custom of men who live by bread, whenever they come to land in their
           dark ships from the main, </l>
-            <l n="460">spent with toil: at once desire for sweet food catches them about the heart.” So
+  <l n="460">spent with toil: at once desire for sweet food catches them about the heart.”<!-- <milestone type="endquote"> --><milestone unit="Para" ed="P"/>So
           speaking, he put courage in their hearts, and the master of the Cretans answered him and
-          said: “Stranger —though you are nothing like mortal men </l>
+          said: <!-- <milestone type="startquote"> -->“Stranger —though you are nothing like mortal men </l>
             <l n="465">in shape or stature, but are as the deathless gods —hail and all happiness to
           you, and may the gods give you good. Now tell me truly that I may surely know it: what
           country is this, and what land, and what men live herein? As for us, with thoughts set
@@ -461,8 +455,8 @@
             <l n="470">to <placeName key="perseus,Pylos">Pylos</placeName> from <placeName key="tgn,7012056">Crete</placeName> (for from there we declare that we are sprung), but
           now are come on shipboard to this place by no means willingly —another way and other paths
           —and gladly would we return. But one of the deathless gods brought us here against our
-          will.” Then far-working Apollo answered them and said: </l>
-            <l n="475">“Strangers who once dwelt about wooded <placeName key="tgn,7010870">Cnossos</placeName> but now shall return no more each to his loved city and fair house
+          will.”<!-- <milestone type="endquote"> --> <milestone unit="Para" ed="P"/>Then far-working Apollo answered them and said: </l>
+  <l n="475"><!-- <milestone type="startquote"> -->“Strangers who once dwelt about wooded <placeName key="tgn,7010870">Cnossos</placeName> but now shall return no more each to his loved city and fair house
           and dear wife; here shall you keep my rich temple that is honored by many men. </l>
             <l n="480">I am the son of Zeus; Apollo is my name: but you I brought here over the wide
           gulf of the sea, meaning you no hurt; nay, here you shall keep my rich temple that is
@@ -480,7 +474,7 @@
             ii. <date>1124</date>.</note> for ever. Afterwards, sup beside your dark ship and pour
           an offering to the blessed gods who dwell on <placeName key="tgn,7011019">Olympus</placeName>. But when you have put away craving for sweet food, </l>
             <l n="500">come with me singing the hymn Ie Paean (Hail, Healer!), until you come to the
-          place where you shall keep my rich temple.” So said Apollo. And they readily harkened to
+              place where you shall keep my rich temple.”<!-- <milestone type="endquote"> --> <milestone unit="Para" ed="P"/>So said Apollo. And they readily harkened to
           him and obeyed him. First they unfastened the sheets and let down the sail and lowered the
           mast by the forestays upon the mast-rest. </l>
             <l n="505">Then, landing upon the beach of the sea, they hauled up the ship from the water
@@ -496,12 +490,12 @@
           those in whose hearts the heavenly Muse has put sweet-voiced song. </l>
             <l n="520">With tireless feet they approached the ridge and straightway came to <placeName key="tgn,7011022">Parnassus</placeName> and the lovely place where they were to dwell
           honored by many men. There Apollo brought them and showed them his most holy sanctuary and
-          rich temple. But their spirit was stirred in their dear breasts, </l>
-            <l n="525">and the master of the Cretans asked him, saying: “Lord, since you have brought us
+          rich temple. <milestone unit="Para" ed="P"/>But their spirit was stirred in their dear breasts, </l>
+  <l n="525">and the master of the Cretans asked him, saying: <milestone unit="Para" ed="P"/><!-- <milestone type="startquote"> -->“Lord, since you have brought us
           here far from our dear ones and our fatherland, —for so it seemed good to your heart,—tell
           us now how we shall live. That we would know of you. This land is not to be desired either
           for vineyards or for pastures </l>
-            <l n="530">so that we can live well thereon and also minister to men.”<milestone n="531" unit="card"/> Then Apollo, the son of Zeus, smiled upon them and said: “Foolish mortals
+  <l n="530">so that we can live well thereon and also minister to men.”<!-- <milestone type="endquote"> --><milestone n="531" unit="card"/> <milestone unit="Para" ed="P"/>Then Apollo, the son of Zeus, smiled upon them and said: <!-- <milestone type="startquote"> -->“Foolish mortals
           and poor drudges are you, that you seek cares and hard toils and straits! Easily will I
           tell you a word and set it in your hearts. </l>
             <l n="535">Though each one of you with knife in hand should slaughter sheep continually, yet
@@ -512,10 +506,10 @@
             <l n="539b">But if any shall be disobedient and pay no heed to my warning, </l>
             <l n="540">or if there shall be any idle word or deed and outrage as is common among mortal
           men, then other men shall be your masters and with a strong hand shall make you subject
-          for ever. All has been told you: do you keep it in your heart.” </l>
-            <l n="545">And so, farewell, son of Zeus and Leto; but I will remember you and another hymn
-          also. </l>
-         </div>
+          for ever. All has been told you: do you keep it in your heart.”<!-- <milestone type="endquote"> --> </l>
+            <l n="545"><milestone unit="Para" ed="P"/>And so, farewell, son of Zeus and Leto; but I will remember you and another hymn
+          also. </l></div>
+        </div>
       </body>
   </text>
 </TEI>
