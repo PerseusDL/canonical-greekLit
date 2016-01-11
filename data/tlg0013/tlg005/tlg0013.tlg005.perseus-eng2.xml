@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader type="text">
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">  <teiHeader type="text">
       <fileDesc>
          <titleStmt>
             <title>Hymn 5 To Aphrodite</title>
@@ -40,59 +43,49 @@
       </fileDesc>
 
       <encodingDesc>
-         <refsDecl n="CTS">
-            <cRefPattern n="card"
-                         matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div[@n=\'$1\'])">
-                <p>This pointer pattern extracts card</p>
-            </cRefPattern>
-        </refsDecl>
-         <refsDecl>
-            <refState delim="." n="chunk" unit="hymn"/>
-            <refState unit="line"/>
-         </refsDecl>
-         <!--<refsDecl>
+       <refsDecl n="CTS">
+        <cRefPattern n="line"
+         matchPattern="(\\w+)"
+         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body//tei:l[@n=\'$1\'])">
+         <p>This pointer pattern extracts line</p>
+        </cRefPattern>
+       </refsDecl>
+       <refsDecl>
+        <refState unit="line"/>
+       </refsDecl>
+       <!--<refsDecl>
 	<refState n="chunk" unit="card"/>
-      </refsDecl>-->
-    </encodingDesc>
+      </refsDecl>-->    </encodingDesc>
 
       <profileDesc>
          <langUsage>
-            <language ident="en">English</language>
-            <language ident="greek">Greek</language>
-            <language ident="xgreek">Transliterated Greek</language>
+            <language ident="eng">English</language>
+            <language ident="grc">Greek</language>
+            <!--<language ident="xgreek">Transliterated Greek</language>-->
          </langUsage>
       </profileDesc>
 
       <revisionDesc>
-      <!--
-      <change><date>1988</date>
-	<respStmt><resp>tagging</resp><name>Bill Merrill</name></respStmt>
-	<item>Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</item>
-      </change>
-      <change>
-	<date>8/93</date>
-	<respStmt><resp>ed.</resp><name>EM</name></respStmt>
-	<item>Go over text, check cardbreaks, and change tags to be more TEI conformant.</item>
-      </change>
-    <change><date>July 2014</date>
-    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
-    <item>split speeches and converted to unicode</item>
-      </change></change>-->
-      <change when="2014-10-01" who="Stella Dee">edited markup</change>
+       <change when="1988-01-01" who="Bill Merrill">Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</change>
+       <change when="1993-08-01" who="EM">Go over text, check cardbreaks, and change tags to be more TEI conformant.</change>
+       <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
+       <change when="2014-08-01" who="Stella Dee">edited markup</change>
        <change when="2015-12-11" who="Lisa Cerrato">fixing titles and headers</change>
-      </revisionDesc>
+       <change when="2016-01-11" who="Lisa Cerrato">EpiDoc conversion and CTS related changes</change>
+</revisionDesc>
 
   </teiHeader>
-  <text xml:lang="en" n="urn:cts:greekLit:tlg0013.tlg005.perseus-eng1">
+ 
+  <text xml:lang="eng">
       <body>
+       <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0013.tlg005.perseus-eng2">
        <head>To Aphrodite</head>
          <milestone n="1" unit="card"/>
        <l n="1"><milestone unit="Para" ed="P"/>Muse, tell me the deeds of golden Aphrodite the Cyprian, who stirs up sweet passion
         in the gods and subdues the tribes of mortal men and birds that fly in air and all the many
         creatures </l>
          <l n="5">that the dry land rears, and all that the sea: all these love the deeds of
-        rich-crowned Cytherea. Yet there are three hearts that she cannot bend nor yet ensnare.
+          rich-crowned Cytherea. <milestone unit="Para" ed="P"/>Yet there are three hearts that she cannot bend nor yet ensnare.
         First is the daughter of Zeus who holds the aegis, bright-eyed Athena; for she has no
         pleasure in the deeds of golden Aphrodite, </l>
          <l n="10">but delights in wars and in the work of Ares, in strifes and battles and in
@@ -115,7 +108,7 @@
         an high honor instead of marriage, </l>
          <l n="30">and she has her place in the midst of the house and has the richest portion. In all
         the temples of the gods she has a share of honor, and among all mortal men she is chief of
-        the goddesses.<milestone ed="P" n="33" unit="card"/> Of these three Aphrodite cannot bend or
+        the goddesses.<milestone ed="P" n="33" unit="card"/> <milestone unit="Para" ed="P"/>Of these three Aphrodite cannot bend or
         ensnare the hearts. But of all others there is nothing </l>
          <l n="35">among the blessed gods or among mortal men that has escaped Aphrodite. Even the
         heart of Zeus, who delights in thunder, is led astray by her; though he is greatest of all
@@ -124,11 +117,11 @@
          <l n="40">unknown to Hera, his sister and his wife, the grandest far in beauty among the
         deathless goddesses —most glorious is she whom wily Cronos with her mother Rhea did beget:
         and Zeus, whose wisdom is everlasting, made her his chaste and careful wife. </l>
-         <l n="45">But upon Aphrodite herself Zeus cast sweet desire to be joined in love with a mortal
+        <l n="45"><milestone unit="Para" ed="P"/>But upon Aphrodite herself Zeus cast sweet desire to be joined in love with a mortal
         man, to the end that, very soon, not even she should be innocent of a mortal's love; lest
         laughter-loving Aphrodite should one day softly smile and say mockingly among all the gods </l>
          <l n="50">that she had joined the gods in love with mortal women who bare sons of death to the
-        deathless gods, and had mated the goddesses with mortal men. And so he put in her heart
+          deathless gods, and had mated the goddesses with mortal men. <milestone unit="Para" ed="P"/>And so he put in her heart
         sweet desire for Anchises who at that time among the steep hills of many-fountained Ida </l>
          <l n="55">was tending cattle, and in shape was like the immortal gods. Therefore, when
         laughter-loving Aphrodite saw him, she loved him, and terribly desire seized her in her
@@ -145,7 +138,7 @@
         leopards, ravenous for deer: and she was glad in heart to see them, and put desire in their
         breasts, so that they all mated, two together, about the shadowy coombes.<milestone n="75" unit="card"/>
          </l>
-         <l n="75">But she herself came to the neat-built shelters, and him she found left quite alone
+        <l n="75"><milestone unit="Para" ed="P"/>But she herself came to the neat-built shelters, and him she found left quite alone
         in the homestead —the hero Anchises who was comely as the gods. All the others were
         following the herds over the grassy pastures, and he, left quite alone in the homestead, </l>
          <l n="80">was roaming hither and thither and playing thrillingly upon the lyre. And Aphrodite,
@@ -159,8 +152,8 @@
          <l n="90">over her tender breasts, a marvel to see. Also she wore twisted brooches and shining
         earrings in the form of flowers; </l>
          <l n="87">and round her soft throat were lovely necklaces. </l>
-         <l n="88"> And Anchises was seized with love, and said to her: </l>
-         <l n="91">“Hail, lady, whoever of the blessed ones you are that are come to this house,
+        <l n="88"><milestone unit="Para" ed="P"/>And Anchises was seized with love, and said to her: </l>
+        <l n="91"><!-- <milestone type="startquote"/> -->“Hail, lady, whoever of the blessed ones you are that are come to this house,
         whether Artemis, or Leto, or golden Aphrodite, or high-born Themis, or bright-eyed Athena. </l>
          <l n="95">Or, maybe, you are one of the Graces come hither, who bear the gods company and are
         called immortal, or else one of the Nymphs who haunt the pleasant woods, or of those who
@@ -170,8 +163,8 @@
         become a man very eminent among the Trojans, and give me strong offspring for the time to
         come. As for my own self, </l>
          <l n="105">let me live long and happily, seeing the light of the sun, and come to the
-        threshold of old age, a man prosperous among the people.”<milestone n="107" unit="card"/>
-        Thereupon Aphrodite the daughter of Zeus answered him: “Anchises, most glorious of all men
+          threshold of old age, a man prosperous among the people.”<!-- <milestone type="endquote"/> --><milestone n="107" unit="card"/><milestone unit="Para" ed="P"/>
+          Thereupon Aphrodite the daughter of Zeus answered him: <!-- <milestone type="startquote"/> -->“Anchises, most glorious of all men
         born on earth, know that I am no goddess: why do you liken me to the deathless ones? </l>
          <l n="110">Nay, I am but a mortal, and a woman was the mother that bare me. Otreus of famous
         name is my father, if so be you have heard of him, and he reigns over all <placeName key="tgn,7002613">Phrygia</placeName> rich in fortresses. But I know your speech well
@@ -196,18 +189,18 @@
         tell my father and my sorrowing mother; and they will send you gold in plenty and woven
         stuffs, many splendid gifts; </l>
          <l n="140">take these as bride-piece. So do, and then prepare the sweet marriage that is
-        honorable in the eyes of men and deathless gods.” When she had so spoken, the goddess put
+          honorable in the eyes of men and deathless gods.”<!-- <milestone type="endquote"/> --> <milestone unit="Para" ed="P"/>When she had so spoken, the goddess put
         sweet desire in his heart. And Anchises was seized with love, so that he opened his mouth
         and said:<milestone n="145" unit="card"/>
          </l>
-         <l n="145">“If you are a mortal and a woman was the mother who bare you, and Otreus of famous
+        <l n="145"><milestone unit="Para" ed="P"/><!-- <milestone type="startquote"/> -->“If you are a mortal and a woman was the mother who bare you, and Otreus of famous
         name is your father as you say, and if you are come here by the will of Hermes the immortal
         Guide, and are to be called my wife always, then neither god nor mortal man </l>
          <l n="150">shall here restrain me till I have lain with you in love right now; no, not even if
         far-shooting Apollo himself should launch grievous shafts from his silver bow. Willingly
         would I go down into the house of Hades, O lady, beautiful as the goddesses, once I had gone
-        up to your bed.” </l>
-         <l n="155">So speaking, he caught her by the hand. And laughter-loving Aphrodite, with face
+        up to your bed.”<!-- <milestone type="endquote"/> --> </l>
+        <l n="155"><milestone unit="Para" ed="P"/>So speaking, he caught her by the hand. And laughter-loving Aphrodite, with face
         turned away and lovely eyes downcast, crept to the well-spread couch which was already laid
         with soft coverings for the hero; and upon it lay skins of bears and deep-roaring lions </l>
          <l n="160">which he himself had slain in the high mountains. And when they had gone up upon
@@ -215,22 +208,22 @@
         and earrings and necklaces, and loosed her girdle and stripped off her bright garments </l>
          <l n="165">and laid them down upon a silver-studded seat. Then by the will of the gods and
         destiny he lay with her, a mortal man with an immortal goddess, not clearly knowing what he
-        did. But at the time when the herdsmen drive their oxen and hardy sheep back to the fold
+        did. <milestone unit="Para" ed="P"/>But at the time when the herdsmen drive their oxen and hardy sheep back to the fold
         from the flowery pastures, </l>
          <l n="170">even then Aphrodite poured soft sleep upon Anchises, but herself put on her rich
         raiment. And when the bright goddess had fully clothed herself, she stood by the couch, and
         her head reached to the well-hewn roof-tree; from her cheeks shone unearthly beauty </l>
          <l n="175">such as belongs to rich-crowned Cytherea. Then she aroused him from sleep and
-        opened her mouth and said:<milestone n="177" unit="card"/> “Up, son of Dardanus! —why sleep
-        you so heavily? —and consider whether I look as I did when first you saw me with your eyes.” </l>
-         <l n="180">“So she spake. And he awoke in a moment and obeyed her. But when he saw the neck
+          opened her mouth and said:<milestone n="177" unit="card"/><milestone unit="Para" ed="P"/><!-- <milestone type="startquote"/> -->“Up, son of Dardanus! —why sleep
+          you so heavily? —and consider whether I look as I did when first you saw me with your eyes.”<!-- <milestone type="endquote"/> --></l>
+        <l n="180"><milestone unit="Para" ed="P"/>So she spake. And he awoke in a moment and obeyed her. But when he saw the neck
         and lovely eyes of Aphrodite, he was afraid and turned his eyes aside another way, hiding
         his comely face with his cloak. Then he uttered winged words and entreated her: </l>
-         <l n="185">“So soon as ever I saw you with my eyes, goddess, I knew that you were divine; but
+        <l n="185"><milestone unit="Para" ed="P"/><!-- <milestone type="startquote"/> -->“So soon as ever I saw you with my eyes, goddess, I knew that you were divine; but
         you did not tell me truly. Yet by Zeus who holds the aegis I beseech you, leave me not to
         lead a palsied life among men, but have pity on me; </l>
-         <l n="190">for he who lies with a deathless goddess is no hale man afterwards.” Then Aphrodite
-        the daughter of Zeus answered him: “Anchises, most glorious of mortal men, take courage and
+        <l n="190">for he who lies with a deathless goddess is no hale man afterwards.”<!-- <milestone type="endquote"/> --><milestone unit="Para" ed="P"/>Then Aphrodite
+         the daughter of Zeus answered him: <!-- <milestone type="startquote"/> -->“Anchises, most glorious of mortal men, take courage and
         be not too fearful in your heart. You need fear no harm from me </l>
          <l n="195">nor from the other blessed ones, for you are dear to the gods: and you shall have a
         dear son who shall reign among the Trojans, and children's children after him, springing up
@@ -243,7 +236,7 @@
          <l n="200">yet are those of your race always the most like to gods of all mortal men in beauty
         and in stature.<note anchored="true" resp="ed">Aphrodite extenuates her disgrace by claiming
           that the race of Anchises is almost divine, as is shown in the persons of Ganymedes and
-          Tithonus.</note> Verily wise Zeus carried off golden-haired Ganymedes because of his
+          Tithonus.</note> <milestone unit="Para" ed="P"/>Verily wise Zeus carried off golden-haired Ganymedes because of his
         beauty, to be amongst the Deathless Ones and pour drink for the gods in the house of Zeus — </l>
          <l n="205">a wonder to see—,honored by all the immortals as he draws the red nectar from the
         golden bowl. But grief that could not be soothed filled the heart of Tros; for he knew not
@@ -254,7 +247,7 @@
         Guide, the slayer of Argus, told him all, and how his son would be deathless and unageing,
         even as the gods. </l>
          <l n="215">So when Tros heard these tidings from Zeus, he no longer kept mourning but rejoiced
-        in his heart and rode joyfully with his storm-footed horses.<milestone ed="P" n="218" unit="card"/> So also golden-throned Eos rapt away Tithonus who was of your race and like
+          in his heart and rode joyfully with his storm-footed horses.<milestone ed="P" n="218" unit="card"/><milestone unit="Para" ed="P"/>So also golden-throned Eos rapt away Tithonus who was of your race and like
         the deathless gods. </l>
          <l n="220">And she went to ask the dark-clouded Son of Cronos that he should be deathless and
         live eternally; and Zeus bowed his head to her prayer and fulfilled her desire. Too simple
@@ -268,13 +261,13 @@
         pressed full upon him, and he could not move nor lift his limbs, </l>
          <l n="235">this seemed to her in her heart the best counsel: she laid him in a room and put to
         the shining doors. There he babbles endlessly, and no more has strength at all, such as once
-        he had in his supple limbs. I would not have you be deathless among the deathless gods </l>
+        he had in his supple limbs. <milestone unit="Para" ed="P"/>I would not have you be deathless among the deathless gods </l>
          <l n="240">and live continually after such sort. Yet if you could live on such as now you are
         in look and in form, and be called my husband, sorrow would not then enfold my careful
         heart. But, as it is, harsh<note anchored="true" resp="ed">So Christ connecting the word
             with<foreign xml:lang="greek">w)mo/s</foreign>. L. and S. give=<foreign xml:lang="greek">dmoi=os</foreign>, “common to all.”</note> old age will soon enshroud you — </l>
          <l n="245">ruthless age which stands someday at the side of every man, deadly, wearying,
-        dreaded even by the gods.<milestone n="247" unit="card"/> And now because of you I shall
+          dreaded even by the gods.<milestone n="247" unit="card"/><milestone unit="Para" ed="P"/>And now because of you I shall
         have great shame among the deathless gods henceforth, continually. For until now they feared
         my jibes and the wiles by which, or soon or late, </l>
          <l n="250">I mated all the immortals with mortal women, making them all subject to my will.
@@ -304,10 +297,12 @@
          <l n="285">who inhabit this forest-clad hill. But if you tell all and foolishly boast that you
         lay with rich-crowned Aphrodite, Zeus will smite you in his anger with a smoking
         thunderbolt. Now I have told you all. Take heed: </l>
-         <l n="290">refrain and name me not, but have regard to the anger of the gods.” When the
-        goddess had so spoken, she soared up to windy heaven. Hail, goddess, queen of well-builded
+        <l n="290">refrain and name me not, but have regard to the anger of the gods.”<!-- <milestone type="endquote"/> --> <milestone unit="Para" ed="P"/>When the
+         goddess had so spoken, she soared up to windy heaven. <milestone unit="Para" ed="P"/>Hail, goddess, queen of well-builded
           <placeName key="tgn,1000112">Cyprus</placeName>! with you have I begun; now I will turn me
         to another hymn. </l>
+       </div>
       </body>
+
   </text>
 </TEI>
