@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader type="text">
     <fileDesc>
       <titleStmt>
-        <title>Hymn 30 To Earth the Mother of All</title>
+        <title>Hymn 30 To Earth</title>
         <title type="sub">Machine readable text</title>
         <editor role="translator">Hugh G. Evelyn-White</editor>
         <sponsor>Perseus Project, Tufts University</sponsor>
@@ -41,45 +45,42 @@
     </fileDesc>
 
     <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="line"
+          matchPattern="(\\w+)"
+          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body//tei:l[@n=\'$1\'])">
+          <p>This pointer pattern extracts line</p>
+        </cRefPattern>
+      </refsDecl>
       <refsDecl>
-        <refState delim="." n="chunk" unit="hymn"/>
         <refState unit="line"/>
       </refsDecl>
       <!--<refsDecl>
 	<refState n="chunk" unit="card"/>
       </refsDecl>-->
     </encodingDesc>
-
+    
     <profileDesc>
       <langUsage>
-        <language ident="en">English</language>
-        <language ident="greek">Greek</language>
-        <language ident="xgreek">Transliterated Greek</language>
+        <language ident="eng">English</language>
+        <language ident="grc">Greek</language>
+      <!--  <language ident="xgreek">Transliterated Greek</language> -->
       </langUsage>
     </profileDesc>
 
     <revisionDesc>
-      <!--
-      <change><date>1988</date>
-	<respStmt><resp>tagging</resp><name>Bill Merrill</name></respStmt>
-	<item>Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</item>
-      </change>
-      <change>
-	<date>8/93</date>
-	<respStmt><resp>ed.</resp><name>EM</name></respStmt>
-	<item>Go over text, check cardbreaks, and change tags to be more TEI conformant.</item>
-      </change>
-    <change><date>July 2014</date>
-    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
-    <item>split speeches and converted to unicode</item>
-      </change></change>-->
+      <change when="1988-01-01" who="Bill Merrill">Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</change>
+      <change when="1993-08-01" who="EM">Go over text, check cardbreaks, and change tags to be more TEI conformant.</change>
+      <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>  
       <change when="2014-10-01" who="Stella Dee">edited markup</change>
       <change when="2015-12-11" who="Lisa Cerrato">fixing titles and headers</change>
+      <change when="2016-01-15" who="Lisa Cerrato">EpiDoc conversion and CTS related changes</change>
     </revisionDesc>
 
   </teiHeader>
-  <text xml:lang="en">
+  <text xml:lang="eng">
     <body>
+      <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0013.tlg030.perseus-eng2">
       <head>To Earth the Mother of All</head>
       <milestone n="1" unit="card"/>
       <l n="1"><milestone unit="Para" ed="P"/>I will sing of well-founded Earth, mother of all, eldest of all beings. She feeds all
@@ -93,9 +94,10 @@
         their cities of fair women: great riches and wealth follow them: their sons exult with
         ever-fresh delight, and their daughters in flower-laden bands </l>
       <l n="15">play and skip merrily over the soft flowers of the field. Thus is it with those whom
-        you honor O holy goddess, bountiful spirit. Hail, Mother of the gods, wife of starry Heaven;
+        you honor O holy goddess, bountiful spirit. <milestone unit="Para" ed="P"/>Hail, Mother of the gods, wife of starry Heaven;
         freely bestow upon me for this my song substance that cheers the heart! And now I will
         remember you and another song also. </l>
+      </div>
     </body>
   </text>
 </TEI>
