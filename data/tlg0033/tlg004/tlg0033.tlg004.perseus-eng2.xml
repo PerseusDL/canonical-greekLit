@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader type="text">
         <fileDesc>
@@ -43,17 +44,25 @@
                     <p> professional data entry</p>
                 </correction>
             </editorialDecl>
-            <refsDecl>
-                <refState unit="book"/>
-                <refState unit="poem"/>
-                <refState unit="line"/>
+            <refsDecl n="CTS">
+                <cRefPattern n="line"
+                    matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:l[@n='$2'])">
+                    <p>This pointer pattern extracts poem and line</p>
+                </cRefPattern>
+                
+                <cRefPattern n="poem"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts poem</p>
+                </cRefPattern>
             </refsDecl>
         </encodingDesc>
         <profileDesc>
             <langUsage default="false">
-                <language ident="en">English</language>
-                <language ident="greek">Greek</language>
-                <language ident="latin">Latin</language>
+                <language ident="eng">English</language>
+                <language ident="grc">Greek</language>
+                <language ident="lat">Latin</language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
@@ -100,14 +109,15 @@
             </change>
         -->
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change when="2016-01-22" who="TDBuck">editied mark-up, CTS compatible</change>
         </revisionDesc>
     </teiHeader>
-    <text xml:lang="en">
+    <text xml:lang="eng">
         <body>
-            <div part="N" sample="complete" org="uniform" type="book" n="I.">
+            <div part="N" sample="complete" org="uniform" type="translation" n="urn:cts:greekLit:tlg0033.tlg004.perseus-eng2" xml:lang="eng">
                 <head>Isthmian Odes</head>
                 <p/>
-                <div part="N" sample="complete" org="uniform" type="poem" n="1">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="1">
                     <head>
                         <title>Isthmian 1</title>
                         <persName type="winner">For Herodotus of Thebes</persName>
@@ -151,7 +161,7 @@
                         their hair with wreaths from these contests they appeared beside the streams
                         of Dirce or near the Eurotas, <milestone unit="strophe" n="epode 2"/>
                     </l>
-                    <l n="30"> </l>
+                    
                     <l n="30"> the son of Iphicles, who was of the same city as the race of the Sown
                         Men, and the son of Tyndareus, dwelling among the Achaeans in his highland
                         home of Therapne. Farewell. But I, arraying with song Poseidon and the
@@ -159,7 +169,7 @@
                         honors of this man, the very famous fortune of his father Asopodorus
                             <milestone unit="strophe" n="str. 3"/>
                     </l>
-                    <l n="35"> </l>
+                    
                     <l n="35"> and of his ancestral land of Orchomenus, which received him from the
                         boundless sea when he was hard-pressed by shipwreck, in chilly misfortune.
                         But now once more his hereditary fortune has embarked him on </l>
@@ -204,7 +214,7 @@
                         hoards hidden wealth at home, and attacks others with mockery, he fails to
                         consider that he is giving up his soul to Hades without glory. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="2">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="2">
                     <head>
                         <title>Isthmian 2</title>
                         <persName type="winner">In memory of the victories of Xenocrates of
@@ -274,7 +284,7 @@
                     <l n="45"> or these songs. For I did not fashion them to stand idle. Give this
                         message, Nicasippus, when you come across my trusty friend. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="3">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="3">
                     <head>
                         <title>Isthmian 3</title>
                         <persName type="winner">For Melissus of Thebes</persName>
@@ -309,7 +319,7 @@
                         the whirling days of a man's lifetime change many things. Only the children
                         of the gods are unwounded. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="4">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="4">
                     <head>
                         <title>Isthmian 4</title>
                         <persName type="winner">For Melissus of Thebes</persName>
@@ -349,7 +359,7 @@
                         body shines, marvellous to see, like the morning-star among other stars.
                             <milestone unit="strophe" n="ant. 2"/>
                     </l>
-                    <l n="25"> </l>
+                    
                     <l n="25"> She proclaimed their chariot victorious on the high ground of Athens
                         and also in <placeName key="tgn,7011098">Sicyon</placeName> at the games of
                         Adrastus, and thus gave them leaves of song, like these, from the singers of
@@ -393,7 +403,7 @@
                         from roofing Poseidon's temple with the skulls of strangers, <milestone
                             unit="strophe" n="str. 4"/>
                     </l>
-                    <l n="55"> </l>
+                  
                     <l n="55"> Alcmena's son. He went to <placeName key="tgn,7011019"
                             >Olympus</placeName> , after he had explored all lands and the
                         high-cliffed hollow of the gray sea, and had tamed the straits for sailors.
@@ -418,7 +428,7 @@
                         Orseas. I will honor him together with Orseas in my victory-song, pouring
                         delightful grace on both. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="5">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="5">
                     <head>
                         <title>Isthmian 5</title>
                         <persName type="winner">For Phylacidas of Aegina</persName>
@@ -490,7 +500,7 @@
                         covered with the delicious honey of song. Let a man strive and contend
                             <milestone unit="strophe" n="epode 3"/>
                     </l>
-                    <l n="55"> </l>
+                    
                     <l n="55"> in the games when he has learned from the race of Cleonicus. The long
                         toil of their men is not hidden in blind darkness, nor has thought of the
                         expense fretted away their devotion to their hopes. I praise Pytheas also
@@ -499,7 +509,7 @@
                         blows, and with a mind to match. Take a garland for him, and bring him a
                         fillet of fine wool, and send along this winged new song. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="6">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="6">
                     <head>
                         <title>Isthmian 6</title>
                         <persName type="winner">For Phylacidas of Aegina</persName>
@@ -517,7 +527,7 @@
                         of honey-voiced songs to pour over Aegina in honor of Zeus Soter of Olympia.
                             <milestone unit="strophe" n="ant. 1"/>
                     </l>
-                    <l n="10"> </l>
+                    
                     <l n="10"> For if a man, rejoicing in expense and toil, achieves godly
                         excellence, and a divinity sows the seed of lovely fame in him, then he
                         already casts his anchor on the farthest shore of prosperity, since he is
@@ -543,7 +553,7 @@
                         Phlegrae, and he did not keep his hands off the deep-voiced bow-string, not
                             <milestone unit="strophe" n="ant. 2"/>
                     </l>
-                    <l n="35"> </l>
+                  
                     <l n="35"> Heracles. But when he came to summon the son of Aeacus to that
                         expedition, he found them feasting. Standing in a lion's skin, the strong
                         warrior, son of Amphitryon, was asked to pour the first libation of nectar
@@ -575,7 +585,7 @@
                         told in the Argive manner, very briefly. <milestone unit="strophe"
                             n="ant. 3"/>
                     </l>
-                    <l n="60"> </l>
+                  
                     <l n="60"> For those splendid boys and their uncle won three victories in the
                         pancratium—at the Isthmus, and others at Nemea with its fine trees, and they
                         brought to light a great share of praises. With the lovely dew of the Graces
@@ -595,7 +605,7 @@
                             resp="Svarlien">Memory</note> brought forth beside the fine-walled gates
                         of Cadmus. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="7">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="7">
                     <head>
                         <title>Isthmian 7</title>
                         <persName type="winner">For Strepsiades of Thebes</persName>
@@ -645,14 +655,14 @@
                         the warrior Meleager, emulating Hector and Amphiaraus, breathed out your
                         blossoming youth <milestone unit="strophe" n="str. 3"/>
                     </l>
-                    <l n="35"> </l>
+                   
                     <l n="35"> in the front ranks, where the best men sustained the strife of war at
                         the limit of their hopes. They endured unspeakable sorrow; but now the
                         holder of the earth has sent me calm after the storm. I shall sing entwining
                         my hair with garlands. May the envy of the immortals not disturb <milestone
                             unit="strophe" n="ant. 3"/>
                     </l>
-                    <l n="40"> </l>
+               
                     <l n="40"> whatever delight I pursue from day to day as I peacefully make my way
                         towards old age and the allotted span of my life. For we die all alike, but
                         our fates are diverse. If a man looks to things far away, he is too short to
@@ -665,7 +675,7 @@
                         golden hair, </l>
                     <l n="50"> a blossoming garland also from your contests at Pytho. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="8">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="8">
                     <head>
                         <title>Isthmian 8</title>
                         <persName type="winner">For Cleandros of Aegina</persName>
