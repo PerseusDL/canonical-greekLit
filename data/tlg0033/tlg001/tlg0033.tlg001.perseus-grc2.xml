@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader type="text">
         <fileDesc>
@@ -44,10 +45,17 @@
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
-            <refsDecl>
-                <refState unit="book"/>
-                <refState unit="poem"/>
-                <refState unit="line"/>
+            <refsDecl n="CTS">
+                <cRefPattern n="line"
+                    matchPattern="(\\w+).(\\w+)"
+                    replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']/tei:l[@n=\'$2\'])">
+                    <p>This pointer pattern extracts poem and line</p>
+                </cRefPattern>
+                <cRefPattern n="poem"
+                    matchPattern="(\\w+)"
+                    replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+                    <p>This pointer pattern extracts poem</p>
+                </cRefPattern>
             </refsDecl>
         </encodingDesc>
         <profileDesc>
@@ -102,13 +110,14 @@
             </change>
         -->
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change when="2016-01-22" who="TDBuck">editied mark-up, hookified</change>
         </revisionDesc>
     </teiHeader>
     <text xml:lang="grc">
         <body>
-            <div n="O." sample="complete" part="N" type="book" org="uniform">
+            <div n="cts:urn:greekLit:tlg0033.tlg001.perseus-grc2" sample="complete" part="N" type="edition" org="uniform">
                 <head xml:lang="en">ολψμπιαν οδες</head>
-                <div n="1" sample="complete" part="N" type="poem" org="uniform">
+                <div n="1" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 1</title>
                         <persName xml:lang="grc" type="winner">ΙΕΡΩΝΙ ΣΥΡΑΚΟΥΣΙΩι</persName>
@@ -290,7 +299,7 @@
                     <l n="115"> εἴη σέ τε τοῦτον ὑψοῦ χρόνον πατεῖν, ἐμέ τε τοσσάδε νικαφόροις </l>
                     <l> ὁμιλεῖν, πρόφαντον σοφίᾳ καθʼ Ἕλλανας ἐόντα παντᾷ. </l>
                 </div>
-                <div n="2" sample="complete" part="N" type="poem" org="uniform">
+                <div n="2" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 2</title>
                         <persName xml:lang="grc" type="winner">ΘΗΡΩΝΙ ΑΚΡΑΓΑΝΤΙΝΩι</persName>
@@ -456,7 +465,7 @@
                         ἔθηκεν </l>
                     <l n="100"> τίς ἂν φράσαι δύναιτο; </l>
                 </div>
-                <div n="3" sample="complete" part="N" type="poem" org="uniform">
+                <div n="3" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 3</title>
                         <persName xml:lang="grc" type="winner">ΘΗΡΩΝΙ ΑΚΡΑΓΑΝΤΙΝΩι</persName>
@@ -539,7 +548,7 @@
                     <l> οἴκοθεν Ἡρακλέος σταλᾶν. τὸ πόρσω δʼ ἔστι σοφοῖς ἄβατον </l>
                     <l n="45"> κἀσόφοις. οὔ νιν διώξω· κεινὸς εἴην. </l>
                 </div>
-                <div n="4" sample="complete" part="N" type="poem" org="uniform">
+                <div n="4" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 4</title>
                         <persName xml:lang="grc" type="winner">ΨΑΥΜΙΔΙ ΚΑΜΑΡΙΝΑΙΩι</persName>
@@ -593,7 +602,7 @@
                     <l><q type="unspecified"> ἐοικότα χρόνον. </q>
                     </l>
                 </div>
-                <div n="5" sample="complete" part="N" type="poem" org="uniform">
+                <div n="5" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 5</title>
                         <persName xml:lang="grc" type="winner">ΨΑΥΜΙΔΙ ΚΑΜΑΡΙΝΑΙΩι ΑΠΗΝΗ</persName>
@@ -653,7 +662,7 @@
                     <l> υἱῶν, Ψαῦμι, παρισταμένων. ὑγίεντα δʼ εἴ τις ὄλβον ἄρδει, </l>
                     <l> ἐξαρκέων κτεάτεσσι καὶ εὐλογίαν προστιθείς, μὴ ματεύσῃ θεὸς γενέσθαι. </l>
                 </div>
-                <div n="6" sample="complete" part="N" type="poem" org="uniform">
+                <div n="6" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 6</title>
                         <persName xml:lang="grc" type="winner">ΑΓΗΣΙΑι ΣΥΡΑΚΟΣΙΩι</persName>
@@ -830,7 +839,7 @@
                     <l> ἐκτὸς ἐόντα δίδοι, χρυσαλακάτοιο πόσις </l>
                     <l n="105"> Ἀμφιτρίτας, ἐμῶν δʼ ὕμνων ἄεξʼ εὐτερπὲς ἄνθος. </l>
                 </div>
-                <div n="7" sample="complete" part="N" type="poem" org="uniform">
+                <div n="7" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 7</title>
                         <persName xml:lang="grc" type="winner">ΔΙΑΓΟΡΑι ΡΟΔΙΩι</persName>
@@ -990,7 +999,7 @@
                     <l> θαλίας καὶ πόλις· ἐν δὲ μιᾷ μοίρᾳ χρόνου </l>
                     <l n="95"> ἄλλοτʼ ἀλλοῖαι διαιθύσσοισιν αὖραι. </l>
                 </div>
-                <div n="8" sample="complete" part="N" type="poem" org="uniform">
+                <div n="8" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 8</title>
                         <persName xml:lang="grc" type="winner">ΑΛΚΙΜΕΔΟΝΤΙ ΑΙΓΙΝΗΤΗι</persName>
@@ -1123,7 +1132,7 @@
                     <l> ἀλλʼ ἀπήμαντον ἄγων βίοτον </l>
                     <l> αὐτούς τʼ ἀέξοι καὶ πόλιν. </l>
                 </div>
-                <div n="9" sample="complete" part="N" type="poem" org="uniform">
+                <div n="9" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 9</title>
                         <persName xml:lang="grc" type="winner">ΕΦΑΡΜΟΣΤΩι ΟΠΟΥΝΤΙΩι</persName>
@@ -1290,7 +1299,7 @@
                     <l> εὔχειρα, δεξιόγυιον, ὁρῶντʼ ἀλκάν, </l>
                     <l> Αἰάντειόν τʼ ἐν δαιτὶ Ἰλιάδα νικῶν ἐπεστεφάνωσε βωμόν. </l>
                 </div>
-                <div n="10" sample="complete" part="N" type="poem" org="uniform">
+                <div n="10" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 10</title>
                         <persName xml:lang="grc" type="winner"> ΑΓΗΣΙΔΑΜΩι ΛΟΚΡΩι ΕΠΙΖΕΦΥΡΙΩι </persName>
@@ -1446,7 +1455,7 @@
                     <l> ὥρᾳ τε κεκραμένον, ἅ ποτε </l>
                     <l n="105"> ἀναιδέα Γανυμήδει μόρον ἄλαλκε σὺν Κυπρογενεῖ. </l>
                 </div>
-                <div n="11" sample="complete" part="N" type="poem" org="uniform">
+                <div n="11" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 11</title>
                         <persName xml:lang="grc" type="winner"> ΑΓΗΣΙΔΑΜΩι ΛΟΚΡΩι ΕΠΙΖΕΦΨΡΙΩι ΠΑΙΔΙ
@@ -1485,7 +1494,7 @@
                         <milestone ed="Steph" n="20" unit="line"/> ἐμφυὲς οὔτʼ αἴθων ἀλώπηξ </l>
                     <l> οὔτʼ ἐρίβρομοι λέοντες διαλλάξαντο ἦθος. </l>
                 </div>
-                <div n="12" sample="complete" part="N" type="poem" org="uniform">
+                <div n="12" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 12</title>
                         <persName xml:lang="grc" type="winner">ΕΡΓΟΤΕΛΕΙ ΙΜΕΡΑΙΩι</persName>
@@ -1521,7 +1530,7 @@
                     <l> καὶ δὶς ἐκ Πυθῶνος Ἰσθμοῖ τʼ, Ἐργότελες, </l>
                     <l> θερμὰ Νυμφᾶν λουτρὰ βαστάζεις, ὁμιλέων παρʼ οἰκείαις ἀρούραις. </l>
                 </div>
-                <div n="13" sample="complete" part="N" type="poem" org="uniform">
+                <div n="13" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 13</title>
                         <persName xml:lang="grc" type="winner">ΧΕΝΟΦΩΝΤΙ ΚΟΡΙΝΘΙΩι</persName>
@@ -1692,7 +1701,7 @@
                     <l> ἄνα, κούφοισιν ἐκνεῦσαι ποσίν· </l>
                     <l n="115"> Ζεῦ τέλειʼ, αἰδῶ δίδοι καὶ τύχαν τερπνῶν γλυκεῖαν. </l>
                 </div>
-                <div n="14" sample="complete" part="N" type="poem" org="uniform">
+                <div n="14" sample="complete" part="N" subtype="poem"  type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">ολψμπιαν 14</title>
                         <persName xml:lang="grc" type="winner">ΑΣΩΠΙΧΩι ΟΡΧΟΜΕΝΙΩι</persName>
