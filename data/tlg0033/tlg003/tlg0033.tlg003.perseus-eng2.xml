@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader type="text">
         <fileDesc>
@@ -43,17 +44,25 @@
                     <p> professional data entry</p>
                 </correction>
             </editorialDecl>
-            <refsDecl>
-                <refState unit="book"/>
-                <refState unit="poem"/>
-                <refState unit="line"/>
+            <refsDecl n="CTS">
+                <cRefPattern n="line"
+                    matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:l[@n='$2'])">
+                    <p>This pointer pattern extracts poem and line</p>
+                </cRefPattern>
+                
+                <cRefPattern n="poem"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts poem</p>
+                </cRefPattern>
             </refsDecl>
         </encodingDesc>
         <profileDesc>
             <langUsage default="false">
-                <language ident="en">English</language>
-                <language ident="greek">Greek</language>
-                <language ident="latin">Latin</language>
+                <language ident="eng">English</language>
+                <language ident="grc">Greek</language>
+                <language ident="lat">Latin</language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
@@ -100,14 +109,15 @@
             </change>
         -->
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change when="2016-01-22" who="TDBuck">editied mark-up, hookified</change>
         </revisionDesc>
     </teiHeader>
-    <text xml:lang="en">
+    <text xml:lang="eng">
         <body>
-            <div part="N" sample="complete" org="uniform" type="book" n="N.">
+            <div part="N" sample="complete" org="uniform" type="translation" n="urn:cts:greekLit:tlg0033.tlg003.perseus-eng2">
                 <head>Nemean Odes</head>
                 <p/>
-                <div part="N" sample="complete" org="uniform" type="poem" n="1">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="1">
                     <head>
                         <title>Nemean 1</title>
                         <persName type="winner">For Chromius of Aetna</persName>
@@ -132,7 +142,7 @@
                         he nodded assent with his flowing hair, that as the best land on the
                         fruitful earth <milestone unit="strophe" n="epode 1"/>
                     </l>
-                    <l n="15"> </l>
+                    
                     <l n="15"> he would make <placeName key="tgn,7003122">Sicily</placeName> fertile
                         and prosperous in her cities blossoming with wealth. And the son of Cronus
                         sent her a people enamored of bronze-armored battle, horsemen often wedded
@@ -187,7 +197,7 @@
                         his own trouble, but the heart recovers quickly from someone else's grief.
                             <milestone unit="strophe" n="str. 4"/>
                     </l>
-                    <l n="55"> </l>
+                    
                     <l n="55"> He stood, possessed by overwhelming astonishment and delight. For he
                         saw the supernatural courage and power of his son; the immortals had turned
                         the story of the messengers to falsehood for him. </l>
@@ -214,7 +224,7 @@
                                 xml:lang="grc">do/mon</foreign> . </note>
                     </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="2">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="2">
                     <head>
                         <title>Nemean 2</title>
                         <persName type="winner">For Timodemus of Acharnae</persName>
@@ -253,7 +263,7 @@
                         Timodemus' glorious homecoming. </l>
                     <l n="25"> Begin with a sweet-singing voice! </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="3">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="3">
                     <head>
                         <title>Nemean 3</title>
                         <persName type="winner">For Aristocleides of Aegina</persName>
@@ -297,7 +307,7 @@
                         consummate justice attends the precept, “praise the noble.” <milestone
                             unit="strophe" n="ant. 2"/>
                     </l>
-                    <l n="30"> </l>
+                    
                     <l n="30"> And no man should prefer to desire what is alien. Search at home; you
                         have won a suitable adornment for singing something sweet. Among old
                         examples of excellence is king Peleus, who rejoiced when he cut a matchless
@@ -362,7 +372,7 @@
                         draught of song accompanied by the Aeolian breathings of flutes, <milestone
                             unit="strophe" n="epode 4"/>
                     </l>
-                    <l n="80"> </l>
+                  
                     <l n="80"> although it is late. The eagle is swift among birds: he swoops down
                         from afar, and suddenly seizes with his talons his blood-stained quarry; but
                         chattering daws stay closer to the ground. By the grace of <placeName
@@ -372,7 +382,7 @@
                             >Epidaurus</placeName> and <placeName key="perseus,Megara"
                             >Megara</placeName> . </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="4">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="4">
                     <head>
                         <title>Nemean 4</title>
                         <persName type="winner">For Timasarchus of Aegina</persName>
@@ -409,7 +419,7 @@
                         when he came as a friend to friends, to the prosperous court of Heracles,
                             <milestone unit="strophe" n="str. 4"/>
                     </l>
-                    <l n="25"> </l>
+                 
                     <l n="25"> with whom once powerful Telamon destroyed <placeName
                             key="perseus,Troy">Troy</placeName> and the Meropes and the great and
                         terrible warrior Alcyoneus, but not before that giant had laid low, by
@@ -490,7 +500,7 @@
                     <l n="95"> with gentle thoughts towards noble men, but a rough adversary to his
                         opponents. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="5">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="5">
                     <head>
                         <title>Nemean 5</title>
                         <persName type="winner">For Pytheas of Aegina</persName>
@@ -530,7 +540,7 @@
                         Apollo, sweeping the seven-tongued lyre with a golden plectrum, <milestone
                             unit="strophe" n="ant. 2"/>
                     </l>
-                    <l n="25"> </l>
+                 
                     <l n="25"> led all types of strains. And the Muses began with a prelude to Zeus,
                         then sang first of divine Thetis and of Peleus; how Hippolyte, the opulent
                         daughter of Cretheus, wanted to trap him with deceit. With elaborate
@@ -573,7 +583,7 @@
                         the porch of Aeacus green garlands of flowers, in company with the
                         golden-haired Graces. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="6">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="6">
                     <head>
                         <title>Nemean 6</title>
                         <persName type="winner">For Alcimidas of Aegina</persName>
@@ -598,7 +608,7 @@
                         pursuing this ordinance of Zeus, has shown that he is a successful hunter in
                         the wrestling ring, <milestone unit="strophe" n="epode 1"/>
                     </l>
-                    <l n="15"> </l>
+              
                     <l n="15"> by planting his step in the tracks of his grandfather, his
                         blood-relative. For that man, an Olympic victor, was the first to bring
                         garlands from the Alpheus to the Aeacidae; and he had himself crowned five
@@ -664,7 +674,7 @@
                         speed to a dolphin that darts through the salt sea; he is the charioteer who
                         guided your hands and strength. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="7">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="7">
                     <head>
                         <title>Nemean 7</title>
                         <persName type="winner">For Sogenes of Aegina</persName>
@@ -715,7 +725,7 @@
                         the unswerving Zephyr conveyed in swift ships, to bring back the wife of
                         golden-haired Menelaus <milestone unit="strophe" n="ant. 2"/>
                     </l>
-                    <l n="30"> </l>
+                  
                     <l n="30"> from the city of Ilus. But the wave of Hades breaks over all alike;
                         it falls on the man who does not expect it, and on the one who does. There
                         is honor for those whose fame a god causes to grow luxuriant when they are
@@ -791,13 +801,13 @@
                         with coral, the lily she has stolen from beneath the ocean's dew. <milestone
                             unit="strophe" n="epode 4"/>
                     </l>
-                    <l n="80"> </l>
+              
                     <l n="80"> But in remembrance of Zeus and in honor of Nemea, whirl a far-famed
                         strain of song, softly. On this spot it is fitting to sing with a gentle
                         voice of the king of gods. For they say that he planted the seed of Aeacus,
                         received by the mother, <milestone unit="strophe" n="str. 5"/>
                     </l>
-                    <l n="85"> </l>
+               
                     <l n="85"> to be a city-ruler in my <note place="unspecified" anchored="true"
                             resp="Svarlien"> Reading with <placeName key="tgn,2114280"
                                 >Snell</placeName> and MSS <foreign xml:lang="grc">e)ma=|</foreign>
@@ -831,7 +841,7 @@
                     <l n="105"> is poverty of thought, like babbling “Corinth of Zeus” to children.
                     </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="8">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="8">
                     <head>
                         <title>Nemean 8</title>
                         <persName type="winner">For Deinias of Aegina</persName>
@@ -888,7 +898,7 @@
                         to the illustrious, and upholds the rotten glory of the obscure. <milestone
                             unit="strophe" n="str. 3"/>
                     </l>
-                    <l n="35"> </l>
+              
                     <l n="35"> May I never have such a nature, father Zeus; may I stick to the
                         simple paths of life, so that when I die I will not fasten a bad name to my
                         children. Some men pray for gold, others for boundless land; I pray to find
@@ -896,14 +906,14 @@
                         praising what is praiseworthy and casting blame on wrongdoers. <milestone
                             unit="strophe" n="ant. 3"/>
                     </l>
-                    <l n="40"> </l>
+           
                     <l n="40"> Excellence grows among skillful and just men up to the liquid air, as
                         a tree shoots up fed by fresh dew. The uses of friends are of all kinds;
                         those in times of toil are the highest, yet delight also seeks to set a
                         trustworthy pledge before the eyes. Megas, to bring your soul back to life
                         again <milestone unit="strophe" n="epode 3"/>
                     </l>
-                    <l n="45"> </l>
+                    
                     <l n="45"> is not possible for me. Empty hopes end in vain; but it is easy to
                         set up, for your fatherland and for the Chariads, a monument of the Muses in
                         honor of the twice illustrious feet of two men. I rejoice in letting fly a
@@ -911,7 +921,7 @@
                     <l n="50"> makes hardship painless. Truly, the song of victory existed long ago,
                         even before the quarrel arose between Adrastus and the race of Cadmus. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="9">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="9">
                     <head>
                         <title>Nemean 9</title>
                         <persName type="winner">For Chromius of Aetna</persName>
@@ -1016,7 +1026,7 @@
                         victory with my verses, </l>
                     <l n="55"> throwing my shaft nearest of all to the mark of the Muses. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="10">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="10">
                     <head>
                         <title>Nemean 10</title>
                         <persName type="winner">For Theaeus of Argos</persName>
@@ -1061,7 +1071,7 @@
                         son of Ulias, Theaeus, was victorious twice, and gained forgetfulness of
                         toils that were bravely borne. <milestone unit="strophe" n="ant. 2"/>
                     </l>
-                    <l n="25"> </l>
+               
                     <l n="25"> And he once was victor over the people of <placeName
                             key="tgn,1000074">Greece</placeName> at <placeName key="tgn,7010770"
                             >Pytho</placeName> ; and, going with good fortune, he won the crown at
@@ -1115,7 +1125,7 @@
                         very much for just men. Indeed, the race of the gods is trustworthy.
                             <milestone unit="strophe" n="str. 4"/>
                     </l>
-                    <l n="55"> </l>
+                    
                     <l n="55"> Changing places in alternation, the Dioscuri spend one day beside
                         their dear father Zeus, and the other beneath the depths of the earth in the
                         hollows of Therapne, each fulfilling an equal destiny, since Polydeuces
@@ -1161,7 +1171,7 @@
                             key="tgn,7011019">Olympus</placeName> yourself with me and with Athena
                         and Ares of the dark spear, <milestone unit="strophe" n="epode 5"/>
                     </l>
-                    <l n="85"> </l>
+                    
                     <l n="85"> you can have this lot. But if you strive to save your brother, and
                         intend to share everything equally with him, then you may breathe for half
                         the time below the earth, and for half the time in the golden homes of
@@ -1170,7 +1180,7 @@
                     <l n="90"> He opened the eye, and then released the voice of the bronze-clad
                         warrior, Castor. </l>
                 </div>
-                <div part="N" sample="complete" org="uniform" type="poem" n="11">
+                <div part="N" sample="complete" org="uniform" subtype="poem" type="textpart" n="11">
                     <head>
                         <title>Nemean 11</title>
                         <persName type="winner">For Aristagoras of Tenedos</persName>

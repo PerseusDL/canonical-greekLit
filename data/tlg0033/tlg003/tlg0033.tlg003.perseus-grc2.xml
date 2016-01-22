@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader type="text">
         <fileDesc>
@@ -44,16 +45,24 @@
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
-            <refsDecl>
-                <refState unit="book"/>
-                <refState unit="poem"/>
-                <refState unit="line"/>
+            <refsDecl n="CTS">
+                <cRefPattern n="line"
+                    matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:l[@n='$2'])">
+                    <p>This pointer pattern extracts poem and line</p>
+                </cRefPattern>
+                <cRefPattern n="poem"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts poem</p>
+                </cRefPattern>
+                
             </refsDecl>
         </encodingDesc>
         <profileDesc>
             <langUsage default="false">
-                <language ident="greek">Greek</language>
-                <language ident="en">English</language>
+                <language ident="grc">Greek</language>
+                <language ident="eng">English</language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
@@ -102,13 +111,14 @@
             </change>
         -->
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change when="2016-01-22" who="TDBuck">editied mark-up, hookified</change>
         </revisionDesc>
     </teiHeader>
     <text xml:lang="grc">
         <body>
-            <div n="N." sample="complete" part="N" type="book" org="uniform">
+            <div n="urn:cts:greekLit:tlg0033.tlg003.perseus-grc2" sample="complete" part="N" type="edition" org="uniform">
                 <head xml:lang="en">νεμεαν οδες</head>
-                <div n="1" sample="complete" part="N" type="poem" org="uniform">
+                <div n="1" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 1</title>
                         <persName xml:lang="grc" type="winner">ΧΡΟΜΙΩι ΑΙΤΝΑΙΩι</persName>
@@ -234,7 +244,7 @@
                         <milestone ed="Steph" n="110" unit="line"/> δαίσαντα, πὰρ Δὶ Κρονίδᾳ σεμνὸν
                         αἰνήσειν νόμον. </l>
                 </div>
-                <div n="2" sample="complete" part="N" type="poem" org="uniform">
+                <div n="2" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 2</title>
                         <persName xml:lang="grc" type="winner">ΤΙΜΟΔΗΜΩι ΑΧΑΡΝΕΙ</persName>
@@ -279,7 +289,7 @@
                     <l n="25">
                         <milestone ed="Steph" n="40" unit="line"/> ἁδυμελεῖ δʼ ἐξάρχετε φωνᾷ. </l>
                 </div>
-                <div n="3" sample="complete" part="N" type="poem" org="uniform">
+                <div n="3" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 3</title>
                         <persName xml:lang="grc" type="winner">ΑΡΙΣΤΟΚΛΕΙΔΗι ΑΙΓΙΝΗΤΗι</persName>
@@ -420,7 +430,7 @@
                     <l> τίν γε μέν, εὐθρόνου Κλεοῦς ἐθελοίσας, ἀεθλοφόρου λήματος ἕνεκεν </l>
                     <l> Νεμέας Ἐπιδαυρόθεν τʼ ἄπο καὶ Μεγάρων δέδορκεν φάος. </l>
                 </div>
-                <div n="4" sample="complete" part="N" type="poem" org="uniform">
+                <div n="4" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 4</title>
                         <persName xml:lang="grc" type="winner">ΤΙΜΑΣΑΡΧΩι ΑΙΓΙΝΗΤΗι</persName>
@@ -567,7 +577,7 @@
                     <l n="95"> μαλακὰ μὲν φρονέων ἐσλοῖς, </l>
                     <l> τραχὺς δὲ παλιγκότοις ἔφεδρος. </l>
                 </div>
-                <div n="5" sample="complete" part="N" type="poem" org="uniform">
+                <div n="5" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 5</title>
                         <persName xml:lang="grc" type="winner">ΠΥΘΕΑι ΑΙΓΙΝΗΤΗι</persName>
@@ -667,7 +677,7 @@
                     <l> ἀνθέων ποι <seg type="sling" part="N">άε</seg> ντα φέρε στεφανώματα σὺν
                         ξανθαῖς Χάρισσιν. </l>
                 </div>
-                <div n="6" sample="complete" part="N" type="poem" org="uniform">
+                <div n="6" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 6</title>
                         <persName xml:lang="grc" type="winner">ΑΛΚΙΜΙΔΗι ΑΙΓΙΝΗΤΗι</persName>
@@ -776,7 +786,7 @@
                         <milestone ed="Steph" n="110" unit="line"/> ἴσον εἴποιμι Μελησίαν, </l>
                     <l> χειρῶν τε καὶ ἰσχύος ἁνίοχον. </l>
                 </div>
-                <div n="7" sample="complete" part="N" type="poem" org="uniform">
+                <div n="7" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 7</title>
                         <persName xml:lang="grc" type="winner">ΣΩΓΕΝΕΙ ΑΙΓΙΝΗΤΗι</persName>
@@ -948,7 +958,7 @@
                             Κόρινθος.</q>
                     </l>
                 </div>
-                <div n="8" sample="complete" part="N" type="poem" org="uniform">
+                <div n="8" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 8</title>
                         <persName xml:lang="grc" type="winner">ΔΕΙΝΙΑι ΑΙΓΙΝΗΤΗι</persName>
@@ -1041,7 +1051,7 @@
                     <l n="50"> νώδυνον καί τις κάματον θῆκεν. ἦν γε μὰν ἐπικώμιος ὕμνος </l>
                     <l> δὴ πάλαι καὶ πρὶν γενέσθαι τὰν Ἀδράστου τάν τε Καδμείων ἔριν. </l>
                 </div>
-                <div n="9" sample="complete" part="N" type="poem" org="uniform">
+                <div n="9" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 9</title>
                         <persName xml:lang="grc" type="winner">ΧΡΟΜΙΩι ΑΙΤΝΑΙΩι</persName>
@@ -1153,7 +1163,7 @@
                         σὺν Χαρίτεσσιν, ὑπὲρ πολλῶν τε τιμαλφεῖν λόγοις </l>
                     <l n="55"> νίκαν, ἀκοντίζων σκοποῖʼ ἄγχιστα Μοισᾶν. </l>
                 </div>
-                <div n="10" sample="complete" part="N" type="poem" org="uniform">
+                <div n="10" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 10</title>
                         <persName xml:lang="grc" type="winner">ΘΕΑΙΩι ΑΡΓΕΙΩι</persName>
@@ -1323,7 +1333,7 @@
                         <milestone ed="Steph" n="170" unit="line"/> ἀνὰ δʼ ἔλυσεν μὲν ὀφθαλμόν,
                         ἔπειτα δὲ φωνὰν χαλκομίτρα Κάστορος. </l>
                 </div>
-                <div n="11" sample="complete" part="N" type="poem" org="uniform">
+                <div n="11" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
                     <head>
                         <title xml:lang="en">νεμεαν 11</title>
                         <persName xml:lang="grc" type="winner">ΑΡΙΣΤΑΓΟΡΑι ΤΕΝΕΔΙΩι</persName>
