@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader type="text">
     <fileDesc>
@@ -38,16 +39,22 @@
     </fileDesc>
 
     <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="section"
+          matchPattern="(\\w+)"
+          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+          <p>This pointer pattern extracts section</p>
+        </cRefPattern>
+      </refsDecl>
       <refsDecl>
-        <refState delim="." unit="speech"/>
         <refState n="chunk context" unit="section"/>
       </refsDecl>
     </encodingDesc>
-
+    
     <profileDesc>
       <langUsage>
-        <language ident="en">English </language>
-        <language ident="greek">Greek </language>
+        <language ident="eng">English </language>
+        <language ident="grc">Greek </language>
       </langUsage>
 
       <textClass xml:id="gen.epideictic">
@@ -179,11 +186,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
     <item>split speeches and converted to unicode</item>
       </change></change>-->
       <change when="2014-10-01" who="Stella Dee">edited markup</change>
+      <change when="2016-01-26" who="TDBuck">epidoc and CTS</change>
     </revisionDesc>
   </teiHeader>
   <text xml:lang="en">
     <body>
-      <div n="1" type="section">
+      <div type="translation" n="urn:cts:greekLit:tlg0010.tlg004.perseus-eng2" xml:lang="eng">
+      <div n="1" subtype="section" type="textpart"  >
         <p>
           <note anchored="true" resp="ed">It should be noted that we have only the second part of
             the speech, the eulogy of Alcibiades the elder; the first part must have presented the
@@ -194,37 +203,37 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           the Argive ambassadors and the others conversant with the facts testify. But in just this
           same fashion all are accustomed maliciously to accuse me. </p>
       </div>
-      <div n="2" type="section">
+      <div n="2" subtype="section" type="textpart"  >
         <p>For they obtain leave to bring actions against me on private complaints, but make their
           accusations on behalf of the interests of the state, and they spend more time in
           slandering my father than they do in informing you with respect to their sworn charges;
           and so great is their contempt of the law that they claim personal satisfaction from me
           for the wrongs which, as they say, you suffered at my father's hands. </p>
       </div>
-      <div n="3" type="section">
+      <div n="3" subtype="section" type="textpart"  >
         <p>But it is my opinion that charges involving the public interest have nothing to do with
           private suits; but as Teisias often reproaches me with my father's banishment, and is more
           zealous concerning your affairs than he is regarding his own, I must address my defense to
           these matters. Certainly I should be ashamed, if I were to seem to any of my
           fellow-citizens to have less concern for my father's good name than for my own peril. </p>
       </div>
-      <div n="4" type="section">
+      <div n="4" subtype="section" type="textpart"  >
         <p> Now so far as the older men are concerned, a brief statement could have sufficed: for
           they all know that the same men were responsible for the destruction of the democracy and
           for my father's exile; but for the benefit of the younger men, who have lived after the
           events and have often heard the slanderers, I will begin my exposition from an earlier
           time. </p>
       </div>
-      <div n="5" type="section">
+      <div n="5" subtype="section" type="textpart"  >
         <p> Now the persons who first plotted against the democracy and established the Four
             Hundred,<note anchored="true" resp="ed">The Revolution of the Four Hundred in <date
-              value="-411">411 B.C.</date> conducted the Athenian government for only a few
+              when="-0411">411 B.C.</date> conducted the Athenian government for only a few
             months.</note> inasmuch as my father, although he was repeatedly invited to join them
           would not do so, seeing that he was a vigorous opponent of their activities and a loyal
           supporter of the people, judged that they were powerless to upset the established order
           until he was removed out of their way. </p>
       </div>
-      <div n="6" type="section">
+      <div n="6" subtype="section" type="textpart"  >
         <p>And since they knew that in matters pertaining to the gods the city would be most enraged
           if any man should be shown to be violating the Mysteries,<note anchored="true" resp="ed"
             >The Eleusinian Mysteries were celebrated annually at Eleusis in Attica and were
@@ -236,17 +245,17 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             Pulytion,<note anchored="true" resp="ed">Cf. <bibl n="Andoc. 1.12">Andoc.
             1.12</bibl>.</note> had given a performance of the Mysteries. </p>
       </div>
-      <div n="7" type="section">
+      <div n="7" subtype="section" type="textpart"  >
         <p>The city was greatly excited by reason of the gravity of the charges, and a meeting of
           the Assembly was hastily called at which my father so clearly proved that the accusers
           were lying that the people would have been glad to punish them, and furthermore elected
           him general for the Sicilian expedition.<note anchored="true" resp="ed">The ill-fated
-            Sicilian Expedition, <dateRange from="-415" to="-413">415-413 B.C.</dateRange></note>
+            Sicilian Expedition, <date from="-0415" to="-0413">415-413 B.C.</date></note>
           Thereupon he sailed away, judging that he had been already cleared of their calumnies; but
           his accusers, having united the Council and having made the public speakers subservient to
           themselves, again revived the matter and suborned informers. </p>
       </div>
-      <div n="8" type="section">
+      <div n="8" subtype="section" type="textpart"  >
         <p>Why need I say more? They did not cease until they had recalled my father from the
           expedition and had put to death some of his friends and had banished others from the city.
           But when he had learned the power of his enemies and the misfortunes of his friends,
@@ -254,7 +263,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           him when he was in Athens but were for condemning him in his absence, not even in these
           circumstances did my father see fit to desert to the enemy; </p>
       </div>
-      <div n="9" type="section">
+      <div n="9" subtype="section" type="textpart"  >
         <p>on the contrary, even in exile he was so scrupulous to avoid injuring his city that he
           went to Argos and remained quietly there. But his enemies reached such a pitch of
           insolence that they persuaded you to banish him from Greece entirely, to inscribe his name
@@ -263,17 +272,17 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           everywhere hemmed him in, as he saw no other means of safety, was compelled at last to
           take refuge with the Lacedaemonians. </p>
       </div>
-      <div n="10" type="section">
+      <div n="10" subtype="section" type="textpart"  >
         <p> These are the actual facts; but such an excess of insolence have my father's enemies
           that they accuse him, who was exiled in so illegal a manner as if he had committed
           outrageous crimes, and try to ruin his reputation by saying that he caused the
           fortification of Decelea,<note anchored="true" resp="ed">Decelea was a fort on Mt. Parnes,
-            fourteen miles N.E. from Athens. The Lacedaemonians occupied it in <date value="-413"
+            fourteen miles N.E. from Athens. The Lacedaemonians occupied it in <date when="-0413"
               >413 B.C.</date> Cf. <bibl n="Lys. 14.30">Lys. 14.30</bibl>, and for the facts <bibl
               n="Thuc. 6.91.6">Thuc. 6.91.6</bibl>.</note> and the revolt of the islands, and that
           he became the enemy's counsellor. </p>
       </div>
-      <div n="11" type="section">
+      <div n="11" subtype="section" type="textpart"  >
         <p>And sometimes they pretend to despise him,<note anchored="true" resp="ed">Cf. <bibl
               n="Lys. 14">Lys. 14.35-38</bibl>.</note> saying that in no respect did he excel his
           contemporaries; yet at the present time they blame him for all that has happened and say
@@ -283,25 +292,25 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           him. Yet the most shocking thing that could happen would be this—if, while after his exile
           my father was recompensed, I, because he was exiled, should be penalized. </p>
       </div>
-      <div n="12" type="section">
+      <div n="12" subtype="section" type="textpart"  >
         <p> I think, however, that in justice he should obtain from you a full pardon; for you, when
           banished by the Thirty Tyrants,<note anchored="true" resp="ed">After the capture of Athens
-            by the Spartans in <date value="-404">404 B.C.</date> an oligarchy known as the Thirty
+            by the Spartans in <date when="-0404">404 B.C.</date> an oligarchy known as the Thirty
             Tyrants was established. The cruelty of their government caused many of the democratic
             party to go into exile. Led by Thrasybulus these exiles were restored when the Thirty
-            were overthrown in <date value="-403">403 B.C.</date></note> experienced the same
+            were overthrown in <date when="-0403">403 B.C.</date></note> experienced the same
           misfortunes as he. Wherefore you should reflect how each of you was affected, what
           thoughts you each had, and what peril each would not have undergone so as to bring his own
           banishment to an end and to return to his native land, and to be avenged on those who
           banished him. </p>
       </div>
-      <div n="13" type="section">
+      <div n="13" subtype="section" type="textpart"  >
         <p>To what city, or friend, or stranger did you not apply, to entreat them to help you to
           get back to your country? From what effort did you abstain in your endeavors to be
           restored? Did you not seize the Piraeus and destroy the crops in the fields and harry the
           land and set fire to the suburbs and finally assault the walls? </p>
       </div>
-      <div n="14" type="section">
+      <div n="14" subtype="section" type="textpart"  >
         <p>And so vehemently did you believe that these actions were justifiable that you were more
           indignant with those of your fellow-exiles who were inactive than with those who had been
           the authors of your misfortunes. It is not fair, therefore, to censure those who wanted
@@ -311,18 +320,18 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           you, in judging what sort of citizen my father was, should begin at the time when he had
           no art in the city's affairs; </p>
       </div>
-      <div n="15" type="section">
+      <div n="15" subtype="section" type="textpart"  >
         <p>on the contrary, you should look to that earlier time and observe how he served the
           people before his exile, and call to mind that with two hundred heavy-armed soldiers he
           caused the most powerful cities in the Peloponnesus to revolt from the
-            Lacedaemonians,<note anchored="true" resp="ed"><date value="-419">419 B.C.</date> Cf.
+            Lacedaemonians,<note anchored="true" resp="ed"><date when="-0419">419 B.C.</date> Cf.
               <bibl n="Thuc. 5.52.2">Thuc. 5.52.2</bibl>.</note> and brought them into alliance with
           you, and in what perils he involved the Lacedaemonians themselves, and how he behaved as
           general in Sicily. For these services he is deserving of your gratitude; but for that
           which happened when he was in misfortune it is those who banished him whom you would
           justly hold responsible. </p>
       </div>
-      <div n="16" type="section">
+      <div n="16" subtype="section" type="textpart"  >
         <p> Remember, too, I beg you, the many benefits he conferred upon the city after his return
           from exile, and, even before that time, the state of affairs here when you received him
           back: the democracy had been overthrown,<note anchored="true" resp="ed">By the Revolution
@@ -330,7 +339,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           disaffected toward the government established here, and both parties had reached such a
           state of madness that neither had any hope of salvation. </p>
       </div>
-      <div n="17" type="section">
+      <div n="17" subtype="section" type="textpart"  >
         <p>For the one party<note anchored="true" resp="ed">the Athenian army and fleet, sympathetic
             the the democracy, were at the island of Samos (<bibl n="Thuc. 8.82">Thuc. 8.82</bibl>
             and <bibl n="Thuc. 8.86">Thuc. 8.86</bibl>).</note> regarded those who were in
@@ -340,7 +349,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           its enemies rather than to give a share in the rights of citizenship to those who were
           fighting for the city. </p>
       </div>
-      <div n="18" type="section">
+      <div n="18" subtype="section" type="textpart"  >
         <p>Such was the state of mind of the citizens: the enemy was in control of land and sea;
           your financial resources were exhausted, while the Persian king was supplying them with
           funds; furthermore, ninety ships had come from Phoenicia<note anchored="true" resp="ed"
@@ -349,7 +358,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             was situated on the river Eurymedon.</note> and were prepared to aid the Lacedaemonians.
           By so many misfortunes and such perils was the city beset </p>
       </div>
-      <div n="19" type="section">
+      <div n="19" subtype="section" type="textpart"  >
         <p>when the army summoned my father, and he did not treat them with disdain in their plight,
           nor did he rebuke them for the past, nor did he deliberate about the future; on the
           contrary, he chose at once to suffer any misfortune with his country rather than to enjoy
@@ -357,45 +366,45 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           those who had banished him and not on you, and that his heart was set on a return to
           Athens and not on her ruin. </p>
       </div>
-      <div n="20" type="section">
+      <div n="20" subtype="section" type="textpart"  >
         <p>Having thrown in his lot with you, he persuaded Tissaphernes<note anchored="true"
-            resp="ed">Persian satrap of western Asia Minor from <date value="-414">414
+            resp="ed">Persian satrap of western Asia Minor from <date when="-0414">414
             B.C.</date></note> not to furnish the Lacedaemonians with money, checked the defection
           of your allies, distributed pay from his own resources to the soldiers, restored political
           power to the people, reconciled the citizens, and turned back the Phoenician fleet. </p>
       </div>
-      <div n="21" type="section">
+      <div n="21" subtype="section" type="textpart"  >
         <p>As to his later services, it would be an arduous task to enumerate them one by one—all
           the ships of war that he subsequently captured, or the battles that he won, or the cities
           he took by storm or by persuasion made your friends. But although innumerable dangers
           beset the city at that time, never did the enemy erect a trophy of victory over you while
           my father was your leader. </p>
       </div>
-      <div n="22" type="section">
+      <div n="22" subtype="section" type="textpart"  >
         <p> I am aware that I am omitting many of my father's exploits as your general; I have not
           recounted them in detail because nearly all of you recall the facts. But my father's
           private life they revile with excessive indecency and audacity, and they are not ashamed,
           now that he is dead, to use a license of speech concerning him which they would have
           feared to employ while he lived. </p>
       </div>
-      <div n="23" type="section">
+      <div n="23" subtype="section" type="textpart"  >
         <p>Nay, they have come to such a pitch of folly that they think they will win repute with
           both you and with the world at large if they indulge in the wildest possible abuse of him;
           as if all did not know that it is in the power of the vilest of men to abuse with
           insulting words, not only the best of men, but even the gods. </p>
       </div>
-      <div n="24" type="section">
+      <div n="24" subtype="section" type="textpart"  >
         <p>Perhaps it is foolish for me to take to heart all that has been said; nevertheless, I
           desire very much to recount to you my father's private pursuits, going back a little to
           make mention of his ancestors, that you may know that from early times our standing and
           services have been the greatest and most honorable among the citizens of Athens. </p>
       </div>
-      <div n="25" type="section">
+      <div n="25" subtype="section" type="textpart"  >
         <p> My father on the male side belonged to the Eupatrids,<note anchored="true" resp="ed">The
             Eupatrids (sons of noble sires) were the nobles, or patricians, in Athens of the early
             time.</note> whose noble birth is apparent from the very name. On the female side he was
           of the Alcmeonidae,<note anchored="true" resp="ed">Descendants of Alcmeon, one of the
-            greatest families in early Athens, expelled from the city in <date value="-595">595
+            greatest families in early Athens, expelled from the city in <date when="-0595">595
               B.C.</date></note> who left behind a glorious memorial of their wealth; for
             Alcmeon<note anchored="true" resp="ed">Son of Megacles.</note> was the first Athenian to
           win at Olympia with a team of horses, and the goodwill which they had toward the people
@@ -405,10 +414,10 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           they refused to share his tyranny; on the contrary, they preferred exile rather than to
           see their fellow-citizens enslaved. </p>
       </div>
-      <div n="26" type="section">
+      <div n="26" subtype="section" type="textpart"  >
         <p>And during the forty years<note anchored="true" resp="ed">Roughly speaking the period of
-            the rule of Pisistratus and his sons, <dateRange from="-560" to="-510">560-510
-              B.C.</dateRange></note> of civic discord the Alcmeonidae were hated so much more
+            the rule of Pisistratus and his sons, <date from="-0560" to="-0510">560-510
+              B.C.</date></note> of civic discord the Alcmeonidae were hated so much more
           bitterly than all other Athenians by the tyrants that whenever the tyrants had the upper
           hand they not only razed their dwellings, but even dug up their tombs<note anchored="true"
             resp="ed">Cf. <bibl n="Hdt. 5.71">Hdt. 5.71</bibl>.</note>; and so completely were the
@@ -419,10 +428,10 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           father's maternal great-grandfather—assuming the leadership of those in exile, restored
           the people to their country, and drove out the tyrants. </p>
       </div>
-      <div n="27" type="section">
+      <div n="27" subtype="section" type="textpart"  >
         <p>And they established that democratic form of government which so effectively trained the
           citizens in bravery that single-handed they conquered in battle<note anchored="true"
-            resp="ed">Marathon, <date value="-490">490 B.C.</date></note> the barbarians who had
+            resp="ed">Marathon, <date when="-0490">490 B.C.</date></note> the barbarians who had
           attacked all Greece and they won so great renown for justice that the Greeks voluntarily
           put in their hands the dominion of the sea; and they made Athens so great in her power and
           her other resources that those who allege that she is the capital of Greece<note
@@ -430,18 +439,18 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           habitually apply to her similar exaggerated expressions appear to be speaking the truth.
         </p>
       </div>
-      <div n="28" type="section">
+      <div n="28" subtype="section" type="textpart"  >
         <p> Now this friendship with the people, which was, as I have shown, so ancient, genuine,
           and based upon services of the greatest importance, my father inherited from his
           ancestors. My father himself was left an orphan (for his father<note anchored="true"
             resp="ed">Cleinias.</note> died in battle at Coronea<note anchored="true" resp="ed">A
-            town in Boeotia where the Athenians were defeated by the Boeotians in <date value="-466"
+            town in Boeotia where the Athenians were defeated by the Boeotians in <date when="-0466"
               >466 B.C.</date></note>) and became the ward of Pericles, whom all would acknowledge
           to have been the most moderate, the most just, and the wisest of the citizens. For I count
           this also among his blessings that, being of such origin, he was fostered, reared, and
           educated under the guardianship of a man of such character. </p>
       </div>
-      <div n="29" type="section">
+      <div n="29" subtype="section" type="textpart"  >
         <p>When he was admitted to citizenship, he showed himself not inferior to those whom I have
           mentioned, nor did he think it fitting that he should lead a life of ease, pluming himself
           upon the brave deeds of his ancestors; on the contrary, from the beginning he was so fired
@@ -449,20 +458,20 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           through his own. And first of all, when Phormio<note anchored="true" resp="ed">A famous
             Athenian general.</note> led a thousand of the flower of Athenian soldiers to
             Thrace,<note anchored="true" resp="ed">Expedition to recover the city of Potidaea in
-              <date value="-439">439 B.C.</date> Thucydides (<bibl n="Thuc. 1.64.2">Thuc.
+              <date when="-0439">439 B.C.</date> Thucydides (<bibl n="Thuc. 1.64.2">Thuc.
               1.64.2</bibl>) speaks of 1600 hoplites. Cf. <bibl n="Plat. Sym. 220">Plat. Sym.
               220</bibl> for the award of valor given to Alcibiades.</note> my father served with
           this expedition, and so distinguished himself in the perilous actions of the campaign that
           he was crowned and received a full suit of armour from his general. </p>
       </div>
-      <div n="30" type="section">
+      <div n="30" subtype="section" type="textpart"  >
         <p>Really what is required of the man who is thought worthy of the highest praise? Should he
           not, when serving with the bravest of the citizens, be thought worthy of the prize of
           valor, and when leading an army against the best of the Greeks in all the battles show his
           superiority to them? My father, then, in his youth did win that prize of valor and in
           later life did achieve the latter. </p>
       </div>
-      <div n="31" type="section">
+      <div n="31" subtype="section" type="textpart"  >
         <p> After this he married my mother<note anchored="true" resp="ed">Hipparet.</note>; and I
           believe that in her he also won a glorious prize of valor. For her father was
             Hipponicus,<note anchored="true" resp="ed">Son of Callias, noted for his wealth.</note>
@@ -472,7 +481,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           thought themselves worthy, it was my father whom Hipponicus chose from among them all and
           desired to make his son-in-law. </p>
       </div>
-      <div n="32" type="section">
+      <div n="32" subtype="section" type="textpart"  >
         <p> About the same time my father, seeing that the festival assembly at Olympia was beloved
           and admired by the whole world and that in it the Greeks made display of their wealth,
           strength of body, and training, and that not only the athletes were the objects of envy
@@ -481,7 +490,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           fellow-citizens, of the person who renders them, expenditures in the Olympian Festival,
           however, enhance the city's reputation throughout all Greece, </p>
       </div>
-      <div n="33" type="section">
+      <div n="33" subtype="section" type="textpart"  >
         <p>reflecting upon these things, I say, although in natural gifts and in strength of body he
           was inferior to none, he disdained the gymnastic contests, for he knew that some of the
           athletes were of low birth, inhabitants of petty states, and of mean education, but turned
@@ -489,7 +498,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           not to be pursued by one of low estate, and not only did he surpass his rivals, but also
           all who had ever before won the victory. </p>
       </div>
-      <div n="34" type="section">
+      <div n="34" subtype="section" type="textpart"  >
         <p>For he entered a larger number of teams in competition than even the mightiest cities had
           done, and they were of such excellence that he came out first, second, and third.<note
             anchored="true" resp="ed">Cf. <bibl n="Thuc. 6.16.2">Thuc. 6.16.2</bibl> and <bibl
@@ -512,7 +521,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           in his own day had been victors to be no longer objects of emulation, and to future
           breeders of racing-steeds he left behind no possibility of surpassing him. </p>
       </div>
-      <div n="35" type="section">
+      <div n="35" subtype="section" type="textpart"  >
         <p>With regard to my father's services here in Athens as choregus and gymnasiarch and
             trierarch<note anchored="true" resp="ed">These public services (referred to in <bibl
               n="Isoc. 16.32">Isoc. 16.32</bibl>) were the liturgies , discharged by the wealthier
@@ -524,7 +533,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           anyone should on my father's behalf ask for a vote of thanks even in recognition of
           services as great as his, he would seem to be talking about petty things. </p>
       </div>
-      <div n="36" type="section">
+      <div n="36" subtype="section" type="textpart"  >
         <p> As regards his behavior as a citizen—for neither should this be passed over in
           silence—just as he on his part did not neglect his civic duties, but on the contrary, to
           so great a degree had proved himself a more loyal friend of the people than those who had
@@ -536,7 +545,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           to suffer the city's unjust penalties rather than to be traitor to our form of government.
         </p>
       </div>
-      <div n="37" type="section">
+      <div n="37" subtype="section" type="textpart"  >
         <p>Of the truth of these statements no one would have convinced you as long as you still
           continued to be governed as a democracy; but as it was, the civil conflicts which arose
           clearly showed who were the democrats and who the oligarchs, as well as those who desired
@@ -545,7 +554,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           the way than they abolished the democracy; on the second, hardly had they reduced you to
           servitude than they condemned him to exile before any other citizen; </p>
       </div>
-      <div n="38" type="section">
+      <div n="38" subtype="section" type="textpart"  >
         <p>so exactly did my father's misfortunes affect the city and he share in her disasters. And
           yet many of the citizens were ill disposed toward him in the belief that he was plotting a
           tyranny; they held this opinion, not on the basis of his deeds, but in the thought that
@@ -555,7 +564,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             of plotting to become a tyrant.</note> brought against him, he was of opinion that as
           regards political power he should be on an equality with his fellow-citizens. </p>
       </div>
-      <div n="39" type="section">
+      <div n="39" subtype="section" type="textpart"  >
         <p> Because of the multitude of things that might be said on my father's behalf I am at a
           loss which of them it is appropriate to mention on the present occasion and which should
           be omitted. For always the plea that has not yet been spoken seems to me of greater
@@ -563,22 +572,22 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           it is obvious to everyone that he must needs be most devoted to the welfare of the city
           who has the greatest share in her evil fortunes as well as in her good. </p>
       </div>
-      <div n="40" type="section">
+      <div n="40" subtype="section" type="textpart"  >
         <p>Well then, when Athens was prosperous, who of the citizens was more prosperous, more
           admired, or more envied than my father? And when she suffered ill-fortune, who was
           deprived of brighter hopes, or of greater wealth, or of fairer repute? Finally, when the
           Thirty Tyrants established their rule, while the others merely suffered exile from Athens,
           was he not banished from all Greece? Did not the Lacedaemonians and Lysander<note
             anchored="true" resp="ed">Spartan general, victorious over the Athenians at Aegospotami
-              (<date value="-405">405 B.C.</date>)</note> exert themselves as much to cause his
+              (<date when="-0405">405 B.C.</date>)</note> exert themselves as much to cause his
           death as to bring about the downfall of your dominion, in the belief that they could not
           be sure of the city's loyalty if they demolished her walls<note anchored="true" resp="ed"
             >The Long Walls, uniting Athens and its harbor Piraeus, were destroyed in <date
-              value="-404">404 B.C.</date> (Xenophon, Hall. ii. 2. 20) and were rebuilt by Conon in
-              <date value="-394">394 B.C.</date></note> unless they should also destroy the man who
+              when="-0404">404 B.C.</date> (Xenophon, Hall. ii. 2. 20) and were rebuilt by Conon in
+              <date when="-0394">394 B.C.</date></note> unless they should also destroy the man who
           could rebuild them? </p>
       </div>
-      <div n="41" type="section">
+      <div n="41" subtype="section" type="textpart"  >
         <p>Thus it is not only from his services to you, but also from what he suffered on your
           account, that you may easily recognize his loyalty. For it is self-evident that it was the
           people he was aiding, that he desired the same form of government as yourselves, that he
@@ -586,7 +595,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           unfortunate, that he considered the same persons as you his enemies and friends, that in
           every way he exposed himself to danger either at your hands, or on your account, </p>
       </div>
-      <div n="42" type="section">
+      <div n="42" subtype="section" type="textpart"  >
         <p>or on your behalf, or in partnership with you, being as a citizen quite unlike
             Charicles,<note anchored="true" resp="ed">Charicles was one of the most cruel of the
             Thirty Tyrants. Cf. <bibl n="Lys. 12.55">Lys. 12.55</bibl>; <bibl n="Xen. Hell. 2.3.2"
@@ -595,7 +604,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           inactive, but on his return was ever injuring the city. And yet how could one prove
           himself to be a baser friend or a viler enemy? </p>
       </div>
-      <div n="43" type="section">
+      <div n="43" subtype="section" type="textpart"  >
         <p>And then do you, Teisias, his brother-in-law and a member of the Council in the time of
           the Thirty Tyrants, have the hardihood to rake up old grudges against those of the other
           side, and are you not ashamed to be violating the terms of the amnesty which permits you
@@ -603,7 +612,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           to exact punishment for past crimes, it is you who are menaced by danger more speedy and
           greater than mine? </p>
       </div>
-      <div n="44" type="section">
+      <div n="44" subtype="section" type="textpart"  >
         <p>For surely they will not inflict punishment on me for my father's acts and at the same
           time pardon you for the crimes you yourself have committed! No, assuredly it will not be
           found that your pleas in extenuation are anything like his! For you were not banished from
@@ -612,7 +621,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           initiative, that you were wronging your fellow-citizens, so that it is not fitting that
           you should be permitted by them even to enter a plea in your defense. </p>
       </div>
-      <div n="45" type="section">
+      <div n="45" subtype="section" type="textpart"  >
         <p> But on the subject of the political misdeeds of Teisias, very likely some day at his
           trial I shall have the opportunity of speaking at greater length. But as for you, men of
           the jury, I beg you not to abandon me to my enemies nor entangle me in the net of
@@ -621,24 +630,24 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           not yet four years of age when I was brought into peril of my life owing to my father's
           exile; </p>
       </div>
-      <div n="46" type="section">
+      <div n="46" subtype="section" type="textpart"  >
         <p>and while still a boy I was banished from the city by the Thirty. And when the men of the
             Piraeus<note anchored="true" resp="ed">The democratic party, led by Thrasybulus, in
-              <date value="-403">403 B.C.</date> had taken Piraeus and made it their
+              <date when="-0403">403 B.C.</date> had taken Piraeus and made it their
             headquarters.</note> were restored, and all the rest recovered their possessions, I
           alone by the influence of my personal enemies was deprived of the of the land which the
           people gave us as compensation for the confiscated property.<note anchored="true"
             resp="ed">After Alcibiades' condemnation as participant in the violation of the
             Eleusinian Mysteries. Large portions of the list of these confiscated goods are
             preserved in inscriptions.</note> And after having already suffered so many misfortunes
-          and having twice lost my property,<note anchored="true" resp="ed"><date value="-414">414
-              B.C.</date> and <date value="-404">404 B.C.</date></note> I am now the defendant in an
+          and having twice lost my property,<note anchored="true" resp="ed"><date when="-0414">414
+              B.C.</date> and <date when="-0404">404 B.C.</date></note> I am now the defendant in an
           action involving five talents.<note anchored="true" resp="ed">The talent was not a coin,
             but a sum of money roughly equivalent (although it would purchase much more) to $1000
             (over 200).</note> And although the complaint involves money, the real issue is my right
           to continue to enjoy citizenship. </p>
       </div>
-      <div n="47" type="section">
+      <div n="47" subtype="section" type="textpart"  >
         <p>For although the same penalties are prescribed for all by our laws, yet the legal risk is
           not the same for all; on the contrary, the wealthy risk a fine, but those who are in
           straitened circumstances, as is the case with me, are in danger of disfranchisement, and
@@ -646,7 +655,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           fate to live among one's fellow-citizens deprived of civic rights than to dwell an alien
           among foreigners. </p>
       </div>
-      <div n="48" type="section">
+      <div n="48" subtype="section" type="textpart"  >
         <p>I entreat you, therefore, to aid me and not to suffer me to be despitefully treated by my
           personal enemies, or to be deprived of my fatherland, or to be made notorious by such
           misfortunes. The facts in the case would of themselves justly win for me your pity, even
@@ -656,7 +665,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           seeing that they have been deprived of immense wealth and have experienced life's greatest
           vicissitudes. </p>
       </div>
-      <div n="49" type="section">
+      <div n="49" subtype="section" type="textpart"  >
         <p> Although I have many reasons for lamenting my fate, I am especially indignant for these
           reasons: first, if I must be punished by this man, who should justly be punished by me;
           second, if I shall lose my civic rights by reason of my father's victory at Olympia, when
@@ -664,13 +673,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             rewards of victory at Olympia cf. <bibl n="Plat. Apol. 36d">Plat. Apol.
             36d-e</bibl>.</note>; </p>
       </div>
-      <div n="50" type="section">
+      <div n="50" subtype="section" type="textpart"  >
         <p>and, in addition, if Teisias, a man who never did the city any good, is to remain
           powerful in the democracy just as he was in the oligarchy, whereas I, who injured neither
           party, am to be ill-treated by both; and finally, if, while in all other matters your
           actions are to be the opposite of those of the Thirty, you shall in regard to me show the
           same spirit as they, and if I, who then lost my fatherland in company with you, shall now
           be deprived of it by you.</p>
+      </div>
       </div>
     </body>
   </text>
