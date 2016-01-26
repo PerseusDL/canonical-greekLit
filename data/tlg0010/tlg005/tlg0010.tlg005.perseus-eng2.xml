@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader type="text">
     <fileDesc>
@@ -38,16 +39,22 @@
     </fileDesc>
 
     <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="section"
+          matchPattern="(\\w+)"
+          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+          <p>This pointer pattern extracts section</p>
+        </cRefPattern>
+      </refsDecl>
       <refsDecl>
-        <refState delim="." unit="speech"/>
         <refState n="chunk context" unit="section"/>
       </refsDecl>
     </encodingDesc>
-
+    
     <profileDesc>
       <langUsage>
-        <language ident="en">English </language>
-        <language ident="greek">Greek </language>
+        <language ident="eng">English </language>
+        <language ident="grc">Greek </language>
       </langUsage>
 
       <textClass xml:id="gen.epideictic">
@@ -179,11 +186,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
     <item>split speeches and converted to unicode</item>
       </change></change>-->
       <change when="2014-10-01" who="Stella Dee">edited markup</change>
+      <change when="2016-01-26" who="TDBuck">epidoc and CTS</change>
     </revisionDesc>
   </teiHeader>
   <text xml:lang="en">
     <body>
-      <div n="1" type="section">
+      <div type="translation" n="urn:cts:greekLit:tlg0010.tlg005.perseus-eng2" xml:lang="eng">
+      <div n="1" subtype="section" type="textpart">
         <p> This trial, men of the jury, is an important one for me. For I have at stake, not only a
           large sum of money, but also my reputation—for I risk being thought to covet what justly
           belongs to another; and that is what gives me the greatest concern. For sufficient
@@ -194,7 +203,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             Lysias.</note>
         </p>
       </div>
-      <div n="2" type="section">
+      <div n="2" subtype="section" type="textpart">
         <p> The greatest difficulty of all, men of the jury, is that I have adversaries of the
           character of the defendants here. For contracts with the managers of banks are entered
           into without witnesses, and any who are wronged by them are obliged to bring suit against
@@ -202,15 +211,15 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           their profession. In spite of these considerations I think I shall make it clear to all
           that I have been defrauded of my money by Pasion. </p>
       </div>
-      <div n="3" type="section">
+      <div n="3" subtype="section" type="textpart">
         <p> I shall relate the facts to you from the beginning as well as I can. My father, men of
           the jury, is Sopaeus; all who sail to the Pontus know that his relations with Satyrus<note
-            anchored="true" resp="ed">Satyrus was king of Bosporus (<dateRange from="-407" to="-393"
-              >407-393 B.C.</dateRange>); cf. <bibl n="Lys. 16.4">Lys. 16.4</bibl>.</note> are so
+            anchored="true" resp="ed">Satyrus was king of Bosporus (<date from="-0407" to="-0393"
+              >407-393 B.C.</date>); cf. <bibl n="Lys. 16.4">Lys. 16.4</bibl>.</note> are so
           intimate that he is ruler of an extensive territory and has charge of that ruler's entire
           forces. </p>
       </div>
-      <div n="4" type="section">
+      <div n="4" subtype="section" type="textpart">
         <p>Having heard reports both of this state and of the other lands where Greeks live, I
           desired to travel abroad. And so my father loaded two ships with grain,<note
             anchored="true" resp="ed">Athens imported great quantities of grain from the Pontus; cf.
@@ -220,14 +229,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               <foreign xml:lang="greek">KATA\ QEWRI/AN</foreign>).</note> Pythodorus, the
           Phoenician, introduced Pasion to me and I opened an account at his bank. </p>
       </div>
-      <div n="5" type="section">
+      <div n="5" subtype="section" type="textpart">
         <p>Later on, as a result of slander which reached Satyrus to the effect that my father was
           plotting against the throne and that I was associating with the exiles, Satyrus arrested
           my father and sent orders to citizens of Pontus in residence here in Athens to take
           possession of my money and to bid me to return and, if I refused to obey, to demand of you
           my extradition. </p>
       </div>
-      <div n="6" type="section">
+      <div n="6" subtype="section" type="textpart">
         <p>When I found myself in difficulties so embarrassing, men of the jury, I related my
           troubles to Pasion; for I was on such intimate terms with him that I had the greatest
           confidence in him, not only in matters of money, but in everything else as well. I thought
@@ -237,7 +246,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           money here, yet fail to surrender it at Satyrus' command, I should create the most serious
           grounds of complaint against myself and my father in the mind of Satyrus. </p>
       </div>
-      <div n="7" type="section">
+      <div n="7" subtype="section" type="textpart">
         <p>On deliberation we decided that it would be best to agree to comply with all of Satyrus'
           demands and to surrender the money whose existence was known, but with respect to the
           funds on deposit with Pasion we should not only deny their existence but also make it
@@ -246,7 +255,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               17.35-36</bibl>.</note> and to do everything which was likely to make them believe
           that I had no money. </p>
       </div>
-      <div n="8" type="section">
+      <div n="8" subtype="section" type="textpart">
         <p> At that time, men of the jury, I thought that Pasion was giving me all this advice
           because of goodwill toward me; but when I had arranged matters with the representatives of
           Satyrus, I perceived that he had designs on my property. For when I wished to recover my
@@ -256,7 +265,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           anything, and everybody had seen that money was being demanded of me and that I was
           acknowledging that I was indebted to others also. </p>
       </div>
-      <div n="9" type="section">
+      <div n="9" subtype="section" type="textpart">
         <p>Besides this, men of the jury, he was of opinion that if I attempted to remain here, I
           should be handed over by Athens to Satyrus, and if I should go anywhere else, he would be
           indifferent to my complaints, and if I should sail to the Pontus, I should be put to death
@@ -266,14 +275,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           truth, sent Philomelus and Menexenus to him to demand my property, he denied to them that
           he had anything belonging to me. </p>
       </div>
-      <div n="10" type="section">
+      <div n="10" subtype="section" type="textpart">
         <p>Thus beset on every side by misfortunes so dire, what, think you, was my state of mind?
           If I kept silent I should be defrauded of my money by Pasion here; if I should make this
           complaint, I was none the more likely to recover it and I should bring myself and my
           father into the greatest disrepute with Satyrus. The wisest course, therefore, as I
           thought, was to keep silent. </p>
       </div>
-      <div n="11" type="section">
+      <div n="11" subtype="section" type="textpart">
         <p> After this, men of the jury, messengers arrived with the news that my father had been
           released and that Satyrus was so repentant of all that had occurred that he had bestowed
           upon my father pledges of his confidence of the most sweeping kind, and had given him
@@ -282,7 +291,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           my property, he spirited away his slave Cittus, who had knowledge of our financial
           transactions. </p>
       </div>
-      <div n="12" type="section">
+      <div n="12" subtype="section" type="textpart">
         <p>And when I went to him and demanded the surrender of Cittus, because I believed that this
           slave could furnish the clearest proof of my claim, Pasion made the most outrageous
           charge, that I and Menexenus had bribed and corrupted Cittus as he sat at his
@@ -294,16 +303,12 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             anchored="true" resp="ed">The Polemarch was one of the nine archons of Athens. He had
             supervision of the affairs of foreigners and resident-aliens.</note> with a demand for
           bondsmen, and he did not release me until I had furnished bondsmen in the sum of six
-          talents. Please summon for me witnesses to these facts.<quote type="Witnesses"><text
-              xml:lang="en">
-              <body>
-                <head>Witnesses</head>
-                <p/>
-              </body>
-            </text></quote>
+          talents. Please summon for me witnesses to these facts.<quote type="Witnesses">
+                <p>Witnesses</p>
+               </quote>
         </p>
       </div>
-      <div n="13" type="section">
+      <div n="13" subtype="section" type="textpart">
         <p> You have heard the witnesses, men of the jury; and I, who had already lost part of my
           money and with regard to the rest was under the most infamous charges, left Athens for the
           Peloponnesus to investigate for myself. But Menexenus found the slave here in the city,
@@ -311,7 +316,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             resp="ed">The evidence of slaves could only be given under torture; cf. §54.</note>
           about both the deposit and the charge brought by his master. </p>
       </div>
-      <div n="14" type="section">
+      <div n="14" subtype="section" type="textpart">
         <p>Pasion, however, reached such a pitch of audacity that he secured the release of the
           slave on the ground that he was a freeman and, utterly devoid of shame and of fear, he
           claimed as a freeman and prevented the torture of a person who, as he alleged, had been
@@ -321,7 +326,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           take the stand.<quote type="Witnesses"/>
         </p>
       </div>
-      <div n="15" type="section">
+      <div n="15" subtype="section" type="textpart">
         <p> After he had acted in this way, men of the jury, Pasion, believing that his past conduct
           had clearly been in error and thinking he could rectify the situation by his subsequent
           acts, came to us and asserted that he was ready to surrender the slave for torture. We
@@ -332,7 +337,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           asserted that they had not been chosen as torturers, and bade them make oral interrogation
           of the slave if they wished any information. </p>
       </div>
-      <div n="16" type="section">
+      <div n="16" subtype="section" type="textpart">
         <p>Because of our disagreement the examiners refused to put the slave to torture themselves,
           but decreed that Pasion should surrender him to me. But Pasion was so anxious to avoid the
           employment of torture that he refused to obey them in respect to the surrender of the
@@ -341,7 +346,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           />
         </p>
       </div>
-      <div n="17" type="section">
+      <div n="17" subtype="section" type="textpart">
         <p> When, as a result of these meetings, men of the jury, all declared that Pasion was
           guilty of wrong-doing and of scandalous conduct (since, in the first place, it was Pasion
           himself who had spirited away the slave who, so I had asserted, had knowledge of the
@@ -352,7 +357,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           forbade it), Pasion, I say, understanding that there was no possibility of escape for
           himself if he came before you, sent a messenger to beg me to meet him in a sanctuary. </p>
       </div>
-      <div n="18" type="section">
+      <div n="18" subtype="section" type="textpart">
         <p>And when we had come to the Acropolis, he covered his head and wept, saying that he had
           been compelled to deny the debt because of lack of funds, but that he would try to repay
           me in a short time. He begged me to forgive him and to keep his misfortune secret, in
@@ -361,7 +366,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           devise a method, of any kind he wished, that his affairs might be in order and I receive
           back my money. </p>
       </div>
-      <div n="19" type="section">
+      <div n="19" subtype="section" type="textpart">
         <p> Two days later we met again and solemnly pledged each other to keep the affair secret, a
           pledge which he failed to keep, as you yourselves will learn as my story proceeds, and he
           agreed to sail with me to the Pontus and there pay me back the gold, in order that he
@@ -376,14 +381,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           would permit Satyrus to condemn Pasion to pay the original sum, and half as much in
           addition. </p>
       </div>
-      <div n="20" type="section">
+      <div n="20" subtype="section" type="textpart">
         <p>When he had drawn up this agreement in writing we brought to the Acropolis Pyron, of
             Pherae,<note anchored="true" resp="ed">In Thessaly.</note> who frequently sailed to the
           Pontus, and placed the agreement in his custody, stipulating that if we should come to a
           satisfactory settlement with each other, he should burn the memorandum; otherwise, he was
           to deliver it to Satyrus. </p>
       </div>
-      <div n="21" type="section">
+      <div n="21" subtype="section" type="textpart">
         <p> The questions in dispute between ourselves, men of the jury, had been settled in this
           manner; but Menexenus was so enraged because of the charge which Pasion had brought
           against him also, that he brought an action for libel against him and demanded the
@@ -394,7 +399,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           terms of the agreement, and then should all the same be made a laughing-stock in Athens;
         </p>
       </div>
-      <div n="22" type="section">
+      <div n="22" subtype="section" type="textpart">
         <p>for the slave, if put to the torture, would testify to the truth of everything. I for my
           part, however, asked him to take any action he pleased as to Menexenus, but to carry out
           his agreements with me. At that time he was in a humble mood, for he did not know what to
@@ -402,7 +407,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           impending suit, but also with respect to the memorandum, lest Menexenus should obtain
           possession of it. </p>
       </div>
-      <div n="23" type="section">
+      <div n="23" subtype="section" type="textpart">
         <p>And being embarrassed and finding no other means of relief, he bribed the slaves of the
           alien Pyron and falsified the memorandum which Satyrus was to receive in case he did not
           come to an agreement with me. No sooner had he accomplished this than he became the most
@@ -412,33 +417,33 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           to have been written in the memorandum that Pasion was released of all claims on my part!
         </p>
       </div>
-      <div n="24" type="section">
+      <div n="24" subtype="section" type="textpart">
         <p> Well, all the facts in the case I have told you as accurately as I could. But I think,
           men of the jury, that Pasion will base his defense on the falsified memorandum, and will
           especially rely on its contents. Do you, therefore, give your attention to me; for I think
           that from these very contents I shall reveal to you his rascality. </p>
       </div>
-      <div n="25" type="section">
+      <div n="25" subtype="section" type="textpart">
         <p> Consider the matter first in this way. When we gave to the alien, Pyron, the agreement
           by which Pasion, as he claims, is released from my demands, but as I contend, I was to
           have received back the gold from him, we bade the alien, in case we arrived at an
           understanding with each other, to burn the memorandum; otherwise, to give it to Satyrus,
           and that this was stated both of us agree. </p>
       </div>
-      <div n="26" type="section">
+      <div n="26" subtype="section" type="textpart">
         <p>And yet, men of the jury, what possessed us to stipulate that the memorandum should be
           given to Satyrus in case of our failure to come to terms, if Pasion had already been freed
           of my claims and our business had been concluded? On the contrary, it is clear that we had
           made this agreement because there yet remained matters which Pasion had to settle with me
           in accordance with the memorandum. </p>
       </div>
-      <div n="27" type="section">
+      <div n="27" subtype="section" type="textpart">
         <p>In the next place, men of the jury, I can give you the reasons why he agreed to repay me
           the gold; for when we had been cleared of the false accusations lodged with Satyrus, and
           Pasion had been unable to spirit away Cittus, who had knowledge of my deposit, he
           understood that </p>
       </div>
-      <div n="28" type="section">
+      <div n="28" subtype="section" type="textpart">
         <p>if he should deliver his slave to torture, he would be convicted of an act of rascality,
           and, on the other hand, if he failed to do so, he would lose his case<note anchored="true"
             resp="ed">The refusal by an accused master to submit his slave for testimony under
@@ -449,7 +454,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           against him. But if he can show you nothing of the kind, would you not with greater
           justice trust me rather than him in the matter of the memorandum? </p>
       </div>
-      <div n="29" type="section">
+      <div n="29" subtype="section" type="textpart">
         <p> Furthermore, men of the jury, this too is easy for all to see—that whereas I, the
           plaintiff, if I distrusted the sufficiency of my proofs, could drop the prosecution even
           without entering into any agreement, yet Pasion, on account both of the examination of his
@@ -458,14 +463,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           consequence, I was not obliged to make an agreement about the dismissal of my charges, but
           it was necessary for him to do so about the repayment of my money. </p>
       </div>
-      <div n="30" type="section">
+      <div n="30" subtype="section" type="textpart">
         <p>Besides, it would have been a preposterous state of affairs if, before the memorandum had
           been drawn up, I should have had so little confidence in my case as not only to drop the
           charges against Pasion, but also to make an agreement concerning these charges and, after
           I had drawn up such written proof against myself, should then have desired to bring the
           case before you. And yet who would plan so foolishly in regard to his own interests? </p>
       </div>
-      <div n="31" type="section">
+      <div n="31" subtype="section" type="textpart">
         <p>But here is the strongest proof of all that in the agreement Pasion was not absolved from
           his debt, but on the contrary had agreed to repay the gold: when Menexenus lodged his suit
           against him, which was before the memorandum had been tampered with, Pasion sent
@@ -473,21 +478,21 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               n="Andoc. 1.133">Andoc. 1.133</bibl>.</note>, a friend of both of us, to beg that I
           either appease Menexenus or annul the agreement I had made with himself. </p>
       </div>
-      <div n="32" type="section">
+      <div n="32" subtype="section" type="textpart">
         <p>And yet, men of the jury, do you think that he would desire the annulment of this
           agreement, which he could use to convict us of falsehood? At any rate, this was not what
           he was saying after they had altered the memorandum; on the contrary, in all details he
           appealed to the agreement and ordered the memorandum to be opened. In proof that Pasion at
           first was eager for the suppression of the agreement I will produce Agyrrhius himself as
-          witness. Please take the stand.<quote type="Testimony"><text xml:lang="en">
-              <body>
-                <head>Testimony</head>
-                <p/>
-              </body>
-            </text></quote>
+          witness. Please take the stand.<quote type="Testimony">
+              
+                <p>Testimony</p>
+                
+              
+            </quote>
         </p>
       </div>
-      <div n="33" type="section">
+      <div n="33" subtype="section" type="textpart">
         <p> So then, the fact that we made the agreement, not as Pasion will try to explain, but as
           I have related to you, I think has been sufficiently established. And it should not
           occasion surprise, men of the jury, that he falsified the memorandum, not only for the
@@ -500,7 +505,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             the festival of Dionysus.</note> and removed the ballots naming the judges which had
           been cast by the Council? </p>
       </div>
-      <div n="34" type="section">
+      <div n="34" subtype="section" type="textpart">
         <p>And yet when a man who, for petty gain and at the peril of his life, has the effrontery
           to open secretly the urns that had been stamped by the prytanes<note anchored="true"
             resp="ed">The Prytanes (Presidents), a committee of 50, one-tenth part of the Council of
@@ -513,7 +518,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           gaining their ends either by the bribery of his slaves or by some other means in their
           power? On this point, however, I do not know what more I need say. </p>
       </div>
-      <div n="35" type="section">
+      <div n="35" subtype="section" type="textpart">
         <p> Already Pasion has tried to persuade certain persons that I had no money at all here,
           asserting that I had borrowed three hundred staters<note anchored="true" resp="ed">The
             stater was a coin of a certain weight. The Persian gold stater, or daric, was worth a
@@ -525,14 +530,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           possible, asked Stratocles to leave with me his own gold and on his arrival in Pontus to
           collect its equivalent from my father there, </p>
       </div>
-      <div n="36" type="section">
+      <div n="36" subtype="section" type="textpart">
         <p>as I thought it would be highly advantageous not to jeopardize my money by the risks of a
           voyage, especially as the Lacedaemonians were then masters of the sea. For Pasion, then, I
           do not think that this is any indication that I had no money here; but for me my dealings
           with Stratocles will constitute the strongest proof that I had gold on deposit with
           Pasion. </p>
       </div>
-      <div n="37" type="section">
+      <div n="37" subtype="section" type="textpart">
         <p>For when Stratocles inquired of me who would repay him in case my father failed to carry
           out my written instructions, and if, on his return, he should not find me here, I
           introduced Pasion to him, and Pasion himself agreed to repay him both the principal and
@@ -541,7 +546,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           please take the stand.<quote type="Witnesses"/>
         </p>
       </div>
-      <div n="38" type="section">
+      <div n="38" subtype="section" type="textpart">
         <p> Perhaps, men of the jury, he will present witnesses to you who will testify that I also
           denied, in the presence of the agents of Satyrus, that I possessed any money except that
           which I surrendered to them, and that he himself was laying claim to my money on my own
@@ -551,7 +556,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             friend.</note>
         </p>
       </div>
-      <div n="39" type="section">
+      <div n="39" subtype="section" type="textpart">
         <p>As for me, men of the jury, since I was involved in the difficulties which I have related
           to you, deprived of all I had at home and under compulsion to surrender what I had here to
           the envoys from Pontus, and finding myself without any means unless I could secretly
@@ -559,27 +564,27 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           debt due him of three hundred drachmas and that in other respects I behaved and spoke in a
           manner which I thought would best persuade them that I possessed nothing. </p>
       </div>
-      <div n="40" type="section">
+      <div n="40" subtype="section" type="textpart">
         <p>And that these things were done by me, not because of lack of funds, but that the parties
           in Pontus might believe that to be the case, you will readily learn. I will present to you
           first those who knew that I had received much money from Pontus; next, those who saw me as
           a patron of Pasion's bank, and, besides, the persons from whom at that time I bought more
           than a thousand gold staters. </p>
       </div>
-      <div n="41" type="section">
+      <div n="41" subtype="section" type="textpart">
         <p>In addition to this, when a special tax was imposed upon us and other men than I were
           appointed registrars, I contributed more than any other foreigner and when I was myself
           chosen registrar. I subscribed the largest contribution, but I pleaded with my
           fellow-registrars on behalf of Pasion, explaining that it was my money that he was using.
-          Witnesses, please take the stand.<quote type="Witnesses"><text xml:lang="en">
-              <body>
-                <head>Witnesses</head>
-                <p/>
-              </body>
-            </text></quote>
+          Witnesses, please take the stand.<quote type="Witnesses">
+             
+                <p>Witnesses</p>
+                
+              
+            </quote>
         </p>
       </div>
-      <div n="42" type="section">
+      <div n="42" subtype="section" type="textpart">
         <p> Pasion himself, moreover—in effect, at least—I will present as corroborating these
           statements. An information had been laid by a certain party against a trading-ship, upon
           which I had lent a large sum of money, as belonging to a man of Delos.<note
@@ -589,7 +594,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           blackmail so influenced the Council that at first I almost was put to death without a
           trial; finally, however, they were persuaded to accept bondsmen from me. </p>
       </div>
-      <div n="43" type="section">
+      <div n="43" subtype="section" type="textpart">
         <p>And Philip, who was my father's guest-friend, was summoned and appeared, but took to
           flight in alarm at the magnitude of the danger; Pasion, however, furnished for me
             Archestratus,<note anchored="true" resp="ed">The banker Archestratus was the former
@@ -597,14 +602,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           lose but a small sum and had known that I possessed no funds here, surely he would not
           have become my surety for so large an amount. </p>
       </div>
-      <div n="44" type="section">
+      <div n="44" subtype="section" type="textpart">
         <p>But it is obvious that Pasion called in the three hundred drachmas as a favor to me, and
           that he became my surety for seven talents because he judged that the gold on deposit with
           him was a sufficient guarantee. That, therefore, I had a large sum of money here and that
           it was deposited in his bank I have not only proved to you from Pasion's acts but you have
           also heard it from the others who know the facts. </p>
       </div>
-      <div n="45" type="section">
+      <div n="45" subtype="section" type="textpart">
         <p> It seems to me, men of the jury, that you would best decide upon the questions at issue
           if you should call to mind that period and the situation in which our affairs stood when I
           sent Menexenus and Philomelus to claim the deposit and Pasion for the first time had the
@@ -612,7 +617,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           deprived of all his property, and that I was unable, because of the embarrassment in which
           I found myself, either to remain here or to sail to the Pontus. </p>
       </div>
-      <div n="46" type="section">
+      <div n="46" subtype="section" type="textpart">
         <p>And yet, which is the more reasonable supposition—that I, involved in misfortunes so
           great brought unjust charges against Pasion or that he, because of the magnitude of our
           misfortunes and the large sum of money involved, was tempted to defraud us? But what man
@@ -623,7 +628,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           he would forthwith give me money? But neither the one nor the other of us was in such a
           situation. </p>
       </div>
-      <div n="47" type="section">
+      <div n="47" subtype="section" type="textpart">
         <p>Or was I of opinion that by bringing the matter to issue in court I should have greater
           influence with you than Pasion, even contrary to justice—I, who was not even preparing to
           remain in Athens, since I feared that Satyrus would demand of you my extradition? Or was I
@@ -632,7 +637,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           greatest intimacy? Who of you, I ask, would think it right to condemn me as being guilty
           of such folly and stupidity? </p>
       </div>
-      <div n="48" type="section">
+      <div n="48" subtype="section" type="textpart">
         <p> It is also right, men of the jury, that you should note the absurdity and the
           incredibility of the arguments which Pasion on each occasion undertook to present. For
           when my situation was such that, even if he acknowledged that he was defrauding me of my
@@ -642,7 +647,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           he says I renounced all claims against him. And yet how could anything be more illogical
           than this? </p>
       </div>
-      <div n="49" type="section">
+      <div n="49" subtype="section" type="textpart">
         <p> But, you may say, perhaps it is on these matters only, and not on the others, that he
           obviously contradicts himself in both words and deeds. Yet he is the man who, though he
           alleged that the slave whom he himself had spirited away had been enslaved by us, yet
@@ -650,20 +655,20 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           and then when Menexenus demanded that this slave give testimony under torture, Pasion
           brought about his release on the ground that he was a freeman! </p>
       </div>
-      <div n="50" type="section">
+      <div n="50" subtype="section" type="textpart">
         <p>Furthermore, while he himself was defrauding me of my deposit, he had the impudence to
           accuse us of having six talents from his bank. And yet when a man did not hesitate to lie
           in matters so obvious to everybody, how can he be believed about matters transacted
           between us two alone? </p>
       </div>
-      <div n="51" type="section">
+      <div n="51" subtype="section" type="textpart">
         <p> Finally, men of the jury, although he had agreed to sail to the country of Satyrus and
           to do whatever he decreed, he deceived me even in this; he refused to sail himself in
           spite of my frequent solicitations, but sent Cittus instead. On his arrival Cittus alleged
           that he was a freeman, a Milesian by birth, and that Pasion had sent him to furnish
           information about the money. </p>
       </div>
-      <div n="52" type="section">
+      <div n="52" subtype="section" type="textpart">
         <p>When Satyrus had heard us both, he did not wish to render a decision concerning contracts
           made in Athens, especially since Pasion was absent and not likely to comply with his
           decision; but he believed so strongly that I was being wronged that he called together the
@@ -673,7 +678,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           to the jury.<quote type="Letter"/>
         </p>
       </div>
-      <div n="53" type="section">
+      <div n="53" subtype="section" type="textpart">
         <p> Although, men of the jury, my claims to justice are so many, I think that the strongest
           proof that Pasion defrauded me of my money is this—that he refused to surrender for
           torture the slave who knew about the deposit. And yet, in respect to contracts where banks
@@ -681,7 +686,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           not use in contracts with banks.<note anchored="true" resp="ed">Cf. 2</note>
         </p>
       </div>
-      <div n="54" type="section">
+      <div n="54" subtype="section" type="textpart">
         <p>I see that in private and public causes you judge that nothing is more deserving of
           belief, or truer, than testimony given under torture, and that while you think it possible
           to suborn witnesses even for acts which never occurred at all, yet that testimony under
@@ -692,7 +697,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           disadvantage if torture should be used and that for this reason the surrender of his slave
           could not reasonably be expected of him. </p>
       </div>
-      <div n="55" type="section">
+      <div n="55" subtype="section" type="textpart">
         <p>For you all know that if Cittus spoke against his master, he would likely suffer for the
           remainder of his life in the most cruel manner at the hands of his master, but that if he
           held firm in his denials, he would be free and have a share of my money which his master
@@ -700,14 +705,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           conscious of his guilty deeds, submitted to stand suit and to rest under the other
           charges, all to prevent any testimony under torture being given in this case! </p>
       </div>
-      <div n="56" type="section">
+      <div n="56" subtype="section" type="textpart">
         <p> I therefore ask of you that, keeping these facts in mind, you cast your votes against
           Pasion and not judge me guilty of a villainy so great, that I, who live in Pontus and
           possess so large an estate that I am able even to assist others, have come here
           maliciously to prosecute Pasion and to accuse him of dishonesty in the matter of a deposit
           made with his bank. </p>
       </div>
-      <div n="57" type="section">
+      <div n="57" subtype="section" type="textpart">
         <p> It is right also that you keep in mind both Satyrus and my father, who have always
           esteemed you above all the other Greeks and frequently in past times, when there was a
           scarcity of grain and they were sending away empty the ships of other merchants, granted
@@ -715,11 +720,12 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               20.31</bibl>.</note> also, in the private contracts in which they are arbiters, you
           come off not only on even terms but even at an advantage. </p>
       </div>
-      <div n="58" type="section">
+      <div n="58" subtype="section" type="textpart">
         <p>You would not reasonably, therefore, consider their letters of little importance. I ask
           of you, then, both on their behalf and on my own, that you vote in accordance with justice
           and not count the false assertions of Pasion to be more worthy of belief than my own
           words.</p>
+      </div>
       </div>
     </body>
   </text>
