@@ -8,6 +8,23 @@
     <property name="data.dir" value="data"/>
     <property name="root.dir" value="."/>
     <property name="data.required" value="__cts__.xml"/>
+     
+
+   <condition property="fileSep" value="\">
+    <os family="windows" />
+   </condition>
+
+   <condition property="fileSep" value="/">
+    <os family="unix" />
+   </condition>
+
+   <condition property="fileSepTest" value="\\">
+    <os family="windows" />
+   </condition>
+
+   <condition property="fileSepTest" value="/">
+    <os family="unix" />
+   </condition>
 
     <target name="copy">
       <copy todir="${copy.dir}" verbose="true">
@@ -22,10 +39,12 @@
         <script language="javascript"> <![CDATA[
           var getInclude = function(list) {
               var o = {};
+              var fileSep = self.getProject().getProperty("fileSep");
+              var fileSepTest = self.getProject().getProperty("fileSepTest")
               for (i=0; i<list.length; i++) {
                 var f = list[i];
                 if(f.indexOf(inc_file) > 0) {
-                    var folder = f.split("/").slice(0,-1).join("/");;
+                    var folder = f.split(fileSepTest).slice(0,-1).join(fileSep);;
                     o[folder] = f;
                 }
               }
@@ -56,7 +75,7 @@
 
           //Create destination and sourceDir File instances
           basedir = new File(".");
-          destination = new File(basedir, [copy_dir, data_dir].join("/"));
+          destination = new File(basedir, [copy_dir, data_dir].join(fileSep));
           source = new File(basedir, data_dir);
 
           //We create an object where key are folder containing said inc_file
@@ -64,10 +83,10 @@
           includes = [];
           for (i=0; i<files.length; i++) {
             filename = files[i];
-            folder = filename.split("/").slice(0,-1).join("/");
+            folder = filename.split(fileSepTest).slice(0,-1).join(fileSep);
             if(exist[folder]) {
               f = new File(source, filename);
-              ff = filename.split("/").slice(-1)[0];
+              ff = filename.split(fileSepTest).slice(-1)[0];
               if(ff == "__cts__.xml" || Validator.filter(Reader(f))) {
                 copy = project.createTask("copy");
                 copy.setTofile(new File(destination, filename));
