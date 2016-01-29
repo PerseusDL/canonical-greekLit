@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader type="text">
     <fileDesc>
@@ -36,18 +37,23 @@
         </bibl>
       </sourceDesc>
     </fileDesc>
-
     <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="section"
+          matchPattern="(\\w+)"
+          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+          <p>This pointer pattern extracts section</p>
+        </cRefPattern>
+      </refsDecl>
       <refsDecl>
-        <refState delim="." unit="speech"/>
         <refState n="chunk context" unit="section"/>
       </refsDecl>
     </encodingDesc>
-
+    
     <profileDesc>
       <langUsage>
-        <language ident="en">English </language>
-        <language ident="greek">Greek </language>
+        <language ident="eng">English </language>
+        <language ident="grc">Greek </language>
       </langUsage>
 
       <textClass xml:id="gen.epideictic">
@@ -183,7 +189,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
   </teiHeader>
   <text xml:lang="en">
     <body>
-      <div n="1" type="section">
+      <div type="translation" n="urn:cts:greekLit:tlg0010.tlg010.perseus-eng2" xml:lang="eng">
+      <div n="1" subtype="section" type="textpart">
         <p> I have learned of your fairmindedness, Polycrates, and of the reversal in your life,
           through information from others; and having myself read certain of the discourses which
           you have written, I should have been greatly pleased to discuss frankly with you and fully
@@ -196,13 +203,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               n="Isoc. 10.20">Isoc. 10.20</bibl> and <bibl n="Plat. Sym. 177c">Plat.
             Sym.177c</bibl>.</note> voluntarily for their benefit. </p>
       </div>
-      <div n="2" type="section">
+      <div n="2" subtype="section" type="textpart">
         <p>But since we have not yet met one another, we shall be able, if we ever do come together,
           to discuss the other topics at greater length; concerning those suggestions, however, by
           which at the present time I might be of service to you, I have thought I should advise you
           by letter, though concealing my views, to the best of my ability, from everyone else. </p>
       </div>
-      <div n="3" type="section">
+      <div n="3" subtype="section" type="textpart">
         <p>I am well aware, however, that it is instinctive with most persons when admonished, not
           to look to the benefits they receive but, on the contrary, to listen to what is said with
           the greater displeasure in proportion to the rigor with which their critic passes their
@@ -210,7 +217,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           shrink from incurring such resentment, but must try to effect a change in the opinion of
           those who feel this way toward those who offer them counsel. </p>
       </div>
-      <div n="4" type="section">
+      <div n="4" subtype="section" type="textpart">
         <p> Having observed, therefore, that you take especial pride in your <title>Defense of
             Busiris</title> and in your <title>Accusation of Socrates</title>, I shall try to make
           it clear to you that in both these discourses you have fallen far short of what the
@@ -218,7 +225,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           attribute to him a larger number of good qualities than he really possesses, and accusers
           must do the contrary, </p>
       </div>
-      <div n="5" type="section">
+      <div n="5" subtype="section" type="textpart">
         <p>you have so far fallen short of following these principles of rhetoric that, though you
           profess to defend Busiris, you have not only failed to absolve him of the calumny with
           which he is attacked, but have even imputed to him a lawlessness of such enormity that it
@@ -236,7 +243,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             praise of Alcibiades see <bibl n="Isoc. 16">Isoc. 16</bibl>.</note> but that Alcibiades
           far excelled all his contemporaries all would agree. </p>
       </div>
-      <div n="6" type="section">
+      <div n="6" subtype="section" type="textpart">
         <p>Hence, if the dead should acquire the power of judging what has been said of them,
           Socrates would be as grateful to you for your accusation as to any who have been wont to
           eulogize him; while Busiris, even if he had been most tender-hearted toward his guests,
@@ -244,7 +251,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           whatever! And yet ought not that man to feel shame, rather than pride, who is more loved
           by those whom he has reviled than by those whom he has praised? </p>
       </div>
-      <div n="7" type="section">
+      <div n="7" subtype="section" type="textpart">
         <p> And you have been so careless about committing inconsistencies that you say Busiris
           emulated the fame of Aeolus and Orpheus, yet you do not show that any of his pursuits was
           identical with theirs. What, can we compare his deeds with the reported exploits of
@@ -253,7 +260,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               10.17-27</bibl>, where Aeolus furnishes escort for Odysseus.</note> whereas Busiris,
           if we are to give credence to your account, sacrificed and ate them! </p>
       </div>
-      <div n="8" type="section">
+      <div n="8" subtype="section" type="textpart">
         <p>Or, are we to liken his deeds to those of Orpheus? But Orpheus led the dead back from
             Hades,<note anchored="true" resp="ed">A reference to the myth of Orpheus and
             Eurydice.</note> whereas Busiris brought death to the living before their day of
@@ -265,7 +272,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             resp="ed">Cf. <bibl n="Isoc. 11.37">Isoc. 11.37</bibl> for the same argument.</note>
         </p>
       </div>
-      <div n="9" type="section">
+      <div n="9" subtype="section" type="textpart">
         <p> But that I may not seem to be doing the easiest thing in assailing what others have said
           without exhibiting any specimen of my own,<note anchored="true" resp="ed">The same
             sentiment occurs in <bibl n="Isoc. 10.15">Isoc. 10.15</bibl>.</note> I will try briefly
@@ -273,7 +280,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           dignified style — and show out of what elements you ought to have composed the eulogy and
           the speech in defense. </p>
       </div>
-      <div n="10" type="section">
+      <div n="10" subtype="section" type="textpart">
         <p> Of the noble lineage of Busiris who would not find it easy to speak? His father was
           Poseidon, his mother <placeName key="tgn,1000172">Libya</placeName> the daughter of
             Epaphus<note anchored="true" resp="ed">Cf. <bibl n="Aesch. PB 850">Aesch. PB 850</bibl>,
@@ -282,14 +289,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           Although fortune had given him such ancestors, these alone did not satisfy his pride, but
           he thought he must also leave behind an everlasting monument to his own valor. </p>
       </div>
-      <div n="11" type="section">
+      <div n="11" subtype="section" type="textpart">
         <p> He was not content with his mother's kingdom, considering it too small for one of his
           endowment; and when he had conquered many peoples and had acquired supreme power he
           established his royal seat in <placeName key="tgn,7016833">Egypt</placeName>, because he
           judged that country to be far superior as his place of residence, not only to the lands
           which then were his, but even to all other countries in the world. </p>
       </div>
-      <div n="12" type="section">
+      <div n="12" subtype="section" type="textpart">
         <p>For he saw that all other regions are neither seasonably nor conveniently situated in
           relation to the nature of the universe, but some are deluged by rains and others scorched
           by heat; <placeName key="tgn,7016833">Egypt</placeName>,<note anchored="true" resp="ed"
@@ -301,7 +308,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           was able to produce the most abundant and most varied products, and was defended by the
           immortal ramparts of the <placeName key="tgn,1127805">Nile</placeName>, </p>
       </div>
-      <div n="13" type="section">
+      <div n="13" subtype="section" type="textpart">
         <p>a river which by its nature provides not only protection to the land, but also its means
           of subsistence in abundance, being impregnable and difficult for foes to conquer, yet
           convenient for commerce and in many respects serviceable to dwellers within its bounds.
@@ -312,7 +319,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           rest of mankind, of both of these each Egyptian has made himself master on his own
           account. </p>
       </div>
-      <div n="14" type="section">
+      <div n="14" subtype="section" type="textpart">
         <p>And to so perfect a state of happiness have the Egyptians come that with respect to the
           excellence and fertility of their land and the extent of their plains they reap the fruits
           of a continent, and as regards the disposition of their superfluous products and the
@@ -322,7 +329,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             <placeName key="tgn,1127805">Nile</placeName>, encircling the land and flowing through
           its whole extent, has given them abundant means for both. </p>
       </div>
-      <div n="15" type="section">
+      <div n="15" subtype="section" type="textpart">
         <p> So Busiris thus began, as wise men should, by occupying the fairest country and also by
           finding sustenance sufficient for his subjects. Afterwards, he divided them into
             classes<note anchored="true" resp="ed">Isocrates here praises the caste system. Cf.
@@ -332,7 +339,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           and the arts, the safest means of protecting these was practice in warfare and reverence
           for the gods. </p>
       </div>
-      <div n="16" type="section">
+      <div n="16" subtype="section" type="textpart">
         <p>Including in all classes the right numbers for the best administration of the
           commonwealth, he gave orders that the same individuals should always engage in the same
           pursuits, because he knew that those who continually change their occupations never
@@ -340,7 +347,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           themselves constantly to the same activities perform each thing they do surpassingly well.
         </p>
       </div>
-      <div n="17" type="section">
+      <div n="17" subtype="section" type="textpart">
         <p>Hence we shall find that in the arts the Egyptians surpass those who work at the same
           skilled occupations elsewhere more than artisans in general excel the laymen; also with
           respect to the system which enables them to preserve royalty and their political
@@ -351,7 +358,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           of government, and that the Lacedaemonians, on the other hand, govern their own city in
           admirable fashion because they imitate certain of the Egyptian customs. </p>
       </div>
-      <div n="18" type="section">
+      <div n="18" subtype="section" type="textpart">
         <p>For instance, the provision that no citizen fit for military service could leave the
           country without official authorization, the meals taken in common, and the training of
           their bodies; furthermore, the fact that lacking none of the necessities of life, they do
@@ -361,27 +368,27 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               n="Hdt. 2.80">Hdt. 2.80</bibl> and <bibl n="Hdt. 6.60">Hdt. 6.60</bibl>.</note>
         </p>
       </div>
-      <div n="19" type="section">
+      <div n="19" subtype="section" type="textpart">
         <p>But the Lacedaemonians have made so much worse use of these institutions that all of
           them, being professional soldiers, claim the right to seize by force the property of
           everybody else, whereas the Egyptians live as people should who neither neglect their own
           possessions, nor plot how they may acquire the property of others. The difference in the
           aims of the two polities may be seen from the following: </p>
       </div>
-      <div n="20" type="section">
+      <div n="20" subtype="section" type="textpart">
         <p>if we should all imitate the sloth and greed of the Lacedaemonians, we should straightway
           perish through both the lack of the necessities of daily life and civil war; but if we
           should wish to adopt the laws of the Egyptians which prescribe that some must work and
           that the rest must protect the property of the workers, we should all possess our own
           goods and pass our days in happiness. </p>
       </div>
-      <div n="21" type="section">
+      <div n="21" subtype="section" type="textpart">
         <p> Furthermore, the cultivation of practical wisdom may also reasonably be attributed to
           Busiris. For example, he saw to it that from the revenues of the sacrifices the priests
           should acquire affluence, but self-control through the purifications prescribed by the
           laws, and leisure by exemption from the hazards of fighting and from all work. </p>
       </div>
-      <div n="22" type="section">
+      <div n="22" subtype="section" type="textpart">
         <p>And the priests, because they enjoyed such conditions of life, discovered for the body
           the aid which the medical art affords<note anchored="true" resp="ed">Cf. <bibl
               n="Hdt. 2.84">Hdt. 2.84</bibl> and <bibl n="Hdt. 3.129">Hdt. 3.129</bibl>.</note>, not
@@ -391,7 +398,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           philosophy's training, a pursuit which has the power, not only to establish laws, but also
           to investigate the nature of the universe. </p>
       </div>
-      <div n="23" type="section">
+      <div n="23" subtype="section" type="textpart">
         <p>The older men Busiris appointed to have charge of the most important matters, but the
           younger he persuaded to forgo all pleasures and devote themselves to the study of the
           stars, to arithmetic, and to geometry; the value of these sciences<note anchored="true"
@@ -400,7 +407,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           others attempt to demonstrate that they are conducive in the highest measure to the
           attainment of virtue. </p>
       </div>
-      <div n="24" type="section">
+      <div n="24" subtype="section" type="textpart">
         <p> The piety of the Egyptians and their worship of the gods are especially deserving of
           praise and admiration. For all persons who have so bedizened themselves as to create the
           impression that they possess greater wisdom, or some other excellence, than they can
@@ -409,7 +416,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           than they prove to be, such men, I say, benefit in the greatest measure the lives of men.
         </p>
       </div>
-      <div n="25" type="section">
+      <div n="25" subtype="section" type="textpart">
         <p>For actually those who in the beginning inspired in us our fear of the gods, brought it
           about that we in our relations to one another are not altogether like wild beasts<note
             anchored="true" resp="ed">In <bibl n="Isoc. 3.6">Isoc. 3.6</bibl>, Isocrates affirms
@@ -421,20 +428,20 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           neither escape detection for the present nor will the punishment be deferred to his
           children's time. </p>
       </div>
-      <div n="26" type="section">
+      <div n="26" subtype="section" type="textpart">
         <p>And they have good reason for this belief; for Busiris established for them numerous and
           varied practices of piety and ordered them by law even to worship and to revere certain
           animals which among us are regarded with contempt, not because he misapprehended their
           power, but because he thought that the crowd ought to be habituated to obedience to all
           the commands of those in authority, </p>
       </div>
-      <div n="27" type="section">
+      <div n="27" subtype="section" type="textpart">
         <p>and at the same time he wished to test in visible matters how they felt in regard to the
           invisible. For he judged that those who belittled these instructions would perhaps look
           with contempt upon the more important commands also, but that those who gave strict
           obedience equally in everything would have given proof of their steadfast piety. </p>
       </div>
-      <div n="28" type="section">
+      <div n="28" subtype="section" type="textpart">
         <p> If one were not determined to make haste, one might cite many admirable instances of the
           piety of the Egyptians, that piety which I am neither the first nor the only one to have
           observed; on the contrary, many contemporaries and predecessors have remarked it, of whom
@@ -446,7 +453,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           purity, since he believed that even if he should gain thereby no greater reward from the
           gods, among men, at any rate, his reputation would be greatly enhanced. </p>
       </div>
-      <div n="29" type="section">
+      <div n="29" subtype="section" type="textpart">
         <p>And this indeed happened to him. For so greatly did he surpass all others in reputation
           that all the younger men desired to be his pupils, and their elders were more pleased to
           see their sons staying in his company than attending to their private affairs. And these
@@ -454,14 +461,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           teaching are more admired when silent than are those who have the greatest renown for
           eloquence. </p>
       </div>
-      <div n="30" type="section">
+      <div n="30" subtype="section" type="textpart">
         <p> Perhaps, however, you would reply against all I have said, that I am praising the land,
           the laws, and the piety of the Egyptians, and also their philosophy, but that Busiris was
           their author, as I have assumed, I am able to offer no proof whatever. If any other person
           criticized me in that fashion, I should believe that his censure was that of a scholar;
           but you are not the one to reprove me. </p>
       </div>
-      <div n="31" type="section">
+      <div n="31" subtype="section" type="textpart">
         <p>For, when you wished to praise Busiris, you chose to say that he forced the <placeName
             key="tgn,1127805">Nile</placeName> to break into branches and surround the land<note
             anchored="true" resp="ed">Cf. <bibl n="Hdt. 2.16">Hdt. 2.16</bibl>, where the same verb
@@ -471,28 +478,28 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           he did these things. And yet is it not ridiculous to demand that others follow a procedure
           which you yourself have not used in the slightest degree? </p>
       </div>
-      <div n="32" type="section">
+      <div n="32" subtype="section" type="textpart">
         <p>Nay, your account is far less credible than mine, since I attribute to him no impossible
           deed, but only laws and political organization, which are the accomplishments of honorable
           men, whereas you represent him as the author of two astounding acts which no human being
           would commit, one requiring the cruelty of wild beasts, the other the power of the gods.
         </p>
       </div>
-      <div n="33" type="section">
+      <div n="33" subtype="section" type="textpart">
         <p>Further, even if both of us, perchance, are wrong, I, at any rate, have used only such
           arguments as authors of eulogies must use; you, on the contrary, have employed those which
           are appropriate to revilers. Consequently, it is obvious that you have gone astray, not
           only from the truth, but also from the entire pattern which must be employed in eulogy.
         </p>
       </div>
-      <div n="34" type="section">
+      <div n="34" subtype="section" type="textpart">
         <p> Apart from these considerations, if your discourse should be put aside and mine
           carefully examined, no one would justly find fault with it. For if it were manifest that
           another had done the deeds which I assert were done by him, I acknowledge that I am
           exceedingly audacious in trying to change men's views about matters of which all the world
           has knowledge. </p>
       </div>
-      <div n="35" type="section">
+      <div n="35" subtype="section" type="textpart">
         <p>But as it is, since the question is open to the judgement of all and one must resort to
           conjecture, who, reasoning from what is probable, would be considered to have a better
           claim to the authorship of the institutions of <placeName key="tgn,7016833"
@@ -502,19 +509,19 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           should, in preference to Busiris, have the credit of being the authors of those great
           benefactions. </p>
       </div>
-      <div n="36" type="section">
+      <div n="36" subtype="section" type="textpart">
         <p> Furthermore, it could be easily proved on chronological grounds also that the statements
           of the detractors of Busiris are false. For the same writers who accuse Busiris of slaying
           strangers also assert that he died at the hands of Heracles; </p>
       </div>
-      <div n="37" type="section">
+      <div n="37" subtype="section" type="textpart">
         <p>but all chroniclers agree that Heracles was later by four generations than Perseus, son
           of Zeus and Danae, and that Busiris lived more than two hundred years earlier than
           Perseus. And yet what can be more absurd than that one who was desirous of clearing
           Busiris of the calumny has failed to mention that evidence, so manifest and so conclusive?
         </p>
       </div>
-      <div n="38" type="section">
+      <div n="38" subtype="section" type="textpart">
         <p> But the fact is that you had no regard for the truth; on the contrary, you followed the
           calumnies of the poets, who declare that the offspring of the immortals have perpetrated
           as well as suffered things more atrocious than any perpetrated or suffered by the
@@ -529,7 +536,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             Uranus; and Hephaestus fetters Hera.</note>
         </p>
       </div>
-      <div n="39" type="section">
+      <div n="39" subtype="section" type="textpart">
         <p>For these blasphemies the poets, it is true, did not pay the penalty they deserved, but
           assuredly they did not escape punishment altogether; some became vagabonds begging for
           their daily bread; others became blind; another spent all his life in exile from his
@@ -540,7 +547,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               key="tgn,7002756">Thrace</placeName>. Perhaps Archilochus is the poet in exile.</note>
         </p>
       </div>
-      <div n="40" type="section">
+      <div n="40" subtype="section" type="textpart">
         <p>Therefore if we are wise we shall not imitate their tales, nor while passing laws for the
           punishment of libels against each other, shall we disregard loose-tongued vilification of
           the gods; on the contrary, we shall be on our guard and consider equally guilty of impiety
@@ -549,14 +556,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             immoralities to the gods.</note>
         </p>
       </div>
-      <div n="41" type="section">
+      <div n="41" subtype="section" type="textpart">
         <p> Now I, for my part, think that not only the gods but also their offspring have no share
           in any wickedness but themselves are by nature endowed with all the virtues and have
           become for all mankind guides and teachers of the most honorable conduct. For it is absurd
           that we should attribute to the gods the responsibility for the happy fortunes of our
           children, and yet believe them to be indifferent to those of their own. </p>
       </div>
-      <div n="42" type="section">
+      <div n="42" subtype="section" type="textpart">
         <p>Nay, if any one of us should obtain the power of regulating human nature, he would not
           allow even his slaves to be vicious; yet we condemn the gods by believing that they
           permitted their own offspring to be so impious and lawless. And you, Polycrates, assume
@@ -564,13 +571,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           become your pupils, yet believe that the gods have no care for the virtue of their own
           children! </p>
       </div>
-      <div n="43" type="section">
+      <div n="43" subtype="section" type="textpart">
         <p>And yet, according to your own reasoning, the gods are not free from the two most
           disgraceful faults: for if they do not want their children to be virtuous, they are
           inferior in character to human beings; but if, on the other hand, they desire it but are
           at a loss how to effect it, they are more impotent than the sophists! </p>
       </div>
-      <div n="44" type="section">
+      <div n="44" subtype="section" type="textpart">
         <p> Although the subject admits of many arguments for the amplification of my theme of
           eulogy and defense, I believe it unnecessary to speak at greater length; for my aim in
           this discourse is not to make a display to impress others, but to show for your benefit
@@ -578,7 +585,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           justly be considered by anyone to be, not a defense of Busiris, but an admission of all
           the crimes charged against him. </p>
       </div>
-      <div n="45" type="section">
+      <div n="45" subtype="section" type="textpart">
         <p>For you do not exonerate him from the charges, but only declare that some others have
           done the same things, inventing thus a very easy refuge for all criminals. Why, if it is
           not easy to find a crime which has not yet been committed, and if we should consider that
@@ -587,7 +594,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           be providing ready-made pleas in exculpation of all criminals and be granting complete
           licence for those who are bent on villainy? </p>
       </div>
-      <div n="46" type="section">
+      <div n="46" subtype="section" type="textpart">
         <p>You would best perceive the inanity of your defense of Busiris if you should imagine
           yourself in his position. Just suppose this case: if you had been accused of grave and
           terrible crimes and an advocate should defend you in this fashion, what would be your
@@ -595,21 +602,21 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           accusers. And yet is it not disgraceful to compose for others a plea in defense of such
           kind that it would arouse your extreme anger if spoken on your own behalf? </p>
       </div>
-      <div n="47" type="section">
+      <div n="47" subtype="section" type="textpart">
         <p> Again, consider this, and meditate upon it. If one of your pupils should be induced to
           do those things which you praise, would he not be the most wretched of men who are now
           alive and, in truth, of all who ever have lived? Is it right, therefore,to compose
           discourses such that they will do the most good if they succeed in convincing no one among
           those who hear them? </p>
       </div>
-      <div n="48" type="section">
+      <div n="48" subtype="section" type="textpart">
         <p> But perhaps you will say that you too were not unaware of all this but that you wished
           to bequeath to men of learning an example of how pleas in defense of shameful charges and
           difficult causes ought to be made. But I think it has now been made clear to you, even if
           you were previously in ignorance, that an accused person would sooner gain acquittal by
           not uttering a word than by pleading his cause in this way. </p>
       </div>
-      <div n="49" type="section">
+      <div n="49" subtype="section" type="textpart">
         <p>And, furthermore, this too is evident, that philosophy<note anchored="true" resp="ed">By
             “philosophy” Isocrates means <foreign xml:lang="greek">TH\N PERI\ TOU\S LO/GOUS
               PAI/DEUSIN</foreign> of §49, fin.—the training in, and cultivation of, the art of
@@ -619,11 +626,12 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           of such things as will neither injure your own reputation, nor corrupt your imitators, nor
           bring the teaching of rhetoric into disrepute. </p>
       </div>
-      <div n="50" type="section">
+      <div n="50" subtype="section" type="textpart">
         <p>And do not be astonished if I, who am younger than you and unrelated to you, essay so
           lightly to admonish you; for, in my opinion, giving good counsel on such subjects is not
           the function of older men or of the most intimate friends, but of those who know most and
           desire most to render service.</p>
+      </div>
       </div>
     </body>
   </text>
