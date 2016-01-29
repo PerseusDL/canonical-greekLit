@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader type="text">
     <fileDesc>
@@ -38,16 +39,22 @@
     </fileDesc>
 
     <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="section"
+          matchPattern="(\\w+)"
+          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+          <p>This pointer pattern extracts section</p>
+        </cRefPattern>
+      </refsDecl>
       <refsDecl>
-        <refState delim="." unit="speech"/>
         <refState n="chunk context" unit="section"/>
       </refsDecl>
     </encodingDesc>
-
+    
     <profileDesc>
       <langUsage>
-        <language ident="en">English </language>
-        <language ident="greek">Greek </language>
+        <language ident="eng">English </language>
+        <language ident="grc">Greek </language>
       </langUsage>
 
       <textClass xml:id="gen.epideictic">
@@ -183,7 +190,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
   </teiHeader>
   <text xml:lang="en">
     <body>
-      <div n="1" type="section">
+      <div type="translation" n="urn:cts:greekLit:tlg0010.tlg007.perseus-eng2" xml:lang="eng">
+      <div n="1" subtype="section" type="textpart">
         <p> In many respects, Demonicus, we shall find that much disparity exists between the
           principles of good men and the notions of the base; but most of all by far have they
           parted company in the quality of their friendships.<note anchored="true" resp="ed">For the
@@ -194,14 +202,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           to break up the intimacies of the base, not all eternity can blot out the friendships of
           good men. </p>
       </div>
-      <div n="2" type="section">
+      <div n="2" subtype="section" type="textpart">
         <p>So then, since I deem it fitting that those who strive for distinction and are ambitious
           for education should emulate the good and not the bad, I have dispatched to you this
           discourse as a gift, in proof of my good will toward you and in token of my friendship for
           Hipponicus; for it is fitting that a son should inherit his father's friendships even as
           he inherits his estate. </p>
       </div>
-      <div n="3" type="section">
+      <div n="3" subtype="section" type="textpart">
         <p>I see, moreover, that fortune is on our side and that the present circumstances are in
           league with us; for you are eager for education and I profess to educate; you are ripe for
             philosophy<note anchored="true" resp="ed">For the meaning of “philosophy” in Isocrates
@@ -209,7 +217,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           compose hortatory discourses addressed to their own friends are, no doubt, engaged in a
           laudable employment; </p>
       </div>
-      <div n="4" type="section">
+      <div n="4" subtype="section" type="textpart">
         <p>yet they do not occupy themselves with the most vital part of philosophy. Those, on the
           contrary, who point out to the young, not by what means they may cultivate skill in
           oratory, but how they may win repute as men of sound character, are rendering a greater
@@ -221,7 +229,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             education see Introduction, p. xxv.</note>
         </p>
       </div>
-      <div n="5" type="section">
+      <div n="5" subtype="section" type="textpart">
         <p> Therefore, I have not invented a hortatory<note anchored="true" resp="ed">This discourse
             is really hortatory in the general sense of that word, but Isocrates distinguishes it
             from hortatory (“protreptic”) discourses of the sophists, which were lectures to
@@ -233,7 +241,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           true sense to attain to virtue—that possession which is the grandest and the most enduring
           in the world. </p>
       </div>
-      <div n="6" type="section">
+      <div n="6" subtype="section" type="textpart">
         <p>For beauty is spent by time or withered by disease; wealth ministers to vice rather than
           to nobility of soul, affording means for indolent living and luring the young to pleasure;
           strength, in company with wisdom, is, indeed, an advantage, but without wisdom it harms
@@ -241,19 +249,19 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           it, yet it obscures the care of the soul<note anchored="true" resp="ed">Cf. <bibl
               n="Isoc. 4.1">Isoc. 4.1</bibl>.</note>. </p>
       </div>
-      <div n="7" type="section">
+      <div n="7" subtype="section" type="textpart">
         <p>But virtue, when it grows up with us in our hearts without alloy, is the one possession
           which abides with us in old age; it is better than riches and more serviceable than high
           birth; it makes possible what is for others impossible; it supports with fortitude that
           which is fearful to the multitude; and it considers sloth a disgrace and toil an honor.
         </p>
       </div>
-      <div n="8" type="section">
+      <div n="8" subtype="section" type="textpart">
         <p>This it is easy to learn from the labors of Heracles and the exploits of Theseus, whose
           excellence of character has impressed upon their exploits so clear a stamp of glory that
           not even endless time can cast oblivion upon their achievements. </p>
       </div>
-      <div n="9" type="section">
+      <div n="9" subtype="section" type="textpart">
         <p> Nay, if you will but recall also your father's principles, you will have from your own
           house a noble illustration of what I am telling you. For he did not belittle virtue nor
           pass his life in indolence; on the contrary, he trained his body by toil, and by his
@@ -267,14 +275,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               teqhnco/menos tw=n sw=n a)gaqw=n a)po/laue w(s de\ biwso/menos fei/deo sw=n
               ktea/wn</foreign>.</note>. </p>
       </div>
-      <div n="10" type="section">
+      <div n="10" subtype="section" type="textpart">
         <p>Neither did he order his existence sordidly, but was a lover of beauty, munificent in his
           manner of life, and generous to his friends; and he prized more those who were devoted to
           him than those who were his kin by blood; for he considered that in the matter of
           companionship nature is a much better guide than convention, character than kinship, and
           freedom of choice than compulsion. </p>
       </div>
-      <div n="11" type="section">
+      <div n="11" subtype="section" type="textpart">
         <p> But all time would fail us if we should try to recount all his activities. On another
           occasion I shall set them forth in detail;<note anchored="true" resp="ed">This intention
             was not, so far as we know, carried out.</note> for the present however, I have produced
@@ -283,7 +291,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           father's virtue; for it were a shame, when painters represent the beautiful among animals,
           for children not to imitate the noble among their ancestors. </p>
       </div>
-      <div n="12" type="section">
+      <div n="12" subtype="section" type="textpart">
         <p>Nay, you must consider that no athlete is so in duty bound to train against his
           competitors as are you to take thought how you may vie with your father in his ways of
           life. But it is not possible for the mind to be so disposed unless one is fraught with
@@ -292,7 +300,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           shall endeavor to set before you concisely by what practices I think you can make the most
           progress toward virtue and win the highest repute in the eyes of all other men. </p>
       </div>
-      <div n="13" type="section">
+      <div n="13" subtype="section" type="textpart">
         <p> First of all, then, show devotion to the gods,<note anchored="true" resp="ed">Cf. <bibl
               n="Thgn. 171">Theognis 171</bibl>
             <foreign xml:lang="greek">qeoi=s eu)xeu, qeoi=s e)stin e)/pi kra/tos</foreign>.</note>
@@ -302,7 +310,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           thus you will have the reputation both of sacrificing to the gods and of abiding by the
           laws. </p>
       </div>
-      <div n="14" type="section">
+      <div n="14" subtype="section" type="textpart">
         <p> Conduct yourself toward your parents as you would have your children conduct themselves
           toward you.<note anchored="true" resp="ed">Isocrates anticipates the golden rule.Cf. <bibl
               n="Isoc. 3.61">Isoc. 3.61</bibl>; <bibl n="Isoc. 2.24">Isoc. 2.24, 38</bibl>; <bibl
@@ -310,7 +318,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           conduce to strength, but by those which conduce to health. In this you will succeed if you
           cease your exertions while you still have energy to exert yourself. </p>
       </div>
-      <div n="15" type="section">
+      <div n="15" subtype="section" type="textpart">
         <p> Be not fond of violent mirth, nor harbor presumption of speech; for the one is folly,
           the other madness.<note anchored="true" resp="ed">Cf. Lord Chesterfield,
               <title>Letters</title> , 144: “Frequent and loud laughter is characteristic of folly
@@ -321,7 +329,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           are the virtues by which, as all men are agreed, the character of the young is held in
           restraint. </p>
       </div>
-      <div n="16" type="section">
+      <div n="16" subtype="section" type="textpart">
         <p> Never hope to conceal any shameful thing which you have done; for even if you do conceal
           it from others, your own heart will know. Fear the gods, honor your parents, respect your
           friends, obey the laws. Pursue the enjoyments which are of good repute; for pleasure
@@ -329,7 +337,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             worst.<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.46">Isoc. 1.46</bibl></note>
         </p>
       </div>
-      <div n="17" type="section">
+      <div n="17" subtype="section" type="textpart">
         <p> Guard yourself against accusations, even if they are false; for the multitude are
           ignorant of the truth and look only to reputation. In all things resolve to act as though
           the whole world would see what you do; for even if you conceal your deeds for the moment,
@@ -341,7 +349,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             Cf. <bibl n="Isoc. 1.14">Isoc. 1.14</bibl> and note.</note>
         </p>
       </div>
-      <div n="18" type="section">
+      <div n="18" subtype="section" type="textpart">
         <p> If you love knowledge, you will be a master of knowledge.<note anchored="true" resp="ed"
             >Sandys quotes from Ascham's <title>Scholemaster</title> : “Isocrates did cause to be
             written at the entrie of his schole, in golden letters, this golden sentence, <foreign
@@ -355,7 +363,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           to discourse, for in this way you will find that you learn with ease what others have
           found out with difficulty. </p>
       </div>
-      <div n="19" type="section">
+      <div n="19" subtype="section" type="textpart">
         <p>Believe that many precepts are better than much wealth; for wealth quickly fails us, but
           precepts abide through all time; for wisdom alone of all possessions is imperishable. Do
           not hesitate to travel a long road<note anchored="true" resp="ed">Echoed unmistakably from
@@ -366,7 +374,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           wealth, that the young should not endure even journeys by land to improve their
           understanding. </p>
       </div>
-      <div n="20" type="section">
+      <div n="20" subtype="section" type="textpart">
         <p> Be courteous in your manner, and cordial in your address. It is the part of courtesy to
           greet those whom you meet; and of cordiality to enter into friendly talk with them. Be
           pleasant to all, but cultivate the best; thus you will avoid the dislike of the former and
@@ -379,7 +387,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             plhsmonh/</foreign>.</note>
         </p>
       </div>
-      <div n="21" type="section">
+      <div n="21" subtype="section" type="textpart">
         <p> Train yourself in self-imposed toils, that you may be able to endure those which others
           impose upon you.<note anchored="true" resp="ed">So also Democritus, Stobaeus,
               <title>Flor.</title> xxix. 63.</note> Practice self-control in all the things by which
@@ -394,7 +402,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           over one's servants and yet be a slave to one's desires; and if, when you are in trouble,
           you contemplate the misfortunes of others and remind yourself that you are human. </p>
       </div>
-      <div n="22" type="section">
+      <div n="22" subtype="section" type="textpart">
         <p> Guard more faithfully the secret which is confided to you than the money which is
           entrusted to your care; for good men ought to show that they hold their honor more
           trustworthy than an oath. Consider that you owe it to yourself no less to mistrust bad men
@@ -402,13 +410,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           one save when it is equally expedient for you who speak and for those who hear that the
           facts should not be published. </p>
       </div>
-      <div n="23" type="section">
+      <div n="23" subtype="section" type="textpart">
         <p>Never allow yourself to be put under oath save for one of two reasons—in order to clear
           yourself of disgraceful charges or to save your friends from great dangers. In matters of
           money, swear by none of the gods, not even when you intend to swear a true oath; for you
           will be suspected on the one hand of perjury, on the other of greed. </p>
       </div>
-      <div n="24" type="section">
+      <div n="24" subtype="section" type="textpart">
         <p> Make no man your friend before inquiring how he has used his former friends;<note
             anchored="true" resp="ed">Cf. <bibl n="Xen. Mem. 2.6.6">Xen. Mem. 2.6.6</bibl>.</note>
           for you must expect him to treat you as he has treated them. Be slow<note anchored="true"
@@ -420,7 +428,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           be willing to forgo a test of your companions. You can manage this if you pretend to be in
           want when really you lack nothing. </p>
       </div>
-      <div n="25" type="section">
+      <div n="25" subtype="section" type="textpart">
         <p>Confide in them about matters which require no secrecy as if they were secrets; for if
           you fail you will not injure yourself, and if you succeed you will have a better knowledge
           of their character. Prove your friends by means of the misfortunes of life and of their
@@ -430,7 +438,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           friends if you do not wait for them to ask your help, but go of your own accord at the
           crucial moment to lend them aid. </p>
       </div>
-      <div n="26" type="section">
+      <div n="26" subtype="section" type="textpart">
         <p>Consider it equally disgraceful to be outdone by your enemies in doing injury and to be
           surpassed by your friends in doing kindness.<note anchored="true" resp="ed">The “get even”
             standard of honor in popular thought. Cf. <bibl n="Thgn. 869">Theog. 869-72</bibl>:
@@ -448,14 +456,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           your absent friends to those who are with you, so that they may think you do not forget
           them, in their turn, when they are absent. </p>
       </div>
-      <div n="27" type="section">
+      <div n="27" subtype="section" type="textpart">
         <p> In matters of dress, resolve to be a man of taste, but not a fop. The man of taste is
           marked by elegance, the fop by excess. Set not your heart on the excessive acquisition of
           goods, but on a moderate enjoyment of what you have. Despise those who strain after
           riches, but are not able to use what they have; they are in like case with a man who,
           being but a wretched horseman, gets him a fine mount. </p>
       </div>
-      <div n="28" type="section">
+      <div n="28" subtype="section" type="textpart">
         <p>Try to make of money a thing to use as well as to possess; it is a thing of use to those
           who understand how to enjoy it, and a mere possession to those who are able only to
           acquire it. Prize the substance you have for two reasons—that you may have the means to
@@ -463,7 +471,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           distress; but for your life in general, cherish your possessions not in excess but in
           moderation. </p>
       </div>
-      <div n="29" type="section">
+      <div n="29" subtype="section" type="textpart">
         <p> Be content with your present lot, but seek a better one. Taunt no man with his
           misfortune for fate is common to all and the future is a thing unseen. Bestow your favors
           on the good; for a goodly treasury is a store of gratitude laid up in the heart of an
@@ -475,7 +483,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               kai\ spei/rein po/nton a(lo\s polih=s</foreign>.</note>
         </p>
       </div>
-      <div n="30" type="section">
+      <div n="30" subtype="section" type="textpart">
         <p> Abhor flatterers as you would deceivers; for both, if trusted, injure those who trust
           them. If you admit to your friendship men who seek your favor for the lowest ends, your
           life will be lacking in friends who will risk your displeasure for the highest good. Be
@@ -483,7 +491,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           the arrogant even slaves can hardly endure, whereas when men are affable all are glad to
           bear with their ways. </p>
       </div>
-      <div n="31" type="section">
+      <div n="31" subtype="section" type="textpart">
         <p>But to be affable, you must not be quarrelsome, nor hard to please, nor always determined
           to have your way; you must not oppose harshly the angry moods of your associates, even if
           they happen to be angry without reason, but rather give way to them when they are in the
@@ -494,7 +502,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           offensively; and you must not be given to fault-finding, which is irksome, nor be
           censorious, which is exasperating. </p>
       </div>
-      <div n="32" type="section">
+      <div n="32" subtype="section" type="textpart">
         <p> If possible avoid drinking-parties altogether,<note anchored="true" resp="ed">For
             drinking-parties in <placeName key="tgn,7001393">Athens</placeName> see Isocrates'
             picture in <bibl n="Isoc. 15.286">Isoc. 15.286-7</bibl>.</note> but if ever occasion
@@ -511,7 +519,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               n="Isoc. 1.9">Isoc. 1.9</bibl></note>
         </p>
       </div>
-      <div n="33" type="section">
+      <div n="33" subtype="section" type="textpart">
         <p> Consider culture to be a good so far superior to the lack of culture that while in
           general everyone derives gain from the practice of vice, boorishness<note anchored="true"
             resp="ed">The translation of this perplexing sentence takes <foreign xml:lang="greek"
@@ -521,7 +529,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           desire to make a friend of anyone, say good things about him to those who are wont to
           report them; for praise is the foundation of friendship, as blame is that of enmity. </p>
       </div>
-      <div n="34" type="section">
+      <div n="34" subtype="section" type="textpart">
         <p> In your deliberations, let the past be an exemplar for the future;<note anchored="true"
             resp="ed">Cf. <bibl n="Isoc. 2.35">Isoc. 2.35</bibl>.</note> for the unknown may be
           soonest discerned by reference to the known.<note anchored="true" resp="ed">The same idea
@@ -533,7 +541,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           to confer with some of your friends, speak as though it were another's affair; thus you
           will get at their opinion, and will not betray your own case. </p>
       </div>
-      <div n="35" type="section">
+      <div n="35" subtype="section" type="textpart">
         <p>Whenever you purpose to consult with anyone about your affairs, first observe how he has
           managed his own; for he who has shown poor judgement in conducting his own business will
           never give wise counsel about the business of others. The greatest incentive you can have
@@ -541,7 +549,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           the closest attention to our health when we recall the pains which spring from disease.
         </p>
       </div>
-      <div n="36" type="section">
+      <div n="36" subtype="section" type="textpart">
         <p> Pattern after the character of kings, and follow closely their ways. For you will thus
           be thought to approve them and emulate them, and as a result you will have greater esteem
           in the eyes of the multitude and a surer hold on the favor of royalty. Obey the laws which
@@ -552,14 +560,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             applies here. See <bibl n="Isoc. 2">Isoc. 2</bibl>, introduction.</note>
         </p>
       </div>
-      <div n="37" type="section">
+      <div n="37" subtype="section" type="textpart">
         <p> When you are placed in authority, do not employ any unworthy person in your
           administration; for people will blame you for any mistakes which he may make. Retire from
           your public trusts, not more wealthy, but more highly esteemed; for the praise of a people
           is better than many possessions. Never support or defend a bad cause, for people will
           suspect that you yourself do the things which you aid others in doing. </p>
       </div>
-      <div n="38" type="section">
+      <div n="38" subtype="section" type="textpart">
         <p> Put yourself in a position in which you have the power to take advantage, but refrain
           when you have your fair share, so that men may think that you strive for justice, not from
           weakness, but from a sense of equity. Prefer honest poverty to unjust wealth;<note
@@ -576,7 +584,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               d' a)nqrw/pwn a)/llote a)/llos e)/xei.</foreign></note>
         </p>
       </div>
-      <div n="39" type="section">
+      <div n="39" subtype="section" type="textpart">
         <p>Never emulate those who seek to gain by injustice, but cleave rather to those who have
           suffered loss in the cause of justice; for if the just have no other advantage over the
           unjust, at any rate they surpass them in their high hopes.<note anchored="true" resp="ed"
@@ -586,7 +594,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               n="Isoc. 5.134">Isoc. 5.134</bibl>.</note>
         </p>
       </div>
-      <div n="40" type="section">
+      <div n="40" subtype="section" type="textpart">
         <p> Give careful heed to all that concerns your life, but above all train your own
           intellect; for the greatest thing in the smallest compass is a sound mind in a human
             body.<note anchored="true" resp="ed">From Periander. See Stob. <title>Flor</title> .
@@ -596,7 +604,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           that with the one you may have the strength to carry out your resolves, and with the other
           the intelligence to foresee what is for your good. </p>
       </div>
-      <div n="41" type="section">
+      <div n="41" subtype="section" type="textpart">
         <p> Always when you are about to say anything, first weigh it in your mind; for with many
           the tongue outruns the thought.<note anchored="true" resp="ed">From <placeName
               key="tgn,2078846">Chilo</placeName>. See Diog. Laert. i. 70: <foreign xml:lang="greek"
@@ -605,7 +613,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           on which you are compelled to speak. On these occasions alone is speech better than
           silence; on all others, it is better to be silent than to speak. </p>
       </div>
-      <div n="42" type="section">
+      <div n="42" subtype="section" type="textpart">
         <p> Consider that nothing in human life is stable;<note anchored="true" resp="ed">Cf. <bibl
               n="Isoc. 1.29">Isoc. 1.29</bibl>; <bibl n="Thgn. 585">Theog. 585</bibl>.</note> for
           then you will not exult overmuch in prosperity, nor grieve overmuch in adversity.<note
@@ -621,7 +629,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               n="Thgn. 1162">Theog. 1162</bibl>.</note> for it were strange to hide away one's
           treasure in the house, and yet walk about laying bare one's feelings to the world. </p>
       </div>
-      <div n="43" type="section">
+      <div n="43" subtype="section" type="textpart">
         <p> Be more careful in guarding against censure than against danger; for the wicked may well
           dread the end of life, but good men should dread ignominy during life. Strive by all means
           to live in security,<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 2.13">Isoc.
@@ -630,7 +638,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           sentence which fate has passed on all mankind, but to die nobly is the special honor which
           nature has reserved for the good. </p>
       </div>
-      <div n="44" type="section">
+      <div n="44" subtype="section" type="textpart">
         <p> Do not be surprised that many things which I have said do not apply to you at your
           present age. For I also have not overlooked this fact, but I have deliberately chosen to
           employ this one treatise, not only to convey to you advice for your life now, but also to
@@ -640,7 +648,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           you may draw from this as from a treasure-house, I thought that I ought not to omit any of
           the counsels which I have to give you. </p>
       </div>
-      <div n="45" type="section">
+      <div n="45" subtype="section" type="textpart">
         <p> And I shall be most grateful to the gods if I am not disappointed in the opinion which I
           have of you. For, while we find that the great majority of other men seek the society of
           those friends who join them in their follies and not of those who admonish them, just as
@@ -650,7 +658,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           one sets for himself the highest standard of conduct, it is probable that in his relation
           to others he will approve only of those who exhort him to virtue. </p>
       </div>
-      <div n="46" type="section">
+      <div n="46" subtype="section" type="textpart">
         <p>But most of all would you be spurred on to strive for noble deeds if you should realize
           that it is from them most of all that we also derive pleasure in the true sense. For while
           the result of indolence and love of surfeit is that pain follows on the heels of
@@ -660,19 +668,19 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           delights that are pure and more abiding. In the former case we experience pain following
           upon pleasure, in the latter we enjoy pleasure after pain. </p>
       </div>
-      <div n="47" type="section">
+      <div n="47" subtype="section" type="textpart">
         <p>In all our tasks we are not so much mindful of the beginning as we are sensible of the
           end; for we do most things in life not for themselves; it is rather for the sake of what
           results from them that we carry on our labors. </p>
       </div>
-      <div n="48" type="section">
+      <div n="48" subtype="section" type="textpart">
         <p> Bear in mind that while the base may be pardoned for acting without principle, since it
           is on such a foundation that from the first their lives have been built, yet the good may
           not neglect virtue without subjecting themselves to rebukes from many quarters; for all
           men despise less those who do wrong than those who have claimed to be respect able and yet
           are in fact no better than the common run; </p>
       </div>
-      <div n="49" type="section">
+      <div n="49" subtype="section" type="textpart">
         <p>and rightly, too, for when we condemn those who deceive us in words alone, how, pray, can
           we deny the baseness of those who in their whole lives belie their promise?<note
             anchored="true" resp="ed">Cf. <bibl n="Isoc. 12.243">Isoc. 12.243</bibl>.</note> We
@@ -681,21 +689,21 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           but they, for their part, make themselves unworthy of the blessings which lie within their
           grasp. </p>
       </div>
-      <div n="50" type="section">
+      <div n="50" subtype="section" type="textpart">
         <p> And if a mortal may make conjecture of the thoughts of the gods, I think that they also
           have revealed very clearly in their treatment of their nearest kin how they are disposed
           to the good and base among men. For Zeus, who, as the myths relate and all men believe,
           was the father of Heracles and Tantalus, made the one immortal because of his virtue, and
           inflicted on the other the severest punishments because of his evil character. </p>
       </div>
-      <div n="51" type="section">
+      <div n="51" subtype="section" type="textpart">
         <p> With these examples before you, you should aspire to nobility of character, and not only
           abide by what I have said, but acquaint yourself with the best things in the poets as
           well, and learn from the other wise men also any useful lessons they have taught.<note
             anchored="true" resp="ed">Cf. <bibl n="Isoc. 2.13">Isoc. 2.13</bibl>.</note>
         </p>
       </div>
-      <div n="52" type="section">
+      <div n="52" subtype="section" type="textpart">
         <p>For just as we see the bee settling on all the flowers, and sipping the best from each,
           so also those who aspire to culture ought not to leave anything untasted, but should
           gather useful knowledge from every source.<note anchored="true" resp="ed">The figure is
@@ -703,6 +711,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             floriferis ut apes in saltibus omnia libant,/omnia nos itidem depascimur aurea
             dicta.</note> For hardly even with these pains can they overcome the defects of
           nature.</p>
+      </div>
       </div>
     </body>
   </text>
