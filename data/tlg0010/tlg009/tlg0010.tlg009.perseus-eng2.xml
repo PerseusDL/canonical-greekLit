@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader type="text">
     <fileDesc>
@@ -38,16 +39,22 @@
     </fileDesc>
 
     <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="section"
+          matchPattern="(\\w+)"
+          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+          <p>This pointer pattern extracts section</p>
+        </cRefPattern>
+      </refsDecl>
       <refsDecl>
-        <refState delim="." unit="speech"/>
         <refState n="chunk context" unit="section"/>
       </refsDecl>
     </encodingDesc>
-
+    
     <profileDesc>
       <langUsage>
-        <language ident="en">English </language>
-        <language ident="greek">Greek </language>
+        <language ident="eng">English </language>
+        <language ident="grc">Greek </language>
       </langUsage>
 
       <textClass xml:id="gen.epideictic">
@@ -181,9 +188,9 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <change when="2014-10-01" who="Stella Dee">edited markup</change>
     </revisionDesc>
   </teiHeader>
-  <text xml:lang="en">
+  <text xml:lang="eng">
     <body>
-      <div n="1" type="section">
+      <div n="1" subtype="section" type="textpart">
         <p> There are some who are much pleased with themselves if, after setting up an absurd and
           self-contradictory subject, they succeed in discussing it in tolerable fashion; and men
           have grown old, some asserting that it is impossible to say, or to gainsay, what is
@@ -196,18 +203,18 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           disputations that are not only entirely useless, but are sure to make trouble for their
           disciples. </p>
       </div>
-      <div n="2" type="section">
+      <div n="2" subtype="section" type="textpart">
         <p> For my part, if I observed that this futile affectation had arisen only recently in
           rhetoric and that these men were priding themselves upon the novelty of their inventions,
           I should not be surprised at them to such degree; but as it is, who is so backward in
           learning as not to know that Protagoras and the sophists of his time have left to us
           compositions of similar character and even far more overwrought than these? </p>
       </div>
-      <div n="3" type="section">
+      <div n="3" subtype="section" type="textpart">
         <p>For how could one surpass Gorgias<note anchored="true" resp="ed">Cf. <bibl
               n="Isoc. 15.268">Isoc. 15.268</bibl>. Gorgias of Leontini in <placeName
               key="tgn,7003122">Sicily</placeName>, pupil of Teisias, came to Athens on an embassy
-            in <date value="-427">427 B.C.</date></note>, who dared to assert that nothing exists of
+            in <date when="-0427">427 B.C.</date></note>, who dared to assert that nothing exists of
           the things that are, or Zeno<note anchored="true" resp="ed">This is Zeno of <placeName
               key="perseus,Elea">Elea</placeName>, in <placeName key="tgn,1000080"
             >Italy</placeName>, and not the founder of the Stoic School of philosophy. Zeno and
@@ -215,20 +222,20 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           possible and again as impossible, or Melissus who, although things in nature are infinite
           in number, made it his task to find proofs that the whole is one! </p>
       </div>
-      <div n="4" type="section">
+      <div n="4" subtype="section" type="textpart">
         <p>Nevertheless, although these men so clearly have shown that it is easy to contrive false
           statements on any subject that may be proposed, they still waste time on this commonplace.
           They ought to give up the use of this claptrap, which pretends to prove things by verbal
           quibbles, which in fact have long since been refuted, and to pursue the truth, </p>
       </div>
-      <div n="5" type="section">
+      <div n="5" subtype="section" type="textpart">
         <p>to instruct their pupils in the practical affairs of our government and train to
           expertness therein, bearing in mind that likely conjecture about useful things is far
           preferable to exact knowledge of the useless, and that to be a little superior in
           important things is of greater worth than to be pre-eminent in petty things that are
           without value for living. </p>
       </div>
-      <div n="6" type="section">
+      <div n="6" subtype="section" type="textpart">
         <p> But the truth is that these men care for naught save enriching themselves at the expense
           of the youth. It is their “philosophy” applied to eristic disputations<note
             anchored="true" resp="ed">eristics, “wordy wrangling” “mere disputation for its own
@@ -237,7 +244,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           care nothing at all for either private or public affairs, take most pleasure in those
           discourses which are of no practical service in any particular. </p>
       </div>
-      <div n="7" type="section">
+      <div n="7" subtype="section" type="textpart">
         <p>These young men, to be sure, may well be pardoned for holding such views; for in all
           matters they are and always have been inclined toward what is extraordinary and
           astounding. But those who profess to give them training are deserving of censure because,
@@ -246,14 +253,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           reprehensible conduct; for the former wrong sundry other persons, but the latter inflict
           most injury upon their own pupils. </p>
       </div>
-      <div n="8" type="section">
+      <div n="8" subtype="section" type="textpart">
         <p>And they have caused mendacity to increase to such a degree that now certain men, seeing
           these persons prospering from such practices, have the effrontery to write that the life
           of beggars and exiles is more enviable than that of the rest of mankind, and they use this
           as a proof that, if they can speak ably on ignoble subjects, it follows that in dealing
           with subjects of real worth they would easily find abundance of arguments. </p>
       </div>
-      <div n="9" type="section">
+      <div n="9" subtype="section" type="textpart">
         <p>The most ridiculous thing of all, in my opinion, is this, that by these arguments they
           seek to convince us that they possess knowledge of the science of government, when they
           might be demonstrating it by actual work in their professed subject; for it is fitting
@@ -261,13 +268,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           better than they, not in fields neglected by everybody else, but where all are rivals.
         </p>
       </div>
-      <div n="10" type="section">
+      <div n="10" subtype="section" type="textpart">
         <p>But as it is, their conduct resembles that of an athlete who, although pretending to be
           the best of all athletes, enters a contest in which no one would condescend to meet him.
           For what sensible man would undertake to praise misfortunes? No, it is obvious that they
           take refuge in such topics because of weakness. </p>
       </div>
-      <div n="11" type="section">
+      <div n="11" subtype="section" type="textpart">
         <p>Such compositions follow one set road and this road is neither difficult to find, nor to
           learn, nor to imitate. On the other hand, discourses that are of general import, those
           that are trustworthy, and all of similar nature, are devised and expressed through the
@@ -275,7 +282,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           learn, and their composition is more difficult as it is more arduous to practise dignity
           than buffoonery and seriousness than levity. The strongest proof is this: </p>
       </div>
-      <div n="12" type="section">
+      <div n="12" subtype="section" type="textpart">
         <p>no one who has chosen to praise bumble-bees and salt<note anchored="true" resp="ed">Cf.
               <bibl n="Plat. Sym. 177b">Plat. Sym. 177b</bibl>, where there is reference to an
               <title>Encomium of Salt</title> by an unknown writer. See <bibl n="Isoc. 12.135">Isoc.
@@ -285,7 +292,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           of superior moral worth have all fallen far short of the possibilities which these
           subjects offer. </p>
       </div>
-      <div n="13" type="section">
+      <div n="13" subtype="section" type="textpart">
         <p>For it does not belong to the same mentality to do justice to both kinds of subjects; on
           the contrary, while it is easy by eloquence to overdo the trivial themes, it is difficult
           to reach the heights of greatness of the others<note anchored="true" resp="ed">Cf. <bibl
@@ -293,7 +300,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           finds thoughts which no one has previously uttered, yet on trifling and insignificant
           topics whatever the speaker may chance to say is entirely original. </p>
       </div>
-      <div n="14" type="section">
+      <div n="14" subtype="section" type="textpart">
         <p> This is the reason why, of those who have wished to discuss a subject with eloquence, I
           praise especially him who chose to write of Helen<note anchored="true" resp="ed">This
             statement certainly seems to refer to Gorgias, <bibl n="Isoc. 10.">Isoc. 10.</bibl>(see
@@ -304,7 +311,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           committed a slight inadvertence—for although he asserts that he has written an encomium of
           Helen, it turns out that he has actually spoken a defense of her conduct! </p>
       </div>
-      <div n="15" type="section">
+      <div n="15" subtype="section" type="textpart">
         <p>But the composition in defense does not draw upon the same topics as the encomium, nor
           indeed does it deal with actions of the same kind, but quite the contrary; for a plea in
           defense is appropriate only when the defendant is charged with a crime, whereas we praise
@@ -314,7 +321,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           I will try to speak of this same woman, disregarding all that any others have said about
           her. </p>
       </div>
-      <div n="16" type="section">
+      <div n="16" subtype="section" type="textpart">
         <p> I will take as the beginning of my discourse the beginning of her family. For although
           Zeus begat very many of the demigods, of this woman alone he condescended to be called
           father. While he was devoted most of all to the son of Alcmena<note anchored="true"
@@ -324,7 +331,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           overpower all others by force, yet to her he gave the gift of beauty, which by its nature
           brings even strength itself into subjection to it. </p>
       </div>
-      <div n="17" type="section">
+      <div n="17" subtype="section" type="textpart">
         <p>And knowing that all distinction and renown accrue, not from a life of ease, but from
           wars and perilous combats, and since he wished, not only to exalt their persons to the
           gods, but also to bequeath to them glory that would be immortal, he gave his son a life of
@@ -332,7 +339,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           admiration of all beholders and which in all men inspired contention<note anchored="true"
             resp="ed">Quoted and discussed by Demetrius, <title>On Style</title> 23.</note>. </p>
       </div>
-      <div n="18" type="section">
+      <div n="18" subtype="section" type="textpart">
         <p> In the first place Theseus<note anchored="true" resp="ed">For Isocrates' view of Theseus
             see <bibl n="Isoc. 12.126">Isoc. 12.126 ff.</bibl>, with his references to this
             discussion of the hero. For Theseus see <bibl n="Eur. Hipp. 887">Eur. Hipp. 887
@@ -347,7 +354,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           worth living amid the blessings he already had unless he could enjoy intimacy with her.
         </p>
       </div>
-      <div n="19" type="section">
+      <div n="19" subtype="section" type="textpart">
         <p>And when he was unable to obtain her from her guardians—for they were awaiting her
           maturity and the fulfilment of the oracle which the Pythian priestess had given—scorning
           the royal power of Tyndareus<note anchored="true" resp="ed">Father of Helen.</note>,
@@ -357,7 +364,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             key="perseus,Aphidna">Aphidna</placeName> in <placeName key="tgn,7002681"
             >Attica</placeName>. </p>
       </div>
-      <div n="20" type="section">
+      <div n="20" subtype="section" type="textpart">
         <p>So grateful was Theseus to Peirithos, his partner in the abduction, that when Peirithos
           wished to woo Persephon, the daughter of Zeus and Demeter, and summoned him to the descent
           into Hades to obtain her, when Theseus found that he could not by his warnings dissuade
@@ -368,7 +375,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           gratitude—to decline no task enjoined by Peirithos in return for his help in his own
           perilous enterprise. </p>
       </div>
-      <div n="21" type="section">
+      <div n="21" subtype="section" type="textpart">
         <p> If the achiever of these exploits had been an ordinary person and not one of the very
           distinguished, it would not yet be clear whether this discourse is an encomium of Helen or
           an accusation of Theseus; but as it is, while in the case of other men who have won renown
@@ -376,7 +383,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           kindred virtue, yet this hero alone was lacking in naught, but had attained consummate
           virtue. </p>
       </div>
-      <div n="22" type="section">
+      <div n="22" subtype="section" type="textpart">
         <p>And it seems to me appropriate to speak of Theseus at still greater length; for I think
           this will be the strongest assurance for those who wish to praise Helen, if we can show
           that those who loved and admired her were themselves more deserving of admiration than
@@ -385,7 +392,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           opinion to be in accord with the opinion of those men of wisdom who were at that time
           living. </p>
       </div>
-      <div n="23" type="section">
+      <div n="23" subtype="section" type="textpart">
         <p> The fairest praise that I can award to Theseus is this—that he, a contemporary of
           Heracles,won a fame which rivalled his. For they not only equipped themselves with similar
           armor, but followed the same pursuits, performing deeds that were worthy of their common
@@ -393,7 +400,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           they cherished also kindred ambitions; for they alone of all who have lived before our
           time made themselves champions of human life. </p>
       </div>
-      <div n="24" type="section">
+      <div n="24" subtype="section" type="textpart">
         <p>It came to pass that Heracles undertook perilous labors more celebrated and more severe,
           Theseus those more useful, and to the Greeks of more vital importance. For example,
           Heracles was ordered by Eurystheus<note anchored="true" resp="ed">Eurystheus, king of
@@ -404,7 +411,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           and to fetch Cerberus up from Hades and to perform other labors of that kind, labors which
           would bring no benefit to mankind, but only danger to himself; </p>
       </div>
-      <div n="25" type="section">
+      <div n="25" subtype="section" type="textpart">
         <p>Theseus, however, being his own master, gave preference to those struggles which would
           make him a benefactor of either the Greeks at large or of his native land. Thus, the bull
           let loose by Poseidon which was ravaging the land of <placeName key="tgn,7002681"
@@ -412,14 +419,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           singlehanded subdued, and set free the inhabitants of the city from great fear and
           anxiety. </p>
       </div>
-      <div n="26" type="section">
+      <div n="26" subtype="section" type="textpart">
         <p>And after this, allying himself with the Lapiths, he took the field against the Centaurs,
           those creatures of double nature, endowed with surpassing swiftness, strength, and daring,
           who were sacking, or about to sack, or were threatening, one city after another. These he
           conquered in battle and straightway put an end to their insolence, and not long thereafter
           he caused their race to disappear from the sight of men. </p>
       </div>
-      <div n="27" type="section">
+      <div n="27" subtype="section" type="textpart">
         <p>At about the same time appeared the monster<note anchored="true" resp="ed">The Minotaur,
             “the bull of Minos,” to whom seven boys and seven girls were annually sent as tribute by
             the Athenians; cf. <bibl n="Plat. Phaedo 58a">Plat. Phaedo 58a</bibl>.</note> reared in
@@ -430,13 +437,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           living, he was so incensed that he thought it better to die than to live as ruler of a
           city that was compelled to pay to the enemy a tribute so lamentable. </p>
       </div>
-      <div n="28" type="section">
+      <div n="28" subtype="section" type="textpart">
         <p>Having embarked with them for <placeName key="tgn,7012056">Crete</placeName>, he subdued
           this monster, half-man and half-bull, which possessed strength commensurate with its
           composite origin, and having rescued the children, he restored them to their parents, and
           thus freed the city from an obligation so savage, so terrible, and so ineluctable. </p>
       </div>
-      <div n="29" type="section">
+      <div n="29" subtype="section" type="textpart">
         <p> But I am at a loss how to deal with what remains to be said; for, now that I have taken
           up the deeds of Theseus and begun to speak of them, I hesitate to stop midway and leave
           unmentioned the lawlessness of Sciron<note anchored="true" resp="ed">A mythical robber who
@@ -445,7 +452,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           like them whom he fought and vanquished and thereby delivered the Greeks from many great
           calamities. </p>
       </div>
-      <div n="30" type="section">
+      <div n="30" subtype="section" type="textpart">
         <p>But, on the other hand, I perceive that I am being carried beyond the proper limits of my
           theme and I fear that some may think that I am more concerned with Theseus than with the
           subject which I originally chose<note anchored="true" resp="ed">See the Introduction to
@@ -454,7 +461,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           of the rest, that I may gratify both them and myself and not make a complete surrender to
           those whose habit it is out of jealousy to find fault with everything that is said. </p>
       </div>
-      <div n="31" type="section">
+      <div n="31" subtype="section" type="textpart">
         <p> His courage Theseus displayed in these perilous exploits which he hazarded alone; his
           knowledge of war in the battles he fought in company with the whole city; his piety toward
           the gods in connexion with the supplications of Adrastus and the children of Heracles
@@ -471,28 +478,28 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           virtues and his prudence, not only in the deeds already recited, but especially in the
           manner in which he governed our city. </p>
       </div>
-      <div n="32" type="section">
+      <div n="32" subtype="section" type="textpart">
         <p> For he saw that those who seek to rule their fellow-citizens by force are themselves the
           slaves of others, and that those who keep the lives of their fellow-citizens in peril
           themselves live in extreme fear, and are forced to make war, on the one hand, with the
           help of citizens against invaders from abroad, and, on the other hand, with the help of
           auxiliaries against their fellow citizens; </p>
       </div>
-      <div n="33" type="section">
+      <div n="33" subtype="section" type="textpart">
         <p>further, he saw them despoiling the temples of the gods, putting to death the best of
           their fellow-citizens, distrusting those nearest to them, living lives no more free from
           care than do men who in prison await their death; he saw that, although they are envied
           for their external blessings, yet in their own hearts they are more miserable than all
           other men— </p>
       </div>
-      <div n="34" type="section">
+      <div n="34" subtype="section" type="textpart">
         <p>for what, pray, is more grievous than to live in constant fear lest some bystander kill
           you, dreading no less your own guards than those who plot against you? Theseus, then,
           despising all these and considering such men to be not rulers, but pests, of their states,
           demonstrated that it is easy to exercise the supreme power and at the same time to enjoy
           as good relations as those who live as citizens on terms of perfect equality. </p>
       </div>
-      <div n="35" type="section">
+      <div n="35" subtype="section" type="textpart">
         <p>In the first place, the scattered settlements and villages of which the state was
           composed he united, and made Athens into a city-state<note anchored="true" resp="ed">A
             reference to the <foreign xml:lang="greek">sunoikismo/s</foreign> attributed to Theseus,
@@ -509,14 +516,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               4.38-89</bibl>, with note, should be compared.</note>. And he was so far from doing
           anything contrary to the will of the citizens </p>
       </div>
-      <div n="36" type="section">
+      <div n="36" subtype="section" type="textpart">
         <p>that he made the people masters of the government, and they on their part thought it best
           that he should rule alone, believing that his sole rule was more to be trusted and more
           equitable than their democracy. For he did not, as the other rulers did habitually, impose
           the labors upon the citizens and himself alone enjoy the pleasures; but the dangers he
           made his own, and the benefits he bestowed upon the people in common. </p>
       </div>
-      <div n="37" type="section">
+      <div n="37" subtype="section" type="textpart">
         <p>In consequence, Theseus passed his life beloved of his people and not the object of their
           plots, not preserving his sovereignty by means of alien military force, but protected, as
           by a bodyguard, by the goodwill of the citizens<note anchored="true" resp="ed">Cf. <bibl
@@ -525,7 +532,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           administer the city that even to this day traces of his clemency may be seen remaining in
           our institutions. </p>
       </div>
-      <div n="38" type="section">
+      <div n="38" subtype="section" type="textpart">
         <p> As for Helen, daughter of Zeus, who established her power over such excellence and
           sobriety, should she not be praised and honored, and regarded as far superior to all the
           women who have ever lived? For surely we shall never have a more trustworthy witness or
@@ -534,21 +541,21 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           the glory of one man to be praising Helen, I wish now to review the subsequent events
           also. </p>
       </div>
-      <div n="39" type="section">
+      <div n="39" subtype="section" type="textpart">
         <p> After the descent of Theseus to Hades, when Helen returned to <placeName
             key="tgn,7011065">Lacedaemon</placeName>, and was now of marriageable age, all the kings
           and potentates of that time formed of her the same opinion; for although it was possible
           for them in their own cities to wed women of the first rank, they disdained wedlock at
           home and went to <placeName key="perseus,Sparta">Sparta</placeName> to woo Helen. </p>
       </div>
-      <div n="40" type="section">
+      <div n="40" subtype="section" type="textpart">
         <p>And before it had yet been decided who was to be her husband and all her suitors still
           had an equal chance, it was so evident to all that Helen would be the object of armed
           contention that they met together and exchanged solemn pledges of assistance if anyone
           should attempt to take her away from him who had been adjudged worthy of winning her; for
           each thought he was providing this alliance for himself. </p>
       </div>
-      <div n="41" type="section">
+      <div n="41" subtype="section" type="textpart">
         <p>In this their private hope all, it is true, save one man, were disappointed, yet in the
           general opinion which all had formed concerning her no one was mistaken. For not much
           later when strife arose among the goddesses for the prize of beauty, and Alexander<note
@@ -556,14 +563,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           son of Priam, was appointed judge and when Hera offered him sovereignty over all Asia,
           Athena victory in war, </p>
       </div>
-      <div n="42" type="section">
+      <div n="42" subtype="section" type="textpart">
         <p>and Aphrodite Helen as his wife, finding himself unable to make a distinction regarding
           the charms of their persons, but overwhelmed by the sight of the goddesses, Alexander,
           compelled to make a choice of their proffered gifts, chose living with Helen before all
           else. In so doing he did not look to its pleasures—although even this is thought by the
           wise to be preferable to many things, but nevertheless it was not this he strove for— </p>
       </div>
-      <div n="43" type="section">
+      <div n="43" subtype="section" type="textpart">
         <p>but because he was eager to become a son of Zeus by marriage, considering this a much
           greater and more glorious honor than sovereignty over Asia, and thinking that while great
           dominions and sovereignties fall at times even to quite ordinary men, no man would ever in
@@ -571,19 +578,19 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           leave no more glorious heritage to his children than by seeing to it that they should be
           descendants of Zeus, not only on their father's side, but also on their mother's. </p>
       </div>
-      <div n="44" type="section">
+      <div n="44" subtype="section" type="textpart">
         <p>For he knew that while other blessings bestowed by Fortune soon change hands, nobility of
           birth abides forever with the same possessors; therefore he foresaw that this choice would
           be to the advantage of all his race, whereas the other gifts would be enjoyed for the
           duration of his own life only. </p>
       </div>
-      <div n="45" type="section">
+      <div n="45" subtype="section" type="textpart">
         <p> No sensible person surely could find fault with this reasoning, but some, who have not
           taken into consideration the antecedent events but look at the sequel alone, have before
           now reviled Alexander; but the folly of these accusers is easily discerned by all from the
           calumnies they have uttered. </p>
       </div>
-      <div n="46" type="section">
+      <div n="46" subtype="section" type="textpart">
         <p>Are they not in a ridiculous state of mind if they think their own judgement is more
           competent than that which the gods chose as best<note anchored="true" resp="ed">i.e.,
             Alexander's.</note>? For surely they did not select any ordinary arbiter to decide a
@@ -591,21 +598,21 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           as anxious to select the most competent judge as they were concerned about the matter
           itself. </p>
       </div>
-      <div n="47" type="section">
+      <div n="47" subtype="section" type="textpart">
         <p>There is need, moreover, to consider his real worth and to judge him, not by the
           resentment of those who were defeated for the prize, but by the reasons which caused the
           goddesses unanimously to choose his judgement. For nothing prevents even innocent persons
           from being ill-treated by the stronger, but only a mortal man of greatly superior
           intelligence could have received such honor as to become a judge of immortals. </p>
       </div>
-      <div n="48" type="section">
+      <div n="48" subtype="section" type="textpart">
         <p> I am astonished that anyone should think that Alexander was ill-advised in choosing to
           live with Helen, for whom many demigods were willing to die. Would he not have been a fool
           if, knowing that the deities themselves were contending for the prize of beauty, he had
           himself scorned beauty, and had failed to regard as the greatest of gifts that for the
           possession of which he saw even those goddesses most earnestly striving? </p>
       </div>
-      <div n="49" type="section">
+      <div n="49" subtype="section" type="textpart">
         <p> What man would have rejected marriage with Helen, at whose abduction the Greeks were as
           incensed as if all <placeName key="tgn,1000074">Greece</placeName> had been laid waste,
           while the barbarians were as filled with pride as if they had conquered us all? It is
@@ -615,7 +622,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           but also in the duration of the struggle and in the extent of the preparations the
           greatest of all time. </p>
       </div>
-      <div n="50" type="section">
+      <div n="50" subtype="section" type="textpart">
         <p>And although the Trojans might have rid themselves of the misfortunes which encompassed
           them by surrendering Helen, and the Greeks might have lived in peace for all time by being
           indifferent to her fate, neither so wished; on the contrary, the Trojans allowed their
@@ -624,13 +631,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           never to see their own again, than, leaving her behind, to return to their fatherland.
         </p>
       </div>
-      <div n="51" type="section">
+      <div n="51" subtype="section" type="textpart">
         <p>And they were not acting in this way as eager champions of Alexander or of Menelaus; nay,
           the Trojans were upholding the cause of Asia, the Greeks of <placeName key="tgn,1000003"
             >Europe</placeName>, in the belief that the land in which Helen in person resided would
           be the more favored of Fortune. </p>
       </div>
-      <div n="52" type="section">
+      <div n="52" subtype="section" type="textpart">
         <p> So great a passion for the hardships of that expedition and for participation in it took
           possession not only of the Greeks and the barbarians, but also of the gods, that they did
           not dissuade even their own children from joining in the struggles around <placeName
@@ -641,7 +648,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             Achilles.</note>,and Eos that of Memnon, and Poseidon that of Cycnus, and Thetis that of
           Achilles, nevertheless they all urged them on and sent them forth, </p>
       </div>
-      <div n="53" type="section">
+      <div n="53" subtype="section" type="textpart">
         <p>thinking it more honorable for them to die fighting for the daughter of Zeus than to live
           without having taken part in the perils undergone on her account. And why should we be
           astonished that the gods felt thus concerning their children? For they themselves engaged
@@ -649,7 +656,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           those enemies they had fought a battle in concert, but for Helen they fought a war against
           one another. </p>
       </div>
-      <div n="54" type="section">
+      <div n="54" subtype="section" type="textpart">
         <p> With good reason in truth they came to this decision, and I, for my part, am justified
           in employing extravagant language in speaking of Helen; for beauty she possessed in the
           highest degree, and beauty is of all things the most venerated, the most precious, and the
@@ -660,34 +667,34 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           in some degree this outward form, beauty, and it is for this reason that virtue is most
           highly esteemed, because it is the most beautiful of ways of living. </p>
       </div>
-      <div n="55" type="section">
+      <div n="55" subtype="section" type="textpart">
         <p>And we may learn how superior beauty is to all other things by observing how we ourselves
           are affected by each of them severally. For in regard to the other things which we need,
           we only wish to possess them and our heart's desire is set on nothing further than this;
           for beautiful things, however, we have an inborn passion whose strength of desire
           corresponds to the superiority of the thing sought. </p>
       </div>
-      <div n="56" type="section">
+      <div n="56" subtype="section" type="textpart">
         <p>And while we are jealous of those who excel us in intelligence or in anything else,
           unless they win us over by daily benefactions and compel us to be fond of them, yet at
           first sight we become well-disposed toward those who possess beauty, and to these alone as
           to the gods we do not fail in our homage; </p>
       </div>
-      <div n="57" type="section">
+      <div n="57" subtype="section" type="textpart">
         <p>on the contrary, we submit more willingly to be the slaves of such than to rule all
           others, and we are more grateful to them when they impose many tasks upon us than to those
           who demand nothing at all. We revile those who fall under the power of anything other than
           beauty and call them flatterers, but those who are subservient to beauty we regard as
           lovers of beauty and lovers of service. </p>
       </div>
-      <div n="58" type="section">
+      <div n="58" subtype="section" type="textpart">
         <p>So strong are our feelings of reverence and solicitude for such a quality, that we hold
           in greater dishonour those of its possessors who have trafficked in it and ill-used their
           own youth than those who do violence to the persons of others; whereas those who guard
           their youthful beauty as a holy shrine, inaccessible to the base, are honored by us for
           all time equally with those who have benefited the city as a whole. </p>
       </div>
-      <div n="59" type="section">
+      <div n="59" subtype="section" type="textpart">
         <p> But why need I waste time in citing the opinions of men? Nay, Zeus, lord of all, reveals
           his power in all else, but deigns to approach beauty in humble guise. For in the likeness
           of Amphitryon he came to Alcmena, and as a shower of gold he united with Danae, and in the
@@ -695,7 +702,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           Leda; ever with artifice manifestly, and not with violence, does he pursue beauty in
           women. </p>
       </div>
-      <div n="60" type="section">
+      <div n="60" subtype="section" type="textpart">
         <p>And so much greater honor is paid to beauty among the gods than among us that they pardon
           their own wives when they are vanquished by it; and one could cite many instances of
           goddesses who succumbed to mortal beauty, and no one of these sought to keep the fact
@@ -704,7 +711,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           proof of my statements is this: we shall find that more mortals have been made immortal
           because of their beauty than for all other excellences. </p>
       </div>
-      <div n="61" type="section">
+      <div n="61" subtype="section" type="textpart">
         <p> All these personages Helen surpassed in proportion as she excelled them in the beauty of
           her person. For not only did she attain immortality but, having won power equalling that
           of a god, she first raised to divine station her brothers<note anchored="true" resp="ed"
@@ -714,14 +721,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           they have power to save when they are seen by sailors in peril on the sea, if they but
           piously invoke them. </p>
       </div>
-      <div n="62" type="section">
+      <div n="62" subtype="section" type="textpart">
         <p>After this she so amply recompensed Menelaus for the toils and perils which he had
           undergone because of her, that when all the race of the Pelopidae had perished and were
           the victims of irremediable disasters, not only did she free him from these misfortunes
           but, having made him god instead of mortal, she established him as partner of her house
           and sharer of her throne forever. </p>
       </div>
-      <div n="63" type="section">
+      <div n="63" subtype="section" type="textpart">
         <p>And I can produce the city of the Spartans, which preserves with especial care its
           ancient traditions, as witness for the fact; for even to the present day at Therapne<note
             anchored="true" resp="ed">Just outside <placeName key="perseus,Sparta"
@@ -730,7 +737,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             >Laconia</placeName> the people offer holy and traditional sacrifices to them both, not
           as to heroes, but as to gods. </p>
       </div>
-      <div n="64" type="section">
+      <div n="64" subtype="section" type="textpart">
         <p> And she displayed her own power to the poet Stesichorus<note anchored="true" resp="ed"
             >The famous lyric poet of Himera, in <placeName key="tgn,7003122"
             >Sicily</placeName>.</note> also; for when, at the beginning of his ode, he spoke in
@@ -740,7 +747,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             see <bibl n="Plat. Phaedrus 242a">Plat. Phaedrus 242a</bibl>.</note> as it is called,
           she restored to him his normal sight. </p>
       </div>
-      <div n="65" type="section">
+      <div n="65" subtype="section" type="textpart">
         <p>And some of the Homeridae also relate that Helen appeared to Homer by night and commanded
           him to compose a poem on those who went on the expedition to <placeName key="perseus,Troy"
             >Troy</placeName>, since she wished to make their death more to be envied than the life
@@ -748,14 +755,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           it is chiefly through her that this poem has such charm and has become so famous among all
           men. </p>
       </div>
-      <div n="66" type="section">
+      <div n="66" subtype="section" type="textpart">
         <p> Since, then, Helen has power to punish as well as to reward, it is the duty of those who
           have great wealth to propitiate and to honor her with thank-offerings, sacrifices, and
           processions, and philosophers should endeavour to speak of her in a manner worthy of her
           merits; for such are the first-fruits it is fitting that men of cultivation should offer.
         </p>
       </div>
-      <div n="67" type="section">
+      <div n="67" subtype="section" type="textpart">
         <p> Far more has been passed over than has been said. Apart from the arts and philosophic
           studies and all the other benefits which one might attribute to her and to the Trojan War,
           we should be justified in considering that it is owing to Helen that we are not the slaves
@@ -764,7 +771,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           that it was then for the first time that <placeName key="tgn,1000003">Europe</placeName>
           set up a trophy of victory over Asia; </p>
       </div>
-      <div n="68" type="section">
+      <div n="68" subtype="section" type="textpart">
         <p>and in consequence, we experienced a change so great that, although in former times any
           barbarians who were in misfortune presumed to be rulers over the Greek cities (for
           example, Danaus, an exile from <placeName key="tgn,7016833">Egypt</placeName>, occupied
@@ -776,7 +783,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             >Peloponnese</placeName>), yet after that war our race expanded so greatly that it took
           from the barbarians great cities and much territory. </p>
       </div>
-      <div n="69" type="section">
+      <div n="69" subtype="section" type="textpart">
         <p>If, therefore, any orators wish to dilate upon these matters and dwell upon them, they
           will not be at a loss for material apart from what I have said, wherewith to praise Helen;
           on the contrary, they will discover many new arguments that relate to her.</p>
