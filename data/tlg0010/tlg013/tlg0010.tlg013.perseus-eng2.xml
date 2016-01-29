@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader type="text">
     <fileDesc>
@@ -38,16 +39,22 @@
     </fileDesc>
 
     <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="section"
+          matchPattern="(\\w+)"
+          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+          <p>This pointer pattern extracts section</p>
+        </cRefPattern>
+      </refsDecl>
       <refsDecl>
-        <refState delim="." unit="speech"/>
         <refState n="chunk context" unit="section"/>
       </refsDecl>
     </encodingDesc>
-
+    
     <profileDesc>
       <langUsage>
-        <language ident="en">English </language>
-        <language ident="greek">Greek </language>
+        <language ident="eng">English </language>
+        <language ident="grc">Greek </language>
       </langUsage>
 
       <textClass xml:id="gen.epideictic">
@@ -181,9 +188,10 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <change when="2014-10-01" who="Stella Dee">edited markup</change>
     </revisionDesc>
   </teiHeader>
-  <text xml:lang="en">
+  <text xml:lang="eng">
     <body>
-      <div n="1" type="section">
+      <div type="translation" n="urn:cts:greekLit:tlg0010.tlg013.perseus-eng2" xml:lang="eng">
+      <div n="1" subtype="section" type="textpart">
         <p> When men make it a habit, Nicocles, to bring to you who are rulers of kingdoms articles
           of dress or of bronze or of wrought gold,<note anchored="true" resp="ed">Echoed from <bibl
               n="Hom. Od. 16.231">Hom. Od. 16.231</bibl>.</note> or other such valuables of which
@@ -191,7 +199,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           are not engaged in giving but in bargaining, and that they are much more skillful in
           disposing of their wares than those who are professedly in trade. </p>
       </div>
-      <div n="2" type="section">
+      <div n="2" subtype="section" type="textpart">
         <p>For my part, I should think that this would be the finest and the most serviceable
           present and the most suitable for me to give and for you to receive—I could prescribe what
           pursuits you should aspire to and from what you should abstain in order to govern to the
@@ -199,7 +207,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           contribute to their education: first and foremost, the absence of luxury among them, and
           the necessity they are under to take thought each day for their livelihood; </p>
       </div>
-      <div n="3" type="section">
+      <div n="3" subtype="section" type="textpart">
         <p>next, the laws by which in each case their civic life is governed; furthermore, freedom
           of speech and the privilege which is openly granted to friends to rebuke and to enemies to
           attack each other's faults; besides, a number of the poets of earlier times<note
@@ -207,7 +215,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           left precepts which direct them how to live; so that, from all these influences, they may
           reasonably be expected to become better men. </p>
       </div>
-      <div n="4" type="section">
+      <div n="4" subtype="section" type="textpart">
         <p>Kings, however, have no such help; on the contrary, they, who more than other men should
           be thoroughly trained, live all their lives, from the time when they are placed in
           authority, without admonition; for the great majority of people do not come in contact
@@ -217,7 +225,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           it were best to choose the life of men in private station who are reasonably prosperous,
           or the life of princes. </p>
       </div>
-      <div n="5" type="section">
+      <div n="5" subtype="section" type="textpart">
         <p>For when men look at their honors, their wealth, and their powers, they all think that
           those who are in the position of kings are the equals of the gods; but when they reflect
           on their fears and their dangers, and when, as they review the history of monarchs, they
@@ -228,7 +236,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           than, at the price of such misfortunes, to rule over all <placeName key="tgn,2097781"
             >Asia</placeName>. </p>
       </div>
-      <div n="6" type="section">
+      <div n="6" subtype="section" type="textpart">
         <p>And the cause of this inconsistency and confusion is that men believe that the office of
           king is, like that of priest,<note anchored="true" resp="ed">The priestly office in
               <placeName key="tgn,1000074">Greece</placeName> demanded care in the administration of
@@ -241,13 +249,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           attempt to set forth the objects at which he should aim and the pursuits to which he
           should devote himself. </p>
       </div>
-      <div n="7" type="section">
+      <div n="7" subtype="section" type="textpart">
         <p>Whether the gift when finished shall be worthy of the design, it is hard to tell at the
           beginning; for many writings both in verse and in prose, while still in the minds of their
           composers, have aroused high expectations; but when completed and shown to the world have
           won a repute far inferior to their promise. </p>
       </div>
-      <div n="8" type="section">
+      <div n="8" subtype="section" type="textpart">
         <p>And yet the mere attempt is well worth while—to seek a field that has been neglected by
           others and lay down principles for monarchs; for those who educate men in private stations
           benefit them alone, but if one can turn those who rule over the multitude toward a life of
@@ -255,7 +263,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           subjects; for he will give to kings a greater security in office and to the people a
           milder government. </p>
       </div>
-      <div n="9" type="section">
+      <div n="9" subtype="section" type="textpart">
         <p> First, then, we must consider what is the function of kings; for if we can properly
           encompass the essence of the whole matter in a general principle<note anchored="true"
             resp="ed">For the habit of definition in Isocrates see General Introd. p. xvii.</note>
@@ -265,7 +273,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           ends in view that the other duties which present themselves day by day must be performed.
         </p>
       </div>
-      <div n="10" type="section">
+      <div n="10" subtype="section" type="textpart">
         <p>And surely this much is clear, that those who are able to do all this, and who pronounce
           on matters of so great moment, must not be indolent nor careless, but must see to it that
           they are superior to all others in intelligence; for it is evident that they will reign
@@ -273,7 +281,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             anchored="true" resp="ed">Cf. <bibl n="Isoc. 9.41">Isoc. 9.41</bibl>.</note>
         </p>
       </div>
-      <div n="11" type="section">
+      <div n="11" subtype="section" type="textpart">
         <p>Therefore, no athlete is so called upon to train his body as is a king to train his
             soul;<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.12">Isoc. 1.12</bibl>.</note>
           for not all the public festivals in the world offer a prize comparable to those for which
@@ -281,7 +289,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           see to it that in proportion as you are above the others in rank so shall you surpass them
           in virtue; </p>
       </div>
-      <div n="12" type="section">
+      <div n="12" subtype="section" type="textpart">
         <p>and do not hold the view that while diligence is of use in all other matters it is of no
           avail to make us better and wiser; and do not deem us, the human kind, so unfortunate
           that, although in dealing with wild beasts we have discovered arts by which we tame their
@@ -295,7 +303,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           contrary, be convinced that education and diligence are in the highest degree potent to
           improve our nature, </p>
       </div>
-      <div n="13" type="section">
+      <div n="13" subtype="section" type="textpart">
         <p>and associate yourself with the wisest of those who are about you and send for the wisest
           men from abroad whenever this is possible. And do not imagine that you can afford to be
           ignorant of anyone either of the famous poets or of the sages; rather you should listen to
@@ -304,7 +312,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           you can soonest become such a man as we have assumed that one must be who is to perform
           properly the duties of a king, and to govern the state as he should. </p>
       </div>
-      <div n="14" type="section">
+      <div n="14" subtype="section" type="textpart">
         <p>But<note anchored="true" resp="ed">The passage here to 39 is quoted in a somewhat
             abbreviated form in <bibl n="Isoc. 15.73">Isoc. 15.73</bibl>.</note> the strongest
           challenge to your task you will find in yourself, if only you consider it monstrous that
@@ -313,14 +321,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           greater wisdom; for the more vigorously you condemn folly in others, the more diligently
           will you train your own understanding. </p>
       </div>
-      <div n="15" type="section">
+      <div n="15" subtype="section" type="textpart">
         <p> This, then, should be the starting-point for those who set out to do their duty. But, in
           addition, one must be a lover of men and a lover of his country; for neither horses nor
           dogs nor men nor any other thing can be properly controlled except by one who takes
           pleasure in the objects for which it is his duty to care. You must care for the people and
           make it your first consideration to rule acceptably to them, </p>
       </div>
-      <div n="16" type="section">
+      <div n="16" subtype="section" type="textpart">
         <p>knowing that all governments—oligarchies as well as the others—have the longest life when
           they best serve the masses. You will be a wise leader of the people if you do not allow
           the multitude either to do or to suffer outrage, but see to it that the best among them
@@ -328,7 +336,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               3.14</bibl>.</note> while the rest shall suffer no impairment of their rights; for
           these are the first and most important elements of good government. </p>
       </div>
-      <div n="17" type="section">
+      <div n="17" subtype="section" type="textpart">
         <p> When public ordinances and institutions are not well founded, alter and change them. If
           possible, originate for yourself what is best for your country, but, failing in this,
           imitate what is good in other countries. Seek laws that are altogether just and expedient
@@ -336,7 +344,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           controversies and bring about the speediest possible settlements for your citizens; for
           all these qualities should be found in wise legislation. </p>
       </div>
-      <div n="18" type="section">
+      <div n="18" subtype="section" type="textpart">
         <p>Make industry profitable for your people and lawsuits detrimental, in order that they may
           shun the latter and embrace the former with greater willingness. In pronouncing on matters
           about which there is mutual dispute, do not render decisions which exhibit favoritism or
@@ -344,7 +352,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           right and expedient that the judgements of kings on questions of justice should be
           invariable, like wisely ordained laws. </p>
       </div>
-      <div n="19" type="section">
+      <div n="19" subtype="section" type="textpart">
         <p>Manage the city as you would your ancestral estate: in the matter of its appointments,
           splendidly and royally; in the matter of its revenues, strictly, in order that you may
           possess the good opinion of your people and at the same time have sufficient means.
@@ -354,7 +362,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           lost to you while you live, and you will leave to those who follow you a heritage worth
           more than what you have spent. </p>
       </div>
-      <div n="20" type="section">
+      <div n="20" subtype="section" type="textpart">
         <p> In the worship of the gods, follow the example of your ancestors, but believe that the
           noblest sacrifice and the greatest devotion is to show yourself in the highest degree a
           good and just man; for such men have greater hope of enjoying a blessing from the
@@ -362,7 +370,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             note.</note> than those who slaughter many victims. Honor with office those of your
           friends who are nearest of kin, but honor in very truth those who are the most loyal. </p>
       </div>
-      <div n="21" type="section">
+      <div n="21" subtype="section" type="textpart">
         <p>Believe that your staunchest body-guard lies in the virtue of your friends, the loyalty
           of your citizens and your own wisdom;<note anchored="true" resp="ed">Cf. <bibl
               n="Isoc. 10.37">Isoc. 10.37</bibl>.</note> for it is through these that one can best
@@ -371,7 +379,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           your wealth; for all the property of those who live in the state belongs to kings who rule
           them well. </p>
       </div>
-      <div n="22" type="section">
+      <div n="22" subtype="section" type="textpart">
         <p>Throughout all your life show that you value truth so highly that your word is more to be
           trusted than the oaths of other men.<note anchored="true" resp="ed">Cf. <bibl
               n="Isoc. 4.81">Isoc. 4.81</bibl>.</note> To all foreigners, see that the city offers
@@ -380,14 +388,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           receive gifts from you; for by honoring such men you will have greater esteem from the
           rest of the world. </p>
       </div>
-      <div n="23" type="section">
+      <div n="23" subtype="section" type="textpart">
         <p>Deliver your citizens from their many fears, and be not willing that dread should beset
           men who have done no wrong; for even as you dispose others toward you, so you will feel
           toward them. Do nothing in anger, but simulate anger when the occasion demands it. Show
           yourself stern by overlooking nothing which men do, but kind by making the punishment less
           than the offense. </p>
       </div>
-      <div n="24" type="section">
+      <div n="24" subtype="section" type="textpart">
         <p> Be not willing to show your authority by harshness or by undue severity in punishment,
           but by causing your subjects one and all to defer to your judgement and to believe that
           your plans for their welfare are better than their own. Be warlike in your knowledge of
@@ -399,14 +407,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               1.14</bibl> and note.</note>
         </p>
       </div>
-      <div n="25" type="section">
+      <div n="25" subtype="section" type="textpart">
         <p>Do not be contentious in all things, but only where it will profit you to have your own
           way. Do not think men weak who yield a point to their own advantage, but rather those who
           prevail to their own injury. Do not consider that the great souls are those who undertake
           more than they can achieve, but those who, having noble aims, are also able to accomplish
           whatever they attempt. </p>
       </div>
-      <div n="26" type="section">
+      <div n="26" subtype="section" type="textpart">
         <p>Emulate, not those who have most widely extended their dominion, but those who have made
           best use of the power they already possess;<note anchored="true" resp="ed">Cf. <bibl
               n="Isoc. 3.34">Isoc. 3.34</bibl>.</note> and believe that you will enjoy the utmost
@@ -414,7 +422,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           baseness, but rather if, being the man you should be, and continuing to act as at the
           present moment, you set your heart on moderate achievements and fail in none of them. </p>
       </div>
-      <div n="27" type="section">
+      <div n="27" subtype="section" type="textpart">
         <p> Do not give your friendship to everyone who desires it, but only to those who are worthy
           of you; not to those whose society you will most enjoy, but to those with whose help you
           will best govern the state. Subject your associates to the most searching tests, knowing
@@ -423,7 +431,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           direction, be governed by the knowledge that you yourself will be held responsible for
           whatever they do. </p>
       </div>
-      <div n="28" type="section">
+      <div n="28" subtype="section" type="textpart">
         <p>Regard as your most faithful friends, not those who praise everything you say or do, but
           those who criticize your mistakes. Grant freedom of speech to those who have good
           judgement, in order that when you are in doubt you may have friends who will help you to
@@ -432,7 +440,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           and try to discern at the same time the character of those who speak and of those about
           whom they speak. </p>
       </div>
-      <div n="29" type="section">
+      <div n="29" subtype="section" type="textpart">
         <p>Visit the same punishment on false-accusers as on evil-doers. Govern yourself no less
           than your subjects, and consider that you are in the highest sense a king when you are a
           slave to no pleasure<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.21">Isoc.
@@ -441,7 +449,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           pleasure in that society which will contribute to your advancement and heighten your fame
           in the eyes of the world. </p>
       </div>
-      <div n="30" type="section">
+      <div n="30" subtype="section" type="textpart">
         <p>Do not show yourself ambitious for those things which lie within the power of base men
           also to achieve, but show that you pride yourself on virtue, in which base men have no
             part.<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.38">Isoc. 1.38</bibl>.</note>
@@ -451,7 +459,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           delight in things of small account, but let the world see that you are zealous about
           matters of the greatest moment. </p>
       </div>
-      <div n="31" type="section">
+      <div n="31" subtype="section" type="textpart">
         <p> Do not think that while all other people should live with sobriety, kings may live with
           license; on the contrary, let your own self-control stand as an example to the rest,
           realizing that the manners of the whole state are copied from its rulers.<note
@@ -461,7 +469,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           to you that you rule wisely if you see all your subjects growing more prosperous and more
           temperate because of your oversight. </p>
       </div>
-      <div n="32" type="section">
+      <div n="32" subtype="section" type="textpart">
         <p>Consider it more important to leave to your children a good name than great riches; for
           riches endure for a day, a good name for all time; a good name may bring wealth,<note
             anchored="true" resp="ed">Cf. <bibl n="Isoc. 3.50">Isoc. 3.50</bibl>.</note> but wealth
@@ -477,7 +485,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           office, and that those who are intimate with you may form the same opinion from your
           strength of soul. </p>
       </div>
-      <div n="33" type="section">
+      <div n="33" subtype="section" type="textpart">
         <p> Keep watch always on your words and actions, that you may fall into as few mistakes as
           possible. For while it is best to grasp your opportunities at exactly the right moment,
           yet, since they are difficult to discern, choose to fall short rather than to overreach
@@ -487,7 +495,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             nimium quam parum.”</note> for the happy mean is to be found in defect rather than in
           excess. </p>
       </div>
-      <div n="34" type="section">
+      <div n="34" subtype="section" type="textpart">
         <p>Try to combine courtesy with dignity; for dignity is in keeping with the position of a
           king and courtesy is becoming in his social intercourse. Yet no admonition is so difficult
           to carry out as this; for you will find that for the most part those who affect dignity
@@ -495,14 +503,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           should cultivate both these qualities and try to avoid the danger that attaches to each.
         </p>
       </div>
-      <div n="35" type="section">
+      <div n="35" subtype="section" type="textpart">
         <p>Whenever you desire to gain a thorough understanding of such things as it is fitting that
           kings should know, pursue them by practice as well as by study; for study will show you
           the way but training yourself in the actual doing of things will give you power to deal
           with affairs. Reflect on the fortunes and accidents which befall both common men and
           kings, for if you are mindful of the past you will plan better for the future. </p>
       </div>
-      <div n="36" type="section">
+      <div n="36" subtype="section" type="textpart">
         <p>Consider that where there are common men who are ready to lay down their lives<note
             anchored="true" resp="ed">Cf. <bibl n="Isoc. 5.135">Isoc. 5.135</bibl>.</note> that they
           may be praised after they are dead, it is shameful for kings not to have the courage to
@@ -513,7 +521,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.43">Isoc. 1.43</bibl>.</note>
         </p>
       </div>
-      <div n="37" type="section">
+      <div n="37" subtype="section" type="textpart">
         <p>In all your actions remember that you are a king, and take care never to do anything
           which is beneath the dignity of your station. Do not suffer your life to be at once wholly
           blotted out, but since you were allotted a perishable body, seek to leave behind an
@@ -522,7 +530,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             note.</note>
         </p>
       </div>
-      <div n="38" type="section">
+      <div n="38" subtype="section" type="textpart">
         <p>Make it your practice to talk of things that are good and honorable, that your thoughts
           may through habit come to be like your words. Whatever seems to you upon careful thought
           to be the best course, put this into effect. If there are men whose reputations you envy,
@@ -530,7 +538,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           yourself. Make use of the precepts which I have given you or else seek better counsel.
         </p>
       </div>
-      <div n="39" type="section">
+      <div n="39" subtype="section" type="textpart">
         <p>Regard as wise men, not those who dispute subtly about trifling matters, but those who
           speak well on the great issues;<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 4.188"
               >Isoc. 4.188-189</bibl> and note.</note> and not those who, being themselves in sorry
@@ -541,7 +549,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               <bibl n="Isoc. 1.42">Isoc. 1.42</bibl> and note.</note>
         </p>
       </div>
-      <div n="40" type="section">
+      <div n="40" subtype="section" type="textpart">
         <p> And do not be surprised that in what I have said there are many things which you know as
           well as I. This is not from inadvertence on my part, for I have realized all along that
           among so great a multitude both of mankind in general and of their rulers there are some
@@ -549,14 +557,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           observed other people put them into practice, and some who are carrying them out in their
           own lives. </p>
       </div>
-      <div n="41" type="section">
+      <div n="41" subtype="section" type="textpart">
         <p>But the truth is that in discourses of this sort we should not seek novelties, for in
           these discourses it is not possible to say what is paradoxical or incredible or outside
           the circle of accepted belief; but, rather, we should regard that man as the most
           accomplished in this field who can collect the greatest number of ideas scattered among
           the thoughts of all the rest and present them in the best form. </p>
       </div>
-      <div n="42" type="section">
+      <div n="42" subtype="section" type="textpart">
         <p> Moreover, this has been clear to me from the first, that while all men think that those
           compositions, whether in verse or prose, are the most useful which counsel us how to live,
           yet it is certainly not to them that they listen with greatest pleasure; nay, they feel
@@ -565,7 +573,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               n="Isoc. 1.45">Isoc. 1.45</bibl>.</note> those who share in, and not those who would
           dissuade them from, their faults. </p>
       </div>
-      <div n="43" type="section">
+      <div n="43" subtype="section" type="textpart">
         <p>As a case in point, one might cite the poetry of Hesiod and Theognis and Phocylides;<note
             anchored="true" resp="ed">Theognis and Phocylides (middle of sixth century) were the
             leading gnomic poets. Theognis was used in the schools, and we have over a thousand of
@@ -575,7 +583,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           what they say, people prefer to occupy themselves with each other's follies rather than
           with the admonitions of these teachers. </p>
       </div>
-      <div n="44" type="section">
+      <div n="44" subtype="section" type="textpart">
         <p>And, again, if one were to make a selection from the leading poets of their maxims, as we
           call them, into which they have put their best thought, men would show a similar attitude
           toward them also; for they would lend a readier ear to the cheapest comedy<note
@@ -584,7 +592,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           creations of such finished art. Yet why should I spend time in giving single instances?
         </p>
       </div>
-      <div n="45" type="section">
+      <div n="45" subtype="section" type="textpart">
         <p>For if we are willing to survey human nature as a whole, we shall find that the majority
           of men do not take pleasure in the food<note anchored="true" resp="ed">Cf. <bibl
               n="Isoc. 1.45">Isoc. 1.45</bibl>.</note> that is the most wholesome, nor in the
@@ -593,21 +601,21 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           contrary to their best interests, while they view those who have some regard for their
           duty as men of austere and laborious lives. </p>
       </div>
-      <div n="46" type="section">
+      <div n="46" subtype="section" type="textpart">
         <p>How, then, can one advise or teach or say anything of profit and yet please such people?
           For, besides what I have said of them, they look upon men of wisdom with suspicion, while
           they regard men of no understanding as open and sincere; and they so shun the verities of
           life that they do not even know their own interests: nay, it irks them to take account of
           their own business and it delights them to discuss the business of others; </p>
       </div>
-      <div n="47" type="section">
+      <div n="47" subtype="section" type="textpart">
         <p>and they would rather be ill in body than exert the soul and give thought to anything in
           the line of duty. Observe them when they are in each other's company, and you will find
           them giving and taking abuse; observe them when they are by themselves, and you will find
           them occupied, not with plans, but with idle dreams. I am, however, speaking now not of
           all, but of those only who are open to the charges I have made. </p>
       </div>
-      <div n="48" type="section">
+      <div n="48" subtype="section" type="textpart">
         <p> This much, however, is clear, that those who aim to write anything in verse or prose
           which will make a popular appeal should seek out, not the most profitable discourses, but
           those which most abound in fictions; for the ear delights in these just as the eye
@@ -615,7 +623,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           inventors of tragedy, seeing that they, with true insight into human nature, have embodied
           both kinds of pleasure in their poetry; </p>
       </div>
-      <div n="49" type="section">
+      <div n="49" subtype="section" type="textpart">
         <p>for Homer has dressed the contests and battles of the demigods in myths, while the tragic
           poets have rendered the myths in the form of contests and action, so that they are
           presented, not to our ears alone, but to our eyes as well. With such models, then, before
@@ -623,13 +631,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           abstain from admonition and advice, and must say the kind of things which they see are
           most pleasing to the crowd. </p>
       </div>
-      <div n="50" type="section">
+      <div n="50" subtype="section" type="textpart">
         <p> I have dwelt on these matters because I think that you, who are not one of the multitude
           but a king over the multitude, ought not to be of the same mind as men at large; you ought
           not to judge what things are worthy or what men are wise by the standard of pleasure, but
           to appraise them in the light of conduct that is useful; </p>
       </div>
-      <div n="51" type="section">
+      <div n="51" subtype="section" type="textpart">
         <p>especially, since the teachers of philosophy, however much they debate about the proper
           discipline of the soul (some contending that it is through disputation,<note
             anchored="true" resp="ed">See <bibl n="Isoc. 12.26">Isoc. 12.26</bibl>; <bibl
@@ -639,7 +647,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           well-educated man must, as the result of this training in whatever discipline, show
           ability to deliberate and decide. </p>
       </div>
-      <div n="52" type="section">
+      <div n="52" subtype="section" type="textpart">
         <p>You should, therefore, avoid what is in controversy and test men's value in the light of
           what is generally agreed upon, if possible taking careful note of them when they present
           their views on particular situations; or, if that is not possible, when they discuss
@@ -647,13 +655,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           them (for it is clear that if one is of no use in himself, neither can he make another man
           wise); </p>
       </div>
-      <div n="53" type="section">
+      <div n="53" subtype="section" type="textpart">
         <p>but when they are intelligent and able to see farther than the rest, prize them and
           cherish them, knowing that a good counsellor is the most useful and the most princely of
           all possessions. And believe that those contribute most to the greatness of your reign who
           can contribute most to your understanding. </p>
       </div>
-      <div n="54" type="section">
+      <div n="54" subtype="section" type="textpart">
         <p> Now I, for my part, have offered you all the good counsels which I know, and I honor you
           with these gifts which I have at my command; and do you, recalling what I said in the
           beginning, desire that your other friends also shall bring you, not the usual presents,
@@ -661,6 +669,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           but gifts of such a nature that, even though you make hard use of them every day without
           fail, you will never wear them out, but will, on the contrary, enlarge them and increase
           their worth.</p>
+      </div>
       </div>
     </body>
   </text>
