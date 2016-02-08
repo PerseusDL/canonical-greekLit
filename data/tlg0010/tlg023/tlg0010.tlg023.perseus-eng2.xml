@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
 <teiHeader type="text">
     <fileDesc>
@@ -8,10 +8,15 @@
             <title type="sub">Machine readable text</title>
             <author>Isocrates</author>
             <editor role="editor">George Norlin</editor>
-            &responsibility;
+            <!--&responsibility;
             &fund.AnnCPB;
         </titleStmt>
-        &Perseus.publish;
+        &Perseus.publish;--></titleStmt>
+        <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+        </publicationStmt>
         <sourceDesc>
             <bibl>
                 <author>Isocrates</author>
@@ -23,20 +28,21 @@
     </fileDesc>
     
     <encodingDesc>
-        <refsDecl doctype="TEI.2">
-            <state delim=" " unit="collection"/>
-            <state delim="." unit="letter"/>
-            <state unit="section"/>
+        <refsDecl n="CTS">
+            <cRefPattern n="letter" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                <p>This pointer pattern extracts letter</p>
+            </cRefPattern>
         </refsDecl>
     </encodingDesc>
     
+    
     <profileDesc>
         <langUsage>
-            <language id="en">English
-            </language><language id="greek">Greek
+            <language ident="eng">English</language>
+            <language ident="grc">Greek
             </language></langUsage>
         
-        <textClass id="gen.epideictic">
+        <!--<textClass id="gen.epideictic">
             <keywords><term>Epideictic</term></keywords>
         </textClass>
         <textClass id="gen.forensic.prosecution">
@@ -47,11 +53,11 @@
         </textClass>
         <textClass id="gen.estate.claim">
             <keywords><term>Claim against an Estate</term></keywords>
-        </textClass>
+        </textClass>-->
     </profileDesc>
     
     <revisionDesc>
-        <change><date>April 1992</date>
+       <!-- <change><date>April 1992</date>
             <respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
             <item>Put bios and intros to speeches into separate files. Change markup in accordance with orator dtd</item>
         </change>
@@ -107,11 +113,13 @@
                 Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
                 
                 
-            </item></change>
+            </item></change>-->
+        <change when="2016-02-08" who="TDB"> CTS and Epidoc update</change>
     </revisionDesc>
 </teiHeader>
 <text><body>
-    <div2 type="Letter" n="6">
+    <div type="translation" n="urn:cts:greekLit:tlg0010.tlg023.perseus-eng2" xml:lang="eng">
+    <div type="textpart" subtype="letter" n="6">
     <head>To The Children Of Jason</head>
     <milestone n="1" unit="section"/><p>One of our envoys who were sent to you has brought me word that you, summoning him apart from the others, asked whether I could be persuaded to go abroad and reside with you.  And I for the sake of my friendship with Jason and Polyalces would gladly come to you; for I think such an association would benefit us all.  
         <milestone n="2" unit="section"/>Many things hinder me, however, especially my inability to travel and that it is unseemly that men of my age should dwell in a foreign land; next, because all who heard of my residence abroad would justly despise me if, having chosen to pass my former life in tranquillity, I should undertake in old age to spend my life abroad, when it would be reasonable for me, even if I had been accustomed to live somewhere else, now to hasten home, since the end of my life is now so near at hand.  
@@ -127,4 +135,4 @@
                     <milestone n="12" unit="section"/>And yet I am not unaware that I shall have many adversaries, especially among those who are in your circle, because these persons especially, I think, urge you to despotic power; for they do not examine from all sides the real nature of the question, but in many ways deceive themselves.  For it is the powers, the profits, and the pleasures that they see in royalty and expect to enjoy them, whereas they fail to observe the disturbances, the fears, and the misfortunes which befall rulers and their friends.  Instead they suffer from the same delusion as do men who set their hands to the most disgraceful and lawless deeds.  
                     <milestone n="13" unit="section"/>These in fact are not ignorant of the wickedness of their acts, but hope to extract all the profit therein and yet to be exempt from all the dangers and ills which inhere in such acts, and to manage their affairs in such fashion as to keep the perils at a distance and the benefits within easy reach.  
                     <milestone n="14" unit="section"/>As for those who have this conception of the matter, I envy them their easy-going philosophy, but I myself should be ashamed if, while offering counsel to others, I should be negligent of their interests and look to my own advantage instead of putting myself altogether beyond the reach of both the personal benefits and all other considerations and advising the best course of action.</p><p>Being aware, therefore, that I hold this conviction, I beg you to give me your attention. . . . &lsqb;Then followed in the letter the practical advice of Isocrates to the future rulers of Thessaly, presumably setting forth the advantages of a government under a constitution, i.e., a limited monarchy.&rsqb;</p></div2>
-</body></text>
+</div></body></text>
