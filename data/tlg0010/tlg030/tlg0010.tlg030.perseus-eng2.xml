@@ -1,39 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<teiHeader type="text" status="new">
-    <fileDesc>
-        <titleStmt>
-            <title>Letters</title>
-            <title type="sub">Machine readable text</title>
-            <author>Isocrates</author>
-            <editor role="editor">George Norlin</editor>
-            &responsibility;
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader type="text">
+        <fileDesc>
+            <titleStmt>
+                <title>Letters</title>
+                <title type="sub">Machine readable text</title>
+                <author>Isocrates</author>
+                <editor role="editor">George Norlin</editor>
+                <!-- &responsibility;
             &fund.AnnCPB;
         </titleStmt>
-        &Perseus.publish;
-        <sourceDesc>
-            <bibl>
-                <author>Isocrates</author>
-                <title>Isocrates with an English Translation in three volumes, by George Norlin, Ph.D., LL.D.</title>
-                <publisher>Cambridge, MA, Harvard University Press; London, William Heinemann Ltd.</publisher>
-                <date>1980</date>
-            </bibl>
-        </sourceDesc>
-    </fileDesc>
-    
-    <encodingDesc>
-        <refsDecl doctype="TEI.2">
-            <state delim=" " unit="collection"/>
-            <state delim="." unit="letter"/>
-            <state unit="section"/>
-        </refsDecl>
-    </encodingDesc>
-    
-    <profileDesc>
-        <langUsage>
-            <language id="en">English
-            </language><language id="greek">Greek
-            </language></langUsage>
+        &Perseus.publish;--></titleStmt>
+            <publicationStmt>
+                <publisher>Trustees of Tufts University</publisher>
+                <pubPlace>Medford, MA</pubPlace>
+                <authority>Perseus Project</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <bibl>
+                    <author>Isocrates</author>
+                    <title>Isocrates with an English Translation in three volumes, by George Norlin, Ph.D., LL.D.</title>
+                    <publisher>Cambridge, MA, Harvard University Press; London, William Heinemann Ltd.</publisher>
+                    <date>1980</date>
+                </bibl>
+            </sourceDesc>
+        </fileDesc>
         
+        <encodingDesc>
+            <refsDecl n="CTS">
+                <cRefPattern n="letter" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts letter</p>
+                </cRefPattern>
+            </refsDecl>
+        </encodingDesc>
+        
+        <profileDesc>
+            <langUsage>
+                <language ident="eng">English </language>
+                <language ident="grc">Greek </language>
+            </langUsage>
+        </profileDesc>
+        
+        <!-- 
         <textClass id="gen.epideictic">
             <keywords><term>Epideictic</term></keywords>
         </textClass>
@@ -45,10 +54,10 @@
         </textClass>
         <textClass id="gen.estate.claim">
             <keywords><term>Claim against an Estate</term></keywords>
-        </textClass>
-    </profileDesc>
-    
-    <revisionDesc>
+        </textClass>-->
+        
+        
+        <revisionDesc><!--
         <change><date>April 1992</date>
             <respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
             <item>Put bios and intros to speeches into separate files. Change markup in accordance with orator dtd</item>
@@ -105,15 +114,19 @@
                 Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
                 
                 
-            </item></change>
+            </item></change>-->
+        <change when="2016-02-08" who="TDB"> CTS and Epidoc update</change>
     </revisionDesc>
 </teiHeader>
-<text><body><div2 type="Letter" n="3">
+    <text><body><div type="translation" n="urn:cts:greekLit:tlg0010.tlg030.perseus-eng2" xml:lang="eng">
+    <div subtype="Letter" n="3" type="textpart">
     <head>To Philip, II</head>
-    <milestone n="1" unit="section"/><p>I have discussed with Antipater<note anchored="yes" resp="ed">Antipater, to whom Letter 4 is addressed, trusted minister of Philip, had been the Macedonian envoy to Athens for the Peace of Philocrates &lpar;<date id="-346">346 B.C.</date>&rpar; and was again in Athens in connection with peace preliminaries after Chaeronea.</note> the course which is expedient for our city and for you, at sufficient length, I am convinced;  but I wished to write to you also regarding the action which I think should be taken after the conclusion of peace, and while this advice is similar to that in my discourse,<note anchored="yes" resp="ed">To Philip, written in <date id="-346">346 B.C.</date></note> it is, however, expressed much more concisely.
-        <milestone n="2" unit="section"/></p><p>At that time, you recall, I counselled you that, after you had reconciled our city with Sparta, Thebes, and Argos, you should bring all the Greeks into concord, as I was of opinion that if you should persuade the principal cities to be favorably inclined to such a course, the others also would quickly follow.  At that time, however, the state of affairs was different, and now it has come to pass that the need of persuasion no longer exists;  for on account of the battle<note anchored="yes" resp="ed">The battle of Chaeronea, autumn of <date id="-338">338 B.C.</date>, where the Athenian army was crushed by the phalanxes of Macedon.</note> which has taken place, all are compelled to be prudent and to desire that which they surmise you wish to do and to say, namely, that they must desist from the madness and the spirit of aggrandizement, which they were wont to display in their relations with each other, and must carry the war into Asia.
+    <milestone n="1" unit="section"/><p>I have discussed with Antipater<note anchored="true" resp="ed">Antipater, to whom Letter 4 is addressed, trusted minister of Philip, had been the Macedonian envoy to Athens for the Peace of Philocrates &#40;<date when="-0346">346 B.C.</date>&#41; and was again in Athens in connection with peace preliminaries after Chaeronea.</note> the course which is expedient for our city and for you, at sufficient length, I am convinced;  but I wished to write to you also regarding the action which I think should be taken after the conclusion of peace, and while this advice is similar to that in my discourse,<note anchored="true" resp="ed">To Philip, written in <date when="-0346">346 B.C.</date></note> it is, however, expressed much more concisely.
+        <milestone n="2" unit="section"/></p><p>At that time, you recall, I counselled you that, after you had reconciled our city with Sparta, Thebes, and Argos, you should bring all the Greeks into concord, as I was of opinion that if you should persuade the principal cities to be favorably inclined to such a course, the others also would quickly follow.  At that time, however, the state of affairs was different, and now it has come to pass that the need of persuasion no longer exists;  for on account of the battle<note anchored="true" resp="ed">The battle of Chaeronea, autumn of <date when="-0338">338 B.C.</date>, where the Athenian army was crushed by the phalanxes of Macedon.</note> which has taken place, all are compelled to be prudent and to desire that which they surmise you wish to do and to say, namely, that they must desist from the madness and the spirit of aggrandizement, which they were wont to display in their relations with each other, and must carry the war into Asia.
             <milestone n="3" unit="section"/>Many inquire of me whether I advised you to make the expedition against the barbarians or whether it was your idea and I concurred.  I reply that I do not know for certain, since before then I had not been acquainted with you, but that I supposed that you had reached a decision in this matter and that I in my speech had fallen, with your desires.  On hearing this, all entreated me to encourage you and to exhort you to hold fast to this same resolution, since they believe that no achievement could be more glorious, more useful to the Greeks, or more timely than this will be.
-            <milestone n="4" unit="section"/></p><p>If I possessed the same vigor which I formerly had and were not utterly spent with years,<note anchored="yes" resp="ed">Isocrates was 98 years of age at this time and died soon after writing this letter.</note> I should not be speaking with you by letter, but in your presence should myself be spurring and summoning you to undertake these tasks.  But even as it is, I do exhort you, as best I can, not to put these matters aside until you bring them to a successful conclusion.  To have an insatiate desire for anything else in the world is ignoble&mdash;for moderation is generally esteemed&mdash;but to set the heart upon a glory that is great and honorable, and never to be satiated with it, befits those men who have far excelled all others.<note anchored="yes" resp="ed">Cf. <bibl n="Isoc. 5.135">Isoc. 5.135</bibl>.</note> And that is true of you.
-                <milestone n="5" unit="section"/>Be assured that a glory unsurpassable and worthy of the deeds you have done in the past will be yours when you shall compel the barbarians&mdash;all but those who have fought on your side&mdash;to be serfs of the Greeks, and when you shall force the king who is now called Great to do whatever you command.  For then will naught be left for you except to become a god.<note anchored="yes" resp="ed">For this extravagant statement cf. To Philip 113-114 and 151.</note> And to accomplish all this from your present status is much easier for you than it was for you to advance to the power and renown you now possess from the kingship which you had in the beginning.<note anchored="yes" resp="ed">The same statement is found in To Philip 115.</note>
-                <milestone n="6" unit="section"/></p><p>I am grateful to my old age for this reason alone, because it has prolonged my life to this moment, so that the dreams of my youth, which I attempted to commit to writing both in my Panegyricus<note anchored="yes" resp="ed">The Panegyricus was published in <date id="-380">380 B.C.</date>   Isocrates was then 56 years of age, but had begun is composition many years before.</note> and in the discourse which was sent to you, I am now seeing in part already coming to fulfillment through your achievements and in part I have hopes of their future realization.<note anchored="yes" resp="ed">See General Introd., Vol. I, p. x.</note></p></div2>
+            <milestone n="4" unit="section"/></p><p>If I possessed the same vigor which I formerly had and were not utterly spent with years,<note anchored="true" resp="ed">Isocrates was 98 years of age at this time and died soon after writing this letter.</note> I should not be speaking with you by letter, but in your presence should myself be spurring and summoning you to undertake these tasks.  But even as it is, I do exhort you, as best I can, not to put these matters aside until you bring them to a successful conclusion.  To have an insatiate desire for anything else in the world is ignoble&#8212;for moderation is generally esteemed&#8212;but to set the heart upon a glory that is great and honorable, and never to be satiated with it, befits those men who have far excelled all others.<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 5.135">Isoc. 5.135</bibl>.</note> And that is true of you.
+                <milestone n="5" unit="section"/>Be assured that a glory unsurpassable and worthy of the deeds you have done in the past will be yours when you shall compel the barbarians&#8212;all but those who have fought on your side&#8212;to be serfs of the Greeks, and when you shall force the king who is now called Great to do whatever you command.  For then will naught be left for you except to become a god.<note anchored="true" resp="ed">For this extravagant statement cf. To Philip 113-114 and 151.</note> And to accomplish all this from your present status is much easier for you than it was for you to advance to the power and renown you now possess from the kingship which you had in the beginning.<note anchored="true" resp="ed">The same statement is found in To Philip 115.</note>
+                <milestone n="6" unit="section"/></p><p>I am grateful to my old age for this reason alone, because it has prolonged my life to this moment, so that the dreams of my youth, which I attempted to commit to writing both in my Panegyricus<note anchored="true" resp="ed">The Panegyricus was published in <date when="-0380">380 B.C.</date>   Isocrates was then 56 years of age, but had begun is composition many years before.</note> and in the discourse which was sent to you, I am now seeing in part already coming to fulfillment through your achievements and in part I have hopes of their future realization.<note anchored="true" resp="ed">See General Introd., Vol. I, p. x.</note></p>
+    </div></div>
 </body></text>
+</TEI>
