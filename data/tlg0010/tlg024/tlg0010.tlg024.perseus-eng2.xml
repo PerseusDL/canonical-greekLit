@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<teiHeader type="text" status="new">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<teiHeader type="text">
     <fileDesc>
         <titleStmt>
             <title>Letters</title>
             <title type="sub">Machine readable text</title>
             <author>Isocrates</author>
             <editor role="editor">George Norlin</editor>
-            &responsibility;
+           <!-- &responsibility;
             &fund.AnnCPB;
         </titleStmt>
-        &Perseus.publish;
+        &Perseus.publish;--></titleStmt>
+        <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+        </publicationStmt>
         <sourceDesc>
             <bibl>
                 <author>Isocrates</author>
@@ -21,20 +28,21 @@
     </fileDesc>
     
     <encodingDesc>
-        <refsDecl doctype="TEI.2">
-            <state delim=" " unit="collection"/>
-            <state delim="." unit="letter"/>
-            <state unit="section"/>
+        <refsDecl n="CTS">
+            <cRefPattern n="letter" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                <p>This pointer pattern extracts letter</p>
+            </cRefPattern>
         </refsDecl>
     </encodingDesc>
     
     <profileDesc>
         <langUsage>
-            <language id="en">English
-            </language><language id="greek">Greek
-            </language></langUsage>
+            <language ident="eng">English </language>
+            <language ident="grc">Greek </language>
+        </langUsage>
+    </profileDesc>
         
-        <textClass id="gen.epideictic">
+       <!-- <textClass id="gen.epideictic">
             <keywords><term>Epideictic</term></keywords>
         </textClass>
         <textClass id="gen.forensic.prosecution">
@@ -45,11 +53,11 @@
         </textClass>
         <textClass id="gen.estate.claim">
             <keywords><term>Claim against an Estate</term></keywords>
-        </textClass>
-    </profileDesc>
+        </textClass>-->
+   
     
     <revisionDesc>
-        <change><date>April 1992</date>
+        <!--<change><date>April 1992</date>
             <respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
             <item>Put bios and intros to speeches into separate files. Change markup in accordance with orator dtd</item>
         </change>
@@ -105,28 +113,31 @@
                 Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
                 
                 
-            </item></change>
+            </item></change>--> <change when="2016-02-08" who="TDB"> CTS and Epidoc update</change>
     </revisionDesc>
 </teiHeader>
-<text><body><div2 type="Letter" n="9">
+<text><body>
+    <div type="translation" n="urn:cts:greekLit:tlg0010.tlg024.perseus-eng2" xml:lang="eng">
+    <div subtype="Letter" type="textpart" n="9">
     <head>To Archidamus</head>
-    <milestone n="1" unit="section"/><p>Since I know, Archidamus,<note anchored="yes" resp="ed">For Archidamus see Introduction to this letter and Isocrates' discourse <bibl n="Isoc. 6">Isoc. 6</bibl>.</note> that many persons are eager to sing the praises of you, your father, and your family, I have chosen to leave to them that topic, since it would be a very easy one to treat.  I myself, however, intend to exhort you to feats of generalship and military campaigns which are in no respect similar to those which are impending now, but, on the contrary, are such as will make you the author of great benefits, not only to your own state, but also to all the Greek world.
+    <milestone n="1" unit="section"/><p>Since I know, Archidamus,<note anchored="true" resp="ed">For Archidamus see Introduction to this letter and Isocrates' discourse <bibl n="Isoc. 6">Isoc. 6</bibl>.</note> that many persons are eager to sing the praises of you, your father, and your family, I have chosen to leave to them that topic, since it would be a very easy one to treat.  I myself, however, intend to exhort you to feats of generalship and military campaigns which are in no respect similar to those which are impending now, but, on the contrary, are such as will make you the author of great benefits, not only to your own state, but also to all the Greek world.
         <milestone n="2" unit="section"/>This is the choice of subject I have made, although I am not unaware which of the two discourses is the easier to deal with; nay, I know perfectly well that to discover actions which are noble, great, and advantageous is difficult and given to few men, whereas to praise your virtues I should have found an easy task.  For there would have been no need of deriving from my own resources all that was to be said about them, but in your own past achievements I should have found topics for treatment so many and of such a kind that the eulogies pronounced upon other men would not have rivalled in the slightest degree the praise that I should have lavished upon you.
-        <milestone n="3" unit="section"/>For how could anyone have surpassed in nobility of birth the descendants of Heracles<note anchored="yes" resp="ed">The Spartan kings claimed descent from Heracles, the son of Zeus and Alcmena; cf. <bibl n="Isoc. 4.62">Isoc. 4.62</bibl> and <bibl n="Isoc. 6.8">Isoc. 6.8</bibl>.</note> and Zeus&mdash;and all men know that to your family alone confessedly belongs this honor&mdash;or in valor the founders of the Dorian cities in the Peloponnese who occupied that land, or in the multitude of the perilous deeds and the trophies erected as a result of your leadership and rule?
-        <milestone n="4" unit="section"/>Who would lack material if he wished to recount in full the tale of the courage of your entire state, and of its moderation, and its constitution established by your ancestors?  How long a story would be needed to tell of your father's wisdom, of his handling of affairs in adversity, and of that battle in Sparta<note anchored="yes" resp="ed">In <date id="-362">362 B.C.</date> the troops of Epaminondas, the Theban general, were routed by Archidamus with 100 hoplites; cf. <bibl n="Xen. Hell. 7.5.9">Xen. Hell. 7.5.9</bibl>.</note> in which you, leading a few against many, exposed yourself to danger, and, surpassing all, proved to be the author of your city's salvation&mdash;a deed than which no man could point to one more glorious!
-        <milestone n="5" unit="section"/>For neither capture of cities nor slaughter of a multitude of the enemy is so great and so sublime as the saving of one's fatherland from perils so dire&mdash;and no ordinary fatherland, but one so greatly distinguished for its valor.  Any man who should relate these achievements, not in polished style, but simply, and without stylistic embellishment, merely telling the tale of them and speaking in random fashion, could not fail to win renown.
-        <milestone n="6" unit="section"/></p><p>Now I might have spoken passably about even these matters, since I knew, in the first place, that it is easier to treat copiously in cursory fashion occurrences of the past than intelligently to discuss the future and, in the second place, that all men are more grateful to those who praise them than to those who advise them<note anchored="yes" resp="ed">Cf. <bibl n="Isoc. L. 2.1">Isoc. Letter 2.1</bibl>.</note>&mdash;for the former they approve as being well&mdash;disposed, but the latter,
-            <milestone n="7" unit="section"/>if the advice comes unbidden, they look upon as officious&mdash;nevertheless, although I was already fully aware of all these considerations, I have refrained from topics which would surely be flattering and now I propose to speak of such matters as no one else would dare to discuss, because I believe that those who make pretensions to fairness and practical wisdom should choose, not the easiest subjects, but the most arduous, nor yet those which are the sweetest to the ears of the listeners, but such as will avail to benefit, not only their own states, but also all the other Greeks.  And such is the subject, in fact, to which I have fixed my attention at the present time.
-            <milestone n="8" unit="section"/></p><p>I marvel also at those men who have ability in action or in speech that it has never occurred to them seriously to take to heart the conditions which affect all Greeks alike, or even to feel pity for the evil plight of Hellas, so shameful and dreadful, no part of which now remains that is not teeming full of war, uprisings, slaughter, and evils innumerable.<note anchored="yes" resp="ed">For this same complaint see <bibl n="Isoc. 4.170">Isoc. 4.170-171</bibl>.</note>  The greatest share of these ills is the lot of the dwellers along the seaboard of Asia, whom by the treaty<note anchored="yes" resp="ed">The Peace of Antalcidas, <date id="-387">387 B.C.</date></note> we have delivered one and all into the hands, not only of the barbarians, but also of those Greeks who, though they share our speech, yet adhere to the ways of the barbarians.
-                <milestone n="9" unit="section"/>These renegades, if we had any sense, we should not be permitting to come together into bands or, led by any chance leaders, to form armed contingents, composed of roving forces more numerous and powerful than are the troops of our own citizen forces.  These armies do damage to only a small part of the domain of the king of Persia, but every Hellenic city they enter they utterly destroy, killing some, driving others into exile, and robbing still others of their possessions<note anchored="yes" resp="ed">See Introd. to <bibl n="Isoc. 4">Isoc. 4</bibl>, Vol. I, p. 117; cf. <bibl n="Isoc. 4.167">Isoc. 4.167-168</bibl>.</note>;
-                <milestone n="10" unit="section"/>furthermore, they treat with indignity children and women, and not only dishonor the most beautiful women, but from the others they strip off the clothing which they wear on their persons, so that those who even when fully clothed were not to be seen by strangers, are beheld naked by many men; and some women, clad in rags, are seen wandering in destitution from lack of the bare necessities of life.<note anchored="yes" resp="ed">See Introd. to <bibl n="Isoc. 4">Isoc. 4</bibl>, Vol. I, p. 117; cf. <bibl n="Isoc. 4.167">Isoc. 4.167-168</bibl>.</note>
+        <milestone n="3" unit="section"/>For how could anyone have surpassed in nobility of birth the descendants of Heracles<note anchored="true" resp="ed">The Spartan kings claimed descent from Heracles, the son of Zeus and Alcmena; cf. <bibl n="Isoc. 4.62">Isoc. 4.62</bibl> and <bibl n="Isoc. 6.8">Isoc. 6.8</bibl>.</note> and Zeus&#8212;and all men know that to your family alone confessedly belongs this honor&#8212;or in valor the founders of the Dorian cities in the Peloponnese who occupied that land, or in the multitude of the perilous deeds and the trophies erected as a result of your leadership and rule?
+        <milestone n="4" unit="section"/>Who would lack material if he wished to recount in full the tale of the courage of your entire state, and of its moderation, and its constitution established by your ancestors?  How long a story would be needed to tell of your father's wisdom, of his handling of affairs in adversity, and of that battle in Sparta<note anchored="true" resp="ed">In <date when="-0362">362 B.C.</date> the troops of Epaminondas, the Theban general, were routed by Archidamus with 100 hoplites; cf. <bibl n="Xen. Hell. 7.5.9">Xen. Hell. 7.5.9</bibl>.</note> in which you, leading a few against many, exposed yourself to danger, and, surpassing all, proved to be the author of your city's salvation&#8212;a deed than which no man could point to one more glorious!
+        <milestone n="5" unit="section"/>For neither capture of cities nor slaughter of a multitude of the enemy is so great and so sublime as the saving of one's fatherland from perils so dire&#8212;and no ordinary fatherland, but one so greatly distinguished for its valor.  Any man who should relate these achievements, not in polished style, but simply, and without stylistic embellishment, merely telling the tale of them and speaking in random fashion, could not fail to win renown.
+        <milestone n="6" unit="section"/></p><p>Now I might have spoken passably about even these matters, since I knew, in the first place, that it is easier to treat copiously in cursory fashion occurrences of the past than intelligently to discuss the future and, in the second place, that all men are more grateful to those who praise them than to those who advise them<note anchored="true" resp="ed">Cf. <bibl n="Isoc. L. 2.1">Isoc. Letter 2.1</bibl>.</note>&#8212;for the former they approve as being well&#8212;disposed, but the latter,
+            <milestone n="7" unit="section"/>if the advice comes unbidden, they look upon as officious&#8212;nevertheless, although I was already fully aware of all these considerations, I have refrained from topics which would surely be flattering and now I propose to speak of such matters as no one else would dare to discuss, because I believe that those who make pretensions to fairness and practical wisdom should choose, not the easiest subjects, but the most arduous, nor yet those which are the sweetest to the ears of the listeners, but such as will avail to benefit, not only their own states, but also all the other Greeks.  And such is the subject, in fact, to which I have fixed my attention at the present time.
+            <milestone n="8" unit="section"/></p><p>I marvel also at those men who have ability in action or in speech that it has never occurred to them seriously to take to heart the conditions which affect all Greeks alike, or even to feel pity for the evil plight of Hellas, so shameful and dreadful, no part of which now remains that is not teeming full of war, uprisings, slaughter, and evils innumerable.<note anchored="true" resp="ed">For this same complaint see <bibl n="Isoc. 4.170">Isoc. 4.170-171</bibl>.</note>  The greatest share of these ills is the lot of the dwellers along the seaboard of Asia, whom by the treaty<note anchored="true" resp="ed">The Peace of Antalcidas, <date when="-0387">387 B.C.</date></note> we have delivered one and all into the hands, not only of the barbarians, but also of those Greeks who, though they share our speech, yet adhere to the ways of the barbarians.
+                <milestone n="9" unit="section"/>These renegades, if we had any sense, we should not be permitting to come together into bands or, led by any chance leaders, to form armed contingents, composed of roving forces more numerous and powerful than are the troops of our own citizen forces.  These armies do damage to only a small part of the domain of the king of Persia, but every Hellenic city they enter they utterly destroy, killing some, driving others into exile, and robbing still others of their possessions<note anchored="true" resp="ed">See Introd. to <bibl n="Isoc. 4">Isoc. 4</bibl>, Vol. I, p. 117; cf. <bibl n="Isoc. 4.167">Isoc. 4.167-168</bibl>.</note>;
+                <milestone n="10" unit="section"/>furthermore, they treat with indignity children and women, and not only dishonor the most beautiful women, but from the others they strip off the clothing which they wear on their persons, so that those who even when fully clothed were not to be seen by strangers, are beheld naked by many men; and some women, clad in rags, are seen wandering in destitution from lack of the bare necessities of life.<note anchored="true" resp="ed">See Introd. to <bibl n="Isoc. 4">Isoc. 4</bibl>, Vol. I, p. 117; cf. <bibl n="Isoc. 4.167">Isoc. 4.167-168</bibl>.</note>
                 <milestone n="11" unit="section"/></p><p>With regard to this unhappy situation, which has now obtained for a long time, not one of the cities which lays claim to the leadership of the Hellenes has shown indignation, nor has any of its leading men been wroth, except your father.  For Agesilaus alone of all whom we know unceasingly to the end longed to liberate the Greeks and to wage war against the barbarians.  Nevertheless, even he erred in one respect.
                     <milestone n="12" unit="section"/>And do not be surprised if I, in my communication to you, mention matters in which his judgement was at fault; for I am accustomed always to speak with the utmost frankness and I should prefer to be disliked for having justly censured than to win favor through having given unmerited praise.
-                    <milestone n="13" unit="section"/>My view, then, is as follows: Agesilaus, who had won distinction in all other fields, and had shown himself to be in the highest degree self-controlled, just, and statesmanlike, conceived two strong desires, each of them taken by itself seeming admirable, but being incompatible and incapable of achievement at the same time.  For he wished not only to wage war on the Persian king but also to restore to their respective cities his friends who were in exile and to establish them as masters of affairs.<note anchored="yes" resp="ed">This same explanation is given in <bibl n="Isoc. 5.87">Isoc. 5.87</bibl>.</note>
+                    <milestone n="13" unit="section"/>My view, then, is as follows: Agesilaus, who had won distinction in all other fields, and had shown himself to be in the highest degree self-controlled, just, and statesmanlike, conceived two strong desires, each of them taken by itself seeming admirable, but being incompatible and incapable of achievement at the same time.  For he wished not only to wage war on the Persian king but also to restore to their respective cities his friends who were in exile and to establish them as masters of affairs.<note anchored="true" resp="ed">This same explanation is given in <bibl n="Isoc. 5.87">Isoc. 5.87</bibl>.</note>
                     <milestone n="14" unit="section"/>The result, therefore, of his exertions on behalf of his friends was that the Greeks were involved in misfortunes and in fighting, and on account of the confusion which prevailed here had not the leisure nor yet the strength to wage war against the barbarians.  So, in consequence of the conditions which were at that time not recognized, it is easy to perceive that men of good counsel should not wage war against the king of Persia until someone shall have first reconciled the Greeks with each other and have made us cease from our madness and contentiousness.  On these topics I have spoken before and now I intend to discuss them.
                     <milestone n="15" unit="section"/></p><p>And yet certain persons who, although they have no share at all in learning, yet profess to be able to teach everybody else, and although they dare to find fault with my efforts, yet are eager to imitate them, will perhaps call it madness for me to concern myself with the misfortunes of Greece, as if Greece would be either better or worse off as a result of words of mine!  Justly, however, would all men condemn these persons as guilty of great cowardice and meanness of spirit, for while they make pretence to serious intellectual interests, they pride themselves on petty things and consistently show malice and envy against those who have the ability to give counsel concerning matters of the greatest importance.
                         <milestone n="16" unit="section"/>These men, then, in their endeavor to give aid and comfort to their own weaknesses and indolence, will perhaps speak in such fashion.  I for my part, however, pride myself so greatly on my ability that, even though I am now eighty years of age and altogether worn out, I think it is especially fitting to speak my mind on these matters, and also that I have been well advised in directing my appeal to you, and that it may well be that from my counsel some of the necessary measures will be taken.
                         <milestone n="17" unit="section"/></p><p>And I believe that if the rest of the Greek world also should be called upon to choose from all mankind both the man who by his eloquence would best be able to summon the Greeks to the expedition against the barbarians, and also the leader who would be likely most quickly to bring to fulfillment the measures recognized as expedient, they would choose no others but you and me.  Yet surely we should be acting disgracefully, should we not, if we should neglect these duties in which our honor is involved, should all men regard us as worthy of them?
-                            <milestone n="18" unit="section"/>My part, it is true, is the smaller; for to declare what one thinks is usually not so very difficult.  But for you it is fitting, giving attention to all that I have said, to deliberate upon the question whether you should shrink from the conduct of the affairs of Hellas&mdash;you, whose noble lineage I have a little while ago described, leader of the Lacedaemonians, addressed by the name King, and a man who enjoys the greatest renown of all the Hellenes&mdash;or, disdaining the matters you now have in hand, you should put your hand to greater undertakings.
-                            <milestone n="19" unit="section"/></p><p>I for my part say that, disregarding everything else, you should give your attention to these two tasks&mdash;to rid the Hellenes from their wars and from all the other miseries with which they are now afflicted, and to put a stop to the insolence of the barbarians and to their possession of wealth beyond their due.  That these things are practicable and expedient for you, for your city, and for all the Hellenes at large, it is now my task to explain. . . .&lsqb;The conclusion is missing&rsqb;</p></div2>
-</body></text>
+                            <milestone n="18" unit="section"/>My part, it is true, is the smaller; for to declare what one thinks is usually not so very difficult.  But for you it is fitting, giving attention to all that I have said, to deliberate upon the question whether you should shrink from the conduct of the affairs of Hellas&#8212;you, whose noble lineage I have a little while ago described, leader of the Lacedaemonians, addressed by the name King, and a man who enjoys the greatest renown of all the Hellenes&#8212;or, disdaining the matters you now have in hand, you should put your hand to greater undertakings.
+                            <milestone n="19" unit="section"/></p><p>I for my part say that, disregarding everything else, you should give your attention to these two tasks&#8212;to rid the Hellenes from their wars and from all the other miseries with which they are now afflicted, and to put a stop to the insolence of the barbarians and to their possession of wealth beyond their due.  That these things are practicable and expedient for you, for your city, and for all the Hellenes at large, it is now my task to explain. . . .&#91;The conclusion is missing&#92;</p></div>
+</div></body></text>
+</TEI>
