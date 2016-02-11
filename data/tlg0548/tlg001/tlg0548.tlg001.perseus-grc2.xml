@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
 	<teiHeader type="text">
 		<fileDesc>
@@ -36,21 +37,25 @@
 			</sourceDesc>
 		</fileDesc>
 		<encodingDesc>
-			<refsDecl>
-				<refState unit="text"/>
-				<refState unit="book" delim="."/>
-				<refState unit="chapter" delim="."/>
-				<refState unit="section" n="chunk"/>
-			</refsDecl>
-			<refsDecl>
-				<refState unit="volume" delim="."/>
-				<refState unit="page"/>
+			<refsDecl n="CTS">
+				<cRefPattern matchPattern="(\\w+).(\\w+).(\\w+)"
+					replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div[@n=\'$1\']/tei:div[@n=\'$2\']/tei:div[@n=\'$3\'])">
+					<p>This pointer pattern extracts book and chapter and section</p>
+				</cRefPattern>
+				<cRefPattern matchPattern="(\\w+).(\\w+)"
+					replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
+					<p>This pointer pattern extracts book and chapter</p>
+				</cRefPattern>
+				<cRefPattern matchPattern="(\\w+)"
+					replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div[@n=\'$1\'])">
+					<p>This pointer pattern extracts book</p>
+				</cRefPattern>
 			</refsDecl>
 		</encodingDesc>
 		<profileDesc>
 			<langUsage>
-				<language ident="greek">Greek </language>
-				<language ident="en">English </language>
+				<language ident="grc">Greek </language>
+				<language ident="eng">English </language>
 			</langUsage>
 		</profileDesc>
 		<revisionDesc>
