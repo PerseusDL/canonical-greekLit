@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader type="text">
+    <fileDesc>
+      <titleStmt>
+        <title>Evagoras from Speeches</title>
+        <title type="sub">Machine readable text</title>
+        <author>Isocrates</author>
+        <editor role="editor">George Norlin</editor>
+        <sponsor>Perseus Project, Tufts University</sponsor>
+        <principal>Gregory Crane</principal>
+        <respStmt>
+          <resp>Prepared under the supervision of</resp>
+          <name>Lisa Cerrato</name>
+          <name>William Merrill</name>
+          <name>Elli Mylonas</name>
+          <name>David Smith</name>
+        </respStmt>
+        <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Trustees of Tufts University</publisher>
+        <pubPlace>Medford, MA</pubPlace>
+        <authority>Perseus Project</authority>
+      </publicationStmt>
+
+      <sourceDesc>
+        <bibl>
+          <author>Isocrates</author>
+          <title>Isocrates with an English Translation in three volumes, by George Norlin, Ph.D.,
+            LL.D.</title>
+          <publisher>Cambridge, MA, Harvard University Press; London, William Heinemann
+            Ltd.</publisher>
+          <date>1980</date>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="section"
+          matchPattern="(\\w+)"
+          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+          <p>This pointer pattern extracts section</p>
+        </cRefPattern>
+      </refsDecl>
+      <refsDecl>
+        <refState n="chunk context" unit="section"/>
+      </refsDecl>
+    </encodingDesc>
+    
+    <profileDesc>
+      <langUsage>
+        <language ident="eng">English </language>
+        <language ident="grc">Greek </language>
+      </langUsage>
+
+      <textClass xml:id="gen.epideictic">
+        <keywords>
+          <term>Epideictic</term>
+        </keywords>
+      </textClass>
+      <textClass xml:id="gen.forensic.prosecution">
+        <keywords>
+          <term>Forensic Prosecution</term>
+        </keywords>
+      </textClass>
+      <textClass xml:id="gen.forensic.defense">
+        <keywords>
+          <term>Forensic Defense</term>
+        </keywords>
+      </textClass>
+      <textClass xml:id="gen.estate.claim">
+        <keywords>
+          <term>Claim against an Estate</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+
+    <revisionDesc>
+      <!--
+      <change><date>April 1992</date>
+	<respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
+	<item>Put bios and intros to speeches into separate files. Change markup in accordance with orator dtd</item>
+      </change>
+      <change><date>June 1992</date>
+	<respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
+	<item>put speechs in numerical order and consolidated files</item>
+      </change>
+      <change><date>September-October 1992</date>
+	<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
+	<item>Fixed the notes, mostly citations</item>
+      </change>
+      <change><date>1 March 2000</date>
+	<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
+	<item>
+$Log: isoc.orat_eng.xml,v $
+Revision 1.3  2011-09-22 19:56:10  lcerrato
+fixed bibl to Aesch. Seven 1
+
+Revision 1.2  2010-06-16 15:52:16  lcerrato
+fixed bibls for Plut. Mor. to correct work title
+
+Revision 1.1  2009/11/24 20:08:29  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.18  2009/08/03 14:20:33  student
+fixed Aristot. Nic. Eth. reference - zr
+
+Revision 1.17  2009/07/23 20:24:35  student
+fixed section numbers - zr
+
+Revision 1.16  2009/06/26 17:51:34  student
+fixed bibl errors - zr
+
+Revision 1.15  2009/06/24 16:04:25  lcerrato
+fixed bad bibls
+
+Revision 1.14  2009/06/19 19:06:52  lcerrato
+fixed bad bibls
+
+Revision 1.13  2009/06/11 20:25:01  student
+fixed bibl errors - zr
+
+Revision 1.12  2009/06/11 19:55:46  rsingh04
+fixed section error
+
+Revision 1.11  2009/05/19 20:57:47  lcerrato
+fixed bad bibls
+
+Revision 1.10  2009/04/29 02:29:49  lcerrato
+fixed bad bibls
+
+Revision 1.9  2009/04/17 19:20:30  lcerrato
+fixing bad bibls
+
+Revision 1.8  2009/04/03 20:20:43  lcerrato
+fixing bad bibl refs
+
+Revision 1.7  2009/03/02 19:01:28  rsingh04
+fixed date, dateRange and dateStruct tags
+
+Revision 1.6  2009/02/05 18:43:43  lcerrato
+fixed bad bibls
+
+Revision 1.5  2009/01/07 21:38:23  lcerrato
+fixed bibl refs to Bacchylides
+
+Revision 1.4  2008/12/18 20:25:05  lcerrato
+fixing typos
+
+Revision 1.3  2008/11/19 21:22:11  lcerrato
+fixed bad refs to Aristot. Nic. Eth. and Solon
+
+Revision 1.2  2006/02/10 21:10:25  packel
+places/dates now actually tagged
+
+Revision 1.1  2005/08/01 18:01:19  packel
+split up letters and speeches
+
+Revision 1.1  2005/07/25 14:37:33  packel
+Converted to XML
+	
+Revision 1.8  2003/07/01 22:17:03  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.7  2001/10/09 22:40:51  dasmith
+Fixed instances of zero for capital O.
+
+Revision 1.6  2000/03/04 20:34:39  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.5  2000/03/01 22:22:15  dasmith
+Only look up speeches in the orat. subdoc.
+
+Revision 1.4  2000/03/01 21:45:05  dasmith
+Converted to TEI P3.
+Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
+
+
+      </item></change>
+    <change><date>July 2014</date>
+    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
+    <item>split speeches and converted to unicode</item>
+      </change></change>-->
+      <change when="2014-10-01" who="Stella Dee">edited markup</change>
+    </revisionDesc>
+  </teiHeader>
+  <text xml:lang="eng">
+    <body>
+      <div type="translation" n="urn:cts:greekLit:tlg0010.tlg015.perseus-eng2" xml:lang="eng">
+      <div n="1" subtype="section" type="textpart">
+        <p> When I saw you, Nicocles<note anchored="true" resp="ed">For Nicocles see Introd. to this
+            discourse.</note>, honoring the tomb of your father, not only with numerous and
+          beautiful offerings, but also with dances, music, and athletic contests, and, furthermore,
+          with races of horses and triremes, and leaving to others no possibility of surpassing
+            you<note anchored="true" resp="ed">A favorite expression of Isocrates; Cf. <bibl
+              n="Isoc. 4.5">Isoc. 4.5</bibl> and <bibl n="Isoc. 16.34">Isoc. 16.34</bibl>.</note> in
+          such celebrations, </p>
+      </div>
+      <div n="2" subtype="section" type="textpart">
+        <p>I judged that Evagoras (if the dead have any perception of that which takes place in this
+            world),<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 19.42">Isoc. 19.42</bibl> and
+              <bibl n="Isoc. 14.61">Isoc. 14.61</bibl>; also <bibl n="Plat. Apol. 40c">Plat. Apol.
+              40c</bibl>.</note> while gladly accepting these offerings and rejoicing in the
+          spectacle of your devotion and princely magnificence in honoring him, would feel far
+          greater gratitude to anyone who could worthily recount his principles in life and his
+          perilous deeds than to all other men; </p>
+      </div>
+      <div n="3" subtype="section" type="textpart">
+        <p>for we shall find that men of ambition and greatness of soul not only are desirous of
+          praise for such things, but prefer a glorious death to life, zealously seeking glory
+          rather than existence,<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 5.135">Isoc.
+              5.135</bibl>.</note> and doing all that lies in their power to leave behind a memory
+          of themselves that shall never die. </p>
+      </div>
+      <div n="4" subtype="section" type="textpart">
+        <p>Expenditure of money can effect nothing of this kind, but is an indication of wealth
+          only; and those who devote themselves to music and letters and to the various contests,
+          some by exhibiting their strength and others their artistic skill, win for themselves
+          greater honor. But the spoken words which should adequately recount the deeds of Evagoras
+          would make his virtues never to be forgotten among all mankind. </p>
+      </div>
+      <div n="5" subtype="section" type="textpart">
+        <p> Now other writers should have praised those who in their own time had proved themselves
+          good men, to the end that those who have the ability to glorify the deeds of their
+          contemporaries, by speaking in the presence of those who knew the facts might have
+          employed the truth concerning them, and also that the younger generation might with
+          greater emulation have striven for virtue, knowing well that they would be praised more
+          highly than those whom they have excelled in merit. </p>
+      </div>
+      <div n="6" subtype="section" type="textpart">
+        <p>But as it is, who would not be disheartened when he sees those who lived in the time of
+          the Trojan war, and even earlier,<note anchored="true" resp="ed">e.g. Heracles, Theseus,
+            and the Argonauts.</note> celebrated in song and tragedy, and yet foresees that even if
+          he himself surpass their valorous achievements he will never be thought worthy of such
+          praise? The cause of this is envy, which has this as its only good—it is the greatest evil
+          to those who feel it. For some are so ungenerous by nature that they would listen more
+          gladly to the praise of men of whose existence they are uncertain rather than of those who
+          may have been their own benefactors. </p>
+      </div>
+      <div n="7" subtype="section" type="textpart">
+        <p>Men of intelligence, however, should not let themselves be enslaved by men whose minds
+          are so perverted; on the contrary, they should ignore such as these and accustom their
+          fellows to hear about those whom we are in duty bound to praise, especially since we are
+          aware that progress is made, not only in the arts, but in all other activities, not
+          through the agency of those that are satisfied with things as they are, but through those
+          who correct, and have the courage constantly to change, anything which is not as it should
+          be. </p>
+      </div>
+      <div n="8" subtype="section" type="textpart">
+        <p> I am fully aware that what I propose to do is difficult—to eulogize in prose the virtues
+          of a man. The best proof is this: Those who devote themselves to philosophy<note
+            anchored="true" resp="ed">Really oratory and rhetoric: for the meaning of “philosophy”
+            in Isocrates see the General Introd., Vol. I, p. xxvi.</note> venture to speak on many
+          subjects of every kind, but no one of them has ever attempted to compose a discourse on
+          such a theme.<note anchored="true" resp="ed">Prose encomia existed before this time, but
+            they were mostly exercises on mythical subjects written by Sophists.</note> And I can
+          make much allowance for them. For to the poets is granted the use of many embellishments
+          of language, </p>
+      </div>
+      <div n="9" subtype="section" type="textpart">
+        <p>since they can represent the gods as associating with men, conversing with and aiding in
+          battle whomsoever they please, and they can treat of these subjects not only in
+          conventional expressions, but in words now exotic, now newly coined, and now in figures of
+          speech, neglecting none, but using every kind with which to embroider their poesy.<note
+            anchored="true" resp="ed">With this passage compare <bibl n="Aristot. Poet. 1457b"
+              >Aristot. Poet. 1457b</bibl>.</note>
+        </p>
+      </div>
+      <div n="10" subtype="section" type="textpart">
+        <p>Orators, on the contrary, are not permitted the use of such devices; they must use with
+          precision only words in current use and only such ideas as bear upon the actual facts.
+          Besides, the poets compose all their works with meter and rhythm, while the orators do not
+          share in any of these advantages; and these lend such charm that even though the poets may
+          be deficient in style and thoughts, yet by the very spell of their rhythm and harmony they
+          bewitch their listeners.<note anchored="true" resp="ed">Cf. <bibl n="Plat. Rep. 601b"
+              >Plat. Rep. 601b</bibl>.</note>
+        </p>
+      </div>
+      <div n="11" subtype="section" type="textpart">
+        <p>The power of poetry may be understood from this consideration: if one should retain the
+          words and ideas of poems which are held in high esteem, but do away with the meter, they
+          will appear far inferior to the opinion we now have of them. Nevertheless, although poetry
+          has advantages so great, we must not shrink from the task, but must make the effort and
+          see if it will be possible in prose to eulogize good men in no worse fashion than their
+          encomiasts do who employ song and verse. </p>
+      </div>
+      <div n="12" subtype="section" type="textpart">
+        <p> In the first place, with respect to the birth and ancestry of Evagoras,<note
+            anchored="true" resp="ed">Cf. <bibl n="Isoc. 3.42">Isoc. 3.42</bibl>.</note> even if
+          many are already familiar with the facts, I believe it is fitting that I also should
+          recount them for the sake of the others, that all may know that he proved himself not
+          inferior to the noblest and greatest examples of excellence which were of his inheritance.
+        </p>
+      </div>
+      <div n="13" subtype="section" type="textpart">
+        <p>For it is acknowledged that the noblest of the demigods are the sons of Zeus, and there
+          is no one who would not award first place among these to the Aeacidae: for while in the
+          other families we shall find some of superior and some of inferior worth, yet all the
+          Aeacidae have been most renowned of all their contemporaries. </p>
+      </div>
+      <div n="14" subtype="section" type="textpart">
+        <p>In the first place Aeacus,<note anchored="true" resp="ed">Aeacus, son of Zeus and
+              <placeName key="tgn,7011087">Aegina</placeName>, was renowned for his piety.</note>
+          son of Zeus and ancestor of the family of the Teucridae, was so distinguished that when a
+          drought visited the Greeks and many persons had perished, and when the magnitude of the
+          calamity had passed all bounds, the leaders of the cities came as suppliants to him; for
+          they thought that, by reason of his kinship with Zeus and his piety, they would most
+          quickly obtain from the gods relief from the woes that afflicted them. </p>
+      </div>
+      <div n="15" subtype="section" type="textpart">
+        <p>Having gained their desire, they were saved and built in <placeName key="tgn,7011087"
+            >Aegina</placeName> a temple<note anchored="true" resp="ed">This was the Aiakeion,
+            described by Pausanias ii. 29.</note> to be shared by all the Greeks on the very spot
+          where he had offered his prayer. During his entire stay among men he ever enjoyed the
+          fairest repute, and after his departure from life it is said that he sits by the side of
+          Pluto and Kore<note anchored="true" resp="ed">Persephone.</note> in the enjoyment of the
+          highest honors.<note anchored="true" resp="ed">Aeacus, Minos, and Rhadamanthys were
+            reputed to be the judges in the world of the dead.</note>
+        </p>
+      </div>
+      <div n="16" subtype="section" type="textpart">
+        <p> The sons of Aeacus were Telamon and Peleus; Telamon won the meed of valor in an
+          expedition with Heracles against Laomedon,<note anchored="true" resp="ed">Laomedon, with
+            the help of Poseidon, built <placeName key="perseus,Troy">Troy</placeName>.</note> and
+          Peleus, having distinguished himself in the battle with the Centaurs and having won glory
+          in many other hazardous enterprises, wedded Thetis, the daughter of Nereus, he a mortal
+          winning an immortal bride. And they say that at his wedding alone, of all the human race
+          who have ever lived, the wedding-song was sung by gods. </p>
+      </div>
+      <div n="17" subtype="section" type="textpart">
+        <p>To each of these two were born sons—to Telamon Ajax and Teucer, and to Peleus Achilles,
+          and these heroes gave proof of their valour in the clearest and most convincing way: for
+          not alone in their own cities were they pre-eminent, or in the places where they made
+          their homes, but when an expedition was organized by the Greeks against the
+            barbarians,<note anchored="true" resp="ed">i.e., the Trojans.</note> and a great army
+          was assembled on either side </p>
+      </div>
+      <div n="18" subtype="section" type="textpart">
+        <p>and no warrior of repute was absent, Achilles above all distinguished himself in these
+          perils. And Ajax was second to him in valor, and Teucer, who proved himself worthy of
+          their kinship and inferior to none of the other heroes, after he had helped in the capture
+          of <placeName key="perseus,Troy">Troy</placeName>, went to <placeName key="tgn,1000112"
+            >Cyprus</placeName> and founded <placeName key="tgn,7002340">Salamis</placeName>, giving
+          to it the name of his former native land<note anchored="true" resp="ed">The island
+              <placeName key="tgn,7002340">Salamis</placeName> near Athens.</note>; and he left
+          behind him the family that now reigns. </p>
+      </div>
+      <div n="19" subtype="section" type="textpart">
+        <p> So distinguished from the beginning was the heritage transmitted to Evagoras by his
+          ancestors. After the city had been founded in this manner, the rule at first was held by
+          Teucer's descendants: at a later time, however, there came from <placeName
+            key="tgn,6004687">Phoenicia</placeName> a fugitive, who after he had gained the
+          confidence of the king who then reigned, and had won great power, showed no proper
+          gratitude for the favor shown him; </p>
+      </div>
+      <div n="20" subtype="section" type="textpart">
+        <p>on the contrary, he acted basely toward his host, and being skilled at grasping, he
+          expelled his benefactor and himself seized the throne. But distrustful of the consequences
+          of his measures and wishing to make his position secure, he reduced the city to barbarism,
+          and brought the whole island into subservience to the Great King.<note anchored="true"
+            resp="ed">The kind of <placeName key="tgn,7000231">Persia</placeName>,
+            Artaxerxes.</note>
+        </p>
+      </div>
+      <div n="21" subtype="section" type="textpart">
+        <p> Such was the state of affairs in <placeName key="tgn,7002340">Salamis</placeName>, and
+          the descendants of the usurper were in possession of the throne when Evagoras was born. I
+          prefer to say nothing of the portents, the oracles, the visions appearing in dreams, from
+          which the impression might be gained that he was of superhuman birth, not because I
+          disbelieve the reports, but that I may make it clear to all that I am so far from
+          resorting to invention in speaking of his deeds that even of those matters which are in
+          fact true I dismiss such as are known only to the few and of which not all the citizens
+          are cognizant. And I shall begin my account of him with the generally acknowledged facts.
+        </p>
+      </div>
+      <div n="22" subtype="section" type="textpart">
+        <p> When Evagoras was a boy he possessed beauty, bodily strength, and modesty, the very
+          qualities that are most becoming to that age. Witnesses could be produced for these
+          assertions: for his modesty— fellow-citizens who were educated with him: for his
+          beauty—all who beheld him: for his strength—all the contests<note anchored="true"
+            resp="ed">I.e., the official records of winners in the contests sanctioned by the
+            state.</note> in which he vanquished his age-mates. </p>
+      </div>
+      <div n="23" subtype="section" type="textpart">
+        <p>When he attained to manhood not only did all these qualities grow up with him, but to
+          them were also added manly courage, wisdom, and justice, and that too in no ordinary
+          measure, as is the case with some others, but each of these characteristics in
+          extraordinary degree. So surpassing was his excellence of both body and mind, </p>
+      </div>
+      <div n="24" subtype="section" type="textpart">
+        <p>that when the kings of that time looked upon him they were terrified and feared for their
+          throne, thinking that a man of such nature could not possibly pass his life in the status
+          of a private citizen, but whenever they observed his character, they felt such confidence
+          in him that they believed that even if anyone else should dare to injure them, Evagoras
+          would be their champion. </p>
+      </div>
+      <div n="25" subtype="section" type="textpart">
+        <p>And although opinions of him were so at variance, they were mistaken in neither respect:
+          for he neither remained in private life, nor did them injury: on the contrary, the Deity
+          took such thought for him that he should honorably assume the throne, that all the
+          preparations which necessarily involved impiety were made by another, </p>
+      </div>
+      <div n="26" subtype="section" type="textpart">
+        <p>while he preserved for Evagoras those means whereby it was possible for him to gain the
+          rule in accordance with piety and justice. For one of the princes,<note anchored="true"
+            resp="ed">Abdemon: cf. Diodorus xiv. 98.</note> starting a conspiracy, slew the tyrant
+          and attempted to arrest Evagoras, believing that he would not be able to retain the rule
+          himself unless he should get him out of the way. </p>
+      </div>
+      <div n="27" subtype="section" type="textpart">
+        <p>But Evagoras escaped this peril, and having saved himself by fleeing to <placeName
+            key="perseus,Soli">Soli</placeName> in <placeName key="tgn,7002470">Cilicia</placeName>
+          did not show the same spirit as those who are the victims of like misfortune. For other
+          exiles from royal power are humbled in spirit because of their misfortunes,whereas
+          Evagoras attained to such greatness of soul that, although until that time he had lived as
+          a private citizen, when he was driven into exile he determined to gain the throne. </p>
+      </div>
+      <div n="28" subtype="section" type="textpart">
+        <p>The wandering life of an exile, the dependence upon the help of others in seeking his
+          restoration and the paying of court to his inferiors—all these he scorned: but this he
+          took as his guiding principle, which those who would be god-fearing men must take—to act
+          only in self-defense and never to be the aggressor: and he chose either by success to
+          regain the throne or, failing in that, to die. And so, calling to his side men numbering,
+          according to the highest estimates, about fifty, with these he prepared to effect his
+          return from exile. </p>
+      </div>
+      <div n="29" subtype="section" type="textpart">
+        <p>And from this venture especially the character of Evagoras and his reputation among his
+          associates may be seen: for although he was on the point of sailing with so few companions
+          for the accomplishment of so great a design, and although all the attendant dangers were
+          near at hand, neither did he himself lose heart, nor did any of his companions see fit to
+          shrink from these dangers: nay, as if a god were their leader, they one and all held fast
+          to their promises, and Evagoras, just as if either he had an army superior to that of his
+          adversaries or foresaw the outcome, held to his opinion. </p>
+      </div>
+      <div n="30" subtype="section" type="textpart">
+        <p>This is evident from his acts: for, when he had landed on the island, he did not think it
+          necessary to seize a strong position, make sure of his own safety, and then to wait and
+          see if some of the citizens would rally to his aid: but immediately, just as he was, on
+          that very night he broke through a little gate in the wall, and leading his followers
+          through this opening, attacked the palace. </p>
+      </div>
+      <div n="31" subtype="section" type="textpart">
+        <p>The confusion attendant upon such occasions, the fears of his followers, the exhortations
+          of their leader—why need I take the time to describe<note anchored="true" resp="ed">Cf.
+              <bibl n="Isoc. 4.97">Isoc. 4.97</bibl> for a similar passage in reference to the
+            sea-fight at <placeName key="tgn,7002340">Salamis</placeName>. In <bibl n="Isoc. 5.93"
+              >Isoc. 5.93-94</bibl> Isocrates justifies such “autoplagiarism.”</note>? When the
+          supporters of the tyrant opposed him and the citizens generally were observers (for they
+          held their peace because they feared either the authority of the one party or the valor of
+          the other), </p>
+      </div>
+      <div n="32" subtype="section" type="textpart">
+        <p>he did not cease from fighting, whether alone against many or with few opposing all the
+          foe, until, having captured the palace, he had taken vengeance upon the enemy and had
+          succoured his friends: furthermore, he restored its ancestral honors to his family<note
+            anchored="true" resp="ed">Cf. <bibl n="Isoc. 3.28">Isoc. 3.28</bibl>.</note> and
+          established himself as ruler of the city. </p>
+      </div>
+      <div n="33" subtype="section" type="textpart">
+        <p> I think that even if I should mention nothing more, but should discontinue my discourse
+          at this point, from what I have said the valor of Evagoras and the greatness of his deeds
+          would be readily manifest: nevertheless, I consider that both will be yet more clearly
+          revealed from what remains to be said. </p>
+      </div>
+      <div n="34" subtype="section" type="textpart">
+        <p>For of all the many sovereigns since time began, none will be found to have won this
+          honor more gloriously than Evagoras. If we were to compare the deeds of Evagoras with
+          those of each one, such an account would perhaps be inappropriate to the occasion, and the
+          time would not suffice for the telling. But if we select the most illustrious of these
+          rulers and examine their exploits in the light of his, our investigation will lose nothing
+          thereby and our discussion will be much more brief. </p>
+      </div>
+      <div n="35" subtype="section" type="textpart">
+        <p> Who then, would not choose the perilous deeds of Evagoras before the fortunes of those
+          who inherited their kingdoms from their fathers? For surely there is no one so mean of
+          spirit that he would prefer to receive that power from his ancestors than first to acquire
+          it, as he did, and then to bequeath it to his children. </p>
+      </div>
+      <div n="36" subtype="section" type="textpart">
+        <p>Furthermore, of the returns to their thrones by princes of ancient times the most
+          renowned are those of which the poets tell us: indeed they not only chronicle for us those
+          which have been most glorious, but also compose new ones of their own invention.
+          Nevertheless no poet has told the story of any legendary prince who has faced hazards so
+          formidable and yet regained his throne: on the contrary, most of their heroes have been
+          represented as having regained their kingdoms by chance, others as having employed deceit
+          and artifice to overcome their foes. </p>
+      </div>
+      <div n="37" subtype="section" type="textpart">
+        <p>Nay, of those who lived later, perhaps indeed of all, the one hero who was most admired
+          by the greatest number was Cyrus, who deprived the Medes of their kingdom and gained it
+          for the Persians. But while Cyrus with a Persian army conquered the Medes, a deed which
+          many a Greek or a barbarian could easily do, Evagoras manifestly accomplished the greater
+          part of the deeds which have been mentioned through strength of his own mind and body.
+        </p>
+      </div>
+      <div n="38" subtype="section" type="textpart">
+        <p>Again, while it is not at all certain from the expedition of Cyrus that he would have
+          endured the dangers of Evagoras, yet it is obvious to all from the deeds of Evagoras that
+          the latter would have readily attempted the exploits of Cyrus. In addition, while piety
+          and justice characterized every act of Evagoras, some of the successes of Cyrus were
+          gained impiously: for the former destroyed his enemies, but Cyrus slew his mother's
+            father.<note anchored="true" resp="ed">Astyages, father of Mandane, who married
+            Cambyses, father of Cyrus. That Cyrus slew Astyages is not stated by any other
+            writer.</note> Consequently if any should wish to judge, not of the greatness of their
+          successes, but of the essential merit of each, they would justly award greater praise to
+          Evagoras than even to Cyrus. </p>
+      </div>
+      <div n="39" subtype="section" type="textpart">
+        <p>And if there is need to speak concisely, without reservation or fear of arousing
+          ill-feeling, but with the utmost frankness, I would say that no one, whether mortal,
+          demigod, or immortal, will be found to have obtained his throne more nobly, more
+          splendidly, or more piously. Anyone would in the highest degree be confirmed in this
+          belief if, distrusting completely what I have said, he were to set about examining how
+          each gained royal power. For it will be manifest that it is through no desire whatever of
+          grandiloquence, but because of the truth of the matter, that I have spoken thus boldly
+          about Evagoras. </p>
+      </div>
+      <div n="40" subtype="section" type="textpart">
+        <p> Now if he had distinguished himself in unimportant ways only, he would fittingly be
+          thought worthy also of praise of like nature: but as it is, all would admit that of all
+          blessings whether human or divine supreme power is the greatest, the most august, and the
+          object of greatest strife. That man, therefore, who has most gloriously acquired the most
+          glorious of possessions, what poet or what artificer of words<note anchored="true"
+            resp="ed"><foreign xml:lang="greek">LO/GWN EU(RETH/S</foreign> is found also in <bibl
+              n="Isoc. 5.144">Isoc. 5.144</bibl>. It means “prose-writer,” and refers especially to
+            composers of “set discourses” or “show-pieces.”</note> could raise in a manner worthy of
+          his deeds? </p>
+      </div>
+      <div n="41" subtype="section" type="textpart">
+        <p> Nor again, though he was a man of surpassing merit in these respects, will Evagoras be
+          found deficient in all others, but, in the first place, although gifted by nature with the
+          highest intelligence and capable of successful action in very many fields, yet he judged
+          that he should not slight any matter or act on the spur of the moment in public affairs:
+          nay, he spent most of his time in inquiring, in deliberation, and in taking counsel, for
+          he believed that if he should prepare his mind well, all would be well with his kingdom
+            also<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 2.10">Isoc. 2.10</bibl>.</note>;
+          and he marvelled at those who, while they cultivate the mind for all other ends, take no
+          thought of the mind itself. </p>
+      </div>
+      <div n="42" subtype="section" type="textpart">
+        <p>Again, in public affairs he held to the same opinion: for, seeing that those persons who
+          look best after realities are least worried, and that the true freedom from anxiety is to
+          be found, not in inactivity, but in success and patient endurance, he left nothing
+          unexamined: on the contrary, so thoroughly was he cognizant of public affairs and so
+          thorough was his knowledge of each of the citizens, that neither those who conspired
+          against him took him unawares, nor did the good citizens remain unknown to him, but all
+          got their deserts: for he neither punished nor honored them on the basis of what he heard
+          from others, but from his own knowledge he judged them. </p>
+      </div>
+      <div n="43" subtype="section" type="textpart">
+        <p> When he had engaged himself in the care of such matters he made not a single mistake in
+          dealing with the unexpected incidents which daily befell, but he governed the city so
+          reverently and humanely that visitors to the island<note anchored="true" resp="ed">Cf. §
+            51.</note> did not so much envy Evagoras his office as they did the citizens their
+          government under him: for throughout his whole life he never acted unjustly toward anyone
+          but ever honored the good: and while he ruled all his subjects with strictness, yet he
+          punished wrongdoers in accordance with the laws; </p>
+      </div>
+      <div n="44" subtype="section" type="textpart">
+        <p>and while he was in no need of advisers, yet he sought the counsel of his friends. He
+          yielded often to his intimates, but in everything dominated his enemies: he inspired
+          respect, not by the frownings of his brow, but by the principles of his life—in no thing
+          was he disposed to carelessness or caprice, but observed his agreements in deed as well as
+          word; </p>
+      </div>
+      <div n="45" subtype="section" type="textpart">
+        <p>he was proud, not of successes that were due to Fortune, but of those that came about
+          through his own efforts: his friends he made subject to himself by his benefactions the
+          rest by his magnanimity he enslaved: he inspired fear, not by venting his wrath upon many,
+          but because in character he far surpassed all others: of his pleasures he was the master
+          and not their servant: by little labor he gained much leisure, but would not, to gain a
+          little respite, leave great labors undone; </p>
+      </div>
+      <div n="46" subtype="section" type="textpart">
+        <p>in general, he fell in no respect short of the qualities which belong to kings, but
+          choosing from each kind of government the best characteristic, he was democratic in his
+          service to the people, statesmanlike in the administration of the city as a whole, an able
+          general in his good counsel in the face of dangers, and princely in his superiority in all
+          these qualities. That these attributes were inherent in Evagoras, and even more than
+          these, it is easy to learn from his deeds themselves.<note anchored="true" resp="ed">In §§
+            43-46 the strong influence of Gorgias is obvious in the long series of artificial
+            antitheses and in the varied assonance.</note>
+        </p>
+      </div>
+      <div n="47" subtype="section" type="textpart">
+        <p> After he had taken over the government of the city, which had been reduced to a state of
+          barbarism and, because it was ruled by Phoenicians, was neither hospitable to the Greeks
+          nor acquainted with the arts, nor possessed of a trading-port or harbor, Evagoras remedied
+          all these defects and, besides, acquired much additional territory, surrounded it all with
+          new walls and built triremes, and with other construction so increased the city that it
+          was inferior to none of the cities of <placeName key="tgn,1000074">Greece</placeName>. And
+          he caused it to become so powerful that many who formerly despised it, now feared it.<note
+            anchored="true" resp="ed">See <bibl n="Isoc. 4.141">Isoc. 4.141</bibl> for the fleet and
+            army of Evagoras.</note>
+        </p>
+      </div>
+      <div n="48" subtype="section" type="textpart">
+        <p>And yet it is not possible that cities should take on such increase unless there are
+          those who govern them by such principles as Evagoras had and as I endeavored to describe a
+          little before. In consequence I am not afraid of appearing to exaggerate in speaking of
+          the qualities of the man, but rather lest I greatly fall short of doing justice to his
+          deeds. </p>
+      </div>
+      <div n="49" subtype="section" type="textpart">
+        <p>For who could do justice to a man of such natural gifts, a man who not only increased the
+          importance of his own city, but advanced the whole region surrounding the island to a
+          regime of mildness and moderation? Before Evagoras gained the throne the inhabitants were
+          so hostile to strangers and fierce that they considered the best rulers to be those who
+          treated the Greeks in the most cruel fashion. </p>
+      </div>
+      <div n="50" subtype="section" type="textpart">
+        <p>At present, however, they have undergone so great a change that they strive with one
+          another to see who shall be regarded as most friendly to the Greeks, and the majority of
+          them take their wives from us and from them beget children, and they have greater pleasure
+          in owning Greek possessions and observing Greek institutions than in their own, and more
+          of those who occupy themselves with the liberal arts and with education in general now
+          dwell in these regions than in the communities in which they formerly used to live. And
+          for all these changes, no one could deny that Evagoras is responsible. </p>
+      </div>
+      <div n="51" subtype="section" type="textpart">
+        <p> The most convincing proof of the character and uprightness of Evagoras is this—that many
+          of the most reputable Greeks left their own fatherlands and came to Cyrus to dwell,
+          because they considered Evagoras's rule less burdensome and more equitable than that of
+          their own governments at home.<note anchored="true" resp="ed">E.g., Andocides, the
+            Athenian orator, who had an estate in <placeName key="tgn,1000112">Cyprus</placeName>
+            (cf. <bibl n="Andoc. 1.4">Andoc. 1.4</bibl>), and other Greeks who were forced into
+            exile.</note> To mention all the others by name would be too great a task: </p>
+      </div>
+      <div n="52" subtype="section" type="textpart">
+        <p>but who does not know about Conon, first among the Greeks for his very many glorious
+          deeds, that when his own city had met with ill-fortune,<note anchored="true" resp="ed">The
+            Athenian fleet under Conon was defeated by the Spartans at <placeName key="tgn,6000070"
+              >Aegospotami</placeName> in <date when="-0405">405 B.C.</date> After this
+            “ill-fortune” Conon, with eight triremes, took refuge with Evagoras, where he remained
+            until <date when="-0397">397 B.C.</date></note> he chose out of all the world Evagoras
+          and came to him, believing that for himself Evagoras would provide the most secure asylum
+          and for his country the most speedy assistance. And indeed Conon, although he had been
+          successful in many previous ventures, in no one of them, it is believed, had he planned
+          more wisely than in this; </p>
+      </div>
+      <div n="53" subtype="section" type="textpart">
+        <p>for the result of his visit to <placeName key="tgn,1000112">Cyprus</placeName> was that
+          he both conferred and received most benefits. In the first place, no sooner had Evagoras
+          and Conon met one another than they esteemed each other more highly than those who before
+          had been their intimate friends. Again, they not only were in complete harmony all their
+          lives regarding all other matters, but also in matters relating to our own city they held
+          to the same opinion. </p>
+      </div>
+      <div n="54" subtype="section" type="textpart">
+        <p>For when they beheld Athens under the domination of the Lacedaemonians and the victim of
+          a great reversal of fortune, they were filled with grief and indignation, both acting
+          fittingly: for Conon was a native son of Athens, and Evagoras, because of his many
+          generous benefactions, had legally been given citizenship by the Athenians.<note
+            anchored="true" resp="ed">This is attested by <bibl n="Dem. 12.10">Dem.
+            12.10</bibl>.</note> And while they were deliberating how they might free Athens from
+          her misfortunes, the Lacedaemonians themselves soon furnished the opportunity: for, as
+          rulers of the Greeks on land and sea, they became so insatiate that they attempted to
+          ravage Asia<note anchored="true" resp="ed">Agesilaus, king of <placeName
+              key="perseus,Sparta">Sparta</placeName>, was leader.</note> also. </p>
+      </div>
+      <div n="55" subtype="section" type="textpart">
+        <p>Conon and Evagoras seized this opportunity, and, as the generals of the Persian king were
+          at a loss to know how to handle the situation, these two advised them to wage war against
+          the Lacedaemonians, not upon land but upon the sea, their opinion being that if the
+          Persians should organize an army on land and with this should gain a victory, the mainland
+          alone would profit, whereas, if they should be victors on the sea, all <placeName
+            key="tgn,1000074">Hellas</placeName> would have a share in the victory. </p>
+      </div>
+      <div n="56" subtype="section" type="textpart">
+        <p>And that in fact is what happened: the generals followed this advice, a fleet was
+          assembled, the Lacedaemonians were defeated in a naval battle<note anchored="true"
+            resp="ed">Off <placeName key="tgn,5003757">Cnidus</placeName>, <date when="-0394">394
+              B.C.</date></note> and lost their supremacy, while the Greeks regained their freedom
+          and our city recovered in some measure its old-time glory and became leader of the allies.
+          And although all this was accomplished with Conon as commander, yet Evagoras both made the
+          outcome possible and furnished the greater part of the armament. </p>
+      </div>
+      <div n="57" subtype="section" type="textpart">
+        <p>In gratitude we honored them with the highest honors and set up their statues<note
+            anchored="true" resp="ed">In front of the Zeus Stoa in the Agora: cf. Pausanias i. 3.
+            2.</note> where stands the image of Zeus the Savior, near to it and to one another, a
+          memorial both of the magnitude of their benefactions and of their mutual friendship. The
+          king of <placeName key="tgn,7000231">Persia</placeName>, however, did not have the same
+          opinion of them: on the contrary, the greater and more illustrious their deeds the more he
+          feared them. Concerning Conon I will give an account elsewhere<note anchored="true"
+            resp="ed">Isocrates gives a brief discussion of Conon's affairs in <bibl n="Isoc. 5.62"
+              >Isoc. 5.62-64</bibl>.</note>; but that toward Evagoras he entertained this feeling
+          not even the king himself sought to conceal. </p>
+      </div>
+      <div n="58" subtype="section" type="textpart">
+        <p>For he was manifestly more concerned about the war in <placeName key="tgn,1000112"
+            >Cyprus</placeName> than about any other, and regarded Evagoras as a more powerful and
+          formidable antagonist than Cyrus, who had disputed the throne with him.<note
+            anchored="true" resp="ed">Cf. <bibl n="Xen. Anab. 1">Xen. Anab. 1</bibl> for the famous
+            expedition of Cyrus the Younger against his brother Artaxerxes II. See <bibl
+              n="Isoc. 4.145">Isoc. 4.145</bibl>.</note> The most convincing proof of this statement
+          is this: when the king heard of the preparations Cyrus was making he viewed him with such
+          contempt that because of his indifference Cyrus almost stood at the doors of his palace
+          before he was aware of him.<note anchored="true" resp="ed">The battle of <placeName
+              key="tgn,6001621">Cunaxa</placeName> (<date when="-0401">401 B.C.</date>) in which
+            Cyrus was slain. The distance from <placeName key="tgn,7002626">Babylon</placeName>,
+            according to Xenophon, was 360 stades (c. 45 miles).</note> With regard to Evagoras,
+          however, the king had stood in terror of him for so long a time that even while he was
+          receiving benefits from him he had undertaken to make war upon him—a wrongful act, indeed,
+          but his purpose was not altogether unreasonable. </p>
+      </div>
+      <div n="59" subtype="section" type="textpart">
+        <p>For the king well knew that many men, both Greeks and barbarians, starting from low and
+          insignificant beginnings, had overthrown great dynasties, and he was aware too of the
+          lofty ambition of Evagoras and that the growth of both his prestige and of his political
+          activities was not taking place by slow degrees: also that Evagoras had unsurpassed
+          natural ability and that Fortune was fighting with him as an ally. </p>
+      </div>
+      <div n="60" subtype="section" type="textpart">
+        <p>Therefore it was not in anger for the events of the past, but with forebodings for the
+          future, nor yet fearing for <placeName key="tgn,1000112">Cyprus</placeName> alone, but for
+          reasons far weightier, that he undertook the war against Evagoras. In any case he threw
+          himself into it with such ardor that he expended on this expedition more than fifteen
+          thousand talents.<note anchored="true" resp="ed">A talent of gold was worth about $1200 or
+            300 pounds.</note>
+        </p>
+      </div>
+      <div n="61" subtype="section" type="textpart">
+        <p> But nevertheless, although Evagoras was inferior in all the resources of war, after he
+          had marshalled in opposition to these extraordinarily immense preparations of the king his
+          own determination, he proved himself in these circumstances to be far more worthy of
+          admiration than in all those I have mentioned before. For when his enemies permitted him
+          to be at peace, all he possessed was his own city; </p>
+      </div>
+      <div n="62" subtype="section" type="textpart">
+        <p>but when he was forced to go to war, he proved so valiant, and had so valiant an ally in
+          his son Pnytagoras, that he almost subdued the whole of <placeName key="tgn,1000112"
+            >Cyprus</placeName>, ravaged <placeName key="tgn,6004687">Phoenicia</placeName>, took
+            <placeName key="tgn,7002862">Tyre</placeName> by storm, caused <placeName
+            key="tgn,7002470">Cilicia</placeName> to revolt from the king, and slew so many of his
+          enemies that many of the Persians, when they mourn over their sorrows, recall the valor of
+            Evagoras<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 4.161">Isoc.
+            4.161</bibl>.</note>. </p>
+      </div>
+      <div n="63" subtype="section" type="textpart">
+        <p>And finally he so glutted them with war<note anchored="true" resp="ed">A Homeric
+            reminiscence.</note> that the Persian kings, who at other times were not accustomed to
+          make peace with their rebellious subjects until they had become masters of their persons,
+          gladly made peace,<note anchored="true" resp="ed">For the actual facts see <bibl
+              n="Diod. 15.9">Dio. Sic. 15.9</bibl>.</note> abandoning this custom and leaving
+          entirely undisturbed the authority of Evagoras. </p>
+      </div>
+      <div n="64" subtype="section" type="textpart">
+        <p>And although the king within three years<note anchored="true" resp="ed"><date
+              from="-0397" to="-0394">397-394 B.C.</date></note> destroyed the dominion of the
+            Lacedaemonians,<note anchored="true" resp="ed">An exaggeration: it was the Spartan
+            sea-power only that was destroyed.</note> who were then at the height of their glory and
+          power, yet after he had waged war against Evagoras for ten years,<note anchored="true"
+            resp="ed">390-380 (?) B.C.</note> he left him lord of all that he had possessed before
+          he entered upon the war. But the most amazing thing of all is this: the city which, held
+          by another prince, Evagoras had captured with fifty men, the Great King, with all his vast
+          power, was unable to subdue at all. </p>
+      </div>
+      <div n="65" subtype="section" type="textpart">
+        <p> In truth, how could one reveal the courage, the wisdom, or the virtues generally of
+          Evagoras more clearly than by pointing to such deeds and perilous enterprises? For he will
+          be shown to have surpassed in his exploits, not only those of other wars, but even those
+          of the war of the heroes which is celebrated in the songs of all men. For they, in company
+          with all <placeName key="tgn,1000074">Hellas</placeName>, captured <placeName
+            key="perseus,Troy">Troy</placeName> only,<note anchored="true" resp="ed">Cf. <bibl
+              n="Isoc. 4.83">Isoc. 4.83</bibl>.</note> but Evagoras, although he possessed but one
+          city, waged war against all Asia. Consequently, if the number of those who wished to
+          praise him had equalled those who lauded the heroes at <placeName key="perseus,Troy"
+            >Troy</placeName>, he would have gained far greater renown than they. </p>
+      </div>
+      <div n="66" subtype="section" type="textpart">
+        <p>For whom shall we find of the men of that age—if we disregard the fabulous tales and look
+          at the truth—who has accomplished such feats or has brought about changes so great in
+          political affairs? Evagoras, from private estate, made himself a sovereign: his entire
+          family, which had been driven from political power, he restored again to their appropriate
+          honors: the citizens of barbarian birth he transformed into Hellenes, </p>
+      </div>
+      <div n="67" subtype="section" type="textpart">
+        <p>cravens into warriors, and obscure individuals into men of note: and having taken over a
+          country wholly inhospitable and utterly reduced to savagery, he made it more civilized and
+          gentler: furthermore, when he became hostile to the king, he defended himself so
+          gloriously that the Cyprian War has become memorable for ever: and when he was the ally of
+          the king, he made himself so much more serviceable than the others that, </p>
+      </div>
+      <div n="68" subtype="section" type="textpart">
+        <p>in the opinion of all, the forces he contributed to the naval battle at <placeName
+            key="tgn,5003757">Cnidus</placeName> were the largest, and as the result of this battle,
+          while the king became master of all Asia, the Lacedaemonians instead of ravaging the
+          continent were compelled to fight for their own land, and the Greeks, in place of
+          servitude, gained independence, and the Athenians increased in power so greatly that those
+          who formerly were their rulers<note anchored="true" resp="ed">A reference to the
+            Lacedaemonians before the battle of <placeName key="tgn,5003757">Cnidus</placeName>: see
+              <bibl n="Isoc. 7.65">Isoc. 7.65</bibl>.</note> came to offer them the hegemony. </p>
+      </div>
+      <div n="69" subtype="section" type="textpart">
+        <p>Consequently, if anyone should ask me what I regard as the greatest of the achievements
+          of Evagoras, whether the careful military preparations directed against the Lacedaemonians
+          which resulted in the aforesaid successes, or the last war, or the recovery of his throne,
+          or his general administration of affairs, I should be at a great loss what to say in
+          reply: for each achievement to which I happen to direct my attention seems to me the
+          greatest and most admirable. </p>
+      </div>
+      <div n="70" subtype="section" type="textpart">
+        <p> Therefore, I believe that, if any men of the past have by their merit become immortal,
+          Evagoras also has earned this preferment: and my evidence for that belief is this—that the
+          life he lived on earth has been more blessed by fortune and more favored by the gods than
+          theirs. For of the demigods the greater number and the most renowned were, we shall find,
+          afflicted by the most grievous misfortunes, but Evagoras continued from the beginning to
+          be not only the most admired, but also the most envied for his blessings. </p>
+      </div>
+      <div n="71" subtype="section" type="textpart">
+        <p>For in what respect did he lack utter felicity? Such ancestors Fortune gave to him as to
+          no other man, unless it has been one sprung from the same stock, and so greatly in body
+          and mind did he excel others that he was worthy to hold sway over not only <placeName
+            key="tgn,7002340">Salamis</placeName> but the whole of Asia also: and having acquired
+          most gloriously his kingdom he continued in its possession all his life: and though a
+          mortal by birth, he left behind a memory of himself that is immortal, and he lived just so
+          long that he was neither unacquainted with old age, nor afflicted with the infirmities
+          attendant upon that time of life.<note anchored="true" resp="ed">Evagoras seized the power
+            not later than <date when="-0411">411 B.C.</date>, when the Athenian orator Andocides,
+            in exile, found him reigning. He died in <date from="-0374" to="-0373">374-373
+              B.C.</date> Isocrates, in his depiction of the happy lot of the king, naturally
+            must ignore the fact that Evagoras seems to have been assassinated !</note>
+        </p>
+      </div>
+      <div n="72" subtype="section" type="textpart">
+        <p>In addition to these blessings, that which seems to he the rarest and most difficult
+          thing to win—to be blessed with many children who are at the same time good—not even this
+          was denied him, but this also fell to his lot. And the greatest blessing was this: of his
+          offspring he left not one who was addressed merely by a private title: on the contrary,
+          one was called king,<note anchored="true" resp="ed">A reference to Nicocles.</note> others
+          princes, and others princesses. In view of these facts, if any of the poets have used
+          extravagant expressions in characterizing any man of the past, asserting that he was a god
+          among men, or a mortal divinity, all praise of that kind would be especially in harmony
+          with the noble qualities of Evagoras. </p>
+      </div>
+      <div n="73" subtype="section" type="textpart">
+        <p> No doubt I have omitted much that might be said of Evagoras: for I am past my prime of
+            life,<note anchored="true" resp="ed">Isocrates was perhaps seventy years of age when he
+            wrote the <title>Evagoras</title>.</note> in which I should have worked out this eulogy
+          with greater finish and diligence. Nevertheless, even at my age, to the best of my ability
+          he has not been left without his encomium. For my part, Nicocles, I think that while
+          effigies of the body are fine memorials, yet likenesses of deeds and of the character are
+          of far greater value,<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 2.36">Isoc.
+              2.36</bibl>.</note> and these are to be observed only in discourses composed according
+          to the rules of art. </p>
+      </div>
+      <div n="74" subtype="section" type="textpart">
+        <p>These I prefer to statues because I know, in the first place, that honorable men pride
+          themselves not so much on bodily beauty as they desire to be honored for their deeds and
+          their wisdom: in the second place, because I know that images must of necessity remain
+          solely among those in whose cities they were set up, whereas portrayals in words may be
+          published throughout <placeName key="tgn,1000074">Hellas</placeName>, and having been
+          spread abroad in the gatherings of enlightened men, are welcomed among those whose
+          approval is more to be desired than that of all others; </p>
+      </div>
+      <div n="75" subtype="section" type="textpart">
+        <p>and finally, while no one can make the bodily nature resemble molded statues and
+          portraits in painting, yet for those who do not choose to be slothful, but desire to be
+          good men, it is easy to imitate the character of their fellow-men and their thoughts and
+          purposes—those, I mean, that are embodied in the spoken word. </p>
+      </div>
+      <div n="76" subtype="section" type="textpart">
+        <p>For these reasons especially I have undertaken to write this discourse because I believed
+          that for you, for your children, and for all the other descendants of Evagoras, it would
+          be by far the best incentive, if someone should assemble his achievements, give them
+          verbal adornment, and submit them to you for your contemplation and study. </p>
+      </div>
+      <div n="77" subtype="section" type="textpart">
+        <p>For we exhort young men to the study of philosophy<note anchored="true" resp="ed">Cf.
+            Vol. I, Introd. pp. xxvi and xxvii for the “philosophy” of Isocrates.</note> by praising
+          others in order that they, emulating those who are eulogized, may desire to adopt the same
+          pursuits, but I appeal to you and yours, using as examples not aliens, but members of your
+          own family, and I counsel you to devote your attention to this, that you may not be
+          surpassed in either word or deed by any of the Hellenes </p>
+      </div>
+      <div n="78" subtype="section" type="textpart">
+        <p> And do not imagine that I am reproaching you for indifference at present, because I
+          often admonish you on the same subject.<note anchored="true" resp="ed">See Isocrates, Vol.
+            I, p. 39, L.C.L., Introd. to the discourse <title>To Nicocles</title>, <bibl n="Isoc. 2"
+              >Isoc. 2</bibl>.</note> For it has not escaped the notice of either me or anyone else
+          that you, Nicocles, are the first and the only one of those who possess royal power,
+          wealth, and luxury who has undertaken to pursue the study of philosophy, nor that you will
+          cause many kings, emulating your culture, to desire these studies and to abandon the
+          pursuits in which they now take too great pleasure. </p>
+      </div>
+      <div n="79" subtype="section" type="textpart">
+        <p>Although I am aware of these things, none the less I am acting, and shall continue to
+          act, in the same fashion as spectators at the athletic games: for they do not shout
+          encouragement to the runners who have been distanced in the race, but to those who still
+          strive for the victory. </p>
+      </div>
+      <div n="80" subtype="section" type="textpart">
+        <p> It is my task, therefore, and that of your other friends, to speak and to write in such
+          fashion as may be likely to incite you to strive eagerly after those things which even now
+          you do in fact desire: and you it behooves not to be negligent, but as at present so in
+          the future to pay heed to yourself and to discipline your mind that you may be worthy of
+          your father and of all your ancestors. For though it is the duty of all to place a high
+          value upon wisdom, yet you kings especially should do so, who have power over very many
+          and weighty affairs. </p>
+      </div>
+      <div n="81" subtype="section" type="textpart">
+        <p>You must not be content if you chance to be already superior to your contemporaries, but
+          you should be chagrined if, endowed as you are by nature, distantly descended from Zeus
+          and in our own time from a man of such distinguished excellence, you shall not far
+          surpass, not only all others, but also those who possess the same high station as yourself
+          It is in your power not to fail in this: for if you persevere in the study of philosophy
+          and make as great progress as heretofore, you will soon become the man it is fitting you
+          should be.</p>
+      </div>
+      </div>
+    </body>
+  </text>
+</TEI>
