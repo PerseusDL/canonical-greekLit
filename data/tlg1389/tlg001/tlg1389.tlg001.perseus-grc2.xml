@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
       <fileDesc>
          <titleStmt>
@@ -37,9 +38,14 @@
          <refsDecl n="CTS">
             <cRefPattern n="Entry"
                          matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
                <p>This pointer pattern extracts Entry</p>
             </cRefPattern>
+           <cRefPattern n="Letter"
+             matchPattern="(\\w+)"
+             replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
+             <p>This pointer pattern extracts Letter of the alaphabet</p>
+           </cRefPattern>
          </refsDecl>
          <editorialDecl>
             <correction status="high" method="silent">
@@ -53,13 +59,14 @@
       </encodingDesc>
       <profileDesc>
          <langUsage default="false">
-            <language ident="la">Latin</language>
-            <language ident="greek">Greek</language>
+            <language ident="lat">Latin</language>
+            <language ident="grc">Greek</language>
          </langUsage>
       </profileDesc>
    </teiHeader>
-   <text n="urn:cts:greekLit:tlg1389.tlg001.perseus-grc1" xml:lang="grc">
+   <text xml:lang="grc">
       <body>
+        <div type="edition" n="urn:cts:greekLit:tlg1389.tlg001.perseus-grc2" xml:lang="grc">
          <div type="textpart"
               subtype="letter"
               n="a"
@@ -7926,7 +7933,7 @@
                  org="uniform"
                  sample="complete"
                  part="N"
-                 n="thetes">
+                 n="thetes2">
                <head>ΘΗΤΕΣ</head>
                <p>ΘΗΤΕΣ καὶ ΘΗΤΙΚΟΝ: Ἀντιφῶν ἐν τῷ κατὰ Φιλίνου φησὶ <q>τούς τε θῆτας ἅπαντας
                      ὁπλίτας ποιῆσαι</q> καὶ Δημοσθένης ἐν τῷ περὶ Ἁγνίου κλήρου <q>τῶν ἐπικλήρων
@@ -15530,6 +15537,7 @@
                   Ἀθήνησι καὶ ψίθυρος Ἀφροδίτη καὶ Ἔρως ψίθυρος. </p>
             </div>
          </div>
+        </div>
       </body>
    </text>
 </TEI>
