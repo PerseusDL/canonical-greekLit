@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><TEI.2>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
 <teiHeader type="text">
 <fileDesc>
 <titleStmt>
@@ -22,7 +24,7 @@
 <authority>Perseus Project</authority>
 </publicationStmt>
 <notesStmt>
-<note anchored="yes" place="unspecified">Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill.</note>
+<note anchored="true" place="unspecified">Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill.</note>
 </notesStmt>
 <sourceDesc>
 <biblStruct>
@@ -37,19 +39,26 @@
 </biblStruct>
 </sourceDesc>
 </fileDesc>
-<encodingDesc>
-<refsDecl doctype="TEI.2">
-<state unit="card"/>
-</refsDecl>
-</encodingDesc>
-<profileDesc>
-<langUsage>
-<language id="greek">Greek</language>
-<language id="en">English</language>
-</langUsage>
-</profileDesc>
+    <encodingDesc>
+        <refsDecl n="CTS">
+            <cRefPattern n="line"
+                matchPattern="(\w+)"
+                replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:l[@n='$1'])">
+                <p>This pointer pattern extracts line</p>
+            </cRefPattern>
+        </refsDecl>
+        <refsDecl>
+            <refState unit="line"/>
+        </refsDecl>
+    </encodingDesc>
+    <profileDesc>
+        <langUsage>
+            <language ident="grc">Greek</language>
+            <language ident="eng">English</language>
+        </langUsage>
+    </profileDesc>
 <revisionDesc>
-<change>
+<!--<change>
 <date>8/91</date>
 <respStmt>
 <name>EM</name>
@@ -64,12 +73,12 @@
 <resp>(n/a)</resp>
 </respStmt>
 <item>Fix typos from failed morphology.</item>
-</change>
+</change>--> <change when="2016-02-18" who="TDBuck">converted to CTS EpiDoc</change>
 </revisionDesc>
 </teiHeader>
-<text id="stoa0045.stoa0">
+<text xml:id="stoa0045.stoa0">
 <body>
-<div1 n="Sh." type="Book">
+    <div n="urn:cts:greekLit:tlg0030.tlg003.perseus-grc2" type="edition" xml:lang="grc">
 <milestone ed="P" n="1" unit="card"/>
 <l>
 <milestone ed="P" unit="para"/>ἢ οἵη προλιποῦσα δόμους καὶ πατρίδα γαῖαν</l>
@@ -612,7 +621,7 @@
 <l>ὄμβρῳ χειμερίῳ πλήθων· τὼς γάρ μιν Ἀπόλλων</l>
 <l>Λητοΐδης ἤνωξʼ, ὅτι ῥα κλειτὰς ἑκατόμβας</l>
 <l n="480">ὅστις ἄγοι Πυθοῖδε βίῃ σύλασκε δοκεύων.</l>
-</div1>
+</div>
 </body>
 </text>
-</TEI.2>
+</TEI>
