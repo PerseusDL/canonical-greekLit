@@ -24,7 +24,7 @@
 <authority>Perseus Project</authority>
 </publicationStmt>
 <notesStmt>
-<note anchored="yes" place="unspecified">Text keyboarded in the Philippines.  Basic SGML tagging by Scott Ettinger.</note>
+<note anchored="true" place="unspecified">Text keyboarded in the Philippines.  Basic SGML tagging by Scott Ettinger.</note>
 </notesStmt>
 <sourceDesc>
 <biblStruct>
@@ -39,17 +39,24 @@
 </biblStruct>
 </sourceDesc>
 </fileDesc>
-<encodingDesc>
-<refsDecl doctype="TEI.2">
-<state unit="card"/>
-</refsDecl>
-</encodingDesc>
-<profileDesc>
-<langUsage>
-<language id="greek">Greek</language>
-<language id="en">English</language>
-</langUsage>
-</profileDesc>
+    <encodingDesc>
+        <refsDecl n="CTS">
+            <cRefPattern n="line"
+                matchPattern="(\w+)"
+                replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:l[@n='$1'])">
+                <p>This pointer pattern extracts line</p>
+            </cRefPattern>
+        </refsDecl>
+        <refsDecl>
+            <refState unit="line"/>
+        </refsDecl>
+    </encodingDesc>
+    <profileDesc>
+        <langUsage>
+            <language ident="grc">Greek</language>
+            <language ident="eng">English</language>
+        </langUsage>
+    </profileDesc>
 <revisionDesc>
 <!--<change>
 <date>7/91</date>
@@ -78,9 +85,10 @@
     <change when="2016-02-18" who="TDBuck">converted to CTS EpiDoc</change>
 </revisionDesc>
 </teiHeader>
-<text id="stoa0045.stoa0">
+<text xml:id="stoa0045.stoa0">
 <body>
-<div1 n="WD" type="Book">
+    <div n="urn:cts:greekLit:tlg0020.tlg002.perseus-grc2" type="edition" xml:lang="grc">
+        
 <milestone n="1" ed="p" unit="card"/>
 <sp>
 <l>
@@ -1052,7 +1060,7 @@
 <l>τάων εὐδαίμων τε καὶ ὄλβιος, ὃς τάδε πάντα</l>
 <l>εἰδὼς ἐργάζηται ἀναίτιος ἀθανάτοισιν,</l>
 <l>ὄρνιθας κρίνων καὶ ὑπερβασίας ἀλεείνων.</l>
-</div1>
+</div>
 </body>
 </text>
 </TEI>
