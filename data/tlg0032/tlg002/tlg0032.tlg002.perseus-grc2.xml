@@ -40,16 +40,19 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>
       </fileDesc>
       <encodingDesc>
          <refsDecl n="CTS">
-            <cRefPattern matchPattern="(\w+).(\w+).(\w+)"
-                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div1[@n='$1']/tei:div2[@n='$2']/tei:div3[@n='$3'])">
+            <cRefPattern n="Section"
+               matchPattern="(\w+).(\w+).(\w+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])">
                 <p>This pointer pattern extracts book and chapter and section</p>
             </cRefPattern>
-            <cRefPattern matchPattern="(\w+).(\w+)"
-                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div1[@n='$1']/tei:div2[@n='$2'])">
+            <cRefPattern n="Chapter"
+               matchPattern="(\w+).(\w+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
                 <p>This pointer pattern extracts book and chapter</p>
             </cRefPattern>
-            <cRefPattern matchPattern="(\w+)"
-                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div1[@n='$1'])">
+            <cRefPattern n="Book"
+               matchPattern="(\w+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
                 <p>This pointer pattern extracts book</p>
             </cRefPattern>
         </refsDecl>
@@ -82,8 +85,9 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>
    </teiHeader>
    
    
-   <text xml:lang="grc" n="urn:cts:greekLit:tlg0032.tlg002.perseus-grc2">
+   <text xml:lang="grc">
       <body>
+         <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0032.tlg002.perseus-grc2">
          <div type="textpart" subtype="book" n="1">
             <head>Ἀπομνημονευμάτων Α</head>
             <div type="textpart" subtype="chapter" n="1">
@@ -2737,6 +2741,7 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>
                   <p>τῶν δὲ Σωκράτην γιγνωσκόντων, οἷος ἦν, οἱ ἀρετῆς ἐφιέμενοι πάντες ἔτι καὶ νῦν διατελοῦσι πάντων μάλιστα ποθοῦντες ἐκεῖνον, ὡς ὠφελιμώτατον ὄντα πρὸς ἀρετῆς ἐπιμέλειαν. ἐμοὶ μὲν δή, τοιοῦτος ὢν οἷον ἐγὼ διήγημαι, εὐσεβὴς μὲν οὕτως ὥστε μηδὲν ἄνευ τῆς τῶν θεῶν γνώμης ποιεῖν, δίκαιος δὲ ὥστε βλάπτειν μὲν μηδὲ μικρὸν μηδένα, ὠφελεῖν δὲ τὰ μέγιστα τοὺς χρωμένους αὐτῷ, ἐγκρατὴς δὲ ὥστε μηδέποτε προαιρεῖσθαι τὸ ἥδιον ἀντὶ τοῦ βελτίονος, φρόνιμος δὲ ὥστε μὴ διαμαρτάνειν κρίνων τὰ βελτίω καὶ τὰ χείρω μηδὲ ἄλλου προσδεῖσθαι, ἀλλʼ αὐτάρκης εἶναι πρὸς τὴν τούτων γνῶσιν, ἱκανὸς δὲ καὶ λόγῳ εἰπεῖν τε καὶ διορίσασθαι τὰ τοιαῦτα, ἱκανὸς δὲ καὶ ἄλλως δοκιμάσαι τε καὶ ἁμαρτάνοντα ἐλέγξαι καὶ προτρέψασθαι ἐπʼ ἀρετὴν καὶ καλοκαγαθίαν, ἐδόκει τοιοῦτος εἶναι οἷος ἂν εἴη ἄριστός τε ἀνὴρ καὶ εὐδαιμονέστατος. εἰ δέ τῳ μὴ ἀρέσκει ταῦτα, παραβάλλων τὸ ἄλλων ἦθος πρὸς ταῦτα οὕτω κρινέτω.</p>
                </div>
             </div>
+         </div>
          </div>
       </body>
    </text>
