@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader type="text">
+        <fileDesc>
+            <titleStmt>
+                <title>New Testament - Philemon</title>
+                <title type="sub">Machine readable text</title>
+                <editor role="editor">Brooke Foss Westcott</editor>
+                <editor role="editor">Fenton John Anthony Hort</editor>
+                <sponsor>Perseus Project, Tufts University</sponsor>
+                <principal>Gregory Crane</principal>
+                <respStmt>
+                    <resp>Prepared under the supervision of</resp>
+                    <name>Lisa Cerrato</name>
+                    <name>William Merrill</name>
+                    <name>Elli Mylonas</name>
+                    <name>David Smith</name>
+                </respStmt>
+                <funder n="org:Tufts">Tufts University</funder>
+            </titleStmt>
+            
+            <publicationStmt>
+                <publisher>Trustees of Tufts University</publisher>
+                <pubPlace>Medford, MA</pubPlace>
+                <authority>Perseus Project</authority>
+            </publicationStmt>
+            
+            <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <title>The New Testament in the original Greek</title>
+                        <respStmt>
+                            <resp>The text revised by</resp>
+                            <name>Brooke Foss Westcott, D.D.</name>
+                            <name>Fenton John Anthony Hort, D.D.</name>
+                        </respStmt>
+                        <imprint>
+                            <pubPlace>New York</pubPlace>
+                            <publisher>Harper amp Brothers, Franklin Square</publisher>
+                            <date>1885</date>
+                        </imprint>
+                    </monogr>
+                    <idno type="LC">26007333</idno>
+                </biblStruct>
+            </sourceDesc>
+        </fileDesc>
+        
+        <encodingDesc>
+            <!--<tagsDecl>
+                <rendition id="large"> </rendition>
+                <rendition id="blockquote"> </rendition>
+                <rendition id="header"> </rendition>
+                <tagUsage render="header" gi="head"> </tagUsage>
+                <tagUsage render="blockquote" gi="q"> Marks poetical language. within the running text. </tagUsage>
+                <tagUsage render="large" gi="quote"> Marks material quoted from other biblical texts. </tagUsage>
+            </tagsDecl>-->
+
+            <refsDecl n="CTS">
+                <cRefPattern n="verse" matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts chapter and verse</p>
+                </cRefPattern>
+                <cRefPattern n="chapter" matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts chapter</p>
+                </cRefPattern>
+            </refsDecl>
+            
+            <refsDecl>
+                <!--<state delim=" " unit="book"/>-->
+                <refState delim=":" unit="chapter"/>
+                <refState unit="verse"/>
+            </refsDecl>
+
+            <!--            <classDecl>
+                <taxonomy id="perseus.class">
+                    <bibl default="NO">Perseus Project</bibl>
+                    <category id="perseus.form.hexameter">
+                        <catDesc>Dactylic Hexameter</catDesc>
+                    </category>
+                    <category id="perseus.form.drama">
+                        <catDesc>Drama</catDesc>
+                    </category>
+                    <category id="perseus.form.elegiac">
+                        <catDesc>Elegiac Meter</catDesc>
+                    </category>
+                    <category id="perseus.form.iambic">
+                        <catDesc>Iambic Meter</catDesc>
+                    </category>
+                    <category id="perseus.form.lyric">
+                        <catDesc>Lyric Meter</catDesc>
+                    </category>
+                    <category id="perseus.form.prose">
+                        <catDesc>Prose</catDesc>
+                    </category>
+                    <category id="perseus.genre.biography">
+                        <catDesc>Biography</catDesc>
+                    </category>
+                    <category id="perseus.genre.comedy">
+                        <catDesc>Comedy</catDesc>
+                    </category>
+                    <category id="perseus.genre.didactic">
+                        <catDesc>Didactic</catDesc>
+                    </category>
+                    <category id="perseus.genre.dithyrhamb">
+                        <catDesc>Dithyrhamb</catDesc>
+                    </category>
+                    <category id="perseus.genre.epic">
+                        <catDesc>Epic</catDesc>
+                    </category>
+                    <category id="perseus.genre.epinician">
+                        <catDesc>Epinician</catDesc>
+                    </category>
+                    <category id="perseus.genre.geography">
+                        <catDesc>Geography</catDesc>
+                    </category>
+                    <category id="perseus.genre.history">
+                        <catDesc>History</catDesc>
+                    </category>
+                    <category id="perseus.genre.hymn">
+                        <catDesc>Hymn</catDesc>
+                    </category>
+                    <category id="perseus.genre.letters">
+                        <catDesc>Letters</catDesc>
+                    </category>
+                    <category id="perseus.genre.mythography">
+                        <catDesc>Mythography</catDesc>
+                    </category>
+                    <category id="perseus.genre.philosophy">
+                        <catDesc>Philosophy</catDesc>
+                    </category>
+                    <category id="perseus.genre.rhetoric">
+                        <catDesc>Rhetoric</catDesc>
+                    </category>
+                    <category id="perseus.genre.verse">
+                        <catDesc>Short Verse</catDesc>
+                    </category>
+                    <category id="perseus.genre.tragedy">
+                        <catDesc>Tragedy</catDesc>
+                    </category>
+                    <category id="perseus.genre.travel">
+                        <catDesc>Travel Writing</catDesc>
+                    </category>
+                </taxonomy>
+                <taxonomy id="tlg">
+                    <bibl default="NO">
+                        <title> Thesaurus Linguae Graecae canon of Greek authors and works </title>
+                        <author>Luci Berkowitz</author>
+                        <author>Karl A. Squitier</author>
+                        <date>1986</date>
+                    </bibl>
+                </taxonomy>
+            </classDecl>-->
+        </encodingDesc>
+        
+        <profileDesc>
+            <langUsage>
+                <language ident="grc">Greek </language>
+                <language ident="eng">English </language>
+            </langUsage>
+        </profileDesc>
+
+        <revisionDesc>
+            <change when="2016-10-11" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+            <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change who="Lisa Cerrato" when="2013-03-04">added mh in Matthew 5 34</change>
+            <change who="Lisa Cerrato" when="2013-01-22">oeou to qeou in Romans 2.2</change>
+            <change who="Lisa Cerrato" when="2012-02-22">fixed typo</change>
+            <change who="Lisa Cerrato" when="2011-11-07">changed teta/paktai to teta/raktai on John
+                12.27 per report </change>
+            <change who="rsingh04" when="2009-10-08">began reorganizing texts module by collection.
+                created separate work directory in texts module to keep hopper files separate from
+                in progress files</change>
+            <change who="Lisa Cerrato" when="2009-09-08">fixed typo</change>
+            <change who="student" when="2009-06-17"/>
+            <change who="rsingh04" when="2009-05-27">added/fixed cvs log keyword</change>
+            <change who="RS" when="2009-05-27"/>
+        </revisionDesc>
+    </teiHeader>
+    
+    <text xml:lang="grc">
+        <body>
+            <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0031.tlg018.perseus-grc2">
+                <pb n="499"></pb>
+                <head>ΠΡΟΣ ΦΙΛΗΜΟΝΑ</head>
+                
+                    <div type="textpart" subtype="chapter" n="1">
+                 
+
+<div type="textpart" subtype="verse" n="1"><p>
+                    <milestone unit="para"/>
+                    ΠΑΥΛΟΣ δέσμιος Χριστοῦ Ἰησοῦ καὶ Τιμόθεος ὁ
+
+ἀδελφὸς Φιλήμονι τῷ ἀγαπητῷ καὶ συνεργῷ ἡμῶν
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
+                    καὶ
+
+Ἀπφίᾳ τῇ ἀδελφῇ καὶ Ἀρχίππῳ τῷ συνστρατιώτῃ ἡμῶν
+
+καὶ τῇ κατʼ οἶκόν σου ἐκκλησίᾳ·
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
+                    χάρις ὑμῖν καὶ εἰρήνη
+
+ἀπὸ θεοῦ πατρὸς ἡμῶν καὶ κυρίου Ἰησοῦ Χριστοῦ.
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
+                    <milestone unit="para"/>
+                    Εὐχαριστῶ τῷ θεῷ μου πάντοτε μνείαν σου ποιούμενος
+
+ἐπὶ τῶν προσευχῶν μου,
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
+                    ἀκούων σου τὴν ἀγάπην καὶ τὴν
+
+πίστιν ἣν ἔχεις εἰς τὸν κύριον Ἰησοῦν καὶ εἰς πάντας τοὺς 
+
+ἁγίους,
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
+                    ὅπως ἡ κοινωνία τῆς πίστεώς σου ἐνεργὴς γένηται
+
+ἐν ἐπιγνώσει παντὸς ἀγαθοῦ [τοῦ] ἐν ἡμῖν εἰς Χριστόν·
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
+                    χαρὰν γὰρ πολλὴν ἔσχον καὶ παράκλησιν ἐπὶ τῇ ἀγάπῃ
+
+σου, ὅτι τὰ σπλάγχνα τῶν ἁγίων ἀναπέπαυται διὰ σοῦ,
+
+ἀδελφέ.
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
+                    Διό, πολλὴν ἐν Χριστῷ παρρησίαν
+
+ἔχων ἐπιτάσσειν σοι τὸ ἀνῆκον,
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
+                    διὰ τὴν ἀγάπην μᾶλλον
+
+παρακαλῶ, τοιοῦτος ὢν ὡς Παῦλος πρεσβύτης νυνὶ δὲ 
+
+καὶ δέσμιος Χριστοῦ Ἰησοῦ,—
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
+                    παρακαλῶ σε περὶ τοῦ
+
+ἐμοῦ τέκνου,
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
+                    ὃν ἐγέννησα ἐν τοῖς δεσμοῖς Ὀνήσιμον, τόν
+
+ποτέ σοι ἄχρηστον νυνὶ δὲ  σοὶ καὶ ἐμοὶ εὔχρηστον,
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
+                    ὃν 
+
+ἀνέπεμψά σοι αὐτόν, 
+
+τοῦτʼ ἔστιν τὰ ἐμὰ σπλάγχνα·
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
+                    ὃν
+
+ἐγὼ ἐβουλόμην πρὸς ἐμαυτὸν κατέχειν, ἵνα ὑπὲρ σοῦ μοι
+
+διακονῇ ἐν τοῖς δεσμοῖς τοῦ εὐαγγελίου,
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
+                    χωρὶς δὲ τῆς
+
+σῆς γνώμης οὐδὲν ἠθέλησα ποιῆσαι, ἵνα μὴ ὡς κατὰ
+
+ἀνάγκην τὸ ἀγαθόν σου ᾖ ἀλλὰ κατὰ ἑκούσιον.
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
+                    τάχα
+
+γὰρ διὰ τοῦτο ἐχωρίσθη πρὸς ὥραν ἵνα αἰώνιον αὐτὸν
+
+ἀπέχῃς,
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
+                    οὐκέτι ὡς δοῦλον ἀλλὰ ὑπὲρ δοῦλον, ἀδελφὸν
+                    <pb n="500"></pb>
+                    ἀγαπητόν, μάλιστα ἐμοί, πόσῳ δὲ μᾶλλον σοὶ καὶ ἐν
+
+σαρκὶ καὶ ἐν κυρίῳ.
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
+                    εἰ οὖν με ἔχεις κοινωνόν, προσλαβοῦ
+
+αὐτὸν ὡς ἐμέ.
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
+                    εἰ δέ τι ἠδίκησέν σε ἢ ὀφείλει,
+
+τοῦτο ἐμοὶ ἐλλόγα·
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
+                    ἐγὼ Παῦλος ἔγραψα τῇ ἐμῇ χειρί,
+
+ἐγὼ ἀποτίσω· ἵνα μὴ λέγω σοι ὅτι καὶ σεαυτόν μοι προσοφείλεις.
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
+                    ναί, 
+
+ἀδελφέ, ἐγώ σου ὀναίμην ἐν κυρίῳ· ἀνάπαυσόν
+
+μου τὰ σπλάγχνα ἐν Χριστῷ.
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
+                    <milestone unit="para"/>
+                    Πεποιθὼς τῇ ὑπακοῇ σου ἔγραψά σοι, εἰδὼς ὅτι καὶ
+
+ὑπὲρ ἃ λέγω ποιήσεις.
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
+                    ἅμα δὲ καὶ ἑτοίμαζέ μοι ξενίαν,
+
+ἐλπίζω γὰρ ὅτι διὰ τῶν προσευχῶν ἱμῶν χαρισθήσομαι
+
+ὑμῖν.
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
+                    <milestone unit="para"/>
+                    Ἀσπάζεταί σε Ἐπαφρᾶς ὁ συναιχμάλωτός μου ἐν
+
+Χριστῷ Ἰησοῦ,
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
+                    Μάρκος, Ἀρίσταρχος, Δημᾶς, Λουκᾶς,
+
+οἱ συνεργοί μου.
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
+                    <milestone unit="para"/>
+                    Ἡ χάρις τοῦ κυρίου  Ἰησοῦ Χριστοῦ μετὰ τοῦ πνεύματος
+
+ὑμῶν.
+                </p>
+            </div>
+                    </div>
+            </div>
+        </body>
+    </text>
+</TEI>
