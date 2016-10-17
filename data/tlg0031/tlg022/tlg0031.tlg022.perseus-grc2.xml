@@ -1,5 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader type="text" status="new">
+    <teiHeader type="text">
         <fileDesc>
             <titleStmt>
                 <title>New Testament - 2 Peter</title>
@@ -16,14 +21,16 @@
                     <name>David Smith</name>
                 </respStmt>
                 <funder n="org:Tufts">Tufts University</funder>
-            </titleStmt><publicationStmt><publisher>Trustees of Tufts University</publisher><pubPlace>Medford, MA</pubPlace><authority>Perseus Project</authority></publicationStmt>
+            </titleStmt>
+            
             <publicationStmt>
                 <publisher>Trustees of Tufts University</publisher>
                 <pubPlace>Medford, MA</pubPlace>
                 <authority>Perseus Project</authority>
             </publicationStmt>
-            <sourceDesc default="NO">
-                <biblStruct default="NO">
+            
+            <sourceDesc>
+                <biblStruct>
                     <monogr>
                         <title>The New Testament in the original Greek</title>
                         <respStmt>
@@ -42,20 +49,33 @@
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
-            <tagsDecl>
+            <!--<tagsDecl>
                 <rendition id="large"> </rendition>
                 <rendition id="blockquote"> </rendition>
                 <rendition id="header"> </rendition>
                 <tagUsage render="header" gi="head"> </tagUsage>
                 <tagUsage render="blockquote" gi="q"> Marks poetical language. within the running text. </tagUsage>
                 <tagUsage render="large" gi="quote"> Marks material quoted from other biblical texts. </tagUsage>
-            </tagsDecl>
+            </tagsDecl>-->
+           
+            <refsDecl n="CTS">
+                <cRefPattern n="verse" matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts chapter and verse</p>
+                </cRefPattern>
+                <cRefPattern n="chapter" matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts chapter</p>
+                </cRefPattern>
+            </refsDecl>
+            
             <refsDecl>
-                <state delim=" " unit="book"/>
-                <state delim=":" unit="chapter"/>
+                <!--<state delim=" " unit="book"/>-->
+                <refState delim=":" unit="chapter"/>
                 <refState unit="verse"/>
             </refsDecl>
-            <classDecl>
+           
+            <!--<classDecl>
                 <taxonomy id="perseus.class">
                     <bibl default="NO">Perseus Project</bibl>
                     <category id="perseus.form.hexameter">
@@ -133,71 +153,60 @@
                         <date>1986</date>
                     </bibl>
                 </taxonomy>
-            </classDecl>
+            </classDecl>-->
         </encodingDesc>
+        
         <profileDesc>
-            <langUsage default="NO">
-                <language ident="greek" usage="100">Greek </language>
-                <language ident="en">English </language>
+            <langUsage>
+                <language ident="grc">Greek </language>
+                <language ident="eng">English </language>
             </langUsage>
         </profileDesc>
-        <revisionDesc><!--
-            <change>
-                <date>5/27/09</date>
-                <respStmt>
-                    <name>RS</name>
-                    <resp>(n/a)</resp>
-                </respStmt>
-                <item>
-                    $Log: nt_gk.xml,v $
-  			Revision 1.5  2013-03-04 17:20:05  lcerrato
-  			added mh in Matthew 5 34
-
-  			Revision 1.4  2013-01-22 19:10:51  lcerrato
-  			oeou to qeou in Romans 2.24
-
-  			Revision 1.3  2012-02-22 19:34:27  lcerrato
-  			fixed typo
-
-  			Revision 1.2  2011-11-07 15:46:23  lcerrato
-  			changed teta/paktai to teta/raktai on John 12.27 per report
-
-  			Revision 1.1  2009-10-08 19:10:56  rsingh04
-  			began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
-
-  			Revision 1.16  2009/09/08 20:30:41  lcerrato
-  			fixed typo
-
-  			Revision 1.15  2009/06/17 14:32:20  student
-  			*** empty log message ***
-
-  			Revision 1.14  2009/05/27 16:11:31  rsingh04
-  			added/fixed cvs log keyword
-                </item>
-            </change>
-        --><change when="2014-08-01" who="Stella Dee">edited markup</change></revisionDesc>
+        
+        <revisionDesc>
+            <change when="2016-10-17" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+            <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change who="Lisa Cerrato" when="2013-03-04">added mh in Matthew 5 34</change>
+            <change who="Lisa Cerrato" when="2013-01-22">oeou to qeou in Romans 2.2</change>
+            <change who="Lisa Cerrato" when="2012-02-22">fixed typo</change>
+            <change who="Lisa Cerrato" when="2011-11-07">changed teta/paktai to teta/raktai on John
+                12.27 per report </change>
+            <change who="rsingh04" when="2009-10-08">began reorganizing texts module by collection.
+                created separate work directory in texts module to keep hopper files separate from
+                in progress files</change>
+            <change who="Lisa Cerrato" when="2009-09-08">fixed typo</change>
+            <change who="student" when="2009-06-17"/>
+            <change who="rsingh04" when="2009-05-27">added/fixed cvs log keyword</change>
+            <change who="RS" when="2009-05-27"/>
+        </revisionDesc>
     </teiHeader>
+    
     <text xml:lang="grc">
         <body>
-            <div n="II Peter" sample="complete" part="N" type="Book" org="uniform">
-                <pb n="331"></pb>
+            <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0031.tlg022.perseus-grc2">
                 <head>ΠΕΤΡΟΥ Β</head>
-                <p>
-                    <milestone n="1" unit="chapter"/>
-                    <milestone n="1" unit="verse"/>
+             
+                    <div type="textpart" subtype="chapter" n="1">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
                     <milestone unit="para"/>
                     ΣΙΜΩΝ ΠΕΤΡΟΣ δοῦλος καὶ ἀπόστολος Ἰησοῦ 
 
 Χριστοῦ τοῖς ἰσότιμον ἡμῖν λαχοῦσιν πίστιν ἐν δικαιοσύνῃ
 
 τοῦ θεοῦ ἡμῶν καὶ σωτῆρος Ἰησοῦ Χριστοῦ·
-                    <milestone n="2" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                     χάρις
 
 ὑμῖν καὶ εἰρήνη πληθυνθείη ἐν ἐπιγνώσει τοῦ θεοῦ καὶ
 
 Ἰησοῦ τοῦ κυρίου ἡμῶν,
-                    <milestone n="3" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                     ὡς πάντα ἡμῖν τῆς θείας
 
 δυνάμεως αὐτοῦ τὰ πρὸς ζωὴν καὶ εὐσέβειαν δεδωρημένης
@@ -205,7 +214,9 @@
 διὰ τῆς ἐπιγνώσεως τοῦ καλέσαντος ἡμᾶς διὰ δόξης καὶ 
 
 ἀρετῆς,
-                    <milestone n="4" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                     διʼ ὧν τὰ τίμια καὶ μέγιστα ἡμῖν ἐπαγγέλματα 
 
 δεδώρηται, ἵνα διὰ τούτων γένησθε θείας κοινωνοὶ φύσεως, 
@@ -213,35 +224,47 @@
 ἀποφυγόντες τῆς ἐν τῷ κόσμῳ ἐν ἐπιθυμίᾳ
 
 φθορᾶς.
-                    <milestone n="5" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                     καὶ αὐτὸ τοῦτο δὲ σπουδὴν πᾶσαν παρεισενέγκαντες 
 
 ἐπιχορηγήσατε ἐν τῇ πίστει ὑμῶν τὴν ἀρετήν, ἐν
 
 δὲ τῇ ἀρετῇ τὴν γνῶσιν,
-                    <milestone n="6" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                     ἐν δὲ τῇ γνώσει τὴν ἐγκράτειαν, 
 
 ἐν δὲ τῇ ἐγκρατείᾳ τὴν ὑπομονήν, ἐν δὲ τῇ
 
 ὑπομονῇ τὴν εὐσέβειαν,
-                    <milestone n="7" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                     ἐν δὲ τῇ εὐσεβείᾳ τὴν φιλαδελφίαν, 
 
 ἐν δὲ τῇ φιλαδελφίᾳ τὴν ἀγάπην·
-                    <milestone n="8" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                     ταῦτα γὰρ ὑμῖν
 
 ὑπάρχοντα καὶ πλεονάζοντα οὐκ ἀργοὺς οὐδὲ ἀκάρπους
 
 καθίστησιν εἰς τὴν τοῦ κυρίου ἡμῶν Ἰησοῦ Χριστοῦ ἐπίγνωσιν·
-                    <milestone n="9" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                     ᾧ γὰρ μὴ πάρεστιν ταῦτα, 
 
 τυφλός ἐστιν μυωπάζων,
 
 λήθην λαβὼν τοῦ καθαρισμοῦ τῶν πάλαι αὐτοῦ ἁμαρτιῶν.
-                    <milestone n="10" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                     διὸ μᾶλλον, 
 
 ἀδελφοί, σπουδάσατε βεβαίαν ὑμῶν τὴν 
@@ -249,33 +272,45 @@
 κλῆσιν καὶ ἐκλογὴν ποιεῖσθαι· ταῦτα γὰρ ποιοῦντες οὐ μὴ
 
 πταίσητέ ποτε·
-                    <milestone n="11" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                     οὕτως γὰρ πλουσίως ἐπιχορηγηθήσεται
 
 ὑμῖν ἡ εἴσοδος εἰς τὴν αἰώνιον βασιλείαν τοῦ κυρίου ἡμῶν
 
 καὶ σωτῆρος Ἰησοῦ Χριστοῦ.
                     <pb n="332"></pb>
-                    <milestone n="12" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                     <milestone unit="para"/>
                     Διὸ μελλήσω ἀεὶ ὑμᾶς ὑπομιμνήσκειν περὶ τούτων,
 
 καίπερ εἰδότας καὶ ἐστηριγμένους ἐν τῇ παρούσῃ ἀληθείᾳ.
-                    <milestone n="13" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                     δίκαιον δὲ ἡγοῦμαι, ἐφʼ ὅσον εἰμὶ ἐν τούτῳ τῷ σκηνώματι,
 
 διεγείρειν ὑμᾶς ἐν ὑπομνήσει,
-                    <milestone n="14" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                     εἰδὼς ὅτι ταχινή ἐστιν ἡ
 
 ἀπόθεσις τοῦ σκηνώματός μου, καθὼς καὶ ὁ κύριος ἡμῶν
 
 Ἰησοῦς Χριστὸς ἐδήλωσέν μοι·
-                    <milestone n="15" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                     σπουδάσω δὲ καὶ ἑκάστοτε
 
 ἔχειν ὑμᾶς μετὰ τὴν ἐμὴν ἔξοδον τὴν τούτων μνήμην ποιεῖσθαι.
-                    <milestone n="16" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                     οὐ γὰρ σεσοφισμένοις μύθοις ἐξακολουθήσαντες
 
 ἐγνωρίσαμεν ὑμῖν τὴν τοῦ κυρίου ἡμῶν Ἰησοῦ Χριστοῦ δύναμιν 
@@ -283,7 +318,9 @@
 καὶ παρουσίαν, ἀλλʼ ἐπόπται γενηθέντες τῆς ἐκείνου
 
 μεγαλειότητος.
-                    <milestone n="17" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                     λαβὼν γὰρ παρὰ θεοῦ πατρὸς τιμὴν καὶ
 
 δόξαν φωνῆς ἐνεχθείσης αὐτῷ τοιᾶσδε ὑπὸ τῆς μεγαλοπρεποῦς 
@@ -291,11 +328,15 @@
 δόξης Ὁ υἱός μου ὁ ἀγαπητός μου οὗτός ἐστιν, εἰς
 
 ὃν ἐγὼ εὐδόκησα,—
-                    <milestone n="18" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                     καὶ ταύτην τὴν φωνὴν ἡμεῖς ἠκούσαμεν
 
 ἐξ οὐρανοῦ ἐνεχθεῖσαν σὺν αὐτῷ ὄντες ἐν τῷ ἁγίῳ ὄρει.
-                    <milestone n="19" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                     καὶ ἔχομεν βεβαιότερον τὸν προφητικὸν λόγον, ᾧ καλῶς
 
 ποιεῖτε προσέχοντες ὡς λύχνῳ φαίνοντι ἐν αὐχμηρῷ τόπῳ,
@@ -303,18 +344,25 @@
 ἕως οὗ ἡμέρα διαυγάσῃ καὶ φωσφόρος ἀνατείλῃ ἐν ταῖς
 
 καρδίαις ὑμῶν·
-                    <milestone n="20" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                     τοῦτο πρῶτον γινώσκοντες ὅτι πᾶσα
 
 προφητεία γραφῆς ἰδίας ἐπιλύσεως οὐ γίνεται,
-                    <milestone n="21" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                     οὐ γὰρ
 
 θελήματι ἀνθρώπου ἠνέχθη προφητεία ποτέ, ἀλλὰ ὑπὸ
 
-πνεύματος ἁγίου φερόμενοι ἐλάλησαν ἀπὸ θεοῦ ἄνθρωποι.
-                    <milestone n="2" unit="chapter"/>
-                    <milestone n="1" unit="verse"/>
+πνεύματος ἁγίου φερόμενοι ἐλάλησαν ἀπὸ θεοῦ ἄνθρωποι.</p></div></div>
+                    
+            <div type="textpart" subtype="chapter" n="2">
+                
+
+<div type="textpart" subtype="verse" n="1"><p>
                     <milestone unit="para"/>
                     Ἐγένοντο δὲ καὶ ψευδοπροφῆται ἐν τῷ λαῷ, ὡς καὶ
 
@@ -325,65 +373,87 @@
 ἀρνούμενοι, 
 
 ἐπάγοντες ἑαυτοῖς ταχινὴν ἀπώλειαν·
-                    <milestone n="2" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                     καὶ
 
 πολλοὶ ἐξακολουθήσουσιν αὐτῶν ταῖς ἀσελγείαις, διʼ οὓς
 
 ἡ ὁδὸς τῆς ἀληθείας βλασφημηθήσεται·
-                    <milestone n="3" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                     καὶ ἐν πλεονεξίᾳ
 
 πλαστοῖς λόγοις ὑμᾶς ἐμπορεύσονται· οἷς τὸ κρίμα ἔκπαλαι 
 
 οὐκ ἀργεῖ, καὶ ἡ ἀπώλεια αὐτῶν οὐ νυστάζει.
-                    <milestone n="4" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                     εἰ γὰρ
 
 ὁ θεὸς ἀγγέλων ἁμαρτησάντων οὐκ ἐφείσατο, ἀλλὰ σειροῖς
 
 ζόφου ταρταρώσας παρέδωκεν εἰς κρίσιν τηρουμένους,
-                    <milestone n="5" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                     καὶ
                     <pb n="333"></pb>
                     ἀρχαίου κόσμου οὐκ ἐφείσατο, ἀλλὰ ὄγδοον Νῶε δικαιοσύνης 
 
 κήρυκα ἐφύλαξεν, κατακλυσμὸν κόσμῳ ἀσεβῶν ἐπάξας,
-                    <milestone n="6" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                     καὶ πόλεις Σοδόμων καὶ Γομόρρας τεφρώσας κατέκρινεν,
 
 ὑπόδειγμα μελλόντων ἀσεβέσιν τεθεικώς,
-                    <milestone n="7" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                     καὶ δίκαιον Λὼτ
 
 καταπονούμενον ὑπὸ τῆς τῶν ἀθέσμων ἐν ἀσελγείᾳ ἀναστροφῆς 
 
 ἐρύσατο,—
-                    <milestone n="8" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                     βλέμματι γὰρ καὶ ἀκοῇ  δίκαιος ἐνκατοικῶν 
 
 ἐν αὐτοῖς ἡμέραν ἐξ ἡμέρας ψυχὴν δικαίαν ἀνόμοις 
 
 ἔργοις ἐβασάνιζεν,—
-                    <milestone n="9" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                     οἶδεν Κύριος εὐσεβεῖς ἐκ πειρασμοῦ 
 
 ῥύεσθαι, ἀδίκους δὲ εἰς ἡμέραν κρίσεως κολαζομένους
 
 τηρεῖν,
-                    <milestone n="10" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                     μάλιστα δὲ τοὺς ὀπίσω σαρκὸς ἐν ἐπιθυμίᾳ μιασμοῦ
 
 πορευομένους καὶ κυριότητος καταφρονοῦντας. τολμηταί,
 
 αὐθάδεις, δόξας οὐ τρέμουσιν, βλασφημοῦντες,
-                    <milestone n="11" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                     ὅπου ἄγγελοι 
 
 ἰσχύϊ καὶ δυνάμει μείζονες ὄντες οὐ φέρουσιν κατʼ αὐτῶν
 
 [παρὰ Κυρίῳ] βλάσφημον κρίσιν.
-                    <milestone n="12" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                     οὗτοι δέ, ὡς ἄλογα ζῷα
 
 γεγεννημένα φυσικὰ εἰς ἅλωσιν καὶ φθοράν, ἐν οἷς ἀγνοοῦσιν 
@@ -391,7 +461,9 @@
 βλασφημοῦντες, ἐν τῇ φθορᾷ αὐτῶν καὶ φθαρήσονται,
 
 ἀδικούμενοι μισθὸν ἀδικίας·
-                    <milestone n="13" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                     ἡδονὴν ἡγούμενοι τὴν ἐν
 
 ἡμέρᾳ τρυφήν, σπίλοι καὶ μῶμοι ἐντρυφῶντες ἐν ταῖς
@@ -399,7 +471,9 @@
 
 
 ἀπάταις αὐτῶν συνευωχούμενοι ὑμῖν,
-                    <milestone n="14" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                     ὀφθαλμοὺς ἔχοντες
 
 μεστοὺς μοιχαλίδος καὶ ἀκαταπάστους ἁμαρτίας, δελεάζοντες 
@@ -407,23 +481,31 @@
 ψυχὰς ἀστηρίκτους, καρδίαν γεγυμνασμένην πλεονεξίας 
 
 ἔχοντες, κατάρας τέκνα,
-                    <milestone n="15" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                     καταλείποντες εὐθεῖαν ὁδὸν 
 
 ἐπλανήθησαν, ἐξακολουθήσαντες τῇ ὁδῷ τοῦ Βαλαὰμ τοῦ
 
  Βεὼρ ὃς μισθὸν ἀδικίας ἠγάπησεν
-                    <milestone n="16" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                     ἔλεγξιν δὲ ἔσχεν 
 
 ἰδίας παρανομίας· ὑποζύγιον ἄφωνον ἐν ἀνθρώπου φωνῇ
 
 φθεγξάμενον ἐκώλυσεν τὴν τοῦ προφήτου παραφρονίαν.
-                    <milestone n="17" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                     οὗτοί εἰσιν πηγαὶ ἄνυδροι καὶ ὁμίχλαι ὑπὸ λαίλαπος ἐλαυνόμεναι, 
 
 οἷς ὁ ζόφος τοῦ σκότους τετήρηται.
-                    <milestone n="18" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                     ὑπέρογκα
 
 γὰρ ματαιότητος φθεγγόμενοι δελεάζουσιν ἐν ἐπιθυμίαις
@@ -431,13 +513,17 @@
 σαρκὸς ἀσελγείαις τοὺς ὀλίγως ἀποφεύγοντας τοὺς ἐν
 
 πλάνῃ ἀναστρεφομένους,
-                    <milestone n="19" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                     ἐλευθερίαν αὐτοῖς ἐπαγγελλόμενοι, 
 
 αὐτοὶ δοῦλοι ὑπάρχοντες τῆς φθορᾶς· ᾧ γάρ τις ἥττηται, 
 
 τούτῳ δεδούλωται.
-                    <milestone n="20" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                     εἰ γὰρ ἀποφυγόντες τὰ μιάσματα
                     <pb n="334"></pb>
                     τοῦ κόσμου ἐν ἐπιγνώσει τοῦ κυρίου  καὶ σωτῆρος Ἰησοῦ
@@ -445,7 +531,9 @@
 Χριστοῦ τούτοις δὲ πάλιν ἐμπλακέντες ἡττῶνται, γέγονεν 
 
 αὐτοῖς τὰ ἔσχατα χείρονα τῶν πρώτων.
-                    <milestone n="21" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                     κρεῖττον γὰρ
 
 ἦν αὐτοῖς μὴ ἐπεγνωκέναι τὴν ὁδὸν τῆς δικαιοσύνης ἢ
@@ -453,31 +541,42 @@
 ἐπιγνοῦσιν ὑποστρέψαι ἐκ τῆς παραδοθείσης αὐτοῖς ἁγίας
 
 ἐντολῆς·
-                    <milestone n="22" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                     συμβέβηκεν αὐτοῖς τὸ τῆς ἀληθοῦς παροιμίας
                     <quote>Κύων ἐπιστρέψας ἐπὶ τὸ ἴδιον ἐξέραμα,</quote>
                     καί Ὗς λουσαμένη 
 
-εἰς κυλισμὸν βορβόρου.
-                    <milestone n="3" unit="chapter"/>
-                    <milestone n="1" unit="verse"/>
+εἰς κυλισμὸν βορβόρου.</p></div></div>
+            
+                    <div type="textpart" subtype="chapter" n="3">
+                  
+
+<div type="textpart" subtype="verse" n="1"><p>
                     <milestone unit="para"/>
                     Ταύτην ἤδη, ἀγαπητοί, δευτέραν ὑμῖν γράφω ἐπιστολήν,
 
 ἐν αἷς διεγείρω ὑμῶν ἐν ὑπομνήσει τὴν εἰλικρινῆ διάνοιαν,
-                    <milestone n="2" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                     μνησθῆναι τῶν προειρημένων ῥημάτων ὑπὸ τῶν ἁγίων
 
 προφητῶν καὶ τῆς τῶν ἀποστόλων ὑμῶν ἐντολῆς τοῦ κυρίου 
 
 καὶ σωτῆρος,
-                    <milestone n="3" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                     τοῦτο πρῶτον γινώσκοντες ὅτι ἐλεύσονται
 
 ἐπʼ ἐσχάτων τῶν ἡμερῶν ἐν ἐμπαιγμονῇ ἐμπαῖκται
 
 κατὰ τὰς ἰδίας ἐπιθυμίας αὐτῶν πορευόμενοι
-                    <milestone n="4" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                     καὶ λέγοντες
 
 Ποῦ ἐστὶν ἡ ἐπαγγελία τῆς παρουσίας αὐτοῦ; ἀφʼ ἧς
@@ -485,7 +584,9 @@
 γὰρ οἱ πατέρες ἐκοιμήθησαν, πάντα οὕτως διαμένει ἀπʼ ἀρχῆς 
 
 κτίσεως.
-                    <milestone n="5" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                     λανθάνει γὰρ αὐτοὺς τοῦτο θέλοντας ὅτι
 
 οὐρανοὶ ἦσαν ἔκπαλαι καὶ γῆ ἐξ ὕδατος καὶ διʼ ὕδατος
@@ -493,17 +594,23 @@
 
 
  συνεστῶσα τῷ τοῦ θεοῦ λόγῳ,
-                    <milestone n="6" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                     διʼ ὧν ὁ τότε κόσμος
 
 ὕδατι κατακλυσθεὶς ἀπώλετο·
-                    <milestone n="7" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                     οἱ δὲ νῦν οὐρανοὶ καὶ ἡ
 
 γῆ τῷ αὐτῷ λόγῳ τεθησαυρισμένοι εἰσὶν πυρὶ τηρούμενοι 
 
 εἰς ἡμέραν κρίσεως καὶ ἀπωλείας τῶν ἀσεβῶν ἀνθρώπων.
-                    <milestone n="8" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                     Ἓν δὲ τοῦτο μὴ λανθανέτω ὑμᾶς,
 
 ἀγαπητοί, ὅτι μία ἡμέρα
@@ -511,7 +618,9 @@
                     ὡς χίλια ἔτη καὶ
                     <quote>χίλια ἔτη ὡς ἡμέρα</quote>
                     μία.
-                    <milestone n="9" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                     οὐ βραδύνει Κύριος τῆς
 
 ἐπαγγελίας, ὥς τινες βραδυτῆτα ἡγοῦνται, ἀλλὰ μακροθυμεῖ 
@@ -519,7 +628,9 @@
 εἰς ὑμᾶς, μὴ βουλόμενός τινας ἀπολέσθαι ἀλλὰ
 
 πάντας εἰς μετάνοιαν χωρῆσαι.
-                    <milestone n="10" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                     Ἥξει δὲ ἡμέρα Κυρίου
 
 ὡς κλέπτης, ἐν ᾗ οἱ οὐρανοὶ ῥοιζηδὸν παρελεύσονται,
@@ -529,13 +640,17 @@
 
 
  αὐτῇ ἔργα εὑρεθήσεται.
-                    <milestone n="11" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                     Τούτων οὕτως πάντων λυομένων
                     <pb n="335"></pb>
                     ποταποὺς δεῖ ὑπάρχειν [ὑμᾶς] ἐν ἁγίαις ἀναστροφαῖς
 
 καὶ εὐσεβείαις,
-                    <milestone n="12" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                     προσδοκῶντας καὶ σπεύδοντας τὴν παρουσίαν 
 
 τῆς τοῦ θεοῦ ἡμέρας, διʼ ἣν
@@ -544,22 +659,28 @@
 
 λυθήσονται καὶ στοιχεῖα καυσούμενα
                     <quote>
-                        τήκεται·
-                        <milestone n="13" unit="verse"/>
-                        καινοὺς
+                        τήκεται· </quote>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
+    <quote rend="merge">καινοὺς
                     </quote>
                     δὲ
                     <quote>οὐρανοὺς καὶ γῆν καινὴν</quote>
                     κατὰ τὸ ἐπάγγελμα αὐτοῦ
 
 προσδοκῶμεν, ἐν οἷς δικαιοσύνη κατοικεῖ.
-                    <milestone n="14" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                     Διό,
 
 ἀγαπητοί, ταῦτα προσδοκῶντες σπουδάσατε ἄσπιλοι καὶ
 
 ἀμώμητοι αὐτῷ εὑρεθῆναι ἐν εἰρήνῃ,
-                    <milestone n="15" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                     καὶ τὴν τοῦ κυρίου
 
 ἡμῶν μακροθυμίαν σωτηρίαν ἡγεῖσθε, καθὼς καὶ ὁ ἀγαπητὸς 
@@ -567,7 +688,9 @@
 ἡμῶν ἀδελφὸς Παῦλος κατὰ τὴν δοθεῖσαν αὐτῷ
 
 σοφίαν ἔγραψεν ὑμῖν,
-                    <milestone n="16" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                     ὡς καὶ ἐν πάσαις ἐπιστολαῖς λαλῶν
 
 ἐν αὐταῖς περὶ τούτων, ἐν αἷς ἐστὶν δυσνόητά τινα,
@@ -575,7 +698,9 @@
 ἃ οἱ ἀμαθεῖς καὶ ἀστήρικτοι στρεβλοῦσιν ὡς καὶ τὰς
 
 λοιπὰς γραφὰς πρὸς τὴν ἰδίαν αὐτῶν ἀπώλειαν.
-                    <milestone n="17" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                     Ὑμεῖς
 
 οὖν, ἀγαπητοί, προγινώσκοντες φυλάσσεσθε ἵνα μὴ τῇ
@@ -583,13 +708,15 @@
 τῶν ἀθέσμων πλάνῃ συναπαχθέντες ἐκπέσητε τοῦ ἰδίου
 
 στηριγμοῦ,
-                    <milestone n="18" unit="verse"/>
+                    </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                     αὐξάνετε δὲ ἐν χάριτι καὶ γνώσει τοῦ κυρίου
 
 ἡμῶν καὶ σωτῆρος Ἰησοῦ Χριστοῦ. αὐτῷ ἡ δόξα καὶ
 
-νῦν καὶ εἰς ἡμέραν αἰῶνος.
-                </p>
+νῦν καὶ εἰς ἡμέραν αἰῶνος.</p></div></div>
+                
             </div>
         </body>
     </text>
