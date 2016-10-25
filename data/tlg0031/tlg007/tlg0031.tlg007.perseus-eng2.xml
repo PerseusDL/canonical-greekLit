@@ -1,8 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader type="text">
         <fileDesc>
             <titleStmt>
-                <title n="English Bible" type="work">World English Bible - I Corinthians</title>
+                <title n="English Bible" type="work">World English Bible - 1 Corinthians</title>
                 <title type="sub">Machine readable text</title>
                 <editor role="editor">Rainbow Missions, Inc.</editor>
                 <sponsor>Perseus Project, Tufts University</sponsor>
@@ -15,15 +20,15 @@
                     <name>David Smith</name>
                 </respStmt>
                 <funder n="org:FIPSE">Fund for the Improvement of Postsecondary Education</funder>
-            </titleStmt><publicationStmt><publisher>Trustees of Tufts University</publisher><pubPlace>Medford, MA</pubPlace><authority>Perseus Project</authority></publicationStmt>
+            </titleStmt>
             
             <publicationStmt>
                 <publisher>Trustees of Tufts University</publisher>
                 <pubPlace>Medford, MA</pubPlace>
                 <authority>Perseus Project</authority>
             </publicationStmt>
-            <sourceDesc default="NO">
-                <biblStruct default="NO">
+            <sourceDesc>
+                <biblStruct>
                     <monogr>
                         <author>Rainbow Missions, Inc.</author>
                         <title>World English Bible</title>
@@ -38,1656 +43,2525 @@
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
-            <refsDecl>
+            <refsDecl n="CTS">
+                <cRefPattern n="verse"
+                    matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts chapter and verse</p>
+                </cRefPattern>
+                <cRefPattern n="chapter"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts chapter</p>
+                </cRefPattern>
+            </refsDecl>
+            
+            <!--<refsDecl>
                 <step to="DITTO" from="DESCENDANT (1 DIV1 N %1)" refunit="book" delim=" "/>
                 <step to="DITTO" from="DESCENDANT (1 DIV2 N %2)" refunit="chapter" delim="."/>
                 <step to="DITTO" from="DESCENDANT (1 MILESTONE N %3)" refunit="verse"/>
-            </refsDecl>
+            </refsDecl>-->
         </encodingDesc>
         <profileDesc>
-            <langUsage default="NO">
-                <language ident="en">English</language>
+            <langUsage>
+                <language ident="eng">English</language>
             </langUsage>
         </profileDesc>
-        <revisionDesc><!--
-            <change>
-                <date>14-Oct-99</date>
-                <respStmt>
-                    <name>Anne Mahoney</name>
-                    <resp>markup</resp>
-                </respStmt>
-                <item>Initial markup from flat ASCII text</item>
-            </change>
-            <change>
-                <date>5/27/09</date>
-                <respStmt>
-                    <name>RS</name>
-                    <resp>(n/a)</resp>
-                </respStmt>
-                <item>
-                    $Log: world.english.xml,v $
-			Revision 1.2  2010-06-29 22:00:29  student
-			fixing place tags - AD
-
-			Revision 1.1  2009/10/08 19:10:56  rsingh04
-			began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
-
-			Revision 1.3  2009/05/27 16:11:31  rsingh04
-			added/fixed cvs log keyword
-                </item>
-            </change>
-        --><change when="2014-08-01" who="Stella Dee">edited markup</change></revisionDesc>
+        <revisionDesc>
+            <change when="2016-10-24" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+            <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change when="2010-06-29" who="student">fixing place tags AD</change>
+            <change when="2009-10-08" who="rsingh04">began reorganizing texts module by collection.created separate work directory in texts module to keep hopper files separate from in progress files</change>
+            <change when="2009-05-27" who="rsingh04">added/fixed cvs log keyword</change>
+            <change when="1999-10-14" who="Anne Mahoney">Initial markup from flat ASCII text</change>
+        </revisionDesc>
     </teiHeader>
-    <text xml:lang="en">
+    <text xml:lang="eng">
         <body>
-            <div part="N" sample="complete" org="uniform" n="I Corinthians" type="book">
+            <div type="edition" xml:lang="eng" n="urn:cts:greekLit:tlg0031.tlg007.perseus-eng2">
                 <head>Paul's First Letter to the Corinthians</head>
-                <div part="N" sample="complete" org="uniform" n="1" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                <div type="textpart" subtype="chapter" n="1">
+                  
+
+<div type="textpart" subtype="verse" n="1"><p>
+                    
                         Paul, called to be an apostle of Jesus Christ through the will
 of God, and our brother Sosthenes,
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         to the assembly of God which
 is at Corinth; those who are sanctified in Christ Jesus, called to be
 saints, with all who call on the name of our Lord Jesus Christ in every
 place, both theirs and ours:
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         Grace to you and peace from God our
 Father and the Lord Jesus Christ.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         I always thank my God concerning you, for the grace of God
 which was given you in Christ Jesus;
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         that in everything you were
 enriched in him, in all speech and all knowledge;
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         even as the
 testimony of Christ was confirmed in you:
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         so that you come behind
 in no gift; waiting for the revelation of our Lord Jesus Christ;
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         who will also confirm you until the end, blameless in the day of our
 Lord Jesus Christ.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         God is faithful, through whom you were called
 into the fellowship of his Son, Jesus Christ, our Lord.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         Now I
 beg you, brothers, through the name of our Lord, Jesus Christ, that you
 all speak the same thing and that there be no divisions among you, but
 that you be perfected together in the same mind and in the same
 judgment.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         For it has been reported to me concerning you, my
 brothers, by those who are from Chloe's household, that there are
 contentions among you.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         Now I mean this, that each one of you
 says, "I follow Paul," "I follow Apollos," "I follow Cephas," and, "I
 follow Christ."
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Is Christ divided? Was Paul crucified for you?
 Or were you baptized into the name of Paul?
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         I thank God that I
 baptized none of you, except Crispus and Gaius,
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         so that no one
 should say that I had baptized you into my own name.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         (I also
 baptized the household of Stephanas; besides them, I don't know whether
 I baptized any other.)
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         For Christ sent me not to baptize, but to
 preach the gospel -- not in wisdom of words, so that the cross of
 Christ wouldn't be made void.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         For the word of the cross is
 foolishness to those who are dying, but to us who are saved it is the
 power of God.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         For it is written,
 "I will destroy the wisdom of the wise,
    I will bring the discernment of the discerning to nothing."
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         Where is the wise? Where is the scribe? Where is the lawyer
 of this world? Hasn't God made foolish the wisdom of this world?
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         For seeing that in the wisdom of God, the world through its wisdom
 didn't know God, it was God's good pleasure through the foolishness of
 the preaching to save those who believe.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         For Jews ask for signs,
 Greeks seek after wisdom,
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         but we preach Christ crucified; a
 stumbling block to Jews, and foolishness to Greeks,
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         but to those
 who are called, both Jews and Greeks, Christ is the power of God and
 the wisdom of God.
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         Because the foolishness of God is wiser than
 men, and the weakness of God is stronger than men.
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         For you see
 your calling, brothers, that not many are wise according to the flesh,
 not many mighty, and not many noble;
-                        <milestone unit="verse" n="27"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="27"><p>
                         but God chose the foolish
 things of the world that he might put to shame those who are wise. God
 chose the weak things of the world, that he might put to shame the
 things that are strong;
-                        <milestone unit="verse" n="28"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="28"><p>
                         and God chose the lowly things of the
 world, and the things that are despised, and the things that are not,
 that he might bring to nothing the things that are:
-                        <milestone unit="verse" n="29"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="29"><p>
                         that no
 flesh should boast before God.
-                        <milestone unit="verse" n="30"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="30"><p>
                         But of him, you are in Christ
 Jesus, who was made to us wisdom from God, and righteousness and
 sanctification, and redemption:
-                        <milestone unit="verse" n="31"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="31"><p>
                         that, according as it is
 written, "He who boasts, let him boast in the Lord."
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="2" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="2">
+                  
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         When I came to you, brothers, I didn't come with excellence of
 speech or of wisdom, proclaiming to you the testimony of God.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         For
 I determined not to know anything among you, except Jesus Christ, and
 him crucified.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         I was with you in weakness, in fear, and in much
 trembling.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         My speech and my preaching were not in persuasive
 words of human wisdom, but in demonstration of the Spirit and of power,
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         that your faith wouldn't stand in the wisdom of men, but in the
 power of God.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         We speak wisdom, however, among those who are full
 grown; yet a wisdom not of this world, nor of the rulers of this world,
 who are coming to nothing.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         But we speak God's wisdom in a
 mystery, the wisdom that has been hidden, which God foreordained before
 the worlds to our glory,
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         which none of the rulers of this world
 has known. For had they known it, they wouldn't have crucified the Lord
 of glory.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         But as it is written,
 "Things which an eye didn't see, and an ear didn't hear,
    Which didn't enter into the heart of man,
 These God has prepared for those who love him."
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         But to us, God revealed them through the Spirit. For the
 Spirit searches all things, yes, the deep things of God.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         For who
 among men knows the things of a man, except the spirit of the man,
 which is in him? Even so, no one knows the things of God, except God's
 Spirit.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         But we received, not the spirit of the world, but the
 Spirit which is from God, that we might know the things that were
 freely given to us by God.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Which things also we speak, not in
 words which man's wisdom teaches, but which the Holy Spirit teaches,
 comparing spiritual things with spiritual things.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         Now the
 natural man doesn't receive the things of God's Spirit, for they are
 foolishness to him, and he can't know them, because they are
 spiritually discerned.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         But he who is spiritual discerns all
 things, and he himself is judged by no one.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         "For who has known
 the mind of the Lord, that he should instruct him?" But we have
 Christ's mind.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="3" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="3">
+                  
+
+<div type="textpart" subtype="verse" n="1"><p>
+                
                         Brothers, I couldn't speak to you as to spiritual, but as to
-fleshly, as to babies in Christ.
-                        <milestone unit="verse" n="2"/>
+fleshly, as to babies in Christ.</p></div>
+                       
+
+<div type="textpart" subtype="verse" n="2"><p>
                         I fed you with milk, not with
 meat; for you weren't yet ready. Indeed, not even now are you ready,
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         for you are still fleshly. For insofar as there is jealousy,
 strife, and factions among you, aren't you fleshly, and don't you walk
 in the ways of men?
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         For when one says, "I follow Paul," and
 another, "I follow Apollos," aren't you fleshly?
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         Who then is
 Apollos, and who is Paul, but servants through whom you believed; and
 each as the Lord gave to him?
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         I planted. Apollos watered. But God
 gave the increase.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         So then neither he who plants is anything, nor
 he who waters, but God who gives the increase.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         Now he who plants
 and he who waters are the same, but each will receive his own reward
 according to his own labor.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         For we are God's fellow workers. You
 are God's farming, God's building.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         According to the grace of God
 which was given to me, as a wise master builder I laid a foundation,
 and another builds on it. But let each man be careful how he builds on
 it.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         For no one can lay any other foundation than that which has
 been laid, which is Jesus Christ.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         But if anyone builds on the
 foundation with gold, silver, costly stones, wood, hay, or stubble;
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         each man's work will be revealed. For the Day will declare it,
 because it is revealed in fire; and the fire itself will test what sort
 of work each man's work is.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         If any man's work remains which he
 built on it, he will receive a reward.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         If any man's work is
 burned, he will suffer loss, but he himself will be saved, but as
 through fire.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         Don't you know that you are a temple of God, and that God's
 Spirit lives in you?
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         If anyone destroys the temple of God, God
 will destroy him; for God's temple is holy, which you are.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         Let
 no one deceive himself. If anyone thinks that he is wise among you in
 this world, let him become a fool, that he may become wise.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         For
 the wisdom of this world is foolishness with God. For it is written,
 "He has taken the wise in their craftiness."
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         And again, "The
 Lord knows the reasoning of the wise, that it is worthless."
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         Therefore let no one boast in men. For all things are yours,
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         whether Paul, or Apollos, or Cephas, or the world, or life, or death,
 or things present, or things to come. All are yours,
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         and you are
 Christ's, and Christ is God's.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="4" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                    
+                <div type="textpart" subtype="chapter" n="4">
+                    
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         So let a man think of us as Christ's servants, and stewards of
 God's mysteries.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         Here, moreover, it is required of stewards, that
 they be found faithful.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         But with me it is a very small thing that
 I should be judged by you, or by man's judgment. Yes, I don't judge my
 own self.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         For I know nothing against myself. Yet I am not
 justified by this, but he who judges me is the Lord.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         Therefore
 judge nothing before the time, until the Lord comes, who will both
 bring to light the hidden things of darkness, and reveal the counsels
 of the hearts. Then each man will get his praise from God.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         Now these things, brothers, I have in a figure transferred to
 myself and Apollos for your sakes, that in us you might learn not to
 think beyond the things which are written, that none of you be puffed
 up against one another.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         For who makes you different? And what do
 you have that you didn't receive? But if you did receive it, why do you
 boast as if you had not received it?
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         You are already filled. You
 have already become rich. You have come to reign without us. Yes, and I
 wish that you did reign, that we also might reign with you.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         For,
 I think that God has displayed us, the apostles, last of all, like men
 sentenced to death. For we are made a spectacle to the world, both to
 angels and men.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         We are fools for Christ's sake, but you are wise
 in Christ. We are weak, but you are strong. You have honor, but we have
 dishonor.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         Even to this present hour we hunger, thirst, are
 naked, are beaten, and have no certain dwelling place.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         We toil,
 working with our own hands. Being reviled, we bless. Being persecuted,
 we endure.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Being defamed, we entreat. We are made as the filth
 of the world, the dirt wiped off by all, even until now.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         I don't
 write these things to shame you, but to admonish you as my beloved
 children.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         For though you have ten thousand tutors in Christ, yet
 not many fathers. For in Christ Jesus, I became your father through the
 gospel.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         I beg you therefore, be imitators of me.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         Because
 of this I have sent Timothy to you, who is my beloved and faithful
 child in the Lord, who will remind you of my ways which are in Christ,
 even as I teach everywhere in every assembly.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         Now some are
 puffed up, as though I were not coming to you.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         But I will come
 to you shortly, if the Lord is willing. And I will know, not the word
 of those who are puffed up, but the power.
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         For the Kingdom of
 God is not in word, but in power.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         What do you want? Shall I come
 to you with a rod, or in love and a spirit of gentleness?
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="5" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="5">
+                    
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         It is actually reported that there is sexual immorality among
 you, and such sexual immorality as is not even named among the
 Gentiles, that one has his father's wife.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         You are puffed up, and
 didn't rather mourn, that he who had done this deed might be removed
 from among you.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         For I most assuredly, as being absent in body but
 present in spirit, have already, as though I were present, judged him
 who has done this thing.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         In the name of our Lord Jesus Christ,
 you being gathered together, and my spirit, with the power of our Lord
 Jesus Christ,
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         are to deliver such a one to Satan for the
 destruction of the flesh, that the spirit may be saved in the day of
 the Lord Jesus.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         Your boasting is not good. Don't you know that a little yeast
 leavens the whole lump?
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         Purge out the old yeast, that you may be
 a new lump, even as you are unleavened. For indeed Christ, our
 Passover, has been sacrificed in our place.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         Therefore let us keep
 the feast, not with old yeast, neither with the yeast of malice and
 wickedness, but with the unleavened bread of sincerity and truth.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         I wrote to you in my letter to have no company with sexual sinners;
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         yet not at all meaning with the sexual sinners of this world, or
 with the covetous and extortioners, or with idolaters; for then you
 would have to leave the world.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         But as it is, I wrote to you not
 to associate with anyone who is called a brother who is a sexual
 sinner, or covetous, or an idolater, or a slanderer, or a drunkard, or
 an extortioner. Don't even eat with such a person.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         For what have
 I to do with also judging those who are outside? Don't you judge those
 who are within?
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         But those who are outside, God judges. "Put away
 the wicked man from among yourselves."
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="6" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="6">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+                  
                         Dare any of you, having a matter against his neighbor, go to
 law before the unrighteous, and not before the saints?
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         Don't you
 know that the saints will judge the world? And if the world is judged
 by you, are you unworthy to judge the smallest matters?
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         Don't you
 know that we will judge angels? How much more, things that pertain to
 this life?
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         If then, you have to judge things pertaining to this
 life, do you set them to judge who are of no account in the assembly?
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         I say this to move you to shame. Isn't there even one wise man
 among you who would be able to decide between his brothers?
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         But
 brother goes to law with brother, and that before unbelievers!
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         Therefore it is already altogether a defect in you, that you have
 lawsuits one with another. Why not rather be wronged? Why not rather be
 defrauded?
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         No, but you yourselves do wrong, and defraud, and that
 against your brothers.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         Or don't you know that the unrighteous
 will not inherit the Kingdom of God? Don't be deceived. Neither the
 sexually immoral, nor idolaters, nor adulterers, nor male prostitutes,
 nor homosexuals,
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         nor thieves, nor covetous, nor drunkards, nor
 slanderers, nor extortioners, will inherit the Kingdom of God.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         Such were some of you, but you were washed. But you were sanctified.
 But you were justified in the name of the Lord Jesus, and in the Spirit
 of our God.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         "All things are lawful for me," but not all things
 are expedient. "All things are lawful for me," but I will not be
 brought under the power of anything.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         "Foods for the belly, and
 the belly for foods," but God will bring to nothing both it and them.
 But the body is not for sexual immorality, but for the Lord; and the
 Lord for the body.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         Now God raised up the Lord, and will also
 raise us up by his power.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         Don't you know that your bodies are
 members of Christ? Shall I then take the members of Christ, and make
 them members of a prostitute? May it never be!
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         Or don't you know
 that he who is joined to a prostitute is one body? For, "The two," says
 he, "will become one flesh."
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         But he who is joined to the Lord is
 one spirit.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         Flee sexual immorality! "Every sin that a man does
 is outside the body," but he who commits sexual immorality sins against
 his own body.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         Or don't you know that your body is a temple of
 the Holy Spirit which is in you, which you have from God? You are not
 your own,
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         for you were bought with a price. Therefore glorify
 God in your body and in your spirit, which are God's.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="7" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="7">
+                  
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         Now concerning the things about which you wrote to me: it is
 good for a man not to touch a woman.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         But, because of sexual
 immoralities, let each man have his own wife, and let each woman have
 her own husband.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         Let the husband render to his wife the affection
 owed her, and likewise also the wife to her husband.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         The wife
 doesn't have authority over her own body, but the husband. Likewise
 also the husband doesn't have authority over his own body, but the
 wife.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         Don't deprive one another, unless it is by consent for a
 season, that you may give yourselves to fasting and prayer, and may be
 together again, that Satan doesn't tempt you because of your lack of
 self-control.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         But this I say by way of concession, not of commandment.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         Yet I wish that all men were like me. However each man has his own gift
 from God, one of this kind, and another of that kind.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         But I say
 to the unmarried and to widows, it is good for them if they remain even
 as I am.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         But if they don't have self-control, let them marry. For
 it's better to marry than to burn.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         But to the married I command
 -- not I, but the Lord -- that the wife not leave her husband
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         (but if she departs, let her remain unmarried, or else be reconciled to
 her husband), and that the husband not leave his wife.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         But to the rest I -- not the Lord -- say, if any brother has
 an unbelieving wife, and she is content to live with him, let him not
 leave her.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         The woman who has an unbelieving husband, and he is
 content to live with her, let her not leave her husband.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         For the
 unbelieving husband is sanctified in the wife, and the unbelieving wife
 is sanctified in the husband. Otherwise your children would be unclean,
 but now are they holy.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         Yet if the unbeliever departs, let there
 be separation. The brother or the sister is not under bondage in such
 cases, but God has called us in peace.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         For how do you know,
 wife, whether you will save your husband? Or how do you know, husband,
 whether you will save your wife?
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         Only, as the Lord has
 distributed to each man, as God has called each, so let him walk. So I
 command in all the assemblies.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         Was anyone called having been circumcised? Let him not become
 uncircumcised. Has anyone been called in uncircumcision? Let him not be
 circumcised.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         Circumcision is nothing, and uncircumcision is
 nothing, but the keeping of the commandments of God.
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         Let each
 man stay in that calling in which he was called.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         Were you called
 being a bondservant? Don't let that bother you, but if you get an
 opportunity to become free, use it.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         For he who was called in the
 Lord being a bondservant is the Lord's free man. Likewise he who was
 called being free is Christ's bondservant.
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         You were bought with
 a price. Don't become bondservants of men.
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         Brothers, let each
 man, in whatever condition he was called, stay in that condition with
 God.
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         Now concerning virgins, I have no commandment from the Lord,
 but I give my judgment as one who has obtained mercy from the Lord to
 be trustworthy.
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         I think that it is good therefore, because of
 the distress that is on us, that it is good for a man to be as he is.
-                        <milestone unit="verse" n="27"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="27"><p>
                         Are you bound to a wife? Don't seek to be freed. Are you free
 from a wife? Don't seek a wife.
-                        <milestone unit="verse" n="28"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="28"><p>
                         But if you marry, you have not
 sinned. If a virgin marries, she has not sinned. Yet such will have
 oppression in the flesh, and I want to spare you.
-                        <milestone unit="verse" n="29"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="29"><p>
                         But I say
 this, brothers: the time is short, that from now on, both those who
 have wives may be as though they had none;
-                        <milestone unit="verse" n="30"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="30"><p>
                         and those who weep,
 as though they didn't weep; and those who rejoice, as though they
 didn't rejoice; and those who buy, as though they didn't possess;
-                        <milestone unit="verse" n="31"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="31"><p>
                         and those who use the world, as not using it to the fullest. For
 the mode of this world passes away.
-                        <milestone unit="verse" n="32"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="32"><p>
                         But I desire to have you to
 be free from cares. He who is unmarried is concerned for the things of
 the Lord, how he may please the Lord;
-                        <milestone unit="verse" n="33"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="33"><p>
                         but he who is married is
 concerned about the things of the world, how he may please his wife.
-                        <milestone unit="verse" n="34"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="34"><p>
                         There is also a difference between a wife and a virgin. The
 unmarried woman cares about the things of the Lord, that she may be
 holy both in body and in spirit. But she who is married cares about the
 things of the world -- how she may please her husband.
-                        <milestone unit="verse" n="35"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="35"><p>
                         This I
 say for your own profit; not that I may ensnare you, but for that which
 is appropriate, and that you may attend to the Lord without
 distraction.
-                        <milestone unit="verse" n="36"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="36"><p>
                         But if any man thinks that he is behaving
 inappropriately toward his virgin, if she is past the flower of her
 age, and if need so requires, let him do what he desires. He doesn't
 sin. Let them marry.
-                        <milestone unit="verse" n="37"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="37"><p>
                         But he who stands steadfast in his heart,
 having no necessity, but has power over his own heart, to keep his own
 virgin, does well.
-                        <milestone unit="verse" n="38"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="38"><p>
                         So then both he who gives his own virgin in
 marriage does well, and he who doesn't give her in marriage does
 better.
-                        <milestone unit="verse" n="39"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="39"><p>
                         A wife is bound by law for as long as her husband lives;
 but if the husband is dead, she is free to be married to whoever she
 desires, only in the Lord.
-                        <milestone unit="verse" n="40"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="40"><p>
                         But she is happier if she stays as
 she is, in my judgment, and I think that I also have God's Spirit.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="8" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="8">
+                    
+
+<div type="textpart" subtype="verse" n="1"><p>
+                    
                         Now concerning things sacrificed to idols: We know that we all
 have knowledge. Knowledge puffs up, but love builds up.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         But if
 anyone thinks that he knows anything, he doesn't yet know as he ought
 to know.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         But if anyone loves God, the same is known by him.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         Therefore concerning the eating of things sacrificed to idols, we know
 that no idol is anything in the world, and that there is no other God
 but one.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         For though there are things that are called "gods,"
 whether in the heavens or on earth; as there are many "gods" and many
 "lords;"
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         yet to us there is one God, the Father, of whom are all
 things, and we for him; and one Lord, Jesus Christ, through whom are
 all things, and we live through him.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         However, that knowledge
 isn't in all men. But some, with consciousness of the idol until now,
 eat as of a thing sacrificed to an idol, and their conscience, being
 weak, is defiled.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         But food will not commend us to God. For
 neither, if we don't eat, are we the worse; nor, if we eat, are we the
 better.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         But be careful that by no means does this liberty of
 yours become a stumbling block to the weak.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         For if a man sees
 you who have knowledge sitting in an idol's temple, won't his
 conscience, if he is weak, be emboldened to eat things sacrificed to
 idols?
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         And through your knowledge, he who is weak perishes, the
 brother for whose sake Christ died.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         Thus, sinning against the
 brothers, and wounding their conscience when it is weak, you sin
 against Christ.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Therefore, if food causes my brother to stumble,
 I will eat no meat forevermore, that I don't cause my brother to
 stumble.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="9" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="9">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         Am I not free? Am I not an apostle? Haven't I seen Jesus
 Christ, our Lord? Aren't you my work in the Lord?
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         If to others I
 am not an apostle, yet at least I am to you; for you are the seal of my
 apostleship in the Lord.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         My defense to those who examine me is
 this.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         Have we no right to eat and to drink?
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         Have we no
 right to take along a wife who is a believer, even as the rest of the
 apostles, and the brothers of the Lord, and Cephas?
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         Or have only
 Barnabas and I no right to not work?
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         What soldier ever serves at
 his own expense? Who plants a vineyard, and doesn't eat of its fruit?
 Or who feeds a flock, and doesn't drink from the flock's milk?
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         Do
 I speak these things according to the ways of men? Or doesn't the law
 also say the same thing?
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         For it is written in the law of Moses,
 "You shall not muzzle an ox while it treads out the grain." Is it for
 the oxen that God cares,
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         or does he say it assuredly for our
 sake? Yes, it was written for our sake, because he who plows ought to
 plow in hope, and he who threshes in hope should partake of his hope.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         If we sowed to you spiritual things, is it a great thing if we
 reap your fleshly things?
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         If others partake of this right over
 you, don't we yet more? Nevertheless we did not use this right, but we
 bear all things, that we may cause no hindrance to the gospel of
 Christ.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Don't you know that those who serve around sacred things
 eat from the things of the temple, and those who wait on the altar have
 their portion with the altar?
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         Even so the Lord ordained that
 those who proclaim the gospel should live from the gospel.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         But I
 have used none of these things, and I don't write these things that it
 may be done so in my case; for I would rather die, than that anyone
 should make my boasting void.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         For if I preach the gospel, I have
 nothing to boast about; for necessity is laid on me; but woe is to me,
 if I don't preach the gospel.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         For if I do this of my own will, I
 have a reward. But if not of my own will, I have a stewardship
 entrusted to me.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         What then is my reward? That, when I preach the
 gospel, I may present the gospel of Christ without charge, so as not to
 abuse my authority in the gospel.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         For though I was free from
 all, I brought myself under bondage to all, that I might gain the more.
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         To the Jews I became as a Jew, that I might gain Jews; to those
 who are under the law, as under the law, that I might gain those who
 are under the law;
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         to those who are without law, as without law
 (not being without law toward God, but under law toward Christ), that I
 might win those who are without law.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         To the weak I became as
 weak, that I might gain the weak. I have become all things to all men,
 that I may by all means save some.
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         Now I do this for the
 gospel's sake, that I may be a joint partaker of it.
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         Don't you
 know that those who run in a race all run, but one receives the prize?
 Run like that, that you may win.
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         Every man who strives in the
 games exercises self-control in all things. Now they do it to receive a
 corruptible crown, but we an incorruptible.
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         I therefore run like
 that, as not uncertainly. I fight like that, as not beating the air,
-                        <milestone unit="verse" n="27"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="27"><p>
                         but I beat my body and bring it into submission, lest by any
 means, after I have preached to others, I myself should be rejected.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="10" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="10">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         Now I would not have you ignorant, brothers, that our fathers
 were all under the cloud, and all passed through the sea;
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         and
 were all baptized into Moses in the cloud and in the sea;
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         and
 all ate the same spiritual food;
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         and all drank the same
 spiritual drink. For they drank of a spiritual rock that followed them,
 and the rock was Christ.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         However with most of them, God was not
 well pleased, for they were overthrown in the wilderness.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         Now
 these things were our examples, to the intent we should not lust after
 evil things, as they also lusted.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         Neither be idolaters, as some
 of them were. As it is written, "The people sat down to eat and drink,
 and rose up to play."
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         Neither let us commit sexual immorality,
 as some of them committed, and in one day twenty-three thousand fell.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         Neither let us test the Lord, as some of them tested, and
 perished by the serpents.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         Neither grumble, as some of them also
 grumbled, and perished by the destroyer.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         Now all these things
 happened to them by way of example, and they were written for our
 admonition, on whom the ends of the ages have come.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         Therefore
 let him who thinks he stands be careful that he doesn't fall.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         No temptation has taken you but such as man can bear. God is
 faithful, who will not allow you to be tempted above what you are able,
 but will with the temptation also make the way of escape, that you may
 be able to endure it.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         Therefore, my beloved, flee from
 idolatry.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         I speak as to wise men. Judge what I say.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         The
 cup of blessing which we bless, isn't it a communion of the blood of
 Christ? The bread which we break, isn't it a communion of the body of
 Christ?
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         Because we, who are many, are one bread, one body; for
 we all partake of the one bread.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         Consider Israel after the
 flesh. Don't those who eat the sacrifices have communion with the altar?
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         What am I saying then? That a thing sacrificed to idols is
 anything, or that an idol is anything?
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         But I say that the
 things which the Gentiles sacrifice, they sacrifice to demons, and not
 to God, and I don't desire that you would have communion with demons.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         You can't both drink the cup of the Lord and the cup of demons.
 You can't both partake of the table of the Lord, and of the table of
 demons.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         Or do we provoke the Lord to jealousy? Are we stronger
 than he?
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         "All things are lawful for me," but not all things are
 profitable. "All things are lawful for me," but not all things build
 up.
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         Let no one seek his own, but each one his neighbor's good.
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         Whatever is sold in the butcher shop, eat, asking no question
 for the sake of conscience,
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         for "the earth is the Lord's, and
 its fullness."
-                        <milestone unit="verse" n="27"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="27"><p>
                         But if one of those who don't believe invites
 you to a meal, and you are inclined to go, eat whatever is set before
 you, asking no questions for the sake of conscience.
-                        <milestone unit="verse" n="28"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="28"><p>
                         But if
 anyone says to you, "This was offered to idols," don't eat it for the
 sake of the one who told you, and for the sake of conscience. For "the
 earth is the Lord's, and all its fullness."
-                        <milestone unit="verse" n="29"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="29"><p>
                         Conscience, I say,
 not your own, but the other's conscience. For why is my liberty judged
 by another conscience?
-                        <milestone unit="verse" n="30"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="30"><p>
                         If I partake with thankfulness, why am I
 denounced for that for which I give thanks?
-                        <milestone unit="verse" n="31"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="31"><p>
                         Whether therefore
 you eat, or drink, or whatever you do, do all to the glory of God.
-                        <milestone unit="verse" n="32"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="32"><p>
                         Give no occasions for stumbling, either to Jews, or to Greeks,
 or to the assembly of God;
-                        <milestone unit="verse" n="33"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="33"><p>
                         even as I also please all men in all
 things, not seeking my own profit, but the profit of the many, that
 they may be saved.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="11" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="11">
+                  
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         Be imitators of me, even as I also am of Christ.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         Now I
 praise you, brothers, that you remember me in all things, and hold firm
 the traditions, even as I delivered them to you.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         But I would
 have you know that the head of every man is Christ, and the head of the
 woman is the man, and the head of Christ is God.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         Every man
 praying or prophesying, having his head covered, dishonors his head.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         But every woman praying or prophesying with her head unveiled
 dishonors her head. For it is one and the same thing as if she were
 shaved.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         For if a woman is not covered, let her also be shorn.
 But if it is shameful for a woman to be shorn or shaved, let her be
 covered.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         For a man indeed ought not to have his head covered,
 because he is the image and glory of God, but the woman is the glory of
 the man.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         For man is not from woman, but woman from man;
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         for neither was man created for the woman, but woman for the man.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         For this cause the woman ought to have authority on her head,
 because of the angels.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         Nevertheless, neither is the woman independent of the man,
 nor the man independent of the woman, in the Lord.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         For as woman
 came from man, so a man also comes through a woman; but all things are
 from God.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Judge for yourselves. Is it appropriate that a woman
 pray to God unveiled?
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         Doesn't even nature itself teach you that
 if a man has long hair, it is a dishonor to him?
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         But if a woman
 has long hair, it is a glory to her, for her hair is given to her for a
 covering.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         But if any man seems to be contentious, we have no
 such custom, neither do God's assemblies.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         But in giving you this command, I don't praise you, that you
 come together not for the better but for the worse.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         For first
 of all, when you come together in the assembly, I hear that divisions
 exist among you, and I partly believe it.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         For there also must
 be factions among you, that those who are approved may be revealed
 among you.
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         When therefore you assemble yourselves together, it
 is not possible to eat the Lord's supper.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         For in your eating
 each one takes his own supper before others. One is hungry, and another
 is drunken.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         What, don't you have houses to eat and to drink in?
 Or do you despise God's assembly, and put them to shame who don't have?
 What shall I tell you? Shall I praise you? In this I don't praise you.
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         For I received from the Lord that which also I delivered to
 you, that the Lord Jesus on the night in which he was betrayed took
 bread.
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         When he had given thanks, he broke it, and said, "Take,
 eat. This is my body, which is broken for you. Do this in memory of
 me."
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         In the same way he also took the cup, after supper,
 saying, "This cup is the new covenant in my blood. Do this, as often as
 you drink, in memory of me."
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         For as often as you eat this bread
 and drink this cup, you proclaim the Lord's death until he comes.
-                        <milestone unit="verse" n="27"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="27"><p>
                         Therefore whoever eats this bread or drinks the Lord's cup in
 an unworthy manner will be guilty of the body and the blood of the
 Lord.
-                        <milestone unit="verse" n="28"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="28"><p>
                         But let a man examine himself, and so let him eat of the
 bread, and drink of the cup.
-                        <milestone unit="verse" n="29"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="29"><p>
                         For he who eats and drinks in an
 unworthy manner eats and drinks judgment to himself, if he doesn't
 discern the Lord's body.
-                        <milestone unit="verse" n="30"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="30"><p>
                         For this cause many among you are weak
 and sickly, and not a few sleep.
-                        <milestone unit="verse" n="31"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="31"><p>
                         For if we discerned ourselves,
 we wouldn't be judged.
-                        <milestone unit="verse" n="32"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="32"><p>
                         But when we are judged, we are punished
 by the Lord, that we may not be condemned with the world.
-                        <milestone unit="verse" n="33"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="33"><p>
                         Therefore, my brothers, when you come together to eat, wait one for
 another.
-                        <milestone unit="verse" n="34"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="34"><p>
                         But if anyone is hungry, let him eat at home, lest
 your coming together be for judgment. The rest I will set in order
 whenever I come.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="12" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="12">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         Now concerning spiritual gifts, brothers, I don't want you to
 be ignorant.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         You know that when you were heathen, you were led
 away to those mute idols, however you might be led.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         Therefore I
 make known to you that no man speaking by God's Spirit says, "Jesus is
 accursed." No one can say, "Jesus is Lord," but by the Holy Spirit.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         Now there are various kinds of gifts, but the same Spirit.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         There are various kinds of service, and the same Lord.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         There are various kinds of workings, but the same God, who works all
 things in all.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         But to each one is given the manifestation of the
 Spirit for the profit of all.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         For to one is given through the
 Spirit the word of wisdom, and to another the word of knowledge,
 according to the same Spirit;
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         to another faith, by the same
 Spirit; and to another gifts of healings, by the same Spirit;
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         and to another workings of miracles; and to another prophecy; and to
 another discerning of spirits; to another different kinds of languages;
 and to another the interpretation of languages.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         But the one and
 the same Spirit works all of these, distributing to each one separately
 as he desires.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         For as the body is one, and has many members, and all the
 members of the body, being many, are one body; so also is Christ.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         For in one Spirit we were all baptized into one body, whether
 Jews or Greeks, whether bond or free; and were all given to drink into
 one Spirit.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         For the body is not one member, but many.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         If the foot would say, "Because I'm not the hand, I'm not part of the
 body," it is not therefore not part of the body.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         If the ear
 would say, "Because I'm not the eye, I'm not part of the body," it's
 not therefore not part of the body.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         If the whole body were an
 eye, where would the hearing be? If the whole were hearing, where would
 the smelling be?
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         But now God has set the members, each one of
 them, in the body, just as he desired.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         If they were all one
 member, where would the body be?
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         But now they are many members,
 but one body.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         The eye can't tell the hand, "I have no need for
 you," or again the head to the feet, "I have no need for you."
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         No, much rather, those members of the body which seem to be weaker are
 necessary.
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         Those parts of the body which we think to be less
 honorable, on those we bestow more abundant honor; and our
 unpresentable parts have more abundant propriety;
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         whereas our
 presentable parts have no such need. But God composed the body
 together, giving more abundant honor to the inferior part,
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         that
 there should be no division in the body, but that the members should
 have the same care for one another.
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         When one member suffers,
 all the members suffer with it. Or when one member is honored, all the
 members rejoice with it.
-                        <milestone unit="verse" n="27"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="27"><p>
                         Now you are the body of Christ, and members individually.
-                        <milestone unit="verse" n="28"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="28"><p>
                         God has set some in the assembly: first apostles, second
 prophets, third teachers, then miracle workers, then gifts of healings,
 helps, governments, and various kinds of languages.
-                        <milestone unit="verse" n="29"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="29"><p>
                         Are all
 apostles? Are all prophets? Are all teachers? Are all miracle workers?
-                        <milestone unit="verse" n="30"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="30"><p>
                         Do all have gifts of healings? Do all speak with various
 languages? Do all interpret?
-                        <milestone unit="verse" n="31"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="31"><p>
                         But earnestly desire the best
 gifts. Moreover, I show a most excellent way to you.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="13" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="13">
+                    
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         If I speak with the languages of men and of angels, but don't
 have love, I have become sounding brass, or a clanging cymbal.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         If I have the gift of prophecy, and know all mysteries and all
 knowledge; and if I have all faith, so as to remove mountains, but
 don't have love, I am nothing.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         If I dole out all my goods to
 feed the poor, and if I give my body to be burned, but don't have love,
 it profits me nothing.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         Love is patient and is kind; love doesn't envy. Love doesn't
 brag, is not proud,
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         doesn't behave itself inappropriately,
 doesn't seek its own way, is not provoked, takes no account of evil;
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         doesn't rejoice in unrighteousness, but rejoices with the truth;
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         bears all things, believes all things, hopes all things, endures
 all things.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         Love never fails. But where there are prophecies,
 they will be done away with. Where there are various languages, they
 will cease. Where there is knowledge, it will be done away with.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         For we know in part, and we prophesy in part;
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         but when that
 which is complete has come, then that which is partial will be done
 away with.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         When I was a child, I spoke as a child, I felt as a
 child, I thought as a child. Now that I have become a man, I have put
 away childish things.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         For now we see in a mirror, dimly, but
 then face to face. Now I know in part, but then I will know fully, even
 as I was also fully known.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         But now faith, hope, and love remain
 -- these three. The greatest of these is love.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="14" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="14">
+                    
+
+<div type="textpart" subtype="verse" n="1"><p>
+                    
                         Follow after love, and earnestly desire spiritual gifts, but
 especially that you may prophesy.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         For he who speaks in another
 language speaks not to men, but to God; for no one understands; but in
 the Spirit he speaks mysteries.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         But he who prophesies speaks to
 men for their edification, exhortation, and consolation.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         He who
 speaks in another language edifies himself, but he who prophesies
 edifies the assembly.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         Now I desire to have you all speak with
 other languages, but rather that you would prophesy. For he is greater
 who prophesies than he who speaks with other languages, unless he
 interprets, that the assembly may be built up.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         But now, brothers, if I come to you speaking with other
 languages, what would I profit you, unless I speak to you either by way
 of revelation, or of knowledge, or of prophesying, or of teaching?
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         Even things without life, giving a voice, whether pipe or harp,
 if they didn't give a distinction in the sounds, how would it be known
 what is piped or harped?
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         For if the trumpet gave an uncertain
 sound, who would prepare himself for war?
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         So also you, unless
 you uttered by the tongue words easy to understand, how would it be
 known what is spoken? For you would be speaking into the air.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         There are, it may be, so many kinds of sounds in the world, and none of
 them is without meaning.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         If then I don't know the meaning of
 the sound, I would be to him who speaks a foreigner, and he who speaks
 would be a foreigner to me.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         So also you, since you are zealous
 for spiritual gifts, seek that you may abound to the building up of the
 assembly.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Therefore let him who speaks in another language pray
 that he may interpret.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         For if I pray in another language, my
 spirit prays, but my understanding is unfruitful.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         What is it then? I will pray with the spirit, and I will
 pray with the understanding also. I will sing with the spirit, and I
 will sing with the understanding also.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         Otherwise if you bless
 with the spirit, how will he who fills the place of the unlearned say
 the "Amen" at your giving of thanks, seeing he doesn't know what you
 say?
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         For you most assuredly give thanks well, but the other
 person is not built up.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         I thank my God, I speak with other
 languages more than you all.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         However in the assembly I would
 rather speak five words with my understanding, that I might instruct
 others also, than ten thousand words in another language.
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         Brothers, don't be children in thoughts, yet in malice be
 babies, but in thoughts be mature.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         In the law it is written,
 "By men of strange languages and by the lips of strangers I will speak
 to this people. Not even thus will they hear me, says the Lord."
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         Therefore other languages are for a sign, not to those who
 believe, but to the unbelieving; but prophesying is for a sign, not to
 the unbelieving, but to those who believe.
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         If therefore the
 whole assembly is assembled together and all speak with other
 languages, and unlearned or unbelieving people come in, won't they say
 that you are crazy?
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         But if all prophesy, and someone
 unbelieving or unlearned comes in, he is reproved by all, and he is
 judged by all.
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         And thus the secrets of his heart are revealed.
 So he will fall down on his face and worship God, declaring that God is
 among you indeed.
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         What is it then, brothers? When you come together, each one
 of you has a psalm, has a teaching, has a revelation, has another
 language, has an interpretation. Let all things be done to build each
 other up.
-                        <milestone unit="verse" n="27"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="27"><p>
                         If any man speaks in another language, let it be two,
 or at the most three, and in turn; and let one interpret.
-                        <milestone unit="verse" n="28"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="28"><p>
                         But
 if there is no interpreter, let him keep silent in the assembly, and
 let him speak to himself, and to God.
-                        <milestone unit="verse" n="29"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="29"><p>
                         Let the prophets speak,
 two or three, and let the others discern.
-                        <milestone unit="verse" n="30"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="30"><p>
                         But if a revelation
 is made to another sitting by, let the first keep silent.
-                        <milestone unit="verse" n="31"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="31"><p>
                         For
 you all can prophesy one by one, that all may learn, and all may be
 exhorted.
-                        <milestone unit="verse" n="32"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="32"><p>
                         The spirits of the prophets are subject to the
 prophets,
-                        <milestone unit="verse" n="33"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="33"><p>
                         for God is not a God of confusion, but of peace.
 
    As in all the assemblies of the saints,
-                        <milestone unit="verse" n="34"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="34"><p>
                         let your wives keep
 silent in the assemblies, for it has not been permitted for them to
 speak; but let them be in subjection, as the law also says.
-                        <milestone unit="verse" n="35"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="35"><p>
                         If
 they desire to learn anything, let them ask their own husbands at home,
 for it is shameful for a woman to chatter in the assembly.
-                        <milestone unit="verse" n="36"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="36"><p>
                         What? Was it from you that the word of God went out? Or did it come to
 you alone?
-                        <milestone unit="verse" n="37"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="37"><p>
                         If any man thinks himself to be a prophet, or
 spiritual, let him recognize the things which I write to you, that they
 are the commandment of the Lord.
-                        <milestone unit="verse" n="38"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="38"><p>
                         But if anyone is ignorant, let
 him be ignorant.
-                        <milestone unit="verse" n="39"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="39"><p>
                         Therefore, brothers, desire earnestly to
 prophesy, and don't forbid speaking with other languages.
-                        <milestone unit="verse" n="40"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="40"><p>
                         Let
 all things be done decently and in order.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="15" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="15">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+                    
                         Now I declare to you, brothers, the gospel which I preached
 to you, which also you received, in which you also stand,
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         by
 which also you are saved, if you hold firmly the word which I preached
 to you -- unless you believed in vain.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         For I delivered to you
 first of all that which I also received: that Christ died for our sins
 according to the Scriptures,
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         that he was buried, that he was
 raised on the third day according to the Scriptures,
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         and that he
 appeared to Cephas, then to the twelve.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         Then he appeared to over
 five hundred brothers at once, most of whom remain until now, but some
 have also fallen asleep.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         Then he appeared to James, then to all
 the apostles,
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         and last of all, as to the child born at the wrong
 time, he appeared to me also.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         For I am the least of the
 apostles, who is not worthy to be called an apostle, because I
 persecuted the assembly of God.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         But by the grace of God I am
 what I am. His grace which was bestowed on me was not futile, but I
 worked more than all of them; yet not I, but the grace of God which was
 with me.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         Whether then it is I or they, so we preach, and so you
 believed.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         Now if Christ is preached, that he has been raised from the
 dead, how do some among you say that there is no resurrection of the
 dead?
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         But if there is no resurrection of the dead, neither has
 Christ been raised.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         If Christ has not been raised, then our
 preaching is in vain, and your faith also is in vain.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         Yes, we
 are found false witnesses of God, because we testified about God that
 he raised up Christ, whom he didn't raise up, if it is so that the dead
 are not raised.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         For if the dead aren't raised, neither has
 Christ been raised.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         If Christ has not been raised, your faith
 is vain; you are still in your sins.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         Then they also who are
 fallen asleep in Christ have perished.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         If we have only hoped in
 Christ in this life, we are of all men most pitiable.
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         But now Christ has been raised from the dead. He became the
 first fruits of those who are asleep.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         For since death came by
 man, the resurrection of the dead also came by man.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         For as in
 Adam all die, so also in Christ all will be made alive.
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         But
 each in his own order: Christ the first fruits, then those who are
 Christ's, at his coming.
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         Then the end comes, when he will
 deliver up the Kingdom to God, even the Father; when he will have
 abolished all rule and all authority and power.
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         For he must
 reign until he has put all his enemies under his feet.
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         The last
 enemy that will be abolished is death.
-                        <milestone unit="verse" n="27"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="27"><p>
                         For, "He put all things
 in subjection under his feet." But when he says, "All things are put in
 subjection," it is evident that he is excepted who subjected all things
 to him.
-                        <milestone unit="verse" n="28"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="28"><p>
                         When all things have been subjected to him, then the
 Son will also himself be subjected to him who subjected all things to
 him, that God may be all in all.
-                        <milestone unit="verse" n="29"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="29"><p>
                         Or else what will they do who
 are baptized for the dead? If the dead aren't raised at all, why then
 are they baptized for the dead?
-                        <milestone unit="verse" n="30"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="30"><p>
                         Why do we also stand in
 jeopardy every hour?
-                        <milestone unit="verse" n="31"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="31"><p>
                         I affirm, by the boasting in you which I
 have in Christ Jesus our Lord, I die daily.
-                        <milestone unit="verse" n="32"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="32"><p>
                         If I fought with
 animals at Ephesus for human purposes, what does it profit me? If the
 dead are not raised, then "let us eat and drink, for tomorrow we die."
-                        <milestone unit="verse" n="33"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="33"><p>
                         Don't be deceived! "Evil companionships corrupt good morals."
-                        <milestone unit="verse" n="34"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="34"><p>
                         Wake up righteously, and don't sin, for some have no knowledge
 of God. I say this to your shame.
-                        <milestone unit="verse" n="35"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="35"><p>
                         But someone will say, "How
 are the dead raised?" and, "With what kind of body do they come?"
-                        <milestone unit="verse" n="36"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="36"><p>
                         You foolish one, that which you yourself sow is not made alive
 unless it dies.
-                        <milestone unit="verse" n="37"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="37"><p>
                         That which you sow, you don't sow the body that
 will be, but a bare grain, maybe of wheat, or of some other kind.
-                        <milestone unit="verse" n="38"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="38"><p>
                         But God gives it a body even as it pleased him, and to each
 seed a body of its own.
-                        <milestone unit="verse" n="39"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="39"><p>
                         All flesh is not the same flesh, but
 there is one flesh of men, another flesh of animals, another of fish,
 and another of birds.
-                        <milestone unit="verse" n="40"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="40"><p>
                         There are also celestial bodies, and
 terrestrial bodies; but the glory of the celestial differs from that of
 the terrestrial.
-                        <milestone unit="verse" n="41"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="41"><p>
                         There is one glory of the sun, another glory
 of the moon, and another glory of the stars; for one star differs from
 another star in glory.
-                        <milestone unit="verse" n="42"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="42"><p>
                         So also is the resurrection of the dead.
 It is sown in corruption; it is raised in incorruption.
-                        <milestone unit="verse" n="43"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="43"><p>
                         It is
 sown in dishonor; it is raised in glory. It is sown in weakness; it is
 raised in power.
-                        <milestone unit="verse" n="44"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="44"><p>
                         It is sown a natural body; it is raised a
 spiritual body. There is a natural body and there is also a spiritual
 body.
-                        <milestone unit="verse" n="45"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="45"><p>
                         So also it is written, "The first man, Adam, became a living
 soul." The last Adam became a life-giving spirit.
-                        <milestone unit="verse" n="46"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="46"><p>
                         However that
 which is spiritual isn't first, but that which is natural, then that
 which is spiritual.
-                        <milestone unit="verse" n="47"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="47"><p>
                         The first man is of the earth, made of
 dust. The second man is the Lord from heaven.
-                        <milestone unit="verse" n="48"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="48"><p>
                         As is the one
 made of dust, such are those who are also made of dust; and as is the
 heavenly, such are they also that are heavenly.
-                        <milestone unit="verse" n="49"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="49"><p>
                         As we have
 borne the image of those made of dust, let's also bear the image of the
 heavenly.
-                        <milestone unit="verse" n="50"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="50"><p>
                         Now I say this, brothers, that flesh and blood can't
 inherit the Kingdom of God; neither does corruption inherit
 incorruption.
-                        <milestone unit="verse" n="51"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="51"><p>
                         Behold, I tell you a mystery. We will not all sleep, but we
 will all be changed,
-                        <milestone unit="verse" n="52"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="52"><p>
                         in a moment, in the twinkling of an eye,
 at the last trumpet. For the trumpet will sound, and the dead will be
 raised incorruptible, and we will be changed.
-                        <milestone unit="verse" n="53"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="53"><p>
                         For this
 corruptible must put on incorruption, and this mortal must put on
 immortality.
-                        <milestone unit="verse" n="54"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="54"><p>
                         But when this corruptible will have put on
 incorruption, and this mortal will have put on immortality, then what
 is written will happen: "Death is swallowed up in victory."
-                        <milestone unit="verse" n="55"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="55"><p>
                         "Death, where is your sting?
    Hades, where is your victory?"
-                        <milestone unit="verse" n="56"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="56"><p>
                         The sting of death is sin, and the power of sin is the law.
-                        <milestone unit="verse" n="57"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="57"><p>
                         But thanks be to God, who gives us the victory through our Lord
 Jesus Christ.
-                        <milestone unit="verse" n="58"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="58"><p>
                         Therefore, my beloved brothers, be steadfast,
 immovable, always abounding in the Lord's work, because you know that
 your labor is not in vain in the Lord.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="16" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="16">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+                  
                         Now concerning the collection for the saints, as I commanded
 the assemblies of Galatia, you do likewise.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         On the first day of
 the week, let each one of you save, as he may prosper, that no
 collections be made when I come.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         When I arrive, I will send
 whoever you approve with letters to carry your gracious gift to
 Jerusalem.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         If it is appropriate for me to go also, they will go
 with me.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         But I will come to you when I have passed through
 Macedonia, for I am passing through Macedonia.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         But with you it
 may be that I will stay, or even winter, that you may send me on my
 journey wherever I go.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         For I do not wish to see you now in
 passing, but I hope to stay a while with you, if the Lord permits.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         But I will stay at Ephesus until Pentecost,
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         for a great
 and effective door has opened to me, and there are many adversaries.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         Now if Timothy comes, see that he is with you without fear, for
 he does the work of the Lord, as I also do.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         Therefore let no
 one despise him. But set him forward on his journey in peace, that he
 may come to me; for I expect him with the brothers.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         Now concerning Apollos, the brother, I begged him much to
 come to you with the brothers; and it was not at all his desire to come
 now; but he will come when he has an opportunity.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Watch! Stand firm in the faith! Be courageous! Be strong!
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         Let all that you do be done in love.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         Now I beg you, brothers (you know the house of Stephanas,
 that it is the first fruits of Achaia, and that they have set
 themselves to minister to the saints),
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         that you also be in
 subjection to such, and to everyone who helps in the work and labors.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         I rejoice at the coming of Stephanas, Fortunatus, and Achaicus;
 for that which was lacking on your part, they supplied.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         For
 they refreshed my spirit and yours. Therefore acknowledge those who are
 like that.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         The assemblies of Asia greet you. Aquila and Priscilla greet
 you much in the Lord, together with the assembly that is in their
 house.
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         All the brothers greet you. Greet one another with a
 holy kiss.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         This greeting is by me, Paul, with my own hand.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         If
 any man doesn't love the Lord Jesus Christ, let him be accursed. Come,
 Lord!
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         The grace of the Lord Jesus Christ be with you.
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         My love to all of you in Christ Jesus. Amen.
                     </p>
                 </div>
+            </div>
             </div>
         </body>
     </text>
