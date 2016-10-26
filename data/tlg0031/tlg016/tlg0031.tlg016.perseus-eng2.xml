@@ -1,8 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader type="text">
         <fileDesc>
             <titleStmt>
-                <title n="English Bible" type="work">World English Bible - II Timothy</title>
+                <title n="English Bible" type="work">World English Bible - 2 Timothy</title>
                 <title type="sub">Machine readable text</title>
                 <editor role="editor">Rainbow Missions, Inc.</editor>
                 <sponsor>Perseus Project, Tufts University</sponsor>
@@ -15,15 +20,15 @@
                     <name>David Smith</name>
                 </respStmt>
                 <funder n="org:FIPSE">Fund for the Improvement of Postsecondary Education</funder>
-            </titleStmt><publicationStmt><publisher>Trustees of Tufts University</publisher><pubPlace>Medford, MA</pubPlace><authority>Perseus Project</authority></publicationStmt>
+            </titleStmt>
             
             <publicationStmt>
                 <publisher>Trustees of Tufts University</publisher>
                 <pubPlace>Medford, MA</pubPlace>
                 <authority>Perseus Project</authority>
             </publicationStmt>
-            <sourceDesc default="NO">
-                <biblStruct default="NO">
+            <sourceDesc>
+                <biblStruct>
                     <monogr>
                         <author>Rainbow Missions, Inc.</author>
                         <title>World English Bible</title>
@@ -38,353 +43,520 @@
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
+            <refsDecl n="CTS">
+                <cRefPattern n="verse"
+                    matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts chapter and verse</p>
+                </cRefPattern>
+                <cRefPattern n="chapter"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts chapter</p>
+                </cRefPattern>
+            </refsDecl>
+            
             <refsDecl>
+                <!--<refState delim=" " unit="book"/>-->
+                <refState delim=":" unit="chapter"/>
+                <refState unit="verse"/>
+            </refsDecl>
+            
+            <!--<refsDecl>
                 <step to="DITTO" from="DESCENDANT (1 DIV1 N %1)" refunit="book" delim=" "/>
                 <step to="DITTO" from="DESCENDANT (1 DIV2 N %2)" refunit="chapter" delim="."/>
                 <step to="DITTO" from="DESCENDANT (1 MILESTONE N %3)" refunit="verse"/>
-            </refsDecl>
+            </refsDecl>-->
         </encodingDesc>
+        
         <profileDesc>
-            <langUsage default="NO">
-                <language ident="en">English</language>
+            <langUsage>
+                <language ident="eng">English</language>
             </langUsage>
         </profileDesc>
-        <revisionDesc><!--
-            <change>
-                <date>14-Oct-99</date>
-                <respStmt>
-                    <name>Anne Mahoney</name>
-                    <resp>markup</resp>
-                </respStmt>
-                <item>Initial markup from flat ASCII text</item>
-            </change>
-            <change>
-                <date>5/27/09</date>
-                <respStmt>
-                    <name>RS</name>
-                    <resp>(n/a)</resp>
-                </respStmt>
-                <item>
-                    $Log: world.english.xml,v $
-			Revision 1.2  2010-06-29 22:00:29  student
-			fixing place tags - AD
-
-			Revision 1.1  2009/10/08 19:10:56  rsingh04
-			began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
-
-			Revision 1.3  2009/05/27 16:11:31  rsingh04
-			added/fixed cvs log keyword
-                </item>
-            </change>
-        --><change when="2014-08-01" who="Stella Dee">edited markup</change></revisionDesc>
+        <revisionDesc>
+            <change when="2016-10-26" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+            <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change when="2010-06-29" who="student">fixing place tags AD</change>
+            <change when="2009-10-08" who="rsingh04">began reorganizing texts module by collection.created separate work directory in texts module to keep hopper files separate from in progress files</change>
+            <change when="2009-05-27" who="rsingh04">added/fixed cvs log keyword</change>
+            <change when="1999-10-14" who="Anne Mahoney">Initial markup from flat ASCII text</change>
+        </revisionDesc>
     </teiHeader>
-    <text xml:lang="en">
+    
+    <text xml:lang="eng">
         <body>
-            <div part="N" sample="complete" org="uniform" n="II Timothy" type="book">
+            <div type="edition" xml:lang="eng" n="urn:cts:greekLit:tlg0031.tlg016.perseus-eng2">
                 <head>Paul's Second Letter to Timothy</head>
-                <div part="N" sample="complete" org="uniform" n="1" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                <div type="textpart" subtype="chapter" n="1">
+                
+
+<div type="textpart" subtype="verse" n="1"><p>
+                
                         Paul, an apostle of Jesus Christ through the will of God,
 according to the promise of the life which is in Christ Jesus,
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         to Timothy, my beloved child: Grace, mercy, and peace, from God the Father
 and Christ Jesus our Lord.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         I thank God, whom I serve as my forefathers did, with a pure
 conscience. How unceasing is my memory of you in my petitions, night
 and day
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         longing to see you, remembering your tears, that I may be
 filled with joy;
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         having been reminded of the unfeigned faith that
 is in you; which lived first in your grandmother Lois, and your mother
 Eunice, and, I am persuaded, in you also.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         For this cause, I remind you that you should stir up the gift
 of God which is in you through the laying on of my hands.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         For God
 didn't give us a spirit of fear, but of power, love, and self-control.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         Therefore don't be ashamed of the testimony of our Lord, nor of
 me his prisoner; but endure hardship for the gospel according to the
 power of God,
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         who saved us and called us with a holy calling, not
 according to our works, but according to his own purpose and grace,
 which was given to us in Christ Jesus before times eternal,
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         but
 has now been revealed by the appearing of our Savior, Christ Jesus, who
 abolished death, and brought life and immortality to light through the
 gospel.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         For this, I was appointed as a preacher, an apostle, and
 a teacher of the Gentiles.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         For this cause I suffer also these
 things.
 
    Yet I am not ashamed, for I know him whom I have believed, and I am
 persuaded that he is able to guard that which I have committed to him
 against that day.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Hold the pattern of sound words which you have heard from me,
 in faith and love which is in Christ Jesus.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         That good thing
 which was committed to you, guard through the Holy Spirit who dwells in
 us.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         This you know, that all who are in Asia turned away from me;
 of whom are Phygelus and Hermogenes.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         May the Lord grant mercy to
 the house of Onesiphorus, for he often refreshed me, and was not
 ashamed of my chain,
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         but when he was in Rome, he sought me
 diligently, and found me
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         (the Lord grant to him to find the
 Lord's mercy in that day); and in how many things he served at Ephesus,
 you know very well.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="2" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="2">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+                  
                         You therefore, my child, be strengthened in the grace that is
 in Christ Jesus.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         The things which you have heard from me among
 many witnesses, commit the same to faithful men, who will be able to
 teach others also.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         You therefore must endure hardship, as a good
 soldier of Christ Jesus.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         No soldier on service entangles himself
 in the affairs of life, that he may please him who enrolled him as a
 soldier.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         Also, if anyone competes in athletics, he isn't crowned
 unless he has competed by the rules.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         The farmers who labor must
 be the first to get a share of the crops.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         Consider what I say,
 and may the Lord give you understanding in all things.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         Remember Jesus Christ, risen from the dead, of the seed of
 David, according to my gospel,
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         in which I suffer hardship to the
 point of chains as a criminal. But God's word isn't chained.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         Therefore I endure all things for the elect's sake, that they also may
 obtain the salvation which is in Christ Jesus with eternal glory.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         This saying is faithful:
 For if we died with him,
    We will also live with him.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         If we endure,
    We will also reign with him.
 If we deny him,
    He also will deny us.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         If we are faithless,
    He remains faithful. He can't deny himself.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         Remind them of these things, charging them in the sight of
 the Lord, that they don't argue about words, to no profit, to the
 subverting of those who hear.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         Give diligence to present yourself approved by God, a workman
 who doesn't need to be ashamed, properly handling the Word of Truth.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         But shun empty chatter, for they will proceed further in
 ungodliness,
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         and their word will consume like gangrene, of whom
 is Hymenaeus and Philetus;
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         men who have erred concerning the
 truth, saying that the resurrection is already past, and overthrowing
 the faith of some.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         However God's firm foundation stands, having
 this seal, "The Lord knows those who are his," and, "Let every one who
 names the name of the Lord depart from unrighteousness."
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         Now in
 a great house there are not only vessels of gold and of silver, but
 also of wood and of clay. Some are for honor, and some for dishonor.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         If anyone therefore purges himself from these, he will be a
 vessel for honor, sanctified, and suitable for the master's use,
 prepared for every good work.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         Flee from youthful lusts; but pursue righteousness, faith,
 love, and peace with those who call on the Lord out of a pure heart.
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         But refuse foolish and ignorant questionings, knowing that they
 generate strife.
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         The Lord's servant must not quarrel, but be
 gentle towards all, able to teach, patient,
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         in gentleness
 correcting those who oppose him: perhaps God may give them repentance
 leading to a full knowledge of the truth,
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         and they may recover
 themselves out of the devil's snare, having been taken captive by him
 to his will.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="3" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="3">
+                 
+
+<div type="textpart" subtype="verse" n="1"><p>
+                  
                         But know this, that in the last days, grievous times will
 come.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         For men will be lovers of self, lovers of money, boastful,
 arrogant, blasphemers, disobedient to parents, unthankful, unholy,
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         without natural affection, unforgiving, slanderers, without
 self-control, fierce, no lovers of good,
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         traitors, headstrong,
 conceited, lovers of pleasure rather than lovers of God;
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         holding
 a form of godliness, but having denied the power thereof. Turn away
 from these, also.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         For of these are those who creep into houses,
 and take captive gullible women loaded down with sins, led away by
 various lusts,
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         always learning, and never able to come to the
 knowledge of the truth.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         Even as Jannes and Jambres opposed Moses,
 so do these also oppose the truth; men corrupted in mind, reprobate
 concerning the faith.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         But they will proceed no further. For their
 folly will be evident to all men, as theirs also came to be.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         But
 you did follow my teaching, conduct, purpose, faith, patience, love,
 steadfastness,
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         persecutions, and sufferings: those things that
 happened to me at Antioch, Iconium, and Lystra. I endured those
 persecutions. Out of them all the Lord delivered me.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         Yes, and
 all who desire to live godly in Christ Jesus will suffer persecution.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         But evil men and impostors will grow worse and worse, deceiving
 and being deceived.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         But you remain in the things which you have
 learned and have been assured of, knowing from whom you have learned
 them.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         From infancy, you have known the sacred writings which are
 able to make you wise for salvation through faith, which is in Christ
 Jesus.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         Every writing inspired by God is profitable for teaching,
 for reproof, for correction, and for instruction which is in
 righteousness,
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         that the man of God may be complete, thoroughly
 equipped for every good work.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="4" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="4">
+                    
+
+<div type="textpart" subtype="verse" n="1"><p>
+                    
                         I charge you therefore before God and the Lord Jesus Christ,
 who will judge the living and the dead at His appearing and His
 kingdom:
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         preach the word; be urgent in season and out of season;
 reprove, rebuke, and exhort, with all patience and teaching.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         For
 the time will come when they will not listen to the sound doctrine,
 but, having itching ears, will heap up for themselves teachers after
 their own lusts;
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         and will turn away their ears from the truth,
 and turn aside to fables.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         But you be sober in all things, suffer
 hardship, do the work of an evangelist, and fulfill your ministry.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         For I am already being offered, and the time of my departure
 has come.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         I have fought the good fight. I have finished the
 course. I have kept the faith.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         From now on, there is stored up
 for me the crown of righteousness, which the Lord, the righteous judge,
 will give to me on that day; and not to me only, but also to all those
 who have loved his appearing.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         Be diligent to come to me soon,
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         for Demas left me, having loved this present world, and went to
 Thessalonica; Crescens to Galatia, and Titus to Dalmatia.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         Only
 Luke is with me. Take Mark, and bring him with you, for he is useful to
 me for ministering.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         But I sent Tychicus to Ephesus.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Bring
 the cloak that I left at Troas with Carpus when you come, and the
 books, especially the parchments.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         Alexander, the coppersmith,
 did much evil to me. The Lord will repay him according to his works,
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         of whom you also must beware; for he greatly opposed our words.
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         At my first defense, no one came to help me, but all left me.
 May it not be held against them.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         But the Lord stood by me, and
 strengthened me, that through me the message might be fully proclaimed,
 and that all the Gentiles might hear; and I was delivered out of the
 mouth of the lion.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         And the Lord will deliver me from every evil
 work, and will preserve me for his heavenly kingdom; to whom be the
 glory forever and ever. Amen.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         Greet Prisca and Aquila, and the house of Onesiphorus.
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         Erastus remained at Corinth, but I left Trophimus at Miletus sick.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         Be diligent to come before winter. Eubulus salutes you, as do
 Pudens, Linus, Claudia, and all the brothers.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         The Lord Jesus
 Christ be with your spirit. Grace be with you. Amen.
                     </p>
-                </div>
+                </div></div>
             </div>
         </body>
     </text>
