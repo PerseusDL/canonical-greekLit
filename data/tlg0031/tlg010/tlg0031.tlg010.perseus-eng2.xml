@@ -1,3 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader type="text">
         <fileDesc>
@@ -15,15 +20,15 @@
                     <name>David Smith</name>
                 </respStmt>
                 <funder n="org:FIPSE">Fund for the Improvement of Postsecondary Education</funder>
-            </titleStmt><publicationStmt><publisher>Trustees of Tufts University</publisher><pubPlace>Medford, MA</pubPlace><authority>Perseus Project</authority></publicationStmt>
+            </titleStmt>
             
             <publicationStmt>
                 <publisher>Trustees of Tufts University</publisher>
                 <pubPlace>Medford, MA</pubPlace>
                 <authority>Perseus Project</authority>
             </publicationStmt>
-            <sourceDesc default="NO">
-                <biblStruct default="NO">
+            <sourceDesc>
+                <biblStruct>
                     <monogr>
                         <author>Rainbow Missions, Inc.</author>
                         <title>World English Bible</title>
@@ -38,595 +43,904 @@
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
+            <refsDecl n="CTS">
+                <cRefPattern n="verse"
+                    matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts chapter and verse</p>
+                </cRefPattern>
+                <cRefPattern n="chapter"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts chapter</p>
+                </cRefPattern>
+            </refsDecl>
+            
             <refsDecl>
+                <!--<refState delim=" " unit="book"/>-->
+                <refState delim=":" unit="chapter"/>
+                <refState unit="verse"/>
+            </refsDecl>
+            
+            <!--<refsDecl>
                 <step to="DITTO" from="DESCENDANT (1 DIV1 N %1)" refunit="book" delim=" "/>
                 <step to="DITTO" from="DESCENDANT (1 DIV2 N %2)" refunit="chapter" delim="."/>
                 <step to="DITTO" from="DESCENDANT (1 MILESTONE N %3)" refunit="verse"/>
-            </refsDecl>
+            </refsDecl>-->
         </encodingDesc>
         <profileDesc>
-            <langUsage default="NO">
-                <language ident="en">English</language>
+            <langUsage>
+                <language ident="eng">English</language>
             </langUsage>
         </profileDesc>
-        <revisionDesc><!--
-            <change>
-                <date>14-Oct-99</date>
-                <respStmt>
-                    <name>Anne Mahoney</name>
-                    <resp>markup</resp>
-                </respStmt>
-                <item>Initial markup from flat ASCII text</item>
-            </change>
-            <change>
-                <date>5/27/09</date>
-                <respStmt>
-                    <name>RS</name>
-                    <resp>(n/a)</resp>
-                </respStmt>
-                <item>
-                    $Log: world.english.xml,v $
-			Revision 1.2  2010-06-29 22:00:29  student
-			fixing place tags - AD
-
-			Revision 1.1  2009/10/08 19:10:56  rsingh04
-			began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
-
-			Revision 1.3  2009/05/27 16:11:31  rsingh04
-			added/fixed cvs log keyword
-                </item>
-            </change>
-        --><change when="2014-08-01" who="Stella Dee">edited markup</change></revisionDesc>
+        <revisionDesc>
+            <change when="2016-10-26" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+            <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change when="2010-06-29" who="student">fixing place tags AD</change>
+            <change when="2009-10-08" who="rsingh04">began reorganizing texts module by collection.created separate work directory in texts module to keep hopper files separate from in progress files</change>
+            <change when="2009-05-27" who="rsingh04">added/fixed cvs log keyword</change>
+            <change when="1999-10-14" who="Anne Mahoney">Initial markup from flat ASCII text</change> 
+        </revisionDesc>
     </teiHeader>
-    <text xml:lang="en">
+    <text xml:lang="eng">
         <body>
-            <div part="N" sample="complete" org="uniform" n="Ephesians" type="book">
+            <div type="edition" xml:lang="eng" n="urn:cts:greekLit:tlg0031.tlg010.perseus-eng2">
                 <head>Paul's Letter to the Ephesians</head>
-                <div part="N" sample="complete" org="uniform" n="1" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                <div type="textpart" subtype="chapter" n="1">
+                  
+
+<div type="textpart" subtype="verse" n="1"><p>
+                    
                         Paul, an apostle of Christ Jesus through the will of God,
    to the saints who are at Ephesus, and the faithful in Christ Jesus:
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         Grace to you and peace from God our Father and the Lord Jesus
 Christ.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         Blessed be the God and Father of our Lord Jesus Christ, who
 has blessed us with every spiritual blessing in the heavenly places in
 Christ;
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         even as he chose us in him before the foundation of the
 world, that we would be holy and without blemish before him in love;
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         having predestined us for adoption as sons through Jesus Christ
 to himself, according to the good pleasure of his desire,
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         to the
 praise of the glory of his grace, by which he freely bestowed favor on
 us in the Beloved,
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         in whom we have our redemption through his
 blood, the forgiveness of our trespasses, according to the riches of
 his grace,
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         which he made to abound toward us in all wisdom and
 prudence,
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         making known to us the mystery of his will, according
 to his good pleasure which he purposed in him
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         to an
 administration of the fullness of the times, to sum up all things in
 Christ, the things in the heavens, and the things on the earth, in him;
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         in whom also we were assigned an inheritance, having been
 foreordained according to the purpose of him who works all things after
 the counsel of his will;
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         to the end that we should be to the
 praise of his glory, we who had before hoped in Christ:
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         in whom
 you also, having heard the word of the truth, the gospel of your
 salvation, -- in whom, having also believed, you were sealed with the
 Holy Spirit of promise,
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         who is a pledge of our inheritance, to
 the redemption of God's own possession, to the praise of his glory.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         For this cause I also, having heard of the faith in the Lord
 Jesus which is among you, and the love which you have toward all the
 saints,
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         don't cease to give thanks for you, making mention of
 you in my prayers,
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         that the God of our Lord Jesus Christ, the
 Father of glory, may give to you a spirit of wisdom and revelation in
 the knowledge of him;
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         having the eyes of your hearts
 enlightened, that you may know what is the hope of his calling, and
 what are the riches of the glory of his inheritance in the saints,
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         and what is the exceeding greatness of his power toward us who
 believe, according to that working of the strength of his might
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         which he worked in Christ, when he raised him from the dead, and made
 him to sit at his right hand in the heavenly places,
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         far above
 all rule, and authority, and power, and dominion, and every name that
 is named, not only in this world, but also in that which is to come.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         He put all things in subjection under his feet, and gave him to
 be head over all things for the assembly,
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         which is his body, the
 fullness of him who fills all in all.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="2" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="2">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+             
                         You were made alive when you were dead in transgressions and
 sins,
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         in which you once walked according to the course of this
 world, according to the prince of the powers of the air, the spirit who
 now works in the sons of disobedience;
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         among whom we also all
 once lived in the lust of our flesh, doing the desires of the flesh and
 of the mind, and were by nature children of wrath, even as the rest.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         But God, being rich in mercy, for his great love with which he
 loved us,
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         even when we were dead through our trespasses, made us
 alive together with Christ (by grace you have been saved),
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         and
 raised us up with him, and made us to sit with him in the heavenly
 places in Christ Jesus,
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         that in the ages to come he might show
 the exceeding riches of his grace in kindness toward us in Christ
 Jesus;
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         for by grace you have been saved through faith, and that
 not of yourselves; it is the gift of God,
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         not of works, that no
 one would boast.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         For we are his workmanship, created in Christ
 Jesus for good works, which God prepared before that we would walk in
 them.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         Therefore remember that once you, the Gentiles in the flesh,
 who are called "uncircumcision" by that which is called "circumcision,"
 (in the flesh, made by hands);
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         that you were at that time
 separate from Christ, alienated from the commonwealth of Israel, and
 strangers from the covenants of the promise, having no hope and without
 God in the world.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         But now in Christ Jesus you who once were far
 off are made near in the blood of Christ.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         For he is our peace,
 who made both one, and broke down the middle wall of partition,
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         having abolished in the flesh the hostility, the law of commandments
 contained in ordinances, that he might create in himself one new man of
 the two, making peace;
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         and might reconcile them both in one body
 to God through the cross, having killed the hostility thereby.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         He came and preached peace to you who were far off and to those who
 were near.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         For through him we both have our access in one Spirit
 to the Father.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         So then you are no longer strangers and
 sojourners, but you are fellow citizens with the saints, and of the
 household of God,
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         being built on the foundation of the apostles
 and prophets, Christ Jesus himself being the chief cornerstone;
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         in whom the whole building, fitted together, grows into a holy temple
 in the Lord;
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         in whom you also are built together for a
 habitation of God in the Spirit.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="3" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="3">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+                    
                         For this cause I, Paul, am the prisoner of Christ Jesus on
 behalf of you Gentiles,
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         if it is so that you have heard of the
 administration of that grace of God which was given me toward you;
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         how that by revelation the mystery was made known to me, as I
 wrote before in few words,
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         by which, when you read, you can
 perceive my understanding in the mystery of Christ;
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         which in
 other generations was not made known to the sons of men, as it has now
 been revealed to his holy apostles and prophets in the Spirit;
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         that the Gentiles are fellow heirs, and fellow members of the body, and
 fellow partakers of his promise in Christ Jesus through the gospel,
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         whereof I was made a servant, according to the gift of that grace
 of God which was given me according to the working of his power.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         To me, the very least of all saints, was this grace given, to preach to
 the Gentiles the unsearchable riches of Christ,
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         and to make all
 men see what is the administration of the mystery which for ages has
 been hidden in God, who created all things through Jesus Christ;
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         to the intent that now through the assembly the manifold wisdom of God
 might be made known to the principalities and the powers in the
 heavenly places,
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         according to the eternal purpose which he
 purposed in Christ Jesus our Lord;
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         in whom we have boldness and
 access in confidence through our faith in him.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Therefore I ask
 that you may not lose heart at my troubles for you, which are your
 glory.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         For this cause, I bow my knees to the Father of our Lord
 Jesus Christ,
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         from whom every family in heaven and on earth is
 named,
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         that he would grant you, according to the riches of his
 glory, that you may be strengthened with power through his Spirit in
 the inward man;
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         that Christ may dwell in your hearts through
 faith; to the end that you, being rooted and grounded in love,
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         may be strengthened to comprehend with all the saints what is the
 breadth and length and height and depth,
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         and to know Christ's
 love which surpasses knowledge, that you may be filled with all the
 fullness of God.
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         Now to him who is able to do exceedingly
 abundantly above all that we ask or think, according to the power that
 works in us,
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         to him be the glory in the assembly and in Christ
 Jesus to all generations forever and ever. Amen.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="4" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="4">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         I therefore, the prisoner in the Lord, beg you to walk
 worthily of the calling with which you were called,
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         with all
 lowliness and humility, with longsuffering, bearing with one another in
 love;
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         being eager to keep the unity of the Spirit in the bond of
 peace.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         There is one body, and one Spirit, even as you also were
 called in one hope of your calling;
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         one Lord, one faith, one
 baptism,
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         one God and Father of all, who is over all, and through
 all, and in us all.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         But to each one of us was the grace given
 according to the measure of the gift of Christ.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         Therefore he
 says, "When he ascended on high, he led captivity captive, and gave
 gifts to men."
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         Now this, "He ascended," what is it but that he
 also first descended into the lower parts of the earth?
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         He who
 descended is the one who also ascended far above all the heavens, that
 he might fill all things.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         He gave some to be apostles; and some, prophets; and some,
 evangelists; and some, shepherds and teachers;
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         for the
 perfecting of the saints, to the work of serving, to the building up of
 the body of Christ;
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         until we all attain to the unity of the
 faith, and of the knowledge of the Son of God, to a full grown man, to
 the measure of the stature of the fullness of Christ;
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         that we
 may no longer be children, tossed back and forth and carried about with
 every wind of doctrine, by the trickery of men, in craftiness, after
 the wiles of error;
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         but speaking truth in love, we may grow up
 in all things into him, who is the head, Christ;
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         from whom all
 the body, being fitted and knit together through that which every joint
 supplies, according to the working in measure of each individual part,
 makes the body increase to the building up of itself in love.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         This I say therefore, and testify in the Lord, that you no
 longer walk as the rest of the Gentiles also walk, in the futility of
 their mind,
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         being darkened in their understanding, alienated
 from the life of God, because of the ignorance that is in them, because
 of the hardening of their hearts;
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         who having become callous gave
 themselves up to lust, to work all uncleanness with greediness.
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         But you did not learn Christ that way;
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         if indeed you heard him,
 and were taught in him, even as truth is in Jesus:
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         that you put
 away, as concerning your former way of life, the old man, that grows
 corrupt after the lusts of deceit;
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         and that you be renewed in
 the spirit of your mind,
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         and put on the new man, who in the
 likeness of God has been created in righteousness and holiness of truth.
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         Therefore, putting away falsehood, speak truth each one with
 his neighbor. For we are members one of another.
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         "Be angry, and
 don't sin." Don't let the sun go down on your wrath,
-                        <milestone unit="verse" n="27"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="27"><p>
                         neither
 give place to the devil.
-                        <milestone unit="verse" n="28"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="28"><p>
                         Let him who stole steal no more; but
 rather let him labor, working with his hands the thing that is good,
 that he may have something to give to him who has need.
-                        <milestone unit="verse" n="29"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="29"><p>
                         Let no
 corrupt speech proceed out of your mouth, but such as is good for
 building up as the need may be, that it may give grace to those who
 hear.
-                        <milestone unit="verse" n="30"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="30"><p>
                         Don't grieve the Holy Spirit of God, in whom you were
 sealed for the day of redemption.
-                        <milestone unit="verse" n="31"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="31"><p>
                         Let all bitterness, wrath,
 anger, outcry, and slander, be put away from you, with all malice.
-                        <milestone unit="verse" n="32"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="32"><p>
                         And be kind to one another, tenderhearted, forgiving each other,
 just as God also in Christ forgave you.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="5" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="5">
+                    
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         Be therefore imitators of God, as beloved children.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         Walk
 in love, even as Christ also loved you, and gave himself up for us, an
 offering and a sacrifice to God for a sweet-smelling fragrance.
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         But sexual immorality, and all uncleanness, or covetousness, let it not
 even be mentioned among you, as becomes saints;
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         nor filthiness,
 nor foolish talking, nor jesting, which are not appropriate; but rather
 giving of thanks.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         Know this for sure, that no sexually immoral person, nor
 unclean person, nor covetous man, who is an idolater, has any
 inheritance in the Kingdom of Christ and God.
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         Let no one deceive you with empty words. For because of these
 things, the wrath of God comes on the sons of disobedience.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         Therefore don't be partakers with them.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         For you were once
 darkness, but are now light in the Lord. Walk as children of light,
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         for the fruit of the Spirit is in all goodness and righteousness
 and truth,
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         proving what is well-pleasing to the Lord.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         Have no fellowship with the unfruitful works of darkness, but rather
 even reprove them.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         For the things which are done by them in
 secret, it is a shame even to speak of.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         But all things, when
 they are reproved, are revealed by the light, for everything that is
 revealed is light.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         Therefore he says, "Awake, you who sleep, and
 arise from the dead, and Christ will shine on you."
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         Therefore watch carefully how you walk, not as unwise, but as
 wise;
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         redeeming the time, because the days are evil.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         Therefore don't be foolish, but understand what the will of the Lord
 is.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         Don't be drunken with wine, in which is dissipation, but be
 filled with the Spirit,
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         speaking to one another in psalms,
 hymns, and spiritual songs; singing, and singing praises in your heart
 to the Lord;
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         giving thanks always concerning all things in the
 name of our Lord Jesus Christ, to God, even the Father;
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         subjecting yourselves one to another in the fear of Christ.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         Wives, be subject to your own husbands, as to the Lord.
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         For the husband is the head of the wife, and Christ also is the
 head of the assembly, being himself the savior of the body.
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         But
 as the assembly is subject to Christ, so let the wives also be to their
 own husbands in everything.
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         Husbands, love your wives, even as Christ also loved the
 assembly, and gave himself up for it;
-                        <milestone unit="verse" n="26"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="26"><p>
                         that he might sanctify it,
 having cleansed it by the washing of water with the word,
-                        <milestone unit="verse" n="27"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="27"><p>
                         that
 he might present the assembly to himself gloriously, not having spot or
 wrinkle or any such thing; but that it should be holy and without
 blemish.
-                        <milestone unit="verse" n="28"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="28"><p>
                         Even so ought husbands also to love their own wives as
 their own bodies. He who loves his own wife loves himself.
-                        <milestone unit="verse" n="29"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="29"><p>
                         For
 no man ever hated his own flesh; but nourishes and cherishes it, even
 as the Lord also does the assembly;
-                        <milestone unit="verse" n="30"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="30"><p>
                         because we are members of
 his body, of his flesh and bones.
-                        <milestone unit="verse" n="31"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="31"><p>
                         "For this cause a man will
 leave his father and mother, and will be joined to his wife. The two
 will become one flesh."
-                        <milestone unit="verse" n="32"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="32"><p>
                         This mystery is great, but I speak
 concerning Christ and of the assembly.
-                        <milestone unit="verse" n="33"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="33"><p>
                         Nevertheless each of you
 must also love his own wife even as himself; and let the wife see that
 she respects her husband.
                     </p>
-                </div>
-                <div part="N" sample="complete" org="uniform" n="6" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                </div></div>
+                <div type="textpart" subtype="chapter" n="6">
+              
+
+<div type="textpart" subtype="verse" n="1"><p>
+                   
                         Children, obey your parents in the Lord, for this is right.
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         "Honor your father and mother," which is the first commandment
 with a promise:
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         "that it may be well with you, and you may live
 long on the earth."
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         You fathers, don't provoke your children to wrath, but nurture
 them in the discipline and instruction of the Lord.
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         Servants, be obedient to those who according to the flesh are
 your masters, with fear and trembling, in singleness of your heart, as
 to Christ;
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         not in the way of service only when eyes are on you,
 as men-pleasers; but as servants of Christ, doing the will of God from
 the heart;
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         with good will doing service, as to the Lord, and not
 to men;
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         knowing that whatever good thing each one does, he will
 receive the same again from the Lord, whether he is bound or free.
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         You masters, do the same things to them, and give up
 threatening, knowing that he who is both their Master and yours is in
 heaven, and there is no partiality with him.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         Finally, be strong in the Lord, and in the strength of his
 might.
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         Put on the whole armor of God, that you may be able to
 stand against the wiles of the devil.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         For our wrestling is not
 against flesh and blood, but against the principalities, against the
 powers, against the world's rulers of the darkness of this age, and
 against the spiritual hosts of wickedness in the heavenly places.
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         Therefore, put on the whole armor of God, that you may be able
 to withstand in the evil day, and, having done all, to stand.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         Stand therefore, having the utility belt of truth buckled around your
 waist, and having put on the breastplate of righteousness,
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         and
 having fitted your feet with the preparation of the gospel of peace;
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         above all, taking up the shield of faith, with which you will be
 able to quench all the fiery darts of the evil one.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         And take the
 helmet of salvation, and the sword of the Spirit, which is the word of
 God;
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         with all prayer and requests, praying at all times in the
 Spirit, and being watchful to this end in all perseverance and requests
 for all the saints:
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         on my behalf, that utterance may be given to
 me in opening my mouth, to make known with boldness the mystery of the
 gospel,
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         for which I am an ambassador in chains; that in it I may
 speak boldly, as I ought to speak.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         But that you also may know my affairs, how I am doing,
 Tychicus, the beloved brother and faithful servant in the Lord, will
 make known to you all things;
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         whom I have sent to you for this
 very purpose, that you may know our state, and that he may comfort your
 hearts.
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         Peace be to the brothers, and love with faith, from God the
 Father and the Lord Jesus Christ.
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         Grace be with all those who
 love our Lord Jesus Christ with incorruptible love. Amen.
                     </p>
-                </div>
+                </div></div>
             </div>
         </body>
     </text>
