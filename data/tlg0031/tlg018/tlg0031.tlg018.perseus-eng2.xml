@@ -1,3 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader type="text">
         <fileDesc>
@@ -15,15 +20,15 @@
                     <name>David Smith</name>
                 </respStmt>
                 <funder n="org:FIPSE">Fund for the Improvement of Postsecondary Education</funder>
-            </titleStmt><publicationStmt><publisher>Trustees of Tufts University</publisher><pubPlace>Medford, MA</pubPlace><authority>Perseus Project</authority></publicationStmt>
+            </titleStmt>
             
             <publicationStmt>
                 <publisher>Trustees of Tufts University</publisher>
                 <pubPlace>Medford, MA</pubPlace>
                 <authority>Perseus Project</authority>
             </publicationStmt>
-            <sourceDesc default="NO">
-                <biblStruct default="NO">
+            <sourceDesc>
+                <biblStruct>
                     <monogr>
                         <author>Rainbow Missions, Inc.</author>
                         <title>World English Bible</title>
@@ -38,130 +43,180 @@
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
+            <refsDecl n="CTS">
+                <cRefPattern n="verse"
+                    matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts chapter and verse</p>
+                </cRefPattern>
+                <cRefPattern n="chapter"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts chapter</p>
+                </cRefPattern>
+            </refsDecl>
+            
             <refsDecl>
+                <!--<refState delim=" " unit="book"/>-->
+                <refState delim=":" unit="chapter"/>
+                <refState unit="verse"/>
+            </refsDecl>
+           <!-- <refsDecl>
                 <step to="DITTO" from="DESCENDANT (1 DIV1 N %1)" refunit="book" delim=" "/>
                 <step to="DITTO" from="DESCENDANT (1 DIV2 N %2)" refunit="chapter" delim="."/>
                 <step to="DITTO" from="DESCENDANT (1 MILESTONE N %3)" refunit="verse"/>
-            </refsDecl>
+            </refsDecl> -->
         </encodingDesc>
+        
         <profileDesc>
-            <langUsage default="NO">
-                <language ident="en">English</language>
+            <langUsage>
+                <language ident="eng">English</language>
             </langUsage>
         </profileDesc>
-        <revisionDesc><!--
-            <change>
-                <date>14-Oct-99</date>
-                <respStmt>
-                    <name>Anne Mahoney</name>
-                    <resp>markup</resp>
-                </respStmt>
-                <item>Initial markup from flat ASCII text</item>
-            </change>
-            <change>
-                <date>5/27/09</date>
-                <respStmt>
-                    <name>RS</name>
-                    <resp>(n/a)</resp>
-                </respStmt>
-                <item>
-                    $Log: world.english.xml,v $
-			Revision 1.2  2010-06-29 22:00:29  student
-			fixing place tags - AD
-
-			Revision 1.1  2009/10/08 19:10:56  rsingh04
-			began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
-
-			Revision 1.3  2009/05/27 16:11:31  rsingh04
-			added/fixed cvs log keyword
-                </item>
-            </change>
-        --><change when="2014-08-01" who="Stella Dee">edited markup</change></revisionDesc>
+        <revisionDesc>
+            <change when="2016-10-26" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+            <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change when="2010-06-29" who="student">fixing place tags AD</change>
+            <change when="2009-10-08" who="rsingh04">began reorganizing texts module by collection.created separate work directory in texts module to keep hopper files separate from in progress files</change>
+            <change when="2009-05-27" who="rsingh04">added/fixed cvs log keyword</change>
+            <change when="1999-10-14" who="Anne Mahoney">Initial markup from flat ASCII text</change>
+        </revisionDesc>
     </teiHeader>
-    <text xml:lang="en">
+    
+    <text xml:lang="eng">
         <body>
-            <div part="N" sample="complete" org="uniform" n="Philemon" type="book">
+            <div type="edition" xml:lang="eng" n="urn:cts:greekLit:tlg0031.tlg018.perseus-eng2">
                 <head>Paul's Letter to Philemon</head>
-                <div part="N" sample="complete" org="uniform" n="1" type="chapter">
-                    <milestone unit="verse" n="1"/>
-                    <p>
+                <div type="textpart" subtype="chapter" n="1">
+                   
+
+<div type="textpart" subtype="verse" n="1"><p>
+                    
                         Paul, a prisoner of Christ Jesus, and Timothy our brother, to
 Philemon, our beloved fellow worker,
-                        <milestone unit="verse" n="2"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="2"><p>
                         to the beloved Apphia, to Archippus, our fellow soldier, and to the assembly in your house:
-                        <milestone unit="verse" n="3"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="3"><p>
                         Grace to you and peace from God our Father and the Lord Jesus Christ.
-                        <milestone unit="verse" n="4"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="4"><p>
                         I thank my God always, making mention of you in my prayers,
-                        <milestone unit="verse" n="5"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="5"><p>
                         hearing of your love, and of the faith which you have toward the
 Lord Jesus, and toward all the saints;
-                        <milestone unit="verse" n="6"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="6"><p>
                         that the fellowship of
 your faith may become effective, in the knowledge of every good thing
 which is in us in Christ Jesus.
-                        <milestone unit="verse" n="7"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="7"><p>
                         For we have much joy and comfort
 in your love, because the hearts of the saints have been refreshed
 through you, brother.
-                        <milestone unit="verse" n="8"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="8"><p>
                         Therefore, though I have all boldness in Christ to command you
 that which is appropriate,
-                        <milestone unit="verse" n="9"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="9"><p>
                         yet for love's sake I rather beg,
 being such a one as Paul, the aged, but also a prisoner of Jesus
 Christ.
-                        <milestone unit="verse" n="10"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="10"><p>
                         I beg you for my child, whom I have become the father of
 in my chains, Onesimus,
-                        <milestone unit="verse" n="11"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="11"><p>
                         who once was useless to you, but now is
 useful to you and to me.
-                        <milestone unit="verse" n="12"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="12"><p>
                         I am sending him back. Therefore
 receive him, that is, my own heart,
-                        <milestone unit="verse" n="13"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="13"><p>
                         whom I desired to keep with
 me, that on your behalf he might serve me in my chains for the gospel.
-                        <milestone unit="verse" n="14"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="14"><p>
                         But I was willing to do nothing without your consent, that your
 goodness would not be as of necessity, but of free will.
-                        <milestone unit="verse" n="15"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="15"><p>
                         For
 perhaps he was therefore separated from you for a while, that you would
 have him forever,
-                        <milestone unit="verse" n="16"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="16"><p>
                         no longer as a slave, but more than a slave, a
 beloved brother, especially to me, but how much rather to you, both in
 the flesh and in the Lord.
-                        <milestone unit="verse" n="17"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="17"><p>
                         If then you count me a partner, receive him as you would
 receive me.
-                        <milestone unit="verse" n="18"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="18"><p>
                         But if he has wronged you at all, or owes you
 anything, put that to my account.
-                        <milestone unit="verse" n="19"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="19"><p>
                         I, Paul, write this with my
 own hand: I will repay it (not to mention to you that you owe to me
 even your own self besides).
-                        <milestone unit="verse" n="20"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="20"><p>
                         Yes, brother, let me have joy from
 you in the Lord. Refresh my heart in the Lord.
-                        <milestone unit="verse" n="21"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="21"><p>
                         Having confidence
 in your obedience, I write to you, knowing that you will do even beyond
 what I say.
-                        <milestone unit="verse" n="22"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="22"><p>
                         Also, prepare a guest room for me, for I hope that through
 your prayers I will be restored to you.
-                        <milestone unit="verse" n="23"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="23"><p>
                         Epaphras, my fellow prisoner in Christ Jesus, greets you,
-                        <milestone unit="verse" n="24"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="24"><p>
                         as do Mark, Aristarchus, Demas, and Luke, my fellow workers.
-                        <milestone unit="verse" n="25"/>
+                        </p></div>
+
+<div type="textpart" subtype="verse" n="25"><p>
                         The grace of our Lord Jesus Christ be with your spirit. Amen.
-                    </p>
-                </div>
+                    
+                </p></div></div>
             </div>
         </body>
     </text>
