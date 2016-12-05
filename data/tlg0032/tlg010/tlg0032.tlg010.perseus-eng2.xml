@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
 	<teiHeader type="text">
 		<fileDesc>
 			<titleStmt>
-				<title>Constitution of the Lacedaemonians from Minor Works (English). Machine
-					readable text</title>
+				<title>Constitution of the Lacedaemonians</title>
 				<author>Xenophon</author>
 				<editor role="transl">E. C. Marchant, G. W. Bowersock, tr. Constitution of the
 					Athenians.</editor>
@@ -48,41 +50,43 @@
 
 		</fileDesc>
 		<encodingDesc>
+			<refsDecl n="CTS">
+				<cRefPattern n="chapter" matchPattern="(\w+).(\w+)"
+					replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+					<p>This pointer pattern extracts chapter and section</p>
+				</cRefPattern>
+				<cRefPattern n="book" matchPattern="(\w+)"
+					replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+					<p>This pointer pattern extracts chapter</p>
+				</cRefPattern>
+			</refsDecl>
 			<refsDecl>
-				<refState unit="text"/>
+				<!--<refState unit="text"/>-->
 				<refState unit="chapter"/>
 				<refState unit="section"/>
 			</refsDecl>
 		</encodingDesc>
 		<profileDesc>
 			<langUsage>
-				<language ident="en">English</language>
-				<language ident="greek">Greek</language>
+				<language ident="eng">English</language>
+				<language ident="grc">Greek</language>
 			</langUsage>
 		</profileDesc>
 		<revisionDesc>
-			<!--
-<change>
-<date>June, 1992</date><respStmt><name>wpm and das</name><resp>(n/a)</resp></respStmt><item>tagged text to conform with prose.e dtd.</item>
-</change>
-<change>
-<date>8/11/92</date><respStmt><name>das</name><resp>(n/a)</resp></respStmt><item>changed chapters to div2's</item>
-</change>
-<change>
-<date>10/29/92</date><respStmt><name>das</name><resp>(n/a)</resp></respStmt><item>added HEAD's and REFDECL's; glued minor works together</item>
-</change>
-<change><date>July 2014</date>
-    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
-    <item>split speeches and converted to unicode</item>
-      </change>-->
+			<change when="2016-12-05" who="Lisa Cerrato">CTS and EpiDoc conversion</change>
 			<change when="2014-08-01" who="Stella Dee">edited markup</change>
+			<change when="2014-07-01" who="Stella Dee">split speeches and converted to unicode</change>
+			<change when="1992-10-29" who="das">added HEAD's and REFDECL's; glued minor works together</change>
+			<change when="1992-08-11" who="das">changed chapters to div2's</change>
+			<change when="1992-06-01" who="wpm and das">tagged text to conform with prose.e dtd.</change>
 		</revisionDesc>
 	</teiHeader>
 	<text>
 
 		<body>
-			<div type="chapter" n="1">
-				<div type="section" n="1">
+			<div type="translation" n="urn:cts:greekLit:tlg0032.tlg010.perseus-eng2" xml:lang="eng">
+			<div type="textpart" subtype="chapter" n="1">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>It occurred to me one day that <placeName
 							key="perseus,Sparta">Sparta</placeName>, though among the most thinly
 						populated of states, was evidently the most powerful and most celebrated
@@ -90,14 +94,14 @@
 						wondering how this could have happened. But when I considered the
 						institutions of the Spartans, I wondered no longer. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p><milestone unit="para" ed="P"/>Lycurgus, who gave them the laws that they
 						obey, and to which they owe their prosperity, I do regard with wonder; and I
 						think that he reached the utmost limit of wisdom. For it was not by
 						imitating other states, but by devising a system utterly different from that
 						of most others, that he made his country pre-eminently prosperous. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p><milestone unit="para" ed="P"/>First, to begin at the beginning, I will take
 						the begetting of children.<note resp="Loeb" anchored="true">The prose
 								<title>Constitution of the Lacedaemonians</title> by Critias began
@@ -106,11 +110,11 @@
 						fashion, live on the very plainest fare, with a most meagre allowance of
 						delicacies. Wine is either witheld altogether, or, if allowed them, is
 						diluted with water. The rest of the Greeks expect their girls to imitate the
-						sedentary life that is typical of handicraftsmen -- to keep quiet and do
+						sedentary life that is typical of handicraftsmen — to keep quiet and do
 						wool-work. How, then, is it to be expected that women so brought up will
 						bear fine children? </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p><milestone unit="para" ed="P"/>But Lycurgus thought the labour of slave women
 						sufficient to supply clothing. He believed motherhood to be the most
 						important function of freeborn woman. Therefore, in the first place, he
@@ -119,36 +123,36 @@
 						as for men, believing that if both parents are strong they produce more
 						vigorous offspring. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p><milestone unit="para" ed="P"/>He noticed, too, that, during the time
 						immediately succeeding marriage, it was usual elsewhere for the husband to
 						have unlimited intercourse with his wife. The rule that he adopted was the
 						opposite of this: for he laid it down that the husband should be ashamed to
-						be seen entering his wife's room or leaving it. With this restriction on
+						be seen entering his wife’s room or leaving it. With this restriction on
 						intercourse the desire of the one for the other must necessarily be
 						increased, and their offspring was bound to be more vigorous than if they
 						were surfeited with one another. </p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p>In addition to this, he withdrew from men the right to take a wife whenever
 						they chose, and insisted on their marrying in the prime of their manhood,
 						believing that this too promoted the production of fine children. </p>
 				</div>
-				<div type="section" n="7">
+				<div type="textpart" subtype="section" n="7">
 					<p>It might happen, however, that an old man had a young wife; and he observed
 						that old men keep a very jealous watch over their young wives. To meet these
 						cases he instituted an entirely different system by requiring the elderly
 						husband to introduce into his house some man whose physical and moral
 						qualities he admired, in order to beget children. </p>
 				</div>
-				<div type="section" n="8">
+				<div type="textpart" subtype="section" n="8">
 					<p>On the other hand, in case a man did not want to cohabit with his wife and
 						nevertheless desired children of whom he could be proud, he made it lawful
 						for him to choose a woman who was the mother of a fine family and of high
-						birth, and if he obtained her husband's consent, to make her the mother of
+						birth, and if he obtained her husband’s consent, to make her the mother of
 						his children. </p>
 				</div>
-				<div type="section" n="9">
+				<div type="textpart" subtype="section" n="9">
 					<p><milestone unit="para" ed="P"/>He gave his sanction to many similar
 						arrangements. For the wives<note resp="Loeb" anchored="true">i.e., at
 								<placeName key="perseus,Sparta">Sparta</placeName>.</note> want to
@@ -156,7 +160,7 @@
 						their sons, brothers who are members of the family and share in its
 						influence, but claim no part of the money. </p>
 				</div>
-				<div type="section" n="10">
+				<div type="textpart" subtype="section" n="10">
 					<p><milestone unit="para" ed="P"/>Thus his regulations with regard to the
 						begetting of children were in sharp contrast with those of other states.
 						Whether he succeeded in populating <placeName key="perseus,Sparta"
@@ -164,59 +168,59 @@
 						strength anyone who chooses may judge for himself. </p>
 				</div>
 			</div>
-			<div type="chapter" n="2">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="2">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>Having dealth with the subject of birth, I
 						wish next to explain the educational system of Lycurgus, and how it differs
 						from other systems.</p>
 					<p><milestone unit="para" ed="P"/>In the other Greek states parents who profess
 						to give their sons the best education place their boys under the care and
 						control of a moral tutor<note resp="Loeb" anchored="true">I have adopted for
-								<foreign xml:lang="greek">paidagwgo/s</foreign> the term used at
+							<foreign xml:lang="grc">παιδαγωγός</foreign> the term used at
 								<placeName key="tgn,7011931">Oxford</placeName> for a person who has
 							charge of, but does not teach, an undergraduate.</note> as soon as they
 						can understand what is said to them, and send them to a school to learn
 						letters, music and the exercises of the wrestling-ground. Moreover, they
-						soften the children's feet by giving them sandals, and pamper their bodies
+						soften the children’s feet by giving them sandals, and pamper their bodies
 						with changes of clothing; and it is customary to allow them as much food as
 						they can eat. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p><milestone unit="para" ed="P"/>Lycurgus, on the contrary, instead of leaving
 						each father to appoint a slave to act as tutor, gave the duty of controlling
 						the boys to a member of the class from which the highest offices are filled,
-						in fact to the “Warden” as he is called. He gave this person authority to
+						in fact to the <q type="soCalled">Warden</q> as he is called. He gave this person authority to
 						gather the boys together, to take charge of them and to punish them severely
 						in case of misconduct. He also assigned to him a staff of youths provided
 						with whips to chastise them when necessary; and the result is that modesty
 						and obedience are inseparable companions at <placeName key="perseus,Sparta"
 							>Sparta</placeName>. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p>Instead of softening the boys' feet with sandals he required them to harden
 						their feet by going without shoes. He believed that if this habit were
 						cultivated it would enable them to climb hills more easily and descend steep
 						inclines with less danger, and that a youth who had accustomed himself to go
 						barefoot would leap and jump and run more nimbly than a boy in sandals. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p>And instead of letting them be pampered in the matter of clothing, he
 						introduced the custom of wearing one garment throughout the year, believing
 						that they would thus be better prepared to face changes of heat and cold.
 					</p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p>As to the food, he required the prefect to bring with him<note resp="Loeb"
-							anchored="true"><foreign xml:lang="greek">sumboleu/ein</foreign> is the
-							conjecture of F. Portus for <foreign xml:lang="greek"
-								>sumbouleu/ein</foreign>, and <foreign xml:lang="greek"
-								>ei)/rena</foreign> that of Schneider for <foreign xml:lang="greek"
-								>a)/rrena.</foreign> The prefect took his meals with the class of
-							which he had charge. But Stobaeus' text runs <foreign xml:lang="greek"
-								>si=to/n ge mh\n tosou=ton e)/xein</foreign> (for which read
-								<foreign xml:lang="greek">e)sqi/ein</foreign>) <foreign
-								xml:lang="greek">sunebou/leuen w(s</foreign>, “he recommended them
-							to eat so moderately that they”; and this is probably right.</note> such
+						anchored="true"><foreign xml:lang="grc">συμβολεύειν</foreign> is the
+							conjecture of F. Portus for <foreign xml:lang="grc"
+								>συμβουλεύειν</foreign>, and <foreign xml:lang="grc"
+									>εἴρενα</foreign> that of Schneider for <foreign xml:lang="grc"
+										>ἄρρενα.</foreign> The prefect took his meals with the class of
+							which he had charge. But Stobaeus' text runs <foreign xml:lang="grc"
+								>σῖτόν γε μὴν τοσοῦτον ἔχειν</foreign> (for which read
+						<foreign xml:lang="grc">ἐσθίειν</foreign>) <foreign
+							xml:lang="grc">συνεβούλευεν ὡς</foreign>, <gloss>he recommended them
+							to eat so moderately that they</gloss>; and this is probably right.</note> such
 						a moderate amount of it that the boys would never suffer from repletion, and
 						would know what it was to go with their hunger unsatisfied; for he believed
 						that those who underwent this training would be better able to continue
@@ -226,7 +230,7 @@
 						readily to anything put before them, and at the same time would enjoy better
 						health. </p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p>He also thought that a diet which made their bodies slim would do more to
 						increase their height than one that consisted of flesh-forming food.</p>
 					<p><milestone unit="para" ed="P"/>On the other hand, lest they should feel too
@@ -235,7 +239,7 @@
 						opportunity of taking what they wanted without trouble he allowed them to
 						alleviate their hunger by stealing something. </p>
 				</div>
-				<div type="section" n="7">
+				<div type="textpart" subtype="section" n="7">
 					<p>It was not on account of a difficulty in providing for them that he
 						encouraged them to get their food by their own cunning. No one, I suppose,
 						can fail to see that. Obviously a man who intends to take to thieving must
@@ -246,15 +250,15 @@
 						men.</p>
 					<p><milestone unit="para" ed="P"/>Someone may ask: </p>
 				</div>
-				<div type="section" n="8">
+				<div type="textpart" subtype="section" n="8">
 					<p>But why, if he believed stealing to be a fine thing, did he have the boy who
 						was caught beaten with many stripes? I reply: Because in all cases men
 						punish a learner for not carrying out properly whatever he is taught to do.
 						So the Spartans chastise those who get caught for stealing badly. </p>
 				</div>
-				<div type="section" n="9">
-					<p>He made it a point of honour to steal as many cheeses as possible [from the
-						altar of Artemis Orthia],<note resp="Loeb" anchored="true">At this altar the
+				<div type="textpart" subtype="section" n="9">
+					<p>He made it a point of honour to steal as many cheeses as possible <del>from the
+						altar of Artemis Orthia</del>,<note resp="Loeb" anchored="true">At this altar the
 							annual scourging of Spartan boys and youths took place, according to
 							Plutarch and Pausanias; but this custom seems to have no connexion with
 							that of punishing those who were caught thieving. It is not improbable
@@ -265,7 +269,7 @@
 						need of swiftness, the slothful, as usual, gets little profit and many
 						troubles. </p>
 				</div>
-				<div type="section" n="10">
+				<div type="textpart" subtype="section" n="10">
 					<p><milestone unit="para" ed="P"/>In order that the boys might never lack a
 						ruler even when the Warden was away, he gave authority to any citizen who
 						chanced to be present to require them to do anything that he thought right,
@@ -273,13 +277,13 @@
 						boys more respectful; in fact boys and men alike respect their rulers above
 						everything. </p>
 				</div>
-				<div type="section" n="11">
+				<div type="textpart" subtype="section" n="11">
 					<p>And that a ruler might not be lacking to the boys even when no grown man
 						happened to be present, he selected the keenest of the prefects, and gave to
 						each the command of a division. And so at <placeName key="perseus,Sparta"
 							>Sparta</placeName> the boys are never without a ruler. </p>
 				</div>
-				<div type="section" n="12">
+				<div type="textpart" subtype="section" n="12">
 					<p><milestone unit="para" ed="P"/>I think I ought to say something also about
 						intimacy with boys, since this matter also has a bearing on education. In
 						other Greek states, for instance among the Boeotians, man and boy live
@@ -288,18 +292,18 @@
 						Eleians, for example, consent is won by means of favours. Some, on the other
 						hand, entirely forbid suitors to talk with boys. </p>
 				</div>
-				<div type="section" n="13">
+				<div type="textpart" subtype="section" n="13">
 					<p><milestone unit="para" ed="P"/>The customs instituted by Lycurgus were
 						opposed to all of these. If someone, being himself an honest man, admired a
-						boy's soul and tried to make of him an ideal friend without reproach and to
+						boy’s soul and tried to make of him an ideal friend without reproach and to
 						associate with him, he approved, and believed in the excellence of this kind
-						of training. But if it was clear that the attraction lay in the boy's
+						of training. But if it was clear that the attraction lay in the boy’s
 						outward beauty, he banned the connexion as an abomination; and thus he
 						caused lovers to abstain from boys no less than parents abstain from sexual
 						intercourse with their children and brothers and sisters with each other.
 					</p>
 				</div>
-				<div type="section" n="14">
+				<div type="textpart" subtype="section" n="14">
 					<p><milestone unit="para" ed="P"/>I am not surprised, however, that people
 						refuse to believe this. For in many states the laws are not opposed to the
 						indulgence of these appetites.</p>
@@ -309,57 +313,57 @@
 						chooses may once more judge for himself. </p>
 				</div>
 			</div>
-			<div type="chapter" n="3">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="3">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>When a boy ceases to be a child, and begins to
 						be a lad, others release him from his moral tutor and his schoolmaster: he
 						is then no longer under a ruler and is allowed to go his own way. Here again
 						Lycurgus introduced a wholly different system. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p>For he observed that at this time of life self-will makes strong root in a
-						boy's mind, a tendency to insolence manifests itself, and a keen appetite
+						boy’s mind, a tendency to insolence manifests itself, and a keen appetite
 						for pleasure in different forms takes possession of him. At this stage,
 						therefore, he imposed on him a ceaseless round of work, and contrived a
 						constant round of occupation. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p>The penalty for shirking the duties was exclusion from all future honours. He
 						thus caused not only the public authorities, but their relations also to
 						take pains that the lads did not incur the contempt of their fellow citizens
 						by flinching from their tasks. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p><milestone unit="para" ed="P"/>Moreover, wishing modesty to be firmly rooted
 						in them, he required them to keep their hands under their cloaks, to walk in
 						silence, not to look about them, but to fix their eyes on the ground. The
 						effect of this rule has been to prove that even in the matter of decorum the
 						male is stronger than the female sex. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p>At any rate you would expect a stone image to utter a sound sooner than those
 						lads; you would sooner attract the attention of a bronze figure; you might
 						think them more modest even than a young bride in the bridal chamber.<note
 							resp="Loeb" anchored="true">Longinus and Stobaeus quote this with
-								<foreign xml:lang="greek">o)fqalmoi=s</foreign>, “eyes,” in place of
-								<foreign xml:lang="greek">qala/mois</foreign>, “bridal chambers”;
-							and the former censures the use of <foreign xml:lang="greek"
-								>parqe/nwn</foreign> for <foreign xml:lang="greek">korw=n</foreign>,
-							meaning “pupils” of the eye.</note> When they have taken their place at
+							<foreign xml:lang="grc">ὀφθαλμοῖς</foreign>, <gloss>eyes,</gloss> in place of
+							<foreign xml:lang="grc">θαλάμοις</foreign>, <gloss>bridal chambers</gloss>;
+							and the former censures the use of <foreign xml:lang="grc"
+								>παρθένων</foreign> for <foreign xml:lang="grc">κορῶν</foreign>,
+							meaning <gloss>pupils</gloss> of the eye.</note> When they have taken their place at
 						a public meal, you must be content if you can get an answer to a
 						question.</p>
 					<p><milestone unit="para" ed="P"/>Such was the care that he bestowed on the
 						growing lads. </p>
 				</div>
 			</div>
-			<div type="chapter" n="4">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="4">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>For those who had reached the prime of life he
 						showed by far the deepest solicitude. For he believed that if these were of
 						the right stamp they must exercise a powerful influence for good on the
 						state. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p>He saw that where the spirit of rivalry<note resp="Loeb" anchored="true"
 								><title>Cyropaedia</title>, 2.1.22.</note> is strongest among the
 						people, there the choruses are most worth hearing and the athletic contests
@@ -369,35 +373,35 @@
 								><title>Cyropaedia</title>, 7.2.26.</note> I will proceed to
 						explain, therefore, how he instituted matches between the young men. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p><milestone unit="para" ed="P"/>The Ephors, then, pick out three of the very
 						best among them. These three are called Commanders of the Guard. Each of
 						them enrols a hundred others, stating his reasons for preferring one and
 						rejecting another. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p>The result is that those who fail to win the honour are at war both with
 						those who sent them away and with their successful rivals; and they are on
 						the watch for any lapse from the code of honour. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p><milestone unit="para" ed="P"/>Here then you find that kind of strife that is
-						dearest to the gods, and in the highest sense political -- the strife that
-						sets the standard of a brave man's conduct; and in which either party exerts
+						dearest to the gods, and in the highest sense political — the strife that
+						sets the standard of a brave man’s conduct; and in which either party exerts
 						itself to the end that it may never fall below its best, and that, when the
 						time comes, every member of it may support the state with all his
 							might.<note resp="Loeb" anchored="true"><title>Horsemanship</title>,
 							2.1.</note>
 					</p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p>And they are bound, too, to keep themselves fit, for one effect of the strife
 						is that they spar whenever they meet; but anyone present has a right to part
 						the combatants. If anyone refuses to obey the mediator the Warden takes him
 						to the Ephors; and they fine him heavily, in order to make him realize that
 						he must never yield to a sudden impulse to disobey the laws. </p>
 				</div>
-				<div type="section" n="7">
+				<div type="textpart" subtype="section" n="7">
 					<p><milestone unit="para" ed="P"/>To come to those who have passed the time of
 						youth, and are now eligible to hold the great offices of state. While
 						absolving these from the duty of bestowing further attention on their bodily
@@ -408,29 +412,29 @@
 						younger men. </p>
 				</div>
 			</div>
-			<div type="chapter" n="5">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="5">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>I have given a fairly complete account of the
 						institutions of Lycurgus so far as they apply to the successive stages of
 						life. I will now try to describe the system that he established for all
 						alike. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p><milestone unit="para" ed="P"/>Lycurgus found the Spartans boarding at home
 						like the other Greeks, and came to the conclusion that the custom was
 						responsible for a great deal of misconduct. He therefore established the
 						public messes outside in the open,<note resp="Loeb" anchored="true">Lit.
-							“moved the Syskania out into the open.” See Introduction 3.</note>
+							<gloss>moved the Syskania out into the open.</gloss> See Introduction 3.</note>
 						thinking that this would reduce disregard of orders to a minimum. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p>The amount of food he allowed was just enough to prevent them from getting
 						either too much or too little to eat. But many extras are supplied from the
 						spoils of the chase; and for these rich men sometimes substitute wheaten
 						bread. Consequently the board is never bare until the company breaks up, and
 						never extravagantly furnished. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p>Another of his reforms was the abolition of compulsory drinking,<note
 							resp="Loeb" anchored="true">At the public meals each had his own cup:
 							there was no passing of cups along as at <placeName key="perseus,Athens"
@@ -441,24 +445,24 @@
 					<p><milestone unit="para" ed="P"/>Now what opportunity did these public messes
 						give a man to ruin himself or his estate by gluttony or wine-bibbing? </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p>Note that in other states the company usually consists of men of the same
 						age, where modesty is apt to be conspicuous by its absence from the board.
 						But Lycurgus introduced mixed companies<note resp="Loeb" anchored="true"
-							>Something appears to be lost after <foreign xml:lang="greek"
-								>a)ne/mice</foreign>. Schneider suggested <foreign xml:lang="greek"
-								>a)ne/mice ta\s h(liki/as w(/ste</foreign>, “mixed the ages, so
-							that.”</note> at <placeName key="perseus,Sparta">Sparta</placeName>, so
+							>Something appears to be lost after <foreign xml:lang="grc"
+								>ἀνέμιξε </foreign>. Schneider suggested <foreign xml:lang="grc"
+									>ἀνέμιξε τὰς ἡλικίας ὥστε</foreign>, <gloss>mixed the ages, so
+							that.</gloss></note> at <placeName key="perseus,Sparta">Sparta</placeName>, so
 						that the experience of the elders might contribute largely to the education
 						of the juniors. </p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p>In point of fact, by the custom of the country the conversation at the public
 						meals turns on the great deeds wrought in the state, and so there is little
 						room for insolence or drunken uproar, for unseemly conduct or indecent talk.
 					</p>
 				</div>
-				<div type="section" n="7">
+				<div type="textpart" subtype="section" n="7">
 					<p>And the system of feeding in the open has other good results. They must needs
 						walk home after the meal, and, of course, must take good care not to stumble
 						under the influence of drink (for they know that they will not stay on at
@@ -466,7 +470,7 @@
 						those who are still in the army are not even allowed a torch to guide them.
 					</p>
 				</div>
-				<div type="section" n="8">
+				<div type="textpart" subtype="section" n="8">
 					<p><milestone unit="para" ed="P"/>Lycurgus had also observed the effects of the
 						same rations on the hard worker and the idler; that the former has a fresh
 						colour, firm flesh and plenty of vigour, while the latter looks puffy, ugly
@@ -476,33 +480,33 @@
 						to take care that the tasks set should be not too small for the rations
 						allowed. </p>
 				</div>
-				<div type="section" n="9">
+				<div type="textpart" subtype="section" n="9">
 					<p>And I think that in this matter too he succeeded. So it would not be easy to
 						find healthier or handier men than the Spartans. For their exercises train
 						the legs, arms and neck equally. </p>
 				</div>
 			</div>
-			<div type="chapter" n="6">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="6">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>In the following respects, again, his
 						institutions differ from the ordinary type. In most states every man has
 						control of his own children, servants and goods. Lycurgus wanted to secure
 						that the citizens should get some advantage from one another without doing
-						any harm. He therefore gave every father authority over other men's children
+						any harm. He therefore gave every father authority over other men’s children
 						as well as over his own. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p>When a man knows that fathers have this power, he is bound to rule the
 						children over whom he exercises authority as he would wish his own to be
 							ruled.<note resp="Loeb" anchored="true">The text of this sentence is
-							open to suspicion. <foreign xml:lang="greek">ou(=toi pate/res</foreign>
+								open to suspicion. <foreign xml:lang="grc">οὗτοι πατέρες</foreign>
 							can hardly be sound.</note> If a boy tells his own father when he has
 						been whipped by another father, it is a disgrace if the parent does not give
 						his son another whipping. So completely do they trust one another not to
 						give any improper orders to the children. </p>
 				</div>
-				<div type="section" n="3">
-					<p><milestone unit="para" ed="P"/>He also gave the power of using other men's
+				<div type="textpart" subtype="section" n="3">
+					<p><milestone unit="para" ed="P"/>He also gave the power of using other men’s
 						servants in case of necessity; and made sporting dogs common property to
 						this extent, that any who want them invite their master, and if he is
 						engaged himself he is glad to send the hounds. A similar plan of borrowing
@@ -510,7 +514,7 @@
 						wishes to get to some place quickly, if he sees a horse anywhere, takes and
 						uses it carefully and duly restores it. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p><milestone unit="para" ed="P"/>There is yet another among the customs
 						instituted by him which is not found in other communities. It was intended
 						to meet the needs of parties belated in the hunting-field with nothing ready
@@ -520,14 +524,14 @@
 						seals, take as much as they wanted, seal up the rest and leave it behind.
 					</p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p>The result of this method of going shares with one another is that even those
 						who have but little receive a share of all that the country yields whenever
 						they want anything. </p>
 				</div>
 			</div>
-			<div type="chapter" n="7">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="7">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>Nor does this exhaust the list of the customs
 						established by Lycurgus at <placeName key="perseus,Sparta"
 							>Sparta</placeName> that are contrary to those of the other Greeks. In
@@ -535,13 +539,13 @@
 						farmer, another a ship-owner, another a merchant, and others live by
 						different handicrafts. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p>But at <placeName key="perseus,Sparta">Sparta</placeName> Lycurgus forbade
 						freeborn citizens to have anything to do with business affairs. He insisted
 						on their regarding as their own concern only those activities that make for
 						civic freedom. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p>Indeed, how should wealth be a serious object there, when he insisted on
 						equal contributions to the food supply and on the same standard of living
 						for all, and thus cut off the attraction of money for indulgence' sake? Why,
@@ -549,31 +553,31 @@
 						is due not to the price of their clothes, but to the excellent condition of
 						their bodies. </p>
 				</div>
-				<div type="section" n="4">
-					<p>Nor yet is there any reason for amassing money in order to spend it on one's
-						messmates; for he made it more respectable to help one's fellows by toiling
+				<div type="textpart" subtype="section" n="4">
+					<p>Nor yet is there any reason for amassing money in order to spend it on one’s
+						messmates; for he made it more respectable to help one’s fellows by toiling
 						with the body than by spending money,<note resp="Loeb" anchored="true"
 								><title>Agesilaus</title>, 9.6.</note> pointing out that toil is an
 						employment of the soul, spending an employment of wealth. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p><milestone unit="para" ed="P"/>By other enactments he rendered it impossible
 						to make money in unfair ways. In the first place the system of coinage that
 						he established was of such a kind that even a sum of ten minae<note
-							resp="Loeb" anchored="true">Some 40 pounds [;about the year <date
-								when="1925">1925</date>];.</note> could not be brought into a house
+							resp="Loeb" anchored="true">Some 40 pounds <add>about the year <date
+								when="1925">1925</date></add>;.</note> could not be brought into a house
 						without the master and the servants being aware of it: the money would fill
 						a large space and need a wagon to draw it. </p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p>Moreover, there is a right of search for gold and silver, and, in the event
 						of discovery, the possessor is fined. Why, then, should money-making be a
 						preoccupation in a state where the pains of its possession are more than the
 						pleasures of its enjoyment? </p>
 				</div>
 			</div>
-			<div type="chapter" n="8">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="8">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>To continue: we all know that obedience to the
 						magistrates and the laws is found in the highest degree in <placeName
 							key="perseus,Sparta">Sparta</placeName>. For my part, however, I think
@@ -581,7 +585,7 @@
 						discipline until he had secured agreement among the most important men in
 						the state. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p>I base my inference on the following facts. In other states the most powerful
 						citizens do not even wish it to be thought that they fear the magistrates:
 						they believe such fear to be a badge of slavery. But at Sparta the most
@@ -590,19 +594,19 @@
 						call, in the belief that, if they lead, the rest will follow along the path
 						of eager obedience. And so it has proved. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p><milestone unit="para" ed="P"/>It is probable also that these same citizens
 						helped to set up the office of Ephor, having come to the conclusion that
 						obedience is a very great blessing whether in a state or an army or a
 						household. For they thought that the greater the power of these magistrates
 						the more they would impress the minds of the citizens.<note resp="Loeb"
-							anchored="true"><foreign xml:lang="greek">tou= u(pakou/ein</foreign> is
+							anchored="true"><foreign xml:lang="grc">τοῦ ὑπακούειν</foreign> is
 							omitted in the translation. It can hardly be right; Schneider removed
-							it, and Cobet proposed <foreign xml:lang="greek">ei)s to\
-								u(pakou/ein</foreign>, “so as to make them obedient.”</note>
+							it, and Cobet proposed <foreign xml:lang="grc">εἰς τὸ ὑπακούειν</foreign>, 
+							<gloss>so as to make them obedient.</gloss></note>
 					</p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p>Accordingly, the Ephors are competent to fine whom they choose, and have
 						authority to enact immediate payment: they have authority also to deprive
 						the magistrates of office, and even to imprison and prefer a capital charge
@@ -611,7 +615,7 @@
 						but in common with despots and the presidents of the games, they no sooner
 						see anyone breaking the law than they punish the offender. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p><milestone unit="para" ed="P"/>Among many excellent plans contrived by
 						Lycurgus for encouraging willing obedience to the laws among the citizens, I
 						think one of the most excellent was this: before delivering his laws to the
@@ -625,15 +629,15 @@
 						laws given by the Pythian god was not only unlawful, but wicked. </p>
 				</div>
 			</div>
-			<div type="chapter" n="9">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="9">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>The following achievement of Lycurgus, again,
 						deserves admiration. He caused his people to choose an honourable death in
 						preference to a disgraceful life. And, in fact, one would find on
 						consideration that they actually lose a smaller proportion of their men than
 						those who prefer to retire from the danger zone. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p>To tell the truth, escape from premature death more generally goes with
 						valour than with cowardice: for valour is actually easier and pleasanter and
 						more resourceful and mightier.<note resp="Loeb" anchored="true">The
@@ -641,13 +645,13 @@
 						the side of valour, for all men want to ally themselves somehow with the
 						brave. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p><milestone unit="para" ed="P"/>However, it is proper not to pass over the
 						means by which he contrived to bring about this result. Clearly, what he did
 						was to ensure that the brave should have happiness, and the coward misery.
 					</p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p>For in other states whn a man proves a coward, the only consequence is that
 						he is called a coward. He goes to the same market as the brave man, sits
 						beside him, attends the same gymnasium, if he chooses. But in <placeName
@@ -655,7 +659,7 @@
 						have a coward with him at the mess or to be matched with him in a wrestling
 						bout. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p>Often when sides are picked for a game of ball he is the odd man left out: in
 						the chorus he is banished to the ignominious place; in the streets he is
 						bound to make way; when he occupies a seat he must needs give it up, even to
@@ -665,27 +669,27 @@
 						countenance, nor behave as though he were a man of unsullied fame, or else
 						he must submit to be beaten by his betters. </p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p>Small wonder, I think, that where such a load of dishonour is laid on the
 						coward, death seems preferable to a life so dishonoured, so ignominious.
 					</p>
 				</div>
 			</div>
-			<div type="chapter" n="10">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="10">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>The law by which Lycurgus encouraged the
 						practice of virtue up to old age is another excellent measure in my opinion.
 						By requiring men to face the ordeal of election to the Council of Elders
 						near the end of life, he prevented neglect of high principles even in old
 						age. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p>Worthy of admiration also is the protection that he afforded to the old age
 						of good men. For the enactment by which he made the Elders judges in trials
 						on the capital charge caused old age to be held in greater honour than the
 						full vigour of manhood. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p>And surely it is natural that of all contests in the world this should excite
 						the greatest zeal. For noble as are the contests in the Games, they are
 						merely tests of bodily powers. But the contest for the Council judges souls
@@ -693,7 +697,7 @@
 						more worthy are the contests of the soul to kindle zeal than those of the
 						body. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p><milestone unit="para" ed="P"/>Again, the following surely entitles the work
 						of Lycurgus to high admiration. He observed that where the cult of virtue is
 						left to voluntary effort, the virtuous are not strong enough to increase the
@@ -705,18 +709,18 @@
 						surpasses all other states in virtue, because she alone makes a public duty
 						of gentlemanly conduct. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p>For was not this too a noble rule of his, that whereas other states punish
-						only for wrong done to one's neighbour, he inflicted penalties no less
+						only for wrong done to one’s neighbour, he inflicted penalties no less
 						severe on any who openly neglected to live as good a life as possible? </p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p>For he believed, it seems, that enslavement, fraud, robbery, are crimes that
 						injure only the victims of them; but the wicked man and the coward are
 						traitors to the whole body politic. And so he had good reason, I think, for
 						visiting their offences with the heaviest penalties. </p>
 				</div>
-				<div type="section" n="7">
+				<div type="textpart" subtype="section" n="7">
 					<p><milestone unit="para" ed="P"/>And he laid on the people the duty of
 						practising the whole virtue of a citizen as a necessity irresistible. For to
 						all who satisfied the requirements of his code he gave equal rights of
@@ -724,7 +728,7 @@
 						coward who shrank from the task of observing the rules of his code he caused
 						to be no more reckoned among the peers. </p>
 				</div>
-				<div type="section" n="8">
+				<div type="textpart" subtype="section" n="8">
 					<p><milestone unit="para" ed="P"/>Now that these laws are of high antiquity
 						there can be no doubt: for Lycurgus is said to have lived in the days of the
 						Heracleidae. Nevertheless, in spite of their antiquity, they are wholly
@@ -732,15 +736,15 @@
 						men praise such institutions, but no state chooses to imitate them. </p>
 				</div>
 			</div>
-			<div type="chapter" n="11">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="11">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>The blessings that I have enumerated so far
 						were shared by all alike in peace and in war. But if anyone wishes to
 						discover in what respect Lycurgus' organisation of the army on active
 						service was better than other systems, here is the information that he
 						seeks. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p><milestone unit="para" ed="P"/>The Ephors issue a proclamation stating the
 						age-limit fixed for the levy, first for the cavalry and infantry, and then
 						for the handicraftsmen. Thus the Lacedaemonians are well supplied in the
@@ -749,47 +753,47 @@
 						some in carts, some on baggage animals; thus anything missing is not at all
 						likely to be overlooked. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p><milestone unit="para" ed="P"/>In the equipment that he devised for the
 						troops in battle he included a red cloak, because he believed this garment
-						to have least resemblance to women's clothing and to be most suitable for
+						to have least resemblance to women’s clothing and to be most suitable for
 						war, and a brass shield, because it is very soon polished and tarnishes very
 							slowly.<note resp="Loeb" anchored="true">The words <foreign
-								xml:lang="greek">kai\ xalkh=n a)spi/da</foreign> should probably
-							come before <foreign xml:lang="greek">kai\ ga\r ta/xista</foreign>.
+								xml:lang="grc">καὶ χαλκῆν ἀσπίδα</foreign> should probably
+								come before <foreign xml:lang="grc">καὶ γὰρ τάχιστα</foreign>.
 							There is also a suspicion that some words referring to other details of
 							the equipment have dropped out.</note> He also permitted men who were
 						past their first youth to wear long hair, believing that it would make them
 						look taller, more dignified and more terrifying. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p><milestone unit="para" ed="P"/>The men so equipped were divided into six
 						regiments of cavalry and infantry. The officers of each citizen<note
-							resp="Loeb" anchored="true">Or, reading <foreign xml:lang="greek"
-								>o(plitikw=n</foreign> with Stobaeus, “regiment of heavy
-							infantry.”</note> regiment comprise one colonel, four<note resp="Loeb"
+							resp="Loeb" anchored="true">Or, reading <foreign xml:lang="grc"
+								>ὁπλιτικῶν</foreign> with Stobaeus, <gloss>regiment of heavy
+							infantry.</gloss></note> regiment comprise one colonel, four<note resp="Loeb"
 							anchored="true">On account of <title>Hellenica</title> 7.4.20 and 5.10
-							it is thought that <foreign xml:lang="greek">du/o</foreign>, “two,”
-							should be read for <foreign xml:lang="greek">te/ttaras
-							(d/)</foreign>.</note> captains, eight first lieutenants and sixteen
+								it is thought that <foreign xml:lang="grc">δύο</foreign>, <gloss>two,</gloss>
+								should be read for <foreign xml:lang="grc">τέτταρας
+							(δʹ)</foreign>.</note> captains, eight first lieutenants and sixteen
 						second lieutenants. These regiments at the word of command form
 							sections<note resp="Loeb" anchored="true">A number, <foreign
-								xml:lang="greek">e(/na</foreign>, “in single file,” or <foreign
-								xml:lang="greek">du/o</foreign>, “two,” must have fallen out before
-								<foreign xml:lang="greek">e)nwmoti/as</foreign>.</note> sometimes
+								xml:lang="grc">ἕνα</foreign>, <gloss>in single file,</gloss> or <foreign
+									xml:lang="grc">δύο</foreign>, <gloss>two,</gloss> must have fallen out before
+								<foreign xml:lang="grc">ἐνωμοτίας</foreign>.</note> sometimes
 						(two), sometimes three, and sometimes six abreast. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p><milestone unit="para" ed="P"/>The prevalent opinion that the Laconian
 						infantry formation is very complicated is the very reverse of the truth. In
 						the Laconian formation the front rank men are all officers, and each file
 						has all that it requires to make it efficient.<note resp="Loeb"
 							anchored="true">The exact meaning is not clear and the text is possibly
-							corrupt. Weiske suggested <foreign xml:lang="greek">pa/nta
-								pare/xei</foreign>, “acts exactly as it should.”</note>
+							corrupt. Weiske suggested <foreign xml:lang="grc">πάντα παρέχει</foreign>, 
+							<gloss>acts exactly as it should.</gloss></note>
 					</p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p>The formation is so easy to understand that no one who knows man from man can
 						possibly go wrong. For some have the privilege of leading; and the rest are
 						under orders to follow. Orders to wheel from column into line of battle are
@@ -797,12 +801,12 @@
 						formed either thin or deep, by wheeling. Nothing whatever in these movements
 						is difficult to understand. </p>
 				</div>
-				<div type="section" n="7">
+				<div type="textpart" subtype="section" n="7">
 					<p>To be sure, the secret of carrying on in a battle with any troops at hand
 						when the line gets into confusion is not so easy to grasp, except for
 						soldiers trained under the laws of Lycurgus. </p>
 				</div>
-				<div type="section" n="8">
+				<div type="textpart" subtype="section" n="8">
 					<p><milestone unit="para" ed="P"/>The Lacedaemonians also carry out with perfect
 						ease manoeuvres that instructors in tactics think very difficult. Thus, when
 						they march in column, every section of course follows in the rear of the
@@ -814,7 +818,7 @@
 						counter-marches, in order that the best men may always be face to face with
 						the enemy. </p>
 				</div>
-				<div type="section" n="9">
+				<div type="textpart" subtype="section" n="9">
 					<p>True, the leader is then on the left, but instead of thinking this a
 						disadvantage, they regard it as a positive advantage at times. For should
 						the enemy attempt a flanking movement he would try to encircle them, not on
@@ -826,7 +830,7 @@
 						army counter-marches by ranks until the leader is on the right, and the rear
 						of the column on the left. </p>
 				</div>
-				<div type="section" n="10">
+				<div type="textpart" subtype="section" n="10">
 					<p>If, on the other hand, an enemy force appears on the right when they are
 						marching in column, all that they have to do is to order each company to
 						wheel to the right so as to front the enemy like a man-of-war, and thus
@@ -836,39 +840,39 @@
 							Lacedaemonians are in battle-order the whole phalanx turns to the left
 							to meet the attack: wheeling by companies to the left would only be
 							necessary when the army marching in column was threatened on the left.
-							But <foreign xml:lang="greek">a)lla\ proqe/ousin</foreign> found in C
-							(“but either run forward”) is almost certainly the right reading.</note>
+							But <foreign xml:lang="grc">ἀλλὰ προθέουσιν</foreign> found in C
+							(<gloss>but either run forward</gloss>) is almost certainly the right reading.</note>
 						or wheel their companies to the left to face him, and thus the rear of the
 						column finds itself on the left. </p>
 				</div>
 			</div>
-			<div type="chapter" n="12">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="12">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>I will now explain the method of encampment
 						approved by Lycurgus.</p>
 					<p><milestone unit="para" ed="P"/>Seeing that the angles of a square are
 						useless, he introduced the circular form of camp, except where there was a
 						secure hill or wall, or a river afforded protection in the rear. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p>He caused sentries to be posted by day facing inwards along the place where
 						the arms were kept, for the object of these is to keep an eye not on the
 						enemy but on their friends. The enemy is watched by cavalry from positions
 						that command the widest outlook. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p>To meet the case of a hostile approach at night, he assigned the duty of
 						acting as sentries outside the lines to the Sciritae. In these days the duty
 						is shared by foreigners, if any happen to be present in the camp. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p>The rule that patrols invariably carry their spears, has the same purpose,
 						undoubtedly, as the exclusion of slaves from the place of arms. Nor is it
 						surprising that sentries who withdraw for necessary purposes only go so far
 						away from one another and from the arms as not to cause inconvenience.
 						Safety is the first object of this rule also. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p><milestone unit="para" ed="P"/>The camp is frequently shifted with the double
 						object of annoying their enemies and of helping their friends.</p>
 					<p><milestone unit="para" ed="P"/>Moreover the law requires all Lacedaemonians
@@ -878,13 +882,13 @@
 						covered by the regiment, so that no one may get far away from his own arms.
 					</p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p>After the exercises the senior colonel gives the order by herald to sit down
-						-- this is their method of inspection -- and next to take breakfast and to
+						— this is their method of inspection — and next to take breakfast and to
 						relieve the outposts quickly. After this there are amusements and
 						recreations until the evening exercises. </p>
 				</div>
-				<div type="section" n="7">
+				<div type="textpart" subtype="section" n="7">
 					<p>These being finished, the herald gives the order to take the evening meal,
 						and, as soon as they have sung to the praise of the gods to whom they have
 						sacrificed with good omens, to rest by the arms.</p>
@@ -893,65 +897,65 @@
 						requiring attention that is overlooked by the Lacedaemonians. </p>
 				</div>
 			</div>
-			<div type="chapter" n="13">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="13">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>I will also give an account of the power and
 						honour that Lycurgus conferred on the King in the field. In the first place,
 						while on military service the King and his staff are maintained by the
 						state. The colonels mess with the King, in order that constant intercourse
 						may give better opportunities for taking counsel together in case of need.
-						Three of the peers also attend the King's mess. These three take entire
+						Three of the peers also attend the King’s mess. These three take entire
 						charge of the commissariat for the King and his staff, so that these may
 						devote all their time to affairs of war. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p><milestone unit="para" ed="P"/>But I will go back to the beginning, and
 						explain how the King sets out with an army. First he offers up sacrifice at
 						home to Zeus the Leader and to the gods associated with him.<note
-							resp="Loeb" anchored="true">Or, if we read <foreign xml:lang="greek">oi(
-								su\n au)tw=|</foreign> with Haase, “he and his staff.” By “the
-							associated gods” we should understand Castor and Pollux, the Dioscuri.
+							resp="Loeb" anchored="true">Or, if we read <foreign xml:lang="grc">οἱ σὺν αὐτῷ</foreign> 
+							with Haase, <gloss>he and his staff.</gloss> By <q type="mentioned">the
+							associated gods</q> we should understand Castor and Pollux, the Dioscuri.
 							In the <placeName key="tgn,7011931">Oxford</placeName> text I gave
-								<foreign xml:lang="greek">toi=n sioi=n</foreign>, “the twin
-							gods.”</note> If the sacrifice appears propitious, the Fire-bearer takes
+							<foreign xml:lang="grc">τοῖν σιοῖν</foreign>, <gloss>the twin
+							gods.</gloss></note> If the sacrifice appears propitious, the Fire-bearer takes
 						fire from the altar and leads the way to the borders of the land. There the
 						King offers sacrifice again to Zeus and Athena. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p>Only when the sacrifice proves acceptable to both these deities does he cross
 						the borders of the land. And the fire from these sacrifices leads the way
 						and is never quenched, and animals for sacrifice of every sort follow. At
 						all times when he offers sacrifice, the King begins the work before dawn of
 						day, wishing to forestall the goodwill of the god. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p>And at the sacrifice are assembled colonels, captains, lieutenants,
 						commandants of foreign contingents, commanders of the baggage train, and, in
 						addition, any general from the states who chooses to be present. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p>There are also present two of the Ephors, who interfere in nothing except by
-						the King's request, but keep an eye on the proceedings, and see that all
+						the King’s request, but keep an eye on the proceedings, and see that all
 						behave with a decorum suitable to the occasion. When the sacrifices are
 						ended, the King summons all and delivers the orders of the day. And so,
 						could you watch the scene, you would think all other men mere improvisors in
 						soldiering and the Lacedaemonians the only artists in warfare. </p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p><milestone unit="para" ed="P"/>When the King leads, provided that no enemy
 						appears, no one precedes him except the Sciritae and the mounted vedettes.
 						But if ever they think there will be fighting, he takes the lead of the
 						first regiment and wheels to the right, until he is between two regiments
 						and two colonels. </p>
 				</div>
-				<div type="section" n="7">
+				<div type="textpart" subtype="section" n="7">
 					<p>The troops that are to support these are marshalled by the senior member of
-						the King's staff. The staff consists of all peers who are members of the
+						the King’s staff. The staff consists of all peers who are members of the
 						royal mess, seers, doctors, fluteplayers, commanding officers and any
 						volunteers who happen to be present. Thus nothing that has to be done causes
 						any difficulty, for everything is duly provided for. </p>
 				</div>
-				<div type="section" n="8">
+				<div type="textpart" subtype="section" n="8">
 					<p><milestone unit="para" ed="P"/>The following arrangements<note resp="Loeb"
 							anchored="true">This paragraph is an afterthought, supplementing
 							11.3-4.</note> made by Lycurgus with a view to the actual fighting are
@@ -962,7 +966,7 @@
 						hair(?) before entering battle, to look cheerful and earn a good report.
 					</p>
 				</div>
-				<div type="section" n="9">
+				<div type="textpart" subtype="section" n="9">
 					<p>Moreover, the men shout words of encouragement to the subaltern, for it is
 						impossible for each subaltern to make his voice travel along the whole of
 						his section to the far end.<note resp="Loeb" anchored="true">When two or
@@ -972,14 +976,14 @@
 							not clearly expressed.</note> The colonel is responsible for seeing that
 						all is done properly. </p>
 				</div>
-				<div type="section" n="10">
+				<div type="textpart" subtype="section" n="10">
 					<p><milestone unit="para" ed="P"/>When the time for encamping seems to have
 						arrived, the decision rests with the King, who also indicates the proper
 						place. On the other hand the dispatch of embassies whether to friends or
-						enemies is not the King's affair. All who have any business to transact deal
+						enemies is not the King’s affair. All who have any business to transact deal
 						in the first instance with the King. </p>
 				</div>
-				<div type="section" n="11">
+				<div type="textpart" subtype="section" n="11">
 					<p>Suitors for justice are remitted by the King to the Court of Hellanodicae,
 						applications for money to the treasurers; and if anyone brings booty, he is
 						sent to the auctioneers. With this routine the only duties left to the King
@@ -987,98 +991,100 @@
 						in his dealings with the men. </p>
 				</div>
 			</div>
-			<div type="chapter" n="14">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="14">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>Should anyone ask me whether I think that the
 						laws of Lycurgus still remain unchanged at this day, I certainly could not
 						say that with any confidence whatever.<note resp="Loeb" anchored="true"
-								><foreign xml:lang="greek">ou)k .. e)/ti</foreign> probably does not
-							correspond to “no longer” here. On this chapter see Introduction.</note>
+							><foreign xml:lang="grc">οὐκ .. ἔτι</foreign> probably does not
+							correspond to <gloss>no longer</gloss> here. On this chapter see Introduction.</note>
 					</p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p>For I know that formerly the Lacedaemonians preferred to live together at
 						home with moderate fortunes rather than expose themselves to the corrupting
 						influences of flattery as governors of dependent states. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p>And I know too that in former days they were afraid to be found in possession
 						of gold; whereas nowadays there are some who even boast of their
 						possessions. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p>There were alien acts in former days, and to live abroad was illegal; and I
 						have no doubt that the purpose of these regulations was to keep the citizens
 						from being demoralized by contact with foreigners; and now I have no doubt
 						that the fixed ambition of those who are thought to be first among them is
 						to live to their dying day as governors in a foreign land. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p>There was a time when they would fain be worthy of leadership; but now they
 						strive far more earnestly to exercise rule than to be worthy of it. </p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p>Therefore in times past the Greeks would come to <placeName key="tgn,7011065"
 							>Lacedaemon</placeName> and beg her to lead them against reputed
 						wrongdoers; but now many are calling on one another to prevent a revival of
 						Lacedaemonian supremacy. </p>
 				</div>
-				<div type="section" n="7">
+				<div type="textpart" subtype="section" n="7">
 					<p>Yet we need not wonder if these reproaches are levelled at them, since it is
 						manifest that they obey neither their god nor the laws of Lycurgus. </p>
 				</div>
 			</div>
-			<div type="chapter" n="15">
-				<div type="section" n="1">
+			<div type="textpart" subtype="chapter" n="15">
+				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>I wish also to give an account of the compact
 						made by Lycurgus between King and state. For this is the only government
 						that continues exactly as it was originally established, whereas other
 						constitutions will be found to have undergone and still to be undergoing
 						modifications. </p>
 				</div>
-				<div type="section" n="2">
+				<div type="textpart" subtype="section" n="2">
 					<p><milestone unit="para" ed="P"/>He ordained that the King shall offer all the
 						public sacrifices on behalf of the state, in virtue of his divine descent,
 						and that, whatever may be the destination to which the state sends out an
 						army, he shall be its leader. </p>
 				</div>
-				<div type="section" n="3">
+				<div type="textpart" subtype="section" n="3">
 					<p>He also gave him the right to receive certain parts of the beasts sacrificed,
 						and assigned to him enough choice land in many of the outlanders' cities to
 						ensure him a reasonable competence without excessive riches. </p>
 				</div>
-				<div type="section" n="4">
+				<div type="textpart" subtype="section" n="4">
 					<p>In order that even the kings should mess in public, he assigned to them a
 						public mess tent; he also honoured them with a double portion at the meal,
 						not that they might eat enough for two, but that they might have the
 						wherewithal to honour anyone whom they chose. </p>
 				</div>
-				<div type="section" n="5">
+				<div type="textpart" subtype="section" n="5">
 					<p>He also allowed each King to choose two messmates, who are called Pythii.
 						Further, he granted them to take of every litter of pigs a porker, that a
 						King may never want victims, in case he wishes to seek counsel of the gods.
 					</p>
 				</div>
-				<div type="section" n="6">
+				<div type="textpart" subtype="section" n="6">
 					<p><milestone unit="para" ed="P"/>A lake near the house supplies abundance of
 						water; and how useful that is for many purposes none know so well as those
 						who are without it. Further, all rise from their seats when the King
 						appears; only the Ephors do not rise from their official chairs. </p>
 				</div>
-				<div type="section" n="7">
+				<div type="textpart" subtype="section" n="7">
 					<p>And they exchange oaths monthly, the Ephors on behalf of the state, the King
-						for himself. And this is the King's oath: “I will reign according to the
-						established laws of the state.” And this the oath of the state: “While you
-						abide by your oath, we will keep the kingship unshaken.” </p>
+						for himself. And this is the King’s oath: 
+						<q type="spoken">I will reign according to the
+						established laws of the state.</q> And this the oath of the state: 
+						<q type="spoken">While you
+						abide by your oath, we will keep the kingship unshaken.</q> </p>
 				</div>
-				<div type="section" n="8">
-					<p><milestone unit="para" ed="P"/>These then are the honours that are bestowed
-						on the King at home during his lifetime; and they do not greatly exceed
-						those of private persons. For it was not the wish of Lycurgus to put into
-						the King's hearts despotic pride, nor to implant in the mind of the citizens
-						envy of their power. </p>
+				<div type="textpart" subtype="section" n="8">
+					<p><milestone unit="para" ed="P"/>These then are the honours that are bestowed on the King at
+							home during his lifetime; and they do not greatly exceed those of
+							private persons. For it was not the wish of Lycurgus to put into the
+							King’s hearts despotic pride, nor to implant in the mind of the citizens
+							envy of their power. </p>
 				</div>
-				<div type="section" n="9">
+				<div type="textpart" subtype="section" n="9">
 					<p>As for the honours assigned to the King at his death, the intention of the
 						laws of Lycurgus herein is to show that they have preferred the Kings of the
 						Lacedaemonians in honour not as mere men, but as demigods.<note resp="Loeb"
@@ -1090,6 +1096,7 @@
 							body was embalmed and brought home if possible; if not, an image of him,
 							as in the case of Agesilaus, was buried.</note></p>
 				</div>
+			</div>
 			</div>
 		</body>
 	</text>
