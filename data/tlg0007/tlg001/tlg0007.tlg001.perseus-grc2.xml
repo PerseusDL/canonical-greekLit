@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader type="text">
         <fileDesc>
             <titleStmt>
-                <title type="sub">Machine readable text</title>
+                
                 <title n="Thes." type="work">Theseus</title>
                 <author n="Plut.">Plutarch</author>
                 <editor role="editor" n="Loeb">Bernadotte Perrin</editor>
@@ -41,70 +42,53 @@
                             <publisher>William Heinemann Ltd.</publisher>
                             <date>1914</date>
                         </imprint>
-                        <biblScope type="volume">1</biblScope>
+                        <biblScope unit="volume">1</biblScope>
                     </monogr>
                 </biblStruct>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
             <refsDecl n="CTS">
-                <cRefPattern n="Section"
-                         matchPattern="(\\w+).(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
-                    <p>This pointer pattern extracts Chapter and Section</p>
+                <cRefPattern n="section"
+                         matchPattern="(\w+).(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts chapter and section</p>
                 </cRefPattern>
-                <cRefPattern n="Chapter"
-                         matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
-                    <p>This pointer pattern extracts Chapter</p>
+                <cRefPattern n="chapter"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts chapter</p>
                 </cRefPattern>
             </refsDecl>
-            <!--
-			<COMPOSITION.HISTORY>Text keyboarded in the Philippines.  Basic SGML tagging by Scott Ettinger and Roger Travis.</COMPOSITION.HISTORY>
-			&prose.grk.encode;-->
+            
             <refsDecl>
                 <refState delim="." unit="chapter"/>
                 <refState unit="section"/>
             </refsDecl>
+            
+            <editorialDecl>
+                <quotation marks="all"/>
+            </editorialDecl>
         </encodingDesc>
         <profileDesc>
             <langUsage>
-                <language ident="greek">Greek</language>
-                <language ident="en">English</language>
+                <language ident="grc">Greek</language>
+                <language ident="eng">English</language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
-            <!--
-<change>
-<date>8/91</date>
-<respStmt>
-<name>EM</name>
-<resp>ed.</resp>
-</respStmt>
-<item>Revise DTDs and recheck texts.</item>
-</change>
-<change>
-<date>5/20/92</date>
-<respStmt>
-<name>David Smith</name>
-<resp>ed.</resp>
-</respStmt>
-<item>uncapitalized non-proper nouns at the beginnings of paragraphs and verse lines</item>
-</change>
-<change>
-<date>10/22/92</date>
-<respStmt>
-<name>EM</name>
-<resp>ed.</resp>
-</respStmt>
-<item>Glued all Plutarch files together, put in HEAD tags to title them.</item>
-</change>!-->
+            <change who="Lisa Cerrato" when="2016-12-07">review of EpiDoc and CTS compliance; minor cleanup</change>
             <change who="Stella Dee" when="2015">converted to CTS EpiDoc</change>
-        </revisionDesc>
+            <change who="EM" when="1992-10-22">Glued all Plutarch files together, put in HEAD tags to title them.</change>
+            <change who="David Smith" when="1992-05-20">uncapitalized non-proper nouns at the beginnings of paragraphs and verse lines</change>
+            <change who="EM" when="1991-08-01">Revise DTDs and recheck texts.</change>
+            <change who="Scott Ettinger and Roger Travis">Text keyboarded in the Philippines. Basic SGML tagging.</change>
+</revisionDesc>
     </teiHeader>
-    <text n="urn:cts:greekLit:tlg0007.tlg001.perseus-grc2">
+    
+    <text xml:lang="grc">
         <body>
-            <div type="edition">
+            <div type="edition" n="urn:cts:greekLit:tlg0007.tlg001.perseus-grc2" xml:lang="grc">
                 <head>Θησεύς</head>
                 <div type="textpart" subtype="chapter" n="1">
                     <div type="textpart" subtype="section" n="1">
