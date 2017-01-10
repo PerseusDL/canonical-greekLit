@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI.2>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader type="text">
       <fileDesc>
          <titleStmt>
-            <title type="sub">Machine readable text</title>
+            
             <title n="Alc." type="work">Alcibiades</title>
             <author n="Plut.">Plutarch</author>
             <editor role="editor" n="Loeb">Bernadotte
@@ -42,70 +43,49 @@
                      <publisher>William Heinemann Ltd.</publisher>
                      <date>1916</date>
                   </imprint>
-                  <biblScope type="volume">4</biblScope>
+                  <biblScope unit="volume">4</biblScope>
                </monogr>
             </biblStruct>
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
          <refsDecl n="CTS">
-            <cRefPattern matchPattern="(\\w+).(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div1[@n=\'$1\']/tei:div2[@n=\'$2\'])">
-                <p>This pointer pattern extracts chapter and section</p>
+            <cRefPattern n="section"
+               matchPattern="(\w+).(\w+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+               <p>This pointer pattern extracts chapter and section</p>
             </cRefPattern>
-            <cRefPattern matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div1[@n=\'$1\'])">
-                <p>This pointer pattern extracts chapter</p>
+            <cRefPattern n="chapter"
+               matchPattern="(\w+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts chapter</p>
             </cRefPattern>
-        </refsDecl>
-         <!--
-			<COMPOSITION.HISTORY>Text keyboarded in the Philippines.  Basic SGML tagging by Scott Ettinger and Roger Travis.</COMPOSITION.HISTORY>
-			&prose.grk.encode;-->
-<refsDecl doctype="TEI.2">
-            <state delim="." unit="chapter"/>
-            <state unit="section"/>
+         </refsDecl>
+<refsDecl>
+            <refState delim="." unit="chapter"/>
+            <refState unit="section"/>
          </refsDecl>
       </encodingDesc>
       <profileDesc>
          <langUsage>
-            <language id="greek">Greek</language>
-            <language id="en">English</language>
+            <language ident="grc">Greek</language>
+            <language ident="eng">English</language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
-         <change>
-            <date>8/91</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Revise DTDs and recheck texts.</item>
-         </change>
-         <change>
-            <date>5/20/92</date>
-            <respStmt>
-               <name>David Smith</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>uncapitalized non-proper nouns at the beginnings of
-                                             paragraphs and verse lines</item>
-         </change>
-         <change>
-            <date>10/22/92</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Glued all Plutarch files together, put in HEAD tags to
-                                             title them.</item>
-         </change>
+         <change when="2017-01-09" who="Lisa Cerrato">EpiDoc and CTS compliance; minor cleanup; bumped URN</change>
+         <change who="EM" when="1992-10-22">Glued all Plutarch files together, put in HEAD tags to title them.</change>
+         <change who="David Smith" when="1992-05-20">uncapitalized non-proper nouns at the beginnings of paragraphs and verse lines</change>
+         <change who="EM" when="1991-08-01">Revise DTDs and recheck texts.</change>
+         <change who="Scott Ettinger and Roger Travis">Basic SGML tagging. Text keyboarded in the Philippines.</change>
       </revisionDesc>
    </teiHeader>
-   <text n="urn:cts:greekLit:tlg0007.tlg015.perseus-grc1" xml:lang="grc">
+   <text xml:lang="grc">
       <body>
          <head>Ἀλκιβιάδης</head>
-         <div1 type="chapter" n="1">
-            <div2 type="section" n="1">
+         <div type="edition" n="urn:cts:greekLit:tlg0007.tlg015.perseus-grc2" xml:lang="grc">
+         <div type="textpart" subtype="chapter" n="1">
+            <div type="textpart" subtype="section" n="1">
                <p>
 
                           τὸ Ἀλκιβιάδου γένος ἄνωθεν Εὐρυσάκην τὸν Αἴαντος
@@ -117,8 +97,8 @@
                                     καὶ Ἀρίφρων οἱ Ξανθίππου, προσήκοντες κατὰ γένος,
                                     ἐπετρόπευον.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>λέγεται δʼ οὐ κακῶς ὅτι τῆς Σωκράτους πρὸς αὐτὸν εὐνοίας
                                     καὶ φιλανθρωπίας οὐ μικρὰ πρὸς δόξαν ἀπέλαυσεν, εἴγε
                                     Νικίου μὲν καὶ Δημοσθένους καὶ Λαμάχου καὶ Φορμίωνος
@@ -128,8 +108,8 @@
                                     Ἀμύκλαν ὄνομα, καὶ Ζώπυρον παιδαγωγὸν ἴσμεν, ὧν τὸ
                                     μὲν Ἀντισθένης, τὸ δὲ Πλάτων ἱστόρηκε.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>περὶ μὲν οὖν τοῦ κάλλους Ἀλκιβιάδου οὐδὲν ἴσως δεῖ
                                     λέγειν, πλὴν ὅτι καὶ παῖδα καὶ μειράκιον καὶ ἄνδρα
                                     πάσῃ συνανθῆσαν τῇ ἡλικίᾳ καὶ ὥρᾳ τοῦ σώματος
@@ -138,8 +118,8 @@
                                     ἀλλὰ τοῦτο Ἀλκιβιάδῃ μετʼ ὀλίγων ἄλλων διʼ εὐφυΐαν
                                     καὶ ἀρετὴν σώματος ὑπῆρξε.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>τῇ δὲ φωνῇ καὶ τὴν τραυλότητα ἐμπρέψαι λέγουσι καὶ
                                     τῷ λάλῳ πιθανότητα παρασχεῖν χάριν ἐπιτελοῦσαν.
                                     μέμνηται δὲ καὶ Ἀριστοφάνης αὐτοῦ τῆς τραυλότητος ἐν
@@ -147,24 +127,24 @@
                      <quote rend="blockquote" type="drama">
                         <l met="iamb">εἶτʼ Ἀλκιβιάδης εἶπε πρός με
                                                   τραυλίσας·</l>
-                        <l> “ὁλᾷς Θέωλον; τὴν κεφαλὴν κόλακος
-                                                  ἔχει.” </l>
+                        <l> <q>ὁλᾷς Θέωλον; τὴν κεφαλὴν κόλακος
+                                                  ἔχει.</q> </l>
                         <l>ὀρθῶς γε τοῦτʼ Ἀλκιβιάδης
                                                   ἐτραύλισεν.</l>
                      </quote>
                      <bibl>Aristoph. Wasps 44 ff.</bibl>
-                  </cit> καὶ Ἄρχιππος τὸν υἱὸν τοῦ Ἀλκιβιάδου σκώπτων· “βαδίζει,” φησί, “διακεχλιδώς, θοἰμάτιον
+                  </cit> καὶ Ἄρχιππος τὸν υἱὸν τοῦ Ἀλκιβιάδου σκώπτων· <q>βαδίζει,</q> φησί, <q>διακεχλιδώς, θοἰμάτιον
                                              ἕλκων, ὅπως ἐμφερὴς μάλιστα τῷ πατρὶ δόξειεν εἶναι,<cit>
                      <quote rend="blockquote" type="drama">
                         <l met="iamb">κλασαυχενεύεταί τε καὶ
                                                   τραυλίζεται.</l>
                      </quote>
                      <bibl>Kock, Com. Att. Frag., i. p. 688</bibl>
-                  </cit>” </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="2">
-            <div2 type="section" n="1">
+                  </cit></q> </p>
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="2">
+            <div type="textpart" subtype="section" n="1">
                <p>τὸ δʼ ἦθος αὐτοῦ πολλὰς
                                     μὲν ὕστερον, ὡς εἰκὸς ἐν πράγμασι μεγάλοις καὶ τύχαις
                                     πολυτρόποις, ἀνομοιότητας πρὸς αὑτὸ καὶ μεταβολὰς
@@ -173,19 +153,19 @@
                                     φιλόπρωτον, ὡς δῆλόν ἐστι τοῖς παιδικοῖς
                                     ἀπομνημονεύμασιν.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἐν μὲν γὰρ τῷ παλαίειν πιεζούμενος, ὑπὲρ τοῦ μὴ πεσεῖν
                                     ἀναγαγὼν πρὸς τὸ στόμα τὰ ἅμματα τοῦ πιεζοῦντος,
                                     οἷος ἦν διαφαγεῖν τὰς χεῖρας. ἀφέντος δὲ τὴν λαβὴν
-                                    ἐκείνου καὶ εἰπόντος· “δάκνεις, ὦ
-                                             Ἀλκιβιάδη, καθάπερ αἱ γυναῖκες,” “οὐκ ἔγωγε,” εἶπεν, “ἀλλʼ ὡς οἱ λέοντες.” </p>
+                                    ἐκείνου καὶ εἰπόντος· <q>δάκνεις, ὦ
+                                             Ἀλκιβιάδη, καθάπερ αἱ γυναῖκες,</q> <q>οὐκ ἔγωγε,</q> εἶπεν, <q>ἀλλʼ ὡς οἱ λέοντες.</q> </p>
                <p>ἔτι δὲ μικρὸς ὢν ἔπαιζεν ἀστραγάλοις ἐν τῷ στενωπῷ,
                                     τῆς δὲ βολῆς καθηκούσης εἰς αὐτὸν ἅμαξα φορτίων
                                     ἐπῄει.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>πρῶτον μὲν οὖν
                                     ἐκέλευε περιμεῖναι τὸν ἄγοντα τὸ ζεῦγος· ὑπέπιπτε γὰρ
                                     ἡ βολὴ τῇ παρόδῳ τῆς ἁμάξης· μὴ πειθομένου δὲ διʼ
@@ -197,8 +177,8 @@
                                     καὶ μετὰ βοῆς συνδραμεῖν πρὸς αὐτόν. </p>
                <p>ἐπεὶ δὲ εἰς τὸ μανθάνειν ἧκε,
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>τοῖς μὲν ἄλλοις ὑπήκουε διδασκάλοις ἐπιεικῶς, τὸ δʼ
                                     αὐλεῖν ἔφευγεν ὡς ἀγεννὲς καὶ ἀνελεύθερον· πλήκτρου
                                     μὲν γὰρ καὶ λύρας χρῆσιν οὐδὲν οὔτε σχήματος οὔτε
@@ -206,18 +186,18 @@
                                     φυσῶντος ἀνθρώπου στόματι καὶ τοὺς συνήθεις ἂν πάνυ
                                     μόλις διαγνῶναι τὸ πρόσωπον.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ἔτι δὲ τὴν μὲν λύραν τῷ χρωμένῳ συμφθέγγεσθαι καὶ
                                     συνᾴδειν, τὸν δʼ αὐλὸν ἐπιστομίζειν καὶ ἀποφράττειν
-                                    ἕκαστον τήν τε φωνὴν καὶ τὸν λόγον ἀφαιρούμενον. “αὐλείτωσαν οὖν,” ἔφη, “Θηβαίων παῖδες· οὐ γὰρ
+                                    ἕκαστον τήν τε φωνὴν καὶ τὸν λόγον ἀφαιρούμενον. <q>αὐλείτωσαν οὖν,</q> ἔφη, <q>Θηβαίων παῖδες· οὐ γὰρ
                                              ἴσασι διαλέγεσθαι· ἡμῖν δὲ τοῖς Ἀθηναίοις,
                                              ὡς οἱ πατέρες λέγουσιν, ἀρχηγέτις Ἀθηνᾶ καὶ
                                              πατρῷος Ἀπόλλων ἐστίν, ὧν ἡ μὲν ἔρριψε
                                              τὸν αὐλόν, ὁ δὲ καὶ τὸν αὐλητὴν
-                                             ἐξέδειρεν.” </p>
-            </div2>
-            <div2 type="section" n="6">
+                                             ἐξέδειρεν.</q> </p>
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>τοιαῦτα παίζων ἅμα καὶ
                                     σπουδάζων ὁ Ἁλκιβιάδης αὑτόν τε τοῦ μαθήματος
                                     ἀπέστησε καὶ τοὺς ἄλλους. ταχὺ γὰρ διῆλθε λόγος εἰς
@@ -225,10 +205,10 @@
                                     αὐλητικὴν καὶ χλευάζοι τοὺς μανθάνοντας. ὅθεν ἐξέπεσε
                                     κομιδῇ τῶν ἐλευθέρων διατριβῶν καὶ προεπηλακίσθη
                                     παντάπασιν ὁ αὐλός. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="3">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="3">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ἐν δὲ ταῖς Ἀντιφῶντος
                                     λοιδορίαις γέγραπται ὅτι παῖς ὤν, ἐκ τῆς οἰκίας
@@ -241,10 +221,10 @@
                                     πατάξας. ἀλλὰ τούτοις μὲν οὐκ ἄξιον ἴσως πιστεύειν,
                                     ἅ γε λοιδορεῖσθαί τις αὐτῷ διʼ ἔχθραν ὁμολογῶν
                                     εἶπεν. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="4">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="4">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ἤδη δὲ πολλῶν καὶ
                                     γενναίων ἀθροιζομένων καὶ περιεπόντων, οἱ μὲν ἄλλοι
@@ -258,8 +238,8 @@
                                     ὡς φυτὸν ἐν ἄνθει τὸν οἰκεῖον καρπὸν ἀποβάλλον καὶ
                                     διαφθεῖρον.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>οὐδένα γὰρ ἡ
                                     τύχη περιέσχεν ἔξωθεν καὶ περιέφραξε τοῖς λεγομένοις
                                     ἀγαθοῖς τοσοῦτον ὥστʼ ἄτρωτον ὑπὸ φιλοσοφίας
@@ -270,8 +250,8 @@
                                     εὐφυΐας ἐγνώρισε Σωκράτη καὶ προσήκατο, διασχὼν τοὺς
                                     πλουσίους καὶ ἐνδόξους ἐραστάς.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ταχὺ δὲ ποιησάμενος συνήθη, καὶ
                                     λόγων ἀκούσας οὐχ ἡδονὴν ἄνανδρον ἐραστοῦ θηρεύοντος,
                                     οὐδὲ φιλημάτων καὶ ψαύσεως προσαιτοῦντος, ἀλλʼ
@@ -286,8 +266,8 @@
                                     θεῶν ὑπηρεσίαν εἰς νέων ἐπιμέλειαν εἶναι καὶ
                                     σωτηρίαν· καταφρονῶν δʼ αὐτὸς ἑαυτοῦ,
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>θαυμάζων δʼ ἐκεῖνον, ἀγαπῶν δὲ
                                     τὴν φιλοφροσύνην, αἰσχυνόμενος δὲ τὴν ἀρετήν,
                                     ἐλάνθανεν εἴδωλον ἔρωτος, ὥς φησιν ὁ Πλάτων,
@@ -298,8 +278,8 @@
                                     προσφερόμενον, ὥσπερ Ἀνύτῳ τῷ Ἀνθεμίωνος. </p>
                <p>ἐτύγχανε μὲν γὰρ ἐρῶν τοῦ Ἀλκιβιάδου,
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ξένους δε τινας ἑστιῶν ἐκάλει
                                     κἀκεῖνον ἐπὶ τὸ δεῖπνον. ὁ δὲ τὴν μὲν κλῆσιν
                                     ἀπείπατο, μεθυσθεὶς δʼ οἴκοι μετὰ τῶν ἑταίρων ἐκώμασε
@@ -309,14 +289,14 @@
                                     λαβόντας οἴκαδε κομίζειν πρὸς αὐτόν, εἰσελθεῖν δʼ οὐκ
                                     ἠξίωσεν, ἀλλὰ ταῦτα πράξας ἀπῆλθε. τῶν οὖν ξένων
                                     δυσχεραινόντων καὶ λεγόντων ὡς ὑβριστικῶς καὶ
-                                    ὑπερηφάνως εἴη τῷ Ἀνύτῳ κεχρημένος ὁ Ἀλκιβιάδης, “ἐπιεικῶς μὲν οὖν,” ὁ
-                                    Ἄνοτος ἔφη, “καὶ φιλανθρώπως· ἃ
+                                    ὑπερηφάνως εἴη τῷ Ἀνύτῳ κεχρημένος ὁ Ἀλκιβιάδης, <q>ἐπιεικῶς μὲν οὖν,</q> ὁ
+                                    Ἄνοτος ἔφη, <q>καὶ φιλανθρώπως· ἃ
                                              γὰρ ἐξῆν αὐτῷ λαβεῖν ἅπαντα, τούτων ἡμῖν
-                                             τὰ μέρη καταλέλοιπεν.” </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="5">
-            <div2 type="section" n="1">
+                                             τὰ μέρη καταλέλοιπεν.</q> </p>
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="5">
+            <div type="textpart" subtype="section" n="1">
                <p>
 οὕτω δὲ καὶ τοῖς ἄλλοις
                                     ἐρασταῖς ἐχρῆτο· πλὴν ἕν μετοικικὸν ἄνθρωπον, ὥς
@@ -328,32 +308,32 @@
                                     ὑστεραίᾳ τοὺς ὠνουμένους τά τέλη τὰ δημόσια ταῖς
                                     τιμαῖς ὑπερβάλλειν ἀντωνούμενον.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>παραιτουμένου δὲ τοῦ ἀνθρώπου διὰ τὸ πολλῶν ταλάντων εἶναι
                                     τὴν ὠνήν, ἠπείλησε μαστιγώσειν εἰ μὴ ταῦτα πράττοι·
                                     καὶ γὰρ ἐτύγχανεν ἐγκαλῶν τι τοῖς τελώναις ἴδιον.
-                                    ἕωθεν οὖν προελθὼν <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">προελθὼν</foreign> Coraës and Bekker, after Reiske: <foreign lang="greek">προσελθών</foreign>.</note>μέτοικος εἰς ἀγορὰν ἐπέθηκε
+                                    ἕωθεν οὖν προελθὼν <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">προελθὼν</foreign> Coraës and Bekker, after Reiske: <foreign xml:lang="grc">προσελθών</foreign>.</note>μέτοικος εἰς ἀγορὰν ἐπέθηκε
                                     τῇ ὠνῇ τάλαντον. ἐπεὶ δʼ οἱ τελῶναι συστρεφόμενοι
                                     καὶ ἀγανακτοῦντες ἐκέλευον ὀνομάζειν ἐγγυητήν, ὡς οὐκ
                                     ἂν εὑρόντος, θορυβουμένου τοῦ ἀνθρώπου καὶ
                                     ἀναχωροῦντος, ἑστὼς ὁ Ἀλκιβιάδης ἄπωθεν πρὸς τοὺς
-                                    ἄρχοντας, “ἐμὲ γράψατʼ,” ἔφη, “ἐμὸς φίλος ἐστίν,
+                                    ἄρχοντας, <q>ἐμὲ γράψατʼ,</q> ἔφη, <q>ἐμὸς φίλος ἐστίν,</q>
 </p>
-            </div2>
-            <div2 type="section" n="3">
-               <p>ἐγγυῶμαι.” ταῦτʼ ἀκούσαντες οἱ τελῶναι ἐξηπορήθησαν. εἰωθότες γὰρ
+            </div>
+            <div type="textpart" subtype="section" n="3">
+               <p><q rend="merge">ἐγγυῶμαι.</q> ταῦτʼ ἀκούσαντες οἱ τελῶναι ἐξηπορήθησαν. εἰωθότες γὰρ
                                     ἀεὶ ταῖς δευτέραις ὠναῖς χρεωλυτεῖν τὰς πρώτας, οὐχ
                                     ἑώρων ἀπαλλαγὴν αὑτοῖς οὖσαν τοῦ πράγματος. ἐδέοντο
                                     δὴ τοῦ ἀνθρώπου ἀργύριον διδόντες· ὁ δʼ Ἀλκιβιάδης
                                     οὐκ εἴα λαβεῖν ἔλαττον ταλάντου. διδόντων δὲ τὸ
                                     τάλαντον ἐκέλευσεν ἀποστῆναι λαβόντα. κἀκεῖνον μὲν
                                     οὕτως ὠφέλησεν. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="6">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="6">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ὁ δὲ Σωκράτους ἔρως
                                     πολλοὺς ἔχων καὶ μεγάλους ἀνταγωνιστὰς πῇ μὲν
@@ -365,8 +345,8 @@
                                     μόνον ἐκεῖνον ἔχων τὸ αἰδεῖσθαι καὶ τὸ φοβεῖσθαι,
                                     τῶν δʼ ἄλλων ὑπερορῶν.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ὁ μὲν οὖν Κλεάνθης ἔλεγε τὸν ἐρώμενον ὑφʼ ἑαυτοῦ μὲν
                                     ἐκ τῶν ὤτων κρατεῖσθαι, τοῖς δʼ ἀντερασταῖς πολλὰς
                                     λαβὰς παρέχειν ἀθίκτους ἑαυτῷ, τὴν γαστέρα λέγων καὶ
@@ -375,8 +355,8 @@
                                     Θουκυδίδου λεγομένη παρανομία εἰς τὸ σῶμα τῆς διαίτης
                                     ὑποψίαν τοιαύτην δίδωσιν.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>οὐ μὴν ἀλλὰ μᾶλλον αὐτοῦ τῆς φιλοτιμίας
                                     ἐπιλαμβανόμενοι καὶ τῆς φιλοδοξίας οἱ διαφθείροντες
                                     ἐνέβαλλον οὐ καθʼ ὥραν εἰς μεγαλοπραγμοσύνην,
@@ -385,8 +365,8 @@
                                     καὶ δημαγωγοὺς εὐθύς, ἀλλὰ καὶ τὴν Περικλέους δύναμιν
                                     ἐν τοῖς Ἕλλησι καὶ δόξαν ὑπερβαλούμενον.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ὥσπερ οὖν ὁ σίδηρος ἐν
                                     τῷ πυρὶ μαλασσόμενος αὖθις ὑπὸ τοῦ ψυχροῦ πυκνοῦται
                                     καὶ σύνεισι τοῖς μορίοις εἰς αὑτόν, οὕτως ἐκεῖνον ὁ
@@ -394,31 +374,31 @@
                                     λάβοι, πιέζων τῷ λόγῳ καὶ συστέλλων ταπεινὸν ἐποίει
                                     καὶ ἄτολμον, ἡλίκων ἐνδεής ἐστι καὶ ἀτελὴς πρὸς
                                     ἀρετὴν μανθάνοντα. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="7">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="7">
+            <div type="textpart" subtype="section" n="1">
                <p>
 τὴν δὲ παιδικὴν ἡλικίαν
                                     παραλλάσσων ἐπέστη γραμματοδιδασκάλῳ καὶ βιβλίον
                                     ᾔτησεν Ὁμηρικόν. εἰπόντος δὲ τοῦ διδασκάλου μηδὲν
                                     ἔχειν Ὁμήρου, κονδύλῳ καθικόμενος αὐτοῦ παρῆλθεν.
                                     ἑτέρου δὲ φήσαντος ἔχειν Ὅμηρον ὑφʼ αὑτοῦ
-                                    διωρθωμένον, “εἶτʼ,” ἔφη, “γράμματα διδάσκεις, Ὅμηρον
+                                    διωρθωμένον, <q>εἶτʼ,</q> ἔφη, <q>γράμματα διδάσκεις, Ὅμηρον
                                              ἐπανορθοῦν ἱκανὸς ὤν; οὐχὶ τοὺς νέους
-                                             παιδεύεις;” </p>
-            </div2>
-            <div2 type="section" n="2">
+                                             παιδεύεις;</q> </p>
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>Περικλεῖ δὲ βουλόμενος ἐντυχεῖν ἐπὶ θύρας ἦλθεν αὐτοῦ.
                                     πυθόμενος δὲ μὴ σχολάζειν, ἀλλὰ σκοπεῖν καθʼ ἑαυτὸν
-                                    ὅπως ἀποδώσει λόγον Ἀθηναίοις, ἀπιὼν ὁ Ἀλκιβιάδης, “εἶτα,” ἔφη, “βέλτιον οὐκ ἦν σκοπεῖν
-                                             αὐτὸν ὅπως οὐκ ἀποδώσει λόγον Ἀθηναίοις;” </p>
+                                    ὅπως ἀποδώσει λόγον Ἀθηναίοις, ἀπιὼν ὁ Ἀλκιβιάδης, <q>εἶτα,</q> ἔφη, <q>βέλτιον οὐκ ἦν σκοπεῖν
+                                             αὐτὸν ὅπως οὐκ ἀποδώσει λόγον Ἀθηναίοις;</q> </p>
                <p>ἔτι δὲ μειράκιον ὢν ἐστρατεύσατο τὴν εἰς Ποτίδαιαν
                                     στρατείαν, καὶ Σωκράτη σύσκηνον εἶχε καὶ παραστάτην ἐν
                                     τοῖς ἀγῶσιν.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ἰσχυρᾶς δὲ
                                     γενομένης μάχης ἠρίστευσαν μὲν ἀμφότεροι, τοῦ δʼ
                                     Ἀλκιβιάδου τραύματι περιπεσόντος ὁ Σωκράτης προέστη
@@ -431,18 +411,18 @@
                                     καὶ παρεκάλει στεφανοῦν ἐκεῖνον καὶ διδόναι τὴν
                                     πανοπλίαν.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ἔτι δὲ τῆς ἐπὶ Δηλίῳ μάχης γενομένης καὶ φευγόντων
                                     Ἀθηναίων, ἔχων ἵππον ὁ Ἀλκιβιάδης, τοῦ δὲ
                                     Σωκράτους πεζῇ μετʼ ὀλίγων ἀποχωροῦντος, οὐ παρήλασεν
                                     ἰδών, ἀλλὰ παρέπεμψε καὶ περιήμυνεν, ἐπικειμένων τῶν
                                     πολεμίων καὶ πολλοὺς ἀναιρούντων. καὶ ταῦτα μὲν
                                     ὕστερον ἐπράχθη. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="8">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="8">
+            <div type="textpart" subtype="section" n="1">
                <p>
 Ἱππονίκῳ δὲ τῷ Καλλιου
                                     πατρί, καὶ δόξαν ἔχοντι μεγάλην καὶ δύναμιν ἀπὸ
@@ -455,8 +435,8 @@
                                     πρὸς αὐτὸν καὶ θεὶς τὸ ἱμάτιον παρεδίδου τὸ σῶμα,
                                     μαστιγοῦν καὶ κολάζειν κελεύων.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ὁ δὲ συνέγνω καὶ τὴν ὀργὴν
                                     ἀφῆκεν, ὕστερον δὲ τῆς θυγατρὸς Ἱππαρέτης ἐποιήσατο
                                     νυμφίον. </p>
@@ -469,8 +449,8 @@
                                     ἄνπερ αὐτῷ συμπέσῃ μὴ καταλιπόντι γενεὰν ἀποθανεῖν. </p>
                <p>εὔτακτος δʼ οὖσα καὶ φίλανδρος ἡ Ἱππαρέτη,
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>λυπουμένη δʼ ὑπʼ αὐτοῦ περὶ τὸν
                                     γάμον ἑταίραις ξέναις καὶ ἀσταῖς συνόντος, ἐκ τῆς
                                     οἰκίας ἀπιοῦσα πρὸς τὸν ἀδελφὸν ᾤχετο. τοῦ δʼ
@@ -478,8 +458,8 @@
                                     τῆς ἀπολείψεως γράμμα παρὰ τῷ ἄρχοντι θέσθαι, μὴ διʼ
                                     ἑτέρων,
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ἀλλʼ αὐτὴν
                                     παροῦσαν. ὡς οὖν παρῆν τοῦτο πράξουσα κατὰ τὸν νόμον,
                                     ἐπελθὼν ὁ Ἀλκιβιάδης καὶ συναρπάσας αὐτὴν ἀπῆλθε διʼ
@@ -488,29 +468,29 @@
                                     τελευτῆς, ἐτελεύτησε δὲ μετʼ οὐ πολὺν χρόνον εἰς
                                     Ἔφεσον τοῦ Ἀλκιβιάδου πλεύσαντος.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>αὕτη μὲν οὖν οὐ παντελῶς ἔδοξεν ἡ βία παράνομος οὐδʼ
                                     ἀπάνθρωπος εἶναι· καὶ γὰρ ὁ νόμος δοκεῖ διὰ τοῦτο
                                     προάγειν τὴν ἀπολείπουσαν εἰς τὸ δημόσιον αὐτήν, ὅπως
                                     ἐγγένηται τῷ ἀνδρὶ συμβῆναι καὶ κατασχεῖν. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="9">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="9">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ὄντος δὲ κυνὸς αὐτῷ
                                     θαυμαστοῦ τὸ μέγεθος καὶ τὸ εἶδος, ὃν ἑβδομήκοντα
                                     μνῶν ἐωνημένος ἐτύγχανεν, ἀπέκοψε τὴν οὐρὰν πάγκαλον
                                     οὖσαν. ἐπιτιμώντων δὲ τῶν συνήθων καὶ λεγόντων ὅτι
                                     πάντες ἐπὶ τῷ κυνὶ δάκνονται καὶ λοιδοροῦσιν αὐτόν,
-                                    ἐπιγελάσας, “γίνεται τοίνυν,” εἶπεν, “ὃ βούλομαι· βούλομαι γὰρ
+                                    ἐπιγελάσας, <q>γίνεται τοίνυν,</q> εἶπεν, <q>ὃ βούλομαι· βούλομαι γὰρ
                                              Ἀθηναίους τοῦτο λαλεῖν, ἵνα μή τι χεῖρον περὶ
-                                             ἐμοῦ λέγωσι.” </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="10">
-            <div2 type="section" n="1">
+                                             ἐμοῦ λέγωσι.</q> </p>
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="10">
+            <div type="textpart" subtype="section" n="1">
                <p>
 πρώτην δʼ αὐτῷ πάροδον
                                     εἰς τὸ δημόσιον γενέσθαι λέγουσι μετὰ χρημάτων
@@ -525,8 +505,8 @@
                                     καὶ ἀποδοῦναι· διὸ προσφιλέστατον τῷ Ἀλκιβιάδῃ
                                     γενέσθαι.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>μεγάλας δʼ αὐτῷ κλεισιάδας ἐπὶ τὴν πολιτείαν ἀνοίγοντος
                                     τοῦ τε γένους καὶ τοῦ πλούτου τῆς τε περὶ τὰς μάχας
                                     ἀνδραγαθίας, φίλων τε πολλῶν καὶ οἰκείων ὑπαρχόντων,
@@ -537,8 +517,8 @@
                                     καὶ δεινότατον εἰπεῖν γενέσθαι πρὸς τοῖς ἄλλοις. εἰ
                                     δὲ Θεοφράστῳ πιστεύομεν,
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ἀνδρὶ φιληκόῳ καὶ ἱστορικῷ παρʼ ὁντινοῦν τῶν
                                     φιλοσόφων, εὑρεῖν μὲν ἦν τὰ δέοντα καὶ νοῆσαι πάντων
                                     ἱκανώτατος ὁ Ἀλκιβιάδης, ζητῶν δὲ μὴ μόνον ἃ δεῖ
@@ -546,10 +526,10 @@
                                     ῥήμασιν, οὐκ εὐπορῶν δέ, πολλάκις ἐσφάλλετο καὶ
                                     μεταξὺ λέγων ἀπεσιώπα καὶ διέλειπε, λέξεως διαφυγούσης
                                     αὐτόν, ἀναλαμβάνων καὶ διασκοπούμενος. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="11">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="11">
+            <div type="textpart" subtype="section" n="1">
                <p>
 αἱ δʼ ἱπποτροφίαι
                                     περιβόητοι μὲν ἐγένοντο καὶ τῷ πλήθει τῶν ἁρμάτων·
@@ -559,8 +539,8 @@
                                     φησίν, ὁ δʼ Εὐριπίδης τρίτον, ὑπερβάλλει λαμπρότητι
                                     καὶ δόξῃ πᾶσαν τὴν ἐν τούτοις φιλοτιμίαν.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>λέγει δʼ ὁ Εὐριπίδης ἐν
                                     τῷ ᾄσματι ταῦτα· <cit>
                      <quote rend="blockquote">
@@ -572,16 +552,16 @@
                                                   τρίτα,</l>
                         <l>βῆναί τʼ ἀπονητί, Διὸς στεφθέντα τʼ
                                                   ἐλαία</l>
-                        <l>κάρυκι βοᾶν <note resp="ed" place="unspecified" anchored="yes">
-                              <foreign lang="greek">Διὸς στεφθέντα τʼ ἐλαίᾳ κάρυκι βοᾶν</foreign> with Hermann and Bergk (<hi rend="italics">Poet. Lyr. Gr.</hi> ii.<hi rend="superscript">4</hi> p. 266): <foreign lang="greek">δὶς στεφθέντʼ ἐλαίᾳ κάρυκι βοὰν</foreign> (Bekker, <foreign lang="greek">βοᾶν</foreign>).</note> παραδοῦναι·</l>
+                        <l>κάρυκι βοᾶν <note resp="ed" place="unspecified" anchored="true">
+                              <foreign xml:lang="grc">Διὸς στεφθέντα τʼ ἐλαίᾳ κάρυκι βοᾶν</foreign> with Hermann and Bergk (<hi rend="italics">Poet. Lyr. Gr.</hi> ii.<hi rend="superscript">4</hi> p. 266): <foreign xml:lang="grc">δὶς στεφθέντʼ ἐλαίᾳ κάρυκι βοὰν</foreign> (Bekker, <foreign xml:lang="grc">βοᾶν</foreign>).</note> παραδοῦναι·</l>
                      </quote>
                      <bibl>Euripides, an epinician ode</bibl>
                   </cit>
                </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="12">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="12">
+            <div type="textpart" subtype="section" n="1">
                <p>
 τοῦτο μέντοι τὸ λαμπρὸν
                                     ἐπιφανέστερον ἐποίησεν ἡ τῶν πόλεων φιλοτιμία. σκηνὴν
@@ -593,8 +573,8 @@
                                     πλείονα λόγον παρέσχε. </p>
                <p>λέγεται γὰρ ὡς ἦν Ἀθήνησι Διομήδης,
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἀνὴρ οὐ πονηρός, Ἀλκιβιάδου
                                     φίλος, ἐπιθυμῶν δὲ νίκην Ὀλυμπικὴν αὐτῷ γενέσθαι·
                                     καὶ πυνθανόμενος ἅρμα δημόσιον Ἀργείοις εἶναι, τὸν
@@ -602,18 +582,18 @@
                                     ἔχοντα πολλούς, ἔπεισεν αὐτῷ πρίασθαι τὸ ἅρμα.
                                     πριάμενος δὲ ὁ Ἀλκιβιάδης ἴδιον ἀπεγράψατο,
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>τὸν δὲ Διομήδη χαίρειν
                                     εἴασε χαλεπῶς φέροντα καὶ μαρτυρόμενον θεοὺς καὶ
                                     ἀνθρώπους. φαίνεται δὲ καὶ δίκη συστᾶσα περὶ τούτου,
                                     καὶ λόγος Ἰσοκράτει γέγραπται περὶ τοῦ ζεύγους ὑπὲρ
                                     τοῦ Ἀλκιβιάδου παιδός, ἐν ᾧ Τισίας ἐστίν, οὐ
                                     Διομήδης, ὁ δικασάμενος. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="13">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="13">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ἐπεὶ δʼ ἀφῆκεν αὑτὸν εἰς
                                     τὴν πολιτείαν ἔτι μειράκιον ὤν, τοὺς μὲν ἄλλους
@@ -624,8 +604,8 @@
                                     αὐτός, αὐξάνεσθαι τότε καὶ γνωρίμων ὄντα πατέρων,
                                     ἐλαττούμενον δὲ τοῖς τε ἄλλοις καὶ περὶ τὸν λόγον.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἐντευκτικὸς γὰρ
                                     ἰδίᾳ καὶ πιθανὸς ἐδόκει μᾶλλον ἢ φέρειν ἀγῶνας ἐν
                                     δήμῳ δυνατός. ἦν γάρ, ὡς Εὔπολίς φησι, <cit>
@@ -635,16 +615,16 @@
                      </quote>
                      <bibl>Eupolis, Demes; Kock, Com. Att. Frag. i. p.
                                                   281</bibl>
-                  </cit>φέρεται δὲ καὶ λόγος τις κατʼ Ἀλκιβιάδου ὑπὸ <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">ὑπὸ</foreign> with Coraës: <foreign lang="greek">καί</foreign>.</note>
+                  </cit>φέρεται δὲ καὶ λόγος τις κατʼ Ἀλκιβιάδου ὑπὸ <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">ὑπὸ</foreign> with Coraës: <foreign xml:lang="grc">καί</foreign>.</note>
                                     Φαίακος γεγραμμένος, ἐν ᾧ μετὰ τῶν ἄλλων γέγραπται
                                     καὶ ὅτι τῆς πόλεως πολλὰ πομπεῖα χρυσᾶ καὶ ἀργυρᾶ
                                     κεκτημένης Ἀλκιβιάδης ἐχρῆτο πᾶσιν αὐτοῖς ὥσπερ
                                     ἰδίοις πρὸς τὴν καθʼ ἡμέραν δίαιταν. </p>
                <p>ἦν δέ τις Ὑπέρβολος Περιθοίδης,
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>οὗ μέμνηται μὲν ὡς ἀνθρώπου
                                     πονηροῦ καὶ Θουκυδίδης, τοῖς δὲ κωμικοῖς ὁμοῦ τι πᾶσι
                                     διατριβὴν ἀεὶ σκωπτόμενος ἐν τοῖς θεάτροις παρεῖχεν.
@@ -654,8 +634,8 @@
                                     ἤρεσκεν, ἐχρῆτο δʼ αὐτῷ πολλάκις ὁ δῆμος ἐπιθυμῶν
                                     προπηλακίζειν τοὺς ἐν ἀξιώματι καὶ συκοφαντεῖν.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ἀναπεισθεὶς οὖν
                                     ὑπʼ αὐτοῦ τότε τὸ ὄστρακον ἐπιφέρειν ἔμελλεν, ᾧ
                                     κολούοντες ἀεὶ τὸν προὔχοντα δόξῃ καὶ δυνάμει τῶν
@@ -668,14 +648,14 @@
                                     διαλεχθεὶς καὶ τὴν ἐκείνου προσλαβὼν ἑταιρίαν ἐξήλασε
                                     τὸν Ὑπέρβολον οὐδʼ ἂν προσδοκήσαντα.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>φαῦλος γὰρ οὐδεὶς ἐνέπιπτεν εἰς
                                     τοῦτον τὸν κολασμὸν οὐδʼ ἄδοξος, ὥς που καὶ Πλάτων ὁ
                                     κωμικὸς εἴρηκε τοῦ Ὑπερβόλου μνησθείς, <cit>
                      <quote rend="blockquote" type="drama">
-                        <l met="iamb">καίτοι πέπραχε τῶν προτέρων <note resp="ed" place="unspecified" anchored="yes">
-                              <foreign lang="greek">προτέρων</foreign> with Kock (<hi rend="italics">Com. Att. Frag.</hi> i. p. 654): <foreign lang="greek">τρόπων</foreign> (<hi rend="italics">worthy of his ways</hi>).</note> μὲν
+                        <l met="iamb">καίτοι πέπραχε τῶν προτέρων <note resp="ed" place="unspecified" anchored="true">
+                              <foreign xml:lang="grc">προτέρων</foreign> with Kock (<hi rend="italics">Com. Att. Frag.</hi> i. p. 654): <foreign xml:lang="grc">τρόπων</foreign> (<hi rend="italics">worthy of his ways</hi>).</note> μὲν
                                                   ἄξια,</l>
                         <l>αὑτοῦ δὲ καὶ τῶν στιγμάτων ἀνάξια.</l>
                         <l>οὐ γὰρ τοιούτων εἵνεκʼ ὄστραχʼ
@@ -684,10 +664,10 @@
                      <bibl>Plato comicus, unknown</bibl>
                   </cit>περὶ μὲν οὖν τούτων ἐν ἑτέροις μᾶλλον εἴρηται
                                     τὰ ἱστορούμενα. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="14">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="14">
+            <div type="textpart" subtype="section" n="1">
                <p>
 τὸν δʼ Ἀλκιβιάδην ὁ
                                     Νικίας οὐχ ἧττον ἠνία θαυμαζόμενος ὑπὸ τῶν πολεμίων
@@ -695,8 +675,8 @@
                                     Ἀλκιβιάδης τῶν Λακεδαιμονίων, καὶ τοὺς ἁλόντας αὐτῶν
                                     περὶ Πύλον ἄνδρας ἐθεράπευσεν·
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἐπεὶ δʼ ἐκεῖνοί τε διὰ Νικίου
                                     μάλιστα τῆς εἰρήνης τυχόντες καὶ τοὺς ἄνδρας
                                     ἀπολαβόντες ὑπερηγάπων αὐτόν, ἔν τε τοῖς Ἕλλησι
@@ -705,8 +685,8 @@
                                     Νικίειον ὠνόμαζον, οὐ μετρίως ἀνιώμενος ὁ Ἀλκιβιάδης
                                     καὶ φθονῶν ἐβούλευε σύγχυσιν ὁρκίων.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>καὶ πρῶτον μὲν Ἀργείους
                                     αἰσθανόμενος μίσει καὶ φόβῳ τῶν Σπαρτιατῶν ζητοῦντας
                                     ἀποστροφήν, ἐλπίδας αὐτοῖς ἐνεδίδου κρύφα τῆς
@@ -716,30 +696,30 @@
                                     τρέπεσθαι καὶ περιμένειν ὅσον οὐδέπω μεταμελομένους καὶ
                                     τὴν εἰρήνην ἀφιέντας.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ἐπεὶ δὲ Λακεδαιμόνιοι πρός τε τοὺς Βοιωτοὺς ἐποιήσαντο
                                     συμμαχίαν καὶ Πάνακτον οὐχ ἑστός, ὥσπερ ἔδει, τοῖς
                                     Ἀθηναίοις παρέδωκαν, ἀλλὰ καταλύσαντες, ὀργιζομένους
                                     λαβὼν τοὺς Ἀθηναίους ἔτι μᾶλλον ἐξετράχυνε, καὶ τὸν
                                     Νικίαν ἐθορύβει καὶ διέβαλλεν εἰκότα κατηγορῶν,
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ὅτι τοὺς ἐν
                                     Σφακτηρίᾳ τῶν πολεμίων ἀποληφθέντας αὐτὸς μὲν
                                     ἐξελεῖν οὐκ ἠθέλησεν στρατηγῶν, ἑτέρων δʼ ἐξελόντων
                                     ἀφῆκε καὶ ἀπέδωκε χαριζόμενος Λακεδαιμονίοις· εἶτʼ
                                     ἐκείνους μὲν οὐκ ἔπεισε φίλος ὢν Βοιωτοῖς μὴ
-                                    συνόμνυσθαι μηδὲ Κορινθίοις, Ἀθηναίοις <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">ʼΑθηναίοις</foreign> Coraës and Bekker, with C: <foreign lang="greek">ʼΑθηναίους</foreign>
-                  </note> δὲ κωλύει <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">κωλύει</foreign> Coraës, after Reiske: <foreign lang="greek">κωλύειν</foreign>.</note> τὸν
+                                    συνόμνυσθαι μηδὲ Κορινθίοις, Ἀθηναίοις <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">ʼΑθηναίοις</foreign> Coraës and Bekker, with C: <foreign xml:lang="grc">ʼΑθηναίους</foreign>
+                  </note> δὲ κωλύει <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">κωλύει</foreign> Coraës, after Reiske: <foreign xml:lang="grc">κωλύειν</foreign>.</note> τὸν
                                     βουλόμενον τῶν Ἑλλήνων φίλον εἶναι καὶ σύμμαχον, εἰ
                                     μὴ δόξειε Λακεδαιμονίοις.
 </p>
-            </div2>
-            <div2 type="section" n="6">
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>ἐκ δὲ τούτου κακῶς φερομένῳ τῷ Νικίᾳ παρῆσαν ὥσπερ κατὰ
                                     τύχην πρέσβεις ἀπὸ τῆς Λακεδαίμονος, αὐτόθεν τε λόγους
                                     ἐπιεικεῖς ἔχοντες καὶ πρὸς πᾶν τὸ συμβιβαστικὸν καὶ
@@ -748,9 +728,9 @@
                                     ἐκκλησιάζειν, δείσας ὁ Ἀλκιβιάδης διεπράξατο τοὺς
                                     πρέσβεις ἐν λόγοις γενέσθαι πρὸς αὐτόν.
 </p>
-            </div2>
-            <div2 type="section" n="7">
-               <p>ὡς δὲ συνῆλθον ἔλεγε· “τί πεπόνθατε, ἄνδρες
+            </div>
+            <div type="textpart" subtype="section" n="7">
+               <p>ὡς δὲ συνῆλθον ἔλεγε· <q>τί πεπόνθατε, ἄνδρες
                                              Σπαρτιᾶται; πῶς ἔλαθεν ὑμᾶς ὅτι τὰ τῆς
                                              βουλῆς ἀεὶ μέτρια καὶ φιλάνθρωπα πρὸς τοὺς
                                              ἐντυγχάνοντάς ἐστιν, ὁ δὲ δῆμος μέγα φρονεῖ
@@ -761,9 +741,9 @@
                                              Ἀθηναίοις καὶ μηδὲν ἐκβιασθῆναι παρὰ γνώμην,
                                              οὕτω διαλέγεσθε περὶ τῶν δικαίων ὡς οὐκ ὄντες
                                              αὐτοκράτορες. συμπράξομεν δʼ ἡμεῖς
-                                             Λακεδαιμονίοις χαριζόμενοι.” </p>
-            </div2>
-            <div2 type="section" n="8">
+                                             Λακεδαιμονίοις χαριζόμενοι.</q> </p>
+            </div>
+            <div type="textpart" subtype="section" n="8">
                <p>ταῦτα δʼ εἰπὼν ὅρκους
                                     ἔδωκεν αὐτοῖς καὶ μετέστησεν ἀπὸ τοῦ Νικίου,
                                     παντάπασι πιστεύοντας αὐτῷ καὶ θαυμάζοντας ἅμα τὴν
@@ -774,8 +754,8 @@
                                     φιλανθρώπως ἐφʼ οἷς ἀφιγμένοι τυγχάνουσιν, οὐκ ἔφασαν
                                     ἥκειν αὐτοκράτορες.
 </p>
-            </div2>
-            <div2 type="section" n="9">
+            </div>
+            <div type="textpart" subtype="section" n="9">
                <p>εὐθὺς
                                     οὖν ὁ Ἀλκιβιάδης ἐνέκειτο μετὰ κραυγῆς καὶ ὀργῆς,
                                     ὥσπερ οὐκ ἀδικῶν, ἀλλʼ ἀδικούμενος, ἀπίστους καὶ
@@ -784,10 +764,10 @@
                                     ἐχαλέπαινε, τὸν δὲ Νικίαν ἔκπληξις εἶχε καὶ κατήφεια
                                     τῶν ἀνδρῶν τῆς μεταβολῆς, ἀγνοοῦντα τὴν ἀπάτην καὶ
                                     τὸν δόλον. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="15">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="15">
+            <div type="textpart" subtype="section" n="1">
                <p>
 οὕτω δὲ τῶν Λακεδαιμονίων
                                     ἐκπεσόντων, στρατηγὸς ἀποδειχθεὶς ὁ Ἀλκιβιάδης εὐθὺς
@@ -801,8 +781,8 @@
                                     ᾧ μέγα μὲν οὐδὲν ἡ νίκη προσέθηκε κρατήσασιν, εἰ δʼ
                                     ἐσφάλησαν, ἔργον ἦν τὴν Λακεδαίμονα περιγενέσθαι.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>μετὰ δὲ τὴν μάχην εὐθὺς ἐπέθεντο καταλύειν ἐν Ἄργει τὸν
                                     δῆμον οἱ χίλιοι καὶ τὴν πόλιν ὑπήκοον ποιεῖν·
                                     Λακεδαιμόνιοι δὲ παραγενόμενοι κατέλυσαν τὴν δημοκρατίαν.
@@ -812,29 +792,29 @@
                                     καθεῖναι καὶ προσμίξαντας τῇ θαλάσσῃ τὴν πόλιν ἐξάψαι
                                     παντάπασι τῆς Ἀθηναίων δυνάμεως.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>καὶ τέκτονας καὶ λιθουργοὺς ἐκ
                                     τῶν Ἀθηνῶν ἐκόμισε καὶ πᾶσαν ἐνεδείκνυτο προθυμίαν,
                                     οὐχ ἧττον ἑαυτῷ κτώμενος ἢ τῇ πόλει χάριν καὶ
                                     ἰσχύν. ἔπεισε δὲ καὶ Πατρεῖς ὁμοίως τείχεσι μακροῖς
                                     συνάψαι τῇ θαλάσσῃ τὴν πόλιν. εἰπόντος δέ τινος τοῖς
-                                    Πατρεῦσιν ὅτι “καταπιοῦνται ὑμᾶς
-                                             Ἀθηναῖοι·” “ἴσως,” εἶπεν ὁ Ἀλκιβιάδης, “κατὰ μικρὸν καὶ κατὰ τοὺς
+                                    Πατρεῦσιν ὅτι <q>καταπιοῦνται ὑμᾶς
+                                             Ἀθηναῖοι·</q> <q>ἴσως,</q> εἶπεν ὁ Ἀλκιβιάδης, <q>κατὰ μικρὸν καὶ κατὰ τοὺς
                                              πόδας, Λακεδαιμόνιοι δὲ κατὰ τὴν κεφαλὴν καὶ
-                                             ἀθρόως.” </p>
-            </div2>
-            <div2 type="section" n="4">
+                                             ἀθρόως.</q> </p>
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>οὐ μὴν ἀλλὰ καὶ τῆς γῆς συνεβούλευεν ἀντέχεσθαι τοῖς
                                     Ἀθηναίοις, καὶ τὸν ἐν Ἀγραύλου προβαλλόμενον ἀεὶ
                                     τοῖς ἐφήβοις ὅρκον ἔργῳ βεβαιοῦν. ὀμνύουσι γὰρ
                                     ὅροις χρήσασθαι τῆς Ἀττικῆς πυροῖς, κριθαῖς,
                                     ἀμπέλοις, ἐλαίαις, οἰκείαν ποιεῖσθαι διδασκόμενοι τὴν
                                     ἥμερον καὶ καρποφόρον. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="16">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="16">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ἐν δὲ τοιούτοις πολιτεύμασι
                                     καὶ λόγοις καὶ φρονήματι καὶ δεινότητι πολλὴν αὖ πάλιν
@@ -846,10 +826,10 @@
                                     ἐπιβαλλομένων, ἀσπίδος τε διαχρύσου ποίησιν οὐδὲν
                                     ἐπίσημον τῶν πατρίων ἔχουσαν,
 </p>
-            </div2>
-            <div2 type="section" n="2">
-               <p>ἀλλʼ Ἔρωτα κεραυνοφόρον, ἅπερ <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">ἄπερ</foreign>. Either some verb is to be supplied from the context for the preceding accusatives (so Coraës), or <foreign lang="greek">ἅπερ</foreign> is to be deleted (so Bekker and Sintenis<hi rend="superscript">2</hi>).</note>
+            </div>
+            <div type="textpart" subtype="section" n="2">
+               <p>ἀλλʼ Ἔρωτα κεραυνοφόρον, ἅπερ <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">ἄπερ</foreign>. Either some verb is to be supplied from the context for the preceding accusatives (so Coraës), or <foreign xml:lang="grc">ἅπερ</foreign> is to be deleted (so Bekker and Sintenis<hi rend="superscript">2</hi>).</note>
                                     ὁρῶντες οἱ μὲν ἔνδοξοι μετὰ τοῦ βδελύττεσθαι καὶ
                                     δυσχεραίνειν ἐφοβοῦντο τὴν ὀλιγωρίαν αὐτοῦ καὶ
                                     παρανομίαν, ὡς τυραννικὰ καὶ ἀλλόκοτα, τοῦ δὲ δήμου τὸ
@@ -870,8 +850,8 @@
                      <bibl>Aristoph. Frogs 1431-1432</bibl>
                   </cit>
                </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ἐπιδόσεις γὰρ καὶ χορηγίαι καὶ φιλοτιμήματα πρὸς τὴν πόλιν
                                     ὑπερβολὴν μὴ ἀπολείποντα καὶ δόξα προγόνων καὶ λόγου
                                     δύναμις καὶ σώματος εὐπρέπεια καὶ ῥώμη μετʼ ἐμπειρίας
@@ -880,16 +860,16 @@
                                     τῶν ὀνομάτων τοῖς ἁμαρτήμασι τιθεμένους, παιδιὰς καὶ
                                     φιλοτιμίας.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>οἷον ἦν καὶ τὸ Ἀγάθαρχον εἷρξαι τὸν ζωγράφον, εἶτα
                                     γράψαντα τὴν οἰκίαν ἀφεῖναι δωρησάμενον· καὶ Ταυρέαν
                                     ἀντιχορηγοῦντα ῥαπίσαι φιλοτιμούμενον ὑπὲρ τῆς νίκης·
                                     καὶ τὸ Μηλίαν γυναῖκα ἐκ τῶν αἰχμαλώτων ἐξελόμενον
                                     καὶ συνόντα θρέψαι παιδάριον ἐξ αὐτῆς.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>καὶ γὰρ τοῦτο φιλάνθρωπον
                                     ἐκάλουν· πλὴν ὅτι τοὺς Μηλίους ἡβηδὸν ἀποσφαγῆναι
                                     τὴν πλείστην αἰτίαν ἔσχε, τῷ ψηφίσματι συνειπών. </p>
@@ -900,21 +880,21 @@
                                     Ἀρχέστρατος οὐκ ἀπὸ τρόπου λέγειν ὡς ἡ Ἑλλὰς οὐκ
                                     ἂν ἤνεγκε δύο Ἀλκιβιάδας.
 </p>
-            </div2>
-            <div2 type="section" n="6">
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>ἐπεὶ δὲ Τίμων ὁ μισάνθρωπος εὐημερήσαντα τὸν Ἀλκιβιάδην
                                     καὶ προπεμπόμενον ἀπὸ τῆς ἐκκλησίας ἐπιφανῶς οὐ
                                     παρῆλθεν οὐδʼ ἐξέκλινεν, ὥσπερ εἰώθει τοὺς ἄλλους,
-                                    ἀλλʼ ἀπαντήσας καὶ δεξιωσάμενος, “εὖ γʼ,” ἔφη, “ποιεῖς
+                                    ἀλλʼ ἀπαντήσας καὶ δεξιωσάμενος, <q>εὖ γʼ,</q> ἔφη, <q>ποιεῖς
                                              αὐξόμενος, ὦ παῖ· μέγα γὰρ αὔξῃ κακὸν
-                                             ἅπασι τούτοις,” οἱ μὲν ἐγέλων, οἱ δʼ
+                                             ἅπασι τούτοις,</q> οἱ μὲν ἐγέλων, οἱ δʼ
                                     ἐβλασφήμουν, ἐνίους δὲ καὶ πάνυ τὸ λεχθὲν ἐπέστρεφεν.
                                     οὕτως ἄκριτος ἦν ἡ δόξα περὶ αὐτοῦ διὰ τὴν τῆς
                                     φύσεως ἀνωμαλίαν. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="17">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="17">
+            <div type="textpart" subtype="section" n="1">
                <p>
 Σικελίας δὲ καὶ
                                     Περικλέους ἔτι ζῶντος ἐπεθύμουν Ἀθηναῖοι, καὶ
@@ -922,8 +902,8 @@
                                     συμμαχίας ἔπεμπον ἑκάστοτε τοῖς ἀδικουμένοις ὑπὸ
                                     Συρακουσίων ἐπιβάθρας τῆς μείζονος στρατείας τιθέντες.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ὁ δὲ παντάπασι τὸν
                                     ἔρωτα τοῦτον ἀναφλέξας αὐτῶν, καὶ πείσας μὴ κατὰ
                                     μέρος μηδὲ κατὰ μικρόν, ἀλλὰ μεγάλῳ στόλῳ πλεύσαντας
@@ -932,8 +912,8 @@
                                     μειζόνων ὀρεγόμενος. ἀρχὴν γὰρ εἶναι, πρὸς ἃ
                                     ἠλπίκει, διενοεῖτο τῆς στρατείας, οὐ τέλος,
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ὥσπερ οἱ λοιποί, Σικελίαν.
                                     καὶ Νικίας μὲν ὡς χαλεπὸν ἔργον ὂν τὰς Συρακούσας
                                     ἑλεῖν ἀπέτρεπε τὸν δῆμον, Ἀλκιβιάδης δὲ Καρχηδόνα
@@ -947,8 +927,8 @@
                                     τὸ σχῆμα καὶ θέσιν Λιβύης καὶ Καρχηδόνος
                                     ὑπογράφοντας.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>Σωκράτη μέντοι τὸν φιλόσοφον καὶ Μέτωνα τὸν ἀστρολόγον
                                     οὐδὲν ἐλπίσαι τῇ πόλει χρηστὸν ἀπὸ τῆς στρατείας
                                     ἐκείνης λέγουσιν, ὁ μέν, ὡς ἔοικε, τοῦ συνήθους
@@ -957,8 +937,8 @@
                                     τρόπῳ χρησάμενος ἐσκήψατο μεμηνέναι, καὶ λαβὼν δᾷδα
                                     καιομένην οἷος ἦν αὑτοῦ τὴν οἰκίαν ὑφάπτειν.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ἔνιοι δέ φασι
                                     προσποίημα μὲν μανίας μηδὲν ἐσκευάσθαι τὸν Μέτωνα,
                                     καταπρῆσαι δὲ τὴν οἰκίαν νύκτωρ, εἶθʼ ἕωθεν
@@ -966,10 +946,10 @@
                                     τηλικαύτῃ τὸν υἱὸν αὐτῷ παρεθῆναι τῆς στρατείας.
                                     ἐκεῖνος μὲν οὖν ἔτυχεν ὧν ἠξίου, παρακρουσάμενος
                                     τοὺς πολίτας. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="18">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="18">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ὁ δὲ Νικίας ἄκων μὲν
                                     ᾑρέθη στρατηγός, οὐχ ἥκιστα τὴν ἀρχὴν καὶ διὰ τὸν
@@ -980,8 +960,8 @@
                                     ἡλικίᾳ προήκων ὅμως ἐδόκει μηδὲν ἧττον εἶναι τοῦ
                                     Ἀλκιβιάδου διάπυρος
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>καὶ
                                     φιλοκίνδυνος ἐν τοῖς ἀγῶσι· βουλευομένων δὲ περὶ
                                     πλήθους καὶ τρόπου παρασκευῆς ἐπεχείρησεν αὖθις ὁ
@@ -994,8 +974,8 @@
                                     πρὸς τὸν ἔκπλουν, οὐ χρηστὰ παρῆν οὐδὲ τὰ τῆς
                                     ἑορτῆς.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>Ἀδωνίων γὰρ εἰς
                                     τὰς ἡμέρας ἐκείνας καθηκόντων εἴδωλα πολλαχοῦ νεκροῖς
                                     ἐκκομιζομένοις ὅμοια προὔκειντο ταῖς γυναιξί, καὶ
@@ -1007,8 +987,8 @@
                                     ὡς ἐπισχέσεως ἐσομένης πρὸς τῶν οἰωνῶν ἢ μεταγνώσεως
                                     τοῦ πολέμου, ταῦτα δράσειαν.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>οὐ μὴν ἥπτετό γε τῶν πολλῶν οὔθʼ οὗτος ὁ λόγος
                                     οὔθʼ ὁ τῶν σημεῖον δεινὸν εἶναι μηδὲν οἰομένων, ἀλλʼ
                                     οἷα φιλεῖ φέρειν ἄκρατος ἀκολάστων νέων εἰς ὕβριν
@@ -1017,10 +997,10 @@
                                     μεγάλοις τετολμημένον, ἅπασαν ἐξήταζον ὑπόνοιαν πικρῶς
                                     ἥ τε βουλὴ συνιοῦσα περὶ τούτων καὶ ὁ δῆμος ἐν
                                     ὀλίγαις ἡμέραις πολλάκις. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="19">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="19">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ἐν δὲ τούτῳ δούλους τινὰς
                                     καὶ μετοίκους προήγαγεν Ἀνδροκλῆς ὁ δημαγωγὸς ἄλλων τε
@@ -1031,8 +1011,8 @@
                                     ἱεροφάντου τὸν Ἀλκιβιάδην, τοὺς δʼ ἄλλους ἑταίρους
                                     παρεῖναι καὶ μυεῖσθαι μύστας προσαγορευομένους.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ταῦτα γὰρ ἐν τῇ
                                     εἰσαγγελίᾳ γέγραπται Θεσσαλοῦ τοῦ Κίμωνος
                                     εἰσαγγείλαντος Ἀλκιβιάδην ἀσεβεῖν περὶ τὼ θεώ.
@@ -1042,8 +1022,8 @@
                                     παροξύνοντος, ἐν ἀρχῇ μὲν ἐταράχθησαν οἱ περὶ τὸν
                                     Ἀλκιβιάδην.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>αἰσθόμενοι δὲ
                                     τούς τε ναύτας, ὅσοι πλεῖν ἔμελλον εἰς Σικελίαν,
                                     εὔνους ὄντας αὐτοῖς καὶ τὸ στρατιωτικόν, Ἀργείων δὲ
@@ -1056,19 +1036,19 @@
                                     κρίσιν ὁ δῆμος ἀμβλύτερος αὐτῷ γένηται διὰ τὴν
                                     χρείαν.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>πρὸς ταῦτʼ οὖν τεχνάζουσι τῶν ῥητόρων τοὺς οὐ δοκοῦντας
                                     ἐχθροὺς τοῦ Ἀλκιβιάδου, μισοῦντας δὲ αὐτὸν οὐχ
                                     ἧττον τῶν ὁμολογούντων, ἀνισταμένους ἐν τῷ δήμῳ
                                     λέγειν ὡς ἄτοπόν ἐστιν αὐτοκράτορι στρατηγῷ
                                     τηλικαύτης ἀποδεδειγμένῳ δυνάμεως, ἠθροισμένης στρατιᾶς
                                     καὶ τῶν συμμάχων, μεταξὺ κληροῦντας δικαστήριον καὶ
-                                    ὕδωρ διαμετροῦντας ἀπολλύναι τὸν καιρόν· “ἀλλὰ νῦν μὲν ἀγαθῇ τύχῃ
+                                    ὕδωρ διαμετροῦντας ἀπολλύναι τὸν καιρόν· <q>ἀλλὰ νῦν μὲν ἀγαθῇ τύχῃ
                                              πλεέτω, τοῦ δὲ πολέμου διαπραχθέντος ἐπὶ τοῖς
-                                             αὐτοῖς νόμοις ἀπολογείσθω παρών.” </p>
-            </div2>
-            <div2 type="section" n="5">
+                                             αὐτοῖς νόμοις ἀπολογείσθω παρών.</q> </p>
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>οὐκ ἐλάνθανε μὲν οὖν ἡ
                                     κακοήθεια τῆς ἀναβολῆς τὸν Ἀλκιβιάδην, ἀλλʼ ἔλεγε
                                     παριὼν ὡς δεινόν ἐστιν αἰτίας ἀπολιπόντα καθʼ ἑαυτοῦ
@@ -1077,10 +1057,10 @@
                                     κατηγορίας, λύσαντι δὲ καὶ φανέντι καθαρῷ τρέπεσθαι
                                     πρὸς τοὺς πολεμίους μὴ δεδοικότι τοὺς συκοφάντας.
                                              </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="20">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="20">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ἐπεὶ δʼ οὐκ ἔπειθεν,
                                     ἀλλὰ πλεῖν ἐκέλευον αὐτόν, ἀνήχθη μετὰ τῶν
@@ -1090,8 +1070,8 @@
                                     καὶ ψιλοὺς περὶ τριακοσίους καὶ χιλίους, καὶ τὴν ἄλλην
                                     παρασκευὴν ἀξιόλογον.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>προσβαλὼν δʼ Ἰταλία καὶ Ῥήγιον ἑλών, εἰσηγήσατο
                                     γνώμην ὅτῳ τρόπῳ πολεμητέον ἐστί. καὶ Νικίου μὲν
                                     ἀντιλέγοντος, Λαμάχου δὲ προσθεμένου, πλεύσας εἰς
@@ -1102,8 +1082,8 @@
                                     διαβολαὶ κατὰ τοῦ Ἀλκιβιάδου προσέπιπτον ἀπὸ δούλων
                                     καὶ μετοίκων·
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ἔπειτα τῶν
                                     ἐχθρῶν ἀπόντος αὐτοῦ καθαπτομένων σφοδρότερον, καὶ
                                     τοῖς περὶ τοὺς Ἑρμᾶς ὑβρίσμασι καὶ τὰ μυστικὰ
@@ -1113,8 +1093,8 @@
                                     Ἀλκιβιάδην μὴ λαβόντες ὑπὸ τὰς ψήφους τότε μηδὲ
                                     κρίναντες ἐπʼ αἰτίαις τηλικαύταις.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ὁ δὲ τῇ πρὸς ἐκεῖνον ὀργῇ
                                     παραπεσὼν οἰκεῖος ἢ φίλος ἢ συνήθης χαλεπωτέροις
                                     αὐτοῖς ἐχρήσατο. τοὺς δὲ μηνύσαντας ὁ μὲν Θουκυδίδης
@@ -1141,22 +1121,22 @@
                                                   385</bibl>
                   </cit>
                </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>καίτοι βέβαιον οὐδὲν οὐδʼ ἰσχυρὸν οἱ μηνύοντες ἐδείκνυσαν.
                                     εἷς δʼ αὐτῶν ἐρωτώμενος ὅπως τὰ πρόσωπα τῶν
                                     Ἑρμοκοπιδῶν γνωρίσειε, καὶ ἀποκρινάμενος ὅτι πρὸς τὴν
                                     σελήνην, ἐσφάλη τοῦ παντός, ἕνης καὶ νέας οὔσης ὅτε
-                                    ταῦτʼ ἐδρᾶτο· ὃ <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">ὃ</foreign> supplied by Coraës and Sint.<hi rend="superscript">2</hi>; Bekker supplies <foreign lang="greek">καὶ</foreign>, after Bryan.</note> θόρυβον μὲν παρέσχε τοῖς νοῦν
+                                    ταῦτʼ ἐδρᾶτο· ὃ <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">ὃ</foreign> supplied by Coraës and Sint.<hi rend="superscript">2</hi>; Bekker supplies <foreign xml:lang="grc">καὶ</foreign>, after Bryan.</note> θόρυβον μὲν παρέσχε τοῖς νοῦν
                                     ἔχουσι, τὸν δῆμον δʼ οὐδὲ τοῦτο μαλακώτερον ἐποίησε
                                     πρὸς τὰς διαβολάς, ἀλλʼ ὥσπερ ὥρμησεν ἐξ ἀρχῆς, οὐκ
                                     ἐπαύσατο φέρων καὶ ἐμβάλλων εἰς τὸ δεσμωτήριον οὗ τις
                                     κατείποι. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="21">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="21">
+            <div type="textpart" subtype="section" n="1">
                <p>
 τῶν οὖν δεθέντων καὶ
                                     φυλαττομένων ἐπὶ κρίσει τότε καὶ Ἀνδοκίδης ἦν ὁ
@@ -1167,8 +1147,8 @@
                                     πλησίον αὐτοῦ τῆς οἰκίας ἀνάθημα τῆς Αἰγηΐδος
                                     φυλῆς ἱδρυμένος·
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἐν γὰρ
                                     ὀλίγοις πάνυ τῶν ἐπιφανῶν μόνος σχεδὸν ἀκέραιος
                                     ἔμεινε· διὸ καὶ νῦν Ἀνδοκίδου καλεῖται, καὶ πάντες
@@ -1178,8 +1158,8 @@
                                     ἔνδοξον μὲν οὐχ ὁμοίως ἐκείνῳ, συνέσει δὲ καὶ
                                     τόλμῃ περιττόν, ὄνομα Τίμαιον.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>οὗτος ἀναπείθει τὸν Ἀνδοκίδην
                                     ἑαυτοῦ κατήγορον καί τινων ἄλλων γενέσθαι μὴ πολλῶν·
                                     ὁμολογήσαντι γὰρ ἄδειαν εἶναι κατὰ ψήφισμα τοῦ δήμου,
@@ -1189,8 +1169,8 @@
                                     σκοποῦντι συμφέρον ὑπάρχειν, ὀλίγους καὶ ἀμφιβόλους
                                     προέμενον, πολλοὺς καὶ ἀγαθοὺς ἐξελέσθαι τῆς ὀργῆς.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ταῦτα τοῦ Τιμαίου
                                     λέγοντος καὶ διδάσκοντος ὁ Ἀνδοκίδης ἐπείσθη, καὶ
                                     γενόμενος μηνυτὴς καθʼ αὑτοῦ καὶ καθʼ ἑτέρων ἔσχε τὴν
@@ -1198,20 +1178,20 @@
                                     πάντες πλὴν τῶν φυγόντων ἀπώλοντο. καὶ πίστεως ἕνεκα
                                     προσέθηκεν αὐτοῖς οἰκέτας ἰδίους ὁ Ἀνδοκίδης.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>οὐ μὴν ὅ γε δῆμος τὴν ὀργὴν ἅπασαν ἀφῆκεν ἐνταῦθα,
                                     ἀλλὰ μᾶλλον ἀπαλλαγεὶς τῶν Ἑρμοκοπιδῶν ὥσπερ
                                     σχολάζοντι τῷ θυμῷ πρὸς τὸν Ἀλκιβιάδην ὅλος ἐρρύη,
-                                    καὶ τέλος ἀπέστειλε τὴν Σαλαμινίαν ἐπʼ αὐτόν,<note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">ἀπʼ αὐτὸν</foreign> with M<hi rend="superscript">a</hi> and Cobet: <foreign lang="greek">πρὸς αὐτόν</foreign>.</note> οὐ
+                                    καὶ τέλος ἀπέστειλε τὴν Σαλαμινίαν ἐπʼ αὐτόν,<note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">ἀπʼ αὐτὸν</foreign> with M<hi rend="superscript">a</hi> and Cobet: <foreign xml:lang="grc">πρὸς αὐτόν</foreign>.</note> οὐ
                                     φαύλως αὐτό γε τοῦτο προστάξας, μὴ βιάζεσθαι μηδʼ
                                     ἅπτεσθαι τοῦ σώματος, ἀλλὰ τῷ μετρίῳ λόγῳ χρῆσθαι
                                     κελεύοντας ἀκολουθεῖν ἐπὶ κρίσιν καὶ πείθειν τὸν
                                     δῆμον.
 </p>
-            </div2>
-            <div2 type="section" n="6">
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>ἐφοβοῦντο γὰρ
                                     ταραχὰς τοῦ στρατεύματος ἐν πολεμίᾳ γῇ καὶ στάσιν, ὃ
                                     ῥᾳδίως ἂν ἐξειργάσατο βουληθεὶς ὁ Ἀλκιβιάδης. καὶ
@@ -1220,10 +1200,10 @@
                                     ἕξειν, καθάπερ μύωπος ἀφῃρημένου τῶν πράξεων. ὁ γὰρ
                                     Λάμαχος ἦν μὲν πολεμικὸς καὶ ἀνδρώδης, ἀξίωμα δʼ οὐ
                                     προσῆν οὐδʼ ὄγκος αὐτῷ διὰ πενίαν. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="22">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="22">
+            <div type="textpart" subtype="section" n="1">
                <p>
 εὐθὺς μὲν οὖν ἀποπλέων
                                     ὁ Ἀλκιβιάδης ἀφείλετο Μεσσήνην Ἀθηναίους. ἦσαν γὰρ
@@ -1232,23 +1212,23 @@
                                     τὴν πρᾶξιν. ἐν δὲ Θουρίοις γενόμενος καὶ ἀποβὰς τῆς
                                     τριήρους ἔκρυψεν ἑαυτὸν καὶ διέφυγε τοὺς ζητοῦντας.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἐπιγνόντος δέ τινος
-                                    καὶ εἰπόντος· “οὐ πιστεύεις, ὦ
-                                             Ἀλκιβιάδη, τῇ πατρίδι;” “τὰ μὲν ἄλλʼ,” ἔφη, “πάντα· περὶ δὲ τῆς ψυχῆς τῆς
+                                    καὶ εἰπόντος· <q>οὐ πιστεύεις, ὦ
+                                             Ἀλκιβιάδη, τῇ πατρίδι;</q> <q>τὰ μὲν ἄλλʼ,</q> ἔφη, <q>πάντα· περὶ δὲ τῆς ψυχῆς τῆς
                                              ἐμῆς οὐδὲ τῇ μητρί, μήπως ἀγνοήσασα τὴν
-                                             μέλαιναν ἀντὶ τῆς λευκῆς ἐπενέγκῃ ψῆφον.” ὕστερον δʼ ἀκούσας ὅτι θάνατον αὐτοῦ κατέγνωκεν ἡ
-                                    πόλις· “ἀλλʼ ἐγώ,” εἶπε, “δείξω αὐτοῖς ὅτι ζῶ.” </p>
-            </div2>
-            <div2 type="section" n="3">
-               <p>τὴν μὲν οὖν εἰσαγγελίαν οὕτως ἔχουσαν ἀναγράφουσι· “Θεσσαλὸς Κίμωνος Λακιάδης
+                                             μέλαιναν ἀντὶ τῆς λευκῆς ἐπενέγκῃ ψῆφον.</q> ὕστερον δʼ ἀκούσας ὅτι θάνατον αὐτοῦ κατέγνωκεν ἡ
+                                    πόλις· <q>ἀλλʼ ἐγώ,</q> εἶπε, <q>δείξω αὐτοῖς ὅτι ζῶ.</q> </p>
+            </div>
+            <div type="textpart" subtype="section" n="3">
+               <p>τὴν μὲν οὖν εἰσαγγελίαν οὕτως ἔχουσαν ἀναγράφουσι· <q>Θεσσαλὸς Κίμωνος Λακιάδης
                                              Ἀλκιβιάδην Κλεινίου Σκαμβωνίδην εἰσήγγειλεν
                                              ἀδικεῖν περὶ τὼ θεώ, τὴν Δήμητραν καὶ τὴν
                                              Κόρην, ἀπομιμούμενον τὰ μυστήρια καὶ δεικνύοντα
                                              τοῖς αὑτοῦ ἑταίροις ἐν τῇ οἰκίᾳ τῇ
-                                             ἑαυτοῦ, ἔχοντα στολὴν οἵανπερ ὁ ἱεροφάντης <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">ὁ ἱεροφάντης</foreign> with CM<hi rend="superscript">a</hi>: <foreign lang="greek">ἱεροφάντης.</foreign>
+                                             ἑαυτοῦ, ἔχοντα στολὴν οἵανπερ ὁ ἱεροφάντης <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">ὁ ἱεροφάντης</foreign> with CM<hi rend="superscript">a</hi>: <foreign xml:lang="grc">ἱεροφάντης.</foreign>
                   </note>
                                              ἔχων δεικνύει τὰ ἱερά, καὶ ὀνομάζοντα αὑτὸν
                                              μὲν ἱεροφάντην, Πουλυτίωνα δὲ δᾳδοῦχον, κήρυκα
@@ -1256,19 +1236,19 @@
                                              μύστας προσαγορεύοντα καὶ ἐπόπτας παρὰ τὰ
                                              νόμιμα καὶ τὰ καθεστηκότα ὑπό τε Εὐμολπιδῶν
                                              καὶ Κηρύκων καὶ τῶν ἱερέων τῶν ἐξ
-                                             Ἐλευσῖνος.” </p>
-            </div2>
-            <div2 type="section" n="4">
+                                             Ἐλευσῖνος.</q> </p>
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ἐρήμην δʼ αὐτοῦ
                                     καταγνόντες καὶ τὰ χρήματα δημεύσαντες ἔτι καταρᾶσθαι
                                     προσεψηφίσαντο πάντας ἱερεῖς καὶ ἱερείας, ὧν μόνην
                                     φασὶ Θεανὼ τὴν Μένωνος Ἀγραυλῆθεν ἀντειπεῖν πρὸς τὸ
                                     ψήφισμα, φάσκουσαν εὐχῶν, οὐ καταρῶν ἱέρειαν γεγονέναι.
                                              </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="23">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="23">
+            <div type="textpart" subtype="section" n="1">
                <p>
 τοσούτων δὲ κατεψηφισμένων
                                     Ἀλκιβιάδου καὶ κατεγνωσμένων, ἐτύγχανε μὲν ἐν Ἄργει
@@ -1279,8 +1259,8 @@
                                     χρείαις καὶ ὠφελείαις ὧν πρότερον αὐτοὺς ἀμυνόμενος
                                     ἔβλαψε.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>δόντων δὲ τῶν
                                     Σπαρτιατῶν καὶ δεξαμένων, παραγενόμενος προθύμως ἓν μὲν
                                     εὐθὺς ἐξειργάσατο, μέλλοντας καὶ ἀναβαλλομένους βοηθεῖν
@@ -1291,8 +1271,8 @@
                                     Δεκέλειαν, οὗ μᾶλλον οὐδὲν διειργάσατο καὶ
                                     κατοικοφθόρησε τὴν πόλιν.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>εὐδοκιμῶν δὲ δημοσίᾳ καὶ θαυμαζόμενος οὐχ ἧττον ἰδίᾳ
                                     τοὺς πολλοὺς κατεδημαγώγει καὶ κατεγοήτευε τῇ διαίτῃ
                                     λακωνίζων, ὥσθʼ ὁρῶντας ἐν χρῷ κουριῶντα καὶ
@@ -1301,8 +1281,8 @@
                                     τῆς οἰκίας οὗτος ἀνὴρ ἔσχεν ἢ προσέβλεψε μυρεψὸν
                                     ἢ Μιλησίας ἠνέσχετο θιγεῖν χλανίδος.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ἦν γάρ, ὥς φασι, μία δεινότης
                                     αὕτη τῶν πολλῶν ἐν αὐτῷ καὶ μηχανὴ θήρας ἀνθρώπων,
                                     συνεξομοιοῦσθαι καὶ συνομοπαθεῖν τοῖς ἐπιτηδεύμασι καὶ
@@ -1312,8 +1292,8 @@
                                     Ἀλκιβιάδῃ δὲ διὰ χρηστῶν ἰόντι καὶ πονηρῶν ὁμοίως
                                     οὐδὲν ἦν ἀμίμητον οὐδʼ ἀνεπιτήδευτον,
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ἀλλʼ ἐν Σπάρτῃ γυμναστικός,
                                     εὐτελής, σκυθρωπός, ἐν Ἰωνίᾳ χλιδανός, ἐπιτερπής,
                                     ῥᾴθυμος, ἐν Θράκῃ μεθυστικός, ἐν Θετταλοῖς
@@ -1325,15 +1305,15 @@
                                     λυπεῖν τοὺς ἐντυγχάνοντας, εἰς πᾶν ἀεὶ τὸ πρόσφορον
                                     ἐκείνοις σχῆμα καὶ πλάσμα κατεδύετο καὶ κατέφευγεν.
 </p>
-            </div2>
-            <div2 type="section" n="6">
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>ἐν γοῦν τῇ
-                                    Λακεδαίμονι πρὸς τὰ ἔξωθεν ἦν εἰπεῖν· “ “οὐ παῖς Ἀχιλλέως, ἀλλʼ
-                                                  ἐκεῖνοσ” εἴη ἂν “αὐτόσ” , οἷον
-                                             Λυκοῦργος ἐπαίδευσε·” τοῖς δʼ ἀληθινοῖς ἄν
-                                    τις ἐπεφώνησεν αὐτοῦ πάθεσι καὶ πράγμασιν· “ἔστιν ἡ πάλαι γυνή.” </p>
-            </div2>
-            <div2 type="section" n="7">
+                                    Λακεδαίμονι πρὸς τὰ ἔξωθεν ἦν εἰπεῖν· <q> <q>οὐ παῖς Ἀχιλλέως, ἀλλʼ
+                                                  ἐκεῖνοσ</q> εἴη ἂν <q>αὐτόσ</q> , οἷον
+                                             Λυκοῦργος ἐπαίδευσε·</q> τοῖς δʼ ἀληθινοῖς ἄν
+                                    τις ἐπεφώνησεν αὐτοῦ πάθεσι καὶ πράγμασιν· <q>ἔστιν ἡ πάλαι γυνή.</q> </p>
+            </div>
+            <div type="textpart" subtype="section" n="7">
                <p>Τιμαίαν γὰρ τὴν Ἄγιδος γυναῖκα τοῦ βασιλέως στρατευομένου
                                     καὶ ἀποδημοῦντος οὕτω διέφθειρεν ὥστε καὶ κύειν ἐξ
                                     Ἀλκιβιάδου καὶ μὴ ἀρνεῖσθαι, καὶ τεκούσης παιδάριον
@@ -1345,8 +1325,8 @@
                                     ἀλλʼ ὅπως Λακεδαιμονίων βασιλεύσωσιν οἱ ἐξ αὐτοῦ
                                     γεγονότες.
 </p>
-            </div2>
-            <div2 type="section" n="8">
+            </div>
+            <div type="textpart" subtype="section" n="8">
                <p>οὕτω πραττόμενα
                                     ταῦτα πολλοὶ κατηγόρουν πρὸς τὸν Ἆγιν. ἐπίστευσε δὲ
                                     τῷ χρόνῳ μάλιστα, ὅτι σεισμοῦ γενομένου φοβηθεὶς
@@ -1355,10 +1335,10 @@
                                     Λεωτυχίδην ἀπέφησεν ἐξ αὐτοῦ μὴ γεγονέναι. καὶ διὰ
                                     τοῦτο τῆς βασιλείας ἐξέπεσεν ὕστερον ὁ Λεωτυχίδης.
                                              </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="24">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="24">
+            <div type="textpart" subtype="section" n="1">
                <p>
 μετὰ δὲ τὴν ἐν Σικελίᾳ
                                     τῶν Ἀθηναίων δυστυχίαν ἐπρέσβευσαν εἰς Σπάρτην ἅμα
@@ -1369,8 +1349,8 @@
                                     ὀλίγου δεῖν ἅπασαν Ἰωνίαν, καὶ πολλὰ συνὼν τοῖς τῶν
                                     Λακεδαιμονίων στρατηγοῖς ἔβλαπτε τοὺς Ἀθηναίους.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ὁ δʼ Ἆγις ἐχθρὸς
                                     μὲν ὑπῆρχεν αὐτῷ διὰ τὴν γυναῖκα κακῶς πεπονθώς,
                                     ἤχθετο δὲ καὶ τῇ δόξῃ· τὰ γὰρ πλεῖστα γίνεσθαι καὶ
@@ -1380,16 +1360,16 @@
                                     καὶ διεπράξαντο τοὺς οἴκοθεν ἄρχοντας ἐπιστεῖλαι πρὸς
                                     Ἰωνίαν ὅπως ἀποκτείνωσιν αὐτόν.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ὁ δʼ ἡσυχῆ προγνοὺς καὶ φοβηθεὶς τῶν μὲν πράξεων πασῶν
                                     ἐκοινώνει τοῖς Λακεδαιμονίοις, τὸ δʼ εἰς χεῖρας ἰέναι
                                     παντάπασιν ἔφευγε, Τισαφέρνῃ δέ, τῷ βασιλέως
                                     σατράπῃ, δοὺς ἑαυτὸν ὑπὲρ ἀσφαλείας εὐθὺς ἦν παρʼ
                                     αὐτῷ πρῶτος καὶ μέγιστος.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>τὸ μὲν γὰρ πολύτροπον καὶ περιττὸν αὐτοῦ τῆς
                                     δεινότητος οὐκ ὢν ἁπλοῦς, ἀλλὰ κακοήθης καὶ
                                     φιλοπόνηρος, ἐθαύμαζεν ὁ βάρβαρος· ταῖς δὲ καθʼ ἡμέραν
@@ -1398,8 +1378,8 @@
                                     καὶ φθονοῦσιν ὅμως τὸ συγγενέσθαι καὶ προσιδεῖν
                                     ἐκεῖνον ἡδονήν τινα καὶ φιλοφροσύνην παρεῖχε.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>τἆλλʼ οὖν ὢν καὶ μισέλλην
                                     ἐν τοῖς μάλιστα Περσῶν ὁ Τισαφέρνης, οὕτως ἐνεδίδου
                                     τῷ Ἀλκιβιάδῃ κολακευόμενος ὥσθʼ ὑπερβάλλειν αὐτὸν
@@ -1408,10 +1388,10 @@
                                     διατριβὰς ἔχοντα καὶ καταφυγὰς ἠσκημένας βασιλικῶς καὶ
                                     περιττῶς, Ἀλκιβιάδην καλεῖν ἔθετο· καὶ πάντες οὕτω
                                     καλοῦντες καὶ προσαγορεύοντες διετέλουν. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="25">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="25">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ἀπογνοὺς οὖν ὁ
                                     Ἀλκιβιάδης τὰ τῶν Σπαρτιατῶν ὡς ἄπιστα, καὶ
@@ -1421,8 +1401,8 @@
                                     θλίβειν καὶ ἀποκναίειν ἀτρέμα καὶ ποιεῖν ἀμφοτέρους
                                     βασιλεῖ χειροήθεις καὶ καταπόνους ὑπʼ ἀλλήλων.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ὁ δʼ ἐπείθετο ῥᾳδίως καὶ
                                     δῆλος ἦν ἀγαπῶν καὶ θαυμάζων, ὥστʼ ἀποβλέπεσθαι τὸν
                                     Ἀλκιβιάδην ἑκατέρωθεν ὑπὸ τῶν Ἑλλήνων, τοὺς δʼ
@@ -1431,8 +1411,8 @@
                                     παντάπασι τῆς πόλεως ἀναιρεθείσης ὑπὸ Λακεδαιμονίοις
                                     γένηται μισούμενος.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ἐν δὲ τῇ Σάμῳ τότε πάντα τὰ πράγματα τοῖς Ἀθηναίοις
                                     σχεδὸν ὑπῆρχε· κἀκεῖθεν ὁρμώμενοι τῇ ναυτικῇ δυνάμει
                                     τὰ μὲν ἀνεκτῶντο τῶν ἀφεστώτων, τὰ δʼ ἐφύλαττον ἁμῶς
@@ -1442,8 +1422,8 @@
                                     ἑκατὸν οὔσας, ὧν ἀφικομένων οὐδεμία σωτηρίας ἐλπὶς
                                     ὑπελείπετο τῇ πόλει.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ταῦτα δʼ εἰδὼς Ἀλκιβιάδης ἔπεμπε κρύφα πρὸς τοὺς
                                     ἐν Σάμῳ δυνατοὺς τῶν Ἀθηναίων, ἐλπίδας ἐνδιδοὺς
                                     παρέξειν τὸν Τισαφέρνην φίλον, οὐ τοῖς πολλοῖς
@@ -1452,8 +1432,8 @@
                                     παύσαντες ὑβρίζοντα τὸν δῆμον αὐτοὶ διʼ ἑαυτῶν σώζειν
                                     τὰ πράγματα καὶ τὴν πόλιν.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p/>
                <p>οἱ μὲν οὖν ἄλλοι σφόδρα προσεῖχον τῷ Ἀλκιβιάδῃ· τῶν δὲ
                                     στρατηγῶν εἷς, Φρύνιχος ὁ Δειραδιώτης, ὑποπτεύσας,
@@ -1466,8 +1446,8 @@
                                     ἐγκελευόμενος φυλάττεσθαι καὶ συλλαμβάνειν ὡς
                                     ἐπαμφοτερίζοντα τὸν Ἀλκιβιάδην.
 </p>
-            </div2>
-            <div2 type="section" n="6">
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>ἐλελήθει δʼ ἄρα προδότης προδότῃ
                                     διαλεγόμενος. τὸν γὰρ Τισαφέρνην ἐκπεπληγμένος ὁ
                                     Ἀστύοχος, καὶ τὸν Ἀλκιβιάδην ὁρῶν παρʼ αὐτῷ μέγαν
@@ -1478,8 +1458,8 @@
                                     διαφυγὴν ἐκ τῶν παρόντων ἐπεχείρησεν ἰάσασθαι μείζονι
                                     κακῷ τὸ κακόν.
 </p>
-            </div2>
-            <div2 type="section" n="7">
+            </div>
+            <div type="textpart" subtype="section" n="7">
                <p>αὖθις γὰρ
                                     ἔπεμψε πρὸς τὸν Ἀστύοχον, ἐγκαλῶν μὲν ὑπὲρ τῆς
                                     μηνύσεως, ἐπαγγελλόμενος δὲ τὰς ναῦς καὶ τὸ στρατόπεδον
@@ -1488,16 +1468,16 @@
                                     διὰ τὴν Ἀστυόχου παλιμπροδοσίαν. καὶ γὰρ ταῦτα κατεῖπε
                                     τοῦ Φρυνίχου πρὸς τοὺς περὶ τὸν Ἀλκιβιάδην.
 </p>
-            </div2>
-            <div2 type="section" n="8">
+            </div>
+            <div type="textpart" subtype="section" n="8">
                <p>ὁ δὲ Φρύνιχος προαισθόμενος
                                     καὶ προσδεχόμενος δευτέραν κατηγορίαν παρὰ τοῦ
                                     Ἀλκιβιάδου, φθάσας αὐτὸς προεῖπε τοῖς Ἀθηναίοις ὅτι
                                     μέλλουσιν ἐπιπλεῖν οἱ πολέμιοι, καὶ παρῄνεσε πρὸς ταῖς
                                     ναυσὶν εἶναι καὶ περιτειχίσαι τὸ στρατόπεδον.
 </p>
-            </div2>
-            <div2 type="section" n="9">
+            </div>
+            <div type="textpart" subtype="section" n="9">
                <p>ἐπεὶ δὲ πραττόντων ταῦτα
                                     τῶν Ἀθηναίων ἧκε γράμματα πάλιν παρὰ τοῦ
                                     Ἀλκιβιάδου, φυλάττεσθαι κελεύοντος τὸν Φρύνιχον ὡς
@@ -1506,18 +1486,18 @@
                                     πολεμίων παρασκευὴν καὶ διάνοιαν ἀποχρῆσθαι πρὸς τὴν
                                     τοῦ Φρυνίχου διαβολὴν οὐκ ἀληθῶς.
 </p>
-            </div2>
-            <div2 type="section" n="10">
+            </div>
+            <div type="textpart" subtype="section" n="10">
                <p>ὕστερον μέντοι τὸν Φρύνιχον
                                     ἑνὸς τῶν περιπόλων Ἕρμωνος ἐν ἀγορᾷ πατάξαντος
                                     ἐγχειριδίῳ καὶ διαφθείραντος, οἱ Ἀθηναῖοι δίκης
                                     γενομένης τοῦ μὲν Φρυνίχου προδοσίαν κατεψηφίσαντο
                                     τεθνηκότος, τὸν δʼ Ἕρμωνα καὶ τοὺς μετʼ αὐτοῦ
                                     συστάντας ἐστεφάνωσαν. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="26">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="26">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ἐν δὲ τῇ Σάμῳ τότε
                                     κρατήσαντες οἱ Ἀλκιβιάδου φίλοι πέμπουσι Πείσανδρον
@@ -1528,8 +1508,8 @@
                                     γὰρ ἦν πρόφασις καὶ τοῦτο πρόσχημα τοῖς καθιστᾶσι τὴν
                                     ὀλιγαρχίαν.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἐπεὶ δʼ
                                     ἴσχυσαν καὶ παρέλαβον τὰ πράγματα οἱ πεντακισχίλιοι
                                     λεγόμενοι, τετρακόσιοι δὲ ὄντες, ἐλάχιστα τῷ
@@ -1539,8 +1519,8 @@
                                     ἐνδώσειν αὐτοῖς Λακεδαιμονίους ἀεὶ πρὸς ὀλιγαρχίαν
                                     ἐπιτηδείως ἔχοντας.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ὁ μὲν
                                     οὖν κατὰ τὴν πόλιν δῆμος ἄκων ὑπὸ δέους ἡσυχίαν
                                     ἦγε· καὶ γὰρ ἀπεσφάγησαν οὐκ ὀλίγοι τῶν
@@ -1550,8 +1530,8 @@
                                     Ἀλκιβιάδην καὶ στρατηγὸν ἀποδείξαντες ἐκέλευον
                                     ἡγεῖσθαι καὶ καταλύειν τοὺς τυράννους.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ὁ δʼ οὐχ οἷον ἄν τις ἐξαίφνης χάριτι τῶν πολλῶν μέγας
                                     γεγονὼς ἔπαθε καὶ ἠγάπησε, πάντα δεῖν εὐθὺς οἰόμενος
                                     χαρίζεσθαι καὶ μηδὲν ἀντιλέγειν τοῖς ἐκ πλάνητος καὶ
@@ -1561,20 +1541,20 @@
                                     φερομένοις ὑπʼ ὀργῆς, κωλύσας ἐξαμαρτεῖν, τότε γοῦν τὰ
                                     πράγματα τῇ πόλει περιφανῶς ἔσωσεν.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>εἰ γὰρ ἄραντες ἀπέπλευσαν
                                     οἴκαδε, τοῖς μὲν πολεμίοις εὐθὺς ἔχειν ὑπῆρχεν
-                                    Ἰωνίαν ἅπασαν, καὶ τὸν Ἑλλήσποντον <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">καὶ τὸν Ἑλλήσποντον</foreign> Bekker: <foreign lang="greek">Ἑλλήσποντον</foreign>.</note> ἀμαχεί, καὶ τὰς
+                                    Ἰωνίαν ἅπασαν, καὶ τὸν Ἑλλήσποντον <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">καὶ τὸν Ἑλλήσποντον</foreign> Bekker: <foreign xml:lang="grc">Ἑλλήσποντον</foreign>.</note> ἀμαχεί, καὶ τὰς
                                     νήσους, Ἀθηναίοις δὲ πρὸς Ἀθηναίους μάχεσθαι τὸν
                                     πόλεμον εἰς τὴν πόλιν ἐμβαλόντας· ὃν μόνος μάλιστα μὴ
                                     γενέσθαι διεκώλυσεν ὁ Ἀλκιβιάδης, οὐ μόνον πείθων καὶ
                                     διδάσκων τὸ πλῆθος, ἀλλὰ καὶ καθʼ ἕνα τοὺς μὲν
                                     ἀντιβολῶν, τῶν δʼ ἐπιλαμβανόμενος.
 </p>
-            </div2>
-            <div2 type="section" n="6">
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>συνέπραττε δʼ αὐτῷ καὶ
                                     Θρασύβουλος ὁ Στειριεὺς ἅμα παρὼν καὶ κεκραγώς· ἦν
                                     γάρ, ὡς λέγεται, μεγαλοφωνότατος Ἀθηναίων. </p>
@@ -1584,8 +1564,8 @@
                                     αὐτοὺς ἢ διαπράξεσθαι μηδὲ πρὸς ἐκείνους κομισθῆναι,
                                     διὰ ταχέων ἐξέπλευσε.
 </p>
-            </div2>
-            <div2 type="section" n="7">
+            </div>
+            <div type="textpart" subtype="section" n="7">
                <p>καὶ
                                     τὰς μὲν ναῦς ἐκφανείσας περὶ Ἄσπενδον οὐκ ἤγαγεν ὁ
                                     Τισαφέρνης, ἀλλʼ ἐψεύσατο τοὺς Λακεδαιμονίους, τὴν δʼ
@@ -1595,10 +1575,10 @@
                                     ἀπολλυμένους τοὺς Ἕλληνας. οὐ γὰρ ἦν ἄδηλον ὅτι
                                     τοῖς ἑτέροις δύναμις τοσαύτη προσγενομένη τοὺς ἑτέρους
                                     ἀφῃρεῖτο κομιδῇ τὸ κράτος τῆς θαλάττης. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="27">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="27">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ἐκ τούτου κατελύθησαν μὲν
                                     οἱ τετρακόσιοι, τῶν Ἀλκιβιάδου φίλων προθύμως
@@ -1609,8 +1589,8 @@
                                     διὸ πρῶτον μὲν ὀλίγαις ναυσὶν ἐκ Σάμου περιέπλει τὴν
                                     Κνιδίων καὶ Κῴων θάλασσαν·
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἐκεῖ δʼ ἀκούσας Μίνδαρον τὸν
                                     Σπαρτιάτην εἰς Ἑλλήσποντον ἀναπλεῖν τῷ στόλῳ παντὶ
                                     καὶ τοὺς Ἀθηναίους ἐπακολουθεῖν, ἠπείγετο βοηθῆσαι
@@ -1621,8 +1601,8 @@
                                     ἡττώμενοι μέρεσι, τοῖς δὲ νικῶντες ἄχρι δείλης ἀγῶνι
                                     μεγάλῳ συνείχοντο.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>καὶ
                                     παρέσχε μὲν ἐναντίαν δόξαν ἀμφοτέροις ἐπιφανείς, ὥστε
                                     θαρρεῖν μὲν τοὺς πολεμίους, θορυβεῖσθαι δὲ τοὺς
@@ -1635,16 +1615,16 @@
                                     θάλατταν ὑπὲρ τῶν νεῶν. τέλος δὲ τῶν μὲν πολεμίων
                                     τριάκοντα λαβόντες,
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ἀνασώσαντες δὲ τὰς αὑτῶν, τρόπαιον ἔστησαν. </p>
                <p>οὕτω δὲ λαμπρᾷ χρησάμενος εὐτυχίᾳ, καὶ φιλοτιμούμενος
                                     εὐθὺς ἐγκαλλωπίσασθαι τῷ Τισαφέρνῃ, ξένια καὶ δῶρα
                                     παρασκευασάμενος καὶ θεραπείαν ἔχων ἡγεμονικὴν
                                     ἐπορεύετο πρὸς αὐτόν.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>οὐ
                                     μὴν ἔτυχεν ὧν προσεδόκησεν, ἀλλὰ πάλαι κακῶς ἀκούων
                                     ὁ Τισαφέρνης ὑπὸ τῶν Λακεδαιμονίων, καὶ φοβούμενος
@@ -1652,10 +1632,10 @@
                                     Ἀλκιβιάδην ἀφῖχθαι, καὶ συλλαβὼν αὐτὸν εἷρξεν ἐν
                                     Ξάρδεσιν ὡς λύσιν ἐκείνης τῆς διαβολῆς τὴν ἀδικίαν
                                     ταύτην ἐσομένην. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="28">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="28">
+            <div type="textpart" subtype="section" n="1">
                <p>
 τριάκοντα δʼ ἡμερῶν
                                     διαγενομένων ὁ Ἀλκιβιάδης ἵππου ποθὲν εὐπορήσας καὶ
@@ -1665,8 +1645,8 @@
                                     πυθόμενος Μίνδαρον ὁμοῦ καὶ Φαρνάβαζον ἐν Κυζίκῳ
                                     γεγονέναι,
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>τοὺς μὲν
                                     στρατιώτας παρώρμησεν, ὡς ἀνάγκην οὖσαν αὐτοῖς καὶ
                                     ναυμαχεῖν καὶ πεζομαχεῖν καὶ νὴ Δία τειχομαχεῖν πρὸς
@@ -1676,8 +1656,8 @@
                                     πλοῖα καὶ παραφυλάσσειν, ὅπως μηδεμία τοῖς πολεμίοις
                                     ἐπιπλέοντος αὐτοῦ γένοιτο μηδαμόθεν προαίσθησις.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ἔτυχε δὲ καὶ πολὺν ὄμβρον ἐξαίφνης ἐπιπεσόντα καὶ βροντὰς
                                     καὶ ζόφον συνεργῆσαι καὶ συνεπικρύψαι τὴν παρασκευήν. οὐ
                                     γὰρ μόνον τοὺς πολεμίους ἔλαθεν, ἀλλὰ καὶ τοὺς
@@ -1686,8 +1666,8 @@
                                     τῶν Πελοποννησίων νῆες αἰωρούμεναι πρὸ τοῦ λιμένος τῶν
                                     Κυζικηνῶν.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>δείσας οὖν ὁ
                                     Ἀλκιβιάδης μὴ διὰ τὸ πλῆθος αὐτὸν προϊδόντες εἰς
                                     τὴν γῆν καταφύγωσι, τοὺς μὲν στρατηγοὺς ἐκέλευσεν
@@ -1698,16 +1678,16 @@
                                     συνεπλέκοντο, τῶν δʼ ἄλλων ἤδη μαχομένοις ἐπιφερομένων
                                     ἐκπλαγέντες ἔφευγον.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ὁ δʼ Ἀλκιβιάδης εἴκοσι ταῖς ἀρίσταις διεκπλεύσας καὶ
                                     προσβαλὼν τῇ γῇ καὶ ἀποβάς, ἐνέκειτο τοῖς φεύγουσιν
                                     ἐκ τῶν νεῶν καὶ πολλοὺς ἔφθειρε· Μινδάρου δὲ καὶ
                                     Φαρναβάζου προσβοηθούντων κρατήσας, τὸν μὲν Μίνδαρον
                                     ἀνεῖλεν ἐρρωμένως ἀγωνιζόμενον,
 </p>
-            </div2>
-            <div2 type="section" n="6">
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>ὁ δὲ Φαρνάβαζος ἔφυγε. πολλῶν
                                     δὲ καὶ νεκρῶν καὶ ὅπλων κρατήσαντες τάς τε ναῦς
                                     ἁπάσας ἔλαβον, χειρωσάμενοι δὲ καὶ Κύζικον,
@@ -1715,13 +1695,13 @@
                                     διαφθαρέντων, οὐ μόνον τὸν Ἑλλήσποντον εἶχον βεβαίως,
                                     ἀλλὰ καὶ τῆς ἄλλης θαλάττης ἐξήλασαν κατὰ κράτος
                                     τοὺς Λακεδαιμονίους. ἑάλω δὲ καὶ γράμματα λακωνικῶς
-                                    φράζοντα τοῖς Ἐφόροις τὴν γεγενημένην ἀτυχίαν· “ἔρρει τὰ κᾶλα· Μίνδαρος
+                                    φράζοντα τοῖς Ἐφόροις τὴν γεγενημένην ἀτυχίαν· <q>ἔρρει τὰ κᾶλα· Μίνδαρος
                                              ἀπεσσούα· πεινῶντι τὦνδρες· ἀπορίομες τί χρὴ
-                                             δρᾶν.” </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="29">
-            <div2 type="section" n="1">
+                                             δρᾶν.</q> </p>
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="29">
+            <div type="textpart" subtype="section" n="1">
                <p>
 οὕτω δʼ ἐπήρθησαν οἱ μετὰ
                                     τοῦ Ἀλκιβιάδου στρατευσάμενοι καὶ τοσοῦτον ἐφρόνησαν
@@ -1732,8 +1712,8 @@
                                     ἀνεστάναι τρόπαιον ὑπὸ τῶν Ἐφεσίων ἐπʼ αἰσχύνῃ τῶν
                                     Ἀθηναίων.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ταῦτʼ οὖν
                                     ὠνείδιζον οἱ μετὰ τοῦ Ἀλκιβιάδου τοῖς μετὰ τοῦ
                                     Θρασύλλου, μεγαλύνοντες αὑτοὺς καὶ τὸν στρατηγόν,
@@ -1745,23 +1725,23 @@
                                     Θρασύλλου, καὶ ἀνεμίγνυντο καὶ κοινῇ φιλοφρονούμενοι
                                     καὶ χαίροντες ἐπανῄεσαν εἰς τὸ στρατόπεδον.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>τῇ δʼ ὑστεραίᾳ στήσας τρόπαιον ἐλεηλάτει τὴν Φαρναβάζου
                                     χώραν οὐδενὸς ἀμύνεσθαι τολμῶντος. ἱερεῖς μέντοι καὶ
                                     ἱερείας ἔλαβε μέν, ἀλλʼ ἀφῆκεν ἄνευ λύτρων.
                                     Χαλκηδονίοις δʼ ἀφεστῶσι καὶ δεδεγμένοις φρουρὰν καὶ
                                     ἁρμοστὴν Λακεδαιμονίων ὡρμημένος πολεμεῖν, ἀκούσας δʼ
                                     ὅτι τὴν λείαν πᾶσαν ἐκ τῆς χώρας συναγαγόντες εἰς
-                                    Βιθυνοὺς ὑπεκτίθενται <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">ὑπεjτίθενται</foreign> with M<hi rend="superscript">a</hi> and Cobet: <foreign lang="greek">ἐκτίθενται</foreign>.</note> φίλους ὄντας, ἧκεν ἐπὶ τοὺς
+                                    Βιθυνοὺς ὑπεκτίθενται <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">ὑπεjτίθενται</foreign> with M<hi rend="superscript">a</hi> and Cobet: <foreign xml:lang="grc">ἐκτίθενται</foreign>.</note> φίλους ὄντας, ἧκεν ἐπὶ τοὺς
                                     ὅρους ἄγων τὸ στράτευμα, καὶ κήρυκα προπέμψας
                                     ἐνεκάλει τοῖς Βιθυνοῖς. οἱ δὲ δείσαντες τήν τε λείαν
                                     ἀπέδοσαν αὐτῷ καὶ φιλίαν ὡμολόγησαν. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="30">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="30">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ἀποτειχιζομένης δὲ τῆς
                                     Χαλκηδόνος ἐκ θαλάττης εἰς θάλατταν, ὁ Φαρνάβαζος
@@ -1772,8 +1752,8 @@
                                     Φαρνάβαζον αἰσχρῶς φεύγειν ἠνάγκασε, τὸν δʼ Ἱπποκράτη
                                     διέφθειρε καὶ συχνοὺς τῶν περὶ αὐτὸν ἡττηθέντας.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>εἶτʼ αὐτὸς μὲν ἐκπλεύσας εἰς τὸν Ἑλλήσποντον ἠργυρολόγει
                                     καὶ Σηλυβρίαν εἷλεν, ἀφειδήσας ἑαυτοῦ παρὰ τὸν
                                     καιρόν. οἱ γὰρ ἐνδιδόντες τὴν πόλιν συνέθεντο μὲν
@@ -1784,8 +1764,8 @@
                                     ὅσον τριάκοντα περὶ αὑτὸν ἐπείγετο δρόμῳ πρὸς τὰ
                                     τείχη, τοὺς ἄλλους ἕπεσθαι κατὰ τάχος κελεύσας.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ἀνοιχθείσης δὲ τῆς
                                     πύλης αὐτῷ καὶ προσγενομένων τοῖς τριάκοντα πελταστῶν
                                     εἴκοσι παρεισπεσὼν εὐθὺς ᾔσθετο τοὺς Σηλυβριανοὺς ἐξ
@@ -1796,8 +1776,8 @@
                                     σημήνας σιωπὴν ἐκέλευσεν ἕνα τῶν παρόντων ἀνειπεῖν
                                     Σηλυβριανοῖς Ἀθηναίους ἐναντία ὅπλα μὴ τίθεσθαι.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>τοῦτο τὸ κήρυγμα
                                     τοὺς μὲν ἀμβλυτέρους ἐποίησε πρὸς τὴν μάχην, ὡς τῶν
                                     πολεμίων ἔνδον ὄντων ἁπάντων, οἱ δὲ ταῖς ἐλπίσιν
@@ -1807,18 +1787,18 @@
                                     φρονεῖν τοὺς Σηλυβριανούς, ἔδεισε μὴ τὴν πόλιν οἱ
                                     Θρᾷκες διαρπάσωσιν.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ἦσαν
                                     δὲ πολλοί, χάριτι τοῦ Ἀλκιβιάδου καὶ διʼ εὔνοιαν
                                     στρατευόμενοι προθύμως. ἀπέπεμψεν οὖν τούτους ἅπαντας
                                     ἐκ τῆς πόλεως, τοὺς δὲ Σηλυβριανοὺς δεηθέντας οὐδὲν
                                     ἠδίκησεν, ἀλλὰ χρήματα λαβὼν καὶ φρουρὰν ἐγκαταστήσας
                                     ἀπῆλθεν. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="31">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="31">
+            <div type="textpart" subtype="section" n="1">
                <p>
 οἱ δὲ πολιορκοῦντες τὴν
                                     Χαλκηδόνα στρατηγοὶ σπονδὰς ἐποιήσαντο πρὸς Θαρνάβαζον
@@ -1827,8 +1807,8 @@
                                     ἀδικεῖν, Φαρνάβαζον δὲ πρέσβεσιν Ἀθηναίων πρὸς
                                     βασιλέα πομπὴν μετʼ ἀσφαλείας παρασχεῖν.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ὡς οὖν ἐπανελθόντα τὸν
                                     Ἀλκιβιάδην ὁ Φαρνάβαζος ἠξίου καὶ αὐτὸν ὀμόσαι
                                     περὶ τῶν ὡμολογημένων, οὐκ ἔφη πρότερον ἢ ἐκεῖνον
@@ -1840,8 +1820,8 @@
                                     νεώτερα συνιστάμενα περὶ τὴν Ἰωνίαν, ἡμέρας ἀπέπλει
                                     ταῖς ναυσὶ πάσαις,
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>νυκτὸς
                                     δʼ ὑποστρέψας αὐτὸς μὲν ἀπέβη μετὰ τῶν ὁπλιτῶν καὶ
                                     προσελθὼν τοῖς τείχεσιν ἡσυχίαν ἦγεν, αἱ δὲ νῆες ἐπὶ
@@ -1851,8 +1831,8 @@
                                     παρεῖχον ἐπʼ ἀδείας τὸν Ἀλκιβιάδην δέχεσθαι, πάντων
                                     ἐπὶ τὸν λιμένα καὶ τὰς ναῦς βοηθούντων.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>οὐ μὴν ἀμαχεὶ προσεχώρησαν· οἱ
                                     γὰρ παρόντες ἐν τῷ Βυζαντίῳ Πελοποννήσιοι καὶ
                                     Βοιωτοὶ καὶ Μεγαρεῖς τοὺς μὲν ἀπὸ τῶν νεῶν
@@ -1863,8 +1843,8 @@
                                     δὲ τὸ εὐώνυμον, καὶ τῶν πολεμίων τοὺς περιγενομένους
                                     ὅσον τριακοσίους ζῶντας ἔλαβε.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>Βυζαντίων δὲ μετὰ τὴν μάχην οὐδεὶς ἀπέθανεν οὐδʼ ἔφυγεν.
                                     ἐπὶ τούτοις γὰρ οἱ ἄνδρες παρέδοσαν τὴν πόλιν καὶ
                                     ταῦτα συνέθεντο, μηδὲν αὑτοῖς ἴδιον ὑπεξελόμενοι. διὸ
@@ -1874,8 +1854,8 @@
                                     κινδυνεύουσαν, ἀλλὰ τὸ Βυζάντιον ὁρῶν, τῆς μὲν πόλεως
                                     ἀποτετειχισμένης, μηδενὸς δʼ εἰσαγομένου,
 </p>
-            </div2>
-            <div2 type="section" n="6">
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>τὸν δʼ ὄντα σῖτον ἐν τῇ πόλει
                                     Πελοποννησίων καὶ Βοιωτῶν ἐσθιόντων, Βυζαντίων δὲ
                                     πεινώντων σὺν τέκνοις καὶ γυναιξίν, οὐ προδοῦναι τοῖς
@@ -1884,10 +1864,10 @@
                                     ἁπλῶς καὶ δίκαιόν ἐστι τὸ τῆς πατρίδος συμφέρον. οἱ
                                     μὲν οὖν Λακεδαιμόνιοι ταῦτʼ ἀκούσαντες ᾐδέσθησαν καὶ
                                     ἀπέλυσαν τοὺς ἄνδρας. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="32">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="32">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ὁ δʼ Ἀλκιβιάδης ἰδεῖν τε
                                     ποθῶν ἤδη τὰ οἴκοι, καὶ ἔτι μᾶλλον ὀφθῆναι
@@ -1898,8 +1878,8 @@
                                     ἀκροστόλια τῶν διεφθαρμένων ὑπʼ αὐτοῦ καὶ κεκρατημένων.
                                     ἦσαν γὰρ οὐκ ἐλάττους συναμφότεραι διακοσίων.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἃ δὲ Δοῦρις ὁ Σάμιος Ἀλκιβιάδου φάσκων ἀπόγονος εἶναι
                                     προστίθησι τούτοις, αὐλεῖν μὲν εἰρεσίαν τοῖς ἐλαύνουσι
                                     Χρυσόγονον τὸν πυθιονίκην, κελεύειν δὲ Καλλιππίδην τὸν
@@ -1907,8 +1887,8 @@
                                     ἄλλον ἐναγώνιον ἀμπεχομένους κόσμον, ἱστίῳ δʼ
                                     ἁλουργῷ τὴν ναυαρχίδα προσφέρεσθαι τοῖς λιμέσιν,
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ὥσπερ ἐκ μέθης
                                     ἐπικωμάζοντος, οὔτε Θεόπομπος οὔτʼ Ἔφορος οὔτε
                                     Ξενοφῶν γέγραφεν, οὔτʼ εἰκὸς ἦν οὕτως ἐντρυφῆσαι
@@ -1919,8 +1899,8 @@
                                     ἀνεψιὸν παρόντα καὶ τῶν ἄλλων φίλων καὶ οἰκείων
                                     συχνοὺς ἐκδεχομένους καὶ παρακαλοῦντας.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ἐπεὶ δʼ ἀπέβη, τοὺς μὲν ἄλλους στρατηγοὺς οὐδʼ ὁρᾶν
                                     ἐδόκουν ἀπαντῶντες οἱ ἄνθρωποι, πρὸς δʼ ἐκεῖνον
                                     συντρέχοντες ἐβόων, ἠσπάζοντο, παρέπεμπον, ἐστεφάνουν
@@ -1930,8 +1910,8 @@
                                     ἀνεκέκρατο, καὶ μνήμη πρὸς τὴν παροῦσαν εὐτυχίαν τῶν
                                     πρόσθεν ἀτυχημάτων, λογιζομένοις ὡς οὔτʼ ἂν Σικελίας
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>διήμαρτον οὔτʼ
                                     ἄλλο τι τῶν προσδοκηθέντων ἐξέφυγεν αὐτοὺς ἐάσαντας
                                     Ἀλκιβιάδην ἐπὶ τῶν τότε πραγμάτων καὶ τῆς δυνάμεως
@@ -1939,15 +1919,15 @@
                                     ἐκπεπτωκέναι τῆς θαλάττης, κατὰ γῆν δὲ μόλις τῶν
                                     προαστείων κρατοῦσαν, αὐτὴν δὲ πρὸς ἑαυτὴν
                                     στασιάζουσαν, ἐκ λυπρῶν ἔτι λειψάνων καὶ ταπεινῶν
-                                    ἀναστήσας οὐ μόνον <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">μόνον</foreign> with M<hi rend="superscript">a</hi> and Cobet: <foreign lang="greek">μόνον γε.</foreign>
+                                    ἀναστήσας οὐ μόνον <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">μόνον</foreign> with M<hi rend="superscript">a</hi> and Cobet: <foreign xml:lang="grc">μόνον γε.</foreign>
                   </note> τῆς θαλάττης τὸ κράτος ἀποδέδωκεν,
                                     ἀλλὰ καὶ πεζῇ νικῶσαν ἀποδείκνυσι πανταχοῦ τοὺς
                                     πολεμίους. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="33">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="33">
+            <div type="textpart" subtype="section" n="1">
                <p>
 τὸ μὲν οὖν ψήφισμα τῆς
                                     καθόδου πρότερον ἐκεκύρωτο, Κριτίου τοῦ Καλλαίσχρου
@@ -1966,8 +1946,8 @@
                                                   ff.</bibl>
                   </cit>
                </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>τότε δὲ τοῦ δήμου συνελθόντος εἰς τὴν ἐκκλησίαν παρελθὼν ὁ
                                     Ἀλκιβιάδης, καὶ τὰ μὲν αὑτοῦ πάθη κλαύσας καὶ
                                     ὀλοφυράμενος, ἐγκαλέσας δὲ μικρὰ καὶ μέτρια τῷ δήμῳ,
@@ -1977,18 +1957,18 @@
                                     μὲν ἐστεφανώθη χρυσοῖς, ᾑρέθη δʼ ἅμα καὶ κατὰ γῆν
                                     καὶ κατὰ θάλασσαν αὐτοκράτωρ στρατηγός.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ἐψηφίσαντο δὲ τὴν οὐσίαν
                                     ἀποδοῦναι αὐτῷ, καὶ τὰς ἀρὰς ἀφοσιώσασθαι πάλιν
                                     Εὐμολπίδας καὶ Κήρυκας, ἃς ἐποιήσαντο τοῦ δήμου
                                     προστάξαντος. ἀφοσιουμένων δὲ τῶν ἄλλων, Θεόδωρος ὁ
-                                    ἱεροφάντης “ἀλλʼ ἐγώ,” εἶπεν, “οὐδὲ κατηρασάμην αὐτῷ
-                                             κακὸν οὐδέν, εἰ μηδὲν ἀδικεῖ τὴν πόλιν.” </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="34">
-            <div2 type="section" n="1">
+                                    ἱεροφάντης <q>ἀλλʼ ἐγώ,</q> εἶπεν, <q>οὐδὲ κατηρασάμην αὐτῷ
+                                             κακὸν οὐδέν, εἰ μηδὲν ἀδικεῖ τὴν πόλιν.</q> </p>
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="34">
+            <div type="textpart" subtype="section" n="1">
                <p>
 οὕτω δὲ τοῦ Ἀλκιβιάδου
                                     λαμπρῶς εὐημεροῦντος ὑπέθραττεν ἐνίους ὅμως ὁ τῆς
@@ -1999,8 +1979,8 @@
                                     μάλιστα τῶν ἀποφράδων τὴν ἡμέραν ταύτην ἄπρακτον
                                     Ἀθηναῖοι νομίζουσιν.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>οὐ
                                     φιλοφρόνως οὖν οὐδʼ εὐμενῶς ἐδόκει προσδεχομένη τὸν
                                     Ἀλκιβιάδην ἡ θεὸς παρακαλύπτεσθαι καὶ ἀπελαύνειν
@@ -2009,8 +1989,8 @@
                                     ἐκπλεῖν ἔμελλε, φιλοτιμία τις οὐκ ἀγεννὴς προσπεσοῦσα
                                     κατέσχεν αὐτὸν ἄχρι μυστηρίων.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ἀφʼ οὗ γὰρ ἐπετειχίσθη Δεκέλεια καὶ τῶν εἰς Ἐλευσῖνα
                                     παρόδων ἐκράτουν οἱ πολέμιοι παρόντες, οὐδένα κόσμον
                                     εἶχεν ἡ τελετὴ πεμπομένη κατὰ θάλατταν, ἀλλὰ καὶ
@@ -2018,8 +1998,8 @@
                                     ἱερῶν, ὅταν ἐξελαύνωσι τὸν Ἴακχον, ὑπʼ ἀνάγκης
                                     ἐξελείπετο.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>καλὸν οὖν
                                     ἐφαίνετο τῷ Ἀλκιβιάδῃ καὶ πρὸς θεῶν ὁσιότητα καὶ
                                     πρὸς ἀνθρώπων δόξαν ἀποδοῦναι τὸ πάτριον σχῆμα τοῖς
@@ -2030,8 +2010,8 @@
                                     τῆς πατρίδος μαχεῖσθαι, καὶ πάντας ἕξειν μάρτυρας τοὺς
                                     πολίτας τῆς ἀνδραγαθίας.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ὡς δὲ ταῦτʼ ἔγνω καὶ προεῖπεν Εὐμολπίδαις καὶ Κήρυξι,
                                     σκοποὺς μὲν ἐπὶ τῶν ἄκρων ἐκάθισε καὶ προδρόμους
                                     τινὰς ἅμʼ ἡμέρᾳ προεξέπεμψεν, ἱερεῖς δὲ καὶ μύστας
@@ -2041,8 +2021,8 @@
                                     τῶν μὴ φθονούντων ἱεροφαντίαν καὶ μυσταγωγίαν
                                     προσαγορευομένην.
 </p>
-            </div2>
-            <div2 type="section" n="6">
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>μηδενὸς δὲ
                                     τῶν πολεμίων ἐπιθέσθαι τολμήσαντος ἀσφαλῶς ἐπαναγαγὼν
                                     εἰς τὴν πόλιν, ἤρθη μὲν αὐτὸς τῷ φρονήματι καὶ τὴν
@@ -2054,10 +2034,10 @@
                                     καταβαλὼν ψηφίσματα καὶ νόμους καὶ φλυάρους ἀπολλύντας
                                     τὴν πόλιν ὡς ἂν πράξῃ καὶ χρήσηται τοῖς πράγμασι, μὴ
                                     δεδιὼς τοὺς συκοφάντας. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="35">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="35">
+            <div type="textpart" subtype="section" n="1">
                <p>
 αὐτὸς μὲν οὖν ἐκεῖνος
                                     ἣν εἶχε διάνοιαν περὶ τῆς τυραννίδος ἄδηλόν ἐστιν·
@@ -2066,13 +2046,13 @@
                                     καὶ συνάρχοντας οὓς ἐκεῖνος ἠθέλησεν. ἐκπλεύσας δὲ
                                     ταῖς ἑκατὸν ναυσὶ καὶ προσβαλὼν Ἄνδρῳ, μάχῃ μὲν
                                     ἐκράτησεν αὐτῶν καὶ Λακεδαιμονίων ὅσοι παρῆσαν, οὐχ
-                                    εἷλε δὲ τὴν πόλιν, ἀλλὰ τοῦτο τῶν καινῶν <note resp="ed" place="unspecified" anchored="yes">
-                     <foreign lang="greek">καινῶν</foreign> with Bekker, M<hi rend="superscript">a</hi> and Cobet: <foreign lang="greek">κοινῶν</foreign> (<hi rend="italics">public</hi>).</note> ἐγκλημάτων
+                                    εἷλε δὲ τὴν πόλιν, ἀλλὰ τοῦτο τῶν καινῶν <note resp="ed" place="unspecified" anchored="true">
+                     <foreign xml:lang="grc">καινῶν</foreign> with Bekker, M<hi rend="superscript">a</hi> and Cobet: <foreign xml:lang="grc">κοινῶν</foreign> (<hi rend="italics">public</hi>).</note> ἐγκλημάτων
                                     πρῶτον ὑπῆρξε κατʼ αὐτοῦ τοῖς ἐχθροῖς. </p>
                <p>ἔοικε δʼ,
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>εἴ τις ἄλλος, ὑπὸ
                                     τῆς αὑτοῦ δόξης καταλυθῆναι καὶ Ἀλκιβιάδης. μεγάλη
                                     γὰρ οὖσα καὶ τόλμης καὶ συνέσεως γέμουσα ἀφʼ ὧν
@@ -2081,8 +2061,8 @@
                                     σπουδάσαντα γὰρ οὐδὲν ἂν διαφυγεῖν. ἤλπιζον δὲ καὶ
                                     Χίους ἑαλωκότας ἀκούσεσθαι καὶ τὴν ἄλλην Ἰωνίαν.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ὅθεν ἠγανάκτουν
                                     μὴ ταχὺ πάντα μηδʼ εὐθέως, ὡς ἐβούλοντο, πυνθανόμενοι
                                     διαπεπραγμένον, οὐχ ὑπολογιζόμενοι τὴν ἀχρηματίαν, ἀφʼ
@@ -2091,8 +2071,8 @@
                                     στρατόπεδον μισθοὺς καὶ τροφὰς πορίζειν. καὶ γὰρ τὸ
                                     τελευταῖον ἔγκλημα διὰ ταύτην ἔλαβε τὴν αἰτίαν.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>Λυσάνδρου γὰρ ἐπὶ τὴν ναυαρχίαν ἀποσταλέντος ὑπὸ
                                     Λακεδαιμονίων, καὶ τετρώβολον ἀντὶ τριωβόλου τῷ ναύτῃ
                                     διδόντος ἐξ ὧν ἔλαβε παρὰ Κύρου χρημάτων, αὐτὸς
@@ -2100,8 +2080,8 @@
                                     ἀργυρολογήσων ἐπὶ Καρίας. ὁ δʼ ἀπολειφθεὶς ἐπὶ τῶν
                                     νεῶν ἐπιμελητὴς Ἀντίοχος ἀγαθὸς μὲν ἦν κυβερνήτης,
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ἀνόητος δὲ τἆλλα
                                     καὶ φορτικός· ἔχων δὲ πρόσταγμα παρὰ τοῦ Ἀλκιβιάδου
                                     μηδʼ ἂν ἐπιπλέωσιν οἱ πολέμιοι διαναυμαχεῖν, οὕτως
@@ -2110,8 +2090,8 @@
                                     παρὰ τὰς πρῴρας τῶν πολεμίων νεῶν πολλὰ καὶ πράττων
                                     καὶ φθεγγόμενος ἀκόλαστα καὶ βωμολόχα παρεξελαύνειν.
 </p>
-            </div2>
-            <div2 type="section" n="6">
+            </div>
+            <div type="textpart" subtype="section" n="6">
                <p>τὸ μὲν οὖν πρῶτον
                                     Λύσανδρος ὀλίγαις ναυσὶν ἐπαναχθεὶς ἐδίωκεν αὐτόν,
                                     τῶν δʼ Ἀθηναίων ἐπιβοηθούντων πάσαις ἀναχθεὶς καὶ
@@ -2121,10 +2101,10 @@
                                     ἀνήχθη παντὶ τῷ στόλῳ καὶ προὐκαλεῖτο τὸν
                                     Λύσανδρον. ὁ δʼ ἠγάπα νενικηκὼς καὶ οὐκ ἀντανήγετο.
                                              </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="36">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="36">
+            <div type="textpart" subtype="section" n="1">
                <p>
 τῶν δὲ μισούντων τὸν
                                     Ἀλκιβιάδην ἐν τῷ στρατοπέδῳ Θρασύβουλος ὁ Θράσωνος
@@ -2135,8 +2115,8 @@
                                     ἀνθρώποις ἐκ πότων καὶ ναυτικῆς σπερμολογίας δυναμένοις
                                     παρʼ αὐτῷ μέγιστον,
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ὅπως
                                     αὐτὸς ἐπʼ ἀδείας χρηματίζηται περιπλέων καὶ
                                     ἀκολασταίνῃ μεθυσκόμενος καὶ συνὼν ἑταίραις Ἀβυδηναῖς
@@ -2145,8 +2125,8 @@
                                     κατεσκεύασεν ἐν Θρᾴκῃ περὶ Βισάνθην αὑτῷ καταφυγὴν
                                     ὡς ἐν τῇ πατρίδι μὴ δυνάμενος βιοῦν ἢ μὴ βουλόμενος.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>οἱ δʼ Ἀθηναῖοι
                                     πεισθέντες ἑτέρους εἵλοντο στρατηγούς, ἐνδεικνύμενοι
                                     τὴν πρὸς ἐκεῖνον ὀργὴν καὶ κακόνοιαν. ἃ δὴ
@@ -2156,8 +2136,8 @@
                                     συνήγαγεν ἀπὸ τῶν ἁλισκομένων, καὶ τοῖς Ἕλλησιν ἅμα
                                     τοῖς προσοικοῦσιν ἄδειαν ἀπὸ τῶν βαρβάρων παρεῖχεν.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ἐπεὶ δʼ οἱ περὶ Τυδέα καὶ Μένανδρον καὶ Ἀδείμαντον
                                     στρατηγοί, πάσας ὁμοῦ τὰς ὑπαρχούσας τότε ναῦς τοῖς
                                     Ἀθηναίοις ἔχοντες ἐν Αἰγὸς ποταμοῖς, εἰώθεσαν
@@ -2165,8 +2145,8 @@
                                     ἡμέρᾳ προκαλούμενοι καὶ πάλιν ἀναστρέφειν ὀπίσω καὶ
                                     διημερεύειν ἀτάκτως καὶ ἀμελῶς, ἅτε δὴ καταφρονοῦντες,
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ἐγγὺς ὢν ὁ
                                     Ἀλκιβιάδης οὐ περιεῖδεν οὐδʼ ἠμέλησεν, ἀλλʼ ἵππῳ
                                     προσελάσας ἐδίδασκε τοὺς στρατηγοὺς ὅτι κακῶς ὁρμοῦσιν
@@ -2176,10 +2156,10 @@
                                     πλανώμενον ὅποι τις θέλοι καὶ διασπειρόμενον,
                                     ἀντεφορμοῦντος αὐτοῖς στόλου πρὸς ἐπίταγμα μοναρχικὸν
                                     εἰθισμένου σιωπῇ πάντα ποιεῖν. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="37">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="37">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ταῦτα δὲ λέγοντος τοῦ
                                     Ἀλκιβιάδου, καὶ παραινοῦντος εἰς Σηστὸν μεθορμίσαι τὸν
@@ -2192,8 +2172,8 @@
                                     ἡμέραις ἠνάγκασε Λακεδαιμονίους διαναυμαχεῖν αὐτοῖς
                                     ἄκοντας ἢ τὰς ναῦς ἀπολιπεῖν.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἐδόκει δὲ τοῖς μὲν
                                     ἀλαζονεύεσθαι, τοῖς δʼ εἰκότα λέγειν, εἰ Θρᾷκας ἐκ
                                     γῆς ἐπαγαγὼν πολλοὺς ἀκοντιστὰς καὶ ἱππεῖς προσμάχοιτο
@@ -2204,8 +2184,8 @@
                                     μετὰ Κόνωνος, αἱ δʼ ἄλλαι μικρὸν ἀπολείπουσαι
                                     διακοσίων ἀπήχθησαν αἰχμάλωτοι.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>τῶν δʼ ἀνθρώπων τρισχιλίους ἑλὼν
                                     ζῶντας ἀπέσφαξεν ὁ Λύσανδρος. ἔλαβε δὲ καὶ τὰς
                                     Ἀθήνας ὀλίγῳ χρόνῳ καὶ τὰς ναῦς ἐνέπρησε καὶ τὰ
@@ -2215,8 +2195,8 @@
                                     χρήματα, πολλὰ δὲ κομίζων, ἔτι δὲ πλείω καταλιπὼν ἐν
                                     οἷς ᾤκει τείχεσιν.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>ἐν
                                     δὲ Βιθυνίᾳ πάλιν οὐκ ὀλίγα τῶν ἰδίων ἀπολέσας καὶ
                                     περικοπεὶς ὑπὸ τῶν ἐκεῖ Θρᾳκῶν, ἔγνω μὲν
@@ -2229,10 +2209,10 @@
                                     Φαρνάβαζον οἰόμενος παρέξειν, ᾤχετο πρὸς αὐτὸν εἰς
                                     Φρυγίαν, καὶ συνδιῆγε θεραπεύων ἅμα καὶ τιμώμενος.
                                              </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="38">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="38">
+            <div type="textpart" subtype="section" n="1">
                <p>
 Ἀθηναῖοι δὲ χαλεπῶς μὲν
                                     ἔφερον καὶ τῆς ἡγεμονίας ἀποστερηθέντες· ἐπεὶ δὲ καὶ
@@ -2243,8 +2223,8 @@
                                     ἁμαρτίας αὑτῶν καὶ ἀγνοίας, ὧν μεγίστην ἐποιοῦντο
                                     τὴν δευτέραν πρὸς Ἀλκιβιάδην ὀργήν.
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>ἀπερρίφη γὰρ οὐδὲν ἀδικῶν
                                     αὐτός, ἀλλʼ ὑπηρέτῃ χαλεπήναντες ὀλίγας ἀποβαλόντι
                                     ναῦς αἰσχρῶς, αἴσχιον αὐτοὶ τὸν κράτιστον καὶ
@@ -2256,8 +2236,8 @@
                                     τὰ καθʼ ἑαυτὸν ἱκανῶς ἔχει, περιόψεται Λακεδαιμονίους
                                     ὑβρίζοντας καὶ τοὺς τριάκοντα παροινοῦντας.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>ταῦτα δʼ οὐκ ἦν ἄλογον οὕτως ὀνειροπολεῖν τοὺς πολλούς,
                                     ὁπότε καὶ τοῖς τριάκοντα φροντίζειν ἐπῄει καὶ
                                     διαπυνθάνεσθαι καὶ λόγον ἔχειν πλεῖστον ὧν ἐκεῖνος
@@ -2266,8 +2246,8 @@
                                     ἀσφαλῶς ἄρχειν Λακεδαιμονίοις τῆς Ἑλλάδος·
                                     Ἀθηναίους δέ,
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>κἂν πρᾴως
                                     πάνυ καὶ καλῶς πρὸς ὀλιγαρχίαν ἔχωσιν, οὐκ ἐάσει ζῶν
                                     Ἀλκιβιάδης ἀτρεμεῖν ἐπὶ τῶν καθεστώτων. οὐ μὴν
@@ -2276,10 +2256,10 @@
                                     ποιήσασθαι τὸν Ἀλκιβιάδην, εἴτε κἀκείνων φοβηθέντων
                                     τὴν ὀξύτητα καὶ μεγαλοπραγμοσύνην τοῦ ἀνδρός, εἴτε
                                     τῷ Ἄγιδι χαριζομένων. </p>
-            </div2>
-         </div1>
-         <div1 type="chapter" n="39">
-            <div2 type="section" n="1">
+            </div>
+         </div>
+         <div type="textpart" subtype="chapter" n="39">
+            <div type="textpart" subtype="section" n="1">
                <p>
 ὡς οὖν ὁ Λύσανδρος
                                     ἔπεμψε πρὸς τὸν Φαρνάβαζον ταῦτα πράττειν κελεύων, ὁ
@@ -2288,8 +2268,8 @@
                                     Φρυγίας ὁ Ἀλκιβιάδης τότε διαιτώμενος, ἔχων
                                     Τιμάνδραν μεθʼ αὑτοῦ τὴν ἑταίραν, ὄψιν
 </p>
-            </div2>
-            <div2 type="section" n="2">
+            </div>
+            <div type="textpart" subtype="section" n="2">
                <p>δὲ κατὰ τοὺς ὕπνους εἶδε
                                     τοιαύτην· ἐδόκει περικεῖσθαι μὲν αὐτὸς τὴν ἐσθῆτα τῆς
                                     ἑταίρας, ἐκείνην δὲ τὴν κεφαλὴν ἐν ταῖς ἀγκάλαις
@@ -2301,8 +2281,8 @@
                <p>οἱ δὲ πεμφθέντες πρὸς αὐτὸν οὐκ ἐτόλμησαν εἰσελθεῖν, ἀλλὰ
                                     κύκλῳ τὴν οἰκίαν περιστάντες ἐνεπίμπρασαν.
 </p>
-            </div2>
-            <div2 type="section" n="3">
+            </div>
+            <div type="textpart" subtype="section" n="3">
                <p>αἰσθόμενος δʼ ὁ Ἀλκιβιάδης
                                     τῶν μὲν ἱματίων τὰ πλεῖστα καὶ τῶν στρωμάτων συναγαγὼν
                                     ἐπέρριψε τῷ πυρί, τῇ δʼ ἀριστερᾷ χειρὶ τὴν ἑαυτοῦ
@@ -2312,8 +2292,8 @@
                                     οὐδεὶς γὰρ ὑπέμεινεν αὐτὸν οὐδʼ εἰς χεῖρας συνῆλθεν,
                                     ἀλλʼ ἀποστάντες ἔβαλλον ἀκοντίοις καὶ τοξεύμασιν.
 </p>
-            </div2>
-            <div2 type="section" n="4">
+            </div>
+            <div type="textpart" subtype="section" n="4">
                <p>οὕτω δʼ αὐτοῦ
                                     πεσόντος καὶ τῶν βαρβάρων ἀπελθόντων, ἡ Τιμάνδρα τὸν
                                     νεκρὸν ἀνείλετο, καὶ τοῖς αὑτῆς περιβαλοῦσα καὶ
@@ -2323,8 +2303,8 @@
                                     προσαγορευθεῖσαν, ἐκ δὲ Ὑκκάρων, Σικελικοῦ πολίσματος,
                                     αἰχμάλωτον γενομένην.
 </p>
-            </div2>
-            <div2 type="section" n="5">
+            </div>
+            <div type="textpart" subtype="section" n="5">
                <p>ἔνιοι δὲ τὰ μὲν ἄλλα περὶ τῆς Ἀλκιβιάδου τελευτῆς
                                     ὁμολογοῦσι τούτοις, αἰτίαν δέ φασιν οὐ Φαρνάβαζον
                                     οὐδὲ Λύσανδρον οὐδὲ Λακεδαιμονίους παρασχεῖν, αὐτὸν
@@ -2334,8 +2314,9 @@
                                     νύκτωρ, ἐν ᾗ διαιτώμενος ἐτύγχανεν ὁ Ἀλκιβιάδης,
                                     καὶ καταβαλεῖν αὐτόν, ὥσπερ εἴρηται, διὰ τοῦ πυρὸς
                                     ἐξαλλόμενον. </p>
-            </div2>
-         </div1>
+            </div>
+         </div>
+         </div>
       </body>
    </text>
-</TEI.2>
+</TEI> 
