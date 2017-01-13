@@ -44,12 +44,20 @@ English translation by F. Storr. The Loeb classical library, 21.
       </fileDesc>
       <encodingDesc>
          <refsDecl n="CTS">
+            <cRefPattern n="line"
+               matchPattern="(\w+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+               <p>This pointer pattern extracts line</p>
+            </cRefPattern>
+         </refsDecl>
+         
+         <!--<refsDecl n="CTS">
             
             <cRefPattern n="card" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
                <p>This pointer pattern extracts cards</p>
             </cRefPattern>
             
-         </refsDecl>
+         </refsDecl>-->
       </encodingDesc>
       <profileDesc>
          <langUsage>
@@ -57,96 +65,45 @@ English translation by F. Storr. The Loeb classical library, 21.
          </langUsage>
       </profileDesc>
       <revisionDesc>
-        <!-- <change>
-            <date>1988</date>
-            <respStmt>
-               <name>EM, Scott Ettinger and Roger Travis</name>
-               <resp>tagging</resp>
-            </respStmt>
-            <item>Text scanned at U. Chicago in 1988. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</item>
-         </change>
-         <change>
-            <date>9/19/90</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Final check of cardbreaks, tags, and linenumbers.</item>
-         </change>
-         <change>
-            <date>8/91</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Revise DTDs and recheck texts.</item>
-         </change>
-         <change>
-            <date>8/91</date>
-            <respStmt>
-               <name>Bill Merrill</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Check text against TLG Sophocles in order to discover if there are any missing whole words or lines..</item>
-         </change>
-         <change>
-            <date>6/95</date>
-            <respStmt>
-               <name>Lisa Cerrato</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Added speaker tags where they were missing.</item>
-         </change>
-         <change>
-            <date>24-Nov-99</date>
-            <respStmt>
-               <name>Anne Mahoney</name>
-               <resp>Markup</resp>
-            </respStmt>
-            <item>
-$Log: soph.el_gk.xml,v $
-Revision 1.1  2013-09-13 11:17:56  balmas01
-moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory
-
-Revision 1.6  2013-06-13 12:41:39  gcrane
-tagging now should be compatible with CTS
-
-Revision 1.5  2012-11-20 18:47:12  ajones06
-Changed the bibliographic information in the headers to reflect Francesco's discovery that the Greek text for these files was taken from the two-volume public domain Loeb version edited by Francis Storr.
-
-Revision 1.4  2011-09-07 14:33:14  rsingh04 adding rend=displayNum to lb tags
-
-Revision 1.3  2010-12-25 19:40:38  gcrane
-LB milestones instead of L tags
-
-Revision 1.2  2010-12-24 13:05:03  gcrane
-ADD tags for lt/gt entities
-DEL tags for lsqb/rsqb entities
-
-Revision 1.1  2010-12-24 12:51:11  gcrane base files for SDL
-
-Revision 1.1  2009/12/08 18:56:08  rsingh04 moved more xml files around based on copyright status
-
-Revision 1.2  2005/08/01 16:30:23  packel removed stray item tags
-
-Revision 1.1  2005/07/25 15:03:03  packel
-Converted to XML
-
-Revision 1.8  2004/04/21 20:42:00  mimno added card 1s
-
-Revision 1.7  2003/07/01 22:18:08  yorkc
-Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
-
-Revision 1.6  2000/03/04 20:35:17  dasmith
-Added separate funder entity to TEI header.
-
-Revision 1.5  2000/02/15 23:18:01  amahoney use n attribute on sp element to carry over the speaker name when the speech is interrupted by a card break;  this also requires that the card break at the end come after the close of the sp, not within
-
-Revision 1.4  1999/11/24 21:12:07  amahoney
-Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all files
-
-</item>
-         </change>--> <change when="2016-01-15" who="TDBuck">p4 to p5</change>
+         <change when="2017-01-13" who="Lisa Cerrato">fixed change log</change>
+<change when="2016-01-15" who="TDBuck">p4 to p5</change>
+         
+         <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+         
+         <change when="2013-06-13" who="gcrane">tagging now should be compatible with CTS</change>
+         
+         <change when="2012-11-20" who="ajones06">Changed the bibliographic information in the headers to reflect Francesco's discovery that the Greek text for these files was taken from the two-volume public domain Loeb version edited by Francis Storr.</change>
+         
+         <change when="2011-09-07" who="rsingh04">adding rend=displayNum to lb tags</change>
+         
+         <change when="2010-12-25" who="gcrane">LB milestones instead of L tags</change>
+         
+         <change when="2010-12-24" who="gcrane">ADD tags for lt gt entities; DEL tags for lsqb rsqb entities</change>
+         <change when="2010-12-24" who="gcrane">base files for SDL</change>
+         
+         <change when="2009-12-08" who="rsingh04">moved more xml files around based on copyright status</change>
+         
+         <change when="2005-08-01" who="packel">removed stray item tags</change>
+         
+         <change when="2005-07-25" who="packel">Converted to XML</change>
+         
+         <change when="2004-04-21" who="mimno"> added card 1s</change>
+         
+         <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
+         
+         <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+         
+         <change when="2000-02-15" who="amahoney">use n attribute on sp element to carry over the speaker name when the speech is interrupted by a card break;  this also requires that the card break at the end come after the close of the sp, not within</change>
+         
+         <change when="1999-11-24" who="amahoney">Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all files</change>
+         <change when="1999-11-24" who="Anne Mahoney">Markup</change>
+         <change when="1995-06-01" who="Lisa Cerrato">Added speaker tags where they were missing.</change>
+         <change when="1991-08-01" who="Bill Merrill">Check text against TLG Sophocles in order to discover if there are any missing whole words or lines.</change>
+         
+         <change when="1991-08-01" who="EM">Revise DTDs and recheck texts.</change>
+         <change when="1990-09-19" who="EM">Final check of cardbreaks, tags, and line numbers.</change>
+         
+         <change when="1988-01-01" who="EM, Scott Ettinger and Roger Travis">Text scanned at U. Chicago in 1988. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</change>
       </revisionDesc>
    </teiHeader>
    <text xml:lang="grc">
@@ -157,7 +114,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <milestone unit="episode"/>
             <sp>
                <speaker>Παιδαγωγός</speaker>
-               <l>ὦ τοῦ στρατηγήσαντος ἐν Τροίᾳ ποτὲ</l>
+               <l n="1">ὦ τοῦ στρατηγήσαντος ἐν Τροίᾳ ποτὲ</l>
                <l>Ἀγαμέμνονος παῖ, νῦν ἐκεῖνʼ ἔξεστί σοι</l>
                <l>παρόντι λεύσσειν, ὧν πρόθυμος ἦσθʼ ἀεί.</l>
                <l>τὸ γὰρ παλαιὸν Ἄργος οὑπόθεις τόδε,</l>
@@ -184,7 +141,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <div n="23" subtype="card" type="textpart">
                   <sp n="*)ore/sths">
                      <speaker>Ὀρέστης</speaker>
-               <l>ὦ φίλτατʼ ἀνδρῶν προσπόλων, ὥς μοι σαφῆ</l>
+               <l n="23">ὦ φίλτατʼ ἀνδρῶν προσπόλων, ὥς μοι σαφῆ</l>
                <l>σημεῖα φαίνεις ἐσθλὸς εἰς ἡμᾶς γεγώς.</l>
                <l n="25">ὥσπερ γὰρ ἵππος εὐγενής, κἂν ᾖ γέρων,</l>
                <l>ἐν τοῖσι δεινοῖς θυμὸν οὐκ ἀπώλεσεν,</l>
