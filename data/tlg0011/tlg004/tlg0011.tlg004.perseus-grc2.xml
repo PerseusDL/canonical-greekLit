@@ -44,12 +44,17 @@ With an English translation by F. Storr. The Loeb classical library,
       </fileDesc>
       <encodingDesc>
          <refsDecl n="CTS">
+            <cRefPattern n="line" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+               <p>This pointer pattern extracts line</p>
+            </cRefPattern>
+</refsDecl>
+         
+         <!--<refsDecl n="CTS">
             
             <cRefPattern n="card" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
                <p>This pointer pattern extracts cards</p>
             </cRefPattern>
-            
-         </refsDecl>
+ </refsDecl>-->
       </encodingDesc>
       <profileDesc>
          <langUsage>
@@ -57,107 +62,42 @@ With an English translation by F. Storr. The Loeb classical library,
          </langUsage>
       </profileDesc>
       <revisionDesc>
-         <!--<change>
-            <date>1988</date>
-            <respStmt>
-               <name>EM, Scott Ettinger and Roger Travis</name>
-               <resp>tagging</resp>
-            </respStmt>
-            <item>Text scanned at U. Chicago in 1988. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</item>
-         </change>
-         <change>
-            <date>9/19/90</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Final check of cardbreaks, tags, and linenumbers.</item>
-         </change>
-         <change>
-            <date>8/91</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Revise DTDs and recheck texts.</item>
-         </change>
-         <change>
-            <date>8/91</date>
-            <respStmt>
-               <name>Bill Merrill</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Check text against TLG Sophocles in order to discover if there are any missing whole words or lines..</item>
-         </change>
-         <change>
-            <date>5-Nov-99</date>
-            <respStmt>
-               <name>Anne Mahoney</name>
-               <resp>Markup</resp>
-            </respStmt>
-            <item>
-$Log: soph.ot_gk.xml,v $
-Revision 1.1  2013-09-13 11:17:57  balmas01
-moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory
-
-Revision 1.7  2013-06-13 12:41:39  gcrane
-tagging now should be compatible with CTS
-
-Revision 1.6  2012-11-20 18:47:12  ajones06
-Changed the bibliographic information in the headers to reflect Francesco's discovery that the Greek text for these files was taken from the two-volume public domain Loeb version edited by Francis Storr.
-
-Revision 1.5  2011-09-07 14:33:14  rsingh04 adding rend=displayNum to lb tags
-
-Revision 1.4  2011-08-02 17:16:59  lcerrato removed duplicate word on line 1478
-
-Revision 1.3  2010-12-25 19:40:38  gcrane
-LB milestones instead of L tags
-
-Revision 1.2  2010-12-24 13:05:03  gcrane
-ADD tags for lt/gt entities
-DEL tags for lsqb/rsqb entities
-
-Revision 1.1  2010-12-24 12:51:11  gcrane base files for SDL
-
-Revision 1.1  2009/12/08 18:56:08  rsingh04 moved more xml files around based on copyright status
-
-Revision 1.2  2005/08/01 16:30:23  packel removed stray item tags
-
-Revision 1.1  2005/07/25 15:03:21  packel
-Converted to XML
-
-Revision 1.14  2004/06/14 18:49:32  lcerrato changed speaker at lines 1071-2 to Jocasta, as confirmed by source
-
-Revision 1.13  2004/04/21 20:42:00  mimno added card 1s
-
-Revision 1.12  2003/07/01 22:18:08  yorkc
-Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
-
-Revision 1.11  2003/05/21 21:31:50  lcerrato added missing speaker at 1158: confirmed with source
-
-Revision 1.10  2000/03/22 14:33:44  amahoney remove stray punctuation in author field, for biblio display
-
-Revision 1.9  2000/03/04 20:35:17  dasmith
-Added separate funder entity to TEI header.
-
-Revision 1.8  2000/02/15 23:18:02  amahoney use n attribute on sp element to carry over the speaker name when the speech is interrupted by a card break;  this also requires that the card break at the end come after the close of the sp, not within
-
-Revision 1.7  1999/11/24 21:12:07  amahoney
-Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all files
-
-Revision 1.6  1999/11/08 20:15:42  amahoney use entities from the ISO diacriticals set as a first approximation to metrical symbols;  the old DTD had some, but the new one doesn't yet.
-
-Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
-
-</item>
-         </change>--><change when="2016-01-15" who="TDBuck">p4 to p5</change>
+         <change when="2017-02-06" who="Lisa Cerrato">restructing to lines; minor cleanup such as change log.</change>
+         <change when="2016-01-15" who="TDBuck">p4 to p5</change>
+         <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+         <change when="2013-06-13" who="gcrane">tagging now should be compatible with CTS</change>
+         <change when="2012-11-20" who="ajones06">Changed the bibliographic information in the headers to reflect Francesco's discovery that the Greek text for these files was taken from the two-volume public domain Loeb version edited by Francis Storr.</change> 
+         <change when="2011-09-07" who="rsingh04">adding rend=displayNum to lb tags</change>
+         <change when="2011-08-02" who="lcerrato">removed duplicate word on line 1478</change>
+         <change when="2010-12-25" who="gcrane">LB milestones instead of L tags</change>
+         <change when="2010-12-24" who="gcrane">ADD tags for lt/gt entities DEL tags for lsqb/rsqb entities</change>
+         <change when="2010-12-24" who="gcrane">base files for SDL</change>
+         <change when="2009-12-08" who="rsingh04">moved more xml files around based on copyright status</change>
+         <change when="2005-08-01" who="packel">removed stray item tags</change>
+         <change when="2005-07-25" who="packel">Converted to XML</change>
+         <change when="2004-06-14" who="lcerrato">changed speaker at lines 1071-2 to Jocasta, as confirmed by source</change>
+          <change when="2004-04-21" who="mimno">added card 1s</change>
+         <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
+          <change when="2003-05-21" who="lcerrato">added missing speaker at 1158: confirmed with source</change>
+          <change when="2000-03-22" who="amahoney">remove stray punctuation in author field, for biblio display</change>
+          <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+          <change when="2000-02-15" who="amahoney">use n attribute on sp element to carry over the speaker name when the speech is interrupted by a card break;  this also requires that the card break at the end come after the close of the sp, not within</change>
+         <change when="1999-11-24" who="amahoney">Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all files</change>
+         <change when="1999-11-08" who="amahoney">use entities from the ISO diacriticals set as a first approximation to metrical symbols;  the old DTD had some, but the new one doesn't yet.</change>
+         <change when="1999-11-05" who="amahoney">convert to TEI P3</change>
+         <change when="1999-11-05" who="Anne Mahoney">Markup</change>
+         <change when="1991-08-01" who="Bill Merrill">Check text against TLG Sophocles in order to discover if there are any missing whole words or lines.</change>
+         <change when="1991-08-01" who="EM">Revise DTDs and recheck texts.</change>
+         <change when="1990-09-19" who="EM">Final check of cardbreaks, tags, and linenumbers.</change>
+         <change when="1988" who="EM, Scott Ettinger and Roger Travis">Text scanned at U. Chicago in 1988. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</change>
       </revisionDesc>
    </teiHeader>
-   <text xml:id="stoa0045.stoa0" xml:lang="grc">
-      <body n="OT">
+   
+   <text xml:lang="grc">
+      <body>
          <div type="edition" n="urn:cts:greekLit:tlg0011.tlg004.perseus-grc2" xml:lang="grc">
-            <div n="1" subtype="card" type="textpart">
-         <milestone unit="episode"/>
+        <milestone unit="card" resp="p" n="1"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l>ὦ τέκνα, Κάδμου τοῦ πάλαι νέα τροφή,</l>
@@ -174,7 +114,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>ἐμοῦ προσαρκεῖν πᾶν·  δυσάλγητος γὰρ ἂν</l>
                <l>εἴην τοιάνδε μὴ οὐ κατοικτίρων ἕδραν.</l>
             </sp>
-            </div><div n="14" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="14"/>
             <sp>
                <speaker>Ἱερεύς</speaker>
                <l>ἀλλʼ ὦ κρατύνων Οἰδίπους χώρας ἐμῆς,</l>
@@ -222,7 +162,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>ὡς οὐδέν ἐστιν οὔτε πύργος οὔτε ναῦς</l>
                <l>ἔρημος ἀνδρῶν μὴ ξυνοικούντων ἔσω.</l>
             </sp>
-            </div><div n="58" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="58"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l>ὦ παῖδες οἰκτροί, γνωτὰ κοὐκ ἄγνωτά μοι</l>
@@ -246,7 +186,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>ὅταν δʼ ἵκηται, τηνικαῦτʼ ἐγὼ κακὸς</l>
                <l>μὴ δρῶν ἂν εἴην πάνθʼ ὅσʼ ἂν δηλοῖ θεός.</l>
             </sp>
-            </div><div n="78" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="78"/>
             <sp>
                <speaker>Ἱερεύς</speaker>
                <l>ἀλλʼ εἰς καλὸν σύ τʼ εἶπας οἵδε τʼ ἀρτίως</l>
@@ -304,7 +244,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l n="100">ἀνδρηλατοῦντας ἢ φόνῳ φόνον πάλιν</l>
                <l>λύοντας, ὡς τόδʼ αἷμα χειμάζον πόλιν.</l>
             </sp>
-            </div><div n="102" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="102"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l>ποίου γὰρ ἀνδρὸς τήνδε μηνύει τύχην;</l>
@@ -383,7 +323,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l n="130">ἡ ποικιλῳδὸς Σφὶγξ τὸ πρὸς ποσὶν σκοπεῖν</l>
                <l>μεθέντας ἡμᾶς τἀφανῆ προσήγετο.</l>
             </sp>
-            </div><div n="132" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="132"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l>ἀλλʼ ἐξ ὑπαρχῆς αὖθις αὔτʼ ἐγὼ φανῶ·</l>
@@ -409,10 +349,12 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>Φοῖβος δʼ ὁ πέμψας τάσδε μαντείας ἅμα</l>
                <l n="150">σωτήρ δʼ  ἵκοιτο καὶ νόσου παυστήριος.</l>
             </sp>
-            </div><div n="151" subtype="card" type="textpart">
+            </div>
+            
+            <milestone unit="card" resp="p" n="151"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ὦ Διὸς ἁδυεπὲς φάτι, τίς ποτε τᾶς πολυχρύσου</l>
@@ -423,9 +365,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>ἢ περιτελλομέναις ὥραις πάλιν ἐξανύσεις χρέος.</l>
                   <l>εἰπέ μοι, ὦ χρυσέας τέκνον Ἐλπίδος, ἄμβροτε Φάμα.</l>
                </sp>
-               </div><div n="159" subtype="card" type="textpart">
+               </div>
+            <milestone unit="card" resp="p" n="159"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="160">πρῶτα σὲ κεκλόμενος, θύγατερ Διός, ἄμβροτʼ Ἀθάνα</l>
@@ -437,9 +380,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l n="165">εἴ ποτε καὶ προτέρας ἄτας ὕπερ ὀρνυμένας πόλει</l>
                   <l>ἠνύσατʼ ἐκτοπίαν φλόγα πήματος, ἔλθετε καὶ νῦν.</l>
                </sp>
-               </div><div n="169" subtype="card" type="textpart">
+               </div>
+         <milestone unit="card" resp="p" n="169"/>
             
-            <milestone unit="strophe" n="2"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ὦ πόποι, ἀνάριθμα γὰρ φέρω</l>
@@ -451,9 +395,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>κρεῖσσον ἀμαιμακέτου πυρὸς ὄρμενον</l>
                   <l>ἀκτὰν πρὸς ἑσπέρου θεοῦ.</l>
                </sp>
-               </div><div n="179" subtype="card" type="textpart">
+               </div>
+         <milestone unit="card" resp="p" n="179"/>
             
-            <milestone unit="antistrophe" n="2"/>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ὧν πόλις ἀνάριθμος ὄλλυται·</l>
@@ -465,9 +410,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>ὧν ὕπερ, ὦ χρυσέα θύγατερ Διός,</l>
                   <l>εὐῶπα πέμψον ἀλκάν.</l>
                </sp>
-               </div><div n="190" subtype="card" type="textpart">
+               </div>
+         <milestone unit="card" resp="p" n="190"/>
             
-            <milestone unit="strophe" n="3"/>
+            <div type="textpart" subtype="strophe" n="3">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="190">Ἄρεά τε τὸν μαλερόν, ὃς νῦν ἄχαλκος ἀσπίδων</l>
@@ -482,9 +428,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l n="200">ἀστραπᾶν κράτη νέμων,</l>
                   <l>ὦ Ζεῦ πάτερ, ὑπὸ σῷ φθίσον κεραυνῷ,</l>
                </sp>
-               </div><div n="203" subtype="card" type="textpart">
+               </div>
+         <milestone unit="card" resp="p" n="203"/>
             
-            <milestone unit="antistrophe" n="3"/>
+            <div type="textpart" subtype="antistrophe" n="3">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>Λύκειʼ ἄναξ, τά τε σὰ χρυσοστρόφων ἀπʼ ἀγκυλᾶν</l>
@@ -496,13 +443,15 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>οἰνῶπα Βάκχον εὔιον,</l>
                   <l>Μαινάδων ὁμόστολον,</l>
                   <l>πελασθῆναι φλέγοντʼ</l>
-                  <l>ἀγλαῶπι ¯ ˘ ¯  <!-- from isodia.ent, for the moment --></l>
+                  <l>ἀγλαῶπι ¯ ˘ ¯  <note resp="perseus">from isodia.ent, for the moment</note></l>
                   <l n="215">πεύκᾳ  ʼπὶ τὸν ἀπότιμον ἐν θεοῖς θεόν.</l>
                </sp>
-               </div><div n="216" subtype="card" type="textpart">
+               </div>
+         </div>
+            <milestone unit="card" resp="p" n="216"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp n="*oi)di/pous">
                <speaker>Οἰδίπους</speaker>
                <l>αἰτεῖς·  ἃ δʼ αἰτεῖς, τἄμʼ ἐὰν θέλῃς ἔπη</l>
@@ -545,7 +494,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>ὑπέρ τʼ ἐμαυτοῦ τοῦ θεοῦ τε τῆσδέ τε</l>
                <l>γῆς ὧδʼ ἀκάρπως κἀθέως ἐφθαρμένης.</l>
             </sp>
-               </div><div n="255" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="255"/>
                   <sp n="*oi)di/pous">
                      <speaker>Οἰδίπους</speaker>
                <l n="255">οὐδʼ εἰ γὰρ ἦν τὸ πρᾶγμα μὴ θεήλατον,</l>
@@ -570,7 +519,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>τάδʼ ἔστʼ ἀρέσκονθʼ, ἥ τε σύμμαχος Δίκη</l>
                <l n="275">χοἰ πάντες εὖ ξυνεῖεν εἰσαεὶ θεοί.</l>
             </sp>
-            </div><div n="276" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="276"/>
             <sp>
                <speaker>Χορός</speaker>
                <l>ὥσπερ μʼ ἀραῖον ἔλαβες, ὧδʼ, ἄναξ, ἐρῶ.</l>
@@ -634,7 +583,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>τὸν θεῖον ἤδη μάντιν ὧδʼ ἄγουσιν, ᾧ</l>
                <l>τἀληθὲς ἐμπέφυκεν ἀνθρώπων μόνῳ.</l>
             </sp>
-            </div><div n="300" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="300"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l n="300">ὦ πάντα νωμῶν Τειρεσία, διδακτά τε</l>
@@ -689,7 +638,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>πάντες γὰρ οὐ φρονεῖτʼ·  ἐγὼ δʼ οὐ μή ποτε</l>
                <l>τἄμʼ, ὡς ἂν εἴπω μὴ τὰ σʼ, ἐκφήνω κακά.</l>
             </sp>
-            </div><div n="330" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="330"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l n="330">τί φής;  ξυνειδὼς οὐ φράσεις, ἀλλʼ ἐννοεῖς</l>
@@ -744,7 +693,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>τῆς νῦν προσαυδᾶν μήτε τούσδε μήτʼ ἐμέ,</l>
                <l>ὡς ὄντι γῆς τῆσδʼ ἀνοσίῳ μιάστορι.</l>
             </sp>
-            </div><div n="354" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="354"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l>οὕτως ἀναιδῶς ἐξεκίνησας τόδε</l>
@@ -831,7 +780,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <speaker>Τειρεσίας</speaker>
                <l>Κρέων δέ σοι πῆμʼ οὐδέν, ἀλλʼ αὐτὸς σὺ σοί.</l>
             </sp>
-            </div><div n="380" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="380"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l n="380">ὦ πλοῦτε καὶ τυραννὶ καὶ τέχνη τέχνης</l>
@@ -866,7 +815,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>δεῖ δʼ οὐ τοιούτων, ἀλλʼ ὅπως τὰ τοῦ θεοῦ</l>
                <l>μαντεῖʼ ἄριστα λύσομεν, τόδε σκοπεῖν.</l>
             </sp>
-            </div><div n="408" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="408"/>
             <sp>
                <speaker>Τειρεσίας</speaker>
                <l>εἰ καὶ τυραννεῖς, ἐξισωτέον τὸ γοῦν</l>
@@ -891,7 +840,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>προπηλάκιζε·  σοῦ γὰρ οὐκ ἔστιν βροτῶν</l>
                <l>κάκιον ὅστις ἐκτριβήσεταί ποτε.</l>
             </sp>
-            </div><div n="429" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="429"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l>ἦ ταῦτα δῆτʼ ἀνεκτὰ πρὸς τούτου κλύειν;</l>
@@ -949,7 +898,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l n="445">κομιζέτω δῆθʼ·  ὡς παρὼν σύ γʼ ἐμποδὼν</l>
                <l>ὀχλεῖς, συθείς τʼ ἂν οὐκ ἂν ἀλγύνοις πλέον.</l>
             </sp>
-            </div><div n="447" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="447"/>
             <sp>
                <speaker>Τειρεσίας</speaker>
                <l>εἰπὼν ἄπειμʼ ὧν οὕνεκʼ, ἦλθον, οὐ τὸ σὸν</l>
@@ -969,10 +918,12 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>εἴσω λογίζου·  κἂν λάβῃς ἐψευσμένον,</l>
                <l>φάσκειν ἔμʼ ἤδη μαντικῇ μηδὲν φρονεῖν.</l>
             </sp>
-            </div><div n="463" subtype="card" type="textpart">
+            </div>
+            
+            <milestone unit="card" resp="p" n="463"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>τίς ὅντινʼ ἁ θεσπιέπεια Δελφὶς εἶπε πέτρα</l>
@@ -985,9 +936,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>δειναὶ δʼ ἅμʼ ἕπονται</l>
                   <l>κῆρες ἀναπλάκητοι</l>
                </sp>
-               </div><div n="473" subtype="card" type="textpart">
+               </div>
+            <milestone unit="card" resp="p" n="473"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ἔλαμψε γὰρ τοῦ νιφόεντος ἀρτίως φανεῖσα</l>
@@ -1000,9 +952,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>μαντεῖα·  τὰ δʼ ἀεὶ</l>
                   <l>ζῶντα περιποτᾶται.</l>
                </sp>
-               </div><div n="483" subtype="card" type="textpart">
+               </div>
+            <milestone unit="card" resp="p" n="483"/>
             
-            <milestone unit="strophe" n="2"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>δεινὰ μὲν οὖν, δεινὰ ταράσσει σοφὸς οἰωνοθέτας</l>
@@ -1014,9 +967,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>ἐπὶ τὰν ἐπίδαμον φάτιν εἶμʼ Οἰδιπόδα Λαβδακίδαις</l>
                   <l n="495">ἐπίκουρος ἀδήλων θανάτων.</l>
                </sp>
-               </div><div n="496" subtype="card" type="textpart">
+               </div>
+            <milestone unit="card" resp="p" n="496"/>
             
-            <milestone unit="antistrophe" n="2"/>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ἀλλʼ ὁ μὲν οὖν Ζεὺς ὅ τʼ Ἀπόλλων ξυνετοὶ καὶ τὰ βροτῶν</l>
@@ -1028,10 +982,12 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l n="510">ποτέ, καὶ σοφὸς ὤφθη βασάνῳ θʼ ἁδύπολις τῷ ἀπʼ ἐμᾶς</l>
                   <l>φρενὸς οὔποτʼ ὀφλήσει κακίαν.</l>
                </sp>
-               </div><div n="513" subtype="card" type="textpart">
+               </div>
+         </div>
+            <milestone unit="card" resp="p" n="513"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Κρέων</speaker>
                <l>ἄνδρες πολῖται, δείνʼ ἔπη πεπυσμένος</l>
@@ -1083,7 +1039,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>ἄνευ τε πλήθους καὶ φίλων τυραννίδα</l>
                <l>θηρᾶν, ὃ πλήθει χρήμασίν θʼ ἁλίσκεται;</l>
             </sp>
-            </div><div n="543" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="543"/>
             <sp>
                <speaker>Κρέων</speaker>
                <l>οἶσθʼ ὡς πόησον; ἀντὶ τῶν εἰρημένων</l>
@@ -1220,7 +1176,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <speaker>Οἰδίπους</speaker>
                <l>ἐνταῦθα γὰρ δὴ καὶ κακὸς φαίνει φίλος.</l>
             </sp>
-            </div><div n="583" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="583"/>
             <sp>
                <speaker>Κρέων</speaker>
                <l>οὔκ, εἰ διδοίης γʼ ὡς ἐγὼ σαυτῷ λόγον.</l>
@@ -1257,7 +1213,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>χρόνος δίκαιον ἄνδρα δείκνυσιν μόνος·</l>
                <l n="615">κακὸν δὲ κἂν ἐν ἡμέρᾳ γνοίης μιᾷ.</l>
             </sp>
-            </div><div n="616" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="616"/>
             <sp>
                <speaker>Χορός</speaker>
                <l>καλῶς ἔλεξεν εὐλαβουμένῳ πεσεῖν,</l>
@@ -1331,7 +1287,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>τήνδʼ ἐκ δόμων στείχουσαν Ἰοκάστην, μεθʼ ἧς</l>
                <l>τὸ νῦν παρεστὸς νεῖκος εὖ θέσθαι χρεών.</l>
             </sp>
-            </div><div n="634" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="634"/>
             <sp>
                <speaker>Ἰοκάστη</speaker>
                <l>τί τὴν ἄβουλον, ὦ ταλαίπωροι, στάσιν</l>
@@ -1362,10 +1318,11 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>μάλιστα μὲν τόνδʼ ὅρκον αἰδεσθεὶς θεῶν,</l>
                <l>ἔπειτα κἀμὲ τούσδε θʼ οἳ πάρεισί σοι.</l>
             </sp>
-            </div><div n="649" subtype="card" type="textpart">
+         </div>
+            <milestone unit="card" resp="p" n="649"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>πιθοῦ θελήσας φρονήσας τʼ, ἄναξ, λίσσομαι.</l>
@@ -1400,9 +1357,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>εὖ νυν ἐπίστω, ταῦθʼ ὅταν ζητῇς, ἐμοὶ</l>
                   <l>ζητῶν ὄλεθρον ἢ φυγὴν ἐκ τῆσδε γῆς.</l>
                </sp>
-               </div><div n="660" subtype="card" type="textpart">
+               </div>
+            <milestone unit="card" resp="p" n="660"/>
             
-            <milestone unit="strophe" n="2"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="660">οὐ τὸν πάντων θεῶν θεὸν πρόμον</l>
@@ -1434,9 +1392,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>πορεύσομαι,</l>
                   <l>σοῦ μὲν τυχὼν ἀγνῶτος, ἐν δὲ τοῖσδʼ ἴσος.</l>
                </sp>
-               </div><div n="679" subtype="card" type="textpart">
+               </div>
+         <milestone unit="card" resp="p" n="679"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>γύναι, τί μέλλεις κομίζειν δόμων τόνδʼ ἔσω;</l>
@@ -1472,8 +1431,8 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>ὁρᾷς ἵνʼ ἥκεις, ἀγαθὸς ὢν γνώμην ἀνήρ,</l>
                   <l>τοὐμὸν παριεὶς καὶ καταμβλύνων κέαρ;</l>
                </sp>
-            
-            <milestone unit="antistrophe" n="2"/>
+            </div>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="690">ὦναξ, εἶπον μὲν οὐχ ἅπαξ μόνον,</l>
@@ -1488,10 +1447,12 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>πρὸς θεῶν δίδαξον κἄμʼ, ἄναξ, ὅτου ποτὲ</l>
                   <l>μῆνιν τοσήνδε πράγματος στήσας ἔχεις.</l>
                </sp>
-               </div><div n="700" subtype="card" type="textpart">
+               </div>
+      </div>
+         <milestone unit="card" resp="p" n="700"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l n="700">ἐρῶ·  σὲ γὰρ τῶνδʼ  ἐς πλέον, γύναι, σέβω·</l>
@@ -1536,7 +1497,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>ὧν ἐντρέπου σὺ μηδέν· ὧν γὰρ ἂν θεὸς</l>
                <l n="725">χρείαν ἐρευνᾷ, ῥᾳδίως αὐτὸς φανεῖ.</l>
             </sp>
-            </div><div n="726" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="726"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l>οἷόν μʼ ἀκούσαντʼ ἀρτίως ἔχει, γύναι,</l>
@@ -1609,7 +1570,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <speaker>Ἰοκάστη</speaker>
                <l>καὶ μὴν ὀκνῶ μέν, ἃ δʼ ἂν ἔρῃ μαθοῦσʼ ἐρῶ.</l>
             </sp>
-            </div><div n="750" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="750"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l n="750">πότερον  ἐχώρει βαιὸς ἢ πολλοὺς ἔχων</l>
@@ -1661,7 +1622,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>ἀλλʼ ἵξεται μέν·  ἀξία δέ που μαθεῖν</l>
                <l n="770">κἀγὼ τά γʼ ἐν σοὶ δυσφόρως ἔχοντʼ, ἄναξ.</l>
             </sp>
-            </div><div n="771" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="771"/>
             <sp n="*oi)di/pous">
                <speaker>Οἰδίπους</speaker>
                <l>κοὐ μὴ στερηθῇς γʼ, ἐς τοσοῦτον ἐλπίδων</l>
@@ -1694,7 +1655,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>στείχων δʼ ἱκνοῦμαι τούσδε τοὺς χώρους, ἐν οἷς</l>
                <l>σὺ τὸν τύραννον τοῦτον ὄλλυσθαι λέγεις.</l>
             </sp>
-               </div><div n="800" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="800"/>
                   <sp n="*oi)di/pous">
                      <speaker>Οἰδίπους</speaker>
                <l n="800">καί σοι, γύναι, τἀληθὲς ἐξερῶ. τριπλῆς</l>
@@ -1732,7 +1693,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>βαίην ἄφαντος πρόσθεν ἢ τοιάνδʼ ἰδεῖν</l>
                <l>κηλῖδʼ ἐμαυτῷ συμφορᾶς ἀφιγμένην.</l>
             </sp>
-            </div><div n="834" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="834"/>
             <sp>
                <speaker>Χορός</speaker>
                <l>ἡμῖν μέν, ὦναξ, ταῦτʼ ὀκνήρʼ·  ἕως δʼ ἂν οὖν</l>
@@ -1789,10 +1750,11 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>πέμψω ταχύνασʼ·  ἀλλʼ ἴωμεν ἐς δόμους·</l>
                <l>οὐδὲν γὰρ ἂν πράξαιμʼ ἂν ὧν οὐ σοὶ φίλον.</l>
             </sp>
-            </div><div n="863" subtype="card" type="textpart">
+         </div>
+            <milestone unit="card" resp="p" n="863"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>εἴ μοι ξυνείη φέροντι</l>
@@ -1805,9 +1767,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l n="870">ἔτικτεν οὐδὲ μή ποτε λάθα κατακοιμάσῃ·</l>
                   <l>μέγας ἐν τούτοις θεὸς οὐδὲ γηράσκει.</l>
                </sp>
-               </div><div n="873" subtype="card" type="textpart">
+               </div>
+            <milestone unit="card" resp="p" n="873"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ὕβρις φυτεύει τύραννον·</l>
@@ -1820,9 +1783,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>πόλει πάλαισμα μήποτε λῦσαι θεὸν αἰτοῦμαι.</l>
                   <l>θεὸν οὐ λήξω ποτὲ προστάταν ἴσχων.</l>
                </sp>
-               </div><div n="884" subtype="card" type="textpart">
+               </div>
+         <milestone unit="card" resp="p" n="884"/>
             
-            <milestone unit="strophe" n="2"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>εἰ δέ τις ὑπέροπτα χερσὶν ἢ λόγῳ πορεύεται,</l>
@@ -1837,9 +1801,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l n="895">εἰ γὰρ αἱ τοιαίδε πράξεις τίμιαι,</l>
                   <l>τί δεῖ με χορεύειν;</l>
                </sp>
-               </div><div n="897" subtype="card" type="textpart">
+               </div>
+         <milestone unit="card" resp="p" n="897"/>
             
-            <milestone unit="antistrophe" n="2"/>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>οὐκέτι τὸν ἄθικτον εἶμι γᾶς ἐπʼ ὀμφαλὸν σέβων,</l>
@@ -1854,10 +1819,12 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>κοὐδαμοῦ τιμαῖς Ἀπόλλων ἐμφανής·</l>
                   <l n="910">ἔρρει δὲ τὰ θεῖα.</l>
                </sp>
-               </div><div n="911" subtype="card" type="textpart">
+               </div>
+         </div>
+         <milestone unit="card" resp="p" n="911"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Ἰοκάστη</speaker>
                <l>χώρας ἄνακτες, δόξα μοι παρεστάθη</l>
@@ -1942,7 +1909,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>τὸν ἄνδρʼ ἔφευγε μὴ κτάνοι, καὶ νῦν ὅδε</l>
                <l>πρὸς τῆς τύχης ὄλωλεν οὐδὲ τοῦδʼ ὕπο.</l>
             </sp>
-            </div><div n="950" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="950"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l n="950">ὦ φίλτατον γυναικὸς  Ἰοκάστης κάρα,</l>
@@ -2015,7 +1982,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <speaker>Οἰδίπους</speaker>
                <l>καὶ πῶς τὸ μητρὸς οὐκ ὀκνεῖν λέχος με δεῖ;</l>
             </sp>
-            </div><div n="977" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="977"/>
             <sp>
                <speaker>Ἰοκάστη</speaker>
                <l>τί δʼ ἂν φοβοῖτʼ ἄνθρωπος ᾧ τὰ τῆς τύχης</l>
@@ -2069,7 +2036,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>μακρὰν ἀπῳκεῖτʼ·  εὐτυχῶς μέν, ἀλλʼ ὅμως</l>
                <l>τὰ τῶν τεκόντων ὄμμαθʼ ἥδιστον βλέπειν.</l>
             </sp>
-            </div><div n="1000" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="1000"/>
             <sp>
                <speaker>Ἄγγελος</speaker>
                <l n="1000">ἦ γὰρ τάδʼ ὀκνῶν κεῖθεν ἦσθʼ ἀπόπτολις;</l>
@@ -2168,7 +2135,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <speaker>Οἰδίπους</speaker>
                <l n="1025">σὺ  δʼ ἐμπολήσας  ἢ τυχών μʼ αὐτῷ δίδως;</l>
             </sp>
-            </div><div n="1026" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="1026"/>
             <sp>
                <speaker>Ἄγγελος</speaker>
                <l>εὑρὼν ναπαίαις ἐν Κιθαιρῶνος πτυχαῖς.</l>
@@ -2266,7 +2233,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>ὃν κἀμάτευες πρόσθεν εἰσιδεῖν·  ἀτὰρ</l>
                <l>ἥδʼ ἂν τάδʼ οὐχ ἥκιστʼ ἂν Ἰοκάστη λέγοι.</l>
             </sp>
-            </div><div n="1054" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="1054"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l>γύναι, νοεῖς ἐκεῖνον, ὅντινʼ ἀρτίως</l>
@@ -2341,10 +2308,11 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>τοιόσδε δʼ ἐκφὺς οὐκ ἂν ἐξέλθοιμʼ ἔτι</l>
                <l n="1085">ποτʼ  ἄλλος, ὥστε μὴ ʼκμαθεῖν τοὐμὸν γένος.</l>
             </sp>
-            </div><div n="1086" subtype="card" type="textpart">
+         </div>
+            <milestone unit="card" resp="p" n="1086"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>εἴπερ ἐγὼ μάντις εἰμὶ καὶ κατὰ γνώμαν ἴδρις,</l>
@@ -2355,9 +2323,11 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l n="1095">καὶ  χορεύεσθαι πρὸς ἡμῶν, ὡς ἐπὶ ἦρα φέροντα τοῖς ἐμοῖς τυράννοις.</l>
                   <l>ἰήϊε Φοῖβε, σοὶ δὲ ταῦτʼ ἀρέστʼ εἴη.</l>
                </sp>
-               </div><div n="1098" subtype="card" type="textpart">
+               
+         </div>
+            <milestone unit="card" resp="p" n="1098"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>τίς σε, τέκνον, τίς σʼ ἔτικτε τᾶν μακραιώνων ἄρα</l>
@@ -2368,10 +2338,11 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>εἴθʼ  ὁ Βακχεῖος θεὸς ναίων ἐπʼ ἄκρων ὀρέων σʼ εὕρημα δέξατʼ ἔκ του</l>
                   <l>Νυμφᾶν Ἑλικωνίδων, αἷς πλεῖστα συμπαίζει.</l>
                </sp>
-               </div><div n="1110" subtype="card" type="textpart">
-            
+               </div>
+         </div>
+            <milestone unit="card" resp="p" n="1110"/>
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l n="1110">εἰ χρή τι κἀμὲ μὴ συναλλάξαντά πω,</l>
@@ -2448,7 +2419,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>ἤλαυνον οὗτός τʼ εἰς τὰ Λαΐου σταθμά.</l>
                <l n="1140">λέγω τι τούτων ἢ οὐ λέγω πεπραγμένον;</l>
             </sp>
-            </div><div n="1141" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="1141"/>
             <sp>
                <speaker>Θεράπων</speaker>
                <l>λέγεις ἀληθῆ, καίπερ ἐκ μακροῦ χρόνου.</l>
@@ -2563,7 +2534,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <speaker>Οἰδίπους</speaker>
                <l n="1170">κἄγωγʼ  ἀκούειν·  ἀλλʼ  ὅμως ἀκουστέον.</l>
             </sp>
-            </div><div n="1171" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="1171"/>
             <sp>
                <speaker>Θεράπων</speaker>
                <l>κείνου γέ τοι δὴ παῖς ἐκλῄζεθʼ·  ἡ δʼ ἔσω</l>
@@ -2619,10 +2590,11 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>ὅστις πέφασμαι φύς τʼ ἀφʼ ὧν οὐ χρῆν, ξὺν οἷς τʼ</l>
                <l n="1185">οὐ χρῆν ὁμιλῶν, οὕς τέ μʼ οὐκ ἔδει κτανών.</l>
             </sp>
-            </div><div n="1186" subtype="card" type="textpart">
+         </div>
+            <milestone unit="card" resp="p" n="1186"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ἰὼ γενεαὶ βροτῶν,</l>
@@ -2635,9 +2607,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>τὸν σὸν δαίμονα, τὸν σόν, ὦ τλᾶμον Οἰδιπόδα, βροτῶν</l>
                   <l n="1195">οὐδὲν μακαρίζω·</l>
                </sp>
-               </div><div n="1196" subtype="card" type="textpart">
+               </div>
+            <milestone unit="card" resp="p" n="1196"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ὅστις καθʼ  ὑπερβολὰν</l>
@@ -2650,9 +2623,9 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>ἐμὸς καὶ τὰ μέγιστʼ ἐτιμάθης, ταῖς μεγάλαισιν ἐν</l>
                   <l>Θήβαισιν ἀνάσσων.</l>
                </sp>
-               </div><div n="1204" subtype="card" type="textpart">
-            
-            <milestone unit="strophe" n="2"/>
+               </div>
+            <milestone unit="card" resp="p" n="1204"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>τανῦν δʼ ἀκούειν τίς ἀθλιώτερος;</l>
@@ -2665,9 +2638,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l n="1210">πῶς ποτε πῶς ποθʼ αἱ πατρῷαί σʼ ἄλοκες φέρειν, τάλας,</l>
                   <l>σῖγʼ ἐδυνάθησαν ἐς τοσόνδε;</l>
                </sp>
-               </div><div n="1212" subtype="card" type="textpart">
+               </div>
+            <milestone unit="card" resp="p" n="1212"/>
             
-            <milestone unit="antistrophe" n="2"/>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ἐφηῦρέ σʼ ἄκονθʼ ὁ πάνθʼ ὁρῶν χρόνος,</l>
@@ -2681,10 +2655,12 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l n="1220">σέθεν</l>
                   <l>καὶ κατεκοίμασα τοὐμὸν ὄμμα.</l>
                </sp>
-               </div><div n="1223" subtype="card" type="textpart">
+               </div>
+         </div>
+            <milestone unit="card" resp="p" n="1223"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Ἐξάγγελος</speaker>
                <l>ὦ γῆς μέγιστα τῆσδʼ ἀεὶ τιμώμενοι,</l>
@@ -2711,7 +2687,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <speaker>Χορός</speaker>
                <l>ὦ δυστάλαινα, πρὸς τίνος ποτʼ αἰτίας;</l>
             </sp>
-            </div><div n="1237" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="1237"/>
             <sp>
                <speaker>Ἐξάγγελος</speaker>
                <l>αὐτὴ πρὸς αὑτῆς.  τῶν δὲ πραχθέντων τὰ μὲν</l>
@@ -2764,7 +2740,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>στεναγμός, ἄτη, θάνατος, αἰσχύνη, κακῶν</l>
                <l>ὅσʼ ἐστὶ πάντων ὀνόματʼ, οὐδέν ἐστʼ ἀπόν.</l>
             </sp>
-            </div><div n="1285" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="1285"/>
             <sp>
                <speaker>Χορός</speaker>
                <l n="1285">νῦν δʼ ἔσθʼ ὁ τλήμων ἐν τίνι σχολῇ κακοῦ;</l>
@@ -2782,8 +2758,8 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l n="1295">διοίγεται·  θέαμα δʼ εἰσόψει τάχα</l>
                <l>τοιοῦτον οἷον καὶ   στυγοῦντʼ ἐποικτίσαι.</l>
             </sp>
-            </div><div n="1297" subtype="card" type="textpart">
-            <milestone unit="anapests"/>
+            <milestone unit="card" resp="p" n="1297"/>
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ὦ δεινὸν ἰδεῖν πάθος ἀνθρώποις,</l>
@@ -2809,11 +2785,13 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <speaker>Χορός</speaker>
                   <l>ἐς δεινὸν οὐδʼ ἀκουστὸν οὐδʼ ἐπόψιμον.</l>
                </sp>
-               </div><div n="1313" subtype="card" type="textpart">
+         </div>
+         </div>
+            <milestone unit="card" resp="p" n="1313"/>
             
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Οἰδίπους</speaker>
                   <l>ἰὼ σκότου</l>
@@ -2824,15 +2802,16 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>κέντρων τε τῶνδʼ οἴστρημα καὶ μνήμη κακῶν.</l>
                </sp>
             
-            <milestone unit="strophe" n="1"/>
+            
                <sp>
                   <speaker>Χορός</speaker>
                   <l>καὶ θαῦμά γʼ οὐδὲν ἐν τοσοῖσδε πήμασιν</l>
                   <l n="1320">διπλᾶ  σε πενθεῖν καὶ διπλᾶ φορεῖν κακά.</l>
                </sp>
-               </div><div n="1321" subtype="card" type="textpart">
+               </div>
+               <milestone unit="card" resp="p" n="1321"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Οἰδίπους</speaker>
                   <l>ἰὼ φίλος,</l>
@@ -2843,15 +2822,16 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>καίπερ σκοτεινός, τήν γε σὴν αὐδὴν ὅμως.</l>
                </sp>
             
-            <milestone unit="antistrophe" n="1"/>
+            
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ὦ δεινὰ δράσας, πῶς ἔτλης τοιαῦτα σὰς</l>
                   <l>ὄψεις μαρᾶναι; τίς σʼ ἐπῆρε δαιμόνων;</l>
                </sp>
-               </div><div n="1329" subtype="card" type="textpart">
+               </div>
+               <milestone unit="card" resp="p" n="1329"/>
             
-            <milestone unit="strophe" n="2"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Οἰδίπους</speaker>
                   <l>Ἀπόλλων τάδʼ ἦν, Ἀπόλλων, φίλοι,</l>
@@ -2879,9 +2859,10 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>δείλαιε τοῦ νοῦ τῆς τε συμφορᾶς ἴσον,</l>
                   <l>ὡς σʼ ἠθέλησα μηδέ γʼ ἂν γνῶναί ποτε.</l>
                </sp>
-               </div><div n="1349" subtype="card" type="textpart">
+               </div>
+               <milestone unit="card" resp="p" n="1349"/>
             
-            <milestone unit="antistrophe" n="2"/>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Οἰδίπους</speaker>
                   <l>ὄλοιθʼ  ὅστις ἦν, ὃς ἀγρίας πέδας</l>
@@ -2904,10 +2885,12 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l n="1365">εἰ δέ τι πρεσβύτερον ἔτι κακοῦ κακόν,</l>
                   <l>τοῦτʼ ἔλαχʼ Οἰδίπους.</l>
                </sp>
-               </div><div n="1367" subtype="card" type="textpart">
+               </div>
+               </div>
+               <milestone unit="card" resp="p" n="1367"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Χορός</speaker>
                <l>οὐκ οἶδʼ ὅπως σε φῶ βεβουλεῦσθαι καλῶς·</l>
@@ -2963,7 +2946,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>πίθεσθε, μὴ δείσητε·  τἀμὰ γὰρ κακὰ</l>
                <l n="1415">οὐδεὶς οἷός τε πλὴν ἐμοῦ φέρειν βροτῶν.</l>
             </sp>
-            </div><div n="1416" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="1416"/>
             <sp>
                <speaker>Χορός</speaker>
                <l>ἀλλʼ ὧν ἐπαιτεῖς εἰς δέον πάρεσθʼ ὅδε</l>
@@ -3027,7 +3010,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <speaker>Κρέων</speaker>
                <l n="1445">καὶ γὰρ σὺ νῦν τἂν τῷ θεῷ πίστιν φέροις.</l>
             </sp>
-            </div><div n="1446" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="1446"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l>καὶ σοί γʼ ἐπισκήπτω τε καὶ προστέψομαι,</l>
@@ -3066,7 +3049,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <l>λέγεις·  ἐγὼ γὰρ εἰμʼ ὁ πορσύνας τάδε,</l>
                <l>γνοὺς τὴν παροῦσαν τέρψιν, ἥ σʼ εἶχεν πάλαι.</l>
             </sp>
-            </div><div n="1478" subtype="card" type="textpart">
+            <milestone unit="card" resp="p" n="1478"/>
             <sp>
                <speaker>Οἰδίπους</speaker>
                <l>ἀλλʼ εὐτυχοίης, καί σε τῆσδε τῆς ὁδοῦ</l>
@@ -3110,8 +3093,8 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                <speaker>Κρέων</speaker>
                <l n="1515">ἅλις ἵνʼ ἐξήκεις δακρύων·  ἀλλʼ ἴθι στέγης ἔσω.</l>
             </sp>
-            </div><div n="1516" subtype="card" type="textpart">
-               <milestone unit="close"/> <!--met="trochaic"-->
+            <milestone unit="card" resp="p" n="1516"/>
+               <div type="textpart" subtype="close" met="trochaic">
                <sp>
                   <speaker>Οἰδίπους</speaker>
                   <l>πειστέον, κεἰ μηδὲν ἡδύ.</l>
@@ -3179,7 +3162,7 @@ Revision 1.5  1999/11/05 22:48:43  amahoney convert to TEI P3
                   <l>ἡμέραν ἐπισκοποῦντα μηδένʼ ὀλβίζειν, πρὶν ἂν</l>
                   <l n="1530">τέρμα τοῦ βίου περάσῃ  μηδὲν ἀλγεινὸν παθών.</l>
                </sp>
-            
+               </div>
             </div>
       </div>
       </body>
