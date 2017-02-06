@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader type="text">
       <fileDesc>
          <titleStmt>
@@ -42,12 +44,19 @@ English translation by F. Storr. The Loeb classical library, 21.
       </fileDesc>
       <encodingDesc>
          <refsDecl n="CTS">
+            <cRefPattern n="line" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+               <p>This pointer pattern extracts line</p>
+            </cRefPattern>
+            
+         </refsDecl>
+         
+        <!-- <refsDecl n="CTS">
             
             <cRefPattern n="card" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
                <p>This pointer pattern extracts cards</p>
             </cRefPattern>
             
-         </refsDecl>
+         </refsDecl>-->
       </encodingDesc>
       <profileDesc>
          <langUsage>
@@ -55,6 +64,7 @@ English translation by F. Storr. The Loeb classical library, 21.
          </langUsage>
       </profileDesc>
       <revisionDesc>
+         <change when="2017-02-06" who="Lisa Cerrato">revising structure to reflect break at lines</change>
          <change when="2017-01-23" who="Lisa Cerrato">improvements to line numbering, change log, quotes, etc.</change>
          <change when="2016-01-15" who="TDBuck">p4 to p5</change>
          <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
@@ -100,8 +110,8 @@ English translation by F. Storr. The Loeb classical library, 21.
    <text xml:lang="grc">
       <body n="Aj.">
          <div type="edition" n="urn:cts:greekLit:tlg0011.tlg003.perseus-grc2" xml:lang="grc">
-         <div n="1" subtype="card" type="textpart">
-         <milestone unit="episode"/>
+         <milestone unit="card" n="1" resp="p"/>
+         <div type="textpart" subtype="episode">
             
             <sp>
                <speaker>Ἀθήνα</speaker>
@@ -144,7 +154,8 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="34">καιρὸν δʼ ἐφήκεις· πάντα γὰρ τά τʼ οὖν πάρος</l>
                <l n="35">τά τʼ εἰσέπειτα σῇ κυβερνῶμαι χερί.</l>
                
-            </sp></div><div n="36" subtype="card" type="textpart">
+            </sp>
+            <milestone unit="card" n="36" resp="p"/>
             <sp>
                <speaker>Ἀθήνα</speaker>
                <l n="36"> ἔγνων, Ὀδυσσεῦ, καὶ πάλαι φύλαξ ἔβην</l>
@@ -228,7 +239,8 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="72">δεσμοῖς ἀπευθύνοντα προσμολεῖν καλῶ·</l>
                <l n="73">Αἴαντα φωνῶ· στεῖχε δωμάτων πάρος.</l>
                
-            </sp></div><div n="74" subtype="card" type="textpart">
+            </sp>
+            <milestone unit="card" n="74" resp="p"/>
             <sp>
                <speaker>Ὀδυσσεύς</speaker>
                <l n="74"> τί δρᾷς, Ἀθάνα; μηδαμῶς σφʼ ἔξω κάλει.</l>
@@ -325,7 +337,8 @@ English translation by F. Storr. The Loeb classical library, 21.
                <speaker>Αἴας</speaker>
                <l n="100">θανόντες ἤδη τἄμʼ ἀφαιρείσθων ὅπλα.</l>
                
-            </sp></div><div n="101" subtype="card" type="textpart">
+            </sp>
+            <milestone unit="card" n="101" resp="p"/>
             <sp>
                <speaker>Ἀθήνα</speaker>
                <l n="101"> εἶεν, τί γὰρ δὴ παῖς ὁ τοῦ Λαερτίου,</l>
@@ -404,8 +417,9 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="132">ἅπαντα τἀνθρώπεια· τοὺς δὲ σώφρονας</l>
                <l n="133">θεοὶ φιλοῦσι καὶ στυγοῦσι τοὺς κακούς.</l>
                
-            </sp></div><div n="134" subtype="card" type="textpart">
-            <milestone unit="anapests"/>
+            </sp>
+            <milestone unit="card" n="134" resp="p"/>
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="134">Τελαμώνιε παῖ, τῆς ἀμφιρύτου</l>
@@ -448,10 +462,11 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="171">σιγῇ πτήξειαν ἄφωνοι.</l>
                   
                </sp>
-            
-         </div><div n="172" subtype="card" type="textpart">
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+            </div></div>
+         
+            <milestone unit="card" n="172" resp="p"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="172">ἦ ῥά σε Ταυροπόλα Διὸς Ἄρτεμις—</l>
@@ -465,9 +480,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="180">μομφὰν ἔχων ξυνοῦ δορὸς ἐννυχίοις</l>
                   <l n="181">μαχαναῖς ἐτίσατο λώβαν;</l>
                </sp>
-               </div><div n="182" subtype="card" type="textpart">
+            </div>
+               <milestone unit="card" n="182" resp="p"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="182">οὔ ποτε γὰρ φρενόθεν γʼ ἐπʼ ἀριστερά,</l>
@@ -481,9 +497,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="191">μὴ μή, ἄναξ, ἔθʼ ὧδʼ ἐφάλοις κλισίαις</l>
                   <l n="192">ὄμμʼ ἔχων κακὰν φάτιν ἄρῃ.</l>
                </sp>
-               </div><div n="193" subtype="card" type="textpart">
+            </div>
+            <milestone unit="card" n="193" resp="p"/>
             
-            <milestone unit="epode"/>
+            <div type="textpart" subtype="epode">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="193">ἀλλʼ ἄνα ἐξ ἑδράνων, ὅπου μακραίωνι</l>
@@ -495,11 +512,13 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="199">γλώσσαις βαρυάλγητα·</l>
                   <l n="200">ἐμοὶ δʼ ἄχος ἕστακεν.</l>
                </sp>
-               </div><div n="201" subtype="card" type="textpart">
+            </div>
+         </div>
+            <milestone unit="card" n="201" resp="p"/>
             
          
-         <milestone unit="episode"/>
-            <milestone unit="anapests"/>
+         <div type="textpart" subtype="episode">
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Τέκμησσα</speaker>
                   <l n="201">ναὸς ἀρωγοὶ τῆς Αἴαντος,</l>
@@ -519,10 +538,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="212">στέρξας ἀνέχει θούριος Αἴας·</l>
                   <l n="213">ὥστʼ οὐκ ἂν ἄϊδρις ὑπείποις.</l>
                </sp>
-            
+         </div></div>
          
-         <milestone unit="choral"/>
-            <milestone unit="anapests"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Τέκμησσα</speaker>
                   <l n="214">πῶς δῆτα λέγω λόγον ἄρρητον;</l>
@@ -534,8 +553,9 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="220">κείνου χρηστήρια τἀνδρός.</l>
                   
                </sp>
-            </div><div n="221" subtype="card" type="textpart">
-            <milestone unit="strophe" n="1"/>
+            </div>
+            <milestone unit="card" n="221" resp="p"/>
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="221">οἵαν ἐδήλωσας ἀνέρος αἴθονος</l>
@@ -546,9 +566,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="230">θανεῖται, παραπλάκτῳ χερὶ συγκατακτὰς</l>
                   <l n="231">κελαινοῖς ξίφεσιν βοτὰ καὶ βοτῆρας ἱππονώμας.</l>
                </sp>
-               </div><div n="233" subtype="card" type="textpart">
+            </div>
+            <milestone unit="card" n="233" resp="p"/>
             
-            <milestone unit="anapests"/>
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Τέκμησσα</speaker>
                   <l n="233">ὤμοι· κεῖθεν κεῖθεν ἄρʼ ἡμῖν</l>
@@ -565,8 +586,9 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="244">κοὐδεὶς ἀνδρῶν ἐδίδαξεν.</l>
                   
                </sp>
-            </div><div n="245" subtype="card" type="textpart">
-            <milestone unit="antistrophe" n="1"/>
+            </div>
+            <milestone unit="card" n="245" resp="p"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="245">ὥρα τινʼ ἤδη τοι κρᾶτα καλύμμασι</l>
@@ -577,9 +599,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="252">καθʼ ἡμῶν· πεφόβημαι λιθόλευστον Ἄρη</l>
                   <l n="255">ξυναλγεῖν μετὰ τοῦδε τυπείς, τὸν αἶσʼ ἄπλατος ἴσχει.</l>
                </sp>
-               </div><div n="257" subtype="card" type="textpart">
+            </div>
+               <milestone unit="card" n="257" resp="p"/>
             
-            <milestone unit="anapests"/>
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Τέκμησσα</speaker>
                   <l n="257">οὐκέτι· λαμπρᾶς γὰρ ἄτερ στεροπῆς</l>
@@ -590,9 +613,11 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="262">μεγάλας ὀδύνας ὑποτείνει.</l>
                   
                </sp>
-            
-         </div><div n="263" subtype="card" type="textpart">
-         <milestone unit="episode"/>
+            </div>
+            </div>
+         
+            <milestone unit="card" n="263" resp="p"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Χορός</speaker>
                <l n="263">ἀλλʼ εἰ πέπαυται, κάρτʼ ἂν εὐτυχεῖν δοκῶ·</l>
@@ -641,7 +666,8 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="282">τίς γάρ ποτʼ ἀρχὴ τοῦ κακοῦ προσέπτατο;</l>
                <l n="283">δήλωσον ἡμῖν τοῖς ξυναλγοῦσιν τύχας.</l>
                
-            </sp></div><div n="284" subtype="card" type="textpart">
+            </sp>
+            <milestone unit="card" n="284" resp="p"/>
             <sp>
                <speaker>Τέκμησσα</speaker>
                <l n="284">ἅπαν μαθήσει τοὔργον ὡς κοινωνὸς ὤν.</l>
@@ -692,7 +718,8 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="329">ἀρήξατʼ εἰσελθόντες, εἰ δύνασθέ τι·</l>
                <l n="330">φίλων γὰρ οἱ τοιοίδε νικῶνται λόγοις.</l>
                
-            </sp></div><div n="331" subtype="card" type="textpart">
+            </sp>
+            <milestone unit="card" n="331" resp="p"/>
             <sp>
                <speaker>Χορός</speaker>
                <l n="331">Τέκμησσα, δεινά, παῖ Τελεύταντος, λέγεις</l>
@@ -741,9 +768,12 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="347">τὰ τοῦδε πράγη, καὐτὸς ὡς ἔχων κυρεῖ.</l>
                
             </sp>
-         </div><div n="348" subtype="card" type="textpart">
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+            </div>
+         
+         
+            <milestone unit="card" n="348" resp="p"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Αἴας</speaker>
                   <l n="348">ἰὼ</l>
@@ -758,8 +788,9 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="355">δηλοῖ δὲ τοὔργον ὡς ἀφροντίστως ἔχει.</l>
                   
                </sp>
-            </div><div n="356" subtype="card" type="textpart">
-            <milestone unit="antistrophe" n="1"/>
+            </div>
+            <milestone unit="card" n="356" resp="p"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Αἴας</speaker>
                   <l n="356">ἰὼ</l>
@@ -774,8 +805,9 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="363">ἄκος, πλέον τὸ πῆμα τῆς ἄτης τίθει.</l>
                  
                </sp>
-             </div><div n="364" subtype="card" type="textpart">
-            <milestone unit="strophe" n="2"/>
+            </div>
+             <milestone unit="card" n="364" resp="p"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Αἴας</speaker>
                   <l n="364">ὁρᾷς τὸν θρασύν, τὸν εὐκάρδιον,</l>
@@ -803,15 +835,16 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="375">βουσὶ καὶ κλυτοῖς πεσὼν αἰπολίοις</l>
                   <l n="376">ἐρεμνὸν αἷμʼ ἔδευσα.</l>
                </sp>
-               </div><div n="377" subtype="card" type="textpart">
+               <milestone unit="card" n="377" resp="p"/>
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="377">τί δῆτʼ ἂν ἀλγοίης ἐπʼ ἐξειργασμένοις;</l>
                   <l n="378">οὐ γὰρ γένοιτʼ ἂν ταῦθʼ ὅπως οὐχ ὧδʼ ἔχειν.</l>
                   
                </sp>
-            </div><div n="379" subtype="card" type="textpart">
-            <milestone unit="antistrophe" n="2"/>
+            </div>
+            <milestone unit="card" n="379" resp="p"/>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Αἴας</speaker>
                   <l n="379">ἰὼ πάνθʼ ὁρῶν ἁπάντων τʼ ἀεὶ</l>
@@ -839,15 +872,16 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="390">τούς τε δισσάρχας ὀλέσσας βασιλῆς</l>
                   <l n="391">τέλος θάνοιμι καὐτός;</l>
                </sp>
-               </div><div n="392" subtype="card" type="textpart">
+               <milestone unit="card" n="392" resp="p"/>
                <sp>
                   <speaker>Τέκμησσα</speaker>
                   <l n="392">ὅταν κατεύχῃ ταῦθʼ, ὁμοῦ κἀμοὶ θανεῖν</l>
                   <l n="393">εὔχου· τί γὰρ δεῖ ζῆν με σοῦ τεθνηκότος;</l>
                   
                </sp>
-            </div><div n="394" subtype="card" type="textpart">
-            <milestone unit="strophe" n="3"/>
+            </div>
+            <milestone unit="card" n="394" resp="p"/>
+            <div type="textpart" subtype="strophe" n="3">
                <sp>
                   <speaker>Αἴας</speaker>
                   <l n="394">ἰὼ</l>
@@ -866,15 +900,16 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="407">πᾶς δὲ στρατὸς δίπαλτος ἄν με</l>
                   <l n="408">χειρὶ φονεύοι.</l>
                </sp>
-               </div><div n="410" subtype="card" type="textpart">
+               <milestone unit="card" n="410" resp="p"/>
                <sp>
                   <speaker>Τέκμησσα</speaker>
                   <l n="410">ὦ δυστάλαινα, τοιάδʼ ἄνδρα χρήσιμον</l>
                   <l n="411">φωνεῖν, ἃ πρόσθεν οὗτος οὐκ ἔτλη ποτʼ ἄν.</l>
                   
                </sp>
-            </div><div n="412" subtype="card" type="textpart">
-            <milestone unit="antistrophe" n="3"/>
+            </div>
+            <milestone unit="card" n="412" resp="p"/>
+            <div type="textpart" subtype="antistrophe" n="3">
                <sp>
                   <speaker>Αἴας</speaker>
                   <l n="412">ἰὼ</l>
@@ -893,16 +928,18 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="426">Ἑλλανίδος· τανῦν δʼ ἄτιμος</l>
                   <l n="427">ὧδε πρόκειμαι.</l>
                </sp>
-               </div><div n="428" subtype="card" type="textpart">
+               <milestone unit="card" n="428" resp="p"/>
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="428">οὔτοι σʼ ἀπείργειν οὐδʼ ὅπως ἐῶ λέγειν</l>
                   <l n="429">ἔχω, κακοῖς τοιοῖσδε συμπεπτωκότα.</l>
                   
                </sp>
+               </div> 
+         </div>
             
-         </div><div n="430" subtype="card" type="textpart">
-         <milestone unit="episode"/>
+            <milestone unit="card" n="430" resp="p"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Αἴας</speaker>
                <l n="430">αἰαῖ· τίς ἄν ποτʼ ᾤεθʼ ὧδʼ ἐπώνυμον</l>
@@ -957,7 +994,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="479">ἀλλʼ ἢ καλῶς ζῆν ἢ καλῶς τεθνηκέναι</l>
                <l n="480">τὸν εὐγενῆ χρή.  πάντʼ ἀκήκοας λόγον.</l>
                
-            </sp></div><div n="481" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="481" resp="p"/>
             <sp>
                <speaker>Χορός</speaker>
                <l n="481"> οὐδεὶς ἐρεῖ ποθʼ ὡς ὑπόβλητον λόγον,</l>
@@ -1008,7 +1045,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="523">ὅτου δʼ ἀπορρεῖ μνῆστις εὖ πεπονθότος,</l>
                <l n="524">οὐκ ἂν γένοιτʼ ἔθʼ οὗτος εὐγενὴς ἀνήρ.</l>
                
-            </sp></div><div n="525" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="525" resp="p"/>
             <sp>
                <speaker>Χορός</speaker>
                <l n="525">Αἴας, ἔχειν σʼ ἂν οἶκτον ὡς κἀγὼ φρενὶ</l>
@@ -1080,7 +1117,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <speaker>Τέκμησσα</speaker>
                <l n="544">καὶ δὴ κομίζει προσπόλων ὅδʼ ἐγγύθεν.</l>
                
-            </sp></div><div n="545" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="545" resp="p"/>
             <sp>
                <speaker>Αἴας</speaker>
                <l n="545">αἶρʼ αὐτόν, αἶρε δεῦρο· ταρβήσει γὰρ οὒ</l>
@@ -1124,7 +1161,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="581">πύκαζε θᾶσσον· οὐ πρὸς ἰατροῦ σοφοῦ</l>
                <l n="582">θρηνεῖν ἐπῳδὰς πρὸς τομῶντι πήματι.</l>
               
-            </sp></div><div n="583" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="583" resp="p"/>
             <sp> 
                <speaker>Χορός</speaker>
                <l n="583">δέδοικʼ ἀκούων τήνδε τὴν προθυμίαν·</l>
@@ -1181,10 +1218,13 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="594a">μῶρά μοι δοκεῖς φρονεῖν,</l>
                <l n="595">εἰ τοὐμὸν ἦθος ἄρτι παιδεύειν νοεῖς.</l>
                
-            </sp></div><div n="596" subtype="card" type="textpart">
+            </sp>
+            </div>
+           
+            <milestone unit="card" n="596" resp="p"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="596">ὦ κλεινὰ Σαλαμίς, σὺ μέν που</l>
@@ -1198,9 +1238,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="607">ἔτι μέ ποτʼ ἀνύσειν</l>
                   <l n="608">τὸν ἀπότροπον ἀΐδηλον Ἅιδαν.</l>
                </sp>
-               </div><div n="609" subtype="card" type="textpart">
+            </div>
+               <milestone unit="card" n="609" resp="p"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="609">καί μοι δυσθεράπευτος Αἴας</l>
@@ -1214,9 +1255,11 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="620">ἄφιλα παρʼ ἀφίλοις</l>
                   <l n="621">ἔπεσʼ ἔπεσε μελέοις Ἀτρείδαις.</l>
                </sp>
-               </div><div n="622" subtype="card" type="textpart">
+            </div>
             
-            <milestone unit="strophe" n="2"/>
+               <milestone unit="card" n="622" resp="p"/>
+            
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="622">ἦ που παλαιᾷ μὲν σύντροφος ἁμέρᾳ,</l>
@@ -1229,9 +1272,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="632">ἐν στέρνοισι πεσοῦνται</l>
                   <l n="633">δοῦποι καὶ πολιᾶς ἄμυγμα χαίτας.</l>
                </sp>
-               </div><div n="635" subtype="card" type="textpart">
+            </div>
+               <milestone unit="card" n="635" resp="p"/>
             
-            <milestone unit="antistrophe" n="2"/>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="635">κρείσσων παρʼ Ἅιδᾳ κεύθων ὁ νοσῶν μάταν,</l>
@@ -1244,10 +1288,12 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="643">ἃν οὔπω τις ἔθρεψεν</l>
                   <l n="645">αἰὼν Αἰακιδᾶν ἄτερθε τοῦδε.</l>
                </sp>
-               </div><div n="646" subtype="card" type="textpart">
+            </div>
+            </div>
+               <milestone unit="card" n="646" resp="p"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Αἴας</speaker>
                <l n="646">ἅπανθʼ ὁ μακρὸς κἀναρίθμητος χρόνος</l>
@@ -1299,9 +1345,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="692">πύθοισθε, κεἰ νῦν δυστυχῶ, σεσωσμένον.</l>
                
             </sp>
-         </div><div n="693" subtype="card" type="textpart">
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         </div>
+         <milestone unit="card" n="693" resp="p"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="693">ἔφριξʼ ἔρωτι, περιχαρὴς δʼ ἀνεπτόμαν.</l>
@@ -1315,9 +1362,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="705">ὁ Δάλιος εὔγνωστος</l>
                   <l n="706">ἐμοὶ ξυνείη διὰ παντὸς εὔφρων.</l>
                </sp>
-               </div><div n="707" subtype="card" type="textpart">
+            </div>
+               <milestone unit="card" n="707" resp="p"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="707">ἔλυσεν αἰνὸν ἄχος ἀπʼ ὀμμάτων Ἄρης.</l>
@@ -1331,10 +1379,13 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="716">Αἴας μετανεγνώσθη</l>
                   <l n="717">θυμοῦ τʼ Ἀτρείδαις μεγάλων τε νεικέων.</l>
                </sp>
-               </div><div n="719" subtype="card" type="textpart">
+               </div>
+         </div>
+            
+            <milestone unit="card" n="719" resp="p"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Ἄγγελος</speaker>
                <l n="719">ἄνδρες φίλοι, τὸ πρῶτον ἀγγεῖλαι θέλω·</l>
@@ -1388,7 +1439,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <speaker>Χορός</speaker>
                <l n="747">ποῖον; τί δʼ εἰδὼς τοῦδε πράγματος πάρει;</l>
                
-            </sp></div><div n="748" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="748" resp="p"/>
             <sp>
                <speaker>Ἄγγελος</speaker>
                <l n="748">τοσοῦτον οἶδα καὶ παρὼν ἐτύγχανον.</l>
@@ -1428,7 +1479,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="782">Τεῦκρος φυλάσσειν.  εἰ δʼ ἀπεστερήμεθα,</l>
                <l n="783">οὐκ ἔστιν ἁνὴρ κεῖνος, εἰ Κάλχας σοφός.</l>
                
-            </sp></div><div n="784" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="784" resp="p"/>
             <sp>
                <speaker>Χορός</speaker>
                <l n="784">ὦ δαΐα Τέκμησσα, δύσμορον γένος,</l>
@@ -1499,7 +1550,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="813">χωρεῖν ἕτοιμος, κοὐ λόγῳ δείξω μόνον·</l>
                <l n="814">τάχος γὰρ ἔργου καὶ ποδῶν ἅμʼ ἕψεται,</l>
                
-            </sp></div><div n="815" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="815" resp="p"/>
             <sp>
                <speaker>Αἴας</speaker>
                <l n="815">ὁ μὲν σφαγεὺς ἕστηκεν ᾗ τομώτατος</l>
@@ -1558,8 +1609,8 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="864">τοῦθʼ ὑμὶν Αἴας τοὔπος ὕστατον θροεῖ,</l>
                <l n="865">τὰ δʼ ἄλλʼ ἐν Ἅιδου τοῖς κάτω μυθήσομαι.</l>
                
-            </sp></div><div n="866" subtype="card" type="textpart">
-            <milestone unit="kommos"/>
+            </sp><milestone unit="card" n="866" resp="p"/>
+            <div type="textpart" subtype="kommos">
                <sp>
                   <speaker>Ἡμιχόριον 1</speaker>
                   <l n="866">πόνος πόνῳ πόνον φέρει.</l>
@@ -1595,10 +1646,12 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="878">κέλευθον ἁνὴρ οὐδαμοῦ δηλοῖ φανείς.</l>
                   
                </sp>
-            </div><div n="879" subtype="card" type="textpart">
+            </div>
+         </div>
+            <milestone unit="card" n="879" resp="p"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="879">τίς ἂν δῆτά μοι, τίς ἂν φιλοπόνων</l>
@@ -1668,7 +1721,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="913">κατημέλησα.  πᾷ πᾷ</l>
                   <l n="914">κεῖται ὁ δυστράπελος, δυσώνυμος Αἴας;</l>
                </sp>
-               </div><div n="915" subtype="card" type="textpart">
+               <milestone unit="card" n="915" resp="p"/>
                <sp>
                   <speaker>Τέκμησσα</speaker>
                   <l n="915">οὔτοι θεατός· ἀλλά νιν περιπτυχεῖ</l>
@@ -1683,8 +1736,9 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="925">ὡς καὶ παρʼ ἐχθροῖς ἄξιος θρήνων τυχεῖν.</l>
                   
                </sp>
-            </div><div n="926" subtype="card" type="textpart">
-            <milestone unit="antistrophe" n="1"/>
+            </div>
+            <milestone unit="card" n="926" resp="p"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="926">ἔμελλες, τάλας, ἔμελλες χρόνῳ</l>
@@ -1754,10 +1808,13 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="956">πολὺν γέλωτα, φεῦ φεῦ,</l>
                   <l n="960">ξύν τε διπλοῖ βασιλῆς κλύοντες Ἀτρεῖδαι.</l>
                </sp>
-               </div><div n="961" subtype="card" type="textpart">
+               </div>
+            </div>
+               
+               <milestone unit="card" n="961" resp="p"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Τέκμησσα</speaker>
                <l n="961">οἱ δʼ οὖν γελώντων κἀπιχαιρόντων κακοῖς</l>
@@ -1819,7 +1876,7 @@ English translation by F. Storr. The Loeb classical library, 21.
             <sp>
                <speaker>Τεῦκρος</speaker>
                <l n="983a">φεῦ τάλας· τί γὰρ τέκνον</l>
-               <l n="NaN">τὸ τοῦδε, ποῦ μοι γῆς κυρεῖ τῆς Τρῳάδος;</l>
+               <l n="984">τὸ τοῦδε, ποῦ μοι γῆς κυρεῖ τῆς Τρῳάδος;</l>
             </sp>
             <sp>
                <speaker>Χορός</speaker>
@@ -1828,17 +1885,17 @@ English translation by F. Storr. The Loeb classical library, 21.
             <sp>
                <speaker>Τεῦκρος</speaker>
                <l n="985a">οὐχ ὅσον τάχος</l>
-               <l n="NaN">δῆτʼ αὐτὸν ἄξεις δεῦρο, μή τις ὡς κενῆς</l>
-               <l n="NaN">σκύμνον λεαίνης δυσμενῶν ἀναρπάσῃ;</l>
-               <l n="NaN">ἴθʼ, ἐγκόνει, σύγκαμνε· τοῖς θανοῦσί τοι</l>
-               <l n="NaN">φιλοῦσι πάντες κειμένοις ἐπεγγελᾶν.</l>
+               <l n="986">δῆτʼ αὐτὸν ἄξεις δεῦρο, μή τις ὡς κενῆς</l>
+               <l n="987">σκύμνον λεαίνης δυσμενῶν ἀναρπάσῃ;</l>
+               <l n="988">ἴθʼ, ἐγκόνει, σύγκαμνε· τοῖς θανοῦσί τοι</l>
+               <l n="989">φιλοῦσι πάντες κειμένοις ἐπεγγελᾶν.</l>
             </sp>
             <sp>
                <speaker>Χορός</speaker>
                <l n="990">καὶ μὴν ἔτι ζῶν, Τεῦκρε, τοῦδέ σοι μέλειν</l>
                <l n="991">ἐφίεθʼ ἁνὴρ κεῖνος, ὥσπερ οὖν μέλει.</l>
                
-            </sp></div><div n="992" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="992" resp="p"/>
             <sp>
                <speaker>Τεῦκρος</speaker>
                <l n="992">ὦ τῶν ἁπάντων δὴ θεαμάτων ἐμοὶ</l>
@@ -1890,7 +1947,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1038">ὅτῳ δὲ μὴ τάδʼ ἐστὶν ἐν γνώμῃ φίλα,</l>
                <l n="1039">κεῖνός τʼ ἐκεῖνα στεργέτω κἀγὼ τάδε.</l>
                
-            </sp></div><div n="1040" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="1040" resp="p"/>
             <sp>
                <speaker>Χορός</speaker>
                <l n="1040">μὴ τεῖνε μακράν, ἀλλʼ ὅπως κρύψεις τάφῳ</l>
@@ -1969,7 +2026,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1089">καί σοι προφωνῶ τόνδε μὴ θάπτειν, ὅπως</l>
                <l n="1090">μὴ τόνδε θάπτων αὐτὸς εἰς ταφὰς πέσῃς.</l>
                
-            </sp></div><div n="1091" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="1091" resp="p"/>
             <sp>
                <speaker>Χορός</speaker>
                <l n="1091">Μενέλαε, μὴ γνώμας ὑποστήσας σοφὰς</l>
@@ -2008,7 +2065,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1118">οὐδʼ αὖ τοιαύτην γλῶσσαν ἐν κακοῖς φιλῶ·</l>
                <l n="1119">τὰ σκληρὰ γάρ τοι, κἂν ὑπέρδικʼ ᾖ, δάκνει.</l>
                
-            </sp></div><div n="1120" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="1120" resp="p"/>
             <sp>
                <speaker>Μενέλαος</speaker>
                <l n="1120">ὁ τοξότης ἔοικεν οὐ σμικρὸν φρονεῖν.</l>
@@ -2108,7 +2165,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1148">σμικροῦ νέφους τάχʼ ἄν τις ἐκπνεύσας μέγας</l>
                <l n="1149">χειμὼν κατασβέσειε τὴν πολλὴν βοήν.</l>
                
-            </sp></div><div n="1150" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="1150" resp="p"/>
             <sp>
                <speaker>Τεῦκρος</speaker>
                <l n="1150">ἐγὼ δέ γʼ ἄνδρʼ ὄπωπα μωρίας πλέων,</l>
@@ -2131,8 +2188,8 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1161">ἄφερπέ νυν· κἀμοὶ γὰρ αἴσχιστον κλύειν</l>
                <l n="1162">ἀνδρὸς ματαίου φλαῦρʼ ἔπη μυθουμένου.</l>
                
-            </sp></div><div n="1163" subtype="card" type="textpart">
-            <milestone unit="anapests"/>
+            </sp><milestone unit="card" n="1163" resp="p"/>
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="1163">ἔσται μεγάλης ἔριδός τις ἀγών.</l>
@@ -2141,9 +2198,12 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="1166">τῷδʼ, ἔνθα βροτοῖς τὸν ἀείμνηστον</l>
                   <l n="1167">τάφον εὐρώεντα καθέξει.</l>
                   
-               </sp></div><div n="1168" subtype="card" type="textpart">
+               </sp>
+            </div>
             
-            <milestone unit="dialogue"/>
+               <milestone unit="card" n="1168" resp="p"/>
+            
+            <div type="textpart" subtype="dialogue">
                <sp>
                   <speaker>Τεῦκρος</speaker>
                   <l n="1168">καὶ μὴν ἐς αὐτὸν καιρὸν οἵδε πλησίοι</l>
@@ -2165,10 +2225,13 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="1184">τάφου μεληθῶ τῷδε, κἂν μηδεὶς ἐᾷ.</l>
                   
                </sp>
-            </div><div n="1185" subtype="card" type="textpart">
+            </div>
+         </div>
+            
+            <milestone unit="card" n="1185" resp="p"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="1185">τίς ἄρα νέατος ἐς πότε λήξει πολυπλάγκτων ἐτέων ἀριθμός,</l>
@@ -2177,9 +2240,11 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="1190">ἄν τὰν εὐρώδεα Τρωΐαν,</l>
                   <l n="1191">δύστανον ὄνειδος Ἑλλάνων;</l>
                </sp>
-               </div><div n="1192" subtype="card" type="textpart">
+            </div>
+                
+               <milestone unit="card" n="1192" resp="p"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="1192">ὄφελε πρότερον αἰθέρα δῦναι μέγαν ἢ τὸν πολύκοινον Ἅιδαν</l>
@@ -2188,9 +2253,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="1197">ἰὼ πόνοι πρόγονοι πόνων·</l>
                   <l n="1198">κεῖνος γὰρ ἔπερσεν ἀνθρώπους.</l>
                </sp>
-               </div><div n="1199" subtype="card" type="textpart">
+            </div>
+               <milestone unit="card" n="1199" resp="p"/>
             
-            <milestone unit="strophe" n="2"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="1199">ἐκεῖνος οὔτε στεφάνων</l>
@@ -2205,9 +2271,10 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="1208">τεγγόμενος κόμας,</l>
                   <l n="1210">λυγρᾶς μνήματα Τροίας.</l>
                </sp>
-               </div><div n="1211" subtype="card" type="textpart">
+            </div>
+               <milestone unit="card" n="1211" resp="p"/>
             
-            <milestone unit="antistrophe" n="2"/>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="1211">καὶ πρὶν μὲν αἰὲν νυχίου</l>
@@ -2222,10 +2289,12 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="1221">τὰς ἱερὰς ὅπως</l>
                   <l n="1222">προσείποιμεν Ἀθάνας.</l>
                </sp>
-               </div><div n="1223" subtype="card" type="textpart">
+               </div>
+            </div>
+               <milestone unit="card" n="1223" resp="p"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Τεῦκρος</speaker>
                <l n="1223">καὶ μὴν ἰδὼν ἔσπευσα τὸν στρατηλάτην</l>
@@ -2273,7 +2342,8 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1262">σοῦ γὰρ λέγοντος οὐκέτʼ ἂν μάθοιμʼ ἐγώ·</l>
                <l n="1263">τὴν βάρβαρον γὰρ γλῶσσαν οὐκ ἐπαΐω.</l>
                
-            </sp></div><div n="1264" subtype="card" type="textpart">
+            </sp>
+                  <milestone unit="card" n="1264" resp="p"/>
             <sp>
                <speaker>Χορός</speaker>
                <l n="1264"> εἴθʼ ὑμὶν ἀμφοῖν νοῦς γένοιτο σωφρονεῖν·</l>
@@ -2281,10 +2351,10 @@ English translation by F. Storr. The Loeb classical library, 21.
             </sp>
             <sp>
                <speaker>Τεῦκρος</speaker>
-               <l n="1265">φεῦ· τοῦ θανόντος ὡς ταχεῖά τις βροτοῖς</l>
-               <l n="1266">χάρις διαρρεῖ καὶ προδοῦσʼ ἁλίσκεται,</l>
-               <l n="1267">εἰ σοῦ γʼ ὅδʼ ἁνὴρ οὐδʼ ἐπὶ σμικρῶν λόγων,</l>
-               <l n="1268">Αἴας, ἔτʼ ἴσχει μνῆστιν, οὗ σὺ πολλάκις</l>
+               <l n="1266">φεῦ· τοῦ θανόντος ὡς ταχεῖά τις βροτοῖς</l>
+               <l n="1267">χάρις διαρρεῖ καὶ προδοῦσʼ ἁλίσκεται,</l>
+               <l n="1268">εἰ σοῦ γʼ ὅδʼ ἁνὴρ οὐδʼ ἐπὶ σμικρῶν λόγων,</l>
+               <l n="1269">Αἴας, ἔτʼ ἴσχει μνῆστιν, οὗ σὺ πολλάκις</l>
                <l n="1270">τὴν σὴν προτείνων προύκαμες ψυχὴν δόρει.</l>
                <l n="1271">ἀλλʼ οἴχεται δὴ πάντα ταῦτʼ ἐρριμμένα.</l>
                <l n="1272">ὦ πολλὰ λέξας ἄρτι κἀνόητʼ ἔπη,</l>
@@ -2306,7 +2376,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1288">ὅδʼ ἦν ὁ πράσσων ταῦτα, σὺν δʼ ἐγὼ παρών,</l>
                <l n="1289">ὁ δοῦλος, οὑκ τῆς βαρβάρου μητρὸς γεγώς.</l>
             </sp>
-               </div><div n="1290" subtype="card" type="textpart">
+               <milestone unit="card" n="1290" resp="p"/>
                   <sp>
                      <speaker>Τεῦκρος</speaker>
                <l n="1290">δύστηνε, ποῖ βλέπων ποτʼ αὐτὰ καὶ θροεῖς;</l>
@@ -2336,7 +2406,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1314">ὡς εἴ με πημανεῖς τι, βουλήσει ποτὲ</l>
                <l n="1315">καὶ δειλὸς εἶναι μᾶλλον ἢ ʼν ἐμοὶ θρασύς.</l>
             </sp>
-            </div><div n="1316" subtype="card" type="textpart">
+            <milestone unit="card" n="1316" resp="p"/>
             <sp>
                <speaker>Χορός</speaker>
                <l n="1316"> ἄναξ, Ὀδυσσεῦ, καιρὸν ἴσθʼ ἐληλυθώς,</l>
@@ -2397,7 +2467,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1344">φθείροις ἄν.  ἄνδρα δʼ οὐ δίκαιον, εἰ θάνοι,</l>
                <l n="1345">βλάπτειν τὸν ἐσθλόν, οὐδʼ ἐὰν μισῶν κυρῇς.</l>
                
-            </sp></div><div n="1346" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="1346" resp="p"/>
             <sp>
                <speaker>Ἀγαμέμνων</speaker>
                <l n="1346">σὺ ταῦτʼ, Ὀδυσσεῦ, τοῦδʼ ὑπερμαχεῖς ἐμοί;</l>
@@ -2506,7 +2576,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1374">ὅστις σʼ, Ὀδυσσεῦ, μὴ λέγει γνώμῃ σοφὸν</l>
                <l n="1375">φῦναι, τοιοῦτον ὄντα, μῶρός ἐστʼ ἀνήρ.</l>
                
-            </sp></div><div n="1376" subtype="card" type="textpart">
+            </sp><milestone unit="card" n="1376" resp="p"/>
             <sp>
                <speaker>Ὀδυσσεύς</speaker>
                <l n="1376"> καὶ νῦν γε Τεύκρῳ τἀπὸ τοῦδʼ ἀγγέλλομαι,</l>
@@ -2542,7 +2612,7 @@ English translation by F. Storr. The Loeb classical library, 21.
                <l n="1400">ἀλλʼ ἤθελον μέν· εἰ δὲ μή ʼστί σοι φίλον</l>
                <l n="1401">πράσσειν τάδʼ ἡμᾶς, εἶμʼ ἐπαινέσας τὸ σόν.</l>
             </sp>
-            <milestone unit="anapests"/>
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Τεῦκρος</speaker>
                   <l n="1402">ἅλις· ἤδη γὰρ πολὺς ἐκτέταται</l>
@@ -2570,8 +2640,9 @@ English translation by F. Storr. The Loeb classical library, 21.
                   <l n="1420">γνῶναι· πρὶν ἰδεῖν δʼ οὐδεὶς μάντις</l>
                   <l n="1421">τῶν μελλόντων, ὅ τι πράξει.</l>
                </sp>
-            
             </div>
+         </div>
+            
          </div>
       </body>
    </text>
