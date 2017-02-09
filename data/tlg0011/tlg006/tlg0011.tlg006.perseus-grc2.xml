@@ -43,13 +43,18 @@ English translation by F. Storr. The Loeb classical library, 21.
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
+         <editorialDecl><quotation marks="none"/></editorialDecl>
          <refsDecl n="CTS">
-            
-            <cRefPattern n="card" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+            <cRefPattern n="line" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+               <p>This pointer pattern extracts line</p>
+            </cRefPattern>
+         </refsDecl>
+         
+        <!-- <refsDecl n="CTS">
+           <cRefPattern n="card" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
                <p>This pointer pattern extracts cards</p>
             </cRefPattern>
-            
-         </refsDecl>
+         </refsDecl>-->
       </encodingDesc>
       <profileDesc>
          <langUsage>
@@ -57,108 +62,48 @@ English translation by F. Storr. The Loeb classical library, 21.
          </langUsage>
       </profileDesc>
       <revisionDesc>
-        <!-- <change>
-            <date>1988</date>
-            <respStmt>
-               <name>EM, Scott Ettinger and Roger Travis</name>
-               <resp>tagging</resp>
-            </respStmt>
-            <item>Text scanned at U. Chicago in 1988. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</item>
-         </change>
-         <change>
-            <date>9/19/90</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Final check of cardbreaks, tags, and linenumbers.</item>
-         </change>
-         <change>
-            <date>8/91</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Revise DTDs and recheck texts.</item>
-         </change>
-         <change>
-            <date>8/91</date>
-            <respStmt>
-               <name>Bill Merrill</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Check text against TLG Sophocles in order to discover if there are any missing whole words or lines..</item>
-         </change>
-         <change>
-            <date>6/95</date>
-            <respStmt>
-               <name>Lisa Cerrato</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Added speaker tags where they were missing.</item>
-         </change>
-         <change>
-            <date>24-Nov-99</date>
-            <respStmt>
-               <name>Anne Mahoney</name>
-               <resp>Markup</resp>
-            </respStmt>
-            <item>
-$Log: soph.phil_gk.xml,v $
-Revision 1.1  2013-09-13 11:17:57  balmas01
-moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory
-
-Revision 1.6  2013-06-13 12:41:39  gcrane
-tagging now should be compatible with CTS
-
-Revision 1.5  2012-11-20 18:47:12  ajones06
-Changed the bibliographic information in the headers to reflect Francesco's discovery that the Greek text for these files was taken from the two-volume public domain Loeb version edited by Francis Storr.
-
-Revision 1.4  2011-09-07 14:33:14  rsingh04 adding rend=displayNum to lb tags
-
-Revision 1.3  2010-12-25 19:40:38  gcrane
-LB milestones instead of L tags
-
-Revision 1.2  2010-12-24 13:05:03  gcrane
-ADD tags for lt/gt entities
-DEL tags for lsqb/rsqb entities
-
-Revision 1.1  2010-12-24 12:51:11  gcrane base files for SDL
-
-Revision 1.1  2009/12/08 18:56:08  rsingh04 moved more xml files around based on copyright status
-
-Revision 1.2  2005/08/01 16:30:23  packel removed stray item tags
-
-Revision 1.1  2005/07/25 15:03:30  packel
-Converted to XML
-
-Revision 1.9  2004/04/21 20:42:00  mimno added card 1s
-
-Revision 1.8  2003/07/01 22:18:08  yorkc
-Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
-
-Revision 1.7  2000/03/06 21:29:39  amahoney remove spurious headers
-
-Revision 1.6  2000/03/04 20:35:17  dasmith
-Added separate funder entity to TEI header.
-
-Revision 1.5  2000/02/15 23:18:02  amahoney use n attribute on sp element to carry over the speaker name when the speech is interrupted by a card break;  this also requires that the card break at the end come after the close of the sp, not within
-
-Revision 1.4  1999/11/24 21:12:08  amahoney
-Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all files
-
-</item>
-         </change>--> <change when="2016-01-15" who="TDBuck">p4 to p5</change>
+         <change when="2017-02-08" who="Lisa Cerrato">regualrizing structure; fixing change log, quotes, etc.</change>
+         
+         <change when="2016-01-15" who="TDBuck">p4 to p5</change>
+         <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+         <change when="2013-06-13" who="gcrane">tagging now should be compatible with CTS</change>
+         <change when="2012-11-20" who="ajones06">Changed the bibliographic information in the headers to reflect Francesco's discovery that the Greek text for these files was taken from the two-volume public domain Loeb version edited by Francis Storr.</change>
+         <change when="2011-09-07" who="rsingh04">adding rend=displayNum to lb tags</change>
+         <change when="2010-12-25" who="gcrane">LB milestones instead of L tags</change>
+         
+         <change when="2010-12-24" who="gcrane">ADD tags for lt gt entities; DEL tags for lsqb rsqb entities</change>
+         <change when="2010-12-24" who="gcrane">base files for SDL</change>
+         
+         <change when="2009-12-08" who="rsingh04">moved more xml files around based on copyright status</change>
+         <change when="2005-08-01" who="packel">removed stray item tags</change>
+         
+         <change when="2005-07-25" who="packel">Converted to XML</change>
+         
+         <change when="2004-04-21" who="mimno">added card 1s</change>
+         
+         <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
+         <change when="2000-03-06" who="amahoney">remove spurious headers</change>
+         
+         <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+         
+         <change when="2000-02-15" who="amahoney">use n attribute on sp element to carry over the speaker name when the speech is interrupted by a card break;  this also requires that the card break at the end come after the close of the sp, not within</change>
+         <change when="1999-11-24" who="amahoney">Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all files</change>
+         <change when="1999-11-24" who="Anne Mahoney">Markup</change>
+         <change when="1995-06-01" who="Lisa Cerrato">Added speaker tags where they were missing.</change>
+         <change when="1991-08-01" who="Bill Merrill">Check text against TLG Sophocles in order to discover if there are any missing whole words or lines.</change>
+         
+         <change when="1991-08-01" who="EM">Revise DTDs and recheck texts.</change>
+         <change when="1990-09-19" who="EM">Final check of cardbreaks, tags, and line numbers.</change>
+         <change when="1988-01-01" who="EM, Scott Ettinger and Roger Travis">Text scanned at U. Chicago in 1988. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</change>
+         
       </revisionDesc>
-      
-      
-      
-   </teiHeader>
-   <text xml:id="stoa0045.stoa0">
-      <body n="Phil.">
+ </teiHeader>
+   
+   <text xml:lang="grc">
+      <body>
          <div type="edition" n="urn:cts:greekLit:tlg0011.tlg006.perseus-grc2" xml:lang="grc">
-            <div n="1" subtype="card" type="textpart">
-               <milestone unit="episode"/>
+            <milestone unit="card" n="1"/>
+               <div type="textpart" subtype="episode">
             <sp>
                <speaker>Ὀδυσσεύς</speaker>
                <l>ἀκτὴ μὲν ἥδε τῆς περιρρύτου χθονὸς</l>
@@ -187,7 +132,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ὡς τἀπίλοιπα τῶν λόγων σὺ μὲν κλύῃς,</l>
                <l n="25">ἐγὼ δὲ φράζω, κοινὰ δʼ ἐξ ἀμφοῖν ἴῃ.</l>
             </sp>
-            </div><div n="26" subtype="card" type="textpart">
+            <milestone unit="card" n="26"/>
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l>ἄναξ Ὀδυσσεῦ, τοὔργον οὐ μακρὰν λέγεις·</l>
@@ -258,7 +203,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ἀλλʼ ἤν τι καινὸν ὧν πρὶν οὐκ ἀκήκοας</l>
                <l>κλύῃς, ὑπουργεῖν, ὡς ὑπηρέτης πάρει.</l>
             </sp>
-            </div><div n="54" subtype="card" type="textpart">
+            <milestone unit="card" n="54"/>
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l>τί δῆτʼ ἄνωγας;</l>
@@ -298,7 +243,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>δός μοι σεαυτόν, κᾆτα τὸν λοιπὸν χρόνον</l>
                <l n="85">κέκλησο πάντων εὐσεβέστατος βροτῶν.</l>
             </sp>
-            </div><div n="86" subtype="card" type="textpart">
+            <milestone unit="card" n="86"/>
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l>ἐγὼ μὲν οὓς ἂν τῶν λόγων ἀλγῶ κλύων,</l>
@@ -411,7 +356,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <speaker>Νεοπτόλεμος</speaker>
                <l>σάφʼ ἴσθʼ, ἐπείπερ εἰσάπαξ συνῄνεσα.</l>
             </sp>
-            </div><div n="123" subtype="card" type="textpart">
+            <milestone unit="card" n="123"/>
             <sp>
                <speaker>Ὀδυσσεύς</speaker>
                <l>σὺ μὲν μένων νυν κεῖνον ἐνθάδʼ ἐκδέχου,</l>
@@ -427,10 +372,11 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>Ἑρμῆς δʼ ὁ πέμπων δόλιος ἡγήσαιτο νῷν</l>
                <l>Νίκη τʼ Ἀθάνα Πολιάς, ἣ σῴζει μʼ ἀεί.</l>
             </sp>
-            </div><div n="135" subtype="card" type="textpart">
+               </div>      
+            <milestone unit="card" n="135"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+<div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="135">τί χρὴ τί χρή με, δέσποτʼ, ἐν ξένᾳ ξένον</l>
@@ -442,10 +388,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>σὲ δʼ, ὦ τέκνον, τόδʼ ἐλήλυθεν</l>
                   <l>πᾶν κράτος ὠγύγιον· τό μοι ἔννεπε</l>
                   <l>τί σοι χρεὼν ὑπουργεῖν.</l>
-               </sp>
-               </div><div n="144" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="144"/>
             
-            <milestone unit="anapests"/>
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Νεοπτόλεμος</speaker>
                   <l>νῦν μέν, ἴσως γὰρ τόπον ἐσχατιαῖς</l>
@@ -455,9 +401,11 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>πρὸς ἐμὴν αἰεὶ χεῖρα προχωρῶν</l>
                   <l>πειρῶ τὸ παρὸν θεραπεύειν.</l>
                </sp>
-               </div><div n="150" subtype="card" type="textpart">
+            </div>
             
-            <milestone unit="antistrophe" n="1"/>
+               <milestone unit="card" n="150"/>
+            
+           <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="150">μέλον πάλαι μέλημά μοι λέγεις, ἄναξ,</l>
@@ -470,9 +418,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>τίς τόπος ἢ τίς ἕδρα; τίνʼ ἔχει στίβον,</l>
                   <l>ἔναυλον ἢ θυραῖον;</l>
                </sp>
-               </div><div n="159" subtype="card" type="textpart">
+           </div>
+               <milestone unit="card" n="159"/>
             
-            <milestone unit="anapests"/>
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Νεοπτόλεμος</speaker>
                   <l>οἶκον μὲν ὁρᾷς τόνδʼ ἀμφίθυρον</l>
@@ -491,10 +440,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>πτηνοῖς ἰοῖς στυγερὸν στυγερῶς,</l>
                   <l>οὐδέ τινʼ αὐτῷ</l>
                   <l>παιῶνα κακῶν ἐπινωμᾶν.</l>
-               </sp>
-               </div><div n="169" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="169"/>
             
-            <milestone unit="strophe" n="2"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>οἰκτίρω νιν ἔγωγʼ, ὅπως,</l>
@@ -507,10 +456,11 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>ὦ παλάμαι θεῶν,</l>
                   <l>ὦ δύστανα γένη βροτῶν,</l>
                   <l>οἷς μὴ μέτριος αἰών.</l>
-               </sp>
-               </div><div n="180" subtype="card" type="textpart">
+               </sp></div>
             
-            <milestone unit="antistrophe" n="2"/>
+               <milestone unit="card" n="180"/>
+            
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="180">οὗτος πρωτογόνων ἴσως</l>
@@ -523,10 +473,11 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>α δʼ  ἀθυρόστομος</l>
                   <l>Ἀχὼ τηλεφανὴς πικραῖς</l>
                   <l n="190">οἰμωγαῖς ὑπακούει.</l>
-               </sp>
-               </div><div n="191" subtype="card" type="textpart">
+               </sp></div>
             
-            <milestone unit="anapests"/>
+               <milestone unit="card" n="191"/>
+            
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Νεοπτόλεμος</speaker>
                   <l>οὐδὲν τούτων θαυμαστὸν ἐμοί·</l>
@@ -539,10 +490,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>τεῖναι τὰ θεῶν ἀμάχητα βέλη,</l>
                   <l>πρὶν ὅδʼ ἐξήκοι χρόνος, ᾧ λέγεται</l>
                   <l n="200">χρῆναί σφʼ ὑπὸ τῶνδε δαμῆναι.</l>
-               </sp>
-               </div><div n="201" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="201"/>
             
-            <milestone unit="strophe" n="3"/>
+           <div type="textpart" subtype="strophe" n="3">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>εὔστομʼ ἔχε, παῖ.</l>
@@ -560,10 +511,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>φθογγά του στίβον κατʼ ἀνάγκαν</l>
                   <l>ἕρποντος, οὐδέ με λάθει</l>
                   <l>βαρεῖα τηλόθεν αὐδὰ τρυσάνωρ· διάσημα γὰρ θρηνεῖ.</l>
-               </sp>
-               </div><div n="210" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="210"/>
             
-            <milestone unit="antistrophe" n="3"/>
+            <div type="textpart" subtype="antistrophe" n="3">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ἀλλʼ ἔχε, τέκνον,</l>
@@ -580,11 +531,13 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l n="215">ὡς ποιμὴν ἀγροβότας, ἀλλʼ ἤ που πταίων ὑπʼ ἀνάγκας</l>
                   <l>βοᾷ τηλωπὸν ἰωάν,</l>
                   <l>ἢ ναὸς ἄξενον αὐγάζων ὅρμον· προβοᾷ τι γὰρ δεινόν.</l>
-               </sp>
-               </div><div n="219" subtype="card" type="textpart">
+               </sp></div>
+         </div>
+            
+               <milestone unit="card" n="219"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Φιλοκτήτης</speaker>
                <l>ἰὼ ξένοι,</l>
@@ -656,7 +609,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <speaker>Νεοπτόλεμος</speaker>
                <l>ὡς μηδὲν εἰδότʼ ἴσθι μʼ ὧν ἀνιστορεῖς.</l>
             </sp>
-            </div><div n="255" subtype="card" type="textpart">
+            <milestone unit="card" n="255"/>
             <sp n="*filokth/ths">
                <speaker>Φιλοκτήτης</speaker>
                <l n="255">ὦ πόλλʼ ἐγὼ μοχθηρός, ὦ πικρὸς θεοῖς,</l>
@@ -691,7 +644,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ηὕρισκον οὐδὲν πλὴν ἀνιᾶσθαι παρόν,</l>
                <l>τούτου δὲ πολλὴν εὐμάρειαν, ὦ τέκνον.</l>
             </sp>
-            </div><div n="285" subtype="card" type="textpart">
+            <milestone unit="card" n="285"/>
                <sp n="*filokth/ths">
                <speaker>Φιλοκτήτης</speaker>
                <l n="285">ὁ μὲν χρόνος δὴ διὰ χρόνου προύβαινέ μοι,</l>
@@ -727,7 +680,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l n="315">ὦ παῖ, δεδράκασʼ, οἷʼ Ὀλύμπιοι θεοὶ</l>
                <l>δοῖέν ποτʼ αὐτοῖς ἀντίποινʼ ἐμοῦ παθεῖν.</l>
             </sp>
-            </div><div n="317" subtype="card" type="textpart">
+            <milestone unit="card" n="317"/>
             <sp>
                <speaker>Χορός</speaker>
                <l>ἔοικα κἀγὼ τοῖς ἀφιγμένοις ἴσα</l>
@@ -787,7 +740,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ὀρθῶς ἔλεξας· τοιγαροῦν τὸ σὸν φράσον</l>
                <l>αὖθις πάλιν μοι πρᾶγμʼ, ὅτῳ σʼ ἐνύβρισαν.</l>
             </sp>
-            </div><div n="343" subtype="card" type="textpart">
+            <milestone unit="card" n="343"/>
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l>ἦλθόν με νηὶ ποικιλοστόλῳ μέτα</l>
@@ -839,10 +792,12 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>λόγος λέλεκται πᾶς· ὁ δʼ Ἀτρείδας στυγῶν</l>
                <l n="390">ἐμοί θʼ ὁμοίως καὶ θεοῖς εἴη φίλος.</l>
             </sp>
-            </div><div n="391" subtype="card" type="textpart">
+         </div>
+            
+            <milestone unit="card" n="391"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ὀρεστέρα παμβῶτι Γᾶ, μᾶτερ αὐτοῦ Διός,</l>
@@ -854,10 +809,12 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>λεόντων ἔφεδρε, τῷ Λαρτίου</l>
                   <l>σέβας ὑπέρτατον.</l>
                </sp>
-               </div><div n="403" subtype="card" type="textpart">
+         </div></div>
+            
+               <milestone unit="card" n="403"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Φιλοκτήτης</speaker>
                <l>ἔχοντες, ὡς ἔοικε, σύμβολον σαφὲς</l>
@@ -935,7 +892,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ἀναξίου μὲν φωτὸς ἐξερήσομαι,</l>
                <l n="440">γλώσσῃ δὲ δεινοῦ καὶ σοφοῦ, τί νῦν κυρεῖ.</l>
             </sp>
-            </div><div n="441" subtype="card" type="textpart">
+            <milestone unit="card" n="441"/>
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l>ποίου δὲ τούτου πλήν γʼ Ὀδυσσέως ἐρεῖς;</l>
@@ -985,7 +942,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>καιρὸς γὰρ καλεῖ</l>
                <l>πλοῦν μὴ ʼξ ἀπόπτου μᾶλλον ἢ ʼγγύθεν σκοπεῖν.</l>
             </sp>
-            </div><div n="468" subtype="card" type="textpart">
+            <milestone unit="card" n="468"/>
             <sp>
                <speaker>Φιλοκτήτης</speaker>
                <l>πρός νύν σε πατρὸς πρός τε μητρός, ὦ τέκνον,</l>
@@ -1028,10 +985,12 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l n="505">χὤταν τις εὖ ζῇ, τηνικαῦτα τὸν βίον</l>
                <l>σκοπεῖν μάλιστα, μὴ διαφθαρεὶς λάθῃ.</l>
             </sp>
-            </div><div n="507" subtype="card" type="textpart">
+         </div>
+            
+            <milestone unit="card" n="507"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="antistrophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>οἴκτιρʼ, ἄναξ· πολλῶν ἔλεξεν δυσοίστων πόνων</l>
@@ -1042,11 +1001,12 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>ἐπʼ εὐστόλου ταχείας νεὼς</l>
                   <l>πορεύσαιμʼ ἂν ἐς δόμους, τὰν θεῶν</l>
                   <l>νέμεσιν ἐκφυγών.</l>
-               </sp>
-               </div><div n="519" subtype="card" type="textpart">
+               </sp></div>
+         </div>
+               <milestone unit="card" n="519"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l>ὅρα σὺ μὴ νῦν μέν τις εὐχερὴς παρῇς,</l>
@@ -1103,7 +1063,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l n="555">βουλεύματʼ ἐστί, κοὐ μόνον βουλεύματα,</l>
                <l>ἀλλʼ ἔργα δρώμενʼ, οὐκέτʼ ἐξαργούμενα.</l>
             </sp>
-            </div><div n="557" subtype="card" type="textpart">
+            <milestone unit="card" n="557"/>
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l>ἀλλʼ ἡ χάρις μὲν τῆς προμηθίας, ξένε,</l>
@@ -1200,7 +1160,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <speaker>Νεοπτόλεμος</speaker>
                <l>ποιοῦ λέγων.</l>
             </sp>
-            </div><div n="591" subtype="card" type="textpart">
+            <milestone unit="card" n="591"/>
             <sp>
                <speaker>Ἔμπορος</speaker>
                <l>λέγω.  ʼπὶ τοῦτον ἄνδρε τώδʼ ὥπερ κλύεις,</l>
@@ -1253,7 +1213,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>οὐκ οἶδʼ ἐγὼ ταῦτʼ· ἀλλʼ ἐγὼ μὲν εἶμʼ ἐπὶ</l>
                <l>ναῦν, σφῷν δʼ ὅπως ἄριστα συμφέροι θεός.</l>
             </sp>
-            </div><div n="628" subtype="card" type="textpart">
+            <milestone unit="card" n="628"/>
             <sp>
                <speaker>Φιλοκτήτης</speaker>
                <l>οὔκουν τάδʼ, ὦ παῖ, δεινά, τὸν Λαερτίου</l>
@@ -1359,10 +1319,11 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>καὶ σέ γʼ εἰσάξω· τὸ γὰρ</l>
                <l n="675">νοσοῦν ποθεῖ σε ξυμπαραστάτην λαβεῖν.</l>
             </sp>
-            </div><div n="676" subtype="card" type="textpart">
+         </div>
+            <milestone unit="card" n="676"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>λόγῳ μὲν ἐξήκουσʼ, ὄπωπα δʼ οὐ μάλα,</l>
@@ -1376,10 +1337,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>τόδε τοι θαῦμά μʼ ἔχει,</l>
                   <l>πῶς ποτε πῶς ποτʼ ἀμφιπλάκτων ῥοθίων μόνος κλύων,</l>
                   <l n="690">πῶς ἄρα πανδάκρυτον οὕτω βιοτὰν κατέσχεν·</l>
-               </sp>
-               </div><div n="691" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="691"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ἵνʼ αὐτὸς ἦν πρόσουρος, οὐκ ἔχων βάσιν,</l>
@@ -1393,10 +1354,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>τότʼ ἂν εἰλυόμενος</l>
                   <l>παῖς ἄτερ ὡς φίλας τιθήνας ὅθεν εὐμάρειʼ ὑπάρ-</l>
                   <l n="705">χοι πόρου, ἁνίκʼ ἐξανείη δακέθυμος ἄτα·</l>
-               </sp>
-               </div><div n="707" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="707"/>
             
-            <milestone unit="strophe" n="2"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>οὐ φορβὰν ἱερᾶς γᾶς σπόρον, οὐκ ἄλλων</l>
@@ -1407,10 +1368,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>ὃς μηδʼ οἰνοχύτου πώματος ἥσθη δεκέτει χρόνῳ,</l>
                   <l n="716">λεύσσων δʼ ὅπου γνοίη στατὸν εἰς ὕδωρ,</l>
                   <l>ἀεὶ προσενώμα.</l>
-               </sp>
-               </div><div n="718" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="718"/>
             
-            <milestone unit="antistrophe" n="2"/>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>νῦν δʼ ἀνδρῶν ἀγαθῶν παιδὸς ὑπαντήσας</l>
@@ -1421,11 +1382,12 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>Σπερχειοῦ τε παρʼ ὄχθας, ἵνʼ ὁ χάλκασπις ἀνὴρ θεοῖς</l>
                   <l>πλάθει πατρὸς  θείῳ πυρὶ παμφαής,</l>
                   <l>Οἴτας ὑπὲρ ὄχθων.</l>
-               </sp>
-               </div><div n="730" subtype="card" type="textpart">
+               </sp></div>
+         </div>
+               <milestone unit="card" n="730"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l n="730">ἕρπʼ, εἰ θέλεις.  τί δή ποθʼ ὧδʼ ἐξ οὐδενὸς</l>
@@ -1554,7 +1516,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l n="780">πλοῦς οὔριός τε κεὐσταλὴς ὅποι ποτὲ</l>
                <l>θεὸς δικαιοῖ χὠ στόλος πορσύνεται.</l>
             </sp>
-            </div><div n="782" subtype="card" type="textpart">
+            <milestone unit="card" n="782"/>
             <sp>
                <speaker>Φιλοκτήτης</speaker>
                <l>ἀλλʼ οὖν δέδοικα μὴ ἀτέλεστʼ εὔχῃ, τέκνον.</l>
@@ -1577,7 +1539,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ἃ νῦν σὺ σῴζεις, τοῦτʼ ἐπηξίωσα δρᾶν. τί φής, παῖ;</l>
                <l n="805">τί φής; τί σιγᾷς; ποῦ ποτʼ ὤν, τέκνον, κυρεῖς;</l>
             </sp>
-            </div><div n="806" subtype="card" type="textpart">
+            <milestone unit="card" n="806"/>
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l>ἀλγῶ πάλαι δὴ τἀπὶ σοὶ στένων κακά.</l>
@@ -1670,10 +1632,11 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l n="825">αἱμορραγὴς φλέψ.  ἀλλʼ ἐάσωμεν, φίλοι,</l>
                <l>ἕκηλον αὐτόν, ὡς ἂν εἰς ὕπνον πέσῃ.</l>
             </sp>
-            </div><div n="827" subtype="card" type="textpart">
+         </div>
+            <milestone unit="card" n="827"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>Ὕπνʼ ὀδύνας ἀδαής, Ὕπνε δʼ ἀλγέων,</l>
@@ -1688,20 +1651,20 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>πρὸς τί μενοῦμεν πράσσειν;</l>
                   <l>καιρός τοι πάντων γνώμαν ἴσχων</l>
                   <l>πολύ τι πολὺ παρὰ πόδα κράτος ἄρνυται.</l>
-               </sp>
-               </div><div n="839" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="839"/>
             
-            <milestone unit="hexameter"/>
+            <div type="textpart" subtype="hexameter">
                <sp>
                   <speaker>Νεοπτόλεμος</speaker>
                   <l>ἀλλʼ ὅδε μὲν κλύει οὐδέν, ἐγὼ δʼ ὁρῶ οὕνεκα θήραν</l>
                   <l n="840">τήνδʼ ἁλίως ἔχομεν τόξων, δίχα τοῦδε πλέοντες.</l>
                   <l>τοῦδε γὰρ ὁ στέφανος, τοῦτον θεὸς εἶπε κομίζειν.</l>
                   <l>κομπεῖν δʼ ἔστʼ ἀτελῆ σὺν ψεύδεσιν αἰσχρὸν ὄνειδος.</l>
-               </sp>
-               </div><div n="843" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="843"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Χορός</speaker>
                   <l>ἀλλά, τέκνον, τάδε μὲν θεὸς ὄψεται·</l>
@@ -1716,10 +1679,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>οἶσθα γὰρ ἃν  αὐδῶμαι,</l>
                   <l>εἰ ταύταν τούτων γνώμαν ἴσχεις,</l>
                   <l>μάλα τοι ἄπορα πυκινοῖς ἐνιδεῖν πάθη.</l>
-               </sp>
-               </div><div n="855" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="855"/>
             
-            <milestone unit="epode"/>
+            <div type="textpart" subtype="epode">
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="855">οὖρός τοι, τέκνον, οὖρος·</l>
@@ -1732,11 +1695,12 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>φθέγγει· τὸ δʼ ἁλώσιμον</l>
                   <l n="863b">ἐμᾷ φροντίδι, παῖ,</l>
                   <l>πόνος ὁ μὴ φοβῶν κράτιστος.</l>
-               </sp>
-               </div><div n="865" subtype="card" type="textpart">
+               </sp></div>
+         </div>
+               <milestone unit="card" n="865"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l n="865">σιγᾶν κελεύω μηδʼ ἀφεστάναι φρενῶν·</l>
@@ -1777,7 +1741,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ὀσμῇ πρὸ τοῦ δέοντος· οὑπὶ νηὶ γὰρ</l>
                <l>ἅλις πόνος τούτοισι συνναίειν ἐμοί.</l>
             </sp>
-            </div><div n="893" subtype="card" type="textpart">
+            <milestone unit="card" n="893"/>
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l>ἔσται τάδʼ· ἀλλʼ ἵστω τε καὐτὸς ἀντέχου.</l>
@@ -1889,7 +1853,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l n="925">ἀλλʼ οὐχ οἷόν τε· τῶν γὰρ ἐν τέλει κλύειν</l>
                <l>τό τʼ ἔνδικόν με καὶ τὸ συμφέρον ποεῖ.</l>
             </sp>
-            </div><div n="927" subtype="card" type="textpart">
+            <milestone unit="card" n="927"/>
             <sp>
                <speaker>Φιλοκτήτης</speaker>
                <l>ὦ πῦρ σὺ καὶ πᾶν δεῖμα καὶ πανουργίας</l>
@@ -1929,7 +1893,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ὄλοιο—μή πω, πρὶν μάθοιμʼ εἰ καὶ πάλιν</l>
                <l>γνώμην μετοίσεις· εἰ δὲ μή, θάνοις κακῶς.</l>
             </sp>
-            </div><div n="963" subtype="card" type="textpart">
+            <milestone unit="card" n="963"/>
             <sp>
                <speaker>Χορός</speaker>
                <l>τί δρῶμεν; ἐν σοὶ καὶ τὸ πλεῖν ἡμᾶς, ἄναξ,</l>
@@ -2056,7 +2020,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <speaker>Ὀδυσσεύς</speaker>
                <l>ξυλλάβετον αὐτόν· μὴ ʼπὶ τῷδʼ ἔστω τάδε.</l>
             </sp>
-            </div><div n="1004" subtype="card" type="textpart">
+            <milestone unit="card" n="1004"/>
             <sp>
                <speaker>Φιλοκτήτης</speaker>
                <l>ὦ χεῖρες, οἷα πάσχετʼ ἐν χρείᾳ φίλης</l>
@@ -2101,7 +2065,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ὡς ζῶ μὲν οἰκτρῶς, εἰ δʼ ἴδοιμʼ ὀλωλότας</l>
                <l>τούτους, δοκοῖμʼ ἂν τῆς νόσου πεφευγέναι.</l>
             </sp>
-            </div><div n="1045" subtype="card" type="textpart">
+            <milestone unit="card" n="1045"/>
             <sp>
                <speaker>Χορός</speaker>
                <l n="1045">βαρύς τε καὶ βαρεῖαν ὁ ξένος φάτιν</l>
@@ -2165,10 +2129,12 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>λῴω τινʼ ἡμῖν.  νὼ μὲν οὖν ὁρμώμεθον,</l>
                <l n="1080">ὑμεῖς δʼ, ὅταν καλῶμεν, ὁρμᾶσθαι ταχεῖς.</l>
             </sp>
-            </div><div n="1081" subtype="card" type="textpart">
+         </div>
+            
+            <milestone unit="card" n="1081"/>
          
-         <milestone unit="choral"/>
-            <milestone unit="strophe" n="1"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
                <sp>
                   <speaker>Φιλοκτήτης</speaker>
                   <l>ὦ κοίλας πέτρας γύαλον</l>
@@ -2185,7 +2151,6 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>ἐλῶσιν· οὐκέτʼ ἴσχω.</l>
                </sp>
             
-            <milestone unit="strophe" n="1"/>
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="1095">σύ τοι σύ τοι κατηξίωσας,</l>
@@ -2193,10 +2158,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>ἄλλοθεν ἔχει τύχᾳ τᾷδʼ ἀπὸ μείζονος,</l>
                   <l>εὖτέ γε παρὸν φρονῆσαι</l>
                   <l n="1100">τοῦ λῴονος δαίμονος εἵλου τὸ κάκιον αἰνεῖν.</l>
-               </sp>
-               </div><div n="1101" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="1101"/>
             
-            <milestone unit="antistrophe" n="1"/>
+            <div type="textpart" subtype="antistrophe" n="1">
                <sp>
                   <speaker>Φιλοκτήτης</speaker>
                   <l>ὦ τλάμων τλάμων ἄρʼ ἐγὼ</l>
@@ -2213,7 +2178,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l n="1115">ἐμὰς λαχόντʼ ἀνίας.</l>
                </sp>
             
-            <milestone unit="antistrophe" n="1"/>
+            
                <sp>
                   <speaker>Χορός</speaker>
                   <l>πότμος, πότμος σε δαιμόνων τάδʼ,</l>
@@ -2221,10 +2186,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>ἔσχεν ὑπὸ χειρὸς ἀμᾶς.   στυγερὰν ἔχε</l>
                   <l n="1120">δύσποτμον ἀρὰν ἐπʼ ἄλλοις.</l>
                   <l>καὶ γὰρ ἐμοὶ τοῦτο μέλει, μὴ φιλότητʼ ἀπώσῃ.</l>
-               </sp>
-               </div><div n="1123" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="1123"/>
             
-            <milestone unit="strophe" n="2"/>
+            <div type="textpart" subtype="strophe" n="2">
                <sp>
                   <speaker>Φιλοκτήτης</speaker>
                   <l>οἴμοι μοι, καί που πολιᾶς</l>
@@ -2244,7 +2209,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>μυρίʼ, ἀπʼ αἰσχρῶν ἀνατέλλονθʼ, ὃς ἐφʼ ἡμῖν κάκʼ ἐμήσατʼ, ὦ Ζεῦ.</l>
                </sp>
             
-            <milestone unit="strophe" n="2"/>
+            
                <sp>
                   <speaker>Χορός</speaker>
                   <l n="1140">ἀνδρός τοι τὰ μὲν ἔνδικʼ αἰὲν  εἰπεῖν,</l>
@@ -2253,10 +2218,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>κεῖνος δʼ εἷς ἀπὸ πολλῶν</l>
                   <l>ταχθεὶς τῶνδʼ ἐφημοσύνᾳ</l>
                   <l n="1145">κοινὰν ἤνυσεν ἐς φίλους ἀρωγάν.</l>
-               </sp>
-               </div><div n="1146" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="1146"/>
             
-            <milestone unit="antistrophe" n="2"/>
+            <div type="textpart" subtype="antistrophe" n="2">
                <sp>
                   <speaker>Φιλοκτήτης</speaker>
                   <l>ὦ πταναὶ θῆραι χαροπῶν τʼ</l>
@@ -2276,7 +2241,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>μηκέτι μηδενὸς κρατύνων ὅσα πέμπει βιόδωρος αἶα;</l>
                </sp>
             
-            <milestone unit="antistrophe" n="2"/>
+           
                <sp>
                   <speaker>Χορός</speaker>
                   <l>πρὸς θεῶν, εἴ τι σέβει ξένον, πέλασσον,</l>
@@ -2285,10 +2250,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>κῆρα τάνδʼ ἀποφεύγειν.</l>
                   <l>οἰκτρὰ γὰρ βόσκειν, ἀδαὴς δʼ</l>
                   <l>ἔχειν μυρίον ἄχθος, ὃ ξυνοικεῖ.</l>
-               </sp>
-               </div><div n="1170" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="1170"/>
             
-            <milestone unit="epode"/>
+            <div type="textpart" subtype="epode">
                <sp>
                   <speaker>Φιλοκτήτης</speaker>
                   <l n="1170">πάλιν πάλιν παλαιὸν ἄλγημʼ ὑπέμνασας, ὦ</l>
@@ -2296,32 +2261,32 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>τί μʼ ὤλεσας; τί μʼ εἴργασαι;</l>
                </sp>
             
-            <milestone unit="epode"/>
+           
                <sp>
                   <speaker>Χορός</speaker>
                   <l>τί τοῦτʼ ἔλεξας;</l>
                </sp>
             
-            <milestone unit="epode"/>
+            
                <sp>
                   <speaker>Φιλοκτήτης</speaker>
                   <l>εἰ σὺ τὰν ἐμοὶ στυγερὰν</l>
                   <l n="1175">Τρῳάδα γᾶν μʼ ἤλπισας ἄξειν.</l>
                </sp>
             
-            <milestone unit="epode"/>
+            
                <sp>
                   <speaker>Χορός</speaker>
                   <l>τόδε γὰρ νοῶ κράτιστον.</l>
                </sp>
             
-            <milestone unit="epode"/>
+            
                <sp>
                   <speaker>Φιλοκτήτης</speaker>
                   <l>ἀπό νύν με λείπετʼ ἤδη.</l>
                </sp>
             
-            <milestone unit="epode"/>
+           
                <sp>
                   <speaker>Χορός</speaker>
                   <l>φίλα μοι, φίλα ταῦτα παρήγγειλας ἑκόντι τε πράσσειν.</l>
@@ -2329,7 +2294,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l n="1180">ναὸς ἵνʼ ἡμῖν τέτακται.</l>
                </sp>
             
-            <milestone unit="epode"/>
+            
                <sp>
                   <speaker>Φιλοκτήτης</speaker>
                   <l>μή, πρὸς ἀραίου Διός, ἔλθῃς, ἱκετεύω.</l>
@@ -2417,11 +2382,12 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l n="1215">ὅς γε σὰν λιπὼν ἱερὰν</l>
                   <l>λιβάδʼ ἐχθροῖς ἔβαν Δαναοῖς</l>
                   <l>ἀρωγός· ἔτʼ οὐδέν εἰμι.</l>
-               </sp>
-               </div><div n="1218" subtype="card" type="textpart">
+               </sp></div>
+         </div>
+               <milestone unit="card" n="1218"/>
             
          
-         <milestone unit="episode"/>
+         <div type="textpart" subtype="episode">
             <sp>
                <speaker>Χορός</speaker>
                <l>ἐγὼ μὲν ἤδη καὶ πάλαι νεὼς ὁμοῦ</l>
@@ -2570,7 +2536,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ἀλλὰ κἀμέ τοι</l>
                <l>ταὐτὸν τόδʼ ὄψει δρῶντα κοὐ μέλλοντʼ ἔτι.</l>
             </sp>
-            </div><div n="1258" subtype="card" type="textpart">
+            <milestone unit="card" n="1258"/>
             <sp>
                <speaker>Ὀδυσσεύς</speaker>
                <l>καίτοι σʼ ἐάσω· τῷ δὲ σύμπαντι στρατῷ</l>
@@ -2645,7 +2611,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>μὴ ʼπεύξῃ πέρα·</l>
                <l>δέχου δὲ χειρὸς ἐξ ἐμῆς βέλη τάδε.</l>
             </sp>
-            </div><div n="1288" subtype="card" type="textpart">
+            <milestone unit="card" n="1288"/>
             <sp>
                <speaker>Φιλοκτήτης</speaker>
                <l>πῶς εἶπας; ἆρα δεύτερον δολούμεθα;</l>
@@ -2721,7 +2687,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ἀλλʼ ἐξ Ἀχιλλέως, ὃς μετὰ ζώντων ὅτʼ ἦν</l>
                <l>ἤκουʼ ἄριστα, νῦν δὲ τῶν τεθνηκότων.</l>
             </sp>
-            </div><div n="1314" subtype="card" type="textpart">
+            <milestone unit="card" n="1314"/>
             <sp>
                <speaker>Νεοπτόλεμος</speaker>
                <l>ἥσθην πατέρα τὸν ἀμὸν εὐλογοῦντά σε</l>
@@ -2759,7 +2725,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>ἐς χεῖρας ἐλθεῖν, εἶτα τὴν πολύστονον</l>
                <l>Τροίαν ἑλόντα κλέος ὑπέρτατον λαβεῖν.</l>
             </sp>
-            </div><div n="1348" subtype="card" type="textpart">
+            <milestone unit="card" n="1348"/>
             <sp>
                <speaker>Φιλοκτήτης</speaker>
                <l>ὦ στυγνὸς αἰών, τί με, τί δῆτʼ ἔχεις ἄνω</l>
@@ -2804,7 +2770,7 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l>πρὸς τοὺς μὲν οὖν σε τήνδε τʼ ἔμπυον βάσιν</l>
                <l>παύσοντας ἄλγους κἀποσώσοντας νόσου.</l>
             </sp>
-            </div><div n="1380" subtype="card" type="textpart">
+            <milestone unit="card" n="1380"/>
             <sp>
                <speaker>Φιλοκτήτης</speaker>
                <l n="1380">ὦ δεινὸν αἶνον αἰνέσας, τί φής ποτε;</l>
@@ -2872,8 +2838,8 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <l n="1400">καὶ μὴ βράδυνε μηδʼ ἐπιμνησθῇς ἔτι</l>
                <l>Τροίας· ἅλις γάρ μοι τεθρήνηται γόοις.</l>
             </sp>
-            </div><div n="1402" subtype="card" type="textpart">
-            <milestone unit="trochaic"/>
+            <milestone unit="card" n="1402"/>
+            <div type="textpart" subtype="trochaic">
                <sp>
                   <speaker>Νεοπτόλεμος</speaker>
                   <l>εἰ δοκεῖ, στείχωμεν.</l>
@@ -2925,10 +2891,10 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                <sp>
                   <speaker>Νεοπτόλεμος</speaker>
                   <l>στεῖχε προσκύσας χθόνα.</l>
-               </sp>
-               </div><div n="1408" subtype="card" type="textpart">
+               </sp></div>
+               <milestone unit="card" n="1408"/>
             
-            <milestone unit="anapests"/>
+            <div type="textpart" subtype="anapests">
                <sp>
                   <speaker>Ἡρακλῆς</speaker>
                   <l>μήπω γε, πρὶν ἂν τῶν ἡμετέρων</l>
@@ -2968,9 +2934,9 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l>Ζεύς· οὐ γὰρ εὐσέβεια συνθνῄσκει βροτοῖς·</l>
                   <l>κἂν ζῶσι κἂν θάνωσιν, οὐκ ἀπόλλυται.</l>
                </sp>
-               </div><div n="1445" subtype="card" type="textpart">
+               <milestone unit="card" n="1445"/>
             
-            <milestone unit="anapests"/>
+            
                <sp>
                   <speaker>Φιλοκτήτης</speaker>
                   <l n="1445">ὦ φθέγμα ποθεινὸν ἐμοὶ πέμψας</l>
@@ -3013,9 +2979,9 @@ Bring remaining files up to new DTD;  use part=i and part=f for antilabe in all 
                   <l n="1470">νύμφαις ἁλίαισιν ἐπευξάμενοι</l>
                   <l>νόστου σωτῆρας ἱκέσθαι.</l>
                </sp>
-            
-               </div>
-      </div>
+            </div>
+         </div>     
+         </div>
       </body>
    </text>
 </TEI>
