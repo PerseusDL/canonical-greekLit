@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI>
-   <teiHeader status="new" type="text">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title>On the Murder of Eratosthenes </title>
+            <title>On the Murder of Eratosthenes</title>
             <author>Lysias</author>
             <sponsor>Perseus Project, Tufts University</sponsor>
             <principal>Gregory Crane</principal>
@@ -18,6 +19,12 @@
 
          </titleStmt>
          <extent>about 579Kb</extent>
+         
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+         </publicationStmt>
 
          <sourceDesc>
             <biblStruct>
@@ -36,77 +43,39 @@
 
       </fileDesc>
       <encodingDesc>
+         
          <refsDecl n="CTS">
-            <cRefPattern matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@n=\'$1\'])">
-                <p>This pointer pattern extracts section</p>
-            </cRefPattern>
-        </refsDecl>
-         <refsDecl>
-            <state unit="section"/>
+         <cRefPattern replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])" matchPattern="(\w+)">
+            <p>This pointer pattern extracts section</p>
+         </cRefPattern>
          </refsDecl>
+         
+         <!--<refsDecl>
+            <state unit="section"/>
+         </refsDecl>-->
       </encodingDesc>
       <profileDesc>
          <langUsage>
-            <language usage="100" id="greek">Greek </language>
-            <language id="en">English </language>
+            <language ident="grc">Greek </language>
+            <language ident="eng">English </language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
-         <change>
-            <date>2/92</date>
-            <respStmt>
-               <name>wmerrill</name>
-               <resp>(n/a)</resp>
-            </respStmt>
-            <item>revise markup</item>
-         </change>
-         <change>
-            <date>6/92</date>
-            <respStmt>
-               <name>wmerrill</name>
-               <resp>(n/a)</resp>
-            </respStmt>
-            <item>checkmark</item>
-         </change>
-         <change>
-            <date>7/92</date>
-            <respStmt>
-               <name>das</name>
-               <resp>(n/a)</resp>
-            </respStmt>
-            <item>fixed typos and incorrect section breaks</item>
-         </change>
-         <change>
-            <date>10/92</date>
-            <respStmt>
-               <name>das</name>
-               <resp>(n/a)</resp>
-            </respStmt>
-            <item>changed the TITLE to HEAD tags; combined the two Lysias files</item>
-         </change>
-         <change>
-            <date>July 2014</date>
-            <respStmt>
-               <name>Stella Dee</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>split composite text and converted to unicode</item>
-         </change>
-         <change>
-            <date>August 2014</date>
-            <respStmt>
-               <name>Bridget Almas</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>converted milestones to divs</item>
-         </change>
+         <change when="2014-08-01" who="Bridget Almas">converted milestones to divs</change>
+         <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
+         <change when="1992-10-01" who="das">changed the TITLE to HEAD tags; combined the two Lysias files</change>
+         <change when="1992-07-01" who="das">fixed typos and incorrect section breaks</change>
+         <change when="1992-06-01" who="wmerrill">checkmark</change>
+         <change when="1992-02-01" who="wmerrill">revise markup</change>      
       </revisionDesc>
    </teiHeader>
-   <text xml:lang="grc" n="urn:cts:greekLit:tlg0540.tlg001.perseus-grc1">
+   
+   <text xml:lang="grc">
       <body>
+         <div n="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" type="edition" xml:lang="grc">
+            
          <milestone unit="part" n="Intro"/>
-         <div type="section" n="1">
+         <div type="textpart" subtype="section" n="1">
             <p>
                <milestone unit="para" ed="P"/>περὶ πολλοῦ ἂν ποιησαίμην, ὦ ἄνδρες, τὸ τοιούτους ὑμᾶς
                ἐμοὶ δικαστὰς περὶ τούτου τοῦ πράγματος γενέσθαι, οἷοίπερ ἂν ὑμῖν αὐτοῖς εἴητε
@@ -114,32 +83,32 @@
                περὶ ὑμῶν αὐτῶν, οὐκ ἂν εἴη· ὅστις οὐκ ἐπὶ τοῖς γεγενημένοις ἀγανακτοίη, ἀλλὰ πάντες
                ἂν περὶ τῶν τὰ τοιαῦτα ἐπιτηδευόντων τὰς ζημίας μικρὰς ἡγοῖσθε. </p>
          </div>
-         <div type="section" n="2">
+         <div type="textpart" subtype="section" n="2">
             <p>καὶ ταῦτα οὐκ ἂν εἴη μόνον παρʼ ὑμῖν οὕτως ἐγνωσμένα, ἀλλʼ ἐν ἁπάσῃ τῇ Ἑλλάδι· περὶ
                τούτου γὰρ μόνου τοῦ ἀδικήματος καὶ ἐν δημοκρατίᾳ καὶ ὀλιγαρχίᾳ ἡ αὐτὴ τιμωρία τοῖς
                ἀσθενεστάτοις πρὸς τοὺς τὰ μέγιστα δυναμένους ἀποδέδοται, ὥστε τὸν χείριστον τῶν
                αὐτῶν τυγχάνειν τῷ βελτίστῳ· οὕτως, ὦ ἄνδρες, ταύτην τὴν ὕβριν ἅπαντες ἄνθρωποι
                δεινοτάτην ἡγοῦνται. </p>
          </div>
-         <div type="section" n="3">
+         <div type="textpart" subtype="section" n="3">
             <p>περὶ μὲν οὖν τοῦ μεγέθους τῆς ζημίας ἅπαντας ὑμᾶς νομίζω τὴν αὐτὴν διάνοιαν ἔχειν,
                καὶ οὐδένα οὕτως ὀλιγώρως διακεῖσθαι, ὅστις οἴεται δεῖν συγγνώμης τυγχάνειν ἢ μικρᾶς
                ζημίας ἀξίους ἡγεῖται τοὺς τῶν τοιούτων ἔργων αἰτίους· ἡγοῦμαι δέ, </p>
          </div>
-         <div type="section" n="4">
+         <div type="textpart" subtype="section" n="4">
             <p>ὦ ἄνδρες, τοῦτό με δεῖν ἐπιδεῖξαι, ὡς ἐμοίχευεν Ἐρατοσθένης τὴν γυναῖκα τὴν ἐμὴν καὶ
                ἐκείνην τε διέφθειρε καὶ τοὺς παῖδας τοὺς ἐμοὺς ᾔσχυνε καὶ ἐμὲ αὐτὸν ὕβρισεν εἰς τὴν
                οἰκίαν τὴν ἐμὴν εἰσιών, καὶ οὔτε ἔχθρα ἐμοὶ καὶ ἐκείνῳ οὐδεμία ἦν πλὴν ταύτης, οὔτε
                χρημάτων ἕνεκα ἔπραξα ταῦτα, ἵνα πλούσιος ἐκ πένητος γένωμαι, οὔτε ἄλλου κέρδους
                οὐδενὸς πλὴν τῆς κατὰ τοὺς νόμους τιμωρίας. </p>
          </div>
-         <div type="section" n="5">
+         <div type="textpart" subtype="section" n="5">
             <p>ἐγὼ τοίνυν ἐξ ἀρχῆς ὑμῖν ἅπαντα ἐπιδείξω τὰ ἐμαυτοῦ πράγματα, οὐδὲν παραλείπων, ἀλλὰ
                λέγων τἀληθῆ· ταύτην γὰρ ἐμαυτῷ μόνην ἡγοῦμαι σωτηρίαν, ἐὰν ὑμῖν εἰπεῖν ἅπαντα δυνηθῶ
                τὰ πεπραγμένα.<milestone unit="part" n="Narr"/>
             </p>
          </div>
-         <div type="section" n="6">
+         <div type="textpart" subtype="section" n="6">
             <p>
                <milestone unit="para" ed="P"/>ἐγὼ γάρ, ὦ Ἀθηναῖοι, ἐπειδὴ ἔδοξέ μοι γῆμαι καὶ
                γυναῖκα ἠγαγόμην εἰς τὴν οἰκίαν, τὸν μὲν ἄλλον χρόνον οὕτω διεκείμην ὥστε μήτε λυπεῖν
@@ -148,56 +117,56 @@
                πάντα τὰ ἐμαυτοῦ ἐκείνῃ παρέδωκα, ἡγούμενος ταύτην οἰκειότητα μεγίστην εἶναι· ἐν μὲν
                οὖν τῷ πρώτῳ χρόνῳ, </p>
          </div>
-         <div type="section" n="7">
+         <div type="textpart" subtype="section" n="7">
             <p>ὦ Ἀθηναῖοι, πασῶν ἦν βελτίστη· καὶ γὰρ οἰκονόμος δεινὴ καὶ φειδωλὸς <del>ἀγαθὴ</del>
-               <note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">ἀγαθὴ</foreign> del. Dobree.</note> καὶ ἀκριβῶς πάντα
+               <note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">ἀγαθὴ</foreign> del. Dobree.</note> καὶ ἀκριβῶς πάντα
                διοικοῦσα· ἐπειδὴ δέ μοι ἡ μήτηρ ἐτελεύτησε, πάντων τῶν κακῶν ἀποθανοῦσα αἰτία μοι
                γεγένηται. </p>
          </div>
-         <div type="section" n="8">
+         <div type="textpart" subtype="section" n="8">
             <p>ἐπʼ ἐκφορὰν γὰρ αὐτῇ ἀκολουθήσασα ἡ ἐμὴ γυνὴ ὑπὸ τούτου τοῦ ἀνθρώπου ὀφθεῖσα, χρόνῳ
                διαφθείρεται· ἐπιτηρῶν γὰρ τὴν θεράπαιναν τὴν εἰς τὴν ἀγορὰν βαδίζουσαν καὶ λόγους
                προσφέρων ἀπώλεσεν αὐτήν. </p>
          </div>
-         <div type="section" n="9">
+         <div type="textpart" subtype="section" n="9">
             <p>πρῶτον μὲν οὖν, ὦ ἄνδρες,(δεῖ γὰρ καὶ ταῦθʼ ὑμῖν διηγήσασθαι) οἰκίδιον ἔστι μοι
                διπλοῦν, ἴσα ἔχον τὰ ἄνω τοῖς κάτω κατὰ τὴν γυναικωνῖτιν καὶ κατὰ τὴν ἀνδρωνῖτιν.
                ἐπειδὴ δὲ τὸ παιδίον ἐγένετο ἡμῖν, ἡ μήτηρ αὐτὸ ἐθήλαζεν· ἵνα δὲ μή, ὁπότε λοῦσθαι
                δέοι, κινδυνεύῃ κατὰ τῆς κλίμακος καταβαίνουσα, ἐγὼ μὲν ἄνω διῃτώμην, αἱ δὲ γυναῖκες
                κάτω. </p>
          </div>
-         <div type="section" n="10">
+         <div type="textpart" subtype="section" n="10">
             <p>καὶ οὕτως ἤδη συνειθισμένον ἦν, ὥστε πολλάκις ἡ γυνὴ ἀπῄει κάτω καθευδήσουσα ὡς τὸ
                παιδίον, ἵνα τὸν τιτθὸν αὐτῷ διδῷ καὶ μὴ βοᾷ. καὶ ταῦτα πολὺν χρόνον οὕτως ἐγίγνετο,
                καὶ ἐγὼ οὐδέποτε ὑπώπτευσα, ἀλλʼ οὕτως ἠλιθίως διεκείμην, ὥστε ᾤμην τὴν ἐμαυτοῦ
                γυναῖκα πασῶν σωφρονεστάτην εἶναι τῶν ἐν τῇ πόλει. </p>
          </div>
-         <div type="section" n="11">
+         <div type="textpart" subtype="section" n="11">
             <p>προϊόντος δὲ τοῦ χρόνου, ὦ ἄνδρες, ἧκον μὲν ἀπροσδοκήτως ἐξ ἀγροῦ, μετὰ δὲ τὸ δεῖπνον
                τὸ παιδίον ἐβόα καὶ ἐδυσκόλαινεν ὑπὸ τῆς θεραπαίνης ἐπίτηδες λυπούμενον, ἵνα ταῦτα
                ποιῇ· ὁ γὰρ ἄνθρωπος ἔνδον ἦν· </p>
          </div>
-         <div type="section" n="12">
+         <div type="textpart" subtype="section" n="12">
             <p>ὕστερον γὰρ ἅπαντα ἐπυθόμην. καὶ ἐγὼ τὴν γυναῖκα ἀπιέναι ἐκέλευον καὶ δοῦναι τῷ
                παιδίῳ τὸν τιτθόν, ἵνα παύσηται κλᾶον. ἡ δὲ τὸ μὲν πρῶτον οὐκ ἤθελεν, ὡς ἂν ἀσμένη με
                ἑωρακυῖα ἥκοντα διὰ χρόνου· ἐπειδὴ δὲ ἐγὼ ὠργιζόμην καὶ ἐκέλευον αὐτὴν ἀπιέναι,
                   <q>ἵνα σύ γε</q> ἔφη <q>πειρᾷς ἐνταῦθα τὴν παιδίσκην· καὶ πρότερον δὲ μεθύων
                   εἷλκες αὐτήν.</q> κἀγὼ μὲν ἐγέλων, </p>
          </div>
-         <div type="section" n="13">
+         <div type="textpart" subtype="section" n="13">
             <p>ἐκείνη δὲ ἀναστᾶσα καὶ ἀπιοῦσα προστίθησι τὴν θύραν, προσποιουμένη παίζειν, καὶ τὴν
                κλεῖν ἐφέλκεται. κἀγὼ τούτων οὐδὲν ἐνθυμούμενος οὐδʼ ὑπονοῶν ἐκάθευδον ἄσμενος, ἥκων
                ἐξ ἀγροῦ. </p>
          </div>
-         <div type="section" n="14">
+         <div type="textpart" subtype="section" n="14">
             <p>ἐπειδὴ δὲ ἦν πρὸς ἡμέραν, ἧκεν ἐκείνη καὶ τὴν θύραν ἀνέῳξεν. ἐρομένου δέ μου τί αἱ
                θύραι νύκτωρ ψοφοῖεν, ἔφασκε τὸν λύχνον ἀποσβεσθῆναι τὸν παρὰ τῷ παιδίῳ, εἶτα ἐκ τῶν
                γειτόνων ἐνάψασθαι. ἐσιώπων ἐγὼ καὶ ταῦτα οὕτως ἔχειν ἡγούμην. ἔδοξε δέ μοι, ὦ
                ἄνδρες, τὸ πρόσωπον ἐψιμυθιῶσθαι, τοῦ ἀδελφοῦ τεθνεῶτος οὔπω τριάκονθʼ ἡμέρας· ὅμως
                δʼ οὐδʼ οὕτως οὐδὲν εἰπὼν περὶ τοῦ πράγματος ἐξελθὼν ᾠχόμην ἔξω σιωπῇ. </p>
          </div>
-         <div type="section" n="15">
+         <div type="textpart" subtype="section" n="15">
             <p>μετὰ δὲ ταῦτα, ὦ ἄνδρες, χρόνου μεταξὺ διαγενομένου καὶ ἐμοῦ πολὺ ἀπολελειμμένου τῶν
                ἐμαυτοῦ κακῶν, προσέρχεταί μοί τις πρεσβῦτις ἄνθρωπος, ὑπὸ γυναικὸς ὑποπεμφθεῖσα ἣν
                ἐκεῖνος ἐμοίχευεν, ὡς ἐγὼ ὕστερον ἤκουον· αὕτη δὲ ὀργιζομένη καὶ ἀδικεῖσθαι
@@ -207,24 +176,24 @@
                </q>
             </p>
          </div>
-         <div type="section" n="16">
+         <div type="textpart" subtype="section" n="16">
             <p>
                <q>ὁ γὰρ ἀνὴρ ὁ ὑβρίζων εἰς σὲ καὶ τὴν σὴν γυναῖκα ἐχθρὸς ὢν ἡμῖν τυγχάνει. ἐὰν οὖν
                   λάβῃς τὴν θεράπαιναν τὴν εἰς ἀγορὰν βαδίζουσαν καὶ διακονοῦσαν ὑμῖν καὶ βασανίσῃς,
                   ἅπαντα πεύσῃ. ἔστι δʼ</q> ἔφη <q>Ἐρατοσθένης Ὀῆθεν ὁ ταῦτα πράττων, ὃς οὐ μόνον
                   τὴν σὴν γυναῖκα διέφθαρκεν ἀλλὰ καὶ ἄλλας πολλάς· ταύτην γὰρ <del>τὴν</del>
-                  <note resp="Loeb" anchored="yes">
-                     <foreign lang="greek">τὴν</foreign> del. Bekker.</note> τέχνην ἔχει.</q>
+                  <note resp="Loeb" anchored="true">
+                     <foreign xml:lang="grc">τὴν</foreign> del. Bekker.</note> τέχνην ἔχει.</q>
             </p>
          </div>
-         <div type="section" n="17">
+         <div type="textpart" subtype="section" n="17">
             <p>ταῦτα εἰποῦσα, ὦ ἄνδρες, ἐκείνη μὲν ἀπηλλάγη, ἐγὼ δʼ εὐθέως ἐταραττόμην, καὶ πάντα
                μου εἰς τὴν γνώμην εἰσῄει, καὶ μεστὸς ἦ ὑποψίας, ἐνθυμούμενος μὲν ὡς ἀπεκλῄσθην ἐν τῷ
                δωματίῳ, ἀναμιμνῃσκόμενος δὲ ὅτι ἐν ἐκείνῃ τῇ νυκτὶ ἐψόφει ἡ μέταυλος θύρα καὶ ἡ
                αὔλειος, ὃ οὐδέποτε ἐγένετο, ἔδοξέ τέ μοι ἡ γυνὴ ἐψιμυθιῶσθαι. ταῦτά μου πάντα εἰς
                τὴν γνώμην εἰσῄει, καὶ μεστὸς ἦ ὑποψίας. </p>
          </div>
-         <div type="section" n="18">
+         <div type="textpart" subtype="section" n="18">
             <p>ἐλθὼν δὲ οἴκαδε ἐκέλευον ἀκολουθεῖν μοι τὴν θεράπαιναν εἰς τὴν ἀγοράν, ἀγαγὼν δʼ
                αὐτὴν ὡς τῶν ἐπιτηδείων τινὰ ἔλεγον ὅτι ἐγὼ πάντα εἴην πεπυσμένος τὰ γιγνόμενα ἐν τῇ
                οἰκίᾳ· <q>σοὶ οὖν</q> ἔφην <q>ἔξεστι δυοῖν ὁπότερον βούλει ἑλέσθαι, ἢ μαστιγωθεῖσαν
@@ -233,35 +202,35 @@
                   ἡμαρτημένων. ψεύσῃ δὲ μηδέν, ἀλλὰ πάντα τἀληθῆ λέγε.</q>
             </p>
          </div>
-         <div type="section" n="19">
+         <div type="textpart" subtype="section" n="19">
             <p>κἀκείνη τὸ μὲν πρῶτον ἔξαρνος ἦν, καὶ ποιεῖν ἐκέλευεν ὅ τι βούλομαι· οὐδὲν γὰρ
                εἰδέναι· ἐπειδὴ δὲ ἐγὼ ἐμνήσθην Ἐρατοσθένους πρὸς αὐτήν, καὶ εἶπον ὅτι οὗτος ὁ φοιτῶν
                εἴη πρὸς τὴν γυναῖκα, ἐξεπλάγη ἡγησαμένη με πάντα ἀκριβῶς ἐγνωκέναι. καὶ τότε ἤδη
                πρὸς τὰ γόνατά μου πεσοῦσα, </p>
          </div>
-         <div type="section" n="20">
+         <div type="textpart" subtype="section" n="20">
             <p>καὶ πίστιν παρʼ ἐμοῦ λαβοῦσα μηδὲν πείσεσθαι κακόν, κατηγόρει πρῶτον μὲν ὡς μετὰ τὴν
                ἐκφορὰν αὐτῇ προσίοι, ἔπειτα ὡς αὐτὴ τελευτῶσα εἰσαγγείλειε καὶ ὡς ἐκείνη τῷ χρόνῳ
-               πεισθείη, καὶ τὰς εἰσόδους οἷς τρόποις προσίοιτο,<note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">προσίοιτο</foreign> Kayser: <foreign lang="greek">προσίοι</foreign> MSS.</note> καὶ ὡς Θεσμοφορίοις ἐμοῦ ἐν ἀγρῷ ὄντος ᾤχετο εἰς
+               πεισθείη, καὶ τὰς εἰσόδους οἷς τρόποις προσίοιτο,<note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">προσίοιτο</foreign> Kayser: <foreign xml:lang="grc">προσίοι</foreign> MSS.</note> καὶ ὡς Θεσμοφορίοις ἐμοῦ ἐν ἀγρῷ ὄντος ᾤχετο εἰς
                τὸ ἱερὸν μετὰ τῆς μητρὸς τῆς ἐκείνου· καὶ τἆλλα τὰ γενόμενα πάντα ἀκριβῶς διηγήσατο.
                ἐπειδὴ δὲ πάντα εἴρητο αὐτῇ, </p>
          </div>
-         <div type="section" n="21">
+         <div type="textpart" subtype="section" n="21">
             <p>εἶπον ἐγώ, <q>ὅπως τοίνυν ταῦτα μηδεὶς ἀνθρώπων πεύσεται· εἰ δέ μή, οὐδέν σοι κύριον
                   ἔσται τῶν πρὸς ἔμʼ ὡμολογημένων. ἀξιῶ δέ σε ἐπʼ αὐτοφώρῳ ταῦτά μοι ἐπιδεῖξαι· ἐγὼ
                   γὰρ οὐδὲν δέομαι λόγων, ἀλλὰ τὸ ἔργον φανερὸν γενέσθαι, εἴπερ οὕτως ἔχει.</q>
             </p>
          </div>
-         <div type="section" n="22">
-            <p>ὡμολόγει ταῦτα ποιήσειν. καὶ μετὰ ταῦτα διεγένοντο ἡμέραι τέσσαρες ἢ πέντε,<gap/>ὡς
+         <div type="textpart" subtype="section" n="22">
+            <p>ὡμολόγει ταῦτα ποιήσειν. καὶ μετὰ ταῦτα διεγένοντο ἡμέραι τέσσαρες ἢ πέντε,<gap reason="lost"/>ὡς
                ἐγὼ μεγάλοις ὑμῖν τεκμηρίοις ἐπιδείξω. πρῶτον δὲ διηγήσασθαι βούλομαι τὰ πραχθέντα τῇ
                τελευταίᾳ ἡμέρᾳ. Σώστρατος ἦν μοι ἐπιτήδειος καὶ φίλος. τούτῳ ἡλίου δεδυκότος ἰόντι
                ἐξ ἀγροῦ ἀπήντησα. </p>
          </div>
-         <div type="section" n="23">
-            <p>εἰδὼς δʼ ἐγὼ ὅτι τηνικαῦτα ἀφιγμένος οὐδένα<note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">οὐδένα</foreign> Bekker: <foreign lang="greek">οὐδὲν ἂν
+         <div type="textpart" subtype="section" n="23">
+            <p>εἰδὼς δʼ ἐγὼ ὅτι τηνικαῦτα ἀφιγμένος οὐδένα<note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">οὐδένα</foreign> Bekker: <foreign xml:lang="grc">οὐδὲν ἂν
                   </foreign>MSS.</note> καταλήψοιτο οἴκοι τῶν ἐπιτηδείων, ἐκέλευον, συνδειπνεῖν· καὶ
                ἐλθόντες οἴκαδε ὡς ἐμέ, ἀναβάντες εἰς τὸ ὑπερῷον ἐδειπνοῦμεν. ἐπειδὴ δὲ καλῶς αὐτῷ
                εἶχεν, ἐκεῖνος μὲν ἀπιὼν ᾤχετο, ἐγὼ δʼ ἐκάθευδον. ὁ δʼ Ἐρατοσθένης, ὦ ἄνδρες,
@@ -269,23 +238,23 @@
                ἐκείνῃ ἐπιμελεῖσθαι τῆς θύρας, καταβὰς σιωπῇ ἐξέρχομαι, καὶ ἀφικνοῦμαι ὡς τὸν καὶ
                τόν, καὶ τοὺς μὲν ἔνδον κατέλαβον, τοὺς δὲ οὐκ ἐπιδημοῦντας ηὗρον. </p>
          </div>
-         <div type="section" n="24">
+         <div type="textpart" subtype="section" n="24">
             <p>παραλαβὼν δʼ ὡς οἷόν τε ἦν πλείστους ἐκ τῶν παρόντων ἐβάδιζον. καὶ δᾷδας λαβόντες ἐκ
                τοῦ ἐγγύτατα καπηλείου εἰσερχόμεθα, ἀνεῳγμένης τῆς θύρας καὶ ὑπὸ τῆς ἀνθρώπου
                παρεσκευασμένης. ὤσαντες δὲ τὴν θύραν τοῦ δωματίου οἱ μὲν πρῶτοι εἰσιόντες ἔτι
                εἴδομεν αὐτὸν κατακείμενον παρὰ τῇ γυναικί, οἱ δʼ ὕστερον ἐν τῇ κλίνῃ γυμνὸν
                ἑστηκότα. </p>
          </div>
-         <div type="section" n="25">
+         <div type="textpart" subtype="section" n="25">
             <p>ἐγὼ δʼ, ὦ ἄνδρες, πατάξας καταβάλλω αὐτόν, καὶ τὼ χεῖρε περιαγαγὼν εἰς τοὔπισθεν καὶ
                δήσας ἠρώτων διὰ τί ὑβρίζει εἰς τὴν οἰκίαν τὴν ἐμὴν εἰσιών. κἀκεῖνος ἀδικεῖν μὲν
-               ὡμολόγει, ἠντεβόλει δὲ καὶ ἱκέτευε μὴ ἀποκτεῖναι<note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">ἀποκτεῖναι</foreign> Hertlein: <foreign lang="greek">αὐτὸν
+               ὡμολόγει, ἠντεβόλει δὲ καὶ ἱκέτευε μὴ ἀποκτεῖναι<note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">ἀποκτεῖναι</foreign> Hertlein: <foreign xml:lang="grc">αὐτὸν
                      κτεῖναι</foreign> MSS.</note> ἀλλʼ ἀργύριον πράξασθαι. ἐγὼ δʼ εἶπον ὅτι <q>οὐκ
                   ἐγώ σε ἀποκτενῶ, </q>
             </p>
          </div>
-         <div type="section" n="26">
+         <div type="textpart" subtype="section" n="26">
             <p>
                <q>ἀλλʼ ὁ τῆς πόλεως νόμος, ὃν σὺ παραβαίνων περὶ ἐλάττονος τῶν ἡδονῶν ἐποιήσω, καὶ
                   μᾶλλον εἵλου τοιοῦτον ἁμάρτημα ἐξαμαρτάνειν εἰς τὴν γυναῖκα τὴν ἐμὴν καὶ εἰς τοὺς
@@ -293,14 +262,14 @@
                <milestone unit="part" n="Proof"/>
             </p>
          </div>
-         <div type="section" n="27">
+         <div type="textpart" subtype="section" n="27">
             <p>οὕτως, ὦ ἄνδρες, ἐκεῖνος τούτων ἔτυχεν ὧνπερ οἱ νόμοι κελεύουσι τοὺς τὰ τοιαῦτα
                πράττοντας, οὐκ εἰσαρπασθεὶς ἐκ τῆς ὁδοῦ, οὐδʼ ἐπὶ τὴν ἑστίαν καταφυγών, ὥσπερ οὗτοι
                λέγουσι· πῶς γὰρ ἄν, ὅστις ἐν τῷ δωματίῳ πληγεὶς κατέπεσεν εὐθύς, περιέστρεψα δʼ
                αὐτοῦ τὼ χεῖρε, ἔνδον δὲ ἦσαν ἄνθρωποι τοσοῦτοι, οὓς διαφυγεῖν οὐκ ἐδύνατο, οὔτε
                σίδηρον οὔτε ξύλον οὔτε ἄλλο οὐδὲν ἔχων, ᾧ τοὺς εἰσελθόντας ἂν ἠμύνατο. </p>
          </div>
-         <div type="section" n="28">
+         <div type="textpart" subtype="section" n="28">
             <p>ἀλλʼ, ὦ ἄνδρες, οἶμαι καὶ ὑμᾶς εἰδέναι ὅτι οἱ μὴ τὰ δίκαια πράττοντες οὐχ ὁμολογοῦσι
                τοὺς ἐχθροὺς λέγειν ἀληθῆ, ἀλλʼ αὐτοὶ ψευδόμενοι καὶ τὰ τοιαῦτα μηχανώμενοι ὀργὰς
                τοῖς ἀκούουσι κατὰ τῶν τὰ δίκαια πραττόντων παρασκευάζουσι. πρῶτον μὲν οὖν ἀνάγνωθι
@@ -309,7 +278,7 @@
                </quote>
             </p>
          </div>
-         <div type="section" n="29">
+         <div type="textpart" subtype="section" n="29">
             <p>
                <milestone unit="para" ed="P"/>οὐκ ἠμφεσβήτει, ὦ ἄνδρες, ἀλλʼ ὡμολόγει ἀδικεῖν, καὶ
                ὅπως μὲν μὴ ἀποθάνῃ ἠντεβόλει καὶ ἱκέτευεν, ἀποτίνειν δʼ ἕτοιμος ἦν χρήματα. ἐγὼ δὲ
@@ -320,21 +289,21 @@
                </quote>
             </p>
          </div>
-         <div type="section" n="30">
+         <div type="textpart" subtype="section" n="30">
             <p>
                <milestone unit="para" ed="P"/>ἀνάγνωθι δέ μοι καὶ τοῦτον τὸν νόμον <add>τὸν</add>
-               <note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">τὸν</foreign> add. Westermann.</note> ἐκ τῆς στήλης τῆς ἐξ
+               <note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">τὸν</foreign> add. Westermann.</note> ἐκ τῆς στήλης τῆς ἐξ
                Ἀρείου πάγου.<quote type="*no/mos">
                   <title>Νόμος</title>
                </quote>
                <milestone unit="para" ed="P"/>ἀκούετε, ὦ ἄνδρες, ὅτι αὐτῷ τῷ δικαστηρίῳ τῷ ἐξ Ἀρείου
                πάγου, ᾧ καὶ πάτριόν ἐστι καὶ ἐφʼ ἡμῶν ἀποδέδοται τοῦ φόνου τὰς δίκας δικάζειν,
-               διαρρήδην εἴρηται τούτου μὴ καταγιγνώσκειν φόνον,<note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">τούτου <gap/> φόνον</foreign> Reiske: <foreign lang="greek">τοῦτον <gap/> φόνου</foreign> MSS.</note> ὃς ἂν ἐπὶ δάμαρτι τῇ ἑαυτοῦ μοιχὸν
+               διαρρήδην εἴρηται τούτου μὴ καταγιγνώσκειν φόνον,<note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">τούτου <gap reason="lost"/> φόνον</foreign> Reiske: <foreign xml:lang="grc">τοῦτον <gap reason="lost"/> φόνου</foreign> MSS.</note> ὃς ἂν ἐπὶ δάμαρτι τῇ ἑαυτοῦ μοιχὸν
                λαβὼν ταύτην τὴν τιμωρίαν ποιήσηται. </p>
          </div>
-         <div type="section" n="31">
+         <div type="textpart" subtype="section" n="31">
             <p>καὶ οὕτω σφόδρα ὁ νομοθέτης ἐπὶ ταῖς γαμεταῖς γυναιξὶ δίκαια ταῦτα ἡγήσατο εἶναι,
                ὥστε καὶ ἐπὶ ταῖς παλλακαῖς ταῖς ἐλάττονος ἀξίαις τὴν αὐτὴν δίκην ἐπέθηκε. καίτοι
                δῆλον ὅτι, εἴ τινα εἶχε ταύτης μείζω τιμωρίαν ἐπὶ ταῖς γαμεταῖς, ἐποίησεν ἄν. νῦν δὲ
@@ -344,7 +313,7 @@
                </quote>
             </p>
          </div>
-         <div type="section" n="32">
+         <div type="textpart" subtype="section" n="32">
             <p>
                <milestone unit="para" ed="P"/>ἀκούετε, ἄνδρες, ὅτι κελεύει, ἐάν τις ἄνθρωπον
                ἐλεύθερον ἢ παῖδα αἰσχύνῃ βίᾳ, διπλῆν τὴν βλάβην ὀφείλειν· ἐὰν δὲ γυναῖκα, ἐφʼ αἷσπερ
@@ -353,73 +322,73 @@
                τοῖς δὲ διπλῆν ἐποίησε τὴν βλάβην, ἡγούμενος τοὺς μὲν διαπραττομένους βίᾳ ὑπὸ τῶν
                βιασθέντων μισεῖσθαι, </p>
          </div>
-         <div type="section" n="33">
+         <div type="textpart" subtype="section" n="33">
             <p>τοὺς δὲ πείσαντας οὕτως αὐτῶν τὰς ψυχὰς διαφθείρειν, ὥστʼ οἰκειοτέρας αὑτοῖς ποιεῖν
                τὰς ἀλλοτρίας γυναῖκας ἢ τοῖς ἀνδράσι, καὶ πᾶσαν ἐπʼ ἐκείνοις τὴν οἰκίαν γεγονέναι,
                καὶ τοὺς παῖδας ἀδήλους εἶναι ὁποτέρων τυγχάνουσιν ὄντες, τῶν ἀνδρῶν ἢ τῶν μοιχῶν.
                ἀνθʼ ὧν ὁ τὸν νόμον τιθεὶς θάνατον αὐτοῖς ἐποίησε τὴν ζημίαν. </p>
          </div>
-         <div type="section" n="34">
+         <div type="textpart" subtype="section" n="34">
             <p>ἐμοῦ τοίνυν, ὦ ἄνδρες, οἱ μὲν νόμοι οὐ μόνον ἀπεγνωκότες εἰσὶ μὴ ἀδικεῖν, ἀλλὰ καὶ
                κεκελευκότες ταύτην τὴν δίκην λαμβάνειν· ἐν ὑμῖν δʼ ἐστὶ πότερον χρὴ τούτους ἰσχυροὺς
                ἢ μηδενὸς ἀξίους εἶναι. </p>
          </div>
-         <div type="section" n="35">
+         <div type="textpart" subtype="section" n="35">
             <p>ἐγὼ μὲν γὰρ οἶμαι πάσας τὰς πόλεις διὰ τοῦτο τοὺς νόμους τίθεσθαι, ἵνα περὶ ὧν ἂν
                πραγμάτων ἀπορῶμεν, παρὰ τούτους ἐλθόντες σκεψώμεθα ὅ τι ἡμῖν ποιητέον ἐστίν. οὗτοι
                τοίνυν περὶ τῶν τοιούτων τοῖς ἀδικουμένοις τοιαύτην δίκην λαμβάνειν παρακελεύονται.
             </p>
          </div>
-         <div type="section" n="36">
+         <div type="textpart" subtype="section" n="36">
             <p>οἷς ὑμᾶς ἀξιῶ τὴν αὐτὴν γνώμην ἔχειν· εἰ δὲ μή, τοιαύτην ἄδειαν τοῖς μοιχοῖς
-               ποιήσετε, ὥστε<note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">ὥστε</foreign> Baiter et Sauppe: <foreign lang="greek">ὡς</foreign> MSS.</note> καὶ τοὺς κλέπτας ἐπαρεῖτε φάσκειν μοιχοὺς εἶναι, εὖ
+               ποιήσετε, ὥστε<note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">ὥστε</foreign> Baiter et Sauppe: <foreign xml:lang="grc">ὡς</foreign> MSS.</note> καὶ τοὺς κλέπτας ἐπαρεῖτε φάσκειν μοιχοὺς εἶναι, εὖ
                εἰδότας ὅτι, ἐὰν ταύτην τὴν αἰτίαν περὶ ἑαυτῶν λέγωσι καὶ ἐπὶ τούτῳ φάσκωσιν εἰς τὰς
                ἀλλοτρίας οἰκίας εἰσιέναι, οὐδεὶς αὐτῶν ἅψεται. πάντες γὰρ εἴσονται ὅτι τοὺς μὲν
                νόμους τῆς μοιχείας χαίρειν ἐᾶν δεῖ, τὴν δὲ ψῆφον τὴν ὑμετέραν δεδιέναι· αὕτη γάρ
                ἐστι πάντων τῶν ἐν τῇ πόλει κυριωτάτη. </p>
          </div>
-         <div type="section" n="37">
+         <div type="textpart" subtype="section" n="37">
             <p>
                <milestone unit="para" ed="P"/>σκέψασθε δέ, ὦ ἄνδρες· κατηγοροῦσι γάρ μου ὡς ἐγὼ τὴν
                θεράπαιναν ἐν ἐκείνῃ τῇ ἡμέρᾳ μετελθεῖν ἐκέλευσα τὸν νεανίσκον. ἐγὼ δέ, ὦ ἄνδρες,
                δίκαιον μὲν ἂν ποιεῖν ἡγούμην ᾡτινιοῦν τρόπῳ τὸν τὴν γυναῖκα τὴν ἐμὴν διαφθείραντα
             </p>
          </div>
-         <div type="section" n="38">
+         <div type="textpart" subtype="section" n="38">
             <p>λαμβάνων· εἰ μὲν γὰρ λόγων εἰρημένων ἔργου δὲ μηδενὸς γεγενημένου μετελθεῖν ἐκέλευον
                ἐκεῖνον, ἠδίκουν ἄν· εἰ δὲ ἤδη πάντων διαπεπραγμένων καὶ πολλάκις εἰσεληλυθότος εἰς
                τὴν οἰκίαν τὴν ἐμὴν ᾡτινιοῦν τρόπῳ ἐλάμβανον αὐτόν, σωφρονεῖν <add>ἂν</add>
-               <note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">ἂν</foreign> add. Taylor.</note> ἐμαυτὸν ἡγούμην· </p>
+               <note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">ἂν</foreign> add. Taylor.</note> ἐμαυτὸν ἡγούμην· </p>
          </div>
-         <div type="section" n="39">
+         <div type="textpart" subtype="section" n="39">
             <p>σκέψασθε δὲ ὅτι καὶ ταῦτα ψεύδονται· ῥᾳδίως δὲ ἐκ τῶνδε γνώσεσθε. ἐμοὶ γάρ, ὦ ἄνδρες,
                ὅπερ καὶ πρότερον εἶπον, φίλος ὢν Σώστρατος καὶ οἰκείως διακείμενος ἀπαντήσας ἐξ
                ἀγροῦ περὶ ἡλίου δυσμὰς συνεδείπνει, καὶ ἐπειδὴ καλῶς εἶχεν αὐτῷ, ἀπιὼν ᾤχετο. </p>
          </div>
-         <div type="section" n="40">
+         <div type="textpart" subtype="section" n="40">
             <p>καίτοι πρῶτον μέν, ὦ ἄνδρες, ἐνθυμήθητε· <del>ὅτι</del>
-               <note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">ὅτι</foreign> del. Reiske.</note> εἰ ἐν ἐκείνῃ τῇ νυκτὶ ἐγὼ
+               <note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">ὅτι</foreign> del. Reiske.</note> εἰ ἐν ἐκείνῃ τῇ νυκτὶ ἐγὼ
                ἐπεβούλευον Ἐρατοσθένει, πότερον ἦν μοι κρεῖττον αὐτῷ ἑτέρωθι δειπνεῖν ἢ τὸν
                συνδειπνήσοντά μοι εἰσαγαγεῖν; οὕτω γὰρ ἂν ἧττον ἐτόλμησεν ἐκεῖνος εἰσελθεῖν εἰς τὴν
                οἰκίαν. εἶτα δοκῶ ἂν ὑμῖν τὸν συνδειπνοῦντα ἀφεὶς μόνος καταλειφθῆναι καὶ ἔρημος
-               γενέσθαι, ἢ κελεύειν ἐκεῖνον μεῖναι,<note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">μεῖναι</foreign> Fuhr: <foreign lang="greek">μὲν εἶναι,
+               γενέσθαι, ἢ κελεύειν ἐκεῖνον μεῖναι,<note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">μεῖναι</foreign> Fuhr: <foreign xml:lang="grc">μὲν εἶναι,
                      μένειν</foreign> MSS.</note> ἵνα μετʼ ἐμοῦ τὸν μοιχὸν ἐτιμωρεῖτο; </p>
          </div>
-         <div type="section" n="41">
+         <div type="textpart" subtype="section" n="41">
             <p>ἔπειτα, ὦ ἄνδρες, οὐκ ἂν δοκῶ ὑμῖν τοῖς ἐπιτηδείοις μεθʼ ἡμέραν παραγγεῖλαι, καὶ
                κελεῦσαι αὐτοὺς συλλεγῆναι εἰς οἰκίαν <add>του</add>
-               <note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">του</foreign> add. Gernet et Bizor.</note> τῶν φίλων
+               <note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">του</foreign> add. Gernet et Bizor.</note> τῶν φίλων
                ἐγγυτάτω, μᾶλλον ἢ ἐπειδὴ τάχιστα ᾐσθόμην τῆς νυκτὸς περιτρέχειν, οὐκ εἰδὼς ὅντινα
                οἴκοι καταλήψομαι καὶ ὅντινα ἔξω; καὶ ὡς Ἁρμόδιον μὲν καὶ τὸν δεῖνα ἦλθον οὐκ
                ἐπιδημοῦντας (οὐ γὰρ ᾔδη), ἑτέρους δὲ οὐκ ἔνδον ὄντας κατέλαβον, οὓς δʼ οἷός τε ἦ
                λαβὼν ἐβάδιζον. </p>
          </div>
-         <div type="section" n="42">
+         <div type="textpart" subtype="section" n="42">
             <p>καίτοιγε εἰ προῄδη, οὐκ ἂν δοκῶ ὑμῖν καὶ θεράποντας παρασκευάσασθαι καὶ τοῖς φίλοις
                παραγγεῖλαι, ἵνʼ ὡς ἀσφαλέστατα μὲν αὐτὸς εἰσῄα (τί γὰρ ᾔδη εἴ τι κἀκεῖνος εἶχε
                σιδήριον;), ὡς μετὰ πλείστων δὲ μαρτύρων τὴν τιμωρίαν ἐποιούμην; νῦν δʼ οὐδὲν εἰδὼς
@@ -430,52 +399,53 @@
                <milestone unit="part" n="Concl"/>
             </p>
          </div>
-         <div type="section" n="43">
+         <div type="textpart" subtype="section" n="43">
             <p>
                <milestone unit="para" ed="P"/>τῶν μὲν μαρτύρων ἀκηκόατε, ὦ ἄνδρες· σκέψασθε δὲ παρʼ
                ὑμῖν αὐτοῖς οὕτως περὶ τούτου τοῦ πράγματος, ζητοῦντες εἴ τις ἐμοὶ καὶ Ἐρατοσθένει
                ἔχθρα πώποτε γεγένηται πλὴν ταύτης. οὐδεμίαν γὰρ εὑρήσετε. </p>
          </div>
-         <div type="section" n="44">
+         <div type="textpart" subtype="section" n="44">
             <p>οὔτε γὰρ συκοφαντῶν γραφάς με ἐγράψατο, οὔτε ἐκβάλλειν ἐκ τῆς πόλεως ἐπεχείρησεν,
                οὕτε ἰδίας δίκας ἐδικάζετο, οὔτε συνῄδει κακὸν οὐδὲν ὃ ἐγὼ δεδιὼς μή τις πύθηται
-               ἐπεθύμουν αὐτὸν ἀπολέσαι, οὔτε εἰ ταῦτα διαπραξαίμην,<note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">διαπραξαίμην</foreign> Lipsius: <foreign lang="greek">διεπραξάμην</foreign> MSS.</note> ἤλπιζόν ποθεν<note resp="Loeb" anchored="yes">
-                  <foreign lang="greek">ποθεν</foreign> Emperius: <foreign lang="greek">μὲν</foreign> codd. plerique, om. duo</note> χρήματα λήψεσθαι· ἔνιοι γὰρ
+               ἐπεθύμουν αὐτὸν ἀπολέσαι, οὔτε εἰ ταῦτα διαπραξαίμην,<note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">διαπραξαίμην</foreign> Lipsius: <foreign xml:lang="grc">διεπραξάμην</foreign> MSS.</note> ἤλπιζόν ποθεν<note resp="Loeb" anchored="true">
+                  <foreign xml:lang="grc">ποθεν</foreign> Emperius: <foreign xml:lang="grc">μὲν</foreign> codd. plerique, om. duo</note> χρήματα λήψεσθαι· ἔνιοι γὰρ
                τοιούτων πραγμάτων ἕνεκα θάνατον ἀλλήλοις ἐπιβουλεύουσι. </p>
          </div>
-         <div type="section" n="45">
+         <div type="textpart" subtype="section" n="45">
             <p>τοσούτου τοίνυν δεῖ ἢ λοιδορία ἢ παροινία ἢ ἄλλη τις διαφορὰ ἡμῖν γεγονέναι, ὥστε
                οὐδὲ ἑωρακὼς ἦ τὸν ἄνθρωπον πώποτε πλὴν ἐν ἐκείνῃ τῇ νυκτί. τί ἄν οὖν βουλόμενος ἐγὼ
                τοιοῦτον κίνδυνον ἐκινδύνευον, εἰ μὴ τὸ μέγιστον τῶν ἀδικημάτων ἦ ὑπʼ αὐτοῦ
                ἠδικημένος; </p>
          </div>
-         <div type="section" n="46">
+         <div type="textpart" subtype="section" n="46">
             <p>ἔπειτα παρακαλέσας αὐτὸς μάρτυρας ἠσέβουν, ἐξόν μοι, εἴπερ ἀδίκως ἐπεθύμουν αὐτὸν
                ἀπολέσαι, μηδένα μοι τούτων συνειδέναι; </p>
          </div>
-         <div type="section" n="47">
+         <div type="textpart" subtype="section" n="47">
             <p>
                <milestone unit="para" ed="P"/>ἐγὼ μὲν οὖν, ὦ ἄνδρες, οὐκ ἰδίαν ὑπὲρ ἐμαυτοῦ νομίζω
                ταύτην γενέσθαι τὴν τιμωρίαν, ἀλλʼ ὑπὲρ τῆς πόλεως ἁπάσης· οἱ γὰρ τοιαῦτα πράττοντες,
                ὁρῶντες οἷα τὰ ἆθλα πρόκειται τῶν τοιούτων ἁμαρτημάτων, ἧττον εἰς τοὺς ἄλλους
                ἐξαμαρτήσονται, ἐὰν καὶ ὑμᾶς ὁρῶσι τὴν αὐτὴν γνώμην ἔχοντας. </p>
          </div>
-         <div type="section" n="48">
+         <div type="textpart" subtype="section" n="48">
             <p>εἰ δὲ μή, πολὺ κάλλιον τοὺς μὲν κειμένους νόμους ἐξαλεῖψαι, ἑτέρους δὲ θεῖναι,
                οἵτινες τοὺς μὲν φυλάττοντας τὰς ἑαυτῶν γυναῖκας ταῖς ζημίαις ζημιώσουσι, τοῖς δὲ
                βουλομένοις εἰς αὐτὰς ἁμαρτάνειν πολλὴν ἄδειαν ποιήσουσι. </p>
          </div>
-         <div type="section" n="49">
+         <div type="textpart" subtype="section" n="49">
             <p>πολὺ γὰρ οὕτω δικαιότερον ἢ ὑπὸ τῶν νόμων τοὺς πολίτας ἐνεδρεύεσθαι, οἳ κελεύουσι
                μέν, ἐάν τις μοιχὸν λάβῃ, ὅ τι ἂν οὖν βούληται χρῆσθαι, οἱ δʼ ἀγῶνες δεινότεροι τοῖς
                ἀδικουμένοις καθεστήκασιν ἢ τοῖς παρὰ τοὺς νόμους τὰς ἀλλοτρίας καταισχύνουσι
                γυναῖκας. </p>
          </div>
-         <div type="section" n="50">
+         <div type="textpart" subtype="section" n="50">
             <p>ἐγὼ γὰρ νῦν καὶ περὶ τοῦ σώματος καὶ περὶ τῶν χρημάτων καὶ περὶ τῶν ἄλλων ἁπάντων
                κινδυνεύω, ὅτι τοῖς τῆς πόλεως νόμοις ἐπειθόμην.</p>
          </div>
+         </div>   
       </body>
    </text>
 </TEI>
