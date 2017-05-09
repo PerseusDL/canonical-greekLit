@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader>
     <fileDesc>
@@ -41,10 +42,15 @@
 
     </fileDesc>
     <encodingDesc>
-      <refsDecl>
+      <refsDecl n="CTS">
+        <cRefPattern replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])" matchPattern="(\w+)">
+          <p>This pointer pattern extracts section</p>
+        </cRefPattern>
+      </refsDecl>
+      <!--<refsDecl>
         <refState unit="speech"/>
         <refState unit="section"/>
-      </refsDecl>
+      </refsDecl>-->
     </encodingDesc>
     <profileDesc>
       <langUsage>
@@ -53,173 +59,79 @@
       </langUsage>
     </profileDesc>
     <revisionDesc>
-      <!--
-<change><date>2/92</date><respStmt><name>wmerrill</name><resp>(n/a)</resp></respStmt><item>revise markup</item>
-</change>
-<change><date>6/92</date><respStmt><name>wmerrill</name><resp>(n/a)</resp></respStmt><item>checkmark</item>
-</change>
-<change><date>10/92</date><respStmt><name>David Smith</name><resp>(n/a)</resp></respStmt><item>fixed the notes and regularized tagging capitalization; combined the two Lysias files</item>
-</change>
-<change><date>July 2014</date>
-    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
-    <item>split speeches and converted to unicode</item>
-      </change></change>-->
+      <change when="2017-05-09" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
       <change when="2014-10-01" who="Stella Dee">edited markup</change>
+      <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
+      <change when="1992-10-01" who="David Smith">fixed the notes and regularized tagging capitalization; combined the two Lysias files</change>
+      <change when="1992-06-01" who="wmerrill">checkmark</change>
+      <change when="1992-02-01" who="wmerrill">revise markup</change>
     </revisionDesc>
   </teiHeader>
   <text xml:lang="eng">
     <body>
-      <p>
-        <milestone n="1" unit="section"/><milestone ed="P" unit="para"/>I can almost find it in me
-        to be grateful to my accuser, gentlemen of the Council, for having involved me in these
-        proceedings. For previously I had no excuse for rendering an account of my life; but now,
-        owing to this man, I have got one. So I will try to show you in my speech that this man is
-        lying, and that my own life until this day has been deserving of praise rather than envy;
-        for it is merely from envy, in my opinion, that he has involved me in this ordeal.
-          <milestone n="2" unit="section"/>But I ask you, if a man envies those whom other people
-        pity, from what villainy do you think such a person would refrain? Is it possible that he
-        hopes to get money by slandering me?<note anchored="true" resp="Loeb">A poor man like the
-          speaker was not the natural prey of a slander-monger, who would hope to be bought off by a
-          wealthy defendant.</note> And if he makes me out an enemy on whom he seeks to be avenged,
-        he lies; for his villainy has always kept me from having any dealings with him either as a
-        friend or as an enemy. <milestone n="3" unit="section"/>So now, gentlemen, it is clear that
-        he envies me because, although I have to bear this sore misfortune, I am a better citizen
-        than he is. For indeed I consider, gentlemen, that one ought to remedy the afflictions of
-        the body with the activities of the spirit; for if I am to keep my thoughts and the general
-        tenor of my life on the level of my misfortune, how shall I be distinguished from this man?
-          <milestone n="4" unit="section"/><milestone ed="P" unit="para"/>Well, in regard to those
-        matters, let these few words of mine suffice: I will now speak as briefly as I can on the
-        points with which I am here concerned. My accuser says that I have no right to receive my
-        civil pension, because I am able-bodied and not classed as disabled, and because I am
-        skilled in a trade which would enable me to live without this grant. <milestone n="5"
-          unit="section"/>In proof of my bodily strength, he instances that I mount on horseback; of
-        the affluence arising from my trade, that I am able to associate with people who have means
-        to spend. Now, as to the affluence from my trade and the nature of my livelihood in general,
-        I think you are all acquainted with these: I will, however, make some brief remarks of my
-        own. <milestone n="6" unit="section"/>My father left me nothing, and I have only ceased
-        supporting my mother on her decease two years ago; while as yet I have no children to take
-        care of me. I possess a trade that can give me but slight assistance: I already find
-        difficulty in carrying it on myself, and as yet I am unable to procure someone to relieve me
-        of the work.<note anchored="true" resp="Loeb">He means a slave who would learn the business
-          and carry it on for him.</note> I have no other income besides this dole, and if you
-        deprive me of it I might be in danger of finding myself in the most grievous plight.
-          <milestone n="7" unit="section"/>Do not, therefore, gentlemen, when you can save me
-        justly, ruin me unjustly; what you granted me when I was younger and stronger, do not take
-        from me when I am growing older and weaker; nor, with your previous reputation for showing
-        the utmost compassion even towards those who are in no trouble, be moved now by this man to
-        deal harshly with those who are objects of pity even to their enemies; nor, by having the
-        heart to wrong me, cause everyone else in my situation to despond. <milestone n="8"
-          unit="section"/>And indeed, how extraordinary the case would be, gentlemen! When my
-        misfortune was but simple, I am found to have been receiving this pension; but now, when old
-        age, diseases, and the ills that attend on them are added to my trouble, I am to be deprived
-        of it! <milestone n="9" unit="section"/>The depth of my poverty, I believe, can be revealed
-        more clearly by my accuser than by anyone else on earth. For if I were charged with the duty
-        of producing tragic drama, and should challenge him to an exchange of property,<note
-          anchored="true" resp="Loeb">See note on <bibl n="Lys. 3.20">Lys. 3.20</bibl>. (A wealthy
-          citizen, such as the speaker here, had to undertake certain public services, which he
-          could only avoid by challenging some other citizen, whom he considered wealthier than
-          himself, either to exchange his property with him, or to undertake the service.)</note> he
-        would prefer being the producer ten times over to making the exchange once. Surely it is
-        monstrous that he should now accuse me of having such great affluence that I can consort on
-        equal terms with the wealthiest people, while, in the event of such a thing as I have
-        suggested, he should make that choice. Why, what could be more villainous? <milestone n="10"
-          unit="section"/><milestone ed="P" unit="para"/>As to my horsemanship, which he has dared
-        to mention to you, feeling neither awe of fortune nor shame before you, there is not much to
-        tell. For I, gentlemen, am of opinion that all who suffer from some affliction make it their
-        single aim and constant study to manage the condition that has befallen them with the least
-        amount of discomfort. I am such an one, and in the misfortune that has stricken me I have
-        devised this facility for myself on the longer journeys that I find necessary. <milestone
-          n="11" unit="section"/>But the strongest proof, gentlemen, of the fact that I mount horses
-        because of my misfortune, and not from insolence, as this man alleges, is this: if I were a
-        man of means, I should ride on a saddled mule, and would not mount other men’s horses. But
-        in fact, as I am unable to acquire anything of the sort, I am compelled, now and again, to
-        use other men’s horses. <milestone n="12" unit="section"/>Well, I ask you, gentlemen, is it
-        not extraordinary that, if he saw me riding on a saddled mule, he would hold his peace,—for
-        what could he say?<note anchored="true" resp="Loeb">It would be natural for a cripple to
-          ride about on a cheaply hired mule, if only he could afford it.</note>—and then, because I
-        mount borrowed horses, he should try to persuade you that I am able-bodied; and that my
-        using two sticks, while others use one, should not be argued by him against me as a sign of
-        being able-bodied, but my mounting horses should be advanced by him as a proof to you that I
-        am able-bodied? For I use both aids for the same reason. <milestone n="13" unit="section"
-          /><milestone ed="P" unit="para"/>So utterly has he surpassed the whole human race in
-        impudence that he tries with his single voice to persuade you all that I am not classed as
-        disabled. Yet if he should persuade any of you on this point, gentlemen, what hinders me
-        from drawing a lot for election as one of the nine archons,<note anchored="true" resp="Loeb"
-          >The archons were appointed by lot from all the citizens, rich or poor, except,
-          apparently, those who were formally classed as infirm.</note> and you from depriving me of
-        my obol as having sound health, and voting it unanimously to this man as being a cripple?
-        For surely, after you have deprived a man of the grant as being able-bodied, the law
-        officers are not going to debar this same person, as being disabled, from drawing a lot!
-          <milestone n="14" unit="section"/>Nay, indeed, you are not of the same opinion as he is,
-        nor is he either, and rightly so. For he has come here to dispute over my misfortune as if
-        over an heiress, and he tries to persuade you that I am not the sort of man that you all see
-        me to be; but you —as is incumbent on men of good sense —have rather to believe your own
-        eyes than this person’s words. <milestone n="15" unit="section"/><milestone ed="P"
-          unit="para"/>He says that I am insolent, savage, and utterly abandoned in my behavior, as
-        though he needed the use of terrifying terms to speak the truth, and could not do it in
-        quite gentle language. But I expect you, gentlemen, to distinguish clearly between those
-        people who are at liberty to be insolent and those who are debarred from it. <milestone
-          n="16" unit="section"/>For insolence is not likely to be shown by poor men laboring in the
-        utmost indigence, but by those who possess far more than the necessaries of life; nor by men
-        disabled in body, but by those who have most reason to rely on their own strength; nor by
-        those already advanced in years, but by those who are still young and have a youthful turn
-        of mind. <milestone n="17" unit="section"/>For the wealthy purchase with their money escape
-        from the risks that they run, whereas the poor are compelled to moderation by the pressure
-        of their want. The young are held to merit indulgence from their elders; but if their elders
-        are guilty of offence, both ages unite in reproaching them. <milestone n="18" unit="section"
-        />The strong are at liberty to insult whomsoever they will with impunity, but the weak are
-        unable either to beat off their aggressors when insulted, or to get the better of their
-        victims if they choose to insult. Hence it seems to me that my accuser was not serious in
-        speaking of my insolence, but was only jesting; his purpose was, not to persuade you that
-        such is my nature, but to set me in a comic light, as a fine stroke of fancy. <milestone
-          n="19" unit="section"/><milestone ed="P" unit="para"/>He further asserts that my shop is
-        the meeting place of a number of rogues who have spent their own money and hatch plots
-        against those who wish to preserve theirs. But you must all take note that these statements
-        of his are no more accusations against me than against anyone else who has a trade, nor
-        against those who visit my shop any more than those who frequent other men of business.
-          <milestone n="20" unit="section"/>For each of you is in the habit of paying a call at
-        either a perfumer’s or a barber’s or a shoemaker’s shop, or wherever he may chance to go,
-        —in most cases, it is to the tradesmen who have set up nearest the marketplace, and in
-        fewest, to those who are farthest from it. So if any of you should brand with roguery the
-        men who visit my shop, clearly you must do the same to those who pass their time in the
-        shops of others; and if to them, to all the Athenians: for you are all in the habit of
-        paying a call and passing your time at some shop or other. <milestone n="21" unit="section"
-          /><milestone ed="P" unit="para"/>But really I see no need for me to be so very particular
-        in rebutting each one of the statements that he has made, and to weary you any longer. For
-        if I have argued the principal points, what need is there to dwell seriously on trifles in
-        the same way as he does? But I beg you all, gentlemen of the Council, to hold the same views
-        concerning me as you have held till now. <milestone n="22" unit="section"/>Do not be led by
-        this man to deprive me of the sole benefit in my country of which fortune has granted me a
-        share, nor let this one person prevail on you to withdraw now what you all agreed to grant
-        me in the past. For, gentlemen, since Heaven had deprived us<note anchored="true"
-          resp="Loeb">The speaker here solemnly appeals for himself as one of an unfortunate
-          class.</note> of the chiefest things, the city voted us this pension, regarding the
-        chances of evil and of good as the same for all alike. <milestone n="23" unit="section"
-        />Surely I should be the most miserable of creatures if, after being deprived by my
-        misfortune of the fairest and greatest things, the accuser should cause me the loss of that
-        which the city bestowed in her thoughtful care for men in my situation. No, no, gentlemen;
-        you must not vote that way. And why should I find you thus inclined? <milestone n="24"
-          unit="section"/>Because anyone has ever been brought to trial at my instance and lost his
-        fortune? There is nobody who can prove it. Well, is it that I am a busybody, a hot head, a
-        seeker of quarrels? <milestone n="25" unit="section"/>That is not the sort of use I happen
-        to make of such means of subsistence as I have. That I am grossly insolent and savage? Even
-        he would not allege this himself, except he should wish to add one more to the series of his
-        lies. Or that I was in power at the time of the Thirty, and oppressed a great number of the
-        citizens? But I went into exile with your people to <placeName key="perseus,Chalcis"
-          >Chalcis</placeName>,<note anchored="true" resp="Loeb">In <placeName key="tgn,7002677"
-            >Euboea</placeName>, <date when="-0404">404</date> B.C.</note> and when I was free to
-        live secure as a citizen with those persons<note anchored="true" resp="Loeb">i.e., the
-          Thirty.</note> I chose to depart and share your perils. <milestone n="26" unit="section"
-        />I therefore ask you, gentlemen of the Council, not to treat me, a man who has committed no
-        offence, in the same way as those who are guilty of numerous wrongs, but to give the same
-        vote as the other Councils<note anchored="true" resp="Loeb">i.e., the Councils of previous
-          years by which he had been certified as infirm.</note> did on my case, remembering that I
-        am neither rendering an account of State moneys placed in my charge, nor undergoing now an
-        inquiry into my past proceedings in any office, but that the subject of this speech of mine
-        is merely an obol. <milestone n="27" unit="section"/>In this way you will all give the
-        decision that is just, while I, in return for that, will feel duly grateful to you; and this
-        man will learn in the future not to scheme against those who are weaker than himself, but
-        only to overreach his equals.</p>
+      <div n="urn:cts:greekLit:tlg0540.tlg024.perseus-eng2" type="translation" xml:lang="eng">
+
+
+<div type="textpart" subtype="section" n="1"><p>
+<milestone ed="P" unit="para"/>I can almost find it in me to be grateful to my accuser, gentlemen of the Council, for having involved me in these proceedings. For previously I had no excuse for rendering an account of my life; but now, owing to this man, I have got one. So I will try to show you in my speech that this man is lying, and that my own life until this day has been deserving of praise rather than envy; for it is merely from envy, in my opinion, that he has involved me in this ordeal. </p></div>
+
+<div type="textpart" subtype="section" n="2"><p>But I ask you, if a man envies those whom other people pity, from what villainy do you think such a person would refrain? Is it possible that he hopes to get money by slandering me?<note anchored="true" resp="Loeb">A poor man like the speaker was not the natural prey of a slander-monger, who would hope to be bought off by a wealthy defendant.</note> And if he makes me out an enemy on whom he seeks to be avenged, he lies; for his villainy has always kept me from having any dealings with him either as a friend or as an enemy. </p></div>
+
+<div type="textpart" subtype="section" n="3"><p>So now, gentlemen, it is clear that he envies me because, although I have to bear this sore misfortune, I am a better citizen than he is. For indeed I consider, gentlemen, that one ought to remedy the afflictions of the body with the activities of the spirit; for if I am to keep my thoughts and the general tenor of my life on the level of my misfortune, how shall I be distinguished from this man? </p></div>
+
+<div type="textpart" subtype="section" n="4"><p>
+<milestone ed="P" unit="para"/>Well, in regard to those matters, let these few words of mine suffice: I will now speak as briefly as I can on the points with which I am here concerned. My accuser says that I have no right to receive my civil pension, because I am able-bodied and not classed as disabled, and because I am skilled in a trade which would enable me to live without this grant. </p></div>
+
+<div type="textpart" subtype="section" n="5"><p>In proof of my bodily strength, he instances that I mount on horseback; of the affluence arising from my trade, that I am able to associate with people who have means to spend. Now, as to the affluence from my trade and the nature of my livelihood in general, I think you are all acquainted with these: I will, however, make some brief remarks of my own. </p></div>
+
+<div type="textpart" subtype="section" n="6"><p>My father left me nothing, and I have only ceased supporting my mother on her decease two years ago; while as yet I have no children to take care of me. I possess a trade that can give me but slight assistance: I already find difficulty in carrying it on myself, and as yet I am unable to procure someone to relieve me of the work.<note anchored="true" resp="Loeb">He means a slave who would learn the business and carry it on for him.</note> I have no other income besides this dole, and if you deprive me of it I might be in danger of finding myself in the most grievous plight. </p></div>
+
+<div type="textpart" subtype="section" n="7"><p>Do not, therefore, gentlemen, when you can save me justly, ruin me unjustly; what you granted me when I was younger and stronger, do not take from me when I am growing older and weaker; nor, with your previous reputation for showing the utmost compassion even towards those who are in no trouble, be moved now by this man to deal harshly with those who are objects of pity even to their enemies; nor, by having the heart to wrong me, cause everyone else in my situation to despond. </p></div>
+
+<div type="textpart" subtype="section" n="8"><p>And indeed, how extraordinary the case would be, gentlemen! When my misfortune was but simple, I am found to have been receiving this pension; but now, when old age, diseases, and the ills that attend on them are added to my trouble, I am to be deprived of it! </p></div>
+
+<div type="textpart" subtype="section" n="9"><p>The depth of my poverty, I believe, can be revealed more clearly by my accuser than by anyone else on earth. For if I were charged with the duty of producing tragic drama, and should challenge him to an exchange of property,<note anchored="true" resp="Loeb">See note on <bibl n="Lys. 3.20">Lys. 3.20</bibl>. (A wealthy citizen, such as the speaker here, had to undertake certain public services, which he could only avoid by challenging some other citizen, whom he considered wealthier than himself, either to exchange his property with him, or to undertake the service.)</note> he would prefer being the producer ten times over to making the exchange once. Surely it is monstrous that he should now accuse me of having such great affluence that I can consort on equal terms with the wealthiest people, while, in the event of such a thing as I have suggested, he should make that choice. Why, what could be more villainous? </p></div>
+
+<div type="textpart" subtype="section" n="10"><p>
+<milestone ed="P" unit="para"/>As to my horsemanship, which he has dared to mention to you, feeling neither awe of fortune nor shame before you, there is not much to tell. For I, gentlemen, am of opinion that all who suffer from some affliction make it their single aim and constant study to manage the condition that has befallen them with the least amount of discomfort. I am such an one, and in the misfortune that has stricken me I have devised this facility for myself on the longer journeys that I find necessary. </p></div>
+
+<div type="textpart" subtype="section" n="11"><p>But the strongest proof, gentlemen, of the fact that I mount horses because of my misfortune, and not from insolence, as this man alleges, is this: if I were a man of means, I should ride on a saddled mule, and would not mount other men’s horses. But in fact, as I am unable to acquire anything of the sort, I am compelled, now and again, to use other men’s horses. </p></div>
+
+<div type="textpart" subtype="section" n="12"><p>Well, I ask you, gentlemen, is it not extraordinary that, if he saw me riding on a saddled mule, he would hold his peace,—for what could he say?<note anchored="true" resp="Loeb">It would be natural for a cripple to ride about on a cheaply hired mule, if only he could afford it.</note>—and then, because I mount borrowed horses, he should try to persuade you that I am able-bodied; and that my using two sticks, while others use one, should not be argued by him against me as a sign of being able-bodied, but my mounting horses should be advanced by him as a proof to you that I am able-bodied? For I use both aids for the same reason. </p></div>
+
+<div type="textpart" subtype="section" n="13"><p>
+<milestone ed="P" unit="para"/>So utterly has he surpassed the whole human race in impudence that he tries with his single voice to persuade you all that I am not classed as disabled. Yet if he should persuade any of you on this point, gentlemen, what hinders me from drawing a lot for election as one of the nine archons,<note anchored="true" resp="Loeb">The archons were appointed by lot from all the citizens, rich or poor, except, apparently, those who were formally classed as infirm.</note> and you from depriving me of my obol as having sound health, and voting it unanimously to this man as being a cripple? For surely, after you have deprived a man of the grant as being able-bodied, the law officers are not going to debar this same person, as being disabled, from drawing a lot! </p></div>
+
+<div type="textpart" subtype="section" n="14"><p>Nay, indeed, you are not of the same opinion as he is, nor is he either, and rightly so. For he has come here to dispute over my misfortune as if over an heiress, and he tries to persuade you that I am not the sort of man that you all see me to be; but you —as is incumbent on men of good sense —have rather to believe your own eyes than this person’s words. </p></div>
+
+<div type="textpart" subtype="section" n="15"><p>
+<milestone ed="P" unit="para"/>He says that I am insolent, savage, and utterly abandoned in my behavior, as though he needed the use of terrifying terms to speak the truth, and could not do it in quite gentle language. But I expect you, gentlemen, to distinguish clearly between those people who are at liberty to be insolent and those who are debarred from it. </p></div>
+
+<div type="textpart" subtype="section" n="16"><p>For insolence is not likely to be shown by poor men laboring in the utmost indigence, but by those who possess far more than the necessaries of life; nor by men disabled in body, but by those who have most reason to rely on their own strength; nor by those already advanced in years, but by those who are still young and have a youthful turn of mind. </p></div>
+
+<div type="textpart" subtype="section" n="17"><p>For the wealthy purchase with their money escape from the risks that they run, whereas the poor are compelled to moderation by the pressure of their want. The young are held to merit indulgence from their elders; but if their elders are guilty of offence, both ages unite in reproaching them. </p></div>
+
+<div type="textpart" subtype="section" n="18"><p>The strong are at liberty to insult whomsoever they will with impunity, but the weak are unable either to beat off their aggressors when insulted, or to get the better of their victims if they choose to insult. Hence it seems to me that my accuser was not serious in speaking of my insolence, but was only jesting; his purpose was, not to persuade you that such is my nature, but to set me in a comic light, as a fine stroke of fancy. </p></div>
+
+<div type="textpart" subtype="section" n="19"><p>
+<milestone ed="P" unit="para"/>He further asserts that my shop is the meeting place of a number of rogues who have spent their own money and hatch plots against those who wish to preserve theirs. But you must all take note that these statements of his are no more accusations against me than against anyone else who has a trade, nor against those who visit my shop any more than those who frequent other men of business. </p></div>
+
+<div type="textpart" subtype="section" n="20"><p>For each of you is in the habit of paying a call at either a perfumer’s or a barber’s or a shoemaker’s shop, or wherever he may chance to go, —in most cases, it is to the tradesmen who have set up nearest the marketplace, and in fewest, to those who are farthest from it. So if any of you should brand with roguery the men who visit my shop, clearly you must do the same to those who pass their time in the shops of others; and if to them, to all the Athenians: for you are all in the habit of paying a call and passing your time at some shop or other. </p></div>
+
+<div type="textpart" subtype="section" n="21"><p>
+<milestone ed="P" unit="para"/>But really I see no need for me to be so very particular in rebutting each one of the statements that he has made, and to weary you any longer. For if I have argued the principal points, what need is there to dwell seriously on trifles in the same way as he does? But I beg you all, gentlemen of the Council, to hold the same views concerning me as you have held till now. </p></div>
+
+<div type="textpart" subtype="section" n="22"><p>Do not be led by this man to deprive me of the sole benefit in my country of which fortune has granted me a share, nor let this one person prevail on you to withdraw now what you all agreed to grant me in the past. For, gentlemen, since Heaven had deprived us<note anchored="true" resp="Loeb">The speaker here solemnly appeals for himself as one of an unfortunate class.</note> of the chiefest things, the city voted us this pension, regarding the chances of evil and of good as the same for all alike. 
+<milestone n="23" unit="section"/>Surely I should be the most miserable of creatures if, after being deprived by my misfortune of the fairest and greatest things, the accuser should cause me the loss of that which the city bestowed in her thoughtful care for men in my situation. No, no, gentlemen; you must not vote that way. And why should I find you thus inclined? </p></div>
+
+<div type="textpart" subtype="section" n="24"><p>Because anyone has ever been brought to trial at my instance and lost his fortune? There is nobody who can prove it. Well, is it that I am a busybody, a hot head, a seeker of quarrels? </p></div>
+
+<div type="textpart" subtype="section" n="25"><p>That is not the sort of use I happen to make of such means of subsistence as I have. That I am grossly insolent and savage? Even he would not allege this himself, except he should wish to add one more to the series of his lies. Or that I was in power at the time of the Thirty, and oppressed a great number of the citizens? But I went into exile with your people to <placeName key="perseus,Chalcis">Chalcis</placeName>,<note anchored="true" resp="Loeb">In <placeName key="tgn,7002677">Euboea</placeName>, <date when="-0404">404</date> B.C.</note> and when I was free to live secure as a citizen with those persons<note anchored="true" resp="Loeb">i.e., the Thirty.</note> I chose to depart and share your perils. </p></div>
+
+<div type="textpart" subtype="section" n="26"><p>I therefore ask you, gentlemen of the Council, not to treat me, a man who has committed no offence, in the same way as those who are guilty of numerous wrongs, but to give the same vote as the other Councils<note anchored="true" resp="Loeb">i.e., the Councils of previous years by which he had been certified as infirm.</note> did on my case, remembering that I am neither rendering an account of State moneys placed in my charge, nor undergoing now an inquiry into my past proceedings in any office, but that the subject of this speech of mine is merely an obol. </p></div>
+
+<div type="textpart" subtype="section" n="27"><p>In this way you will all give the decision that is just, while I, in return for that, will feel duly grateful to you; and this man will learn in the future not to scheme against those who are weaker than himself, but only to overreach his equals.</p></div>
+      </div>
 
     </body>
   </text>
