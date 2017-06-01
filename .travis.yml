@@ -15,6 +15,8 @@ before_deploy:
   - git config --global user.email "builds@travis-ci.com"
   - git config --global user.name "Travis CI"
   - export GIT_TAG=$major_version.$minor_version.$TRAVIS_BUILD_NUMBER
+  - git add -A
+  - git commit -m "Removed failing files" -m "Release $GIT_TAG"
   - git tag $GIT_TAG -a -m "$DATE" -m "PASSING FILES" -m "$results"
   - git push -q https://$GITPERM@github.com/PerseusDL/canonical-greekLit --tags
   - ls -R
@@ -22,7 +24,6 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $GITPERM
-  file: release.tar.gz
   skip_cleanup: true
   on:
     repo: PerseusDL/canonical-greekLit
