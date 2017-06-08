@@ -9,7 +9,7 @@ install:
 script: hooktest ./ --scheme epidoc --workers 3 --verbose 10 --manifest --countword --console table --allowfailure --hookUI "http://ci.perseids.org/api/hook/v2.0/user/repositories/PerseusDL/canonical-greekLit"
 
 before_deploy:
-  - hooktest-build --travis ./
+  - hooktest-build --travis --txt ./
   - results=$(cat manifest.txt)
   - DATE=`date +%Y-%m-%d`
   - git config --global user.email "builds@travis-ci.com"
