@@ -1,3 +1,11 @@
+# Fix Travis errors when sending large output to STDOUT. These write errors occurred after
+# a Travis update to new Trusty images on Dec. 12th 2017. The reason for these
+# write errors is unknown. Using the deprecated builds did not fix the problem.
+# Setting 'filter_secrets: false' as suggested here
+# https://github.com/travis-ci/travis-ci/issues/4704#issuecomment-321777557
+# fixes the problem.
+filter_secrets: false
+
 language: python
 
 python:
@@ -6,7 +14,7 @@ python:
 install:
   - pip3 install HookTest>=1.0.0
 
-script: travis_wait 60 hooktest ./ --scheme epidoc --workers 3 --verbose 10 --manifest --countword --console table --allowfailure --hookUI "http://ci.perseids.org/api/hook/v2.0/user/repositories/PerseusDL/canonical-greekLit"
+script: hooktest ./ --scheme epidoc --workers 3 --verbose 10 --manifest --countword --console table --allowfailure --hookUI "http://ci.perseids.org/api/hook/v2.0/user/repositories/PerseusDL/canonical-greekLit"
 
 before_deploy:
   - hooktest-build --travis --txt ./
