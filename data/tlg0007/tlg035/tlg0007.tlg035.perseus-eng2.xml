@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE TEI.2
-  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
-<!ENTITY % TEI.XML "INCLUDE">
-<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
-%PersProse;
-]>
-<TEI.2>
-   <teiHeader status="new">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
       <fileDesc>
          <titleStmt>
             <title type="sub">Machine readable text</title>
@@ -51,7 +46,7 @@
                      <publisher>William Heinemann Ltd.</publisher>
                      <date>1914</date>
                   </imprint>
-                  <biblScope type="volume">2</biblScope>
+                  <biblScope unit="volume">2</biblScope>
                </monogr>
                
             </biblStruct>
@@ -63,124 +58,57 @@
                <p>optical character recognition</p>
             </correction>
          </editorialDecl>
-         <refsDecl doctype="tei.2">
-            <state unit="chapter" delim="."/>
-            <state unit="section"/>
-         </refsDecl>
+      	<refsDecl n="CTS">
+      		<cRefPattern n="section"
+      			matchPattern="(\w+).(\w+)"
+      			replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+      			<p>This pointer pattern extracts chapter and section</p>
+      		</cRefPattern>
+      		<cRefPattern n="chapter"
+      			matchPattern="(\w+)"
+      			replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+      			<p>This pointer pattern extracts chapter</p>
+      		</cRefPattern>
+      	</refsDecl>
+      	<refsDecl>
+      		<refState unit="chapter" delim="."/>
+      		<refState unit="section"/>
+      	</refsDecl>
       </encodingDesc>
       <profileDesc>
          <langUsage>
-            <language id="en">English</language>
-            <language id="greek">Greek</language>
+            <language ident="eng">English</language>
+            <language ident="grc">Greek</language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
-         <change>
-            <date>8/90</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Proofread by Ted Armstrong.</item>
-         </change>
-         <change>
-            <date>8/91</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Revise DTDs and recheck texts.</item>
-         </change>
-         <change>
-            <date>8/92</date>
-            <respStmt>
-               <name>DAS</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Removed highlighted text, cleaned up notes and citations,
-					and changed chapters to DIV2's.</item>
-         </change>
-         <change>
-            <date>10/22/92</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Glued all Plutarch files together,
-					put in HEAD tags to title them.</item>
-         </change>
-         <change>
-            <date>9/12/97</date>
-            <respStmt>
-               <name>David Smith</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Made conformant with TEI P3.</item>
-         </change>
-         <change>
-            <date/>
-            <respStmt>
-               <name>David Smith</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>	
-					$Log: plut.cim_eng.xml,v $
-					Revision 1.1  2013-09-13 11:17:21  balmas01
-					moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory
-
-					Revision 1.5  2013-06-29 13:26:26  gcrane
-					chapters are now divs
-
-					Revision 1.4  2010-11-30 18:28:11  balmas01
-					getting rid of angle brackets in commit comments
-
-					Revision 1.3  2010-11-19 13:47:01  balmas01
-					Normalizing quote q and lb
-
-					Revision 1.2  2009-12-15 20:52:49  rsingh04
-					converted demetrius, antony and comparison from sgml to xml and added to hopper.  also replaced xml snippets in other plutarch files with their respective entities.
-
-					Revision 1.1  2009/12/07 22:05:56  rsingh04
-					moved more xml files around based on copyright status.  split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.
-
-					Revision 1.4  2009/06/19 19:09:10  lcerrato
-					fixed bad bibls
-
-					Revision 1.3  2009/01/23 22:09:51  rsingh04
-					small fixes
-
-					Revision 1.2  2009/01/21 22:20:01  rsingh04
-					now validates and entities fixed
-
-					Revision 1.2  2001/09/28 19:34:07  lcerrato
-					cleaned up quotes, bibls and notes
-					
-					Revision 1.1  2001/09/27 21:56:40  lcerrato
-					adding new tags for DE, ISBN, etc.
-					
-					Revision 1.4  2000/03/04 20:35:11  dasmith
-					Added separate funder entity to TEI header.
-					
-					Revision 1.3  1999/07/28 18:27:56  dasmith
-					Added text to REFSDECL.
-					
-					Revision 1.2  1999/07/09 23:15:27  textgod
-					Converted to TEI-conformant SGML.
-				</item>
-         </change>
-         <change>
-            <date>9/01</date>
-            <respStmt>
-               <name>LMC</name>
-               <resp/>
-            </respStmt>
-            <item>removed from group file, retagged and parsed</item>
-         </change>
-      </revisionDesc>
+<change when="2018-02-01" who="Lisa Cerrato">bumped URN</change>
+<change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+<change when="2013-06-29" who="gcrane">chapters are now divs </change>
+<change when="2010-11-30" who="balmas01">getting rid of angle brackets in commit comments</change>
+<change when="2010-11-19" who="balmas01">Normalizing quote q and lb </change>
+<change when="2009-12-15" who="rsingh04">converted demetrius, antony and comparison from sgml to xml and added to hopper.  also replaced xml snippets in other plutarch files with their respective entities. </change>
+<change when="2009-12-07" who="rsingh04">moved more xml files around based on copyright status.  split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids. </change>
+<change when="2009-06-19" who="lcerrato">fixed bad bibls </change>
+<change when="2009-01-23" who="rsingh04">small fixes </change>
+<change when="2009-01-21" who="rsingh04">now validates and entities fixed </change>
+<change when="2001-09-28" who="lcerrato">cleaned up quotes, bibls and notes </change>
+<change when="2001-09-27" who="lcerrato">adding new tags for DE, ISBN, etc.</change>
+<change when="2001-09-01" who="LMC">removed from group file, retagged and parsed</change>
+ <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header. </change>
+<change when="1999-07-28" who="dasmith">Added text to REFSDECL.</change>
+ <change when="1999-07-09" who="textgod">Converted to TEI-conformant SGML.</change>
+<change when="1997-09-12" who="David Smith">Made conformant with TEI P3.</change>
+<change when="1992-10-22" who="EM">Glued all Plutarch files together, put in HEAD tags to title them.</change>
+<change when="1992-08-01" who="DAS">Removed highlighted text, cleaned up notes and citations, and changed chapters to DIV2's.</change>
+<change when="1991-08-01" who="EM">Revise DTDs and recheck texts.</change>
+<change when="1990-08-01" who="EM">Proofread by Ted Armstrong.</change>
+</revisionDesc>
    </teiHeader>
    <text>
       <body>
-         <head>CIMON</head>
+      	<div type="translation" n="urn:cts:greekLit:tlg0007.tlg035.perseus-eng2" xml:lang="eng">
+         	<head>CIMON</head>
          <div1 type="chapter" n="1"><p>
 				        <milestone n="1" unit="section"/>
 			      </p>
@@ -648,7 +576,7 @@
 			</p>
       
 
-</div1>
+</div1></div>
 </body>
    </text>
 </TEI.2>

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE TEI.2
-  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
-<!ENTITY % TEI.XML "INCLUDE">
-<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
-%PersProse;
-]>
-<TEI.2>
-   <teiHeader status="new">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
       <fileDesc>
          <titleStmt>
             <title type="sub">Machine readable text</title>
@@ -47,7 +42,7 @@
                      <publisher>William Heinemann Ltd.</publisher>
                      <date>1914</date>
                   </imprint>
-                  <biblScope type="volume">2</biblScope>
+                  <biblScope unit="volume">2</biblScope>
                </monogr>
                
             </biblStruct>
@@ -59,32 +54,39 @@
                <p>optical character recognition</p>
             </correction>
          </editorialDecl>
-         <refsDecl doctype="tei.2">
-            <state unit="chapter" delim="."/>
-            <state unit="section"/>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+               matchPattern="(\w+).(\w+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+               <p>This pointer pattern extracts chapter and section</p>
+            </cRefPattern>
+            <cRefPattern n="chapter"
+               matchPattern="(\w+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts chapter</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl>
+            <refState unit="chapter" delim="."/>
+            <refState unit="section"/>
          </refsDecl>
       </encodingDesc>
       <profileDesc>
          <langUsage>
-            <language id="en">English</language>
-            <language id="la">Latin</language>
-            <language id="greek">Greek</language>
+            <language ident="eng">English</language>
+            <language ident="lat">Latin</language>
+            <language ident="grc">Greek</language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
-         <change>
-            <date>3/99</date>
-            <respStmt>
-               <name>LMC</name>
-               <resp/>
-            </respStmt>
-            <item>tagged and parsed</item>
-         </change>
+         <change when="2018-02-01" who="Lisa Cerrato">bumped URN</change>
+         <change when="1999-03-01" who="LMC">tagged and parsed</change>
       </revisionDesc>
    </teiHeader>
    <text>
       <body>
-         <head>COMPARISON OF LUCULLUS AND CIMON</head>
+         <div type="translation" n="urn:cts:greekLit:tlg0007.tlg037.perseus-eng2" xml:lang="eng">
+            <head>COMPARISON OF LUCULLUS AND CIMON</head>
          <div1 type="chapter" n="1"><p>
 				        <milestone n="1" unit="section"/>One might deem Lucullus especially happy in his end, from the fact that he died before that constitutional change had come, which fate was already contriving by means of the civil wars. His country was in a distempered state when he laid down his life, but still she was free. And in this respect, more than any other, he is like Cimon. 
 				<milestone n="2" unit="section"/>For Cimon also died before Greece was confounded, and while she was at the acme of her power. He died, however, in the field, and at the head of an army, not exhausted or of a wandering mind, nor yet making feastings and revellings the crowning prize for arms and campaigns and trophies. Plato<note resp="ed" place="unspecified" anchored="yes">
@@ -138,6 +140,7 @@
       
 
 </div1>
+         </div>
 </body>
    </text>
 </TEI.2>

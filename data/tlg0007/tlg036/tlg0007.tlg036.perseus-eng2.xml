@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE TEI.2
-  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
-<!ENTITY % TEI.XML "INCLUDE">
-<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
-%PersProse;
-]>
-<TEI.2>
-   <teiHeader>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
       <fileDesc>
          <titleStmt>
             <title type="sub">Machine readable text</title>
@@ -47,7 +42,7 @@
                      <publisher>William Heinemann Ltd.</publisher>
                      <date>1914</date>
                   </imprint>
-                  <biblScope type="volume">2</biblScope>
+                  <biblScope unit="volume">2</biblScope>
                </monogr>
                
             </biblStruct>
@@ -59,32 +54,39 @@
                <p>optical character recognition</p>
             </correction>
          </editorialDecl>
-         <refsDecl doctype="tei.2">
-            <state unit="chapter" delim="."/>
-            <state unit="section"/>
-         </refsDecl>
+      	<refsDecl n="CTS">
+      		<cRefPattern n="section"
+      			matchPattern="(\w+).(\w+)"
+      			replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+      			<p>This pointer pattern extracts chapter and section</p>
+      		</cRefPattern>
+      		<cRefPattern n="chapter"
+      			matchPattern="(\w+)"
+      			replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+      			<p>This pointer pattern extracts chapter</p>
+      		</cRefPattern>
+      	</refsDecl>
+      	<refsDecl>
+      		<refState unit="chapter" delim="."/>
+      		<refState unit="section"/>
+      	</refsDecl>
       </encodingDesc>
       <profileDesc>
          <langUsage>
-            <language id="en">English</language>
-            <language id="la">Latin</language>
-            <language id="greek">Greek</language>
+            <language ident="eng">English</language>
+            <language ident="lat">Latin</language>
+            <language ident="grc">Greek</language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
-         <change>
-            <date>3/99</date>
-            <respStmt>
-               <name>LMC</name>
-               <resp/>
-            </respStmt>
-            <item>tagged and parsed</item>
-         </change>
+      	<change when="2018-02-01" who="Lisa Cerrato">bumped URN</change>
+        <change when="1999-03-01" who="LMC">tagged and parsed</change>
       </revisionDesc>
    </teiHeader>
    <text>
       <body>
-         <head>LUCULLUS</head>
+         <div>
+         	<head>LUCULLUS</head>
          <div1 type="chapter" n="1"><p>
 				        <milestone n="1" unit="section"/>In the case of Lucullus, his grandfather was a man of consular rank, and his uncle on his mother's side was Metellus, surnamed Numidicus. But as for his parents, his father was convicted of peculation, and his mother, Caecilia, had the bad name of a dissolute woman. Lucullus himself, while he was still a mere youth, before he had entered public life or stood for any office, made it his first business to impeach his father's accuser, Servilius the Augur, whom he found wronging the commonwealth. 
 				<milestone n="2" unit="section"/>The Romans thought this a brilliant stroke, and the case was in everybody's mouth, like a great deed of prowess. Indeed, they thought the business of impeachment, on general principles and without special provocation, no ignoble thing, but were very desirous to see their young men fastening themselves on malefactors like high-bred whelps on wild beasts. However, the case stirred up great animosity, so that sundry persons were actually wounded and slain, and Servilius was acquitted.
@@ -793,6 +795,7 @@
       
 
 </div1>
+         </div>
 </body>
    </text>
 </TEI.2>

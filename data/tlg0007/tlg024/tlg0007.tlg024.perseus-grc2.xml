@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><TEI.2>
-<teiHeader>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
 <fileDesc>
 <titleStmt>
 <title type="work">Machine readable text</title>
@@ -40,60 +42,48 @@
 <publisher>William Heinemann Ltd.</publisher>
 <date>1914</date>
 </imprint>
-<biblScope type="volume">2</biblScope>
+<biblScope unit="volume">2</biblScope>
 </monogr>
 </biblStruct>
 </sourceDesc>
 </fileDesc>
 <encodingDesc>
-<!--
-			<COMPOSITION.HISTORY>Text keyboarded in the Philippines.  Basic SGML tagging by Scott Ettinger and Roger Travis.</COMPOSITION.HISTORY>
-			&prose.grk.encode;-->
-<refsDecl doctype="TEI.2">
-<state delim="." unit="chapter"/>
-<state unit="section"/>
-</refsDecl>
+	<refsDecl n="CTS">
+		<cRefPattern n="section"
+			matchPattern="(\w+).(\w+)"
+			replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+			<p>This pointer pattern extracts chapter and section</p>
+		</cRefPattern>
+		<cRefPattern n="chapter"
+			matchPattern="(\w+)"
+			replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+			<p>This pointer pattern extracts chapter</p>
+		</cRefPattern>
+	</refsDecl>
+	<refsDecl>
+	<refState unit="chapter" delim="."/>
+	<refState unit="section"/>
+	</refsDecl>
 </encodingDesc>
 <profileDesc>
 <langUsage>
-<language id="greek">Greek</language>
-<language id="en">English</language>
+<language ident="grc">Greek</language>
+<language ident="eng">English</language>
 </langUsage>
 </profileDesc>
 <revisionDesc>
-	<change>
-		<date>2016-09-30</date>
-		<respStmt><name>Lisa Cerrato</name></respStmt>
-		<item>added notes; temp fixed some attributes that were making file invalid</item>
-	</change>
-	<change>
-<date>8/91</date>
-<respStmt>
-<name>EM</name>
-<resp>ed.</resp>
-</respStmt>
-<item>Revise DTDs and recheck texts.</item>
-</change>
-<change>
-<date>5/20/92</date>
-<respStmt>
-<name>David Smith</name>
-<resp>ed.</resp>
-</respStmt>
-<item>uncapitalized non-proper nouns at the beginnings of paragraphs and verse lines</item>
-</change>
-<change>
-<date>10/22/92</date>
-<respStmt>
-<name>EM</name>
-<resp>ed.</resp>
-</respStmt>
-<item>Glued all Plutarch files together, put in HEAD tags to title them.</item>
-</change>
+<change who="Lisa Cerrato" when="2018-01-31">bumped URN</change>
+<change who="Lisa Cerrato" when="2016-09-30">added notes; temp fixed some attributes that were making file invalid</change>
+<change who="EM" when="1992-10-22">Glued all Plutarch files together, put in HEAD tags to title them.</change>
+<change who="David Smith" when="1992-05-20">uncapitalized non-proper nouns at the beginnings of paragraphs and verse lines</change>
+<change who="EM" when="1991-08-01">Revise DTDs and recheck texts.</change>
+<change who="Scott Ettinger and Roger Travis">Text keyboarded in the Philippines. Basic SGML tagging.</change>
 </revisionDesc>
 </teiHeader>
-<text n="Arist.">
+	
+<text xml:lang="grc">
 <body>
+<div type="edition" n="urn:cts:greekLit:tlg0007.tlg024.perseus-grc2" xml:lang="grc">
 <head>Ἀριστείδης</head>
 <div1 type="chapter" n="1">
 <div2 type="section" n="1">
@@ -775,6 +765,7 @@
 </p>
 </div2>
 </div1>
+</div>
 </body>
 </text>
-</TEI.2>
+</TEI>

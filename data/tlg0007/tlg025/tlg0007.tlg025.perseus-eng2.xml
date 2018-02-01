@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE TEI.2
-  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
-<!ENTITY % TEI.XML "INCLUDE">
-<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
-%PersProse;
-]>
-<TEI.2>
-   <teiHeader>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
       <fileDesc>
          <titleStmt>
             <title type="sub">Machine readable text</title>
@@ -48,7 +43,7 @@
                      <publisher>William Heinemann Ltd.</publisher>
                      <date>1914</date>
                   </imprint>
-                  <biblScope type="volume">2</biblScope>
+                  <biblScope unit="volume">2</biblScope>
                </monogr>
                
             </biblStruct>
@@ -60,31 +55,38 @@
                <p>optical character recognition</p>
             </correction>
          </editorialDecl>
-         <refsDecl doctype="tei.2">
-            <state unit="chapter" delim="."/>
-            <state unit="section"/>
-         </refsDecl>
+      	<refsDecl n="CTS">
+      		<cRefPattern n="section"
+      			matchPattern="(\w+).(\w+)"
+      			replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+      			<p>This pointer pattern extracts chapter and section</p>
+      		</cRefPattern>
+      		<cRefPattern n="chapter"
+      			matchPattern="(\w+)"
+      			replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+      			<p>This pointer pattern extracts chapter</p>
+      		</cRefPattern>
+      	</refsDecl>
+      	<refsDecl>
+      		<refState unit="chapter" delim="."/>
+      		<refState unit="section"/>
+      	</refsDecl>
       </encodingDesc>
       <profileDesc>
          <langUsage>
-            <language id="en">English</language>
-            <language id="la">Latin</language>
+            <language ident="eng">English</language>
+            <language ident="lat">Latin</language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
-         <change>
-            <date>2/99</date>
-            <respStmt>
-               <name>LMC</name>
-               <resp/>
-            </respStmt>
-            <item>tagged and parsed</item>
-         </change>
+      	<change when="2018-02-01" who="Lisa Cerrato">bumped URN</change>
+         <change when="1999-02-01" who="LMC">tagged and parsed</change>
       </revisionDesc>
    </teiHeader>
    <text>
       <body>
-         <head>MARCUS CATO</head>
+      	<div type="translation" n="urn:cts:greekLit:tlg0007.tlg025.perseus-eng2" xml:lang="eng">
+      		<head>MARCUS CATO</head>
          <div1 type="chapter" n="1"><p>
 				        <milestone n="1" unit="section"/>The family of Marcus Cato, it is said, was of Tusculan origin, though he lived, previous to his career as soldier and statesman, on an inherited estate in the country of the Sabines. His ancestors commonly passed for men of no note whatever, but Cato himself extols his father, Marcus, as a brave man and good soldier. He also says that his grandfather, Cato, often won prizes for soldierly valour, and received from the state treasury, because of his bravery, the price of five horses which had been killed under him in battle. 
 				<milestone n="2" unit="section"/>The Romans used to call men who had no family distinction, but were coming into public notice through their own achievements, 
@@ -555,6 +557,7 @@
       
 
 </div1>
+      	</div>
 </body>
    </text>
-</TEI.2>
+</TEI>

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE TEI.2
-  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
-<!ENTITY % TEI.XML "INCLUDE">
-<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
-%PersProse;
-]>
-<TEI.2>
-   <teiHeader status="new">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
       <fileDesc>
          <titleStmt>
             <title type="sub">Machine readable text</title>
@@ -47,7 +42,7 @@
                      <publisher>William Heinemann Ltd.</publisher>
                      <date>1914</date>
                   </imprint>
-                  <biblScope type="volume">2</biblScope>
+                  <biblScope unit="volume">2</biblScope>
                </monogr>
                
             </biblStruct>
@@ -59,140 +54,66 @@
                <p>optical character recognition</p>
             </correction>
          </editorialDecl>
-         <refsDecl doctype="tei.2">
-            <state unit="chapter" delim="."/>
-            <state unit="section"/>
-         </refsDecl>
+      	<refsDecl n="CTS">
+      		<cRefPattern n="section"
+      			matchPattern="(\w+).(\w+)"
+      			replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+      			<p>This pointer pattern extracts chapter and section</p>
+      		</cRefPattern>
+      		<cRefPattern n="chapter"
+      			matchPattern="(\w+)"
+      			replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+      			<p>This pointer pattern extracts chapter</p>
+      		</cRefPattern>
+      	</refsDecl>
+      	<refsDecl>
+      		<refState unit="chapter" delim="."/>
+      		<refState unit="section"/>
+      	</refsDecl>
       </encodingDesc>
       <profileDesc>
          <langUsage>
-            <language id="en">English</language>
-            <language id="greek">Greek</language>
+            <language ident="eng">English</language>
+            <language ident="grc">Greek</language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
-         <change>
-            <date>8/90</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Proofread by Ted Armstrong.</item>
-         </change>
-         <change>
-            <date>8/91</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Revise DTDs and recheck texts.</item>
-         </change>
-         <change>
-            <date>8/92</date>
-            <respStmt>
-               <name>DAS</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Removed highlighted text, cleaned up notes and citations,
-					and changed chapters to DIV2's.</item>
-         </change>
-         <change>
-            <date>10/22/92</date>
-            <respStmt>
-               <name>EM</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Glued all Plutarch files together,
-					put in HEAD tags to title them.</item>
-         </change>
-         <change>
-            <date>9/12/97</date>
-            <respStmt>
-               <name>David Smith</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>Made conformant with TEI P3.</item>
-         </change>
-         <change>
-            <date/>
-            <respStmt>
-               <name>David Smith</name>
-               <resp>ed.</resp>
-            </respStmt>
-            <item>	
-					$Log: plut.arist_eng.xml,v $
-					Revision 1.1  2013-09-13 11:17:21  balmas01
-					moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory
-
-					Revision 1.5  2013-06-29 13:26:26  gcrane
-					chapters are now divs
-
-					Revision 1.4  2010-11-30 18:28:12  balmas01
-					getting rid of angle brackets in commit comments
-
-					Revision 1.3  2010-11-19 13:47:08  balmas01
-					Normalizing quote q and lb
-
-					Revision 1.2  2009-12-15 20:52:49  rsingh04
-					converted demetrius, antony and comparison from sgml to xml and added to hopper.  also replaced xml snippets in other plutarch files with their respective entities.
-
-					Revision 1.1  2009/12/07 22:05:56  rsingh04
-					moved more xml files around based on copyright status.  split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.
-
-					Revision 1.8  2009/08/06 17:11:24  rsingh04
-					fixed section numbers
-
-					Revision 1.7  2009/06/11 20:04:19  student
-					fixing citations - ad
-
-					Revision 1.6  2009/06/10 20:56:41  student
-					fixing citations - ad
-
-					Revision 1.5  2009/05/06 20:08:10  lcerrato
-					fixed bad bibls
-
-					Revision 1.4  2009/01/23 22:09:50  rsingh04
-					small fixes
-
-					Revision 1.3  2009/01/22 22:25:27  rsingh04
-					small fix
-
-					Revision 1.2  2009/01/21 22:20:01  rsingh04
-					now validates and entities fixed
-
-					Revision 1.2  2001/09/28 19:34:06  lcerrato
-					cleaned up quotes, bibls and notes
-					
-					Revision 1.1  2001/09/27 21:56:40  lcerrato
-					adding new tags for DE, ISBN, etc.
-					
-					Revision 1.4  2000/03/04 20:35:11  dasmith
-					Added separate funder entity to TEI header.
-					
-					Revision 1.3  1999/07/28 18:27:56  dasmith
-					Added text to REFSDECL.
-					
-					Revision 1.2  1999/07/09 23:15:27  textgod
-					Converted to TEI-conformant SGML.</item>
-         </change>
-         <change>
-            <date>9/01</date>
-            <respStmt>
-               <name>LMC</name>
-               <resp/>
-            </respStmt>
-            <item>removed from group file, retagged and parsed</item>
-         </change>
+      	<change who="Lisa Cerrato" when="2018-01-31">bumped URN</change>
+		<change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+      	<change when="2013-06-29" who="gcrane">chapters are now divs</change> 
+      	<change when="2010-11-30" who="balmas01">getting rid of angle brackets in commit comments</change>  
+      	<change when="2010-11-19" who="balmas01">Normalizing quote, q, and lb</change>
+      	<change when="2009-12-15" who="rsingh04">converted demetrius, antony and comparison from sgml to xml and added to hopper. also replaced xml snippets in other plutarch files with their respective entities.</change> 
+      	<change when="2009-12-07" who="rsingh04">moved more xml files around based on copyright status. split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.</change>
+      	<change when="2009-08-06" who="rsingh04">fixed section numbers</change>
+      	<change when="2009-06-10" who="student AD">fixing citations</change>
+      	<change when="2009-05-06" who="lcerrato">fixing bad bibls</change> 
+      	<change when="2009-01-23" who="rsingh04">small fixes</change> 
+      	<change when="2009-01-22" who="rsingh04">small fix</change> 
+      	<change when="2009-01-21" who="rsingh04">now validates and entities fixed</change> 
+      	<change when="2001-09-28" who="lcerrato">cleaned up quotes, bibls and notes</change>
+      	<change when="2001-09-27" who="lcerrato">adding new tags for DE, ISBN, etc.</change>
+      	<change when="2001-09-01" who="LMC">removed from group file, retagged and parsed</change>
+      	<change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change> 
+      	<change when="1999-07-28" who="dasmith">Added text to REFSDECL.</change>
+      	<change when="1999-07-09" who="textgod">Converted to TEI-conformant SGML.</change>
+      	<change when="1997-09-12" who="David Smith">Made conformant with TEI P3.</change>
+      	<change when="1992-10-22" who="EM">Glued all Plutarch files together, put in HEAD tags to title them.</change>
+      	<change when="1992-08-01" who="DAS">Removed highlighted text, cleaned up notes and citations, and changed chapters to div's.</change>
+      	<change when="1991-08-01" who="EM">Revise DTDs and recheck texts.</change> 
+      	<change when="1990-08-01" who="EM">Proofread by Ted Armstrong.</change> 
       </revisionDesc>
    </teiHeader>
-   <text>
+	
+   <text xml:lang="eng">
       <body>
+      	<div type="translation" n="urn:cts:greekLit:tlg0007.tlg024.perseus-eng2" xml:lang="eng">
          <head>ARISTIDES</head>
          <div1 type="chapter" n="1"><p>
 				        <milestone n="1" unit="section"/>Aristides, the son of Lysimachus, belonged to the tribe Antiochis, and to the deme Alopece. As regards his substance, stories differ, some having it that he passed all the days of his life in severe poverty, and that at his death he left behind him two daughters who for a long time were not sought in marriage because of their indigence.
 				<milestone n="2" unit="section"/>
 				But in contradiction of this story which so many writers give, Demetrius of Phalerum, in his 
-				<q direct="unspecified">Socrates,</q> says he knows of an estate in Phalerum which belonged to Aristides&mdash;the one in which he lies buried, and regards as proofs of his opulent circumstances, first, his office of Archon Eponymous, which only he could hold who obtained it by lot from among the families carrying the highest property assessments (these were called Pentacosiomedimni, or Five-hundred-bushellers);
+				<q direct="unspecified">Socrates,</q> says he knows of an estate in Phalerum which belonged to Aristides—the one in which he lies buried, and regards as proofs of his opulent circumstances, first, his office of Archon Eponymous, which only he could hold who obtained it by lot from among the families carrying the highest property assessments (these were called Pentacosiomedimni, or Five-hundred-bushellers);
 				<milestone n="3" unit="section"/>
 				second, his banishment in ostracism, for no poor men, but only men from great houses which incurred envy because of their family prestige, were liable to ostracism; third, and last, the fact that he left in the precinct of Dionysus as offerings for victory some choregic tripods, which, even in our day, were pointed out as still bearing the inscription: 
 				<q direct="unspecified">The tribe Antiochis was victorious; Aristides was Choregus; Archestratus was Poet.</q>
@@ -241,7 +162,7 @@
 <div1 type="chapter" n="3"><p>
 				        <milestone n="1" unit="section"/>
 			      </p>
-         <p>However, since Themistocles was a reckless agitator, and opposed and thwarted him in every measure of state, Aristides himself also was almost compelled&mdash;partly in self-defence, and partly to curtail his adversary's power, which was increasing through the favour of the many&mdash;to set himself in opposition to what Themistocles was trying to do, thinking it better that some advantages should escape the people than that his adversary, by prevailing everywhere, should become too strong.
+         <p>However, since Themistocles was a reckless agitator, and opposed and thwarted him in every measure of state, Aristides himself also was almost compelled—partly in self-defence, and partly to curtail his adversary's power, which was increasing through the favour of the many—to set himself in opposition to what Themistocles was trying to do, thinking it better that some advantages should escape the people than that his adversary, by prevailing everywhere, should become too strong.
 				<milestone n="2" unit="section"/>
 				Finally there came a time when he opposed and defeated Themistocles in an attempt to carry some really necessary measure.  Then he could no longer hold his peace, but declared, as he left the Assembly, that there was no safety for the Athenian state unless they threw both Themistocles and himself into the death-pit.  On another occasion he himself introduced a certain measure to the people, and was carrying it through successfully, in spite of the attacks of the opposition upon it, but just as the presiding officer was to put it to the final vote, perceiving, from the very speeches that had been made in opposition to it, the inexpediency of his measure, he withdrew it without a vote.
 				<milestone n="3" unit="section"/>
@@ -249,7 +170,7 @@
 			</p>
          <p>Altogether admirable was his steadfast constancy amid the revulsions of political feeling.  He was not unduly lifted up by his honors, and faced adversity with a calm gentleness, while in all cases alike he considered it his duty to give his services to his country freely and without any reward, either in money, or, what meant far more, in reputation.
 				<milestone n="4" unit="section"/>
-				And so it befell, as the story goes, that when the verses composed by Aeschylus upon Amphiaraus were recited in the theater:&mdash;
+				And so it befell, as the story goes, that when the verses composed by Aeschylus upon Amphiaraus were recited in the theater:—
 				
 				<quote rend="blockquote">
 					          <l>He wishes not to seem, but rather just to be,</l>
@@ -272,7 +193,7 @@
 				<milestone n="2" unit="section"/>
 				And again, when he was serving as private arbitrator between two men, on one of them saying that his opponent had done Aristides much injury, 
 				<q direct="unspecified">Tell me rather,</q> he said, 
-				<q direct="unspecified">whether he has done thee any wrong; it is for thee, not for myself, that I am seeking justice.</q> When he was elected overseer of the public revenues, he proved clearly that large sums had been embezzled, not only by his fellow-officials, but also by those of former years and particularly by Themistocles:&mdash;
+				<q direct="unspecified">whether he has done thee any wrong; it is for thee, not for myself, that I am seeking justice.</q> When he was elected overseer of the public revenues, he proved clearly that large sums had been embezzled, not only by his fellow-officials, but also by those of former years and particularly by Themistocles:—
 				
 				<quote rend="blockquote">
 					          <l>The man was clever, but of his hand had no control.</l>
@@ -329,11 +250,11 @@
 				<q direct="unspecified">Conquerors,</q> and some 
 				<q direct="unspecified">Eagles,</q> or 
 				<q direct="unspecified">Hawks,</q>
-            <note resp="ed" place="unspecified" anchored="yes"> Demetrius Poliorcetes; Ptolemy Ceraunos; Seleucus Nicator; Pyrrhus Aetos; Antiochus Hierax.</note> cultivating the reputation which is based on violence and power, as it seems, rather than on virtue.  And yet divinity, to which such men are eager to adapt and conform themselves, is believed to have three elements of superiority,&mdash;incorruption, power, and virtue; and the most reverend, the divinest of these, is virtue.
+            <note resp="ed" place="unspecified" anchored="yes"> Demetrius Poliorcetes; Ptolemy Ceraunos; Seleucus Nicator; Pyrrhus Aetos; Antiochus Hierax.</note> cultivating the reputation which is based on violence and power, as it seems, rather than on virtue.  And yet divinity, to which such men are eager to adapt and conform themselves, is believed to have three elements of superiority,—incorruption, power, and virtue; and the most reverend, the divinest of these, is virtue.
 				<milestone n="3" unit="section"/>
 				For vacuum and the ultimate elements partake of incorruption; and great power is exhibited by earthquakes and thunderbolts, and rushing tornadoes, and invading floods; but in fundamental justice nothing participates except through the exercise of intelligent reasoning powers. 
 			</p>
-         <p>Therefore, considering the three feelings which are generally entertained towards divinity,&mdash;envy, fear, and honorable regard, men seem to envy and felicitate the deities for their incorruption and perpetuity; to dread and fear them for their sovereignty and power; but to love and honor and revere them for their justice.
+         <p>Therefore, considering the three feelings which are generally entertained towards divinity,—envy, fear, and honorable regard, men seem to envy and felicitate the deities for their incorruption and perpetuity; to dread and fear them for their sovereignty and power; but to love and honor and revere them for their justice.
 				<milestone n="4" unit="section"/>
 				And yet, although men are thus disposed, it is immortality, of which our nature is not capable, and power, the chief disposal of which is in the hands of fortune, that they eagerly desire; while as for virtue, the only divine excellence within our reach, they put it at the bottom of the list, unwisely too, since a life passed in power and great fortune and authority needs justice to make it divine; by injustice it is made bestial.
 				</p>
@@ -353,7 +274,7 @@
 				<milestone n="4" unit="section"/>
 				The people were incensed at this for they felt that the institution had been insulted and abused, and so they abandoned it utterly and put an end to it. 
 			</p>
-         <p>The method of procedure&mdash;to give a general outline&mdash;was as follows.  Each voter took an ostrakon, or potsherd, wrote on it the name of that citizen whom he wished to remove from the city, and brought it to a place in the agora which was all fenced about with railings.
+         <p>The method of procedure—to give a general outline—was as follows.  Each voter took an ostrakon, or potsherd, wrote on it the name of that citizen whom he wished to remove from the city, and brought it to a place in the agora which was all fenced about with railings.
 				<milestone n="5" unit="section"/>
 				The archons first counted the total number of ostraka cast.  For if the voters were less than six thousand, the ostracism was void. Then they separated the names, and the man who had received the most votes they proclaimed banished for ten years, with the right to enjoy the income from his property. 
 			</p>
@@ -361,9 +282,9 @@
 				<milestone n="6" unit="section"/>
 				He, astonished, asked the man what possible wrong Aristides had done him.  
 				<q direct="unspecified">None whatever,</q> was the answer, 
-				<q direct="unspecified">I don't even know the fellow, but I am tired of hearing him everywhere called 'The Just.'</q>  On hearing this, Aristides made no answer, but wrote his name on the ostrakon and handed it back.  Finally, as he was departing the city, he lifted up his hands to heaven and prayed&mdash;a prayer the opposite, as it seems, of that which Achilles made<note resp="ed" place="unspecified" anchored="yes">
+				<q direct="unspecified">I don't even know the fellow, but I am tired of hearing him everywhere called 'The Just.'</q>  On hearing this, Aristides made no answer, but wrote his name on the ostrakon and handed it back.  Finally, as he was departing the city, he lifted up his hands to heaven and prayed—a prayer the opposite, as it seems, of that which Achilles made<note resp="ed" place="unspecified" anchored="yes">
                <bibl n="Hom. Il. 1.407">Hom. Il. 1.407-412</bibl>
-            </note>&mdash;that no crisis might overtake the Athenians which should compel the people to remember Aristides.
+            </note>—that no crisis might overtake the Athenians which should compel the people to remember Aristides.
 				</p>
 
 </div1>
@@ -491,7 +412,7 @@
 <div1 type="chapter" n="14"><p>
 				        <milestone n="1" unit="section"/>
 			      </p>
-         <p>After this, Mardonius made trial of the Hellenes with that arm of his service in which he thought himself most superior.  He despatched all his cavalry against them as they lay encamped at the foot of Cithaeron, in positions that were rugged and rocky&mdash;all except the Megarians.  These, to the number of three thousand, were encamped the rather in open plain.  For this reason they suffered severely at the hands of the cavalry, which poured in tides against them, and found access to them on every side.
+         <p>After this, Mardonius made trial of the Hellenes with that arm of his service in which he thought himself most superior.  He despatched all his cavalry against them as they lay encamped at the foot of Cithaeron, in positions that were rugged and rocky—all except the Megarians.  These, to the number of three thousand, were encamped the rather in open plain.  For this reason they suffered severely at the hands of the cavalry, which poured in tides against them, and found access to them on every side.
 				<milestone n="2" unit="section"/>
 				Accordingly, they sent a messenger in haste to Pausanias, bidding him come to their aid, since they were unable of themselves to withstand the host of the Barbarians.  Pausanias, on hearing this, and seeing at once that the camp of the Megarians was as good as hidden from view by the multitude of the enemy's javelins and arrows, and that its defenders were huddled together in narrow quarters, on his own part had no way of rendering them aid against horsemen, since his phalanx of Spartans was full-armored and slow of movement;
 				<milestone n="3" unit="section"/>
@@ -510,7 +431,7 @@
 <div1 type="chapter" n="15"><p>
 				        <milestone n="1" unit="section"/>
 			      </p>
-         <p>After this cavalry battle, both sides refrained from further fighting for a long time, since only as they acted on the defensive would victory be theirs&mdash;so the soothsayers interpreted the sacrifices alike for Persians and Hellenes,&mdash;but if they attacked, defeat.  At last Mardonius, since he had supplies remaining for only a few days, and since the Hellenes were ever increasing in number as fresh bodies joined them, impatiently determined to wait no longer, but to cross the Asopus at daybreak and attack the Athenians unexpectedly. During the evening he gave the watchword to his commanders.
+         <p>After this cavalry battle, both sides refrained from further fighting for a long time, since only as they acted on the defensive would victory be theirs—so the soothsayers interpreted the sacrifices alike for Persians and Hellenes,—but if they attacked, defeat.  At last Mardonius, since he had supplies remaining for only a few days, and since the Hellenes were ever increasing in number as fresh bodies joined them, impatiently determined to wait no longer, but to cross the Asopus at daybreak and attack the Athenians unexpectedly. During the evening he gave the watchword to his commanders.
 				<milestone n="2" unit="section"/>
 			      </p>
          <p>But about midnight a solitary horseman quietly approached the camp of the Hellenes, and falling in with the outposts, ordered that Aristides the Athenian come to him.  He was speedily obeyed, and then said: 
@@ -610,7 +531,7 @@
                <bibl n="Hdt. 9.85">Hdt. 9.85</bibl>
             </note> where he says that these one hundred and fifty nine represented the only Hellenes who engaged the enemy, and that not one of the rest did so.  Surely the total number of those who fell, as well as the monuments erected over them, testifies that the success was a common one.
 				<milestone n="6" unit="section"/>
-				Besides, had the men of three cities only made the contest, while the rest sat idly by, the altar would not have been inscribed as it was:&mdash;
+				Besides, had the men of three cities only made the contest, while the rest sat idly by, the altar would not have been inscribed as it was:—
 				<quote rend="blockquote" type="inscription">
 					          <l>Here did the Hellenes, flushed with a victory granted by Ares</l>
 					          <l>Over the routed Persians, together, for Hellas delivered,</l>
@@ -635,7 +556,7 @@
 			      </p>
          <p>When they consulted the oracle regarding the sacrifice to be made, the Pythian god made answer that they were to erect an altar of Zeus the Deliverer, but were not to sacrifice upon it until they had extinguished the fire throughout the land, which he said had been polluted by the Barbarians, and kindled it fresh and pure from the public hearth at Delphi.  Accordingly the commanders of the Hellenes went about straightway and compelled all who were using fire to extinguish it, while Euchidas, who promised to bring the sacred fire with all conceivable speed, went from Plataea to Delphi.
 				<milestone n="5" unit="section"/>
-				There he purified his person by sprinkling himself with the holy water, and crowned himself with laurel.  Then he took from the altar the sacred fire and started to run back to Plataea.  He reached the place before the sun had set, accomplishing thus a thousand furlongs in one and the same day.  He greeted his countrymen, handed them the sacred fire, and straightway fell down, and after a little expired.  In admiration of him the Plataeans gave him burial in the sanctuary of Artemis Eucleia, and inscribed upon his tomb this tetrameter verse:&mdash;
+				There he purified his person by sprinkling himself with the holy water, and crowned himself with laurel.  Then he took from the altar the sacred fire and started to run back to Plataea.  He reached the place before the sun had set, accomplishing thus a thousand furlongs in one and the same day.  He greeted his countrymen, handed them the sacred fire, and straightway fell down, and after a little expired.  In admiration of him the Plataeans gave him burial in the sanctuary of Artemis Eucleia, and inscribed upon his tomb this tetrameter verse:—
 				<quote rend="blockquote" type="inscription">
 					          <l>Euchidas, to Pytho running, came back here </l>
 					          <l>the selfsame day.</l>
@@ -650,7 +571,7 @@
 <div1 type="chapter" n="21"><p>
 				        <milestone n="1" unit="section"/>
 			      </p>
-         <p>After this, there was a general assembly of the Hellenes, at which Aristides proposed a decree to the effect that deputies and delegates from all Hellas convene at Plataea every year, and that every fourth year festival games of deliverance be celebrated&mdash;the Eleutheria; also that a confederate Hellenic force be levied, consisting of ten thousand shield, one thousand horse, and one hundred ships, to prosecute the war against the Barbarian; also that the Plataeans be set apart as inviolable and consecrate, that they might sacrifice to Zeus the Deliverer in behalf of Hellas.
+         <p>After this, there was a general assembly of the Hellenes, at which Aristides proposed a decree to the effect that deputies and delegates from all Hellas convene at Plataea every year, and that every fourth year festival games of deliverance be celebrated—the Eleutheria; also that a confederate Hellenic force be levied, consisting of ten thousand shield, one thousand horse, and one hundred ships, to prosecute the war against the Barbarian; also that the Plataeans be set apart as inviolable and consecrate, that they might sacrifice to Zeus the Deliverer in behalf of Hellas.
 				<milestone n="2" unit="section"/>
 			      </p>
          <p>These propositions were ratified, and the Plataeans undertook to make funeral offerings annually for the Hellenes who had fallen in battle and lay buried there.  And this they do yet unto this day, after the following manner.  On the sixteenth of the month Maimacterion (which is the Boeotian Alalcomenius), they celebrate a procession.  This is led forth at break of day by a trumpeter sounding the signal for battle;
@@ -701,7 +622,7 @@
 			      </p>
          <p>The Hellenes used to pay a sort of contribution for the war even while the Lacedaemonians had the leadership, but now they wished to be assessed equably city by city.  So they asked the Athenians for Aristides, and commissioned him to inspect their several territories and revenues,<note resp="ed" place="unspecified" anchored="yes"> 478-477 B.C.</note> and then to fix the assessments according to each member's worth and ability to pay.
 				<milestone n="2" unit="section"/>
-				And yet, though he became master of such power, and though after a fashion Hellas put all her property in his sole hands, poor as he was when he went forth on this mission, he came back from it poorer still, and he made his assessments of money not only with purity and justice, but also to the grateful satisfaction and convenience of all concerned. Indeed, as men of old hymned the praises of the age of Cronus&mdash;the golden age, so did the allies of the Athenians praise the tariff of Aristides, calling it a kind of blessed happening for Hellas, especially as, after a short time, it was doubled and then again trebled.
+				And yet, though he became master of such power, and though after a fashion Hellas put all her property in his sole hands, poor as he was when he went forth on this mission, he came back from it poorer still, and he made his assessments of money not only with purity and justice, but also to the grateful satisfaction and convenience of all concerned. Indeed, as men of old hymned the praises of the age of Cronus—the golden age, so did the allies of the Athenians praise the tariff of Aristides, calling it a kind of blessed happening for Hellas, especially as, after a short time, it was doubled and then again trebled.
 				<milestone n="3" unit="section"/>
 				For the tax which Aristides laid amounted to four hundred and sixty talents only; but Pericles must have added almost a third to this, since Thucydides<note resp="ed" place="unspecified" anchored="yes">
                <bibl n="Thuc. 2.13">Thuc. 2.13</bibl>
@@ -745,10 +666,10 @@
 			      </p>
          <p>As touching the death of Aristides, some say he died in Pontus, on an expedition in the public service; others at Athens, of old age, honored and admired by his countrymen.  But Craterus the Macedonian tells something like this about the death of the man.  After the exile of Themistocles, he says, the people waxed wanton, as it were, and produced a great crop of sycophants, who hounded down the noblest and most influential men, and subjected them to the malice of the multitude, now exalted with its prosperity and power.
 				<milestone n="2" unit="section"/>
-				Among these he says that Aristides also was convicted of bribery, on prosecution of Diophantus of the deme Amphitrope, for having taken money from the Ionians when he was regulating the tributes; and, further, that being unable to pay the judgment, which was fifty minas, he sailed away and died somewhere in Ionia.  But Craterus furnishes no documentary proof of this,&mdash;no judgment of the court, no degree of indictment,&mdash;although he is wont to record such things with all due fullness, and to adduce his authorities.
+				Among these he says that Aristides also was convicted of bribery, on prosecution of Diophantus of the deme Amphitrope, for having taken money from the Ionians when he was regulating the tributes; and, further, that being unable to pay the judgment, which was fifty minas, he sailed away and died somewhere in Ionia.  But Craterus furnishes no documentary proof of this,—no judgment of the court, no degree of indictment,—although he is wont to record such things with all due fullness, and to adduce his authorities.
 				<milestone n="3" unit="section"/>
 			      </p>
-         <p>All the rest, as I may venture to say,&mdash;all who rehearse the shortcomings of the people in dealing with their leaders,&mdash;compile and descant upon the exile of Themistocles, the imprisonment of Miltiades, the fine of Pericles, the death of Paches in the court room,&mdash;he slew himself on the rostrum when he saw that he was convicted,&mdash;and many such a case, and they put into the list the ostracism of Aristides, but of such a condemnation as this for bribery they make no mention whatsoever.
+         <p>All the rest, as I may venture to say,—all who rehearse the shortcomings of the people in dealing with their leaders,—compile and descant upon the exile of Themistocles, the imprisonment of Miltiades, the fine of Pericles, the death of Paches in the court room,—he slew himself on the rostrum when he saw that he was convicted,—and many such a case, and they put into the list the ostracism of Aristides, but of such a condemnation as this for bribery they make no mention whatsoever.
 				</p>
 
 </div1>
@@ -758,7 +679,7 @@
 			      </p>
          <p>Moreover, his tomb is pointed out at Phalerum, and they say the city constructed it for him, since he did not leave even enough to pay for his funeral.  And they tell how his daughters were married from the prytaneium at the public cost, the city bestowing the dowry for the marriage and voting outright three thousand drachmas to each daughter, while to Lysimachus his son, the people gave one hundred minas in silver, as many acres of vineyard land, and besides this a pension of four drachmas per diem,
 				<milestone n="2" unit="section"/>
-				&mdash;all in a bill which was brought in by Alcibiades.  And further, Lysimachus left a daughter, Polycrite, according to Callisthenes, and the people voted for her a public maintenance, in the style of their Olympic victors.  Again, Demetrius the Phalerean, Hieronymus the Rhodian, Aristoxenus the Musician, and Aristotle (provided the book 
+				—all in a bill which was brought in by Alcibiades.  And further, Lysimachus left a daughter, Polycrite, according to Callisthenes, and the people voted for her a public maintenance, in the style of their Olympic victors.  Again, Demetrius the Phalerean, Hieronymus the Rhodian, Aristoxenus the Musician, and Aristotle (provided the book 
 				<q direct="unspecified">On Nobility of Birth</q> is to be ranked among the genuine works of Aristotle) relate that Myrto, the granddaughter of Aristides, lived in wedlock with Socrates the Sage.  He had another woman to wife, but took this one up because her poverty kept her a widow, and she lacked the necessaries of life.
 				<milestone n="3" unit="section"/>
 				To these, however, Panaetius, in his work on Socrates, has made sufficient reply.
@@ -772,6 +693,7 @@
       
 
 </div1>
+      	</div>
 </body>
    </text>
-</TEI.2>
+</TEI>
