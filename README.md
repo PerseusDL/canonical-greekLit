@@ -1,12 +1,17 @@
-[![Hook Status](http://ci.perseids.org/api/rest/v1.0/code/PerseusDL/canonical-greekLit/status.svg?branch=refs%2Fheads%2Fmaster)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
-[![Hook Coverage](http://ci.perseids.org/api/rest/v1.0/code/PerseusDL/canonical-greekLit/coverage.svg?branch=refs%2Fheads%2Fmaster)](http://ci.perseids.org/Hook/repo/PerseusDL/canonical-greekLit)
-[![Hook Texts](http://ci.perseids.org/api/rest/v1.0/code/PerseusDL/canonical-greekLit/cts.svg?branch=refs%2Fheads%2Fmaster)](http://ci.perseids.org/Hook/repo/PerseusDL/canonical-greekLit)
+[![DOI](https://zenodo.org/badge/36300099.svg)](https://zenodo.org/badge/latestdoi/36300099)
+[![Hook Coverage](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/coverage.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
+[![Hook Texts](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/texts.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
+[![Hook Metadata](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/metadata.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
+[![Total words](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/words.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
+[![Greek Words](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/words.svg?lang=grc)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
 
 
 Canonical - Greek Literature
 =========
 
-This will be the base repo for all text and annotation data published in the PDL
+This will be the base repo for all text and annotation data published in the PDL.
+
+**Please [read the Wiki](https://github.com/PerseusDL/canonical-greekLit/wiki) for information on contacting us and submitting corrections, etc.**
 
 Tufts University holds the overall copyright to the Perseus Digital Library; the materials therein 
 (including all texts, translations, images, descriptions, drawings, etc.) are provided for the 
