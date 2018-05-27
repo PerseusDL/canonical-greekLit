@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader type="text">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title type="sub">Machine readable text</title>
-                <title n="Sol." type="work">Solon</title>
-                <author n="Plut.">Plutarch</author>
+               
+                <title type="work">Solon</title>
+                <author>Plutarch</author>
                 <editor role="editor" n="Loeb">Bernadotte Perrin</editor>
                 <sponsor>Perseus Project, Tufts University</sponsor>
                 <principal>Gregory Crane</principal>
@@ -26,7 +27,7 @@
             </publicationStmt>
             <sourceDesc>
                 <biblStruct>
-                    <analytic n="Sol."/>
+                    
                     <monogr>
                         <author>Plutarch</author>
                         <title>Plutarch's Lives</title>
@@ -41,56 +42,52 @@
                             <publisher>William Heinemann Ltd.</publisher>
                             <date>1914</date>
                         </imprint>
-                        <biblScope type="volume">1</biblScope>
+                        <biblScope unit="volume">1</biblScope>
                     </monogr>
                 </biblStruct>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
+            <editorialDecl>
+                <quotation marks="none"/>
+            </editorialDecl>
             <refsDecl n="CTS">
                 <cRefPattern n="section"
-                         matchPattern="(\\w+).(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div/tei:div1[@n=\'$1\']/tei:div2[@n=\'$2\'])">
+                    matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
                     <p>This pointer pattern extracts chapter and section</p>
                 </cRefPattern>
                 <cRefPattern n="chapter"
-                         matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI.2/tei:text/tei:body/tei:div/tei:div1[@n=\'$1\'])">
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
                     <p>This pointer pattern extracts chapter</p>
                 </cRefPattern>
             </refsDecl>
-            <!--
-			<COMPOSITION.HISTORY>Text keyboarded in the Philippines.  Basic SGML tagging by Scott Ettinger and Roger Travis.</COMPOSITION.HISTORY>
-			&prose.grk.encode;-->
-            <refsDecl>
+          
+            <!--<refsDecl>
                 <refState delim="." unit="chapter"/>
                 <refState unit="section"/>
-            </refsDecl>
+            </refsDecl>-->
         </encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="grc">Greek </language>
-                <language ident="en">English </language>
+                <language ident="eng">English </language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
-            <change>
-                <date>8/91</date>
-                <name>EM</name> ed. Revise DTDs and recheck texts. </change>
-            <change>
-                <date>5/20/92</date>
-                <name>David Smith</name> ed. uncapitalized non-proper nouns at the beginnings of
-                paragraphs and verse lines </change>
-            <change>
-                <date>10/22/92</date>
-                <name>EM</name> ed. Glued all Plutarch files together, put in HEAD tags to title
-                them. </change>
+            <change who="Lisa Cerrato" when="2016-12-13">review of EpiDoc and CTS compliance; minor cleanup; bumped URN</change>
             <change who="Stella Dee" when="2015">converted to CTS EpiDoc</change>
-        </revisionDesc>
+            <change who="EM" when="1992-10-22">Glued all Plutarch files together, put in HEAD tags to title them.</change>
+            <change who="David Smith" when="1992-05-20">uncapitalized non-proper nouns at the beginnings of paragraphs and verse lines</change>
+            <change who="EM" when="1991-08-01">Revise DTDs and recheck texts.</change>
+            <change who="Scott Ettinger and Roger Travis">Text keyboarded in the Philippines. Basic SGML tagging.</change>
+</revisionDesc>
     </teiHeader>
-    <text n="urn:cts:greekLit:tlg0007.tlg007.perseus-grc2">
+    
+    <text xml:lang="grc">
         <body>
-            <div type="edition">
+            <div type="edition" n="urn:cts:greekLit:tlg0007.tlg007.perseus-grc2" xml:lang="grc">
                 <head>Σόλων</head>
                 <div type="textpart" subtype="chapter" n="1">
                     <div type="textpart" subtype="section" n="1">
@@ -111,12 +108,12 @@
                                 <quote rend="blockquote" type="drama">
                                     <l met="iamb">τυφόμενα Δίου πυρὸς ἔτι ζῶσαν φλόγα,</l>
                                 </quote>
-                                <bibl>Eur. Ba. 8</bibl>
+                                <bibl xml:lang="eng">Eur. Ba. 8</bibl>
                             </cit>τὴν ἐρωτικὴν μνήμην καὶ χάριν. </p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>ὅτι δὲ πρὸς τοὺς καλοὺς οὐκ ἦν ἐχυρὸς ὁ Σόλων οὐδʼ Ἔρωτι θαρραλέος
-                            “ἀνταναστῆναι πύκτης ὅπως ἐς χεῖρας,” <note resp="ed" place="unspecified" anchored="true">
+                            <q>ἀνταναστῆναι πύκτης ὅπως ἐς χεῖρας,</q> <note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">Ἔρωτι μέν νυν ὅστις ἀντανίσταται πύκτης ὅπως
                                     ἐς χεῖρας, οὐ καλῶς φρονεῖ</foreign>. (Sophocles,
                                     <title>Trachiniae</title>, 441 f.)</note> ἔκ τε τῶν ποιημάτων
@@ -138,14 +135,14 @@
                             αἰδούμενος δὲ λαμβάνειν παρʼ ἑτέρων ἐξ οἰκίας γεγονὼς εἰθισμένης ἑτέροις
                             βοηθεῖν, ὥρμησε νέος ὢν ἔτι πρὸς ἐμπορίαν. καίτοι φασὶν ἔνιοι
                             πολυπειρίας ἕνεκα μᾶλλον καὶ ἱστορίας ἢ χρηματισμοῦ πλανηθῆναι τὸν
-                            Σόλωνα. σοφίας μὲν γὰρ ἦν ὁμολογουμένως ἐραστής, </p>
+                            Σόλωνα.</p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
-                        <p>ὅς γε καὶ πρεσβύτερος ὢν ἔλεγε “γηράσκειν αἰεὶ πολλὰ διδασκόμενος·” <note resp="ed" place="unspecified" anchored="true">
+                        <p>σοφίας μὲν γὰρ ἦν ὁμολογουμένως ἐραστής, ὅς γε καὶ πρεσβύτερος ὢν ἔλεγε <q>γηράσκειν αἰεὶ πολλὰ διδασκόμενος·</q> <note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">Γηράσκω δʼ αἰεὶ πολλὰ
                                 διδασκόμενος</foreign>. Fragment 18 (Bergk, <title>Poet. Lyr.
                                     Gr.</title> ii.<hi rend="superscript">4</hi> p. 47).</note>
-                            πλοῦτον δʼ οὐκ ἐθαύμαζεν, ἀλλὰ καί φησιν ὁμοίως πλουτεῖν ᾧ τε<note resp="ed" place="unspecified" anchored="true">
+                            πλοῦτον δʼ οὐκ ἐθαύμαζεν, ἀλλὰ καί φησιν ὁμοίως πλουτεῖν ᾧ τε<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">Ἶσόν τοι πλουτοῦσιν ὅτῳ πολὺς ἄργυρός ἐστιν,
                                     κ.τ.λ.</foreign>, Fragment 24 (Bergk), verses 1-6.</note>
                             <cit>
@@ -157,9 +154,8 @@
                                     <l>παιδός τʼ ἠδὲ γυναικός, ἐπὴν καὶ ταῦτʼ ἀφίκηται,</l>
                                     <l>ἥβη, σὺν δʼ ὥρη γίνεται ἁρμοδία.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 24. 1-6 (Bergk)</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Solon, Frag. 24. 1-6 (Bergk)</bibl>
+                            </cit></p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>ἀλλʼ ἑτέρωθι λέγει·<cit>
@@ -168,7 +164,7 @@
                                         πεπᾶσθαι</l>
                                     <l>οὐκ ἐθέλω· πάντως ὕστερον ἦλθε δίκη.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 13. 7-8 (Bergk)</bibl>
+                                <bibl xml:lang="eng">Solon, Frag. 13. 7-8 (Bergk)</bibl>
                             </cit>κωλύει δὲ οὐδὲν τὸν ἀγαθὸν καὶ πολιτικὸν ἄνδρα μήτε τῶν περιττῶν
                             τὴν κτῆσιν ἐν σπουδῇ τίθεσθαι μήτε τῆς χρείας τῶν ἀναγκαίων καὶ ἱκανῶν
                             καταφρονεῖν. ἐν δὲ τοῖς τότε χρόνοις, καθʼ Ἡσίοδον, ἔργον οὐδὲν ἦν
@@ -188,8 +184,7 @@
                         <p>τὸ δʼ οὖν εὐδάπανον τῷ Σόλωνι καὶ ὑγρὸν πρὸς τὴν δίαιταν, καὶ τὸ
                             φορτικώτερον ἢ φιλοσοφώτερον ἐν τοῖς ποιήμασι διαλέγεσθαι περὶ τῶν
                             ἡδονῶν, τὸν ἐμπορικὸν οἴονται βίον προστετρῖφθαι· πολλοὺς γὰρ ἔχοντα
-                            κινδύνους καὶ μεγάλους ἀνταπαιτεῖν πάλιν εὐπαθείας τινὰς καὶ ἀπολαύσεις.
-                        </p>
+                            κινδύνους καὶ μεγάλους ἀνταπαιτεῖν πάλιν εὐπαθείας τινὰς καὶ ἀπολαύσεις.</p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
                         <p>ὅτι δʼ αὑτὸν ἐν τῇ τῶν πενήτων μερίδι μᾶλλον ἢ τῇ τῶν πλουσίων ἔταττε,
@@ -201,9 +196,8 @@
                                     <l>τῆς ἀρετῆς τὸν πλοῦτον· ἐπεὶ τὸ μὲν ἔμπεδον αἰεί,</l>
                                     <l>χρήματα δʼ ἀνθρώπων ἄλλοτε ἄλλος ἔχει.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 15 (Bergk)</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Solon, Frag. 15 (Bergk)</bibl>
+                            </cit></p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>τῇ δὲ ποιήσει κατʼ ἀρχὰς μὲν εἰς οὐδὲν ἄξιον σπουδῆς, ἀλλὰ παίζων ἔοικε
@@ -220,9 +214,8 @@
                                     <l met="dact">πρῶτα μὲν εὐχώμεσθα Διῒ Κρονίδῃ βασιλῆϊ</l>
                                     <l>θεσμοῖς τοῖσδε τύχην ἀγαθὴν καὶ κῦδος ὀπάσσαι.</l>
                                 </quote>
-                                <bibl>Solon, Fragm. 31 (Bergk)</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Solon, Fragm. 31 (Bergk)</bibl>
+                            </cit></p>
                         <p>φιλοσοφίας δὲ τοῦ ἠθικοῦ μάλιστα τὸ πολιτικόν, ὥσπερ οἱ πλεῖστοι τῶν
                             σοφῶν, ἠγάπησεν. ἐν δὲ τοῖς φυσικοῖς ἁπλοῦς ἐστι λίαν καὶ ἀρχαῖος, ὡς
                             δῆλον ἐκ τούτων· </p>
@@ -236,7 +229,7 @@
                                     <l>ἐξ ἀνέμων δὲ θάλασσα ταράσσεται· ἢν δέ τις αὐτὴν</l>
                                     <l>μὴ κινῇ, πάντων ἐστὶ δικαιοτάτη.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 9. 1-2, Frag. 12 (Bergk)</bibl>
+                                <bibl xml:lang="eng">Solon, Frag. 9. 1-2, Frag. 12 (Bergk)</bibl>
                             </cit>καὶ ὅλως ἔοικεν ἡ Θάλεω μόνου σοφία τότε περαιτέρω τῆς χρείας
                             ἐξικέσθαι τῇ θεωρίᾳ· τοῖς δὲ ἄλλοις ἀπὸ τῆς πολιτικῆς ἀρετῆς τοὔνομα τῆς
                             σοφίας ὑπῆρξε. </p>
@@ -282,8 +275,8 @@
                             λόγους ἀναγράφουσι τοιούτους. Ἀνάχαρσιν μὲν εἰς Ἀθήνας φασὶν ἐπὶ τὴν
                             Σόλωνος οἰκίαν ἐλθόντα κόπτειν, καὶ λέγειν ὡς ξένος ὢν ἀφῖκται φιλίαν
                             ποιησόμενος καὶ ξενίαν πρὸς αὐτόν. ἀποκριναμένου δὲ τοῦ Σόλωνος ὡς οἴκοι
-                            βέλτιόν ἐστι ποιεῖσθαι φιλίας, “οὐκοῦν,” φάναι τὸν Ἀνάχαρσιν, “αὐτὸς ὢν
-                            οἴκοι σὺ ποίησαι φιλίαν καὶ ξενίαν πρὸς ἡμᾶς.” </p>
+                            βέλτιόν ἐστι ποιεῖσθαι φιλίας, <q>οὐκοῦν,</q> φάναι τὸν Ἀνάχαρσιν, <q>αὐτὸς ὢν
+                            οἴκοι σὺ ποίησαι φιλίαν καὶ ξενίαν πρὸς ἡμᾶς.</q> </p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
                         <p>οὕτω δὴ θαυμάσαντα τὴν ἀγχίνοιαν τοῦ ἀνδρὸς τὸν Σόλωνα δέξασθαι
@@ -310,25 +303,25 @@
                             παιδοποιΐας τὸ παράπαν ἠμέληκε. καὶ τὸν Θαλῆν τότε μὲν σιωπῆσαι,
                             διαλιπόντα δʼ ὀλίγας ἡμέρας ἄνδρα παρασκευάσαι ξένον, ἀρτίως ἥκειν
                             φάσκοντα δεκαταῖον ἐξ Ἀθηνῶν. πυθομένου δὲ τοῦ Σόλωνος εἰ δή τι καινὸν
-                            ἐν ταῖς Ἀθήναις, δεδιδαγμένον ἃ χρὴ λέγειν τὸν ἄνθρωπον, “οὐδέν,”
-                            εἰπεῖν, “ἕτερον, εἰ μὴ νὴ Δία νεανίσκου τινὸς ἦν ἐκφορὰ καὶ προὔπεμπεν ἡ
-                            πόλις. </p>
+                            ἐν ταῖς Ἀθήναις, δεδιδαγμένον ἃ χρὴ λέγειν τὸν ἄνθρωπον, <q>οὐδέν,</q>
+                            εἰπεῖν, <q>ἕτερον, εἰ μὴ νὴ Δία νεανίσκου τινὸς ἦν ἐκφορὰ καὶ προὔπεμπεν ἡ
+                            πόλις.</q> </p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
-                        <p>ἦν γὰρ υἱός, ὡς ἔφασαν, ἀνδρὸς ἐνδόξου καὶ πρωτεύοντος ἀρετῇ τῶν πολιτῶν·
-                            οὐ παρῆν δέ, ἀλλʼ ἀποδημεῖν ἔφασαν αὐτὸν ἤδη πολὺν χρόνον.” “ὡς δυστυχὴς
-                            ἐκεῖνος,” φάναι τὸν Σόλωνα. “τίνα δὲ ὠνόμαζον αὐτόν;” “ἤκουσα,” φάναι,
-                            “τοὔνομα,” τὸν ἄνθρωπον, “ἀλλʼ οὐ μνημονεύω· πλὴν ὅτι πολὺς λόγος ἦν
-                            αὐτοῦ σοφίας καὶ δικαιοσύνης.” οὕτω δὴ καθʼ ἑκάστην ἀπόκρισιν τῷ φόβῳ
+                        <p><q rend="merge">ἦν γὰρ υἱός, ὡς ἔφασαν, ἀνδρὸς ἐνδόξου καὶ πρωτεύοντος ἀρετῇ τῶν πολιτῶν·
+                            οὐ παρῆν δέ, ἀλλʼ ἀποδημεῖν ἔφασαν αὐτὸν ἤδη πολὺν χρόνον.</q> <q>ὡς δυστυχὴς
+                            ἐκεῖνος,</q> φάναι τὸν Σόλωνα. <q>τίνα δὲ ὠνόμαζον αὐτόν;</q> <q>ἤκουσα,</q> φάναι,
+                            <q>τοὔνομα,</q> τὸν ἄνθρωπον, <q>ἀλλʼ οὐ μνημονεύω· πλὴν ὅτι πολὺς λόγος ἦν
+                            αὐτοῦ σοφίας καὶ δικαιοσύνης.</q> οὕτω δὴ καθʼ ἑκάστην ἀπόκρισιν τῷ φόβῳ
                             προσαγόμενον τὸν Σόλωνα καὶ τέλος ἤδη συντεταραγμένον αὐτὸν ὑποβάλλειν
                             τοὔνομα τῷ ξένῳ, πυνθανόμενον μὴ Σόλωνος ὁ τεθνηκὼς υἱὸς ὠνομάζετο. </p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>φήσαντος δὲ τοῦ ἀνθρώπου, τὸν μὲν ὁρμῆσαι παίειν τὴν κεφαλὴν καὶ τἆλλα
                             ποιεῖν καὶ λέγειν ἃ συμβαίνει τοῖς περιπαθοῦσι, τὸν δὲ Θαλῆν
-                            ἐπιλαβόμενον αὐτοῦ καὶ γελάσαντα, “ταῦτά τοι,” φάναι, “ὦ Σόλων, ἐμὲ
+                            ἐπιλαβόμενον αὐτοῦ καὶ γελάσαντα, <q>ταῦτά τοι,</q> φάναι, <q>ὦ Σόλων, ἐμὲ
                             γάμου καὶ παιδοποιΐας ἀφίστησιν, ἃ καὶ σὲ κατερείπει τὸν ἐρρωμενέστατον.
-                            ἀλλὰ θάρρει τῶν λόγων ἕνεκα τούτων· οὐ γάρ εἰσιν ἀληθεῖς.” ταῦτα μὲν οὖν
+                            ἀλλὰ θάρρει τῶν λόγων ἕνεκα τούτων· οὐ γάρ εἰσιν ἀληθεῖς.</q> ταῦτα μὲν οὖν
                             Ἕρμιππος ἱστορεῖν φησι Πάταικον, ὃς ἔφασκε τὴν Αἰσώπου ψυχὴν ἔχειν. </p>
                     </div>
                 </div>
@@ -364,7 +357,7 @@
                             ἀνασκήτοις ὑπὸ λόγου πρὸς τύχην, οἷς οὐδʼ ἀπόλαυσις ἐγγίνεται τοῦ
                             ποθουμένου παρόντος, τοῦ μέλλοντος ὠδῖνας ἀεὶ καὶ τρόμους καὶ ἀγῶνας, εἰ
                             στερήσονται, παρέχοντος αὐτοῖς. δεῖ δὲ μήτε πενίᾳ πρὸς χρημάτων
-                                πεφράχθαι<note resp="ed" place="unspecified" anchored="true">
+                                πεφράχθαι<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">πεφράχθαι</foreign> Bekker and Cobet, after
                                 Bryan: <foreign xml:lang="grc">πεπαῦσθαι</foreign> (<gloss>be
                                     delivered from</gloss>).</note> στέρησιν μήτε ἀφιλίᾳ πρὸς φίλων
@@ -391,9 +384,8 @@
                                     <l met="dact">αὐτὸς κῆρυξ ἦλθον ἀφʼ ἱμερτῆς Σαλαμῖνος,</l>
                                     <l>κόσμον ἐπέων ᾠδὴν ἀντʼ ἀγορῆς θέμενος.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 1 (Bergk)</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Solon, Frag. 1 (Bergk)</bibl>
+                            </cit></p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>τοῦτο τὸ ποίημα Σαλαμὶς ἐπιγέγραπται καὶ στίχων ἑκατόν ἐστι, χαριέντως
@@ -421,7 +413,7 @@
                     <div type="textpart" subtype="section" n="6">
                         <p>οὕτω δὴ τούτων πραττομένων, ὑπαχθέντες οἱ Μεγαρεῖς τῇ ὄψει καὶ
                             προσμίξαντες ἐγγύς, ἐξεπήδων ὡς ἐπὶ γυναῖκας, ἁμιλλώμενοι πρὸς
-                                ἀλλήλους,<note resp="ed" place="unspecified" anchored="true">
+                                ἀλλήλους,<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">ἀλλήλους</foreign> Sintenis and Bekker
                                 assume here a lacuna in the text, where such details were given as
                                 are found in Polyaenus, <title>Strategemata</title>, i. 20.</note>
@@ -443,7 +435,7 @@
                         <p>εἶτα παρὰ τῶν Ἀθηναίων ἐθελοντὰς λαβεῖν πεντακοσίους, δόγματος γενομένου
                             τούτους, ἄν κατασχῶσι τὴν νῆσον, κυρίους εἶναι τοῦ πολιτεύματος.
                             ἀναχθέντα δὲ συχναῖς ἁλιάσιν ἅμα τριακοντόρου συμπαραπλεούσης
-                            ὑφορμίσασθαι τῇ Σαλαμῖνι κατὰ χηλήν τινα πρὸς τὴν Εὔβοιαν<note resp="ed" place="unspecified" anchored="true">
+                            ὑφορμίσασθαι τῇ Σαλαμῖνι κατὰ χηλήν τινα πρὸς τὴν Εὔβοιαν<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">Εὔβοιαν</foreign> Sintenis suggests <foreign xml:lang="grc">Νίσαιαν</foreign> (cf. xii. 3).</note>
                             ἀποβλέπουσαν. πυθομένους δὲ τοὺς ἐν Σαλαμῖνι Μεγαρεῖς ἔκ τινος φήμης
                             οὐδὲν βέβαιον, αὐτοὺς μὲν εἰς τὰ ὅπλα θορυβουμένους βαδίζειν, ναῦν δʼ
@@ -459,7 +451,7 @@
                     <div type="textpart" subtype="section" n="4">
                         <p>ἔοικε δὲ τῷ λόγῳ τούτῳ καὶ τὰ δρώμενα μαρτυρεῖν. ναῦς γάρ τις Ἀττικὴ
                             προσέπλει σιωπῇ τὸ πρῶτον, εἶτα κραυγῇ καὶ ἀλαλαγμῷ προσφερομένων εἷς
-                            ἀνήρ ἔνοπλος ἐξαλλόμενος μετὰ βοῆς ἔθει πρὸς ἄκρον τὸ Σκιράδιον<note resp="ed" place="unspecified" anchored="true">
+                            ἀνήρ ἔνοπλος ἐξαλλόμενος μετὰ βοῆς ἔθει πρὸς ἄκρον τὸ Σκιράδιον<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">Σκιράδιον</foreign> after this word Sintenis
                                 and Bekker assume a lacuna in the text.</note> ἐκ γῆς
                             προσφερομένοις. πλησίον δὲ τοῦ Ἐνυαλίου τὸ ἱερόν ἐστιν ἱδρυσαμένου
@@ -477,9 +469,8 @@
                                     <l met="dact">Αἴας δʼ ἐκ Σαλαμῖνος ἄγεν δυοκαίδεκα νῆας,</l>
                                     <l>στῆσε δʼ ἄγων ἵνʼ Ἀθηναίων ἵσταντο φάλαγγες.</l>
                                 </quote>
-                                <bibl>Hom. Il. 2.557-558</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Hom. Il. 2.557-558</bibl>
+                            </cit></p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
                         <p>αὐτοὶ δʼ Ἀθηναῖοι ταῦτα μὲν οἴονται φλυαρίαν εἶναι, τὸν δὲ Σόλωνά φασιν
@@ -564,10 +555,10 @@
                             ἱλασμοῖς τισι καὶ καθαρμοῖς καὶ ἱδρύσεσι κατοργιάσας καὶ καθοσιώσας τὴν
                             πόλιν ὑπήκοον τοῦ δικαίου καὶ μᾶλλον εὐπειθῆ πρὸς ὁμόνοιαν κατέστησε.
                             λέγεται δὲ τὴν Μουνυχίαν ἰδὼν καὶ καταμαθὼν πολὺν χρόνον, εἰπεῖν πρὸς
-                            τοὺς παρόντας ὡς τυφλόν </p>
+                            τοὺς παρόντας ὡς τυφλόν ἐστι τοῦ μέλλοντος ἄνθρωπος· </p>
                     </div>
                     <div type="textpart" subtype="section" n="6">
-                        <p>ἐστι τοῦ μέλλοντος ἄνθρωπος· ἐκφαγεῖν γὰρ ἂν Ἀθηναίους τοῖς αὑτῶν
+                        <p>ἐκφαγεῖν γὰρ ἂν Ἀθηναίους τοῖς αὑτῶν
                             ὀδοῦσιν, εἰ προῄδεσαν ὅσα τὴν πόλιν ἀνιάσει τὸ χωρίον· ὅμοιον δέ τι καὶ
                             Θαλῆν εἰκάσαι λέγουσι· κελεῦσαι γὰρ αὐτὸν ἔν τινι τόπῳ τῆς Μιλησίας
                             φαύλῳ καὶ παρορωμένῳ τελευτήσαντα θεῖναι, προειπὼν ὡς ἀγορά ποτε τοῦτο
@@ -596,7 +587,7 @@
                             αὐτοῦ δουλεύοντες, οἱ δʼ ἐπὶ τὴν ξένην πιπρασκόμενοι. </p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
-                        <p>πολλοὶ δὲ καὶ παῖδας ἰδίους ἠναγκάζοντο πωλεῖν ʽ οὐδεὶς γὰρ νόμος ἐκώλυἐ
+                        <p>πολλοὶ δὲ καὶ παῖδας ἰδίους ἠναγκάζοντο πωλεῖν (οὐδεὶς γὰρ νόμος ἐκώλυε)
                             καὶ τὴν πόλιν φεύγειν διὰ τὴν χαλεπότητα τῶν δανειστῶν. οἱ δὲ πλεῖστοι
                             καὶ ῥωμαλεώτατοι συνίσταντο καὶ παρεκάλουν ἀλλήλους μὴ περιορᾶν, ἀλλʼ
                             ἑλομένους ἕνα προστάτην ἄνδρα πιστὸν ἀφελέσθαι τοὺς ὑπερημέρους καὶ τὴν
@@ -620,10 +611,10 @@
                             προθύμως αὐτὸν ὡς μὲν εὔπορον τῶν πλουσίων, ὡς δὲ χρηστὸν τῶν πενήτων.
                             λέγεται δὲ καὶ φωνή τις αὐτοῦ περιφερομένη πρότερον, εἰπόντος ὡς τὸ ἴσον
                             πόλεμον οὐ ποιεῖ, καὶ τοῖς κτηματικοῖς ἀρέσκειν καὶ τοῖς ἀκτήμοσι, τῶν
-                            μὲν ἀξίᾳ καὶ ἀρετῇ, τῶν δὲ μέτρῳ καὶ ἀριθμῷ </p>
+                            μὲν ἀξίᾳ καὶ ἀρετῇ, τῶν δὲ μέτρῳ καὶ ἀριθμῷ τὸ ἴσον ἕξειν προσδοκώντων· </p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
-                        <p>τὸ ἴσον ἕξειν προσδοκώντων· ὅθεν ἐπʼ ἐλπίδος μεγάλης ἑκατέρων γενομένων
+                        <p>ὅθεν ἐπʼ ἐλπίδος μεγάλης ἑκατέρων γενομένων
                             οἱ προϊστάμενοι προσέκειντο τῷ Σόλωνι τυραννίδα προξενοῦντες καὶ
                             ἀναπείθοντες εὐτολμότερον ἅψασθαι τῆς πόλεως ἐγκρατῆ γενόμενον. πολλοὶ
                             δὲ καὶ τῶν διὰ μέσου πολιτῶν, τὴν ὑπὸ λόγου καὶ νόμου μεταβολὴν ὁρῶντες
@@ -644,13 +635,13 @@
                             τοὺς φίλους εἶπεν, ὡς λέγεται, καλὸν μὲν εἶναι τὴν τυραννίδα χωρίον, οὐκ
                             ἔχειν δὲ ἀπόβασιν, πρὸς δὲ Φῶκον ἐν τοῖς ποιήμασι γράφων·<cit>
                                 <quote rend="blockquote">
-                                    <l met="troch">εἰ δὲ γῆς ʽ φησίν̓ ἐφεισάμην</l>
+                                    <l met="troch">εἰ δὲ γῆς (φησίν) ἐφεισάμην</l>
                                     <l>πατρίδος, τυραννίδος δὲ καὶ βίης ἀμειλίχου</l>
                                     <l>οὐ καθηψάμην μιάνας καὶ καταισχύνας κλέος,</l>
                                     <l>οὐδὲν αἰδεῦμαι· πλέον γὰρ ὧδε νικήσειν δοκέω πάντας
                                         ἀνθρώπους.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 32 (Bergk).</bibl>
+                                <bibl xml:lang="eng">Solon, Frag. 32 (Bergk).</bibl>
                             </cit>ὅθεν εὔδηλον ὅτι καὶ πρὸ τῆς νομοθεσίας μεγάλην δόξαν εἶχεν. </p>
                     </div>
                     <div type="textpart" subtype="section" n="6">
@@ -660,7 +651,7 @@
                                     <l>ἐσθλὰ γὰρ θεοῦ διδόντος αὐτὸς οὐκ ἐδέξατο.</l>
                                     <l>περιβαλὼν δʼ ἄγραν ἀγασθεὶς οὐκ ἐπέσπασεν μέγα</l>
                                     <l>δίκτυον, θυμοῦ θʼ ἁμαρτῇ καὶ φρενῶν ἀποσφαλείς.</l>
-                                    <l>ἤθελον<note resp="ed" place="unspecified" anchored="true">
+                                    <l>ἤθελον<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                             <foreign xml:lang="grc">ἤθελον, ἀσκὸς</foreign> Bergk,
                                             with the better MSS.: <foreign xml:lang="grc">ἤθελεν,
                                                 αὐτός</foreign> (<gloss>he</gloss> (Solon)
@@ -668,7 +659,7 @@
                                             himself</gloss>).</note> γάρ κεν κρατήσας, πλοῦτον
                                         ἄφθονον λαβὼν</l>
                                     <l>καὶ τυραννεύσας Ἀθηνῶν μοῦνον ἡμέραν μίαν,</l>
-                                    <l>ἀσκὸς<note resp="ed" place="unspecified" anchored="true">
+                                    <l>ἀσκὸς<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                             <foreign xml:lang="grc">ἤθελον, ἀσκὸς</foreign> Bergk,
                                             with the better MSS.: <foreign xml:lang="grc">ἤθελεν,
                                                 αὐτός</foreign> (<gloss>he</gloss> (Solon)
@@ -676,9 +667,8 @@
                                             himself</gloss>).</note> ὕστερον δεδάρθαι κἀπιτετρῖφθαι
                                         γένος.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 33 (Bergk).</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Solon, Frag. 33 (Bergk).</bibl>
+                            </cit></p>
                     </div>
                 </div>
                 <div type="textpart" subtype="chapter" n="15">
@@ -688,25 +678,24 @@
                             πράγμασιν, οὐδὲ μαλακῶς οὐδʼ ὑπείκων τοῖς δυναμένοις οὐδὲ πρὸς ἡδονὴν
                             τῶν ἑλομένων ἔθετο τοὺς νόμους· ἀλλʼ ᾗ μὲν ἄριστον ἦν, οὐκ ἐπήγαγεν
                             ἰατρείαν οὐδὲ καινοτομίαν, φοβηθεὶς μὴ συγχέας παντάπασι καὶ ταράξας τὴν
-                            πόλιν ἀσθενέστερος γένηται τοῦ καταστῆσαι πάλιν καὶ συναρμόσασθαι </p>
+                            πόλιν ἀσθενέστερος γένηται τοῦ καταστῆσαι πάλιν καὶ συναρμόσασθαι πρὸς τὸ ἄριστον· </p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
-                        <p>πρὸς τὸ ἄριστον· ἃ δὲ καὶ λέγων ἤλπιζε πειθομένοις καὶ προσάγων ἀνάγκην
+                        <p>ἃ δὲ καὶ λέγων ἤλπιζε πειθομένοις καὶ προσάγων ἀνάγκην
                             ὑπομένουσι χρήσασθαι, ταῦτʼ ἔπραττεν, ὥς φησιν αὐτός,<cit>
                                 <quote rend="blockquote">
                                     <l met="iamb">ὁμοῦ βίην τε καὶ δίκην συναρμόσας.</l>
                                 </quote>
-                                <note resp="ed" place="unspecified" anchored="true">Fragment 36,
+                                <note anchored="true" place="unspecified" resp="editor" xml:lang="eng">Fragment 36,
                                     verse 14 (Bergk); verse 16 of the longer fragment now found in
-                                    Aristotle's <title>Const. of Athens</title>, chapter xii. 4,
+                                    Aristotle’s <title>Const. of Athens</title>, chapter xii. 4,
                                     where we have <foreign xml:lang="grc">κράτει νόμου, βίην τε
                                         κτλ</foreign>.</note>
-                                <bibl>Solon, Frag. 36. 14 (Bergk)</bibl>
+                                <bibl xml:lang="eng">Solon, Frag. 36. 14 (Bergk)</bibl>
                             </cit>ὅθεν ὕστερον ἐρωτηθεὶς εἰ τοὺς ἀρίστους Ἀθηναίοις νόμους ἔγραψεν,
-                            “ὧν ἄν,” ἔφη, “προσεδέξαντο τοὺς ἀρίστους.” </p>
+                                <q>ὧν ἄν,</q> ἔφη, <q>προσεδέξαντο τοὺς ἀρίστους.</q></p>
                         <p>ἃ δʼ οὖ οἱ νεώτεροι τοὺς Ἀθηναίους λέγουσι τὰς τῶν πραγμάτων δυσχερείας
-                            ὀνόμασι χρηστοῖς καὶ φιλανθρώποις ἐπικαλύπτοντας ἀστείως ὑποκορίζεσθαι,
-                        </p>
+                            ὀνόμασι χρηστοῖς καὶ φιλανθρώποις ἐπικαλύπτοντας ἀστείως ὑποκορίζεσθαι, </p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>τὰς μὲν πόρνας ἑταίρας, τοὺς δὲ φόρους συντάξεις, φυλακὰς δὲ τὰς φρουρὰς
@@ -732,7 +721,7 @@
                                     <l met="iamb">ὅρους ἀνεῖλε πολλαχῆ πεπηγότας·</l>
                                     <l>πρόσθεν δὲ δουλεύουσα, νῦν ἐλευθέρα·</l>
                                 </quote>
-                                <bibl>Solon, Frag. 36. 4-5 (Bergk)</bibl>
+                                <bibl xml:lang="eng">Solon, Frag. 36. 4-5 (Bergk)</bibl>
                             </cit>καὶ τῶν ἀγωγίμων πρὸς ἀργύριον γεγονότων πολιτῶν τοὺς μὲν ἀνήγαγεν
                             ἀπὸ ξένης,<cit>
                                 <quote rend="blockquote">
@@ -740,7 +729,7 @@
                                     <l>ἱέντας, ὡς ἂν πολλαχῆ πλανωμένους·</l>
                                     <l>τοὺς δʼ ἐνθάδʼ αὐτοῦ δουλίην ἀεικέα ἔχοντας</l>
                                 </quote>
-                                <bibl>Frag. 36. 9-12 (Bergk)</bibl>
+                                <bibl xml:lang="eng">Frag. 36. 9-12 (Bergk)</bibl>
                             </cit>ἐλευθέρους φησὶ ποιῆσαι. </p>
                     </div>
                     <div type="textpart" subtype="section" n="6">
@@ -784,18 +773,17 @@
                                         χολούμενοι</l>
                                     <l>λοξὸν ὀφθαλμοῖς ὁρῶσι πάντες ὥστε δήϊον.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 34 (Bergk)</bibl>
+                                <bibl xml:lang="eng">Solon, Frag. 34 (Bergk)</bibl>
                             </cit>καίτοι φησὶν ὡς, εἴ τις ἄλλος ἔσχε τὴν αὐτὴν δύναμιν,<cit>
                                 <quote rend="blockquote">
                                     <l met="iamb">οὐκ ἂν κατέσχε δῆμον, οὐδʼ ἐπαύσατο,</l>
                                     <l>πρὶν ἀνταράξας, πῖαρ ἐξεῖλεν γάλα.</l>
                                 </quote>
-                                <note resp="ed" place="unspecified" anchored="true">So the verses
+                                <note anchored="true" place="unspecified" resp="editor" xml:lang="eng">So the verses
                                     are now more correctly found in Aristotle (<title>Const. of
                                         Athens</title>, xii. 5, Sandys).</note>
-                                <bibl>Solon; Aristot. Ath. Pol. 12.5</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Solon; Aristot. Ath. Pol. 12.5</bibl>
+                            </cit></p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>ταχὺ μέντοι τοῦ συμφέροντος αἰσθόμενοι καὶ τὰς ἰδίας αὑτῶν μέμψεις
@@ -857,22 +845,21 @@
                                     <l>ἔστην δʼ ἀμφιβαλὼν κρατερὸν σάκος ἀμφοτέροισι·</l>
                                     <l>νικᾶν δʼ οὐκ εἴασʼ οὐδετέρους ἀδίκως.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 5 (Bergk); Aristot. Ath. Pol. 12.1</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Solon, Frag. 5 (Bergk); Aristot. Ath. Pol. 12.1</bibl>
+                            </cit></p>
                     </div>
                     <div type="textpart" subtype="section" n="5">
                         <p>ἔτι μέντοι μᾶλλον οἰόμενος δεῖν ἐπαρκεῖν τῇ τῶν πολλῶν ἀσθενείᾳ, παντὶ
                             λαβεῖν δίκην ὑπὲρ τοῦ κακῶς πεπονθότος ἔδωκε. καὶ γὰρ πληγέντος ἑτέρου
                             καὶ βιασθέντος ἢ βλαβέντος ἐξῆν τῷ δυναμένῳ καὶ βουλομένῳ γράφεσθαι τὸν
                             ἀδικοῦντα καὶ διώκειν, ὀρθῶς ἐθίζοντος τοῦ νομοθέτου τοὺς πολίτας ὥσπερ
-                            ἑνὸς μέρη σώματος<note resp="ed" place="unspecified" anchored="true">
+                            ἑνὸς μέρη σώματος<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">μέρη σώματος</foreign> (or <foreign xml:lang="grc">σώματος μέρη</foreign>) Coraës and Bekker, after
                                 Xylander: <foreign xml:lang="grc">ἑνὸς μέρους</foreign>.</note>
                             συναισθάνεσθαι καὶ συναλγεῖν ἀλλήλοις. τούτῳ δὲ τῷ νόμῳ συμφωνοῦντα
                             λόγον αὐτοῦ διαμνημονεύουσιν. ἐρωτηθεὶς γάρ, ὡς ἔοικεν, ἥτις οἰκεῖται
-                            κάλλιστα τῶν πόλεων, “ἐκείνη,” εἶπεν, “ἐν ᾗ τῶν ἀδικουμένων οὐχ ἧττον οἱ
-                            μὴ ἀδικούμενοι προβάλλονται καὶ κολάζουσι τοὺς ἀδικοῦντας.” </p>
+                            κάλλιστα τῶν πόλεων, <q>ἐκείνη,</q> εἶπεν, <q>ἐν ᾗ τῶν ἀδικουμένων οὐχ ἧττον οἱ
+                            μὴ ἀδικούμενοι προβάλλονται καὶ κολάζουσι τοὺς ἀδικοῦντας.</q> </p>
                     </div>
                 </div>
                 <div type="textpart" subtype="chapter" n="19">
@@ -895,10 +882,10 @@
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>ὁ δὲ τρισκαιδέκατος ἄξων τοῦ Σόλωνος τὸν ὄγδοον ἔχει τῶν νόμων οὕτως
-                            αὐτοῖς ὀνόμασι γεγραμμένον. “ἀτίμων ὅσοι ἄτιμοι ἦσαν πρὶν ἢ Σόλωνα
+                            αὐτοῖς ὀνόμασι γεγραμμένον. <q>ἀτίμων ὅσοι ἄτιμοι ἦσαν πρὶν ἢ Σόλωνα
                             ἄρξαι, ἐπιτίμους εἶναι πλὴν ὅσοι ἐξ Ἀρείου πάγου ἢ ὅσοι ἐκ τῶν ἐφετῶν ἢ
                             ἐκ πρυτανείου καταδικασθέντες ὑπὸ τῶν βασιλέων ἐπὶ φόνῳ ἢ σφαγαῖσιν ἢ
-                            ἐπὶ τυραννίδι ἔφευγον ὅτε ὁ θεσμὸς ἐφάνη ὅδε.” </p>
+                            ἐπὶ τυραννίδι ἔφευγον ὅτε ὁ θεσμὸς ἐφάνη ὅδε.</q> </p>
                     </div>
                     <div type="textpart" subtype="section" n="4">
                         <p>ταῦτα δὴ πάλιν ὡς πρὸ τῆς Σόλωνος ἀρχῆς καὶ νομοθεσίας τὴν ἐξ Ἀρείου
@@ -946,8 +933,7 @@
                             καὶ χάριτι καὶ φιλότητι γίνεσθαι τὸν ἀνδρὸς καὶ γυναικὸς συνοικισμόν. ὁ
                             μὲν γὰρ Διονύσιος, ἀξιούσης τῆς μητρὸς αὐτοῦ δοθῆναί τινι τῶν πολιτῶν
                             πρὸς γάμον, ἔφη τοὺς μὲν τῆς πόλεως νόμους λελυκέναι τυραννῶν, τοὺς δὲ
-                            τῆς φύσεως οὐκ εἶναι δυνατὸς βιάζεσθαι γάμους νυμφαγωγῶν παρʼ ἡλικίαν·
-                        </p>
+                            τῆς φύσεως οὐκ εἶναι δυνατὸς βιάζεσθαι γάμους νυμφαγωγῶν παρʼ ἡλικίαν· </p>
                     </div>
                     <div type="textpart" subtype="section" n="5">
                         <p>ἐν δὲ ταῖς πόλεσι τὴν ἀταξίαν ταύτην οὐ δοτέον, οὐδὲ περιοπτέον ἀώρους
@@ -957,7 +943,7 @@
                                 <quote rend="blockquote" type="drama">
                                     <l met="iamb">εὖ γοῦν ὡς γαμεῖν ἔχεις τάλας,</l>
                                 </quote>
-                                <bibl>authorship uncertain, Philoctetes; Nauck, Trag. Graec. Frag.
+                                <bibl xml:lang="eng">authorship uncertain, Philoctetes; Nauck, Trag. Graec. Frag.
                                     (2), p. 841</bibl>
                             </cit>καὶ νέον ἐν δωματίῳ πλουσίας πρεσβύτιδος, ὥσπερ οἱ πέρδικες, ἀπὸ
                             συνουσίας παχυνόμενον ἐξανευρὼν μετοικίσει πρὸς παρθένον νύμφην ἀνδρὸς
@@ -985,11 +971,14 @@
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>οὐ μὴν ἀνέδην γε πάλιν οὐδʼ ἁπλῶς τὰς δόσεις ἐφῆκεν, ἀλλʼ εἰ μὴ νόσων
-                            ἕνεκεν ἢ φαρμάκων ἢ δεσμῶν<note resp="ed" place="unspecified" anchored="true">
-                                <foreign xml:lang="grc">δεσμῶν</foreign> Bekker adopts Schaefer's
+                            ἕνεκεν ἢ φαρμάκων ἢ δεσμῶν<note resp="ed" place="unspecified"
+                                anchored="true">
+                                <foreign xml:lang="grc">δεσμῶν</foreign> Bekker adopts Schaefer’s
                                 correction to <foreign xml:lang="grc">δεσμῷ</foreign>.</note> ἢ
-                            ἀνάγκῃ κατασχεθεὶς ἢ γυναικὶ πιθόμενος,<note resp="ed" place="unspecified" anchored="true">
-                                <foreign xml:lang="grc">πιθόμενος</foreign> Cobet: <foreign xml:lang="grc">πειθόμενος</foreign>.</note> εὖ πάνυ καὶ
+                            ἀνάγκῃ κατασχεθεὶς ἢ γυναικὶ πιθόμενος,<note resp="ed"
+                                place="unspecified" anchored="true">
+                                <foreign xml:lang="grc">πιθόμενος</foreign> Cobet: <foreign
+                                    xml:lang="grc">πειθόμενος</foreign>.</note> εὖ πάνυ καὶ
                             προσηκόντως τὸ πεισθῆναι παρὰ τὸ βέλτιστον οὐδὲν ἡγούμενος τοῦ βιασθῆναι
                             διαφέρειν, ἀλλʼ εἰς ταὐτὸ τὴν ἀπάτην τῇ ἀνάγκῃ καὶ τῷ πόνῳ τὴν ἡδονὴν
                             θέμενος, ὡς οὐχ ἧττον ἐκστῆσαι λογισμὸν ἀνθρώπου δυναμένων. </p>
@@ -1023,10 +1012,10 @@
                                 <quote rend="blockquote" type="drama">
                                     <l met="iamb">πολλοῖσι πολλήν, δὶς τοσοῖσδε πλείονα,</l>
                                 </quote>
-                                <note resp="ed" place="unspecified" anchored="true">Following Nauck
+                                <note anchored="true" place="unspecified" resp="editor" xml:lang="eng">Following Nauck
                                         (<title>Trag. Graec. Frag.</title>
                                     <hi rend="superscript">2</hi>, p. 680): <foreign xml:lang="grc">πολλοῖς, τοσοῖσδε</foreign>.</note>
-                                <bibl>Euripides, unknown; Nauck, Trag. Graec. Frag. (2), p.
+                                <bibl xml:lang="eng">Euripides, unknown; Nauck, Trag. Graec. Frag. (2), p.
                                     680</bibl>
                             </cit>κατʼ Εὐριπίδην, καὶ τὸ μέγιστον, εἱλωτικοῦ πλήθους, ὃ βέλτιον ἦν
                             μὴ σχολάζειν, ἀλλὰ τριβόμενον ἀεὶ καὶ πονοῦν ταπεινοῦσθαι, περικεχυμένου
@@ -1039,8 +1028,7 @@
                             προσαρμόζων, καὶ τῆς χώρας τὴν φύσιν ὁρῶν τοῖς γεωργοῦσι γλίσχρως
                             διαρκοῦσαν, ἀργὸν δὲ καὶ σχολαστὴν ὄχλον οὐ δυναμένην τρέφειν, ταῖς
                             τέχναις ἀξίωμα περιέθηκε, καὶ τὴν ἐξ Ἀρείου πάγου βουλὴν ἔταξεν
-                            ἐπισκοπεῖν ὅθεν ἕκαστος ἔχει τὰ ἐπιτήδεια, καὶ τοὺς ἀργοὺς κολάζειν.
-                        </p>
+                            ἐπισκοπεῖν ὅθεν ἕκαστος ἔχει τὰ ἐπιτήδεια, καὶ τοὺς ἀργοὺς κολάζειν.</p>
                     </div>
                     <div type="textpart" subtype="section" n="4">
                         <p>ἐκεῖνο δʼ ἤδη σφοδρότερον,τὸ μηδὲ τοῖς ἐξ ἑταίρας γενομένοις ἐπάναγκες
@@ -1091,10 +1079,10 @@
                             πλεῖον ἀπέχει, ζητεῖν ὕδωρ ἴδιον· ἐὰν δὲ ὀρύξαντες ὀργυιῶν δέκα βάθος
                             παρʼ ἑαυτοῖς μὴ εὕρωσι, τότε λαμβάνειν παρὰ τοῦ γείτονος ἑξάχουν ὑδρίαν
                             δὶς ἑκάστης ἡμέρας πληροῦντας· ἀπορίᾳ γὰρ ᾤετο δεῖν βοηθεῖν, οὐκ ἀργίαν
-                            ἐφοδιάζειν. ὥρισε δὲ καὶ φυτειῶν μέτρα μάλʼ ἐμπείρως, </p>
+                            ἐφοδιάζειν. </p>
                     </div>
                     <div type="textpart" subtype="section" n="6">
-                        <p>τοὺς μὲν ἄλλο τι φυτεύοντας ἐν ἀγρῷ πέντε πόδας ἀπέχειν τοῦ γείτονος
+                        <p>ὥρισε δὲ καὶ φυτειῶν μέτρα μάλʼ ἐμπείρως, τοὺς μὲν ἄλλο τι φυτεύοντας ἐν ἀγρῷ πέντε πόδας ἀπέχειν τοῦ γείτονος
                             κελεύσας, τοὺς δὲ συκῆν ἢ ἐλαίαν ἐννέα. πορρωτέρω γὰρ ἐξικνεῖται ταῦτα
                             ταῖς ῥίζαις, καὶ οὐ πᾶσι γειτνιᾷ τοῖς φυτοῖς ἀσινῶς, ἀλλὰ καὶ τροφὴν
                             παραιρεῖται καὶ βλάπτουσαν ἐνίοις ἀπορροὴν ἀφίησι. βόθρους δὲ καὶ
@@ -1139,19 +1127,17 @@
                                     <l met="iamb">πρὸς τοῦ Σόλωνος καὶ Δράκοντος οἷσι νῦν</l>
                                     <l>φρύγουσιν ἤδη τὰς κάχρυς τοῖς κύρβεσιν.</l>
                                 </quote>
-                                <bibl>Cratinus, unknown; Kock, Com. Att. Frag. i. p. 94.</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Cratinus, unknown; Kock, Com. Att. Frag. i. p. 94.</bibl>
+                            </cit></p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
                         <p>ἔνιοι δέ φασιν ἰδίως ἐν οἷς ἱερὰ καὶ θυσίαι περιέχονται, κύρβεις, ἄξονας
                             δὲ τοὺς ἄλλους ὠνομάσθαι, κοινὸν μὲν οὖν ὤμνυεν ὅρκον ἡ βουλὴ τοὺς
                             Σόλωνος νόμους ἐμπεδώσειν, ἴδιον δʼ ἕκαστος τῶν θεσμοθετῶν ἐν ἀγορᾷ πρὸς
                             τῷ λίθῳ, καταφατίζων, εἴ τι παραβαίη τῶν θεσμῶν, ἀνδριάντα χρυσοῦν
-                            ἰσομέτρητον ἀναθήσειν ἐν Δελφοῖς.<note resp="ed" place="unspecified" anchored="true">
+                            ἰσομέτρητον ἀναθήσειν ἐν Δελφοῖς.<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">ἰσομέτρητον</foreign> and <foreign xml:lang="grc">ἐν Δελφοῖς</foreign> are not in the text of
-                                Aristotle.</note>
-                        </p>
+                                Aristotle.</note></p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>συνιδὼν δὲ τοῦ μηνὸς τὴν ἀνωμαλίαν,καὶ τὴν κίνησιν τῆς σελήνης οὔτε
@@ -1163,7 +1149,7 @@
                                 <quote rend="blockquote">
                                     <l met="dact">τοῦ μὲν φθίνοντος μηνός, τοῦ δʼ ἱσταμένοιο,</l>
                                 </quote>
-                                <bibl>Hom. Od. 14.162; Hom. Od. 19.307</bibl>
+                                <bibl xml:lang="eng">Hom. Od. 14.162; Hom. Od. 19.307</bibl>
                             </cit>τὴν δʼ ἐφεξῆς ἡμέραν νουμηνίαν ἐκάλεσε. τὰς δʼ ἀπʼ εἰκάδος οὐ
                             προστιθείς, ἀλλʼ ἀφαιρῶν καὶ ἀναλύων, ὥσπερ τὰ φῶτα τῆς σελήνης ἑώρα,
                             μέχρι τριακάδος ἠρίθμησεν. </p>
@@ -1178,15 +1164,14 @@
                     <div type="textpart" subtype="section" n="5">
                         <p>ὁρῶν ὅτι ταῦτα καὶ τὸ πράττειν ἄτοπον καὶ τὸ μὴ πράττειν ἐπίφθονον, ὅλως
                             δὲ ταῖς ἀπορίαις ὑπεκστῆναι βουλόμενος καὶ διαφυγεῖν τὸ δυσάρεστον καὶ
-                            φιλαίτιον τῶν πολιτῶν ʽ ἔργμασι γὰρ ἐν μεγάλοις πᾶσιν ἁδεῖν χαλεπόν, ὡς
-                            αὐτὸς εἴρηκἐ, πρόσχημα τῆς πλάνης τὴν ναυκληρίαν ποιησάμενος ἐξέπλευσε,
+                            φιλαίτιον τῶν πολιτῶν (ἔργμασι γὰρ ἐν μεγάλοις πᾶσιν ἁδεῖν χαλεπόν, ὡς
+                            αὐτὸς εἴρηκε), πρόσχημα τῆς πλάνης τὴν ναυκληρίαν ποιησάμενος ἐξέπλευσε,
                             δεκαετῆ παρὰ τῶν Ἀθηναίων ἀποδημίαν αἰτησάμενος. ἤλπιζε γὰρ ἐν τῷ χρόνῳ
-                            τούτῳ καὶ τοῖς νόμοις αὐτοὺς<note resp="ed" place="unspecified" anchored="true">
+                            τούτῳ καὶ τοῖς νόμοις αὐτοὺς<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">τοῖς νόμοις αὐτοὺς</foreign> after MSS.
                                 cited by Stephanus; Bekker has <foreign xml:lang="grc">τοὺς νόμους
                                     αὐτοῖς</foreign>, the conjecture of Stephanus (<gloss>the laws
-                                    would be familiar to them</gloss>).</note> ἔσεσθαι συνήθεις.
-                        </p>
+                                    would be familiar to them</gloss>).</note> ἔσεσθαι συνήθεις.</p>
                     </div>
                 </div>
                 <div type="textpart" subtype="chapter" n="26">
@@ -1195,7 +1180,7 @@
                                 <quote rend="blockquote">
                                     <l met="dact">Νείλου ἐπὶ προχοῇσι Κανωβίδος ἐγγύθεν ἀκτῆς.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 7 (Bergk)</bibl>
+                                <bibl xml:lang="eng">Solon, Frag. 7 (Bergk)</bibl>
                             </cit>χρόνον δέ τινα καὶ τοῖς περὶ Ψένωφιν τὸν Ἡλιουπολίτην καὶ Σῶγχιν
                             τὸν Σαΐτην, λογιωτάτοις οὖσι τῶν ἱερέων, συνεφιλοσόφησε· παρʼ ὧν καὶ τὸν
                             Ἀτλαντικὸν ἀκούσας λόγον, ὡς Πλάτων φησίν, ἐπεχείρησε διὰ ποιήματος
@@ -1219,7 +1204,7 @@
                         <p>καὶ αὐτὸς δὲ μέμνηται τοῦ συνοικισμοῦ· προσαγορεύσας γὰρ ἐν ταῖς
                             ἐλεγείαις τὸν Φιλόκυπρον,<cit>
                                 <quote rend="blockquote">
-                                    <l met="dact">νῦν δὲ ʽ φησἴ σὺ μὲν Σολίοισι πολὺν χρόνον ἐνθάδʼ
+                                    <l met="dact">νῦν δὲ (φησί) σὺ μὲν Σολίοισι πολὺν χρόνον ἐνθάδʼ
                                         ἀνάσσων</l>
                                     <l>τήνδε πόλιν ναίοις καὶ γένος ὑμέτερον·</l>
                                     <l>αὐτὰρ ἐμὲ ξὺν νηῒ θοῇ κλεινῆς ἀπὸ νήσου</l>
@@ -1227,9 +1212,8 @@
                                     <l>οἰκισμῷ δʼ ἐπὶ τῷδε χάριν καὶ κῦδος ὀπάζοι</l>
                                     <l>ἐσθλὸν καὶ νόστον πατρίδʼ ἐς ἡμετέρην.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 19 (Bergk)</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Solon, Frag. 19 (Bergk)</bibl>
+                            </cit></p>
                     </div>
                 </div>
                 <div type="textpart" subtype="chapter" n="27">
@@ -1280,20 +1264,20 @@
                             ἀναλγῆ καὶ ἄλυπον ἐπὶ δόξῃ τοσαύτῃ θάνατον ὤφθησαν, </p>
                     </div>
                     <div type="textpart" subtype="section" n="6">
-                        <p> “ἡμᾶς δέ,” εἶπεν ἤδη πρὸς ὀργὴν ὁ Κροῖσος, “εἰς οὐδένα τίθης εὐδαιμόνων
-                            ἀριθμὸν ἀνθρώπων;” καὶ ὁ Σόλων οὔτε κολακεύειν βουλόμενος αὐτὸν οὔτε
-                            περαιτέρω παροξύνειν, “Ἕλλησιν,” εἶπεν, “ὦ βασιλεῦ Λυδῶν, πρός τε τἆλλα
+                        <p> <q>ἡμᾶς δέ,</q> εἶπεν ἤδη πρὸς ὀργὴν ὁ Κροῖσος, <q>εἰς οὐδένα τίθης εὐδαιμόνων
+                            ἀριθμὸν ἀνθρώπων;</q> καὶ ὁ Σόλων οὔτε κολακεύειν βουλόμενος αὐτὸν οὔτε
+                            περαιτέρω παροξύνειν, <q>Ἕλλησιν,</q> εἶπεν, <q>ὦ βασιλεῦ Λυδῶν, πρός τε τἆλλα
                             μετρίως ἔχειν ὁ θεὸς ἔδωκε, καὶ σοφίας τινὸς ἀθαρσοῦς, ὡς ἔοικε, καὶ
                             δημοτικῆς, οὐ βασιλικῆς οὐδὲ λαμπρᾶς, ὑπὸ μετριότητος ἡμῖν μέτεστιν, ἣ
                             τύχαις ὁρῶσα παντοδαπαῖς χρώμενον ἀεὶ τὸν βίον, οὐκ ἐᾷ τοῖς παροῦσιν
                             ἀγαθοῖς μέγα φρονεῖν, οὐδὲ θαυμάζειν ἀνδρὸς εὐτυχίαν μεταβολῆς χρόνον
-                            ἔχουσαν. </p>
+                            ἔχουσαν.</q> </p>
                     </div>
                     <div type="textpart" subtype="section" n="7">
-                        <p>ἔπεισι γὰρ ἑκάστῳ ποικίλον ἐξ ἀδήλου τὸ μέλλον· ᾧ δʼ εἰς τέλος ὁ δαίμων
+                        <p><q rend="merge">ἔπεισι γὰρ ἑκάστῳ ποικίλον ἐξ ἀδήλου τὸ μέλλον· ᾧ δʼ εἰς τέλος ὁ δαίμων
                             ἔθετο τὴν εὐπραξίαν, τοῦτον εὐδαίμονα νομίζομεν. ὁ δὲ ζῶντος ἔτι καὶ
                             κινδυνεύοντος ἐν τῷ βίῳ μακαρισμός, ὥσπερ ἀγωνιζομένου κήρυγμα καὶ
-                            στέφανος, ἐστὶν ἀβέβαιος καὶ ἄκυρος.” ταῦτʼ εἰπὼν ὁ Σόλων ἀπηλλάττετο
+                            στέφανος, ἐστὶν ἀβέβαιος καὶ ἄκυρος.</q> ταῦτʼ εἰπὼν ὁ Σόλων ἀπηλλάττετο
                             λυπήσας μέν, οὐ νουθετήσας δὲ τὸν Κροῖσον. </p>
                     </div>
                 </div>
@@ -1301,34 +1285,34 @@
                     <div type="textpart" subtype="section" n="1">
                         <p>ὁ δὲ λογοποιὸς Αἴσωπος, ἐτύγχανε γὰρ εἰς Σάρδεις μετάπεμπτος γεγονὼς ὑπὸ
                             Κροίσου καὶ τιμώμενος, ἠχθέσθη τῷ Σόλωνι μηδεμιᾶς τυχόντι φιλανθρωπίας·
-                            καὶ προτρέπων αὐτόν, “ὦ Σόλων,” ἔφη, “τοῖς βασιλεῦσι δεῖ ὡς ἥκιστα ἢ ὡς
-                            ἥδιστα ὁμιλεῖν.” καὶ ὁ Σόλων, “μὰ Δίʼ,” εἶπεν, “ἀλλʼ ὡς ἥκιστα ἢ ὡς
-                            ἄριστα.” </p>
+                            καὶ προτρέπων αὐτόν, <q>ὦ Σόλων,</q> ἔφη, <q>τοῖς βασιλεῦσι δεῖ ὡς ἥκιστα ἢ ὡς
+                            ἥδιστα ὁμιλεῖν.</q> καὶ ὁ Σόλων, <q>μὰ Δίʼ,</q> εἶπεν, <q>ἀλλʼ ὡς ἥκιστα ἢ ὡς
+                            ἄριστα.</q> </p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
                         <p>τότε μὲν οὖν ὁ Κροῖσος οὕτω τοῦ Σόλωνος κατεφρόνησεν· ἐπεὶ δὲ Κύρῳ
                             συμβαλὼν ἐκρατήθη μάχῃ, καὶ τὴν πόλιν ἀπώλεσε, καὶ ζῶν ἁλοὺς αὐτὸς
                             ἔμελλε καταπίμπρασθαι, καὶ γενομένης πυρᾶς ἀνεβιβάσθη δεδεμένος θεωμένων
                             Περσῶν ἁπάντων καὶ Κύρου παρόντος, ἐφʼ ὅσον ἐξικνεῖτο καὶ δυνατὸς ἦν τῇ
-                            φωνῇ φθεγξάμενος ἀνεβόησε τρίς, “ὦ Σόλων.” θαυμάσας οὖν ὁ Κῦρος ἔπεμψε
+                            φωνῇ φθεγξάμενος ἀνεβόησε τρίς, <q>ὦ Σόλων.</q> θαυμάσας οὖν ὁ Κῦρος ἔπεμψε
                             τοὺς ἐρησομένους ὅστις ἀνθρώπων ἢ θεῶν οὗτός ἐστιν ὁ Σόλων, ὃν ἐν
-                                τύχαις<note resp="ed" place="unspecified" anchored="true">
+                                τύχαις<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">ἐν τύχαις</foreign> Coraës, Cobet, and S:
                                     <foreign xml:lang="grc">τύχαις</foreign>.</note> ἀπόροις μόνον
                             ἀνακαλεῖται. </p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
-                        <p>καὶ ὁ Κροῖσος οὐδὲν ἀποκρυψάμενος εἶπεν ὅτι “τῶν παρʼ Ἕλλησι σοφῶν εἷς
+                        <p>καὶ ὁ Κροῖσος οὐδὲν ἀποκρυψάμενος εἶπεν ὅτι <q>τῶν παρʼ Ἕλλησι σοφῶν εἷς
                             οὗτος ἦν ὁ ἀνήρ, ὃν ἐγὼ μετεπεμψάμην οὐκ ἀκοῦσαί τι βουλόμενος οὐδὲ
                             μαθεῖν ὧν ἐνδεὴς ἤμην, ἀλλʼ ὡς δή μοι θεατὴς γένοιτο καὶ μάρτυς ἀπίοι
                             τῆς εὐδαιμονίας ἐκείνης, ἣν ἀποβαλεῖν ἄρα μεῖζον ἦν κακὸν ἢ λαβεῖν
                             ἀγαθόν. λόγος γὰρ ἦν καὶ δόξα τἀγαθὸν παρούσης· αἱ μεταβολαὶ δέ μοι
-                            αὐτῆς εἰς πάθη δεινὰ καὶ συμφορὰς ἀνηκέστους ἔργῳ τελευτῶσι. </p>
+                            αὐτῆς εἰς πάθη δεινὰ καὶ συμφορὰς ἀνηκέστους ἔργῳ τελευτῶσι.</q> </p>
                     </div>
                     <div type="textpart" subtype="section" n="4">
-                        <p>καὶ ταῦτʼ ἐκεῖνος ὁ ἀνὴρ ἐκ τῶν τότε τὰ νῦν τεκμαιρόμενος, ἐκέλευε τὸ
+                        <p><q rend="merge">καὶ ταῦτʼ ἐκεῖνος ὁ ἀνὴρ ἐκ τῶν τότε τὰ νῦν τεκμαιρόμενος, ἐκέλευε τὸ
                             τέλος τοῦ βίου σκοπεῖν καὶ μὴ θρασυνόμενον ἀβεβαίοις ὑπονοίαις
-                            ὑβρίζειν.” ἐπεὶ δὲ τοῦτʼ ἀνηνέχθη πρὸς τὸν Κῦρον, ἅτε δὴ σοφώτερος ὢν
+                            ὑβρίζειν.</q> ἐπεὶ δὲ τοῦτʼ ἀνηνέχθη πρὸς τὸν Κῦρον, ἅτε δὴ σοφώτερος ὢν
                             τοῦ Κροίσου καὶ τὸν λόγον τοῦ Σόλωνος ἰσχυρὸν ἐν τῷ παραδείγματι βλέπων,
                             οὐ μόνον ἀφῆκε τὸν Κροῖσον, ἀλλὰ καὶ τιμῶν ἐφʼ ὅσον ἔζη διετέλεσε· καὶ
                             δόξαν ἔσχεν ὁ Σόλων ἑνὶ λόγῳ τὸν μὲν σώσας, τὸν δὲ παιδεύσας τῶν
@@ -1376,8 +1360,8 @@
                         <p>μετὰ δὲ τὴν θέαν προσαγορεύσας αὐτὸν ἠρώτησεν εἰ τοσούτων ἐναντίον οὐκ
                             αἰσχύνεται τηλικαῦτα ψευδόμενος. φήσαντος δὲ τοῦ Θέσπιδος μὴ δεινὸν
                             εἶναι τὸ μετὰ παιδιᾶς λέγειν τὰ τοιαῦτα καὶ πράσσειν, σφόδρα τῇ βακτηρίᾳ
-                            τὴν γῆν ὁ Σόλων πατάξας· “ταχὺ μέντοι τὴν παιδιάν,” ἔφη, “ταύτην
-                            ἐπαινοῦντες οὕτω καὶ τιμῶντες εὑρήσομεν ἐν τοῖς συμβολαίοις.” </p>
+                            τὴν γῆν ὁ Σόλων πατάξας· <q>ταχὺ μέντοι τὴν παιδιάν,</q> ἔφη, <q>ταύτην
+                            ἐπαινοῦντες οὕτω καὶ τιμῶντες εὑρήσομεν ἐν τοῖς συμβολαίοις.</q> </p>
                     </div>
                 </div>
                 <div type="textpart" subtype="chapter" n="30">
@@ -1385,10 +1369,10 @@
                         <p>ἐπεὶ δὲ κατατρώσας αὐτὸς ἑαυτὸν ὁ Πεισίστρατος ἧκεν εἰς ἀγορὰν ἐπὶ
                             ζεύγους κομιζόμενος, καὶ παρώξυνε τὸν δῆμον ὡς διὰ τὴν πολιτείαν ὑπὸ τῶν
                             ἐχθρῶν ἐπιβεβουλευμένος, καὶ πολλοὺς εἶχεν ἀγανακτοῦντας καὶ βοῶντας,
-                            προσελθὼν ἐγγὺς ὁ Σόλων καὶ παραστάς, “οὐ καλῶς,” εἶπεν, “ὦ παῖ
+                            προσελθὼν ἐγγὺς ὁ Σόλων καὶ παραστάς, <q>οὐ καλῶς,</q> εἶπεν, <q>ὦ παῖ
                             Ἱπποκράτους, ὑποκρίνῃ τὸν Ὁμηρικὸν Ὀδυσσέα· ταῦτα γὰρ ποιεῖς τοὺς
                             πολίτας παρακρουόμενος οἷς ἐκεῖνος τοὺς πολεμίους ἐξηπάτησεν,
-                            αἰκισάμενος ἑαυτόν.” </p>
+                            αἰκισάμενος ἑαυτόν.</q> </p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
                         <p>ἐκ τούτου τὸ μὲν πλῆθος ἦν ἕτοιμον ὑπερμαχεῖν τοῦ Πεισιστράτου, καὶ
@@ -1401,10 +1385,9 @@
                                     <l>ὑμῶν δʼ εἷς μὲν ἕκαστος ἀλώπεκος ἴχνεσι βαίνει,</l>
                                     <l>σύμπασιν δʼ ὑμῖν χαῦνος ἔνεστι νόος.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 11. 7, 5, 6 (Bergk). Plutarch has changed the
+                                <bibl xml:lang="eng">Solon, Frag. 11. 7, 5, 6 (Bergk). Plutarch has changed the
                                     order; Bekker and Cobet restore it.</bibl>
-                            </cit>
-                        </p>
+                            </cit></p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>ὁρῶν δὲ τοὺς μὲν πένητας ὡρμημένους χαρίζεσθαι τῷ Πεισιστράτῳ καὶ
@@ -1428,8 +1411,8 @@
                             κωλῦσαι τὴν τυραννίδα συνισταμένην, νῦν δὲ μεῖζόν ἐστι καὶ λαμπρότερον
                             ἐκκόψαι καὶ ἀνελεῖν συνεστῶσαν ἤδη καὶ πεφυκυῖαν. οὐδενὸς δὲ προσέχοντος
                             αὐτῷ διὰ τὸν φόβον ἀπῆλθεν εἰς τὴν οἰκίαν τὴν ἑαυτοῦ, καὶ λαβὼν τὰ ὅπλα
-                            καὶ πρὸ τῶν θυρῶν θέμενος εἰς τὸν στενωπόν, “ἐμοὶ μέν,” εἶπεν, “ὡς
-                            δυνατὸν ἦν βεβοήθηται τῇ πατρίδι καὶ τοῖς νόμοις.” </p>
+                            καὶ πρὸ τῶν θυρῶν θέμενος εἰς τὸν στενωπόν, <q>ἐμοὶ μέν,</q> εἶπεν, <q>ὡς
+                            δυνατὸν ἦν βεβοήθηται τῇ πατρίδι καὶ τοῖς νόμοις.</q> </p>
                     </div>
                     <div type="textpart" subtype="section" n="6">
                         <p>καὶ τὸ λοιπὸν ἡσυχίαν ἦγε, καὶ τῶν φίλων φεύγειν παραινούντων οὐ
@@ -1440,16 +1423,15 @@
                                     <l>αὐτοὶ γὰρ τούτους ηὐξήσατε ῥύματα δόντες,</l>
                                     <l>καὶ διὰ ταῦτα κακὴν ἔσχετε δουλοσύνην.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 11. 7, 5, 6 (Bergk). Plutarch has changed the
+                                <bibl xml:lang="eng">Solon, Frag. 11. 7, 5, 6 (Bergk). Plutarch has changed the
                                     order; Bekker and Cobet restore it.</bibl>
-                            </cit>
-                        </p>
+                            </cit></p>
                     </div>
                 </div>
                 <div type="textpart" subtype="chapter" n="31">
                     <div type="textpart" subtype="section" n="1">
                         <p>ἐπὶ τούτοις δὲ πολλῶν νουθετούντων αὐτὸν ὡς ἀποθανούμενον ὑπὸ τοῦ
-                            τυράννου, καὶ πυνθανομένων τίνι πιστεύων οὕτως ἀπονοεῖται, “τῷ γήρᾳ,”
+                            τυράννου, καὶ πυνθανομένων τίνι πιστεύων οὕτως ἀπονοεῖται, <q>τῷ γήρᾳ,</q>
                             εἶπεν. οὐ μὴν ἀλλʼ ὁ Πεισίστρατος ἐγκρατὴς γενόμενος τῶν πραγμάτων οὕτως
                             ἐξεθεράπευσε τὸν Σόλωνα, τιμῶν καὶ φιλοφρονούμενος καὶ μεταπεμπόμενος,
                             ὥστε καὶ σύμβουλον εἶναι καὶ πολλὰ τῶν πρασσομένων ἐπαινεῖν. καὶ γὰρ
@@ -1475,15 +1457,14 @@
                                 <quote rend="blockquote">
                                     <l met="dact">γηράσκω δʼ αἰεὶ πολλὰ διδασκόμενος·</l>
                                 </quote>
-                                <bibl>Solon, Frag. 18 (Bergk)</bibl>
+                                <bibl xml:lang="eng">Solon, Frag. 18 (Bergk)</bibl>
                             </cit>καί,<cit>
                                 <quote rend="blockquote">
                                     <l met="dact">ἔργα δὲ Κυπρογενοῦς νῦν μοι φίλα καὶ Διονύσου</l>
                                     <l>καὶ Μουσέων, ἃ τίθησʼ ἀνδράσιν εὐφροσύνας.</l>
                                 </quote>
-                                <bibl>Solon, Frag. 26 (Bergk)</bibl>
-                            </cit>
-                        </p>
+                                <bibl xml:lang="eng">Solon, Frag. 26 (Bergk)</bibl>
+                            </cit></p>
                     </div>
                 </div>
                 <div type="textpart" subtype="chapter" n="32">

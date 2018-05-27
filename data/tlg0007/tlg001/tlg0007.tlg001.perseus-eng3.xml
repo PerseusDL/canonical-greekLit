@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader type="text">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title type="sub">Machine readable text</title>
-            <title n="Thes." type="work">Theseus</title>
-            <author n="Plut.">Plutarch</author>
+            
+            <title type="work">Theseus</title>
+            <author>Plutarch</author>
             <editor n="Perrin" role="editor">Bernadotte Perrin</editor>
             <sponsor>Perseus Project, Tufts University</sponsor>
             <principal>Gregory Crane</principal>
@@ -37,22 +38,22 @@
                <pubPlace>London</pubPlace>
                <publisher>William Heinemann Ltd.</publisher>
                <date>1914</date>
-               <biblScope type="volume">1</biblScope>
+               <biblScope unit="volume">1</biblScope>
                <idno type="ISBN">0674990528</idno>
             </bibl>
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
          <refsDecl n="CTS">
-            <cRefPattern n="Section"
-                         matchPattern="(\\w+).(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
-                <p>This pointer pattern extracts Chapter and Section</p>
+            <cRefPattern n="section"
+                         matchPattern="(\w+).(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                <p>This pointer pattern extracts chapter and section</p>
             </cRefPattern>
-            <cRefPattern n="Chapter"
-                         matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
-                <p>This pointer pattern extracts Chapter</p>
+            <cRefPattern n="chapter"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                <p>This pointer pattern extracts chapter</p>
             </cRefPattern>
         </refsDecl>
          <p>optical character recognition</p>
@@ -60,109 +61,87 @@
             <refState unit="chapter" delim="."/>
             <refState unit="section"/>
          </refsDecl>
+         <editorialDecl>
+            <quotation marks="none"/>
+         </editorialDecl>
       </encodingDesc>
       <profileDesc>
          <langUsage>
-            <language ident="en">English</language>
+            <language ident="eng">English</language>
             <language ident="grc">Greek</language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
-         <change>
-            <date>8/90</date>
-               <name>EM</name>
-            Proofread by Ted Armstrong.
-         </change>
-         <change>
-            <date>8/91</date>
-               <name>EM</name>
-            Revise DTDs and recheck texts.
-         </change>
-         <change>
-            <date>8/92</date>
-               <name>DAS</name>
-            Removed highlighted text, cleaned up notes and citations, and changed chapters to
-               div's.
-         </change>
-         <change>
-            <date>10/22/92</date>
-               <name>EM</name>
-            Glued all Plutarch files together, put in HEAD tags to title them.
-         </change>
-         <change>
-            <date>9/12/97</date>
-               <name>David Smith</name>
-               
-         Made conformant with TEI P3.
-         </change>
-         <change>
-            <date/>
-               <name>David Smith</name>
-            $Log: plut.thes_eng.xml,v $ Revision 1.1 2013-09-13 11:17:23 balmas01 moving
-               Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory
-               Revision 1.5 2013-06-29 13:26:28 gcrane chapters are now divs Revision 1.4 2010-11-30
-               18:28:11 balmas01 getting rid of angle brackets in commit comments Revision 1.3
-               2010-11-19 13:47:10 balmas01 Normalizing &lt;quote&gt;&lt;q&gt; and &lt;lb&gt;
-               Revision 1.2 2009-12-15 20:52:49 rsingh04 converted demetrius, antony and comparison
-               from sgml to xml and added to hopper. also replaced xml snippets in other plutarch
-               files with their respective entities. Revision 1.1 2009/12/07 22:05:56 rsingh04 moved
-               more xml files around based on copyright status. split up Plutarch/plut_gk.xml into
-               separate files and gave them their own doc ids. Revision 1.6 2009/06/11 15:43:28
-               student fixing citations - ad Revision 1.5 2009/05/20 20:14:03 lcerrato fixing bad
-               bibls Revision 1.4 2009/04/29 02:53:47 lcerrato fixed bad bibls Revision 1.3
-               2009/01/23 22:09:51 rsingh04 small fixes Revision 1.2 2009/01/23 21:35:59 rsingh04
-               now validates and entities fixed Revision 1.2 2001/09/28 19:34:07 lcerrato cleaned up
-               quotes, bibls and notes Revision 1.1 2001/09/27 21:56:41 lcerrato adding new tags for
-               DE, ISBN, etc. Revision 1.4 2000/03/04 20:35:11 dasmith Added separate funder entity
-               to TEI header. Revision 1.3 1999/07/28 18:27:56 dasmith Added text to REFSDECL.
-               Revision 1.2 1999/07/09 23:15:27 textgod Converted to TEI-conformant SGML. 
-         </change>
-         <change>
-            <date>9/01</date>
-               <name>LMC</name>
-            removed from group file, retagged and parsed
-         </change>
+         <change when="2016-12-07" who="Lisa Cerrato">review of EpiDoc and CTS compliance; minor cleanup; bumped URN</change>
+<change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+            <change when="2013-06-29" who="gcrane">chapters are now divs</change> 
+         <change when="2010-11-30" who="balmas01">getting rid of angle brackets in commit comments</change>  
+            <change when="2010-11-19" who="balmas01">Normalizing quote, q, and lb</change>
+         <change when="2009-12-15" who="rsingh04">converted demetrius, antony and comparison from sgml to xml and added to hopper. also replaced xml snippets in other plutarch files with their respective entities.</change> 
+            <change when="2009-12-07" who="rsingh04">moved more xml files around based on copyright status. split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.</change> 
+         <change when="2009-06-11" who="student AD">fixing citations</change>
+            <change when="2009-05-20" who="lcerrato">fixing bad bibls</change> 
+               <change when="2009-04-29" who="lcerrato">fixed bad bibls</change> 
+                  <change when="2009-01-23" who="rsingh04">small fixes</change> 
+         <change when="2009-01-23" who="rsingh04">now validates and entities fixed</change> 
+         
+                        <change when="2001-09-28" who="lcerrato">cleaned up quotes, bibls and notes</change>
+         <change when="2001-09-01" who="LMC">removed from group file, retagged and parsed</change>
+                           <change when="2001-09-27" who="lcerrato">adding new tags for DE, ISBN, etc.</change>
+                              <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change> 
+                                 <change when="1999-07-28" who="dasmith">Added text to REFSDECL.</change>
+                                    <change when="1999-07-09" who="textgod">Converted to TEI-conformant SGML.</change>
+         <change when="1997-09-12" who="David Smith">Made conformant with TEI P3.</change>
+         <change when="1992-10-22" who="EM">Glued all Plutarch files together, put in HEAD tags to title them.</change>
+         <change when="1992-08-01" who="DAS">Removed highlighted text, cleaned up notes and citations, and changed chapters to
+            div's.</change>
+         <change when="1991-08-01" who="EM">Revise DTDs and recheck texts.</change> 
+         <change when="1990-08-01" who="EM">Proofread by Ted Armstrong.</change>    
       </revisionDesc>
    </teiHeader>
-   <text n="urn:cts:greekLit:tlg0007.tlg001.perseus-eng3" xml:lang="en">
+   <text xml:lang="eng">
       <body>
-          <div type="translation">
+         <div type="translation" n="urn:cts:greekLit:tlg0007.tlg001.perseus-eng3" xml:lang="eng">
             <head>THESEUS</head>
             <div type="textpart" subtype="chapter" n="1">
                <div n="1" type="textpart" subtype="section">
                   <p>Just as geographers, O Socius Senecio,<note resp="ed" place="unspecified" anchored="true">One of the many friends whom Plutarch made during his residence at
                   Rome. He was four times consul between the years 98 and 107 A.D. Plutarch
                   addresses him also at the opening of the <title>Demosthenes</title> and the
-                     <title>Dion</title>, thus dedicating to him these <q>books.</q>
+                     <title>Dion</title>, thus dedicating to him these <q type="emph">books.</q>
                      </note> crowd on to the outer edges of their maps the parts of the earth which elude
-               their knowledge, with explanatory notes that <q>What lies beyond is sandy desert
-                  without water and full of wild beasts,</q> or <q>blind marsh,</q> or <q>Scythian
-                  cold,</q> or <q>frozen sea,</q> so in the writing of my Parallel Lives, now that I
+               their knowledge, with explanatory notes that <q type="written">What lies beyond is sandy desert
+                  without water and full of wild beasts,</q> or <q type="written">blind marsh,</q> or <q type="written">Scythian
+                  cold,</q> or <q type="written">frozen sea,</q> so in the writing of my Parallel Lives, now that I
                have traversed those periods of time which are accessible to probable reasoning and
                which afford basis for a history dealing with facts, I might well say of the earlier
-               periods <q>What lies beyond is full of marvels and unreality, a land of poets and
+               periods <q type="emph">What lies beyond is full of marvels and unreality, a land of poets and
                   fabulists, of doubt and obscurity.</q>
                   </p>
                </div>
                <div n="2" type="textpart" subtype="section">
-                  <p> But after publishing my account of Lycurgus the
-               lawgiver and Numa the king, I thought I might not unreasonably go back still farther
-               to Romulus, now that my history had brought me near his times. And as I asked myself,
-                  <quote rend="blockquote">
+                  <p> But after publishing my account of Lycurgus the lawgiver and Numa the king, I
+                     thought I might not unreasonably go back still farther to Romulus, now that my
+                     history had brought me near his times. And as I asked myself, <quote
+                        rend="blockquote">
                         <l>
-                           <q>With such a warrior</q> (as Aeschylus says) <q>who will dare to fight?</q>
+                           <q type="written">With such a warrior</q> (as Aeschylus says) <q type="written">who will dare to
+                              fight?</q>
                         </l>
                      </quote>
-                     <note place="unspecified" anchored="true">The actual text in <bibl n="Aesch. Seven 435">Aeschylus</bibl>:<q xml:lang="grc">τοιῷδε φωτὶ πέμπε—τίς
-                     ξυστήσεται;</q>
+                     <note place="unspecified" anchored="true">The actual text in <bibl
+                           n="Aesch. Seven 435">Aeschylus</bibl>:<quote xml:lang="grc">τοιῷδε φωτὶ
+                           πέμπε—τίς ξυστήσεται;</quote>
                      </note>
                      <quote rend="blockquote">
                         <l>Whom shall I set against him? Who is competent?</l>
                      </quote>
-                     <note place="unspecified" anchored="true">The actual text in <bibl n="Aesch. Seven 395">Aechylus</bibl>:<q xml:lang="grc">τίνʼ ἀντιτάξεις τῷδε;
-                     τίς Προίτου πυλῶν ι κλῄθρων λυθέντων προστατεῖν φερέγγυος·</q>
-                     </note> it seemed to me that I must make the founder of lovely and famous Athens the
-               counterpart and parallel to the father of invincible and glorious Rome.</p> 
+                     <note place="unspecified" anchored="true">The actual text in <bibl
+                           n="Aesch. Seven 395">Aechylus</bibl>:<quote xml:lang="grc">τίνʼ ἀντιτάξεις
+                           τῷδε; τίς Προίτου πυλῶν | κλῄθρων λυθέντων προστατεῖν φερέγγυος·</quote>
+                     </note> it seemed to me that I must make the founder of lovely and famous
+                     Athens the counterpart and parallel to the father of invincible and glorious
+                     Rome.</p> 
                </div>
                <div n="3" type="textpart" subtype="section"> 
                   <p>May I therefore succeed in purifying Fable, making her
@@ -182,7 +161,7 @@
                      <note resp="ed" place="unspecified" anchored="true">
                         <bibl n="Hom. Il. 7.281">
                            <title>Iliad</title>, vii. 281,</bibl> of Aias Telemon and Hector.</note> and
-               with their strength, combined sagacity. Of the world's two most illustrious cities,
+               with their strength, combined sagacity. Of the world’s two most illustrious cities,
                moreover, Rome and Athens, Romulus founded the one, and Theseus made a metropolis of
                the other, and each resorted to the rape of women.</p>
                </div>
@@ -196,8 +175,8 @@
             </div>
             <div type="textpart" subtype="chapter" n="3">
                <div n="1" type="textpart" subtype="section">
-                  <p>The lineage of Theseus, on the father's side, goes back to Erechtheus and the first
-               children of the soil; on the mother's side, to Pelops. For Pelops was the strongest
+                  <p>The lineage of Theseus, on the father’s side, goes back to Erechtheus and the first
+               children of the soil; on the mother’s side, to Pelops. For Pelops was the strongest
                of the kings in Peloponnesus quite as much on account of the number of his children
                as the amount of his wealth. He gave many daughters in marriage to men of highest
                rank, and scattered many sons among the cities as their rulers. One of these, named
@@ -208,10 +187,9 @@
                <div n="2" type="textpart" subtype="section">
                   <p> Now the wisdom of that day had some such form
                and force as that for which Hesiod was famous, especially in the sententious maxims
-               of his <q>Works and Days.</q> One of these maxims is ascribed to Pittheus, namely
+               of his <title>Works and Days.</title> One of these maxims is ascribed to Pittheus, namely
                   <quote rend="blockquote" type="proverb">
-                        <l>
-                           <q>Payment pledged to a man who is dear must be ample and certain.</q>
+                        <l>Payment pledged to a man who is dear must be ample and certain.
                         </l>
                      </quote>
                      <note resp="ed" place="unspecified" anchored="true">
@@ -220,7 +198,7 @@
                         <bibl>Aristot. Frag. 553</bibl>
                      </note> and Euripides,<note resp="ed" place="unspecified" anchored="true">
                         <bibl n="Eur. Hipp. 11">Eur. Hipp. 11</bibl>
-                     </note> when he has Hippolytus addressed as <q>nursling of the pure and holy
+                     </note> when he has Hippolytus addressed as <q type="written">nursling of the pure and holy
                   Pittheus,</q> shows what the world thought of Pittheus. </p>
                </div>
                <div n="3" type="textpart" subtype="section">
@@ -229,7 +207,7 @@
                with no woman until he came to Athens. But Aegeus thought the words of the command
                somewhat obscure, and therefore turned aside to Troezen and communicated to Pittheus
                the words of the god, which ran as follows:— <quote rend="blockquote" type="oracle">
-                        <l>Loose not the wine-skin's jutting neck, great chief of the people,</l>
+                        <l>Loose not the wine-skin’s jutting neck, great chief of the people,</l>
                         <l>Until thou shalt have come once more to the city of Athens.</l>
                      </quote>
                      <note resp="ed" place="unspecified" anchored="true">Cf. <bibl n="Eur. Med. 674">Euripides, <title>Medea</title>, 674, 676</bibl> (Kirchhoff)</note>
@@ -246,7 +224,7 @@
                <div n="5" type="textpart" subtype="section">
                   <p> He told the princess
                alone about this, and bade her, if a son should be born to her from him, and if, when
-               he came to man's estate, he should be able to lift up the rock and take away what had
+               he came to man’s estate, he should be able to lift up the rock and take away what had
                been left under it, to send that son to him with the tokens, in all secrecy, and
                concealing his journey as much as possible from everybody; for he was mightily in
                fear of the sons of Pallas,<note resp="ed" place="unspecified" anchored="true">His
@@ -258,8 +236,8 @@
             <div type="textpart" subtype="chapter" n="4">
                <div n="1" type="textpart" subtype="section">
                   <p>When Aethra gave birth to a son, he was at once named Theseus, as some say, because
-               the tokens for his recognition had been <q>placed</q> in hiding; but others say that
-               it was afterwards at Athens, when Aegeus <q>acknowledged</q>
+               the tokens for his recognition had been <q type="emph">placed</q> in hiding; but others say that
+               it was afterwards at Athens, when Aegeus <q type="emph">acknowledged</q>
                      <note resp="ed" place="unspecified" anchored="true">It is impossible to reproduce in
                   English the play on the Greek words.</note> him as his son. He was reared by
                Pittheus, as they say, and had an overseer and tutor named Connidas. To this man,
@@ -271,13 +249,14 @@
             </div>
             <div type="textpart" subtype="chapter" n="5">
                <div n="1" type="textpart" subtype="section">
-                  <p>Since it was still a custom at that time for youth who were coming of age to go to
-               Delphi and sacrifice some of their hair to the god, Theseus went to Delphi for this
-               purpose, and they say there is a place there which still to this day is called the
-               Theseia from him. But he sheared only the fore part of his head, just as Homer<note resp="ed" place="unspecified" anchored="true">
+                  <p>Since it was still a custom at that time for youth who were coming of age to go
+                     to Delphi and sacrifice some of their hair to the god, Theseus went to Delphi
+                     for this purpose, and they say there is a place there which still to this day
+                     is called the Theseia from him. But he sheared only the fore part of his head,
+                     just as Homer<note resp="ed" place="unspecified" anchored="true">
                         <bibl n="Hom. Il. 2.542">Hom. Il. 2.542</bibl>
-                     </note> said the Abantes did, and this kind of tonsure was called Theseis after him.
-                  </p>
+                     </note> said the Abantes did, and this kind of tonsure was called Theseis after
+                     him. </p>
                </div>
                <div n="2" type="textpart" subtype="section">
                   <p>
@@ -347,7 +326,7 @@
                destroyed as he went about, but some escaped his notice as he passed by, crouching
                down and shrinking back, and were overlooked in their abjectness. And when Heracles
                met with calamity and, after the slaying of Iphitus, removed into Lydia and for a
-               long time did slave's service there in the house of Omphale, then Lydia indeed
+               long time did slave’s service there in the house of Omphale, then Lydia indeed
                obtained great peace and security; but in the regions of Hellas the old villainies
                burst forth and broke out anew, there being none to rebuke and none to restrain them.
                   </p>
@@ -367,7 +346,7 @@
                experienced what Themistocles many generations afterwards experienced, when he said
                that he could not sleep for the trophy of Miltiades.<note resp="ed" place="unspecified" anchored="true">Cf. <bibl n="Plut. Them. 3.3">Plut. Them.
                      3.3</bibl>.</note> In like manner Theseus admired the valor of Heracles, until
-               by night his dreams were of the hero's achievements, and by day his ardor led him
+               by night his dreams were of the hero’s achievements, and by day his ardor led him
                along and spurred him on in his purpose to achieve the like. </p>
                </div>
             </div>
@@ -395,7 +374,7 @@
                weapon and on this account was called Club-bearer, laid hold of him and tried to stop
                his progress, he grappled with him and slew him. And being pleased with the club, he
                took it and made it his weapon and continued to use it, just as Heracles did with the
-               lion's skin. That hero wore the skin to prove how great a wild beast he had mastered,
+               lion’s skin. That hero wore the skin to prove how great a wild beast he had mastered,
                and so Theseus carried the club to show that although it had been vanquished by him,
                in his own hands it was invincible. </p>
                </div>
@@ -404,7 +383,7 @@
             </p>
                   <p>On the Isthmus, too, he slew Sinis the Pine-bender in the very manner in which many
                men had been destroyed by himself, and he did this without practice or even
-               acquaintance with the monster's device, but showing that valor is superior to all
+               acquaintance with the monster’s device, but showing that valor is superior to all
                device and practice. Now Sinis had a very beautiful and stately daughter, named
                Perigune. This daughter took to flight when her father was killed, and Theseus went
                about in search of her. But she had gone off into a place which abounded greatly in
@@ -440,11 +419,11 @@
                   <p>He also slew Sciron on the borders of Megara, by hurling him down the cliffs. Sciron
                robbed the passers by, according to the prevalent tradition; but as some say, he
                would insolently and wantonly thrust out his feet to strangers and bid them wash
-               them, and then, while they were washing them, kick them off into the sea.</p>
+               them, and then, while they were washing them, kick them off into the sea.</p></div>
                   <div n="2" type="textpart" subtype="section">
                      <p>Megarian writers, however, taking issue with current
                report, and, as Simonides<note resp="ed" place="unspecified" anchored="true">Fragment
-                  193 (Bergk)</note> expresses it, <q>waging war with antiquity,</q> say that Sciron
+                  193 (Bergk)</note> expresses it, <q type="written">waging war with antiquity,</q> say that Sciron
                was neither a violent man nor a robber, but a chastiser of robbers, and a kinsman and
                friend of good and just men. For Aeacus, they say, is regarded as the most righteous
                of Hellenes, and Cychreus the Salaminian has divine honors at Athens, and the virtues
@@ -472,14 +451,14 @@
                combat, and killed Termerus by dashing in his skull. </p>
                   </div>
                   <div n="2" type="textpart" subtype="section"> 
-                     <p>It is from him, indeed, as they say, that the name <q>Termerian mischief</q>
+                     <p>It is from him, indeed, as they say, that the name <q type="emph">Termerian mischief</q>
                comes, for Termerus, as it would seem, used to kill those who encountered him by
                dashing his head against theirs. Thus Theseus also went on his way chastising the
                wicked, who were visited with the same violence from him which they were visiting
                upon others, and suffered justice after the manner of their own injustice. </p>
                   </div>
                </div>
-            </div>
+            
             <div type="textpart" subtype="chapter" n="12">
                <div n="1" type="textpart" subtype="section">
                   <p>As he went forward on his journey and came to the river Cephisus, he was met by men
@@ -512,7 +491,7 @@
                   site of this sanctuary of the Delphinian Apollo is conjectured to have been
                   somewhere to the east of the Olympieum.</note> for that is where the house of
                Aegeus stood, and the Hermes to the east of the sanctuary is called the Hermes at
-               Aegeus's gate. </p>
+               Aegeus’s gate. </p>
                </div>
             </div>
             <div type="textpart" subtype="chapter" n="13">
@@ -536,7 +515,7 @@
                slew them all. Thereupon the party with Pallas dispersed. This is the reason, they
                say, why the township of Pallene has no intermarriage with the township of Agnus, and
                why it will not even allow heralds to make their customary proclamation there of
-                  <q>Akouete leo!</q> (Hear, ye people!) For they hate the word on account of the
+                  <q type="foreign">Akouete leo!</q> (<gloss>Hear, ye people!</gloss>) For they hate the word on account of the
                treachery of the man Leos. </p>
                </div>
             </div>
@@ -617,7 +596,7 @@
                that when they were unable to support themselves there, they first crossed over into
                Italy and dwelt in that country round about Iapygia, and from there journeyed again
                into Thrace and were called Bottiaeans; and that this was the reason why the maidens
-               of Bottiaea, in performing a certain sacrifice, sing as an accompaniment <q>To Athens
+               of Bottiaea, in performing a certain sacrifice, sing as an accompaniment <q type="spoken">To Athens
                   let us go!</q>
                   </p>
                   <p>And verily it seems to be a grievous thing for a man to be at enmity with a city
@@ -628,10 +607,10 @@
                was always abused and reviled in the Attic theaters, and it did not avail him either
                that Hesiod<note resp="ed" place="unspecified" anchored="true">
                         <bibl n="Plat. Minos 320d">Plat. Minos 320d</bibl>; <bibl n="Hes. Fr. 74">Hes.
-                     Catalogues (Loeb edition), frag. 74</bibl>.</note> called him <q>most
+                     Catalogues (Loeb edition), frag. 74</bibl>.</note> called him <q type="emph">most
                   royal,</q> or that Homer<note resp="ed" place="unspecified" anchored="true">
                         <bibl n="Hom. Od. 19.179">Hom. Od. 19.179</bibl>
-                     </note> styled him <q>a confidant of Zeus,</q> but the tragic poets prevailed, and
+                     </note> styled him <q type="emph">a confidant of Zeus,</q> but the tragic poets prevailed, and
                from platform and stage showered obloquy down upon him, as a man of cruelty and
                violence. And yet they say that Minos was a king and lawgiver, and that Rhadamanthus
                was a judge under him, and a guardian of the principles of justice defined by him.
@@ -674,7 +653,7 @@
                </div>
                <div n="5" type="textpart" subtype="section">
                   <p>Simonides, however, says<note resp="ed" place="unspecified" anchored="true">Fragment
-                  54 (Bergk)</note> that the sail given by Aegeus was not white, but <q>a scarlet
+                  54 (Bergk)</note> that the sail given by Aegeus was not white, but <q type="written">a scarlet
                   sail dyed with the tender flower of luxuriant holm-oak,</q> and that he made this
                a token of their safety. Moreover, the pilot of the ship was Phereclus, son of
                Amarsyas, as Simonides says; </p>
@@ -684,16 +663,16 @@
                that Theseus got from Scirus of Salamis Nausithous for his pilot, and Phaeax for his
                look-out man, the Athenians at that time not yet being addicted to the sea, and that
                Scirus did him this favour because one of the chosen youths, Menesthes, was his
-               daughter's son. And there is evidence for this in the memorial chapels for Nausithous
+               daughter’s son. And there is evidence for this in the memorial chapels for Nausithous
                and Phaeax which Theseus built at Phalerum near the temple of Scirus, and they say
-               that the festival of the Cybernesia, or Pilot's Festival, is celebrated in their
+               that the festival of the Cybernesia, or Pilot’s Festival, is celebrated in their
                honor. </p>
                </div>
             </div>
             <div type="textpart" subtype="chapter" n="18">
                <div n="1" type="textpart" subtype="section">
                   <p>When the lot was cast, Theseus took those upon whom it fell from the prytaneium and
-               went to the Delphinium, where he dedicated to Apollo in their behalf his suppliant's
+               went to the Delphinium, where he dedicated to Apollo in their behalf his suppliant’s
                badge. This was a bough from the sacred olive-tree, wreathed with white wool. Having
                made his vows and prayers, he went down to the sea on the sixth day of the month
                Munychion, on which day even now the Athenians still send their maidens to the
@@ -703,7 +682,7 @@
                   <p> And it is
                reported that the god at Delphi commanded him in an oracle to make Aphrodite his
                guide, and invite her to attend him on his journey, and that as he sacrificed the
-               usual she-goat to her by the sea-shore, it became a he-goat ( <q>tragos</q>) all at
+               usual she-goat to her by the sea-shore, it became a he-goat ( <q type="foreign">tragos</q>) all at
                once, for which reason the goddess has the surname Epitragia. </p>
                </div>
             </div>
@@ -798,7 +777,7 @@
                      </note> and all to gratify the Athenians. Moreover, some say that Ariadne actually
                had sons by Theseus, Oenopion and Staphylus, and among these is Ion of Chios, who
                says of his own native city:— <quote rend="blockquote">
-                        <l>This, once, Theseus's son founded, Oenopion.</l>
+                        <l>This, once, Theseus’s son founded, Oenopion.</l>
                      </quote>
                      <note resp="ed" place="unspecified" anchored="true">
                         <bibl>Bergk, <title>Poet. Lyr. Gr. ii.4</title> p. 254.</bibl>
@@ -851,7 +830,7 @@
                   <p>
                This kind of dance, as Dicaearchus tells us, is called by the Delians The Crane, and
                Theseus danced it round the altar called Keraton, which is constructed of horns (
-                  <q>kerata</q>) taken entirely from the left side of the head. They say that he
+                  <q type="foreign">kerata</q>) taken entirely from the left side of the head. They say that he
                also instituted athletic contests in Delos, and that the custom was then begun by him
                of giving a palm to the victors. </p>
                </div>
@@ -870,7 +849,7 @@
                   <p> The messenger found many
                of the people bewailing the death of their king, and others full of joy at his
                tidings, as was natural, and eager to welcome him and crown him with garlands for his
-               good news. The garlands, then, he accepted, and twined them about his herald's staff
+               good news. The garlands, then, he accepted, and twined them about his herald’s staff
                and on returning to the sea-shore, finding that Theseus had not yet made his
                libations to the gods, remained outside the sacred precincts, not wishing to disturb
                the sacrifice. </p>
@@ -882,8 +861,8 @@
                the Oschophoria,<note resp="ed" place="unspecified" anchored="true">A vintage
                   festival, during which branches of the vine with grapes upon them (<foreign xml:lang="grc">ὄσχοι</foreign>) were borne in procession from Athens to
                   Phalerum. See <bibl n="Plut. Thes. 23.2">Plut. Thes. 23.2</bibl>.</note> it is not
-               the herald that is crowned, but his herald's staff, and those who are present at the
-               libations cry out: <q>Eleleu! Iou! Iou!</q> the first of which cries is the
+               the herald that is crowned, but his herald’s staff, and those who are present at the
+               libations cry out: <q type="foreign">Eleleu! Iou! Iou!</q> the first of which cries is the
                exclamation of eager haste and triumph, the second of consternation and confusion.
                   </p>
                </div>
@@ -899,7 +878,7 @@
                </div>
                <div n="5" type="textpart" subtype="section">
                   <p> At that feast they also carry the
-               so-called <q>eiresione,</q> which is a bough of olive wreathed with wool, such as
+               so-called <q type="foreign">eiresione,</q> which is a bough of olive wreathed with wool, such as
                Theseus used at the time of his supplication, and laden with all sorts of
                fruit-offerings, to signify that scarcity was at an end, and as they go they sing:—
                   <quote rend="blockquote">
@@ -997,13 +976,13 @@
                      <quote rend="blockquote" type="oracle">
                         <l>Theseus, offspring of Aegeus, son of the daughter of Pittheus,</l>
                         <l>Many indeed the cities to which my father has given</l>
-                        <l>Bounds and future fates within your citadel's confines.</l>
+                        <l>Bounds and future fates within your citadel’s confines.</l>
                         <l>Therefore be not dismayed, but with firm and confident spirit</l>
                         <l>Counsel only; the bladder will traverse the sea and its surges.</l>
                      </quote> And this oracle they say the Sibyl afterwards repeated to the city, when she
                cried:— <quote rend="blockquote" type="oracle">
                         <l>
-                           <q>Bladder may be submerged; but its sinking will not be permitted.</q>
+                           Bladder may be submerged; but its sinking will not be permitted.
                         </l>
                      </quote>
                   </p>
@@ -1012,7 +991,7 @@
             <div type="textpart" subtype="chapter" n="25">
                <div n="1" type="textpart" subtype="section">
                   <p>Desiring still further to enlarge the city, he invited all men thither on equal
-               terms, and the phrase <q>Come hither all ye people,</q> they say was a proclamation
+               terms, and the phrase <q type="spoken">Come hither all ye people,</q> they say was a proclamation
                of Theseus when he established a people, as it were, of all sorts and conditions.
                However, he did not suffer his democracy to become disordered or confused from an
                indiscriminate multitude streaming into it, but was the first to separate the people
@@ -1028,7 +1007,7 @@
                and gave up his absolute rule, seems to be the testimony of Homer also, in the
                Catalogue of Ships,<note resp="ed" place="unspecified" anchored="true">
                         <bibl n="Hom. Il. 2.547">Hom. Il. 2.547</bibl>
-                     </note> where he speaks of the Athenians alone as a <q>people.</q>
+                     </note> where he speaks of the Athenians alone as a <q type="emph">people.</q>
                   </p>
                </div>
                <div n="3" type="textpart" subtype="section">
@@ -1036,22 +1015,22 @@
             </p>
                   <p>He also coined money, and stamped it with the effigy of an ox, either in remembrance
                of the Marathonian bull, or of Taurus, the general of Minos, or because he would
-               invite the citizens to agriculture. From this coinage, they say, <q>ten oxen</q> and
-                  <q>a hundred oxen</q> came to be used as terms of valuation. Having attached the
+               invite the citizens to agriculture. From this coinage, they say, <q type="emph">ten oxen</q> and
+                  <q type="emph">a hundred oxen</q> came to be used as terms of valuation. Having attached the
                territory of Megara securely to Attica, he set up that famous pillar on the Isthmus,
                and carved upon it the inscription giving the territorial boundaries. It consisted of
-               two trimeters, of which the one towards the east declared:— <q type="inscription">
-                        <q>Here is not Peloponnesus, but Ionia;</q>
-                     </q> and the one towards the west:— <quote rend="blockquote" type="inscription">
+               two trimeters, of which the one towards the east declared:— <quote rend="blockquote" type="inscription">
+                       Here is not Peloponnesus, but Ionia;
+                     </quote> and the one towards the west:— <quote rend="blockquote" type="inscription">
                         <l>
-                           <q>Here is the Peloponnesus, not Ionia.</q>
+                           Here is the Peloponnesus, not Ionia.
                         </l>
                      </quote>
                   </p>
                </div>
                <div n="4" type="textpart" subtype="section">
                   <p> He also instituted the games here, in emulation of
-               Heracles, being ambitious that as the Hellenes, by that hero's appointment,
+               Heracles, being ambitious that as the Hellenes, by that hero’s appointment,
                celebrated Olympian games in honor of Zeus, so by his own appointment they should
                celebrate Isthmian games in honor of Poseidon. For the games already instituted there
                in honor of Melicertes were celebrated in the night, and had the form of a religious
@@ -1112,7 +1091,7 @@
                <div n="5" type="textpart" subtype="section">
                   <p>For this cause he founded a city there, and called it, from the
                Pythian god, Pythopolis, and the adjacent river, Solois, in honor of the young man.
-               And he left there the brothers of Solois, to be the city's presidents and law-givers,
+               And he left there the brothers of Solois, to be the city’s presidents and law-givers,
                and with them Hermus, one of the noblemen of Athens. From him also the Pythopolitans
                call a place in the city the House of Hermes, incorrectly changing<note resp="ed" place="unspecified" anchored="true">Literally, giving it the circumflex
                   accent.</note> the second syllable, and transferring the honor from a hero to a
@@ -1156,7 +1135,7 @@
                through the agency of Hippolyta; for Hippolyta is the name which Cleidemus gives to
                the Amazon whom Theseus married, not Antiope. </p>
                   <p>But some say that the woman was slain with a javelin by Molpadia, while fighting at
-               Theseus's side, and that the pillar which stands by the sanctuary of Olympian Earth
+               Theseus’s side, and that the pillar which stands by the sanctuary of Olympian Earth
                was set up in her memory. </p>
                </div>
                <div n="5" type="textpart" subtype="section">
@@ -1173,8 +1152,8 @@
                <div n="6" type="textpart" subtype="section">
                   <p> And the Megarians, too, show a place in their country where
                Amazons were buried, on the way from the market-place to the place called Rhus<note resp="ed" place="unspecified" anchored="true">
-                        <q>Stream,</q> because water from the mountains above the city once flowed this
-                  way. <bibl n="Paus. 1.41">Paus. 1.41</bibl>.</note>, where the Rhomboid<note resp="ed" place="unspecified" anchored="true">The <q>Rhomboid</q> may have been an
+                        <gloss>Stream,</gloss> because water from the mountains above the city once flowed this
+                  way. <bibl n="Paus. 1.41">Paus. 1.41</bibl>.</note>, where the Rhomboid<note resp="ed" place="unspecified" anchored="true">The <q type="mentioned">Rhomboid</q> may have been an
                   irregular mound.</note> stands. And it is said, likewise, that others of them died
                near Chaeroneia, and were buried on the banks of the little stream which, in ancient
                times, as it seems, was called Thermodon, but nowadays, Haemon; concerning which
@@ -1187,8 +1166,8 @@
             </div>
             <div type="textpart" subtype="chapter" n="28">
                <div n="1" type="textpart" subtype="section">
-                  <p>So much, then, is worthy of mention regarding the Amazons. For the <q>Insurrection of
-                  the Amazons,</q> written by the author of the Theseid, telling how, when Theseus
+                  <p>So much, then, is worthy of mention regarding the Amazons. For the <title>Insurrection of
+                  the Amazons,</title> written by the author of the Theseid, telling how, when Theseus
                married Phaedra, Antiope and the Amazons who fought to avenge her attacked him, and
                were slain by Heracles, has every appearance of fable and invention. </p>
                </div>
@@ -1225,8 +1204,8 @@
                that Theseus took part in none, except that he aided the Lapithae in their war with
                the Centaurs; but others say that he was not only with Jason at Colchis,<note resp="ed" place="unspecified" anchored="true">In quest of the golden
                   fleece.</note> but helped Meleager to slay the Calydonian boar, and that hence
-               arose the proverb <q>Not without Theseus</q>; that he himself, however, without
-               asking for any ally, performed many glorious exploits, and that the phrase <q>Lo!
+               arose the proverb <q type="spoken">Not without Theseus</q>; that he himself, however, without
+               asking for any ally, performed many glorious exploits, and that the phrase <q type="spoken">Lo!
                   another Heracles</q> became current with reference to him. </p>
                </div>
                <div n="4" type="textpart" subtype="section">
@@ -1245,7 +1224,7 @@
                Adrastus. The account of Euripides in his <title>Suppliants</title>
                      <note resp="ed" place="unspecified" anchored="true">
                         <bibl n="Eur. Supp. 1213">Eur. Supp. 1213</bibl> ff.</note> is disproved by that
-               of Aeschylus in his <q>Eleusinians,</q>
+               of Aeschylus in his <title>Eleusinians,</title>
                      <note resp="ed" place="unspecified" anchored="true">Not extant.</note> where Theseus
                is made to relate the matter as above. </p>
                </div>
@@ -1254,7 +1233,7 @@
                <div n="1" type="textpart" subtype="section">
                   <p>The friendship of Peirithous and Theseus is said to have come about in the following
                manner. Theseus had a very great reputation for strength and bravery, and Peirithous
-               was desirous of making test and proof of it. Accordingly, he drove Theseus's cattle
+               was desirous of making test and proof of it. Accordingly, he drove Theseus’s cattle
                away from Marathon, and when he learned that their owner was pursuing him in arms, he
                did not fly, but turned back and met him. </p>
                </div>
@@ -1401,15 +1380,15 @@
                   <p>
                This privilege was accordingly granted them, after they had been adopted by Aphidnus,
                as Pylius had adopted Heracles. They also obtained honors like those paid to gods,
-               and were addressed as <q>Anakes,</q> either on account of their <q>stopping</q>
-               hostilities, or because of their <q>diligent</q> care that no one should be injured,
-               although there was such a large army within the city for the phrase <q>anakos
-                  echein</q> is used of such as <q>care for</q>, or <q>guard anything</q>, and
-               perhaps it is for this reason that kings are called <q>Anaktes.</q> There are also
-               those who say that the Tyndaridae were called <q>Anakes</q> because of the appearance
-               of their twin stars in the heavens, since the Athenians use <q>anekas</q> and
-                  <q>anekathen</q> for <q>ano</q> and <q>anothen,</q> signifying <q>above</q> or
-                  <q>on high</q>. </p>
+               and were addressed as <q type="foreign">Anakes,</q> either on account of their <gloss>stopping</gloss>
+               hostilities, or because of their <gloss>diligent</gloss> care that no one should be injured,
+               although there was such a large army within the city for the phrase <q type="foreign">anakos
+                  echein</q> is used of such as <gloss>care for</gloss>, or <gloss>guard anything</gloss>, and
+               perhaps it is for this reason that kings are called <q type="foreign">Anaktes.</q> There are also
+               those who say that the Tyndaridae were called <q type="foreign">Anakes</q> because of the appearance
+               of their twin stars in the heavens, since the Athenians use <q type="foreign">anekas</q> and
+                  <q type="foreign">anekathen</q> for <q type="foreign">ano</q> and <q type="foreign">anothen,</q> signifying <gloss>above</gloss> or
+                  <gloss>on high</gloss>. </p>
                </div>
             </div>
             <div type="textpart" subtype="chapter" n="34">
@@ -1422,14 +1401,14 @@
                      <note resp="ed" place="unspecified" anchored="true">
                         <bibl n="Hom. Il. 3.144">
                            <title>Iliad</title>, iii. 144</bibl>
-                     </note> But some reject this verse of Homer's, as well as the legend of Munychus, who
+                     </note> But some reject this verse of Homer’s, as well as the legend of Munychus, who
                was born in secret to Laodice from Demophoon, and whom Aethra helped to rear in
                Ilium. </p>
                </div>
                <div n="2" type="textpart" subtype="section">
                   <p> But a very peculiar and wholly divergent
-               story about Aethra is given by Ister in the thirteenth book of his <q>Attic
-                  History.</q> Some write, he says, that Alexander (Paris) was overcome in battle by
+               story about Aethra is given by Ister in the thirteenth book of his <title>Attic
+                  History.</title> Some write, he says, that Alexander (Paris) was overcome in battle by
                Achilles and Patroclus in Thessaly, along the banks of the Spercheius, but that
                Hector took and plundered the city of Troezen, and carried away Aethra, who had been
                left there. This, however, is very doubtful. </p>

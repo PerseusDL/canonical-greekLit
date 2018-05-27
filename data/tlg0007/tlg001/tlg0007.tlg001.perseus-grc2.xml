@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader type="text">
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title type="sub">Machine readable text</title>
-                <title n="Thes." type="work">Theseus</title>
-                <author n="Plut.">Plutarch</author>
+                
+                <title type="work">Theseus</title>
+                <author>Plutarch</author>
                 <editor role="editor" n="Loeb">Bernadotte Perrin</editor>
                 <sponsor>Perseus Project, Tufts University</sponsor>
                 <principal>Gregory Crane</principal>
@@ -26,7 +27,7 @@
             </publicationStmt>
             <sourceDesc>
                 <biblStruct>
-                    <analytic n="Thes."/>
+                    
                     <monogr>
                         <author>Plutarch</author>
                         <title>Plutarch's Lives</title>
@@ -41,108 +42,90 @@
                             <publisher>William Heinemann Ltd.</publisher>
                             <date>1914</date>
                         </imprint>
-                        <biblScope type="volume">1</biblScope>
+                        <biblScope unit="volume">1</biblScope>
                     </monogr>
                 </biblStruct>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
             <refsDecl n="CTS">
-                <cRefPattern n="Section"
-                         matchPattern="(\\w+).(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
-                    <p>This pointer pattern extracts Chapter and Section</p>
+                <cRefPattern n="section"
+                         matchPattern="(\w+).(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts chapter and section</p>
                 </cRefPattern>
-                <cRefPattern n="Chapter"
-                         matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
-                    <p>This pointer pattern extracts Chapter</p>
+                <cRefPattern n="chapter"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts chapter</p>
                 </cRefPattern>
             </refsDecl>
-            <!--
-			<COMPOSITION.HISTORY>Text keyboarded in the Philippines.  Basic SGML tagging by Scott Ettinger and Roger Travis.</COMPOSITION.HISTORY>
-			&prose.grk.encode;-->
+            
             <refsDecl>
                 <refState delim="." unit="chapter"/>
                 <refState unit="section"/>
             </refsDecl>
+            
+            <editorialDecl>
+                <quotation marks="none"/>
+            </editorialDecl>
         </encodingDesc>
         <profileDesc>
             <langUsage>
-                <language ident="greek">Greek</language>
-                <language ident="en">English</language>
+                <language ident="grc">Greek</language>
+                <language ident="eng">English</language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
-            <!--
-<change>
-<date>8/91</date>
-<respStmt>
-<name>EM</name>
-<resp>ed.</resp>
-</respStmt>
-<item>Revise DTDs and recheck texts.</item>
-</change>
-<change>
-<date>5/20/92</date>
-<respStmt>
-<name>David Smith</name>
-<resp>ed.</resp>
-</respStmt>
-<item>uncapitalized non-proper nouns at the beginnings of paragraphs and verse lines</item>
-</change>
-<change>
-<date>10/22/92</date>
-<respStmt>
-<name>EM</name>
-<resp>ed.</resp>
-</respStmt>
-<item>Glued all Plutarch files together, put in HEAD tags to title them.</item>
-</change>!-->
+            <change who="Lisa Cerrato" when="2016-12-07">review of EpiDoc and CTS compliance; minor cleanup; bumped URN</change>
             <change who="Stella Dee" when="2015">converted to CTS EpiDoc</change>
-        </revisionDesc>
+            <change who="EM" when="1992-10-22">Glued all Plutarch files together, put in HEAD tags to title them.</change>
+            <change who="David Smith" when="1992-05-20">uncapitalized non-proper nouns at the beginnings of paragraphs and verse lines</change>
+            <change who="EM" when="1991-08-01">Revise DTDs and recheck texts.</change>
+            <change who="Scott Ettinger and Roger Travis">Text keyboarded in the Philippines. Basic SGML tagging.</change>
+</revisionDesc>
     </teiHeader>
-    <text n="urn:cts:greekLit:tlg0007.tlg001.perseus-grc2">
+    
+    <text xml:lang="grc">
         <body>
-            <div type="edition">
+            <div type="edition" n="urn:cts:greekLit:tlg0007.tlg001.perseus-grc2" xml:lang="grc">
                 <head>Θησεύς</head>
                 <div type="textpart" subtype="chapter" n="1">
                     <div type="textpart" subtype="section" n="1">
                         <p> ὥσπερ ἐν ταῖς γεωγραφίαις, ὦ Σόσσιε Σενεκίων, οἱ ἱστορικοὶ τὰ
                             διαφεύγοντα τὴν γνῶσιν αὐτῶν τοῖς ἐσχάτοις μέρεσι τῶν πινάκων
-                            πιεζοῦντες, αἰτίας<note resp="ed" place="unspecified" anchored="true">
+                            πιεζοῦντες, αἰτίας<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">αἰτίας</foreign> Amyot, Stephanus, Coraës,
                                     Sintenis<hi rend="superscript">2</hi> with C; Bekker and
                                     Sintenis<hi rend="superscript">1</hi> have <foreign xml:lang="grc">ἐνίοις</foreign> (<gloss>explaining some by
-                                    saying</gloss>).</note> παραγράφουσιν ὅτι “τὰ δʼ ἐπέκεινα θῖνες
-                            ἄνυδροι καὶ θηριώδεισ” ἢ “πηλὸς ἀϊδνὴσ” ἢ “σκυθικὸν κρύοσ” ἢ “πέλαγος
-                            πεπηγός,” οὕτως ἐμοὶ περὶ τὴν τῶν βίων τῶν παραλλήλων γραφήν, τὸν
+                                    saying</gloss>).</note> παραγράφουσιν ὅτι <q>τὰ δʼ ἐπέκεινα θῖνες
+                            ἄνυδροι καὶ θηριώδεισ</q> ἢ <q>πηλὸς ἀϊδνὴσ</q> ἢ <q>σκυθικὸν κρύοσ</q> ἢ <q>πέλαγος
+                            πεπηγός,</q> οὕτως ἐμοὶ περὶ τὴν τῶν βίων τῶν παραλλήλων γραφήν, τὸν
                             ἐφικτὸν εἰκότι λόγῳ καὶ βάσιμον ἱστορίᾳ πραγμάτων ἐχομένῃ χρόνον
-                            διελθόντι, περὶ τῶν ἀνωτέρω καλῶς εἶχεν εἰπεῖν· “τὰ δʼ ἐπέκεινα τερατώδη
+                            διελθόντι, περὶ τῶν ἀνωτέρω καλῶς εἶχεν εἰπεῖν· <q>τὰ δʼ ἐπέκεινα τερατώδη
                             καὶ τραγικὰ ποιηταὶ καὶ μυθογράφοι νέμονται, καὶ οὐκέτʼ ἔχει πίστιν οὐδὲ
-                            σαφήνειαν.” </p>
+                            σαφήνειαν.</q> </p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
                         <p>ἐπεὶ δὲ τὸν περὶ Λυκούργου τοῦ νομοθέτου καὶ Νομᾶ τοῦ βασιλέως λόγον
                             ἐκδόντες, ἐδοκοῦμεν οὐκ ἂν ἀλόγως τῷ Ῥωμύλῳ προσαναβῆναι, πλησίον τῶν
                             χρόνων αὐτοῦ τῇ ἱστορίᾳ γεγονότες, σκοποῦντι δέ μοι <cit>
                                 <quote rend="blockquote" type="drama">
-                                    <l met="iamb">τοιῷδε<note resp="ed" place="unspecified" anchored="true">
+                                    <l met="iamb">τοιῷδε<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                             <title>Seven against Thebes</title>, 435, <foreign xml:lang="grc">τοιῷδε φωτὶ πέμπε τίς
-                                                ξυστήσεται</foreign>;</note> φωτί ʽ κατʼ Αἰσχύλον̓
-                                        τίς ξυμβήσεται;</l>
+                                                ξυστήσεται</foreign>;</note> φωτί (κατʼ Αἰσχύλον)                                        τίς ξυμβήσεται;</l>
                                 </quote>
-                                <bibl>Aesch. Seven 435</bibl>
+                                <bibl xml:lang="eng">Aesch. Seven 435</bibl>
                             </cit>
                             <cit>
                                 <quote rend="blockquote" type="drama">
-                                    <l met="iamb">τίνʼ ἀντιτάξω τῷδε; τίς φερέγγυος;<note resp="ed" place="unspecified" anchored="true">
+                                    <l met="iamb">τίνʼ ἀντιτάξω τῷδε; τίς φερέγγυος;<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                             <gloss>Ibid.</gloss> 395 f. <foreign xml:lang="grc">τίνʼ
                                                 ἀντιτάξεις τῷδε; τίς Προίτου πυλῶν κλῄθρων λυθέντων
                                                 προστατεῖν φερέγγους</foreign>;</note>
                                     </l>
                                 </quote>
-                                <bibl>Aesch. Seven 395 f.</bibl>
+                                <bibl xml:lang="eng">Aesch. Seven 395 f.</bibl>
                             </cit>ἐφαίνετο τὸν τῶν καλῶν καὶ ἀοιδίμων οἰκιστὴν Ἀθηνῶν ἀντιστῆσαι καὶ
                             παραβαλεῖν τῷ πατρὶ τῆς ἀνικήτου καὶ μεγαλοδόξου Ῥώμης, </p>
                     </div>
@@ -156,13 +139,13 @@
                 <div type="textpart" subtype="chapter" n="2">
                     <div type="textpart" subtype="section" n="1">
                         <p>ἐδόκει δʼ οὖν ὁ Θησεὺς τῷ Ῥωμύλῳ κατὰ πολλὰς ἐναρμόττειν ὁμοιότητας· ἄμφω
-                            μὲν γὰρ<note resp="ed" place="unspecified" anchored="true">Coraës,
+                            μὲν γὰρ<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">Coraës,
                                 Bekker, and Cobet, with C, after Reiske; <foreign xml:lang="grc">ἄμφω μέν</foreign>.</note> ἀνεγγύω καὶ σκοτίω γενόμενοι δόξαν
                             ἔσχον ἐκ θεῶν γεγονέναι, <cit>
                                 <quote rend="blockquote">
                                     <l met="dact">ἄμφω δʼ αἰχμητά, τό γε δὴ καὶ ἴδμεν ἅπαντες,</l>
                                 </quote>
-                                <bibl>Hom. Il. 7.281</bibl>
+                                <bibl xml:lang="eng">Hom. Il. 7.281</bibl>
                             </cit>καὶ μετὰ τοῦ δυνατοῦ τὸ συνετὸν ἔχοντες. πόλεων δὲ τῶν
                             ἐπιφανεστάτων ὁ μὲν ἔκτισε τὴν Ῥώμην, ὁ δὲ συνῴκισε τὰς Ἀθήνας· ἁρπαγὴ
                             δὲ γυναικῶν ἑκατέρῳ πρόσεστιν. </p>
@@ -191,7 +174,7 @@
                                 <quote rend="blockquote" type="proverb">
                                     <l met="lyric">μισθὸς δʼ ἀνδρὶ φίλῳ εἰρημένος ἄρκιος ἔστω.</l>
                                 </quote>
-                                <bibl>Verse 370.</bibl>
+                                <bibl xml:lang="eng">Verse 370.</bibl>
                             </cit> τοῦτο μὲν οὖν καὶ Ἀριστοτέλης ὁ φιλόσοφος εἴρηκεν, ὁ δʼ
                             Εὐριπίδης, τὸν Ἱππόλυτον ἁγνοῦ Πιτθέως παίδευμα προσειπών, ἐμφαίνει τὴν
                             περὶ τὸν Πιτθέα δόξαν. </p>
@@ -202,11 +185,11 @@
                             Ἀθήνας, οὐ πάνυ δὲ τοῦτο φράζειν εὐδήλως δοκοῦσαν· ὅθεν εἰς Τροιζῆτα
                             παρελθὼν ἀνεκοινοῦτο Πιτθεῖ τὴν τοῦ θεοῦ φωνὴν οὕτως ἔχουσαν· <quote rend="blockquote" type="oracle">
                                 <l met="lyric">ἀσκοῦ τὸν προὔχοντα πόδα, μέγα φέρτατε λαῶν,</l>
-                                <l>μὴ λύσῃς πρὶν δῆμον Ἀθηνέων εἰσαφικέσθαι·</l>
-                            </quote> ἃ δῆλον ὅτι νοήσας ὁ Πιτθεύς, </p>
+                                <l>μὴ λύσῃς πρὶν δῆμον Ἀθηνέων εἰσαφικέσθαι· </l>
+                            </quote></p>
                     </div>
                     <div type="textpart" subtype="section" n="4">
-                        <p>ἔπεισεν αὐτὸν ἢ διηπάτησε τῇ Αἴθρᾳ συγγενέσθαι. συνελθὼν δὲ καὶ γνοὺς
+                        <p>ἃ δῆλον ὅτι νοήσας ὁ Πιτθεύς, ἔπεισεν αὐτὸν ἢ διηπάτησε τῇ Αἴθρᾳ συγγενέσθαι. συνελθὼν δὲ καὶ γνοὺς
                             ἐκεῖνος ὅτι τῇ Πιτθέως θυγατρὶ συγγέγονε, καὶ κύειν αὐτὴν ὑπονοήσας,
                             ἀπέλιπε ξίφος καὶ πέδιλα κρύψας ὑπὸ πέτραν μεγάλην, ἐντὸς ἔχουσαν
                             κοιλότητα συμμέτρως ἐμπεριλαμβάνουσαν τὰ κείμενα. </p>
@@ -215,9 +198,9 @@
                         <p>φράσας δὲ πρὸς μόνην ἐκείνην, καὶ διακελευσάμενος, ἂν υἱὸς ἐξ αὐτοῦ
                             γένηται, καὶ λαβὼν ἀνδρὸς ἡλικίαν δυνατὸς ᾖ τὴν πέτραν ἀναστῆσαι καὶ
                             ὑφελεῖν τὰ καταλειφθέντα, πέμπειν πρὸς αὐτὸν ἔχοντα ταῦτα μηδενὸς
-                            εἰδότος, ἀλλʼ ὡς ἔνεστι μάλιστα λανθάνοντα πάντας ʽ ἰσχυρῶς γὰρ
+                            εἰδότος, ἀλλʼ ὡς ἔνεστι μάλιστα λανθάνοντα πάντας (ἰσχυρῶς γὰρ
                             ἐδεδοίκει τοὺς Παλλαντίδας, ἐπιβουλεύοντας αὐτῷ καὶ διὰ τὴν ἀπαιδίαν
-                            καταφρονοῦντας· ἦσαν δὲ πεντήκοντα παῖδες ἐκ Πάλλαντος γεγονότεσ̓,
+                            καταφρονοῦντας· ἦσαν δὲ πεντήκοντα παῖδες ἐκ Πάλλαντος γεγονότες),
                             ἀπῄει. </p>
                     </div>
                 </div>
@@ -256,7 +239,7 @@
                                         κεῖνοι δαίμονές εἰσι μάχης</l>
                                     <l>δεσπόται Εὐβοίας δουρικλυτοί.</l>
                                 </quote>
-                                <bibl>Bergk, 3Poet. Lyr. Gr., ii. p. 383.</bibl>
+                                <bibl xml:lang="eng">Bergk, 3Poet. Lyr. Gr., ii. p. 383.</bibl>
                             </cit>
                         </p>
                     </div>
@@ -313,10 +296,10 @@
                             μέν, ὡς ἔοικε, λεληθότως διέκαιεν ἡ δόξα τῆς Ἡρακλέους ἀρετῆς, καὶ
                             πλεῖστον ἐκείνου λόγον εἶχε, καὶ προθυμότατος ἀκροατὴς ἐγίνετο τῶν
                             διηγουμένων ἐκεῖνον οἷος εἴη, μάλιστα δὲ τῶν αὐτὸν ἑωρακότων καὶ
-                            πράττοντι καὶ λέγοντι </p>
+                            πράττοντι καὶ λέγοντι προστετυχηκότων· </p>
                     </div>
                     <div type="textpart" subtype="section" n="7">
-                        <p>προστετυχηκότων· τότε δὲ παντάπασιν ἦν φανερὸς πεπονθὼς ὅπερ ὕστερον
+                        <p>τότε δὲ παντάπασιν ἦν φανερὸς πεπονθὼς ὅπερ ὕστερον
                             χρόνοις πολλοῖς Θεμιστοκλῆς ἔπαθε, καὶ εἶπεν ὡς καθεύδειν αὐτὸν οὐκ ἐῴη
                             τὸ Μιλτιάδου τρόπαιον· οὕτως ἐκείνῳ τοῦ Ἡρακλέους θαυμάζοντι τὴν ἀρετήν,
                             καὶ νύκτωρ ὄνειρος ἦσαν αἱ πράξεις, καὶ μεθʼ ἡμέραν ἐξῆγεν αὐτὸν ὁ ζῆλος
@@ -410,7 +393,7 @@
                 <div type="textpart" subtype="chapter" n="11">
                     <div type="textpart" subtype="section" n="1">
                         <p>ἐν δὲ Ἐλευσῖνι Κερκύονα τὸν ἐξ Ἀρκαδίας καταπαλαίσας ἀνεῖλε· καὶ μικρὸν
-                            προελθὼν Δαμάστην ἐν Ἐρινεῷ<note resp="ed" place="unspecified" anchored="true">
+                            προελθὼν Δαμάστην ἐν Ἐρινεῷ<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">Ἐρινεῷ</foreign> with Coraës, after
                                 Pausanias, i. 38, 5: <foreign xml:lang="grc">Ἕρμει</foreign>, a
                                 correction by Palmerius of the MSS. <foreign xml:lang="grc">Ἑρμιόνῃ</foreign>.</note> τὸν Προκρούστην, ἀναγκάσας αὑτὸν
@@ -475,7 +458,7 @@
                         <p>ὁ δὲ ἐξαίφνης ἐπιπεσὼν τοῖς ἐνεδρεύουσι πάντας διέφθειρεν. οἱ δὲ μετὰ τοῦ
                             Πάλλαντος πυθόμενοι διεσπάρησαν. ἐκ τούτου φασὶ τῷ Παλληνέων δήμῳ πρὸς
                             τὸν Ἁγνουσίων ἐπιγαμίαν μὴ εἶναι, μηδὲ κηρύττεσθαι τοὐπιχώριον παρʼ
-                            αὐτοῖς “ἀκούετε λεῷ·” μισοῦσι γὰρ τοὔνομα διὰ τὴν προδοσίαν τοῦ ἀνδρός.
+                            αὐτοῖς <q>ἀκούετε λεῷ·</q> μισοῦσι γὰρ τοὔνομα διὰ τὴν προδοσίαν τοῦ ἀνδρός.
                         </p>
                     </div>
                 </div>
@@ -488,7 +471,7 @@
                     </div>
                     <div type="textpart" subtype="section" n="2">
                         <p>ἡ δὲ Ἑκάλη καὶ τὸ περὶ αὐτὴν μυθολόγημα τοῦ ξενισμοῦ καὶ τῆς ὑποδοχῆς
-                            ἔοικε μὴ πάσης ἀμοιρεῖν ἀληθείας. ἔθυον γὰρ Ἑκαλήσια<note resp="ed" place="unspecified" anchored="true">
+                            ἔοικε μὴ πάσης ἀμοιρεῖν ἀληθείας. ἔθυον γὰρ Ἑκαλήσια<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">Εκαλήσια</foreign> the correction of Coraës:
                                     <foreign xml:lang="grc">Ἑκαλήσιον</foreign>.</note> οἱ πέριξ
                             δῆμοι συνιόντες Ἑκάλῳ Διΐ, καὶ τὴν Ἑκάλην ἐτίμων, Ἑκαλίνην
@@ -507,7 +490,7 @@
                         <p>ὀλίγῳ δὲ ὕστερον ἧκον ἐκ Κρήτης τὸ τρίτον οἱ τὸν δασμὸν ἀπάξοντες. ὅτι
                             μὲν οὖν Ἀνδρόγεω περὶ τὴν Ἀττικὴν ἀποθανεῖν δόλῳ δόξαντος, ὅ τε Μίνως
                             πολλὰ κακὰ πολεμῶν εἰργάζετο τοὺς ἀνθρώπους καὶ τὸ δαιμόνιον ἔφθειρε τὴν
-                            χώραν ʽ ἀφορία τε γὰρ καὶ νόσος ἐνέσκηψε πολλὴ καὶ ἀνέδυσαν οἱ ποταμοἴ,
+                            χώραν (ἀφορία τε γὰρ καὶ νόσος ἐνέσκηψε πολλὴ καὶ ἀνέδυσαν οἱ ποταμοί),
                             καὶ τοῦ θεοῦ προστάξαντος ἱλασαμένοις τὸν Μίνω καὶ διαλλαγεῖσι λωφήσειν
                             τὸ μήνιμα καὶ τῶν κακῶν ἔσεσθαι παῦλαν, ἐπικηρυκευσάμενοι καὶ δεηθέντες
                             ἐποιήσαντο συνθήκας ὥστε πέμπειν διʼ ἐννέα ἐτῶν δασμὸν ἠϊθέους ἑπτὰ καὶ
@@ -523,7 +506,7 @@
                                 <quote rend="blockquote" type="drama">
                                     <l met="iamb">ταύρου μεμῖχθαι καὶ βροτοῦ διπλῇ φύσει.</l>
                                 </quote>
-                                <bibl>Nauck, 3Trag. Graec. Frag., p. 680.</bibl>
+                                <bibl xml:lang="eng">Nauck, 3Trag. Graec. Frag., p. 680.</bibl>
                             </cit>
                         </p>
                     </div>
@@ -547,14 +530,14 @@
                             αὐτόθι, πρῶτον μὲν εἰς Ἰταλίαν διαπερᾶσαι κἀκεῖ κατοικεῖν περὶ τὴν
                             Ἰαπυγίαν, ἐκεῖθεν δὲ αὖθις εἰς Θρᾴκην κομισθῆναι καὶ κληθῆναι
                             Βοττιαίους· διὸ τὰς κόρας τῶν Βοττιαίων θυσίαν τινὰ τελούσας ἐπᾴδειν·
-                            “ἴωμεν εἰς Ἀθήνας.” </p>
+                            <q>ἴωμεν εἰς Ἀθήνας.</q> </p>
                         <p>ἔοικε γὰρ ὄντως χαλεπὸν εἶναι φωνὴν ἐχούσῃ πόλει καὶ μοῦσαν ἀπεχθάνεσθαι.
                         </p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
                         <p>καὶ γὰρ ὁ Μίνως ἀεὶ διετέλει κακῶς ἀκούων καὶ λοιδορούμενος ἐν τοῖς
-                            Ἀττικοῖς θεάτροις, καὶ οὔτε Ἡσίοδος αὐτὸν ὤνησε “βασιλεύτατον” οὔτε
-                            Ὅμηρος “ὀαριστὴν Διὸσ” προσαγορεύσας, ἀλλʼ ἐπικρατήσαντες οἱ τραγικοὶ
+                            Ἀττικοῖς θεάτροις, καὶ οὔτε Ἡσίοδος αὐτὸν ὤνησε <q>βασιλεύτατον</q> οὔτε
+                            Ὅμηρος <q>ὀαριστὴν Διὸσ</q> προσαγορεύσας, ἀλλʼ ἐπικρατήσαντες οἱ τραγικοὶ
                             πολλὴν ἀπὸ τοῦ λογείου καὶ τῆς σκηνῆς ἀδοξίαν αὐτοῦ κατεσκέδασαν ὡς
                             χαλεποῦ καὶ βιαίου γενομένου. καίτοι φασὶ τὸν μὲν Μίνω βασιλέα καὶ
                             νομοθέτην, δικαστὴν δὲ τὸν Ῥαδάμανθυν εἶναι καὶ φύλακα τῶν ὡρισμένων ὑπʼ
@@ -595,7 +578,7 @@
                     </div>
                     <div type="textpart" subtype="section" n="5">
                         <p>ὁ δὲ Σιμωνίδης οὐ λευκόν φησιν εἶναι τὸ δοθὲν ὑπὸ τοῦ Αἰγέως, ἀλλὰ
-                            “φοινίκεον ἱστίον ὑγρῷ πεφυρμένον πρίνου ἄνθει ἐριθάλλου·” καὶ τοῦτο τῆς
+                            <q>φοινίκεον ἱστίον ὑγρῷ πεφυρμένον πρίνου ἄνθει ἐριθάλλου·</q> καὶ τοῦτο τῆς
                             σωτηρίας αὐτῶν ποιήσασθαι σημεῖον· ἐκυβέρνα δὲ τὴν ναῦν Ἀμαρσυάδας
                             Φέρεκλος, ὥς φησι Σιμωνίδης. </p>
                     </div>
@@ -604,7 +587,7 @@
                             μὲν Ναυσίθοον, πρωρέα δὲ Φαίακα, μηδέπω τότε τῶν Ἀθηναίων προσεχόντων τῇ
                             θαλάττῃ· καὶ γὰρ εἶναι τῶν ἠϊθέων ἕνα Μενέσθην Σκίρου θυγατριδοῦν.
                             μαρτυρεῖ δὲ τούτοις ἡρῷα Ναυσιθόου καὶ Φαίακος εἱσαμένου Θησέως Φαληροῖ
-                            πρὸς τῷ τοῦ Σκίρου ἱερῷ,<note resp="ed" place="unspecified" anchored="true">
+                            πρὸς τῷ τοῦ Σκίρου ἱερῷ,<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">ἱερῷ</foreign> bracketed by Bekker
                                     (<gloss>near that of Scirus</gloss>).</note> καὶ τὴν ἑορτὴν τὰ
                             Κυβερνήσιά φασιν ἐκείνοις τελεῖσθαι. </p>
@@ -654,7 +637,7 @@
                         <p>ἰδίως δέ πως καὶ περιττῶς ὁ Κλείδημος ἀπήγγειλε περὶ τούτων, ἄνωθέν ποθεν
                             ἀρξάμενος, ὅτι δόγμα κοινὸν ἦν Ἑλλήνων μηδεμίαν ἐκπλεῖν τριήρη μηδαμόθεν
                             ἀνδρῶν πέντε πλείονας δεχομένην· τὸν δὲ ἄρχοντα τῆς Ἀργοῦς Ἰάσονα μόνον
-                                περιπλεῖν<note resp="ed" place="unspecified" anchored="true">
+                                περιπλεῖν<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">περιπλεῖν</foreign> Sintenis and Bekker
                                 assume a lacuna after this word. A Bodleian MS. (B<hi rend="superscript">a</hi>) has <foreign xml:lang="grc">τριήρει
                                     πλήρει ἀνδρῶν ἱκανῶν</foreign> (<gloss>with a trireme fully
@@ -670,10 +653,10 @@
                             παραιτούμενος ἀνεψιὸν ὄντα Δαίδαλον κἀκείνῳ κατὰ γένος προσήκοντα,
                             μητρὸς ὄντα Μερόπης τῆς Ἐρεχθέως, αὐτὸς δὲ ναυπηγίαν ἐπεβάλετο, τὴν μὲν
                             ἐν Θυμαιταδῶν αὐτόθι μακρὰν τῆς ξενικῆς ὁδοῦ, τὴν δὲ διὰ Πιτθέως ἐν
-                            Τροιζῆνι, </p>
+                            Τροιζῆνι, βουλόμενος λανθάνειν.</p>
                     </div>
                     <div type="textpart" subtype="section" n="6">
-                        <p>βουλόμενος λανθάνειν. γενομένων δὲ ἑτοίμων ἐξέπλευσε τόν τε Δαίδαλον ἔχων
+                        <p>γενομένων δὲ ἑτοίμων ἐξέπλευσε τόν τε Δαίδαλον ἔχων
                             καὶ φυγάδας ἐκ Κρήτης καθηγεμόνας· οὐδενὸς δὲ προειδότος, ἀλλὰ ναῦς
                             φιλίας οἰομένων τῶν Κρητῶν προσφέρεσθαι, τοῦ λιμένος κρατήσας καὶ ἀποβὰς
                             ἔφθασεν εἰς τὴν Κνωσσὸν παρελθών· καὶ μάχην ἐν πύλαις τοῦ Λαβυρίνθου
@@ -702,14 +685,14 @@
                                 <quote rend="blockquote">
                                     <l met="dact">Θησέα Πειρίθοόν τε θεῶν ἀριδείκετα τέκνα,</l>
                                 </quote>
-                                <bibl>Hom. Od. 11.631</bibl>
+                                <bibl xml:lang="eng">Hom. Od. 11.631</bibl>
                             </cit>χαριζόμενον Ἀθηναίοις· ἔνιοι δὲ καὶ τεκεῖν ἐκ Θησέως Ἀριάδνην
                             Οἰνοπίωνα καὶ Στάφυλον· ὧν καὶ ὁ Χῖος Ἴων ἐστὶ περὶ τῆς ἑαυτοῦ πατρίδος
                             λέγων· <cit>
                                 <quote rend="blockquote">
                                     <l met="lyric">τήν ποτε Θησείδης ἔκτισεν Οἰνοπίων.</l>
                                 </quote>
-                                <bibl>Bergk, Poet. Lyr. Gr. ii.4 p. 254.</bibl>
+                                <bibl xml:lang="eng">Bergk, Poet. Lyr. Gr. ii.4 p. 254.</bibl>
                             </cit>
                         </p>
                         <p>ἃ δʼ ἐστὶν εὐφημότατα τῶν μυθολογουμένων, πάντες ὡς ἔπος εἰπεῖν διὰ
@@ -819,10 +802,10 @@
                             καὶ λειότητα καὶ χροιὰν ἀλοιφαῖς καὶ κοσμήσεσιν ὡς ἔστιν ἐξαλλάξαντα
                             κομιδῇ, καὶ διδάξαντα φωνὴν καὶ σχῆμὰ καὶ βάδισιν ὡς ἔνι μάλιστα
                             παρθένοις ὁμοιοῦσθαι καὶ μηδὲν φαίνεσθαι διαφέροντας, ἐμβαλεῖν εἰς τὸν
-                            τῶν παρθένων ἀριθμὸν καὶ διαλαθεῖν ἅπαντας· ἐπεὶ δὲ ἐπανῆλθεν, </p>
+                            τῶν παρθένων ἀριθμὸν καὶ διαλαθεῖν ἅπαντας· </p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
-                        <p>αὐτόν τε πομπεῦσαι καὶ τοὺς νεανίσκους οὕτως ἀμπεχομένους ὡς νῦν
+                        <p>ἐπεὶ δὲ ἐπανῆλθεν, αὐτόν τε πομπεῦσαι καὶ τοὺς νεανίσκους οὕτως ἀμπεχομένους ὡς νῦν
                             ἀμπέχονται τοὺς ὀσχοὺς φέροντες. φέρουσι δὲ Διονύσῳ καὶ Ἀριάδνῃ
                             χαριζόμενοι διὰ τὸν μῦθον, ἢ μᾶλλον ὅτι συγκομιζομένης ὀπώρας ἐπανῆλθον·
                             αἱ δὲ δειπνοφόροι παραλαμβάνονται καὶ κοινωνοῦσι τῆς θυσίας
@@ -850,7 +833,7 @@
                             φύλακι χρησομένην, τῶν δὲ ἄλλων παρέξουσαν ἅπασιν ἰσομοιρίαν. </p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
-                        <p>τοὺς μὲν<note resp="ed" place="unspecified" anchored="true">
+                        <p>τοὺς μὲν<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">ἰσομοιρίαν. τοὺς μὲν</foreign> with Coraës
                                 and Bekker: <foreign xml:lang="grc">ἰσομοιρίαν, τοὺς
                                 μέν</foreign>.</note> ταῦτα ἔπειθεν, οἱ δὲ τὴν δύναμιν αὐτοῦ
@@ -884,7 +867,7 @@
                 <div type="textpart" subtype="chapter" n="25">
                     <div type="textpart" subtype="section" n="1">
                         <p>ἔτι δὲ μᾶλλον αὐξῆσαι τὴν πόλιν βουλόμενος ἐκάλει πάντας ἐπὶ τοῖς ἴσοις,
-                            καὶ τὸ “δεῦρʼ ἴτε πάντες λεῴ” κήρυγμα Θησέως γενέσθαι φασὶ πανδημίαν
+                            καὶ τὸ <q>δεῦρʼ ἴτε πάντες λεῴ</q> κήρυγμα Θησέως γενέσθαι φασὶ πανδημίαν
                             τινὰ καθιστάντος. οὐ μὴν ἄτακτον οὐδὲ μεμιγμένην περιεῖδεν ὑπὸ πλήθους
                             ἐπιχυθέντος ἀκρίτου γενομένην τὴν δημοκρατίαν, ἀλλὰ πρῶτος ἀποκρίνας
                             χωρὶς εὐπατρίδας καὶ γεωμόρους καὶ δημιουργούς, </p>
@@ -903,12 +886,12 @@
                             δέ φασι τὸ ἑκατόμβοιον καὶ τὸ δεκάβοιον ὀνομασθῆναι. προσκτησάμενος δὲ
                             τῇ Ἀττικῇ τὴν Μεγαρικὴν βεβαίως, τὴν θρυλουμένην ἐν Ἰσθμῷ στήλην
                             ἔστησεν, ἐπιγράψας τὸ διορίζον ἐπίγραμμα τὴν χώραν δυσὶ τριμέτροις, ὧν
-                            ἔφραζε τὸ<note resp="ed" place="unspecified" anchored="true">
+                            ἔφραζε τὸ<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">τὸ μὲν, τὸ δὲ</foreign> with Coraës, after
                                 Reiske: <foreign xml:lang="grc">τὰ μὲν, τὰ δέ</foreign>.</note> μὲν
                             πρὸς ἕω <quote rend="blockquote" type="inscription">
                                 <l met="iamb">τάδʼ οὐχὶ Πελοπόννησος, ἀλλʼ Ἰωνία·</l>
-                            </quote> τὸ<note resp="ed" place="unspecified" anchored="true">
+                            </quote> τὸ<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">τὸ μὲν, τὸ δὲ</foreign> with Coraës, after
                                 Reiske: <foreign xml:lang="grc">τὰ μὲν, τὰ δέ</foreign>.</note> δὲ
                             πρὸς ἑσπέραν <quote rend="blockquote" type="inscription">
@@ -936,7 +919,7 @@
                 <div type="textpart" subtype="chapter" n="26">
                     <div type="textpart" subtype="section" n="1">
                         <p>εἰς δὲ τὸν πόντον ἔπλευσε τὸν Εὔξεινον, ὡς μὲν Φιλόχορος καί τινες ἄλλοι
-                            λέγουσι, μεθʼ Ἡρακλέους ἐπὶ τὰς Ἀμαζόνας συστρατεύσας, καὶ γέρας<note resp="ed" place="unspecified" anchored="true">
+                            λέγουσι, μεθʼ Ἡρακλέους ἐπὶ τὰς Ἀμαζόνας συστρατεύσας, καὶ γέρας<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">γέρας</foreign> with Cobet; <foreign xml:lang="grc">γέρας ἀριστεῖον</foreign> MSS., Coraës, Bekker:
                                     <foreign xml:lang="grc">γέρας ἀριστειῶν</foreign>.</note>
                             Ἀντιόπην ἔλαβεν· οἱ δὲ πλείους, ὧν ἐστὶ καὶ Φερεκύδης καὶ Ἑλλάνικος καὶ
@@ -950,10 +933,10 @@
                             ξένια πέμπειν· τὸν δὲ τὴν κομίζουσαν ἐμβῆναι παρακαλεῖν εἰς τὸ πλοῖον·
                             ἐμβάσης δὲ ἀναχθῆναι. </p>
                         <p>Μενεκράτης δέ τις, ἱστορίαν περὶ Νικαίας τῆς ἐν Βιθυνίᾳ πόλεως ἐκδεδωκώς,
-                            Θησέα φησὶ τὴν Ἀντιόπην ἔχοντα διατρῖψαι περὶ τούτους τοὺς </p>
+                            Θησέα φησὶ τὴν Ἀντιόπην ἔχοντα διατρῖψαι περὶ τούτους τοὺς τόπους· </p>
                     </div>
                     <div type="textpart" subtype="section" n="3">
-                        <p>τόπους· τυγχάνειν δὲ συστρατεύοντας αὐτῷ τρεῖς νεανίσκους ἐξ Ἀθηνῶν
+                        <p>τυγχάνειν δὲ συστρατεύοντας αὐτῷ τρεῖς νεανίσκους ἐξ Ἀθηνῶν
                             ἀδελφοὺς ἀλλήλων, Εὔνεων καὶ Θόαντα καὶ Σολόεντα. τοῦτον οὖν ἐρῶντα τῆς
                             Ἀντιόπης καὶ λανθάνοντα τοὺς ἄλλους ἐξειπεῖν πρὸς ἕνα τῶν συνήθων·
                             ἐκείνου δὲ περὶ τούτων ἐντυχόντος τῇ Ἀντιόπῃ, τὴν μὲν πεῖραν ἰσχυρῶς
@@ -966,11 +949,11 @@
                             Θησέα βαρέως ἐνεγκεῖν, καὶ δυσφοροῦντα λόγιόν τι πυθόχρηστον ἀνενεγκεῖν
                             πρὸς ἑαυτόν· εἶναι γὰρ αὐτῷ προστεταγμένον ἐν Δελφοῖς ὑπὸ τῆς Πυθίας,
                             ὅταν ἐπὶ ξένης ἀνιαθῇ μάλιστα καὶ περίλυπος γένηται, πόλιν ἐκεῖ κτίσαι
-                            καὶ τῶν ἀμφʼ αὐτόν τινας ἡγεμόνας καταλιπεῖν. ἐκ δὲ τούτου τὴν μὲν
-                            πόλιν, </p>
+                            καὶ τῶν ἀμφʼ αὐτόν τινας ἡγεμόνας καταλιπεῖν. </p>
                     </div>
                     <div type="textpart" subtype="section" n="5">
-                        <p>ἣν ἔκτισεν, ἀπὸ τοῦ θεοῦ Πυθόπολιν προσαγορεῦσαι, Σολόεντα δὲ τὸν πλησίον
+                        <p>ἐκ δὲ τούτου τὴν μὲν
+                            πόλιν, ἣν ἔκτισεν, ἀπὸ τοῦ θεοῦ Πυθόπολιν προσαγορεῦσαι, Σολόεντα δὲ τὸν πλησίον
                             ποταμὸν ἐπὶ τιμῇ τοῦ νεανίσκου. καταλιπεῖν δὲ καὶ τοὺς ἀδελφοὺς αὐτοῦ,
                             οἷν ἐπιστάτας καὶ νομοθέτας, καὶ σὺν αὐτοῖς Ἕρμον ἄνδρα τῶν Ἀθήνησιν
                             εὐπατριδῶν· ἀφʼ οὗ καὶ τόπον Ἑρμοῦ καλεῖν οἰκίαν τοὺς Πυθοπολίτας, οὐκ
@@ -1052,10 +1035,10 @@
                             οὔτε ἀρχὰς εὐγνώμονας οὔτε εὐτυχεῖς τελευτὰς ἔχοντες. καὶ γὰρ Ἀναξώ τινα
                             Τροιζηνίαν ἁρπάσαι λέγεται, καὶ Σίνιν ἀποκτείνας καὶ Κερκύονα
                             συγγενέσθαι βία ταῖς θυγατράσιν αὐτῶν· γῆμαι δὲ καὶ Περίβοιαν τὴν
-                            Αἴαντος μητέρα καὶ Φερέβοιαν αὖθις </p>
+                            Αἴαντος μητέρα καὶ Φερέβοιαν αὖθις καὶ Ἰόπην τὴν Ἰφικλέους· </p>
                     </div>
                     <div type="textpart" subtype="section" n="2">
-                        <p>καὶ Ἰόπην τὴν Ἰφικλέους· καὶ διὰ τὸν Αἴγλης ἔρωτα τῆς Πανοπέως, ὥσπερ
+                        <p>καὶ διὰ τὸν Αἴγλης ἔρωτα τῆς Πανοπέως, ὥσπερ
                             εἴρηται, τὴν Ἀριάδνης ἀπόλειψιν αἰτιῶνται μὴ καλὴν γενέσθαι μηδὲ
                             πρέπουσαν· ἐπὶ πᾶσι δὲ τὴν Ἑλένης ἁρπαγὴν πολέμου μὲν ἐμπλῆσαι τὴν
                             Ἀττικήν, αὐτῷ δὲ εἰς φυγὴν καὶ ὄλεθρον τελευτῆσαι· περὶ ὧν ὀλίγον
@@ -1065,9 +1048,9 @@
                         <p>πολλῶν δὲ τότε τοῖς ἀρίστοις ἄθλων γενομένων Ἡρόδωρος μὲν οὐδενὸς οἴεται
                             τὸν Θησέα μετασχεῖν, ἀλλὰ μόνοις Λαπίθαις τῆς κενταυρομαχίας· ἕτεροι δὲ
                             καὶ μετὰ Ἰάσονος ἐν Κόλχοις γενέσθαι καὶ Μελεάγρῳ συνεξελεῖν τὸν κάπρον·
-                            καὶ διὰ τοῦτο παροιμίαν εἶναι τὴν “οὐκ ἄνευ Θησέως·” αὐτὸν μέντοι
+                            καὶ διὰ τοῦτο παροιμίαν εἶναι τὴν <q>οὐκ ἄνευ Θησέως·</q> αὐτὸν μέντοι
                             μηδενὸς συμμάχου δεηθέντα πολλοὺς καὶ καλοὺς ἄθλους κατεργάσασθαι, καὶ
-                            τὸν “ἄλλος οὗτος Ἡρακλῆσ” λόγον ἐπʼ ἐκείνου κρατῆσαι. </p>
+                            τὸν <q>ἄλλος οὗτος Ἡρακλῆσ</q> λόγον ἐπʼ ἐκείνου κρατῆσαι. </p>
                     </div>
                     <div type="textpart" subtype="section" n="4">
                         <p>συνέπραξε δὲ καὶ Ἀδράστῳ τὴν ἀναίρεσιν τῶν ὑπὸ τῇ Καδμείᾳ πεσόντων, οὐχ
@@ -1181,7 +1164,7 @@
                         </p>
                     </div>
                     <div type="textpart" subtype="section" n="4">
-                        <p>ὁ δὲ Δικαίαρχος Ἐχεδήμου<note resp="ed" place="unspecified" anchored="true">
+                        <p>ὁ δὲ Δικαίαρχος Ἐχεδήμου<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">Ἐχεδήμου</foreign> with Coraës, Sintenis<hi rend="superscript">1</hi>, and Bekker, after Xylander: <foreign xml:lang="grc">Ἐχέμου</foreign>.</note> φησὶ καὶ Μαράθου
                             συστρατευσάντων τότε τοῖς Τυνδαρίδαις ἐξ Ἀρκαδίας, ἀφʼ οὗ μὲν Ἐχεδημίαν
                             προσαγορευθῆναι τὴν νῦν Ἀκαδήμειαν, ἀφʼ οὗ δὲ Μαραθῶνα τὸν δῆμον,
@@ -1229,7 +1212,7 @@
                                 <quote rend="blockquote">
                                     <l met="dact">Αἴθρην Πιτθῆος θύγατρα Κλυμένην τε βοῶπιν.</l>
                                 </quote>
-                                <bibl>Hom. Il. 3.144</bibl>
+                                <bibl xml:lang="eng">Hom. Il. 3.144</bibl>
                             </cit>οἱ δὲ καὶ τοῦτο τὸ ἔπος διαβάλλουσι καὶ τὴν περὶ Μουνύχου
                             μυθολογίαν, ὃν ἐκ Δημοφῶντος Λαοδίκης κρύφα τεκούσης ἐν Ἰλίῳ συνεκθρέψαι
                             τὴν Αἴθραν λέγουσιν. </p>
@@ -1237,7 +1220,7 @@
                     <div type="textpart" subtype="section" n="2">
                         <p>ἴδιον δέ τινα καὶ παρηλλαγμένον ὅλως λόγον ὁ Ἴστρος ἐν τῇ τρισκαιδεκάτῃ
                             τῶν Ἀττικῶν ἀναφέρει περὶ Αἴθρας, ὡς ἐνίων λεγόντων Ἀλέξανδρον μὲν τὸν
-                            Πάριν ἐν Θεσσαλίᾳ<note resp="ed" place="unspecified" anchored="true">
+                            Πάριν ἐν Θεσσαλίᾳ<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">τὸν Πάριν ἐν Θεσσαλίᾳ</foreign>, with
                                 Bekker: <foreign xml:lang="grc">τὸν ἐν Θεσσαλίᾳ
                                 Πάριν</foreign>.</note> ὑπʼ Ἀχιλλέως καὶ Πατρόκλου μάχῃ κρατηθῆναι
@@ -1259,7 +1242,7 @@
                             Ἀθήνας, οὐδέπω παντάπασι τῶν φίλων αὐτοῦ κεκρατημένων, καὶ ὅσα ὑπῆρχε
                             τεμένη πρότερον αὐτῷ τῆς πόλεως ἐξελούσης ἅπαντα καθιέρωσε τῷ Ἡρακλεῖ
                             καὶ προσηγόρευσεν ἀντὶ Θησείων Ἡράκλεια, πλὴν τεσσάρων, ὡς Φιλόχορος
-                            ἱστόρηκεν. αὖθις<note resp="ed" place="unspecified" anchored="true">
+                            ἱστόρηκεν. αὖθις<note anchored="true" place="unspecified" resp="editor" xml:lang="eng">
                                 <foreign xml:lang="grc">αὖθις</foreign> Coraës, after Reiske:
                                     <foreign xml:lang="grc">εὐθύς</foreign> (<gloss>at
                                 once</gloss>).</note> δὲ βουλόμενος ὡς πρότερον ἄρχειν καὶ
@@ -1282,10 +1265,10 @@
                             δὲ Λυκομήδης, εἴτε δείσας τὴν δόξαν τοῦ ἀνδρός, εἴτε τῷ Μενεσθεῖ
                             χαριζόμενος, ἐπὶ τὰ ἄκρα τῆς χώρας ἀναγαγὼν αὐτόν, ὡς ἐκεῖθεν ἐπιδείξων
                             τοὺς ἀγρούς, ὦσε κατὰ τῶν πετρῶν καὶ διέφθειρεν. ἔνιοι δʼ ἀφʼ ἑαυτοῦ
-                            πεσεῖν φασι σφαλέντα, μετὰ δεῖπνον, </p>
+                            πεσεῖν φασι σφαλέντα, μετὰ δεῖπνον, ὥσπερ εἰώθει, περιπατοῦντα.</p>
                     </div>
                     <div type="textpart" subtype="section" n="5">
-                        <p>ὥσπερ εἰώθει, περιπατοῦντα. καὶ παραυτίκα μὲν οὐδεὶς ἔσχεν αὐτοῦ λόγον
+                        <p>καὶ παραυτίκα μὲν οὐδεὶς ἔσχεν αὐτοῦ λόγον
                             οὐδένα τεθνηκότος, ἀλλὰ τῶν μὲν Ἀθηναίων ἐβασίλευσε Μενεσθεύς, οἱ δὲ
                             παῖδες ἰδιωτεύοντες Ἐλεφήνορι συνεστράτευσαν εἰς Ἴλιον. ἐκεῖ δὲ
                             Μενεσθέως ἀποθανόντος ἐπανελθόντες αὐτοὶ τὴν βασιλείαν ἀνεκομίσαντο.
