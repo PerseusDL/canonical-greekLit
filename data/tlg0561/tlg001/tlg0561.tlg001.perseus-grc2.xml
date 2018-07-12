@@ -39,20 +39,22 @@
 </sourceDesc>
 </fileDesc>
 <encodingDesc>
-<refsDecl n="TEI.2">
+<refsDecl>
 <refState unit="book" delim="."/>
 <refState unit="chapter" n="chunk"/>
 <refState unit="section"/>
 </refsDecl>
-<refsDecl n="CTS">
-<cRefPattern n="section" matchPattern="(\w+)\.(\w+)\.(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/div[@type='edition']/div[@n='$1']/div[@n='$2']/div[@n='$3'])">
- <p>This pointer pattern extracts section</p></cRefPattern>
-<cRefPattern n="chapter" matchPattern="(\w+)\.(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/div[@type='edition']/div[@n='$1']/div[@n='$2'])">
- <p>This pointer pattern extracts chapter</p></cRefPattern>
-<cRefPattern n="book" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/div[@type='edition']/div[@n='$1'])">
- <p>This pointer pattern extracts book</p>
-</cRefPattern>
-</refsDecl>
+ <refsDecl n="CTS">
+  <cRefPattern n="section" matchPattern="(\w+).(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])">
+   <p>This pointer pattern extracts book, chapter and section</p>
+  </cRefPattern>
+  <cRefPattern n="chapter" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+   <p>This pointer pattern extracts book and chapter</p>
+  </cRefPattern>
+  <cRefPattern n="book" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+   <p>This pointer pattern extracts book</p>
+  </cRefPattern>
+ </refsDecl>
  
 </encodingDesc>
  
