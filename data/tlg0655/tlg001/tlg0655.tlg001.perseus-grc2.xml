@@ -37,10 +37,18 @@
 </refsDecl> 
 </encodingDesc> -->
  <encodingDesc>
- <refsDecl n="CTS">
-  <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"/>
-  <cRefPattern n="chapter" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"/>
- </refsDecl>
+   <refsDecl n="CTS">
+                <cRefPattern n="section"
+                         matchPattern="(\w+).(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts chapter and section</p>
+                </cRefPattern>
+                <cRefPattern n="chapter"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts chapter</p>
+                </cRefPattern>
+            </refsDecl>
  </encodingDesc>
 <profileDesc>
 <langUsage>
@@ -55,7 +63,8 @@
  <text xml:lang="grc">
 <body>
 <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0655.tlg001.perseus-grc2.xml">
-<div type="textpart" subtype="section" n="front">
+<div type="textpart" subtype="chapter" n="pref">
+ <div type="textpart" subtype="section" n="front">
  <p>ταῦτα ἐν τῷδε τῷ συγγράμματι περιέχεται·</p>
 <p>
 <num n="1">α</num> περὶ Λύρκου</p>
@@ -146,7 +155,7 @@
 τρόπον αὐτὰ συνελεξάμεθα, καὶ σοὶ νυνὶ τὴν χρῆσιν
 ὁμοίαν, ὡς ἔοικε, παρέξεται.
 </p>
-</div>
+ </div></div>
 <div type="textpart" subtype="section" n="1">
  <head><foreign xml:lang="lat">De Lycro</foreign></head>
 <p>
