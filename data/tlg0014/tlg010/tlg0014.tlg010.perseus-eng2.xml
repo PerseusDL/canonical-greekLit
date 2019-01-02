@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>  <?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>  
+<?xml version="1.0" encoding="UTF-8"?>  
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>  
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -40,10 +41,19 @@
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
+            <refsDecl n="CTS">
+                <cRefPattern n="section"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts section</p>
+                </cRefPattern>
+            </refsDecl>
             <refsDecl>
-                <refState unit="speech"/>
                 <refState unit="section"/>
             </refsDecl>
+            <editorialDecl>
+                <quotation marks="none"/>
+            </editorialDecl>
         </encodingDesc>
         <profileDesc>
             <langUsage>
@@ -52,6 +62,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
+            <change when="2018-12-21" who="Lisa Cerrato">converted to EpiDoc and CTS</change>
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
             <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
             <change when="1992-06-02" who="David Smith">inserted quotedtext tag around verse</change>
@@ -59,723 +70,83 @@
     </teiHeader>
     
     <text xml:lang="eng">
-        <body>
-
-            <div type="section" n="1">
-                <p>The matters that you are debating, men of <placeName key="perseus,Athens"
-                        >Athens</placeName>, are to my mind so important and even vital to the
-                    State, that I will endeavour to offer you what I consider profitable advice on
-                    the subject. While the faults that have produced this unhappy state of things
-                    are neither few nor recently accumulated, there is nothing, men of <placeName
-                        key="perseus,Athens">Athens</placeName>, more vexing at the present time
-                    than the way in which you detach your thoughts from affairs, and display an
-                    interest only so long as you sit here listening, or when some fresh item of news
-                    arrives; after that, each man goes home, and not only pays no attention to
-                    public business, but does not even recall it to mind. </p>
-            </div>
-            <div type="section" n="2">
-                <p>Now the extent of the recklessness and rapacity that Philip shows in his dealings
-                    with all men is indeed as great as it has been described to you; but how
-                    impossible it is to stay him in this career by argument and declamation,
-                    assuredly no one is ignorant. For indeed, if no single thing else can teach a
-                    man the truth of that, let him weigh the following consideration. When we have
-                    had to speak in defence of our rights, we have never yet been defeated or proved
-                    in the wrong, but in every case we vanquish all our opponents and have the best
-                    of it in argument. </p>
-            </div>
-            <div type="section" n="3">
-                <p>Is, then, Philip any the worse off for that, or <placeName key="perseus,Athens"
-                        >Athens</placeName> any the better? Far from it; for afterwards, when he
-                    takes up arms and marches to battle, ready to risk all he has, and we sit idle,
-                    alike those who have pleaded our cause and those who have been listening to
-                    them, then, naturally enough, deeds outweigh words, and the world in general
-                    gives heed, not to what we once said with justice or might now say, but to what
-                    we do. And what we do is insufficient to protect any of the victims of
-                    injustice; in fact, I need say no more about it. </p>
-            </div>
-            <div type="section" n="4">
-                <p>Therefore, as the Greeks in every city are divided into these two parties—the one
-                    desiring neither to rule others by force nor to be slaves to any man, but to
-                    enjoy liberty and equality under a free constitution; the other eager to rule
-                    their fellow-countrymen, but to take their orders from some third person, who
-                    they think will enable them to compass their ends—Philip's faction, those who
-                    hanker after tyrannies and oligarchies, have everywhere gained the supremacy,
-                    and I doubt whether of all the states there is any stable democracy left except
-                    our own. </p>
-            </div>
-            <div type="section" n="5">
-                <p>Moreover, this supremacy of the constitution-mongers who rely on Philip's support
-                    has been gained by all the devices usual in politics, first and foremost by
-                    providing a dispenser of wealth to such as covet it, secondly, and not less
-                    effectively, by having at their back a force capable of crushing their opponents
-                    on any occasion when they may call upon it. </p>
-            </div>
-            <div type="section" n="6">
-                <p>But we, Athenians, are not only behindhand in this respect, but we cannot even
-                    rouse ourselves from sleep; we are like men who have drunk mandragora or some
-                    such drug. Hence, I believe—for I must speak the truth as I conceive it—we have
-                    been so discredited and despised that of those who are involved in actual danger
-                    some dispute with us about the right of leadership, others about the
-                    meeting-place for a congress, and some have made up their minds to defend
-                    themselves single-handed rather than with us. </p>
-            </div>
-            <div type="section" n="7">
-                <p>What is my object in treating this matter so fully? For I protest in Heaven's
-                    name that I have no ambition to incur your hostility. It is that each one of
-                    you, Athenians, may know and realize this—that in state affairs, as well as in
-                    private life, daily indifference and carelessness do not make their result felt
-                    at once on each occasion when duty is neglected, but come home to us when the
-                    total result of our policy is seen. </p>
-            </div>
-            <div type="section" n="8">
-                <p>Look at Serrium and Doriscus; for these were the places that were disregarded
-                    immediately after the peace, and many of you perhaps do not even know of their
-                    existence. Yet it was your neglect and abandonment of them that ruined
-                        <placeName key="tgn,7002756">Thrace</placeName> and Cersobleptes, who was
-                    your ally. Again, Philip, seeing that these were overlooked and were receiving
-                    no help from you, proceeded to raze Porthmus to the ground and founded a tyranny
-                    in <placeName key="tgn,7002677">Euboea</placeName> over against <placeName
-                        key="tgn,7002681">Attica</placeName> as a menace to you. </p>
-            </div>
-            <div type="section" n="9">
-                <p>Because we neglected <placeName key="tgn,7002677">Euboea</placeName>, <placeName
-                        key="perseus,Megara">Megara</placeName> was very nearly captured. You showed
-                    no concern nor anxiety about any of these proceedings, and gave no indication
-                    that you would not allow Philip to continue them; so he bought up Antrones and
-                    soon afterwards got Oreus under his control. </p>
-            </div>
-            <div type="section" n="10">
-                <p>I pass over many other instances, such as Pherae, the raid against <placeName
-                        key="perseus,Ambracia">Ambracia</placeName>, the massacres at <placeName
-                        key="perseus,Elis">Elis</placeName>, and countless others.<note resp="Loeb"
-                        anchored="true">For the places named in this paragraph see especially <bibl
-                            n="Dem. 9.12">Dem. 9.12</bibl>, <bibl n="Dem. 9.15">Dem. 9.15</bibl>,
-                            <bibl n="Dem. 9.17">Dem. 9.17</bibl>, <bibl n="Dem. 9.27">Dem.
-                            9.27</bibl>, <bibl n="Dem. 9.33">Dem. 9.33</bibl>.</note> I have gone
-                    into these details, not to give you a complete catalogue of the victims of
-                    Philip's oppression and injustice, but to make it clear to you that he will
-                    never desist from molesting all of us and bringing us under his sway, unless
-                    someone restrains him. </p>
-            </div>
-            <div type="section" n="11">
-                <p>But there are some who, without waiting to hear the speeches on these questions,
-                    are in the habit of asking at once, “What then ought we to do?”—not in order to
-                    do it, when they have heard it, for if so, they would be the most helpful of all
-                    citizens, but simply to get rid of the speaker. Nevertheless, you must be told
-                    what you ought to do. First, men of <placeName key="perseus,Athens"
-                        >Athens</placeName>, you must fix this firmly in your minds, that Philip is
-                    at war with us and has broken the peace, and that he is ill-disposed and hostile
-                    to the whole city and to the very soil on which the city stands, and, I will
-                    add, to the gods that dwell in it; and may those same gods complete his ruin!
-                    The chief object, however, of his arms and his diplomacy is our free
-                    constitution, and on nothing in the world is he more bent than on its
-                    destruction. </p>
-            </div>
-            <div type="section" n="12">
-                <p>And it is in a way inevitable that he should now be acting thus. For observe! He
-                    wants to rule, and he has made up his mind that you, and you only, bar the way.
-                    He has long injured you; of nothing is he more conscious than of that. For it is
-                    by holding the cities that are really yours that he retains safe possession of
-                    all the rest; </p>
-            </div>
-            <div type="section" n="13">
-                <p>and if he gave up <placeName key="perseus,Amphipolis">Amphipolis</placeName> and
-                        <placeName key="tgn,6004814">Potidaea</placeName>, even <placeName
-                        key="tgn,7006667">Macedonia</placeName> would be no safe place for him. He
-                    knows, then, these two facts—that he is intriguing against you and that you are
-                    aware of it. Assuming that you are intelligent, he concludes that you hate him.
-                    Besides these weighty considerations, he knows for certain that even if he
-                    masters all else, his power will be precarious as long as you remain a
-                    democracy, but if ever he meets with some mischance (and there are many to which
-                    mankind is liable), all the forces that are now under restraint will be
-                    attracted to your side. </p>
-            </div>
-            <div type="section" n="14">
-                <p>For nature has not equipped you to seek aggrandizement and secure empire, but you
-                    are clever at thwarting another's designs and wresting from him his gains, and
-                    quick to confound utterly the plots of the ambitious and vindicate the freedom
-                    of all mankind. Therefore he does not want to have the Athenian tradition of
-                    liberty watching to seize every chance against himself; nor is his reasoning
-                    here either faulty or idle. </p>
-            </div>
-            <div type="section" n="15">
-                <p>This, then, is the first thing needful, to recognize in Philip the inveterate
-                    enemy of constitutional government and democracy; and your second need is to
-                    convince yourselves that all his activity and all his organization is preparing
-                    the way for an attack on our city. For none of you is so simple as to believe
-                    that though Philip covets these wretched objects in Thrace—for what else can one
-                    call Drongilus and <placeName key="tgn,7010710">Cabyle</placeName> and Mastira
-                    and the other places he is said to be now holding ?—and though he endures toil
-                    and winter storms and deadly peril for the privilege of taking them, </p>
-            </div>
-            <div type="section" n="16">
-                <p>yet he does not covet the Athenian harbours and dockyards and war-galleys and the
-                    place itself and the glory of it—and never may Philip or any other man make
-                    himself master of these by the conquest of our city!—but will allow you to
-                    retain them, while he winters in that purgatory for the sake of the rye and
-                    millet of the Thracian store-pits. </p>
-            </div>
-            <div type="section" n="17">
-                <p>It is not so, but it is to win these prizes that he devotes his activities to all
-                    those other objects.</p>
-                <p>Therefore each must know and feel in his own mind the truth of this, but you must
-                    not, of course, call for a declaration of war from the statesman who is trying,
-                    in all honesty, to give you the best advice; for that would be the act of men
-                    who want to find someone to fight with, not of men who seek the interests of
-                    their state.<note resp="Loeb" anchored="true">To propose war on Philip would be
-                        dangerous to the speaker, as explained in the speech <bibl n="Dem. 8.68"
-                            >Dem. 8.68</bibl>, and unnecessary, as Philip is already at war with
-                            <placeName key="perseus,Athens">Athens</placeName>.</note>
-                </p>
-            </div>
-            <div type="section" n="18">
-                <p>For consider. If for his first violation of the peace, or his second or third—for
-                    there was a long series of them—someone had proposed a declaration of war
-                    against him, and if Philip, just as he is doing now when no one proposes such a
-                    declaration, had gone to the help of the Cardians, would not the proposer have
-                    been suppressed,<note resp="Loeb" anchored="true">The word used is strong, but
-                        purposely vague. He would have incurred the inevitable<foreign
-                            xml:lang="grc">grafn\ paravo/mwn</foreign>.</note> and blamed by
-                    everybody as the real author of Philip's expedition? </p>
-            </div>
-            <div type="section" n="19">
-                <p>Then do not look about for a scapegoat for Philip's sins, someone whom you can
-                    throw for his hirelings to rend limb from limb. Do not vote for war and then
-                    fall to disputing among yourselves whether you ought or ought not to have done
-                    so, but imitate his methods of warfare, supplying those who are now resisting
-                    him with money and whatever else they need, and raising a war-fund yourselves,
-                    Athenians, and providing an army, swift-sailing galleys, horses,
-                    cavalry-transports, and everything that war requires. </p>
-            </div>
-            <div type="section" n="20">
-                <p>For at present our system is a mockery, and, by Heaven, I do not believe that
-                    even Philip himself would pray that <placeName key="perseus,Athens"
-                        >Athens</placeName> might act otherwise than she is acting. You are behind
-                    your time and waste your money; you look round for someone to manage the
-                    business and then quarrel with him; you throw the blame on one another. I will
-                    explain how this comes about and will tell you how to stop it. </p>
-            </div>
-            <div type="section" n="21">
-                <p>Never yet, Athenians, have you instituted or organized a single plan of action
-                    properly at the start, but you always follow in the track of each event, and
-                    then, when you find yourselves too late, you give up the pursuit; </p>
-            </div>
-            <div type="section" n="22">
-                <p>when the next event occurs, you are again in a bustle of preparation. But that is
-                    not the way. If you trust to occasional levies, you can never gain any of your
-                    essential objects; but you must first raise a force and provide for its
-                    maintenance, and appoint paymasters and clerks, and arrange that there shall be
-                    the strictest watch kept over your expenditure, and afterwards you must demand
-                    from your paymasters an account of their moneys, and from the general an account
-                    of his campaign, and you must leave the general no excuse for sailing elsewhere
-                    or engaging in any other business. </p>
-            </div>
-            <div type="section" n="23">
-                <p>If you do this, and you are really in earnest about it, you will either compel
-                    Philip to keep the peace fairly and to stay in one place, or you will fight him
-                    on equal terms; and perhaps—perhaps, just as you are now inquiring what Philip
-                    is doing and where he is marching, so he may be anxious to know where the
-                    Athenian force is bound for, and in what quarter it will appear. </p>
-            </div>
-            <div type="section" n="24">
-                <p>But if anyone thinks that all this means great expense and much toil and worry,
-                    he is quite correct, but if he reckons up what will hereafter be the result to
-                        <placeName key="perseus,Athens">Athens</placeName> if she refuses to act, he
-                    will conclude that it is to our interest to perform our duty willingly. For if
-                    you have the guarantee of some god, since no mere mortal could be a satisfactory
-                    surety for such an event, that if you remain inactive and abandon everything,
-                    Philip will not in the end march against yourselves, </p>
-            </div>
-            <div type="section" n="25">
-                <p>by Zeus and all the other gods, it would be disgraceful and unworthy of you and
-                    of the resources of your city and the record of your ancestors to abandon all
-                    the other Greeks to enslavement for the sake of your own ease, and I for one
-                    would rather die than be guilty of proposing such a policy. </p>
-            </div>
-            <div type="section" n="26">
-                <p>All the same, if someone does propose it and wins your assent, so be it; offer no
-                    resistance, sacrifice everything. But if no one approves of this, and if on the
-                    contrary we all of us foresee that the more we allow him to extend his power,
-                    the stronger and more formidable we shall find him in war, what escape is open
-                    to us, or why do we delay? When, men of <placeName key="perseus,Athens"
-                        >Athens</placeName>, shall we consent to do our duty? </p>
-            </div>
-            <div type="section" n="27">
-                <p>“Whenever it is necessary,” you will say. But what any free man would call
-                    necessity is not merely present now, but is long ago past, and from the
-                    necessity that constrains a slave we must surely pray to be delivered. Do you
-                    ask the difference? The strongest necessity that a free man feels is shame for
-                    his own position, and I know not if we could name a stronger; but for a slave
-                    necessity means stripes and bodily outrage, unfit to name here, from which
-                    Heaven defend us! </p>
-            </div>
-            <div type="section" n="28">
-                <p>Now, men of <placeName key="perseus,Athens">Athens</placeName>, with regard to
-                    such public services as it is the duty of everyone to discharge, both with
-                    person and with property, that there should be a disposition to avoid them is
-                    not right—indeed, far from it—but still it does admit of some excuse
-                    notwithstanding; but to refuse even to listen to all that you ought to hear and
-                    all that you are bound to decide deserves, at such a time as this, absolute
-                    condemnation. </p>
-            </div>
-            <div type="section" n="29">
-                <p>Your habit, then, is not to listen until, as now, the events themselves are upon
-                    you, and not to discuss any question at your leisure but whenever Philip makes
-                    his preparations, you neglect the chance of doing the same, and you are too
-                    remiss to make counter-preparations; and if anyone speaks out, you drive him
-                    from the platform, but when you learn of the loss of this place or the siege of
-                    that, then you pay attention and begin to prepare. </p>
-            </div>
-            <div type="section" n="30">
-                <p>But the time to have listened and made your decision was just then, when you
-                    would not do it; now, when you are listening, is the time to act and put your
-                    preparations to use. Therefore in consequence of these bad habits you alone
-                    reverse the general practice of mankind; for other people deliberate before the
-                    event, but you after the event. </p>
-            </div>
-            <div type="section" n="31">
-                <p>The one thing that remains and that ought to have been done long ago, though even
-                    now the chance is not lost, I will tell you. There is nothing that the State
-                    needs so much for the coming struggle as money. Some strokes of good fortune we
-                    have enjoyed without our design, and if we make the right use of them, the
-                    desired results may perhaps follow. For first, the men whom the king of
-                        <placeName key="tgn,7000231">Persia</placeName> trusts and has accepted as
-                    his “benefactors,”<note resp="Loeb" anchored="true">The Thracians, thus honored
-                        for their services to Darius in his Scythian expedition. For the title cf.
-                            <bibl n="Hdt. 8.85">Hdt. 8.85</bibl>
-                        <foreign xml:lang="grc">oi( d' eu)rge/tai basile/os o)rosa/ggai kale/ontai
-                            *persisti/</foreign>. Such was the Mordecai, “the man whom the king
-                        delighted to honor,”<title>Esther</title>, c. 6.</note> hate Philip and are
-                    at war with him. </p>
-            </div>
-            <div type="section" n="32">
-                <p>Secondly, the agent<note resp="Loeb" anchored="true">If we may trust Ulpian, this
-                        was Hermeias of <placeName key="perseus,Atarneus">Atarneus</placeName>, the
-                        friend of Aristotle, seized by the Rhodian Mentor and carried captive to the
-                        king of <placeName key="tgn,7000231">Persia</placeName>. See Grote, c.
-                        90.</note> who was privy to all Philip's schemes against the king of
-                        <placeName key="tgn,7000231">Persia</placeName> has been kidnapped, and the
-                    king will hear of all these plots, not as the complaint of Athenians, whom he
-                    might suspect of speaking for our own private advantage, but from the lips of
-                    the very man who planned and carried them out, so that their credit is
-                    established, and the only suggestion for our ambassadors to make is one which
-                    the king would be delighted to hear, </p>
-            </div>
-            <div type="section" n="33">
-                <p>that the man who is wronging both parties should be punished by both in common,
-                    and that Philip is much more dangerous to the king if he has attacked us first,
-                    for if we are left to our own resources and anything happens to us, he will soon
-                    be marching confidently against the king. I think you ought to send an embassy
-                    to put all these matters before the king, and you ought to drop the foolish
-                    prejudice that has so often brought about your discomfiture—“the barbarian,”
-                    “the common foe of us all,” and all such phrases. </p>
-            </div>
-            <div type="section" n="34">
-                <p>For my part, whenever I see a man afraid of one who dwells at <placeName
-                        key="tgn,7017509">Susa</placeName> and <placeName key="tgn,7002115"
-                        >Ecbatana</placeName> and insisting that he is ill-disposed to <placeName
-                        key="perseus,Athens">Athens</placeName>, though he helped to restore our
-                    fortunes in the past and was even now making overtures to us<note resp="Loeb"
-                        anchored="true">The Persians helped Conon, when he defeated the
-                        Lacedaemonians off <placeName key="tgn,5003757">Cnidus</placeName> in 394.
-                        In 345 Artaxerxes appealed to the leading Greek states for help in putting
-                        down the revolt of <placeName key="tgn,7016833">Egypt</placeName>.
-                            <placeName key="perseus,Thebes">Thebes</placeName> and <placeName
-                            key="perseus,Argos">Argos</placeName> sent auxiliaries, but <placeName
-                            key="perseus,Athens">Athens</placeName> and <placeName
-                            key="perseus,Sparta">Sparta</placeName> refused.</note>(and if you did
-                    not accept them but voted their rejection, the fault is not his); and when I
-                    find the same man using very different language about this plunderer of the
-                    Greeks, who is extending his power, as you see, at our very doors and in the
-                    heart of <placeName key="tgn,1000074">Greece</placeName>, I am astonished, and,
-                    whoever he may be, it is I that fear him, just because he does not fear Philip.
-                </p>
-            </div>
-            <div type="section" n="35">
-                <p>Now there is also another matter, the misrepresentation of which by unfair
-                    obloquy and in intemperate language is injuring the State, and furthermore is
-                    affording a pretext for those who are unwilling to perform any of their duties
-                    as citizens; indeed, you will find that in every case where a man has failed to
-                    do his duty, this has been given as the excuse. I am really afraid to speak on
-                    this subject, but I will do so nevertheless; </p>
-            </div>
-            <div type="section" n="36">
-                <p>for I think I shall be able, with advantage to the State, to plead the cause both
-                    of the poor against the rich and of the property-owners against the necessitous.
-                    If we could banish from our midst both the obloquy which some heap on the
-                    Theoric Fund,<note resp="Loeb" anchored="true">See note on <bibl n="Dem. 1.20"
-                            >Dem. 1.20</bibl>.</note> and also the fear that the Fund will not be
-                    maintained without doing a great deal of harm, we could not perform a greater
-                    service nor one more likely to strengthen the whole body politic. </p>
-            </div>
-            <div type="section" n="37">
-                <p>Follow my argument while I state first the case of those who are regarded as the
-                    poorer classes. There was a time not long ago when the revenue of your state did
-                    not exceed a hundred and thirty talents, and yet of those competent to undertake
-                    the trierarchy or pay the property-tax there is not one that declined the duty
-                    that devolved on him in the absence of a surplus; but the war-galleys sailed
-                    out, and the money came in, and we did all that was required. </p>
-            </div>
-            <div type="section" n="38">
-                <p>Since then fortune has smiled on us and increased our revenues, and the exchequer
-                    now receives four hundred instead of one hundred talents, though no
-                    property-owner suffers any loss but is rather the gainer, for all the rich
-                    citizens come up to receive their share of this increase, as indeed they have a
-                    perfect right to do. </p>
-            </div>
-            <div type="section" n="39">
-                <p>What then do we mean by reproaching one another for this and making it an excuse
-                    for doing nothing, unless it is that we grudge the relief which the poor have
-                    received at the hands of fortune? I for one shall not blame them,<note
-                        resp="Loeb" anchored="true">i.e. blame the poorer classes for upholding the
-                        Theoric Fund. The argument is that when revenue was smaller, the
-                        property-owners did not refuse to pay up; now that the revenue shows a big
-                        surplus, devoted to the Theoric Fund, in which all classes have a share, why
-                        should the rich demand relief from their “liturgies”? (Perhaps the modern
-                        income-tax-payer will fail to appreciate the speaker's logic.)</note> nor do
-                    I think it fair to do so. </p>
-            </div>
-            <div type="section" n="40">
-                <p>For in private life I do not observe that the young man adopts that attitude
-                    towards his seniors, or that any human being is so insensible or unreasonable
-                    that he refuses to do anything himself unless everybody does the same; and
-                    indeed such a case would be covered by the laws for ill-usage,<note resp="Loeb"
-                        anchored="true">Children who refused to support their parents were liable to
-                            a<foreign xml:lang="grc">di/kh kakw/sews</foreign>.</note> for I suppose
-                    the contribution assessed by both authorities, by nature and by law, ought to be
-                    brought honestly and paid cheerfully to the parents. </p>
-            </div>
-            <div type="section" n="41">
-                <p>Therefore, just as each one of us has a parent, so ought we to regard the
-                    collective citizens as the common parents of the whole State, and so far from
-                    depriving them of anything that the State bestows, we ought, if there were no
-                    such grant, to look elsewhere for means to save any of their wants from being
-                    overlooked. </p>
-            </div>
-            <div type="section" n="42">
-                <p>So then, if the wealthy would accept this principle, I think they would be doing
-                    not only what is fair, but also what is expedient; for to deprive one citizen of
-                    necessaries is to make many of them unite in disaffection towards the
-                    government. I would also counsel the poorer classes to abolish the grievance
-                    which makes the propertied class discontented with the system, and gives them
-                    just cause for assailing it. </p>
-            </div>
-            <div type="section" n="43">
-                <p>I proceed, in the same way as before, to state the case for the rich, and I shall
-                    not shrink from speaking the truth. For I cannot imagine anyone, or at least any
-                    Athenian, so obdurate and cruel-hearted as to feel annoyed when he sees the poor
-                    and those who lack necessaries receiving these boons. </p>
-            </div>
-            <div type="section" n="44">
-                <p>But where does our practice break down, and where lies the grievance? It is when
-                    the rich see certain persons transferring this usage from public moneys to
-                    private property; when the speaker is raised to instant greatness among you and
-                    even to immortality, as far as his privilege can secure it; and when your shouts
-                    of open approval are contradicted by your secret vote.<note resp="Loeb"
-                        anchored="true">The recognized appropriation of public money for the Theoric
-                        Fund is imitated by demagogues, who prosecute the rich in order that their
-                        fines and confiscations may be used for similar benefits. The demagogue thus
-                        acquires undue influence and, being privileged, is unassailable. Meanwhile
-                        the people, sitting as a jury, applaud the rich man when he skilfully
-                        defends his rights, but cast their votes against him.</note>
-                </p>
-            </div>
-            <div type="section" n="45">
-                <p>All this breeds distrust and resentment. For we are bound, Athenians, to share
-                    equitably with one another the privileges of citizenship, the wealthy feeling
-                    secure to lead their own lives and haunted by no fears on that account, but in
-                    the face of dangers making over their property to the commonwealth for its
-                    defence; while the rest must realize that State-property is common property,
-                    duly receiving their share of it, but recognizing that private wealth belongs to
-                    the possessor. In this way a small state grows great, and a great one is kept
-                    great. This may pass for a verbal statement of the duties of each class; for the
-                    legal performance of those duties some organization is necessary. </p>
-            </div>
-            <div type="section" n="46">
-                <p>Of our present difficulties and of the existing confusion the causes are many and
-                    of long standing, but if you are willing to hear them, I am ready to speak. Men
-                    of <placeName key="perseus,Athens">Athens</placeName>, you have deserted the
-                    post in which your ancestors left you; you have been persuaded by politicians of
-                    this sort that to be paramount in <placeName key="tgn,1000074"
-                        >Greece</placeName>, to possess a standing force, and to help all the
-                    oppressed, is a superfluous task and an idle expense; while you fondly imagined
-                    that to live in peace, to neglect all your duties, to abandon all your
-                    possessions and let others seize them one by one, ensured wonderful prosperity
-                    and complete security. </p>
-            </div>
-            <div type="section" n="47">
-                <p>In consequence of this, a rival has stepped into the position that you ought to
-                    have filled, and it is he who has become prosperous and great and ruler over
-                    many things. And rightly so; for there is a prize, honorable, great, and
-                    glorious, a prize for which the greatest of our states once spent all their time
-                    in contending, but since misfortune has dogged the Lacedaemonians, and the
-                    Phocian War has left the Thebans no leisure, and we are heedless, he has grasped
-                    it without a struggle. </p>
-            </div>
-            <div type="section" n="48">
-                <p>Therefore fear is the portion of the others, but his the possession of many
-                    allies and a mighty force; and such great and manifold troubles now encompass
-                    all the Greeks that it is not easy to advise what ought to be done. </p>
-            </div>
-            <div type="section" n="49">
-                <p>Yet, men of <placeName key="perseus,Athens">Athens</placeName>, perilous as is
-                    the present situation in my judgement, none of all the Greeks are in greater
-                    danger than you, not only because you are the chief object of Philip's plots,
-                    but because you are the most disposed to inaction. If therefore, noting the
-                    abundance and cheapness of goods for sale in your markets, you have been
-                    beguiled by these things into the belief that the city is in no danger, your
-                    estimate of the situation is contrary to all right and reason. </p>
-            </div>
-            <div type="section" n="50">
-                <p>For a market or a fair might be judged on such evidence to be well or ill
-                    stocked; but a city, which every aspirant to the rule of <placeName
-                        key="tgn,1000074">Greece</placeName> has regarded as his only possible
-                    opponent and as champion of the freedom of all, must surely not be tested by her
-                    market-stuff to see whether all is well with her, but by her ability to trust
-                    the loyalty of her allies, by her strength in ams—these are the qualities that
-                    you must look for in the city; and these in your case are all untrustworthy and
-                    unsound. </p>
-            </div>
-            <div type="section" n="51">
-                <p>You will understand it if you look at it in this way. When have the affairs of
-                        <placeName key="tgn,1000074">Greece</placeName> been in the greatest
-                    confusion? For no other occasion than the present could possibly be named by
-                    anyone. All during the past <placeName key="tgn,1000074">Greece</placeName> was
-                    divided into two camps, the Lacedaemonians' and ours, and of the other Greeks
-                    some took their orders from us, others from them. The king of <placeName
-                        key="tgn,7000231">Persia</placeName>, in himself, was equally distrusted by
-                    all, but by taking up the cause of the losing side in the struggle, he retained
-                    their confidence until he could put them on an equality with the others; but
-                    thereafter he was no less hated by those he had saved than by those who had been
-                    his enemies from the beginning. </p>
-            </div>
-            <div type="section" n="52">
-                <p>But in the first place, the king is now well-disposed to all the Greeks, and yet
-                    to us least of all, unless we can effect some immediate improvement. In the
-                    second place, many so-called “protectors” are springing up everywhere, and all
-                    states are rivals for the leadership, but unfortunately some hold aloof, in
-                    mutual jealousy and distrust, and so each state has isolated itself—Argives,
-                    Thebans, Lacedaemonians, Corinthians, Arcadians, ourselves. </p>
-            </div>
-            <div type="section" n="53">
-                <p>But yet, though Greek politics are split up into so many factions under so many
-                    powers, in no state, if I must speak the truth freely, would you find the
-                    government offices and the council chambers less occupied with Greek affairs
-                    than here at <placeName key="perseus,Athens">Athens</placeName>; and naturally
-                    so, for neither through love nor trust nor fear does anyone hold communication
-                    with us. </p>
-            </div>
-            <div type="section" n="54">
-                <p>And this is not due to a single cause, Athenians, or you might easily remedy it,
-                    but to many errors of every kind throughout the past. Without enumerating these,
-                    I will mention one on which all the rest turn, only beseeching you not to be
-                    offended with me, if I speak the truth boldly. It is the selling of your
-                    interests at every opportunity; your share in the bargain is leisure and
-                    inaction, which charm you out of your resentment against your betrayers, but
-                    others reap the rewards. </p>
-            </div>
-            <div type="section" n="55">
-                <p>The other errors it is not worth while to investigate now, but whenever any
-                    question arises that concerns Philip, instantly up jumps someone and says there
-                    must be no nonsense talked, no declarationtion of war, and he at once goes on to
-                    add how good a thing it is to preserve peace, and what a bother it is to keep up
-                    a large army, and how “certain persons want to plunder your wealth”<note
-                        resp="Loeb" anchored="true">i.e. by diverting money from the Theoric Fund to
-                        military objects.</note>; and their other statements are as true as they can
-                    make them. </p>
-            </div>
-            <div type="section" n="56">
-                <p>But surely it is not to you that they should recommend peace, for you have taken
-                    the advice and there you sit; it is to the man who is even now on the warpath;
-                    for if Philip can be won over, your share of the compact is ready to hand.
-                    Again, they should reflect that the irksome thing is not the expense of securing
-                    our safety, but the doom that will be ours if we shrink from that expense. As
-                    for the “plunder of your wealth,” they ought to prevent that by proposing some
-                    way of checking it and not by abandoning your interests. </p>
-            </div>
-            <div type="section" n="57">
-                <p>And yet it is just this that rouses my indignation, that some of you should be
-                    distressed at the prospect of the plunder of your wealth, when you are quite
-                    competent to protect it and to punish any offender, but that you are not
-                    distressed at the sight of Philip thus plundering every Greek state in turn, the
-                    more so as he is plundering them to injure you. </p>
-            </div>
-            <div type="section" n="58">
-                <p>Why then, men of <placeName key="perseus,Athens">Athens</placeName>, has none of
-                    these speakers ever admitted that Philip is violating rights and provoking war,
-                    when he is thus openly violating rights and subduing cities, but when others
-                    urge you not to give way to Philip nor submit to these losses, they say they are
-                    provoking war? It is because they want the blame for the sufferings that the war
-                    will entail—for it is inevitable, yes, inevitable that the war should cause much
-                    distress—to be laid at the doors of those who believe they are your wisest
-                    counsellors. </p>
-            </div>
-            <div type="section" n="59">
-                <p>For they are convinced that if you offer a whole-hearted and unanimous opposition
-                    to Philip, you will beat him and they will have no further chance of earning his
-                    pay, but that if at the first alarm of war you throw the blame on certain
-                    persons and devote your energies to bringing them to trial, they themselves by
-                    accusing them will gain both their ends—reputation with you and money from him,
-                    while you will punish the men who have spoken in your interests for the faults
-                    which you ought to punish in their accusers. </p>
-            </div>
-            <div type="section" n="60">
-                <p>Such are their hopes, and such is the design of the accusation that “certain
-                    persons wish to provoke war.” But I am absolutely certain that, without waiting
-                    for any Athenian to propose a declaration of war, Philip is in possession of
-                    much of our territory and has just dispatched a force against Cardia. If,
-                    however, we like to pretend that he is not at war with us, he would be the
-                    greatest fool alive if he tried to disprove that; for when the victims deny the
-                    wrong, what should the malefactor do? </p>
-            </div>
-            <div type="section" n="61">
-                <p>But when our turn comes, what shall we say then? For of course he will deny that
-                    he is attacking us, just as he denied that he was attacking the men of Oreus,
-                    when his troops were already in their territory, or the Pheraeans before that,
-                    when he was actually assaulting their walls, or the Olynthians at the start,
-                    until he was inside their frontier with his army. Or shall we say, even at that
-                    hour, that those who bid us repel him are provoking war? If so, there is nothing
-                    left but slavery, for there is no other alternative. </p>
-            </div>
-            <div type="section" n="62">
-                <p>Moreover, you have not the same interests at stake as some of the others, for it
-                    is not your subjection that Philip aims at; no, but your complete annihilation.
-                    For he is well assured that you will not consent to be slaves; or, if you
-                    consent, will never learn how to be slaves, for you are accustomed to rule
-                    others; but that you will be able, if you seize your chances, to cause him more
-                    trouble than all the rest of the world. For that reason he will not spare you,
-                    if he gets you in his power. </p>
-            </div>
-            <div type="section" n="63">
-                <p>Therefore you must needs bear in mind that this will be a life-and-death
-                    struggle, and the men who have sold themselves to Philip must be publicly
-                    cudgelled to death; for it is impossible, impossible to quell the foes without,
-                    until you have punished the foes within your gates, but if you let these stand
-                    as stumbling-blocks in your path, you must fail against the others. </p>
-            </div>
-            <div type="section" n="64">
-                <p>What do you imagine is his motive in outraging you now—I think no other term
-                    describes his conduct—or why is it that, in deceiving the others, he at least
-                    confers benefits upon them, but in your case he is resorting to threats? For
-                    example, the Thessalians were beguiled by his generosity into their present
-                    state of servitude; no words can describe how he formerly deceived the miserable
-                    Olynthians by his gift of <placeName key="tgn,6004814">Potidaea</placeName> and
-                    many other places; the Thebans he is now misleading, having handed over
-                        <placeName key="tgn,7002683">Boeotia</placeName> to them and relieved them
-                    of a long and trying war. </p>
-            </div>
-            <div type="section" n="65">
-                <p>So each of these states has reaped some benefit from him, but while some have
-                    already paid the price by their sufferings, the others have yet to suffer
-                    whatever shall fall to their lot. As for you, I do not say how far you have been
-                    robbed, but in the actual making of the peace, how completely you were deceived,
-                    how grievously you were robbed! Were you not deceived about <placeName
-                        key="tgn,4003963">Phocis</placeName>, <placeName key="perseus,Thermopylae"
-                        >Thermopylae</placeName>, the Thrace-ward districts, Doriscus, Serrium,
-                    Cersobleptes himself? Is not Philip now holding the city of the Cardians, and
-                    admitting that he holds it? </p>
-            </div>
-            <div type="section" n="66">
-                <p>Why then does he deal in that way with the other Greeks, but with you in this
-                    way? Because yours is the one city in the world where immunity is granted to
-                    plead on behalf of our enemies, and where a man who has been bribed can safely
-                    address you in person, even when you have been robbed of your own. It would not
-                    have been safe in <placeName key="perseus,Olynthus">Olynthus</placeName> to
-                    plead Philip's cause, unless the Olynthian democracy had shared in the enjoyment
-                    of the revenues of <placeName key="tgn,6004814">Potidaea</placeName>. </p>
-            </div>
-            <div type="section" n="67">
-                <p>It would not have been safe in <placeName key="tgn,7001399">Thessaly</placeName>
-                    to plead Philip's cause, if the commoners of <placeName key="tgn,7001399"
-                        >Thessaly</placeName> had not shared in the advantages that Philip
-                    conferred, when he expelled their tyrants and restored to them their
-                    Amphictyonic privileges. It would not have been safe at <placeName
-                        key="perseus,Thebes">Thebes</placeName>, until he gave them back <placeName
-                        key="tgn,7002683">Boeotia</placeName> and wiped out the Phocians. </p>
-            </div>
-            <div type="section" n="68">
-                <p>But at <placeName key="perseus,Athens">Athens</placeName>, though Philip has not
-                    only robbed you of <placeName key="perseus,Amphipolis">Amphipolis</placeName>
-                    and the Cardian territory, but is also turning <placeName key="tgn,7002677"
-                        >Euboea</placeName> into a fortress to overawe us and is even now on his way
-                    to attack Byzantium, it is safe to speak on Philip's behalf. Indeed, of these
-                    politicians, some who were beggars are suddenly growing rich, some unknown to
-                    name and fame are now men of honour and distinction; while you, on the contrary,
-                    have passed from honour to dishonour, from affluence to destitution. </p>
-            </div>
-            <div type="section" n="69">
-                <p>For a city's wealth I hold to be allies, credit, goodwill, and of all these you
-                    are destitute. And it is because you are indifferent to these things and allow
-                    them to be taken from you in this way, that Philip is prosperous and powerful
-                    and formidable to Greeks and barbarians alike, while you are deserted and
-                    humiliated, famous for your well-stocked markets, but in provision for your
-                    proper needs, contemptible. </p>
-            </div>
-            <div type="section" n="70">
-                <p>Yet I observe that some of our speakers do not urge the same policy for you as
-                    for themselves; for you, they say, ought to remain quiet even when you are
-                    wronged; themselves cannot remain quiet among you, though no one does them
-                    wrong. And yet, raillery apart, suppose someone should ask, “Tell me,
-                        Aristomedes,<note resp="Loeb" anchored="true">An unknown opponent. If with
-                        Dindorf we adopt the vulgate, it will refer to the Athenian actor
-                        Aristodemus, who was a member of the first embassy to Philip and is
-                        mentioned in <bibl n="Dem. 18.21">Dem. 18.21</bibl> and in several passages
-                        of <bibl n="Dem. 19">Dem. 19</bibl></note> why, when you know perfectly
-                    well—for no one is ignorant of such matters—that a private station is secure and
-                    free from risk, but the life of a politician is precarious, open to attack, and
-                    full of trials and misfortunes every day, why do you not choose the quiet,
-                    sequestered life instead of the life of peril?” What would you reply? </p>
-            </div>
-            <div type="section" n="71">
-                <p>For if we should grant the truth of what would be your best possible answer, that
-                    you do all this for love of glory and renown, I wonder what earthly reason you
-                    have for thinking that you yourself ought for that object to make every
-                    exertion, facing toil and danger, whereas you advise the State to abandon such
-                    efforts in sheer indifference. For this you cannot say—that it is your duty to
-                    make a figure in the State, but that the State is of no importance in the Greek
-                    world. </p>
-            </div>
-            <div type="section" n="72">
-                <p>And there is another thing I do not see—that it is safe for the State to mind its
-                    own business, but dangerous for you if you do not go beyond your fellow-citizens
-                    in meddling with affairs. </p>
-            </div>
-            <div type="section" n="73">
-                <p>Nay, on the contrary, I do foresee the utmost danger, to you from your bustling
-                    and meddling, but to the State from its inactivity. But you may say that you
-                    have the honour of your grandfather and father to uphold, and it would be
-                    scandalous to subvert it in your person, but that the State has inherited only
-                    nameless and paltry exploits from our ancestors. But that too is untrue; for you
-                    had a thief for your father, if he was like you, but our fathers, as all the
-                    Greeks know, preserved them from the deadliest perils. </p>
-            </div>
-            <div type="section" n="74">
-                <p>But indeed there are some whose management both of private and of public business
-                    is neither fair nor constitutional; for how is it fair that some of these men,
-                    just released from jail, should be ignorant of their own worth, while that
-                    state, which was once the champion of the rest and maintained the pre-eminence,
-                    should now be sunk in all dishonour and humiliation? </p>
-            </div>
-            <div type="section" n="75">
-                <p>Therefore, though there is much that I could say on many topics, I will forbear;
-                    for indeed it is not, I think, lack of speeches either now or at any other time
-                    that is the cause of our distress, but when you have listened to the right sort
-                    of arguments, and when you are unanimous as to their validity, you sit on and
-                    give equal attention to those who wish to overthrow and distort them. It is not
-                    that you do not recognize these speakers, for as soon as you have seen them, you
-                    know exactly who is speaking for pay and acting as Philip's agent, and who is
-                    sincerely defending your best interests; but your aim is to find fault with
-                    these latter and, by turning the subject into ridicule and raillery, to avoid
-                    doing any part of your own duty. </p>
-            </div>
-            <div type="section" n="76">
-                <p>There you have the truth spoken with all freedom, simply in goodwill and for the
-                    best—no speech packed by flattery with mischief and deceit, and intended to put
-                    money into the speaker's pocket and the control of the State into our enemies'
-                    hands. Either, then, you must abandon these habits of yours, or you must throw
-                    the blame for all our failures on no one but yourselves.</p>
-            </div>
-
-        </body>
+        <body> 
+<div type="translation" n="urn:cts:greekLit:tlg0014.tlg010.perseus-eng2" xml:lang="eng"> 
+<div type="textpart" subtype="section" n="1"><p>The matters that you are debating, men of <placeName key="perseus,Athens" >Athens</placeName>, are to my mind so important and even vital to the State, that I will endeavour to offer you what I consider profitable advice on the subject. While the faults that have produced this unhappy state of things are neither few nor recently accumulated, there is nothing, men of <placeName key="perseus,Athens">Athens</placeName>, more vexing at the present time than the way in which you detach your thoughts from affairs, and display an interest only so long as you sit here listening, or when some fresh item of news arrives; after that, each man goes home, and not only pays no attention to public business, but does not even recall it to mind.</p></div> 
+<div type="textpart" subtype="section" n="2"><p>Now the extent of the recklessness and rapacity that Philip shows in his dealings with all men is indeed as great as it has been described to you; but how impossible it is to stay him in this career by argument and declamation, assuredly no one is ignorant. For indeed, if no single thing else can teach a man the truth of that, let him weigh the following consideration. When we have had to speak in defence of our rights, we have never yet been defeated or proved in the wrong, but in every case we vanquish all our opponents and have the best of it in argument.</p></div> 
+<div type="textpart" subtype="section" n="3"><p>Is, then, Philip any the worse off for that, or <placeName key="perseus,Athens" >Athens</placeName> any the better? Far from it; for afterwards, when he takes up arms and marches to battle, ready to risk all he has, and we sit idle, alike those who have pleaded our cause and those who have been listening to them, then, naturally enough, deeds outweigh words, and the world in general gives heed, not to what we once said with justice or might now say, but to what we do. And what we do is insufficient to protect any of the victims of injustice; in fact, I need say no more about it.</p></div> 
+<div type="textpart" subtype="section" n="4"><p>Therefore, as the Greeks in every city are divided into these two parties—the one desiring neither to rule others by force nor to be slaves to any man, but to enjoy liberty and equality under a free constitution; the other eager to rule their fellow-countrymen, but to take their orders from some third person, who they think will enable them to compass their ends—Philip's faction, those who hanker after tyrannies and oligarchies, have everywhere gained the supremacy, and I doubt whether of all the states there is any stable democracy left except our own.</p></div> 
+<div type="textpart" subtype="section" n="5"><p>Moreover, this supremacy of the constitution-mongers who rely on Philip's support has been gained by all the devices usual in politics, first and foremost by providing a dispenser of wealth to such as covet it, secondly, and not less effectively, by having at their back a force capable of crushing their opponents on any occasion when they may call upon it.</p></div> 
+<div type="textpart" subtype="section" n="6"><p>But we, Athenians, are not only behindhand in this respect, but we cannot even rouse ourselves from sleep; we are like men who have drunk mandragora or some such drug. Hence, I believe—for I must speak the truth as I conceive it—we have been so discredited and despised that of those who are involved in actual danger some dispute with us about the right of leadership, others about the meeting-place for a congress, and some have made up their minds to defend themselves single-handed rather than with us.</p></div> 
+<div type="textpart" subtype="section" n="7"><p>What is my object in treating this matter so fully? For I protest in Heaven's name that I have no ambition to incur your hostility. It is that each one of you, Athenians, may know and realize this—that in state affairs, as well as in private life, daily indifference and carelessness do not make their result felt at once on each occasion when duty is neglected, but come home to us when the total result of our policy is seen.</p></div> 
+<div type="textpart" subtype="section" n="8"><p>Look at Serrium and Doriscus; for these were the places that were disregarded immediately after the peace, and many of you perhaps do not even know of their existence. Yet it was your neglect and abandonment of them that ruined <placeName key="tgn,7002756">Thrace</placeName> and Cersobleptes, who was your ally. Again, Philip, seeing that these were overlooked and were receiving no help from you, proceeded to raze Porthmus to the ground and founded a tyranny in <placeName key="tgn,7002677">Euboea</placeName> over against <placeName key="tgn,7002681">Attica</placeName> as a menace to you.</p></div> 
+<div type="textpart" subtype="section" n="9"><p>Because we neglected <placeName key="tgn,7002677">Euboea</placeName>, <placeName key="perseus,Megara">Megara</placeName> was very nearly captured. You showed no concern nor anxiety about any of these proceedings, and gave no indication that you would not allow Philip to continue them; so he bought up Antrones and soon afterwards got Oreus under his control.</p></div> 
+<div type="textpart" subtype="section" n="10"><p>I pass over many other instances, such as Pherae, the raid against <placeName key="perseus,Ambracia">Ambracia</placeName>, the massacres at <placeName key="perseus,Elis">Elis</placeName>, and countless others.<note resp="Loeb" anchored="true">For the places named in this paragraph see especially <bibl n="Dem. 9.12">Dem. 9.12</bibl>, <bibl n="Dem. 9.15">Dem. 9.15</bibl>, <bibl n="Dem. 9.17">Dem. 9.17</bibl>, <bibl n="Dem. 9.27">Dem. 9.27</bibl>, <bibl n="Dem. 9.33">Dem. 9.33</bibl>.</note> I have gone into these details, not to give you a complete catalogue of the victims of Philip's oppression and injustice, but to make it clear to you that he will never desist from molesting all of us and bringing us under his sway, unless someone restrains him.</p></div> 
+<div type="textpart" subtype="section" n="11"><p>But there are some who, without waiting to hear the speeches on these questions, are in the habit of asking at once, <q type="spoken">What then ought we to do?</q>—not in order to do it, when they have heard it, for if so, they would be the most helpful of all citizens, but simply to get rid of the speaker. Nevertheless, you must be told what you ought to do. First, men of <placeName key="perseus,Athens" >Athens</placeName>, you must fix this firmly in your minds, that Philip is at war with us and has broken the peace, and that he is ill-disposed and hostile to the whole city and to the very soil on which the city stands, and, I will add, to the gods that dwell in it; and may those same gods complete his ruin! The chief object, however, of his arms and his diplomacy is our free constitution, and on nothing in the world is he more bent than on its destruction.</p></div> 
+<div type="textpart" subtype="section" n="12"><p>And it is in a way inevitable that he should now be acting thus. For observe! He wants to rule, and he has made up his mind that you, and you only, bar the way. He has long injured you; of nothing is he more conscious than of that. For it is by holding the cities that are really yours that he retains safe possession of all the rest; and if he gave up <placeName key="perseus,Amphipolis">Amphipolis</placeName> and <placeName key="tgn,6004814">Potidaea</placeName>, even <placeName key="tgn,7006667">Macedonia</placeName> would be no safe place for him.</p></div> 
+<div type="textpart" subtype="section" n="13"><p>He knows, then, these two facts—that he is intriguing against you and that you are aware of it. Assuming that you are intelligent, he concludes that you hate him. Besides these weighty considerations, he knows for certain that even if he masters all else, his power will be precarious as long as you remain a democracy, but if ever he meets with some mischance (and there are many to which mankind is liable), all the forces that are now under restraint will be attracted to your side.</p></div> 
+<div type="textpart" subtype="section" n="14"><p>For nature has not equipped you to seek aggrandizement and secure empire, but you are clever at thwarting another's designs and wresting from him his gains, and quick to confound utterly the plots of the ambitious and vindicate the freedom of all mankind. Therefore he does not want to have the Athenian tradition of liberty watching to seize every chance against himself; nor is his reasoning here either faulty or idle.</p></div> 
+<div type="textpart" subtype="section" n="15"><p>This, then, is the first thing needful, to recognize in Philip the inveterate enemy of constitutional government and democracy; and your second need is to convince yourselves that all his activity and all his organization is preparing the way for an attack on our city. For none of you is so simple as to believe that though Philip covets these wretched objects in Thrace—for what else can one call Drongilus and <placeName key="tgn,7010710">Cabyle</placeName> and Mastira and the other places he is said to be now holding ?—and though he endures toil and winter storms and deadly peril for the privilege of taking them, </p> </div> 
+<div type="textpart" subtype="section" n="16"><p>yet he does not covet the Athenian harbours and dockyards and war-galleys and the place itself and the glory of it—and never may Philip or any other man make himself master of these by the conquest of our city!—but will allow you to retain them, while he winters in that purgatory for the sake of the rye and millet of the Thracian store-pits.</p></div> 
+<div type="textpart" subtype="section" n="17"><p>It is not so, but it is to win these prizes that he devotes his activities to all those other objects.</p> <p>Therefore each must know and feel in his own mind the truth of this, but you must not, of course, call for a declaration of war from the statesman who is trying, in all honesty, to give you the best advice; for that would be the act of men who want to find someone to fight with, not of men who seek the interests of their state.<note resp="Loeb" anchored="true">To propose war on Philip would be dangerous to the speaker, as explained in the speech <bibl n="Dem. 8.68" >Dem. 8.68</bibl>, and unnecessary, as Philip is already at war with <placeName key="perseus,Athens">Athens</placeName>.</note></p></div> 
+<div type="textpart" subtype="section" n="18"><p>For consider. If for his first violation of the peace, or his second or third—for there was a long series of them—someone had proposed a declaration of war against him, and if Philip, just as he is doing now when no one proposes such a declaration, had gone to the help of the Cardians, would not the proposer have been suppressed,<note resp="Loeb" anchored="true">The word used is strong, but purposely vague. He would have incurred the inevitable <foreign xml:lang="grc">γραφὴ παρανόμων</foreign>.</note> and blamed by everybody as the real author of Philip's expedition?</p></div> 
+<div type="textpart" subtype="section" n="19"><p>Then do not look about for a scapegoat for Philip's sins, someone whom you can throw for his hirelings to rend limb from limb. Do not vote for war and then fall to disputing among yourselves whether you ought or ought not to have done so, but imitate his methods of warfare, supplying those who are now resisting him with money and whatever else they need, and raising a war-fund yourselves, Athenians, and providing an army, swift-sailing galleys, horses, cavalry-transports, and everything that war requires.</p></div> 
+<div type="textpart" subtype="section" n="20"><p>For at present our system is a mockery, and, by Heaven, I do not believe that even Philip himself would pray that <placeName key="perseus,Athens" >Athens</placeName> might act otherwise than she is acting. You are behind your time and waste your money; you look round for someone to manage the business and then quarrel with him; you throw the blame on one another. I will explain how this comes about and will tell you how to stop it.</p></div> 
+    <div type="textpart" subtype="section" n="21"><p>Never yet, Athenians, have you instituted or organized a single plan of action properly at the start, but you always follow in the track of each event, and then, when you find yourselves too late, you give up the pursuit; when the next event occurs, you are again in a bustle of preparation.</p></div> 
+<div type="textpart" subtype="section" n="22"><p>But that is not the way. If you trust to occasional levies, you can never gain any of your essential objects; but you must first raise a force and provide for its maintenance, and appoint paymasters and clerks, and arrange that there shall be the strictest watch kept over your expenditure, and afterwards you must demand from your paymasters an account of their moneys, and from the general an account of his campaign, and you must leave the general no excuse for sailing elsewhere or engaging in any other business.</p></div> 
+<div type="textpart" subtype="section" n="23"><p>If you do this, and you are really in earnest about it, you will either compel Philip to keep the peace fairly and to stay in one place, or you will fight him on equal terms; and perhaps—perhaps, just as you are now inquiring what Philip is doing and where he is marching, so he may be anxious to know where the Athenian force is bound for, and in what quarter it will appear.</p></div> 
+<div type="textpart" subtype="section" n="24"><p>But if anyone thinks that all this means great expense and much toil and worry, he is quite correct, but if he reckons up what will hereafter be the result to <placeName key="perseus,Athens">Athens</placeName> if she refuses to act, he will conclude that it is to our interest to perform our duty willingly. For if you have the guarantee of some god, since no mere mortal could be a satisfactory surety for such an event, that if you remain inactive and abandon everything, Philip will not in the end march against yourselves, </p> </div> 
+<div type="textpart" subtype="section" n="25"><p>by Zeus and all the other gods, it would be disgraceful and unworthy of you and of the resources of your city and the record of your ancestors to abandon all the other Greeks to enslavement for the sake of your own ease, and I for one would rather die than be guilty of proposing such a policy.</p></div> 
+<div type="textpart" subtype="section" n="26"><p>All the same, if someone does propose it and wins your assent, so be it; offer no resistance, sacrifice everything. But if no one approves of this, and if on the contrary we all of us foresee that the more we allow him to extend his power, the stronger and more formidable we shall find him in war, what escape is open to us, or why do we delay? When, men of <placeName key="perseus,Athens" >Athens</placeName>, shall we consent to do our duty?</p></div> 
+<div type="textpart" subtype="section" n="27"><p><q type="spoken">Whenever it is necessary,</q> you will say. But what any free man would call necessity is not merely present now, but is long ago past, and from the necessity that constrains a slave we must surely pray to be delivered. Do you ask the difference? The strongest necessity that a free man feels is shame for his own position, and I know not if we could name a stronger; but for a slave necessity means stripes and bodily outrage, unfit to name here, from which Heaven defend us!</p></div> 
+<div type="textpart" subtype="section" n="28"><p>Now, men of <placeName key="perseus,Athens">Athens</placeName>, with regard to such public services as it is the duty of everyone to discharge, both with person and with property, that there should be a disposition to avoid them is not right—indeed, far from it—but still it does admit of some excuse notwithstanding; but to refuse even to listen to all that you ought to hear and all that you are bound to decide deserves, at such a time as this, absolute condemnation.</p></div> 
+<div type="textpart" subtype="section" n="29"><p>Your habit, then, is not to listen until, as now, the events themselves are upon you, and not to discuss any question at your leisure but whenever Philip makes his preparations, you neglect the chance of doing the same, and you are too remiss to make counter-preparations; and if anyone speaks out, you drive him from the platform, but when you learn of the loss of this place or the siege of that, then you pay attention and begin to prepare.</p></div> 
+<div type="textpart" subtype="section" n="30"><p>But the time to have listened and made your decision was just then, when you would not do it; now, when you are listening, is the time to act and put your preparations to use. Therefore in consequence of these bad habits you alone reverse the general practice of mankind; for other people deliberate before the event, but you after the event.</p></div> 
+<div type="textpart" subtype="section" n="31"><p>The one thing that remains and that ought to have been done long ago, though even now the chance is not lost, I will tell you. There is nothing that the State needs so much for the coming struggle as money. Some strokes of good fortune we have enjoyed without our design, and if we make the right use of them, the desired results may perhaps follow. For first, the men whom the king of <placeName key="tgn,7000231">Persia</placeName> trusts and has accepted as his <q type="emph">benefactors,</q><note resp="Loeb" anchored="true">The Thracians, thus honored for their services to Darius in his Scythian expedition. For the title cf. <bibl n="Hdt. 8.85">Hdt. 8.85</bibl> <foreign xml:lang="grc">οἱ δ᾽ εὐργέται βασιλέος ὀροσάγγαι καλέονται Περσιστί</foreign>. Such was the Mordecai, <q type="translation">the man whom the king delighted to honor,</q> <title>Esther</title>, c. 6.</note> hate Philip and are at war with him.</p></div> 
+<div type="textpart" subtype="section" n="32"><p>Secondly, the agent<note resp="Loeb" anchored="true">If we may trust Ulpian, this was Hermeias of <placeName key="perseus,Atarneus">Atarneus</placeName>, the friend of Aristotle, seized by the Rhodian Mentor and carried captive to the king of <placeName key="tgn,7000231">Persia</placeName>. See Grote, c. 90.</note> who was privy to all Philip's schemes against the king of <placeName key="tgn,7000231">Persia</placeName> has been kidnapped, and the king will hear of all these plots, not as the complaint of Athenians, whom he might suspect of speaking for our own private advantage, but from the lips of the very man who planned and carried them out, so that their credit is established, and the only suggestion for our ambassadors to make is one which the king would be delighted to hear, </p> </div> 
+<div type="textpart" subtype="section" n="33"><p>that the man who is wronging both parties should be punished by both in common, and that Philip is much more dangerous to the king if he has attacked us first, for if we are left to our own resources and anything happens to us, he will soon be marching confidently against the king. I think you ought to send an embassy to put all these matters before the king, and you ought to drop the foolish prejudice that has so often brought about your discomfiture—<q type="emph">the barbarian,</q> <q type="emph">the common foe of us all,</q> and all such phrases.</p></div> 
+<div type="textpart" subtype="section" n="34"><p>For my part, whenever I see a man afraid of one who dwells at <placeName key="tgn,7017509">Susa</placeName> and <placeName key="tgn,7002115" >Ecbatana</placeName> and insisting that he is ill-disposed to <placeName key="perseus,Athens">Athens</placeName>, though he helped to restore our fortunes in the past and was even now making overtures to us<note resp="Loeb" anchored="true">The Persians helped Conon, when he defeated the Lacedaemonians off <placeName key="tgn,5003757">Cnidus</placeName> in 394. In 345 Artaxerxes appealed to the leading Greek states for help in putting down the revolt of <placeName key="tgn,7016833">Egypt</placeName>. <placeName key="perseus,Thebes">Thebes</placeName> and <placeName key="perseus,Argos">Argos</placeName> sent auxiliaries, but <placeName key="perseus,Athens">Athens</placeName> and <placeName key="perseus,Sparta">Sparta</placeName> refused.</note>(and if you did not accept them but voted their rejection, the fault is not his); and when I find the same man using very different language about this plunderer of the Greeks, who is extending his power, as you see, at our very doors and in the heart of <placeName key="tgn,1000074">Greece</placeName>, I am astonished, and, whoever he may be, it is I that fear him, just because he does not fear Philip.</p></div> 
+<div type="textpart" subtype="section" n="35"><p>Now there is also another matter, the misrepresentation of which by unfair obloquy and in intemperate language is injuring the State, and furthermore is affording a pretext for those who are unwilling to perform any of their duties as citizens; indeed, you will find that in every case where a man has failed to do his duty, this has been given as the excuse. I am really afraid to speak on this subject, but I will do so nevertheless; </p> </div> 
+<div type="textpart" subtype="section" n="36"><p>for I think I shall be able, with advantage to the State, to plead the cause both of the poor against the rich and of the property-owners against the necessitous. If we could banish from our midst both the obloquy which some heap on the Theoric Fund,<note resp="Loeb" anchored="true">See note on <bibl n="Dem. 1.20" >Dem. 1.20</bibl>.</note> and also the fear that the Fund will not be maintained without doing a great deal of harm, we could not perform a greater service nor one more likely to strengthen the whole body politic.</p></div> 
+<div type="textpart" subtype="section" n="37"><p>Follow my argument while I state first the case of those who are regarded as the poorer classes. There was a time not long ago when the revenue of your state did not exceed a hundred and thirty talents, and yet of those competent to undertake the trierarchy or pay the property-tax there is not one that declined the duty that devolved on him in the absence of a surplus; but the war-galleys sailed out, and the money came in, and we did all that was required.</p></div> 
+<div type="textpart" subtype="section" n="38"><p>Since then fortune has smiled on us and increased our revenues, and the exchequer now receives four hundred instead of one hundred talents, though no property-owner suffers any loss but is rather the gainer, for all the rich citizens come up to receive their share of this increase, as indeed they have a perfect right to do.</p></div> 
+<div type="textpart" subtype="section" n="39"><p>What then do we mean by reproaching one another for this and making it an excuse for doing nothing, unless it is that we grudge the relief which the poor have received at the hands of fortune? I for one shall not blame them,<note resp="Loeb" anchored="true">i.e. blame the poorer classes for upholding the Theoric Fund. The argument is that when revenue was smaller, the property-owners did not refuse to pay up; now that the revenue shows a big surplus, devoted to the Theoric Fund, in which all classes have a share, why should the rich demand relief from their <q type="emph">liturgies</q>? (Perhaps the modern income-tax-payer will fail to appreciate the speaker's logic.)</note> nor do I think it fair to do so.</p></div> 
+<div type="textpart" subtype="section" n="40"><p>For in private life I do not observe that the young man adopts that attitude towards his seniors, or that any human being is so insensible or unreasonable that he refuses to do anything himself unless everybody does the same; and indeed such a case would be covered by the laws for ill-usage,<note resp="Loeb" anchored="true">Children who refused to support their parents were liable to a <foreign xml:lang="grc">δίκη κακώσεως</foreign>.</note> for I suppose the contribution assessed by both authorities, by nature and by law, ought to be brought honestly and paid cheerfully to the parents.</p></div> 
+<div type="textpart" subtype="section" n="41"><p>Therefore, just as each one of us has a parent, so ought we to regard the collective citizens as the common parents of the whole State, and so far from depriving them of anything that the State bestows, we ought, if there were no such grant, to look elsewhere for means to save any of their wants from being overlooked.</p></div> 
+<div type="textpart" subtype="section" n="42"><p>So then, if the wealthy would accept this principle, I think they would be doing not only what is fair, but also what is expedient; for to deprive one citizen of necessaries is to make many of them unite in disaffection towards the government. I would also counsel the poorer classes to abolish the grievance which makes the propertied class discontented with the system, and gives them just cause for assailing it.</p></div> 
+<div type="textpart" subtype="section" n="43"><p>I proceed, in the same way as before, to state the case for the rich, and I shall not shrink from speaking the truth. For I cannot imagine anyone, or at least any Athenian, so obdurate and cruel-hearted as to feel annoyed when he sees the poor and those who lack necessaries receiving these boons.</p></div> 
+<div type="textpart" subtype="section" n="44"><p>But where does our practice break down, and where lies the grievance? It is when the rich see certain persons transferring this usage from public moneys to private property; when the speaker is raised to instant greatness among you and even to immortality, as far as his privilege can secure it; and when your shouts of open approval are contradicted by your secret vote.<note resp="Loeb" anchored="true">The recognized appropriation of public money for the Theoric Fund is imitated by demagogues, who prosecute the rich in order that their fines and confiscations may be used for similar benefits. The demagogue thus acquires undue influence and, being privileged, is unassailable. Meanwhile the people, sitting as a jury, applaud the rich man when he skilfully defends his rights, but cast their votes against him.</note></p></div> 
+<div type="textpart" subtype="section" n="45"><p>All this breeds distrust and resentment. For we are bound, Athenians, to share equitably with one another the privileges of citizenship, the wealthy feeling secure to lead their own lives and haunted by no fears on that account, but in the face of dangers making over their property to the commonwealth for its defence; while the rest must realize that State-property is common property, duly receiving their share of it, but recognizing that private wealth belongs to the possessor. In this way a small state grows great, and a great one is kept great. This may pass for a verbal statement of the duties of each class; for the legal performance of those duties some organization is necessary.</p></div> 
+<div type="textpart" subtype="section" n="46"><p>Of our present difficulties and of the existing confusion the causes are many and of long standing, but if you are willing to hear them, I am ready to speak. Men of <placeName key="perseus,Athens">Athens</placeName>, you have deserted the post in which your ancestors left you; you have been persuaded by politicians of this sort that to be paramount in <placeName key="tgn,1000074" >Greece</placeName>, to possess a standing force, and to help all the oppressed, is a superfluous task and an idle expense; while you fondly imagined that to live in peace, to neglect all your duties, to abandon all your possessions and let others seize them one by one, ensured wonderful prosperity and complete security.</p></div> 
+<div type="textpart" subtype="section" n="47"><p>In consequence of this, a rival has stepped into the position that you ought to have filled, and it is he who has become prosperous and great and ruler over many things. And rightly so; for there is a prize, honorable, great, and glorious, a prize for which the greatest of our states once spent all their time in contending, but since misfortune has dogged the Lacedaemonians, and the Phocian War has left the Thebans no leisure, and we are heedless, he has grasped it without a struggle.</p></div> 
+<div type="textpart" subtype="section" n="48"><p>Therefore fear is the portion of the others, but his the possession of many allies and a mighty force; and such great and manifold troubles now encompass all the Greeks that it is not easy to advise what ought to be done.</p></div> 
+<div type="textpart" subtype="section" n="49"><p>Yet, men of <placeName key="perseus,Athens">Athens</placeName>, perilous as is the present situation in my judgement, none of all the Greeks are in greater danger than you, not only because you are the chief object of Philip's plots, but because you are the most disposed to inaction. If therefore, noting the abundance and cheapness of goods for sale in your markets, you have been beguiled by these things into the belief that the city is in no danger, your estimate of the situation is contrary to all right and reason.</p></div> 
+<div type="textpart" subtype="section" n="50"><p>For a market or a fair might be judged on such evidence to be well or ill stocked; but a city, which every aspirant to the rule of <placeName key="tgn,1000074">Greece</placeName> has regarded as his only possible opponent and as champion of the freedom of all, must surely not be tested by her market-stuff to see whether all is well with her, but by her ability to trust the loyalty of her allies, by her strength in ams—these are the qualities that you must look for in the city; and these in your case are all untrustworthy and unsound.</p></div> 
+<div type="textpart" subtype="section" n="51"><p>You will understand it if you look at it in this way. When have the affairs of <placeName key="tgn,1000074">Greece</placeName> been in the greatest confusion? For no other occasion than the present could possibly be named by anyone. All during the past <placeName key="tgn,1000074">Greece</placeName> was divided into two camps, the Lacedaemonians' and ours, and of the other Greeks some took their orders from us, others from them. The king of <placeName key="tgn,7000231">Persia</placeName>, in himself, was equally distrusted by all, but by taking up the cause of the losing side in the struggle, he retained their confidence until he could put them on an equality with the others; but thereafter he was no less hated by those he had saved than by those who had been his enemies from the beginning.</p></div> 
+<div type="textpart" subtype="section" n="52"><p>But in the first place, the king is now well-disposed to all the Greeks, and yet to us least of all, unless we can effect some immediate improvement. In the second place, many so-called <q type="soCalled">protectors</q> are springing up everywhere, and all states are rivals for the leadership, but unfortunately some hold aloof, in mutual jealousy and distrust, and so each state has isolated itself—Argives, Thebans, Lacedaemonians, Corinthians, Arcadians, ourselves.</p></div> 
+<div type="textpart" subtype="section" n="53"><p>But yet, though Greek politics are split up into so many factions under so many powers, in no state, if I must speak the truth freely, would you find the government offices and the council chambers less occupied with Greek affairs than here at <placeName key="perseus,Athens">Athens</placeName>; and naturally so, for neither through love nor trust nor fear does anyone hold communication with us.</p></div> 
+<div type="textpart" subtype="section" n="54"><p>And this is not due to a single cause, Athenians, or you might easily remedy it, but to many errors of every kind throughout the past. Without enumerating these, I will mention one on which all the rest turn, only beseeching you not to be offended with me, if I speak the truth boldly. It is the selling of your interests at every opportunity; your share in the bargain is leisure and inaction, which charm you out of your resentment against your betrayers, but others reap the rewards.</p></div> 
+<div type="textpart" subtype="section" n="55"><p>The other errors it is not worth while to investigate now, but whenever any question arises that concerns Philip, instantly up jumps someone and says there must be no nonsense talked, no declarationtion of war, and he at once goes on to add how good a thing it is to preserve peace, and what a bother it is to keep up a large army, and how <q type="emph">certain persons want to plunder your wealth</q><note resp="Loeb" anchored="true">i.e. by diverting money from the Theoric Fund to military objects.</note>; and their other statements are as true as they can make them.</p></div> 
+<div type="textpart" subtype="section" n="56"><p>But surely it is not to you that they should recommend peace, for you have taken the advice and there you sit; it is to the man who is even now on the warpath; for if Philip can be won over, your share of the compact is ready to hand. Again, they should reflect that the irksome thing is not the expense of securing our safety, but the doom that will be ours if we shrink from that expense. As for the <q type="emph">plunder of your wealth,</q> they ought to prevent that by proposing some way of checking it and not by abandoning your interests.</p></div> 
+<div type="textpart" subtype="section" n="57"><p>And yet it is just this that rouses my indignation, that some of you should be distressed at the prospect of the plunder of your wealth, when you are quite competent to protect it and to punish any offender, but that you are not distressed at the sight of Philip thus plundering every Greek state in turn, the more so as he is plundering them to injure you.</p></div> 
+<div type="textpart" subtype="section" n="58"><p>Why then, men of <placeName key="perseus,Athens">Athens</placeName>, has none of these speakers ever admitted that Philip is violating rights and provoking war, when he is thus openly violating rights and subduing cities, but when others urge you not to give way to Philip nor submit to these losses, they say they are provoking war? It is because they want the blame for the sufferings that the war will entail—for it is inevitable, yes, inevitable that the war should cause much distress—to be laid at the doors of those who believe they are your wisest counsellors.</p></div> 
+<div type="textpart" subtype="section" n="59"><p>For they are convinced that if you offer a whole-hearted and unanimous opposition to Philip, you will beat him and they will have no further chance of earning his pay, but that if at the first alarm of war you throw the blame on certain persons and devote your energies to bringing them to trial, they themselves by accusing them will gain both their ends—reputation with you and money from him, while you will punish the men who have spoken in your interests for the faults which you ought to punish in their accusers.</p></div> 
+<div type="textpart" subtype="section" n="60"><p>Such are their hopes, and such is the design of the accusation that <q type="emph">certain persons wish to provoke war.</q> But I am absolutely certain that, without waiting for any Athenian to propose a declaration of war, Philip is in possession of much of our territory and has just dispatched a force against Cardia. If, however, we like to pretend that he is not at war with us, he would be the greatest fool alive if he tried to disprove that; for when the victims deny the wrong, what should the malefactor do?</p></div> 
+<div type="textpart" subtype="section" n="61"><p>But when our turn comes, what shall we say then? For of course he will deny that he is attacking us, just as he denied that he was attacking the men of Oreus, when his troops were already in their territory, or the Pheraeans before that, when he was actually assaulting their walls, or the Olynthians at the start, until he was inside their frontier with his army. Or shall we say, even at that hour, that those who bid us repel him are provoking war? If so, there is nothing left but slavery, for there is no other alternative.</p></div> 
+<div type="textpart" subtype="section" n="62"><p>Moreover, you have not the same interests at stake as some of the others, for it is not your subjection that Philip aims at; no, but your complete annihilation. For he is well assured that you will not consent to be slaves; or, if you consent, will never learn how to be slaves, for you are accustomed to rule others; but that you will be able, if you seize your chances, to cause him more trouble than all the rest of the world. For that reason he will not spare you, if he gets you in his power.</p></div> 
+<div type="textpart" subtype="section" n="63"><p>Therefore you must needs bear in mind that this will be a life-and-death struggle, and the men who have sold themselves to Philip must be publicly cudgelled to death; for it is impossible, impossible to quell the foes without, until you have punished the foes within your gates, but if you let these stand as stumbling-blocks in your path, you must fail against the others.</p></div> 
+<div type="textpart" subtype="section" n="64"><p>What do you imagine is his motive in outraging you now—I think no other term describes his conduct—or why is it that, in deceiving the others, he at least confers benefits upon them, but in your case he is resorting to threats? For example, the Thessalians were beguiled by his generosity into their present state of servitude; no words can describe how he formerly deceived the miserable Olynthians by his gift of <placeName key="tgn,6004814">Potidaea</placeName> and many other places; the Thebans he is now misleading, having handed over <placeName key="tgn,7002683">Boeotia</placeName> to them and relieved them of a long and trying war.</p></div> 
+<div type="textpart" subtype="section" n="65"><p>So each of these states has reaped some benefit from him, but while some have already paid the price by their sufferings, the others have yet to suffer whatever shall fall to their lot. As for you, I do not say how far you have been robbed, but in the actual making of the peace, how completely you were deceived, how grievously you were robbed! Were you not deceived about <placeName key="tgn,4003963">Phocis</placeName>, <placeName key="perseus,Thermopylae" >Thermopylae</placeName>, the Thrace-ward districts, Doriscus, Serrium, Cersobleptes himself? Is not Philip now holding the city of the Cardians, and admitting that he holds it?</p></div> 
+<div type="textpart" subtype="section" n="66"><p>Why then does he deal in that way with the other Greeks, but with you in this way? Because yours is the one city in the world where immunity is granted to plead on behalf of our enemies, and where a man who has been bribed can safely address you in person, even when you have been robbed of your own. It would not have been safe in <placeName key="perseus,Olynthus">Olynthus</placeName> to plead Philip's cause, unless the Olynthian democracy had shared in the enjoyment of the revenues of <placeName key="tgn,6004814">Potidaea</placeName>.</p></div> 
+<div type="textpart" subtype="section" n="67"><p>It would not have been safe in <placeName key="tgn,7001399">Thessaly</placeName> to plead Philip's cause, if the commoners of <placeName key="tgn,7001399" >Thessaly</placeName> had not shared in the advantages that Philip conferred, when he expelled their tyrants and restored to them their Amphictyonic privileges. It would not have been safe at <placeName key="perseus,Thebes">Thebes</placeName>, until he gave them back <placeName key="tgn,7002683">Boeotia</placeName> and wiped out the Phocians.</p></div> 
+<div type="textpart" subtype="section" n="68"><p>But at <placeName key="perseus,Athens">Athens</placeName>, though Philip has not only robbed you of <placeName key="perseus,Amphipolis">Amphipolis</placeName> and the Cardian territory, but is also turning <placeName key="tgn,7002677" >Euboea</placeName> into a fortress to overawe us and is even now on his way to attack Byzantium, it is safe to speak on Philip's behalf. Indeed, of these politicians, some who were beggars are suddenly growing rich, some unknown to name and fame are now men of honour and distinction; while you, on the contrary, have passed from honour to dishonour, from affluence to destitution.</p></div> 
+<div type="textpart" subtype="section" n="69"><p>For a city's wealth I hold to be allies, credit, goodwill, and of all these you are destitute. And it is because you are indifferent to these things and allow them to be taken from you in this way, that Philip is prosperous and powerful and formidable to Greeks and barbarians alike, while you are deserted and humiliated, famous for your well-stocked markets, but in provision for your proper needs, contemptible.</p></div> 
+<div type="textpart" subtype="section" n="70"><p>Yet I observe that some of our speakers do not urge the same policy for you as for themselves; for you, they say, ought to remain quiet even when you are wronged; themselves cannot remain quiet among you, though no one does them wrong. And yet, raillery apart, suppose someone should ask, <q type="spoken">Tell me, Aristomedes,<note resp="Loeb" anchored="true">An unknown opponent. If with Dindorf we adopt the vulgate, it will refer to the Athenian actor Aristodemus, who was a member of the first embassy to Philip and is mentioned in <bibl n="Dem. 18.21">Dem. 18.21</bibl> and in several passages of <bibl n="Dem. 19">Dem. 19</bibl></note> why, when you know perfectly well—for no one is ignorant of such matters—that a private station is secure and free from risk, but the life of a politician is precarious, open to attack, and full of trials and misfortunes every day, why do you not choose the quiet, sequestered life instead of the life of peril?</q> What would you reply?</p></div> 
+<div type="textpart" subtype="section" n="71"><p>For if we should grant the truth of what would be your best possible answer, that you do all this for love of glory and renown, I wonder what earthly reason you have for thinking that you yourself ought for that object to make every exertion, facing toil and danger, whereas you advise the State to abandon such efforts in sheer indifference. For this you cannot say—that it is your duty to make a figure in the State, but that the State is of no importance in the Greek world.</p></div> 
+<div type="textpart" subtype="section" n="72"><p>And there is another thing I do not see—that it is safe for the State to mind its own business, but dangerous for you if you do not go beyond your fellow-citizens in meddling with affairs.</p></div> 
+<div type="textpart" subtype="section" n="73"><p>Nay, on the contrary, I do foresee the utmost danger, to you from your bustling and meddling, but to the State from its inactivity. But you may say that you have the honour of your grandfather and father to uphold, and it would be scandalous to subvert it in your person, but that the State has inherited only nameless and paltry exploits from our ancestors. But that too is untrue; for you had a thief for your father, if he was like you, but our fathers, as all the Greeks know, preserved them from the deadliest perils.</p></div> 
+<div type="textpart" subtype="section" n="74"><p>But indeed there are some whose management both of private and of public business is neither fair nor constitutional; for how is it fair that some of these men, just released from jail, should be ignorant of their own worth, while that state, which was once the champion of the rest and maintained the pre-eminence, should now be sunk in all dishonour and humiliation?</p></div> 
+<div type="textpart" subtype="section" n="75"><p>Therefore, though there is much that I could say on many topics, I will forbear; for indeed it is not, I think, lack of speeches either now or at any other time that is the cause of our distress, but when you have listened to the right sort of arguments, and when you are unanimous as to their validity, you sit on and give equal attention to those who wish to overthrow and distort them. It is not that you do not recognize these speakers, for as soon as you have seen them, you know exactly who is speaking for pay and acting as Philip's agent, and who is sincerely defending your best interests; but your aim is to find fault with these latter and, by turning the subject into ridicule and raillery, to avoid doing any part of your own duty.</p></div> 
+<div type="textpart" subtype="section" n="76"><p>There you have the truth spoken with all freedom, simply in goodwill and for the best—no speech packed by flattery with mischief and deceit, and intended to put money into the speaker's pocket and the control of the State into our enemies' hands. Either, then, you must abandon these habits of yours, or you must throw the blame for all our failures on no one but yourselves.</p> </div> </div> </body>
     </text>
 </TEI>
