@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/36300099.svg)](https://zenodo.org/badge/latestdoi/36300099)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.596309.svg)](https://doi.org/10.5281/zenodo.596309)
 [![Hook Coverage](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/coverage.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
 [![Hook Texts](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/texts.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
 [![Hook Metadata](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/metadata.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
