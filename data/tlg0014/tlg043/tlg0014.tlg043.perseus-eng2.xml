@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  <?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>  
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
-
         <fileDesc>
             <titleStmt>
                 <title>Against Macartatus</title>
@@ -21,43 +20,50 @@
                 <publisher>Trustees of Tufts University</publisher>
                 <pubPlace>Medford, MA</pubPlace>
                 <authority>Perseus Project</authority>
+                <date type="release">1996</date>
             </publicationStmt>
             <sourceDesc>
                 <biblStruct>
                     <monogr>
                         <author>Demosthenes</author>
-                        <title>Demosthenes with an English translation by A. T. Murray, Ph.D.,
+                        <title>Demosthenes Vol. V. Private Orations, XLI-XLIX. With an English translation by A. T. Murray, Ph.D.,
                             LL.D.</title>
-
                         <imprint>
                             <publisher>Cambridge, MA, Harvard University Press; London, William
                                 Heinemann Ltd.</publisher>
-                            <date>1939</date>
+                            <date type="printing">1939</date>
                         </imprint>
                     </monogr>
                 </biblStruct>
             </sourceDesc>
-        </fileDesc>
-
+        </fileDesc>   
         <encodingDesc>
-
+            <refsDecl n="CTS">
+                <cRefPattern n="section"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts section</p>
+                </cRefPattern>
+            </refsDecl>
             <refsDecl>
-                <refState unit="speech"/>
                 <refState unit="section"/>
             </refsDecl>
         </encodingDesc>
-
         <profileDesc>
             <langUsage>
                 <language ident="eng">English</language>
                 <language ident="grc">Greek</language>
             </langUsage>
         </profileDesc>
+        <revisionDesc>
+            <change when="2019-02-06" who="Lisa Cerrato">CTS and EpiDoc conversion</change>
+        </revisionDesc>
     </teiHeader>
     <text xml:lang="eng">
         <body>
-
-            <div type="section" n="1">
+            <div type="translation" n="urn:cts:greekLit:tlg0014.tlg043.perseus-eng2" xml:lang="eng">
+                <head>Sositheus Against Macartatus, In Regard to the Estate of Hagnias</head>
+                <div type="section" n="1">
                 <p>Since we have had suits before now, men of the jury, against these same men
                     regarding the estate of Hagnias, and they do not cease from their lawless and
                     violent conduct, endeavoring by hook or crook to keep what does not belong to
@@ -1006,7 +1012,7 @@
                     which is just and consonant with your oaths, and in the interest of your own
                     selves.</p>
             </div>
-
+            </div>
         </body>
     </text>
 </TEI>
