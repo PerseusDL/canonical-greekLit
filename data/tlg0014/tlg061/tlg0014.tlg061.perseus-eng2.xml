@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>  <?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>  
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
-
         <fileDesc>
             <titleStmt>
                 <title>The Erotic Essay</title>
                 <author>Demosthenes</author>
+                <editor role="translator">Norman W. DeWitt</editor>
+                <editor role="translator">Norman J. DeWitt</editor>
                 <sponsor>Perseus Project, Tufts University</sponsor>
                 <principal>Gregory Crane</principal>
                 <respStmt>
@@ -21,28 +22,32 @@
                 <publisher>Trustees of Tufts University</publisher>
                 <pubPlace>Medford, MA</pubPlace>
                 <authority>Perseus Project</authority>
+                <date type="release">1996</date>
             </publicationStmt>
             <sourceDesc>
                 <biblStruct>
                     <monogr>
                         <author>Demosthenes</author>
-                        <title>Demosthenes with an English translation by Norman W. DeWitt, Ph.D.,
-                            and Norman J. DeWitt, Ph.D.</title>
-
+                        <title>Demosthenes Vol. VII. Funeral Speech, Erotic Essay, LX, LXI, Exordia and Letters. With an English translation by Norman W. DeWitt, Ph.D., Norman J. DeWitt, Ph.D.</title>
                         <imprint>
                             <publisher>Cambridge, MA, Harvard University Press; London, William
                                 Heinemann Ltd.</publisher>
-                            <date>1949</date>
+                            <date type="printing">1949</date>
                         </imprint>
                     </monogr>
+                    <ref target="https://archive.org/details/in.ernet.dli.2015.183487">Internet Archive</ref>
                 </biblStruct>
             </sourceDesc>
         </fileDesc>
-
         <encodingDesc>
-
+            <refsDecl n="CTS">
+                <cRefPattern n="section"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts section</p>
+                </cRefPattern>
+            </refsDecl>
             <refsDecl>
-                <refState unit="speech"/>
                 <refState unit="section"/>
             </refsDecl>
         </encodingDesc>
@@ -52,11 +57,10 @@
                 <language ident="grc">Greek</language>
             </langUsage>
         </profileDesc>
-
     </teiHeader>
     <text xml:lang="eng">
         <body>
-
+<head></head>
             <div n="1" type="section">
                 <p>Well, since you wish to hear the essay, I shall bring it out and read it aloud;
                     but first you must understand its purpose. The writer’s desire is to praise
@@ -708,6 +712,7 @@
                     sense, so that you may seem even more worthy of respect to this particular group
                     and to the rest of the citizens. Farewell.</p>
             </div>
+       
         </body>
     </text>
 </TEI>
