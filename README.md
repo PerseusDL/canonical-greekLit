@@ -9,7 +9,7 @@
 Canonical - Greek Literature
 =========
 
-This will be the base repo for all text and annotation data published in the PDL.
+This will be the base repo for all text and annotation data published in the PDL. Please note: this is a work in progress. Not all headers have been checked for accuracy. Changes may be made at any time to any files and data.
 
 **Please [read the Wiki](https://github.com/PerseusDL/canonical-greekLit/wiki) for information on contacting us and submitting corrections, etc.**
 
