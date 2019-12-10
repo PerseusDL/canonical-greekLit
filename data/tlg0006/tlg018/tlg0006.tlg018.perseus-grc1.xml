@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><TEI.2>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
 <teiHeader>
 <fileDesc>
 <titleStmt>
-<title type="work" n="IA">Iphigenia in Aulis</title>
+<title>Iphigenia in Aulis</title>
 <title type="sub">Machine readable text</title>
 <author n="Eur.">Euripides</author>
 <editor role="editor" n="Murray">Gilbert Murray</editor>
@@ -17,112 +19,86 @@
 </respStmt>
 <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
 </titleStmt>
-<extent>About 100Kb</extent>
+<extent/>
 <publicationStmt>
 <publisher>Trustees of Tufts University</publisher>
 <pubPlace>Medford, MA</pubPlace>
 <authority>Perseus Project</authority>
     <date type="release">1996</date>
 </publicationStmt>
-<sourceDesc>
-<biblStruct>
-<monogr>
-<author>Euripides</author>
-<title>Euripidis Fabulae, vol. 3</title>
-    <idno type="OCLC">58816731</idno>
-<editor role="editor">Gilbert Murray</editor>
-<imprint>
-<pubPlace>Oxford</pubPlace>
-<publisher>Clarendon Press, Oxford</publisher>
-<date>1913</date>
-</imprint>
-</monogr>
-</biblStruct>
-</sourceDesc>
+
+    <sourceDesc>
+        <biblStruct>
+            <monogr>
+                <author>Euripides</author>
+                <title xml:lang="lat">Euripidis Fabulae</title>
+                <editor>Gilbert Murray</editor>
+                <imprint>
+                    <pubPlace>Oxford</pubPlace>
+                    <publisher>Clarendon Press</publisher>
+                    <date>1913</date>
+                </imprint>
+                <biblScope unit="volume">3</biblScope>
+            </monogr>
+            <ref target="https://archive.org/details/euripidisfabulae03euriuoft/page/290">The Internet Archive</ref>
+        </biblStruct>
+    </sourceDesc>
 </fileDesc>
-<encodingDesc>
+   
+    <encodingDesc>
+        <editorialDecl>
+            <quotation marks="none"/>
+        </editorialDecl>
+        <refsDecl n="CTS">
+            <cRefPattern n="line" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+                <p>This pointer pattern extracts lines</p>
+            </cRefPattern>
+        </refsDecl>
+    </encodingDesc>
+    
+<!--<encodingDesc>
 <refsDecl doctype="TEI.2">
 <step refunit="line" from="DESCENDANT (1 L N%1)" to="DITTO"/>
 </refsDecl>
-</encodingDesc>
+</encodingDesc>-->
+    
 <profileDesc>
 <langUsage>
-<language id="greek">Greek</language>
+<language ident="grc">Greek</language>
 </langUsage>
 </profileDesc>
 <revisionDesc>
-<change>
-<date>1988</date>
-<respStmt>
-<name>Judith Nelson</name>
-<resp>tagging</resp>
-</respStmt>
-<item>Basic SGML tagging</item>
-</change>
-<change>
-<date>6/95</date>
-<respStmt>
-<name>Lisa Cerrato</name>
-<resp>ed.</resp>
-</respStmt>
-<item>Added speaker tags where needed.</item>
-</change>
-<change>
-<date>11-Jan-00</date>
-<respStmt>
-<name>Anne Mahoney</name>
-<resp>Markup</resp>
-</respStmt>
-<item>
-$Log: eur.ia_murray_gk.xml,v $
-Revision 1.1  2013-09-13 11:17:32  balmas01
-moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory
-
-Revision 1.5  2013-06-13 12:41:24  gcrane
-tagging now should be compatible with CTS
-
-Revision 1.4  2012-02-14 18:12:30  ajones06
-Standardized and in a few cases added in header info.
-
-Revision 1.3  2011-09-07 13:57:46  rsingh04 adding rend=displayNum to lb tags
-
-Revision 1.2  2011-01-13 03:38:25  gcrane more refinements making these files SDL compatible
-
-Revision 1.1  2010-12-25 19:01:41  gcrane our existing files but with L tags converted to LB milestones --
-
-Revision 1.2  2010/06/19 19:41:58  gcrane accent errors fixed
-
-Revision 1.1  2009/11/23 18:46:35  rsingh04 moved more xml files around based on copyright status
-
-Revision 1.2  2005/08/01 21:15:27  packel removed stray item tags
-
-Revision 1.1  2005/07/25 14:34:18  packel
-Converted to XML
-
-Revision 1.8  2004/04/21 20:27:28  mimno added card 1s
-
-Revision 1.7  2003/09/09 18:02:08  amahoney put spaces around em-dash entity so as not to confuse morphology stuff
-
-Revision 1.6  2003/07/01 22:16:11  yorkc
-Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
-
-Revision 1.5  2000/03/04 20:34:33  dasmith
-Added separate funder entity to TEI header.
-
-Revision 1.4  2000/02/17 15:51:39  amahoney use n attribute on sp to carry over speaker names when long speeches are interrupted by card breaks -- and move card break past close tag of sp
-
-Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
-
-</item>
-</change>
+    <change when="2019-12-10" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+    <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+    <change when="2013-06-13" who="gcrane">tagging now should be compatible with CTS</change>
+    <change when="2012-02-14" who="ajones06">Standardized and in a few cases added in header info.</change>
+    <change when="2011-09-07" who="rsingh04">adding rend=displayNum to lb tags</change>
+    <change when="2011-01-13" who="gcrane">more refinements making these files SDL compatible</change>
+    <change when="2010-12-25" who="gcrane">our existing files but with L tags converted to LB milestones</change>
+    <change when="2010-06-19" who="gcrane">accent errors fixed</change>
+    <change when="2009-11-23" who="rsingh04">moved more xml files around based on copyright status</change>
+    <change when="2005-08-01" who="packel">removed stray item tags</change>
+    <change when="2005-07-25" who="packel">Converted to XML</change>
+    <change when="2004-04-21" who="mimno">added card 1s</change>
+    <change when="2003-09-09" who="amahoney">put spaces around em-dash entity so as not to confuse morphology stuff</change>
+    <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
+    <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+    <change when="2000-02-17" who="amahoney">use n attribute on sp to carry over speaker names when long speeches are interrupted by card breaks -- and move card break past close tag of sp</change>
+    <change when="2000-01-11" who="amahoney">convert to P3</change>
+     <change when="1995-06-01" who="Lisa Cerrato">Added speaker tags where needed.</change>
+    <change when="1988-01-01" who="Judith Nelson">Basic SGML tagging</change>
 </revisionDesc>
 </teiHeader>
-<text lang="greek">
+    
+<text xml:lang="grc">
 <body>
-<div1 type="episode">
-<milestone ed="p" n="1" unit="card"/>
-<sp n="*)agame/mnwn">
-<speaker>Ἀγαμέμνων</speaker>
+    
+<div type="edition" n="urn:cts:greekLit:tlg0006.tlg018.perseus-grc1" xml:lang="grc">
+
+<div type="textpart" subtype="episode">
+<milestone ed="perseus" unit="card" n="1"/>
+<l n="0"/>
+<sp><speaker>Ἀγαμέμνων</speaker><note resp="perseus">This edition starts with the traditional line 49. Traditional line 1 appears following line 114. Regular numbering resumes at line 115.</note>
 <l n="49">Ἐγένοντο Λήδᾳ Θεστιάδι τρεῖς παρθένοι,</l>
 <l n="50">Φοίβη Κλυταιμήστρα τʼ, ἐμὴ ξυνάορος,</l>
 <l>Ἑλένη τε· ταύτης οἱ τὰ πρῶτʼ ὠλβισμένοι</l>
@@ -154,12 +130,12 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>Μενέλαον. ὃ δὲ καθʼ Ἑλλάδʼ οἰστρήσας δρόμῳ</l>
 <l>ὅρκους παλαιοὺς Τυνδάρεω μαρτύρεται,</l>
 <l>ὡς χρὴ βοηθεῖν τοῖσιν ἠδικημένοις.</l>
-<milestone ed="p" n="80" unit="card"/>
+<milestone ed="perseus" unit="card" n="80"/>
 <l n="80">τοὐντεῦθεν οὖν Ἕλληνες ᾄξαντες δορί,</l>
 <l>τεύχη λαβόντες στενόπορʼ Αὐλίδος βάθρα</l>
 <l>ἥκουσι τῆσδε, ναυσὶν ἀσπίσιν θʼ ὁμοῦ</l>
 <l>ἵπποις τε πολλοῖς ἅρμασίν τʼ ἠσκημένοι.</l>
-<l>κἀμὲ στρατηγεῖν † κἆτα Μενέλεω χάριν †</l>
+<l>κἀμὲ στρατηγεῖν <sic>κἆτα Μενέλεω χάριν</sic></l>
 <l n="85">εἵλοντο, σύγγονόν γε. τἀξίωμα δὲ</l>
 <l>ἄλλος τις ὤφελʼ ἀντʼ ἐμοῦ λαβεῖν τόδε.</l>
 <l>ἠθροισμένου δὲ καὶ ξυνεστῶτος στρατοῦ</l>
@@ -168,9 +144,7 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="90">ἀνεῖλεν Ἰφιγένειαν ἣν ἔσπειρʼ ἐγὼ</l>
 <l>Ἀρτέμιδι θῦσαι τῇ τόδʼ οἰκούσῃ πέδον,</l>
 <l>καὶ πλοῦν τʼ ἔσεσθαι καὶ κατασκαφὰς Φρυγῶν</l>
-<l>
-<del>θύσασι, μὴ θύσασι δʼ οὐκ εἶναι τάδε.</del>
-</l>
+<l><del>θύσασι, μὴ θύσασι δʼ οὐκ εἶναι τάδε.</del></l>
 <l>κλύων δʼ ἐγὼ ταῦτʼ, ὀρθίῳ κηρύγματι</l>
 <l n="95">Ταλθύβιον εἶπον πάντʼ ἀφιέναι στρατόν,</l>
 <l>ὡς οὔποτʼ ἂν τλὰς θυγατέρα κτανεῖν ἐμήν.</l>
@@ -182,106 +156,75 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>συμπλεῖν τʼ Ἀχαιοῖς οὕνεκʼ οὐ θέλοι λέγων,</l>
 <l>εἰ μὴ παρʼ ἡμῶν εἶσιν ἐς Φθίαν λέχος·</l>
 <l>πειθὼ γὰρ εἶχον τήνδε πρὸς δάμαρτʼ ἐμήν,</l>
-<l n="105">
-<del>ψευδῆ συνάψας ἀντὶ παρθένου γάμον.</del>
-</l>
-<l>
-<del>μόνοι δʼ Ἀχαιῶν ἴσμεν ὡς ἔχει τάδε</del>
-</l>
-<l>
-<del>Κάλχας Ὀδυσσεὺς Μενέλεώς θʼ. ἃ δʼ οὐ καλῶς</del>
-</l>
-<l>
-<del>ἔγνων τότʼ, αὖθις μεταγράφω καλῶς πάλιν</del>
-</l>
-<l>
-<del>ἐς τήνδε δέλτον, ἣν κατʼ εὐφρόνης σκιὰν</del>
-</l>
-<l n="110">
-<del>λύοντα καὶ συνδοῦντά μʼ εἰσεῖδες, γέρον.</del>
-</l>
-<l>
-<del>ἀλλʼ εἶα χώρει τάσδʼ ἐπιστολὰς λαβὼν</del>
-</l>
-<l>
-<del>πρὸς Ἄργος. ἃ δὲ κέκευθε δέλτος ἐν πτυχαῖς,</del>
-</l>
-<l>
-<del>λόγῳ φράσω σοι πάντα τἀγγεγραμμένα·</del>
-</l>
-<l>
-<del>πιστὸς γὰρ ἀλόχῳ τοῖς τʼ ἐμοῖς δόμοισιν εἶ.</del>
-</l>
-</sp>
-<milestone ed="p" n="1" unit="card"/>
-<div2 type="anapests">
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
+<l n="105"><del>ψευδῆ συνάψας ἀντὶ παρθένου γάμον.</del></l>
+<l><del>μόνοι δʼ Ἀχαιῶν ἴσμεν ὡς ἔχει τάδε</del></l>
+<l><del>Κάλχας Ὀδυσσεὺς Μενέλεώς θʼ. ἃ δʼ οὐ καλῶς</del></l>
+<l><del>ἔγνων τότʼ, αὖθις μεταγράφω καλῶς πάλιν</del></l>
+<l><del>ἐς τήνδε δέλτον, ἣν κατʼ εὐφρόνης σκιὰν</del></l>
+<l n="110"><del>λύοντα καὶ συνδοῦντά μʼ εἰσεῖδες, γέρον.</del></l>
+<l><del>ἀλλʼ εἶα χώρει τάσδʼ ἐπιστολὰς λαβὼν</del></l>
+<l><del>πρὸς Ἄργος. ἃ δὲ κέκευθε δέλτος ἐν πτυχαῖς,</del></l>
+<l><del>λόγῳ φράσω σοι πάντα τἀγγεγραμμένα·</del></l>
+<l><del>πιστὸς γὰρ ἀλόχῳ τοῖς τʼ ἐμοῖς δόμοισιν εἶ.</del></l></sp>
+<milestone ed="perseus" unit="card" n="1"/>
+
+<div type="textpart" subtype="anapests">
+
+<sp><speaker>Ἀγαμέμνων</speaker><note resp="perseus">This edition starts with the traditional line 49. Traditional line 1 appears following line 114. Regular numbering resumes at line 115.</note>
 <l n="1">Ὦ πρέσβυ, δόμων τῶνδε πάροιθεν</l>
-<l>στεῖχε.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>στείχω. τί δὲ καινουργεῖς,</l>
-<l>Ἀγάμεμνον ἄναξ;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>σπεύσεις;</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>σπεύδω.</l>
+<l n="1a">στεῖχε.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="2">στείχω. τί δὲ καινουργεῖς,</l>
+<l n="3" part="I">Ἀγάμεμνον ἄναξ;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="3b" part="M">σπεύσεις;</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="3c" part="F">σπεύδω.</l>
 <l>μάλα τοι γῆρας τοὐμὸν ἄυπνον</l>
-<l n="5">καὶ ἐπʼ ὀφθαλμοῖς ὀξὺ πάρεστιν.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>τίς ποτʼ ἄρʼ ἀστὴρ ὅδε πορθμεύει;</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>Σείριος ἐγγὺς τῆς ἑπταπόρου</l>
-<l>Πλειάδος ᾄσσων ἔτι μεσσήρης.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>οὔκουν φθόγγος γʼ οὔτʼ ὀρνίθων</l>
+<l n="5">καὶ ἐπʼ ὀφθαλμοῖς ὀξὺ πάρεστιν.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="6">τίς ποτʼ ἄρʼ ἀστὴρ ὅδε πορθμεύει;</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="7">Σείριος ἐγγὺς τῆς ἑπταπόρου</l>
+<l>Πλειάδος ᾄσσων ἔτι μεσσήρης.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="9">οὔκουν φθόγγος γʼ οὔτʼ ὀρνίθων</l>
 <l n="10">οὔτε θαλάσσης· σιγαὶ δʼ ἀνέμων</l>
-<l>τόνδε κατʼ Εὔριπον ἔχουσιν.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>τί δὲ σὺ σκηνῆς ἐκτὸς ἀίσσεις,</l>
+<l>τόνδε κατʼ Εὔριπον ἔχουσιν.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="12">τί δὲ σὺ σκηνῆς ἐκτὸς ἀίσσεις,</l>
 <l>Ἀγάμεμνον ἄναξ;</l>
 <l>ἔτι δʼ ἡσυχία τῇδε κατʼ Αὖλιν</l>
 <l n="15">καὶ ἀκίνητοι φυλακαὶ τειχέων.</l>
-<l>στείχωμεν ἔσω.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ζηλῶ σέ, γέρον,</l>
+<l n="16" part="I">στείχωμεν ἔσω.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="16b" part="F">ζηλῶ σέ, γέρον,</l>
 <l>ζηλῶ δʼ ἀνδρῶν ὃς ἀκίνδυνον</l>
 <l>βίον ἐξεπέρασʼ ἀγνὼς ἀκλεής·</l>
-<l>τοὺς δʼ ἐν τιμαῖς ἧσσον ζηλῶ.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l n="20">καὶ μὴν τὸ καλόν γʼ ἐνταῦθα βίου.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>τοῦτο δέ γʼ ἐστὶν τὸ καλὸν σφαλερόν,</l>
+<l>τοὺς δʼ ἐν τιμαῖς ἧσσον ζηλῶ.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="20">καὶ μὴν τὸ καλόν γʼ ἐνταῦθα βίου.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="21">τοῦτο δέ γʼ ἐστὶν τὸ καλὸν σφαλερόν,</l>
 <l>καὶ τὸ πρότιμον</l>
 <l>γλυκὺ μέν, λυπεῖ δὲ προσιστάμενον.</l>
 <l>τοτὲ μὲν τὰ θεῶν οὐκ ὀρθωθέντʼ</l>
 <l n="25">ἀνέτρεψε βίον, τοτὲ δʼ ἀνθρώπων</l>
 <l>γνῶμαι πολλαὶ</l>
-<l>καὶ δυσάρεστοι διέκναισαν.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>οὐκ ἄγαμαι ταῦτʼ ἀνδρὸς ἀριστέως.</l>
+<l>καὶ δυσάρεστοι διέκναισαν.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="28">οὐκ ἄγαμαι ταῦτʼ ἀνδρὸς ἀριστέως.</l>
 <l>οὐκ ἐπὶ πᾶσίν σʼ ἐφύτευσʼ ἀγαθοῖς,</l>
 <l n="30">Ἀγάμεμνον, Ἀτρεύς.</l>
 <l>δεῖ δέ σε χαίρειν καὶ λυπεῖσθαι·</l>
@@ -301,95 +244,79 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="45">πρὸς <add>δʼ</add> ἄνδρʼ ἀγαθὸν πιστόν τε φράσεις·</l>
 <l>σῇ γάρ μʼ ἀλόχῳ τότε Τυνδάρεως</l>
 <l>πέμπει φερνὴν</l>
-<l>συννυμφοκόμον τε δίκαιον.</l>
-</sp>
-<milestone ed="p" n="115" unit="card"/>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
+<l>συννυμφοκόμον τε δίκαιον.</l></sp><note resp="perseus">This edition starts with the traditional line 49. Traditional line 1 appears following line 114. Regular numbering resumes at line 115.</note>
+<milestone ed="perseus" unit="card" n="115"/>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
 <l n="115">πέμπω σοι πρὸς ταῖς πρόσθεν</l>
-<l>δέλτους, ὦ Λήδας ἔρνος  <gap/>
-</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>λέγε καὶ σήμαινʼ, ἵνα καὶ γλώσσῃ</l>
-<l>σύντονα τοῖς σοῖς γράμμασιν αὐδῶ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>μὴ στέλλειν τὰν σὰν ἶνιν πρὸς</l>
+<l>δέλτους, ὦ Λήδας ἔρνος—</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="117">λέγε καὶ σήμαινʼ, ἵνα καὶ γλώσσῃ</l>
+<l>σύντονα τοῖς σοῖς γράμμασιν αὐδῶ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="119">μὴ στέλλειν τὰν σὰν ἶνιν πρὸς</l>
 <l n="120">τὰν κολπώδη πτέρυγʼ Εὐβοίας</l>
 <l>Αὖλιν ἀκλύσταν.</l>
 <l>εἰς ἄλλας ὥρας γὰρ δὴ</l>
-<l>παιδὸς δαίσομεν ὑμεναίους.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>καὶ πῶς Ἀχιλεὺς λέκτρων ἀπλακὼν</l>
+<l>παιδὸς δαίσομεν ὑμεναίους.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="124">καὶ πῶς Ἀχιλεὺς λέκτρων ἀπλακὼν</l>
 <l n="125">οὐ μέγα φυσῶν θυμὸν ἐπαρεῖ</l>
 <l>σοὶ σῇ τʼ ἀλόχῳ;</l>
-<l>τόδε καὶ δεινόν· σήμαινʼ ὅ τι φῄς.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ὄνομʼ, οὐκ ἔργον, παρέχων Ἀχιλεὺς</l>
+<l>τόδε καὶ δεινόν· σήμαινʼ ὅ τι φῄς.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="128">ὄνομʼ, οὐκ ἔργον, παρέχων Ἀχιλεὺς</l>
 <l>οὐκ οἶδε γάμους, οὐδʼ ὅ τι πράσσομεν,</l>
 <l n="130">οὐδʼ ὅτι κείνῳ παῖδʼ ἐπεφήμισα</l>
 <l>νυμφείους εἰς ἀγκώνων</l>
-<l>εὐνὰς ἐκδώσειν λέκτροις.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>δεινά γʼ ἐτόλμας, Ἀγάμεμνον ἄναξ,</l>
+<l>εὐνὰς ἐκδώσειν λέκτροις.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="133">δεινά γʼ ἐτόλμας, Ἀγάμεμνον ἄναξ,</l>
 <l>ὃς τῷ τῆς θεᾶς σὴν παῖδʼ ἄλοχον</l>
-<l n="135">φατίσας ἦγες σφάγιον Δαναοῖς.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>οἴμοι, γνώμας ἐξέσταν,</l>
+<l n="135">φατίσας ἦγες σφάγιον Δαναοῖς.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="136">οἴμοι, γνώμας ἐξέσταν,</l>
 <l>αἰαῖ, πίπτω δʼ εἰς ἄταν.</l>
 <l n="139">ἀλλʼ ἴθʼ ἐρέσσων σὸν πόδα, γήρᾳ</l>
-<l n="140">μηδὲν ὑπείκων.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>σπεύδω, βασιλεῦ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>μή νυν μήτʼ ἀλσώδεις ἵζου</l>
-<l>κρήνας μήθʼ ὕπνῳ θελχθῇς.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>εὔφημα θρόει.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>πάντῃ δὲ πόρον σχιστὸν ἀμείβων</l>
+<l n="140" part="I">μηδὲν ὑπείκων.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="140b" part="F">σπεύδω, βασιλεῦ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="141">μή νυν μήτʼ ἀλσώδεις ἵζου</l>
+<l>κρήνας μήθʼ ὕπνῳ θελχθῇς.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="143">εὔφημα θρόει.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="144">πάντῃ δὲ πόρον σχιστὸν ἀμείβων</l>
 <l n="145">λεῦσσε, φυλάσσων μή τίς σε λάθῃ</l>
 <l>τροχαλοῖσιν ὄχοις παραμειψαμένη</l>
 <l>παῖδα κομίζουσʼ ἐνθάδʼ ἀπήνη</l>
-<l>Δαναῶν πρὸς ναῦς.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>ἔσται τάδε.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>κλῄθρων δʼ ἐξόρμοις</l>
+<l>Δαναῶν πρὸς ναῦς.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="149" part="I">ἔσται τάδε.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="149b" part="F">κλῄθρων δʼ ἐξόρμοις</l>
 <l n="150">ἤν νιν πομπαῖς ἀντήσῃς,</l>
 <l>πάλιν εἰσόρμα, σεῖε χαλινούς,</l>
-<l>ἐπὶ Κυκλώπων ἱεὶς θυμέλας.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>πιστὸς δὲ φράσας τάδε πῶς ἔσομαι,</l>
-<l>λέγε, παιδὶ σέθεν τῇ σῇ τʼ ἀλόχῳ;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
+<l>ἐπὶ Κυκλώπων ἱεὶς θυμέλας.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="153">πιστὸς δὲ φράσας τάδε πῶς ἔσομαι,</l>
+<l>λέγε, παιδὶ σέθεν τῇ σῇ τʼ ἀλόχῳ;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
 <l n="155">σφραγῖδα φύλασσʼ ἣν ἐπὶ δέλτῳ</l>
 <l>τήνδε κομίζεις. ἴθι. λευκαίνει</l>
 <l>τόδε φῶς ἤδη λάμπουσʼ ἠὼς</l>
@@ -397,16 +324,17 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="160">σύλλαβε μόχθων.</l>
 <l>θνητῶν δʼ ὄλβιος ἐς τέλος οὐδεὶς</l>
 <l>οὐδʼ εὐδαίμων·</l>
-<l>οὔπω γὰρ ἔφυ τις ἄλυπος.</l>
-</sp>
-</div2>
-</div1>
-<milestone ed="p" n="164" unit="card"/>
-<div1 type="choral">
-<div2 type="strophe" n="1">
-<sp>
-<speaker>Χορός</speaker>
-<l>ἔμολον ἀμφὶ παρακτίαν</l>
+<l>οὔπω γὰρ ἔφυ τις ἄλυπος.</l></sp>
+</div>
+</div>
+<milestone ed="perseus" unit="card" n="164"/>
+
+<div type="textpart" subtype="choral">
+
+<div type="textpart" subtype="strophe" n="1">
+
+<sp><speaker>Χορός</speaker>
+<l n="164">ἔμολον ἀμφὶ παρακτίαν</l>
 <l n="165">ψάμαθον Αὐλίδος ἐναλίας,</l>
 <l>Εὐρίπου διὰ χευμάτων</l>
 <l>κέλσασα στενοπόρθμων,</l>
@@ -426,13 +354,13 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>δῶρον τᾶς Ἀφροδίτας,</l>
 <l>ὅτʼ ἐπὶ κρηναίαισι δρόσοις</l>
 <l>Ἥρᾳ Παλλάδι τʼ ἔριν ἔριν</l>
-<l>μορφᾶς ἁ Κύπρις ἔσχεν.</l>
-</sp>
-<milestone ed="p" n="185" unit="card"/>
-</div2>
-<div2 type="antistrophe" n="1">
-<sp>
-<speaker>Χορός</speaker>
+<l>μορφᾶς ἁ Κύπρις ἔσχεν.</l></sp>
+<milestone ed="perseus" unit="card" n="185"/>
+</div>
+
+<div type="textpart" subtype="antistrophe" n="1">
+
+<sp><speaker>Χορός</speaker>
 <l n="185">πολύθυτον δὲ διʼ ἄλσος Ἀρ-</l>
 <l>τέμιδος ἤλυθον ὀρομένα,</l>
 <l>φοινίσσουσα παρῇδʼ ἐμὰν</l>
@@ -453,14 +381,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ὄζον, θαῦμα βροτοῖσιν,</l>
 <l>τὸν ἀπὸ νησαίων τʼ ὀρέων</l>
 <l>Λαέρτα τόκον, ἅμα δὲ Νι-</l>
-<l n="205">ρέα, κάλλιστον Ἀχαιῶν.</l>
-</sp>
-<milestone ed="p" n="206" unit="card"/>
-</div2>
-<div2 type="mesode">
-<sp>
-<speaker>Χορός</speaker>
-<l>τὸν ἰσάνεμόν τε ποδοῖν</l>
+<l n="205">ρέα, κάλλιστον Ἀχαιῶν.</l></sp>
+<milestone ed="perseus" unit="card" n="206"/>
+</div>
+
+<div type="textpart" subtype="mesode">
+
+<sp><speaker>Χορός</speaker>
+<l n="206">τὸν ἰσάνεμόν τε ποδοῖν</l>
 <l>λαιψηροδρόμον Ἀχιλῆα,</l>
 <l>τὸν ἁ Θέτις τέκε καὶ Χείρων</l>
 <l>ἐξεπόνησεν, εἶδον</l>
@@ -481,14 +409,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="225">πυρσότριχας, μονόχαλα δʼ ὑπὸ σφυρὰ</l>
 <l>ποικιλοδέρμονας· οἷς παρεπάλλετο</l>
 <l n="229">Πηλεΐδας σὺν ὅπλοισι παρʼ ἄντυγα καὶ σύ-</l>
-<l n="230">ριγγας ἁρματείους.</l>
-</sp>
-<milestone ed="p" n="231" unit="card"/>
-</div2>
-<div2 type="strophe" n="2">
-<sp>
-<speaker>Χορός</speaker>
-<l>ναῶν δʼ εἰς ἀριθμὸν ἤλυθον</l>
+<l n="230">ριγγας ἁρματείους.</l></sp>
+<milestone ed="perseus" unit="card" n="231"/>
+</div>
+
+<div type="textpart" subtype="strophe" n="2">
+
+<sp><speaker>Χορός</speaker>
+<l n="231">ναῶν δʼ εἰς ἀριθμὸν ἤλυθον</l>
 <l>καὶ θέαν ἀθέσφατον,</l>
 <l>τὰν γυναικεῖον ὄψιν ὀμμάτων</l>
 <l>ὡς πλήσαιμι, μέλινον ἁδονάν.</l>
@@ -498,14 +426,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>πεντήκοντα ναυσὶ θουρίαις.</l>
 <l>χρυσέαις δʼ εἰκόσιν κατʼ ἄκρα Νη-</l>
 <l n="240">ρῇδες ἕστασαν θεαί,</l>
-<l>πρύμναις σῆμʼ Ἀχιλλείου στρατοῦ.</l>
-</sp>
-<milestone ed="p" n="242" unit="card"/>
-</div2>
-<div2 type="antistrophe" n="2">
-<sp>
-<speaker>Χορός</speaker>
-<l>Ἀργείων δὲ ταῖσδʼ ἰσήρετμοι</l>
+<l>πρύμναις σῆμʼ Ἀχιλλείου στρατοῦ.</l></sp>
+<milestone ed="perseus" unit="card" n="242"/>
+</div>
+
+<div type="textpart" subtype="antistrophe" n="2">
+
+<sp><speaker>Χορός</speaker>
+<l n="242">Ἀργείων δὲ ταῖσδʼ ἰσήρετμοι</l>
 <l>νᾶες ἕστασαν πέλας·</l>
 <l>ὧν ὁ Μηκιστέως στρατηλάτας</l>
 <l n="245">παῖς ἦν, Ταλαὸς ὃν τρέφει πατήρ,</l>
@@ -515,14 +443,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>παῖς ἑξῆς ἐναυλόχει, θεὰν</l>
 <l n="250">Παλλάδʼ ἐν μωνύχοις ἔχων πτερω-</l>
 <l>τοῖσιν ἅρμασιν θετόν,</l>
-<l>εὔσημόν γε φάσμα ναυβάταις.</l>
-</sp>
-<milestone ed="p" n="253" unit="card"/>
-</div2>
-<div2 type="strophe" n="3">
-<sp>
-<speaker>Χορός</speaker>
-<l>Βοιωτῶν δʼ ὅπλισμα πόντιον</l>
+<l>εὔσημόν γε φάσμα ναυβάταις.</l></sp>
+<milestone ed="perseus" unit="card" n="253"/>
+</div>
+
+<div type="textpart" subtype="strophe" n="3">
+
+<sp><speaker>Χορός</speaker>
+<l n="253">Βοιωτῶν δʼ ὅπλισμα πόντιον</l>
 <l>πεντήκοντα νῆας εἰδόμαν</l>
 <l n="255">σημείοισιν ἐστολισμένας·</l>
 <l>τοῖς δὲ Κάδμος ἦν</l>
@@ -533,13 +461,13 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>Φωκίδος δʼ ἀπὸ χθονὸς</l>
 <l>Λοκρᾶς τε τοῖσδʼ ἴσας ἄγων</l>
 <l>ναῦς <add>ἦλθʼ</add> Οἰλέως τόκος κλυτὰν</l>
-<l>Θρονιάδʼ ἐκλιπὼν πόλιν.</l>
-</sp>
-<milestone ed="p" n="265" unit="card"/>
-</div2>
-<div2 type="antistrophe" n="3">
-<sp>
-<speaker>Χορός</speaker>
+<l>Θρονιάδʼ ἐκλιπὼν πόλιν.</l></sp>
+<milestone ed="perseus" unit="card" n="265"/>
+</div>
+
+<div type="textpart" subtype="antistrophe" n="3">
+
+<sp><speaker>Χορός</speaker>
 <l n="265">Μυκήνας δὲ τᾶς Κυκλωπίας</l>
 <l>παῖς Ἀτρέως ἔπεμπε ναυβάτας</l>
 <l>ναῶν ἑκατὸν ἠθροϊσμένους·</l>
@@ -551,14 +479,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ἐκ Πύλου δὲ Νέστορος</l>
 <l>Γερηνίου κατειδόμαν</l>
 <l n="275">πρύμνας σῆμα ταυρόπουν ὁρᾶν,</l>
-<l>τὸν πάροικον Ἀλφεόν.</l>
-</sp>
-<milestone ed="p" n="277" unit="card"/>
-</div2>
-<div2 type="strophe" n="4">
-<sp>
-<speaker>Χορός</speaker>
-<l>Αἰνιάνων δὲ δωδεκάστολοι</l>
+<l>τὸν πάροικον Ἀλφεόν.</l></sp>
+<milestone ed="perseus" unit="card" n="277"/>
+</div>
+
+<div type="textpart" subtype="strophe" n="4">
+
+<sp><speaker>Χορός</speaker>
+<l n="277">Αἰνιάνων δὲ δωδεκάστολοι</l>
 <l>νᾶες ἦσαν, ὧν ἄναξ</l>
 <l>Γουνεὺς ἆρχε· τῶνδε δʼ αὖ πέλας</l>
 <l n="280">Ἤλιδος δυνάστορες,</l>
@@ -568,15 +496,15 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>Τάφιον ἦγεν, ὧν Μέγης ἄνασσε,</l>
 <l n="285">Φυλέως λόχευμα,</l>
 <l>τὰς Ἐχίνας λιπὼν</l>
-<l>νήσους ναυβάταις ἀπροσφόρους.</l>
-</sp>
-<milestone ed="p" n="288" unit="card"/>
-</div2>
-<div2 type="antistrophe" n="4">
-<sp>
-<speaker>Χορός</speaker>
+<l>νήσους ναυβάταις ἀπροσφόρους.</l></sp>
+<milestone ed="perseus" unit="card" n="288"/>
+</div>
+
+<div type="textpart" subtype="antistrophe" n="4">
+
+<sp><speaker>Χορός</speaker>
 <l n="288">Αἴας δʼ ὁ Σαλαμῖνος ἔντροφος</l>
-<l n="290">δεξιὸν κέρας † πρὸς τὸ λαιὸν ξυνᾶγε †,</l>
+<l n="290">δεξιὸν κέρας <sic>πρὸς τὸ λαιὸν ξυνᾶγε</sic>,</l>
 <l>τῶν ἆσσον ὥρμει πλάταισιν</l>
 <l>ἐσχάταισι συμπλέκων</l>
 <l>δώδεκʼ εὐστροφωτάταισι ναυσίν. ὣς</l>
@@ -588,140 +516,111 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ἐνθάδʼ οἷον εἰδόμαν</l>
 <l n="300">νάιον πόρευμα,</l>
 <l>τὰ δὲ κατʼ οἴκους κλύουσα συγκλήτου</l>
-<l>μνήμην σῴζομαι στρατεύματος.</l>
-</sp>
-</div2>
-</div1>
-<milestone ed="p" n="303" unit="card"/>
-<div1 type="episode">
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>Μενέλαε, τολμᾷς δείνʼ, ἅ σʼ οὐ τολμᾶν χρεών.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>ἄπελθε· λίαν δεσπόταισι πιστὸς εἶ.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l n="305">καλόν γέ μοι τοὔνειδος ἐξωνείδισας.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>κλαίοις ἄν, εἰ πράσσοις ἃ μὴ πράσσειν σε δεῖ.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>οὐ χρῆν σε λῦσαι δέλτον, ἣν ἐγὼ ʼφερον.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>οὐδέ γε φέρειν σὲ πᾶσιν Ἕλλησιν κακά.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>ἄλλοις ἁμιλλῶ ταῦτʼ· ἄφες δὲ τήνδʼ ἐμοί.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l n="310">οὐκ ἂν μεθείμην.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>οὐδʼ ἔγωγʼ ἀφήσομαι.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>σκήπτρῳ τάχʼ ἆρα σὸν καθαιμάξω κάρα.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>ἀλλʼ εὐκλεές τοι δεσποτῶν θνῄσκειν ὕπερ.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>μέθες· μακροὺς δὲ δοῦλος ὢν λέγεις λόγους.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>ὦ δέσποτʼ, ἀδικούμεσθα. σὰς δʼ ἐπιστολὰς</l>
+<l>μνήμην σῴζομαι στρατεύματος.</l></sp>
+</div>
+</div>
+<milestone ed="perseus" unit="card" n="303"/>
+
+<div type="textpart" subtype="episode">
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="303">Μενέλαε, τολμᾷς δείνʼ, ἅ σʼ οὐ τολμᾶν χρεών.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="304">ἄπελθε· λίαν δεσπόταισι πιστὸς εἶ.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="305">καλόν γέ μοι τοὔνειδος ἐξωνείδισας.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="306">κλαίοις ἄν, εἰ πράσσοις ἃ μὴ πράσσειν σε δεῖ.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="307">οὐ χρῆν σε λῦσαι δέλτον, ἣν ἐγὼ ʼφερον.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="308">οὐδέ γε φέρειν σὲ πᾶσιν Ἕλλησιν κακά.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="309">ἄλλοις ἁμιλλῶ ταῦτʼ· ἄφες δὲ τήνδʼ ἐμοί.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="310" part="I">οὐκ ἂν μεθείμην.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="310b" part="F">οὐδʼ ἔγωγʼ ἀφήσομαι.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="311">σκήπτρῳ τάχʼ ἆρα σὸν καθαιμάξω κάρα.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="312">ἀλλʼ εὐκλεές τοι δεσποτῶν θνῄσκειν ὕπερ.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="313">μέθες· μακροὺς δὲ δοῦλος ὢν λέγεις λόγους.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="314">ὦ δέσποτʼ, ἀδικούμεσθα. σὰς δʼ ἐπιστολὰς</l>
 <l n="315">ἐξαρπάσας ὅδʼ ἐκ χερῶν ἐμῶν βίᾳ,</l>
-<l>Ἀγάμεμνον, οὐδὲν τῇ δίκῃ χρῆσθαι θέλει.</l>
-</sp>
-<milestone ed="p" n="317" unit="card"/>
-<div2 type="trochees">
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἔα·</l>
-<l>τίς ποτʼ ἐν πύλαισι θόρυβος καὶ λόγων ἀκοσμία;</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>οὑμὸς οὐχ ὁ τοῦδε μῦθος κυριώτερος λέγειν.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>σὺ δὲ τί τῷδʼ ἐς ἔριν ἀφῖξαι, Μενέλεως, βίᾳ τʼ ἄγεις;</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l n="320">βλέψον εἰς ἡμᾶς, ἵνʼ ἀρχὰς τῶν λόγων ταύτας λάβω.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>μῶν τρέσας οὐκ ἀνακαλύψω βλέφαρον, Ἀτρέως γεγώς;</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>τήνδʼ ὁρᾷς δέλτον, κακίστων γραμμάτων ὑπηρέτιν;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>εἰσορῶ· καὶ πρῶτα ταύτην σῶν ἀπάλλαξον χερῶν.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>οὔ, πρὶν ἂν δείξω γε Δαναοῖς πᾶσι τἀγγεγραμμένα.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="325">ἦ γὰρ οἶσθʼ ἃ μή σε καιρὸς εἰδέναι σήμαντρʼ ἀνείς;</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>ὥστε σʼ ἀλγῦναί γʼ, ἀνοίξας ἃ σὺ κάκʼ εἰργάσω λάθρᾳ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ποῦ δὲ κἄλαβές νιν; ὦ θεοί, σῆς ἀναισχύντου φρενός.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>προσδοκῶν σὴν παῖδʼ ἀπʼ Ἄργους, εἰ στράτευμʼ ἀφίξεται.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>τί δέ σε τἀμὰ δεῖ φυλάσσειν; οὐκ ἀναισχύντου τόδε;</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l n="330">ὅτι τὸ βούλεσθαί μʼ ἔκνιζε· σὸς δὲ δοῦλος οὐκ ἔφυν.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>οὐχὶ δεινά; τὸν ἐμὸν οἰκεῖν οἶκον οὐκ ἐάσομαι;</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>πλάγια γὰρ φρονεῖς, τὰ μὲν νῦν, τὰ δὲ πάλαι, τὰ δʼ αὐτίκα.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>εὖ κεκόμψευσαι πονηρά· γλῶσσʼ ἐπίφθονον σοφή.</l>
-</sp>
-<sp n="*mene/laos">
-<speaker>Μενέλαος</speaker>
-<l>νοῦς δέ γʼ οὐ βέβαιος ἄδικον κτῆμα κοὐ σαφὲς φίλοις.</l>
+<l>Ἀγάμεμνον, οὐδὲν τῇ δίκῃ χρῆσθαι θέλει.</l></sp>
+<milestone ed="perseus" unit="card" n="317"/>
+
+<div type="textpart" subtype="trochees">
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="317">ἔα·</l>
+<l n="317b">τίς ποτʼ ἐν πύλαισι θόρυβος καὶ λόγων ἀκοσμία;</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="318">οὑμὸς οὐχ ὁ τοῦδε μῦθος κυριώτερος λέγειν.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="319">σὺ δὲ τί τῷδʼ ἐς ἔριν ἀφῖξαι, Μενέλεως, βίᾳ τʼ ἄγεις;</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="320">βλέψον εἰς ἡμᾶς, ἵνʼ ἀρχὰς τῶν λόγων ταύτας λάβω.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="321">μῶν τρέσας οὐκ ἀνακαλύψω βλέφαρον, Ἀτρέως γεγώς;</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="322">τήνδʼ ὁρᾷς δέλτον, κακίστων γραμμάτων ὑπηρέτιν;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="323">εἰσορῶ· καὶ πρῶτα ταύτην σῶν ἀπάλλαξον χερῶν.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="324">οὔ, πρὶν ἂν δείξω γε Δαναοῖς πᾶσι τἀγγεγραμμένα.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="325">ἦ γὰρ οἶσθʼ ἃ μή σε καιρὸς εἰδέναι σήμαντρʼ ἀνείς;</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="326">ὥστε σʼ ἀλγῦναί γʼ, ἀνοίξας ἃ σὺ κάκʼ εἰργάσω λάθρᾳ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="327">ποῦ δὲ κἄλαβές νιν; ὦ θεοί, σῆς ἀναισχύντου φρενός.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="328">προσδοκῶν σὴν παῖδʼ ἀπʼ Ἄργους, εἰ στράτευμʼ ἀφίξεται.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="329">τί δέ σε τἀμὰ δεῖ φυλάσσειν; οὐκ ἀναισχύντου τόδε;</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="330">ὅτι τὸ βούλεσθαί μʼ ἔκνιζε· σὸς δὲ δοῦλος οὐκ ἔφυν.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="331">οὐχὶ δεινά; τὸν ἐμὸν οἰκεῖν οἶκον οὐκ ἐάσομαι;</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="332">πλάγια γὰρ φρονεῖς, τὰ μὲν νῦν, τὰ δὲ πάλαι, τὰ δʼ αὐτίκα.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="333">εὖ κεκόμψευσαι πονηρά· γλῶσσʼ ἐπίφθονον σοφή.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="334">νοῦς δέ γʼ οὐ βέβαιος ἄδικον κτῆμα κοὐ σαφὲς φίλοις.</l>
 <l n="335">βούλομαι δέ σʼ ἐξελέγξαι, καὶ σὺ μήτʼ ὀργῆς ὕπο</l>
 <l>ἀποτρέπου τἀληθὲς οὔτʼ αὖ κατατενῶ λίαν ἐγώ.</l>
 <l>οἶσθʼ, ὅτʼ ἐσπούδαζες ἄρχειν Δαναΐδαις πρὸς Ἴλιον,</l>
@@ -736,7 +635,7 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>τὸν ἀγαθὸν πράσσοντα μεγάλα τοὺς τρόπους μεθιστάναι,</l>
 <l>ἀλλὰ καὶ βέβαιον εἶναι τότε μάλιστα τοῖς φίλοις,</l>
 <l>ἡνίκʼ ὠφελεῖν μάλιστα δυνατός ἐστιν εὐτυχῶν.</l>
-<milestone ed="p" n="349" unit="card"/>
+<milestone ed="perseus" unit="card" n="349"/>
 <l>ταῦτα μέν σε πρῶτʼ ἐπῆλθον, ἵνα σε πρῶθʼ ηὗρον κακόν.</l>
 <l n="350">ὡς δʼ ἐς Αὖλιν ἦλθες αὖθις χὡ Πανελλήνων στρατός,</l>
 <l>οὐδὲν ἦσθʼ, ἀλλʼ ἐξεπλήσσου τῇ τύχῃ τῇ τῶν θεῶν,</l>
@@ -763,18 +662,16 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>καταγελῶντας ἐξανήσει διὰ σὲ καὶ τὴν σὴν κόρην.</l>
 <l>μηδένʼ ἀνδρείας ἕκατι προστάτην θείμην χθονός,</l>
 <l>μηδʼ ὅπλων ἄρχοντα· νοῦν χρὴ τὸν στρατηλάτην ἔχειν·</l>
-<l n="375">πόλεος ὡς ἄρχων ἀνὴρ πᾶς, ξύνεσιν ἢν ἔχων τύχῃ.</l>
-</sp>
-<milestone ed="p" n="376" unit="card"/>
-<sp>
-<speaker>Χορός</speaker>
-<l>δεινὸν κασιγνήτοισι γίγνεσθαι λόγους</l>
-<l>μάχας θʼ, ὅταν ποτʼ ἐμπέσωσιν εἰς ἔριν.</l>
-</sp>
-<milestone ed="p" n="378" unit="card"/>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>βούλομαί σʼ εἰπεῖν κακῶς εὖ, βραχέα, μὴ λίαν ἄνω</l>
+<l n="375">πόλεος ὡς ἄρχων ἀνὴρ πᾶς, ξύνεσιν ἢν ἔχων τύχῃ.</l></sp>
+<milestone ed="perseus" unit="card" n="376"/>
+
+<sp><speaker>Χορός</speaker>
+<l n="376">δεινὸν κασιγνήτοισι γίγνεσθαι λόγους</l>
+<l>μάχας θʼ, ὅταν ποτʼ ἐμπέσωσιν εἰς ἔριν.</l></sp>
+<milestone ed="perseus" unit="card" n="378"/>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="378">βούλομαί σʼ εἰπεῖν κακῶς εὖ, βραχέα, μὴ λίαν ἄνω</l>
 <l>βλέφαρα πρὸς τἀναιδὲς ἀγαγών, ἀλλὰ σωφρονεστέρως,</l>
 <l n="380">ὡς ἀδελφὸν ὄντʼ· ἀνὴρ γὰρ χρηστὸς αἰδεῖσθαι φιλεῖ.</l>
 <l>εἰπέ μοι, τί δεινὰ φυσᾷς αἱματηρὸν ὄμμʼ ἔχων;</l>
@@ -798,57 +695,47 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ἐμὲ δὲ συντήξουσι νύκτες ἡμέραι τε δακρύοις,</l>
 <l>ἄνομα δρῶντα κοὐ δίκαια παῖδας οὓς ἐγεινάμην.</l>
 <l n="400">ταῦτά σοι βραχέα λέλεκται καὶ σαφῆ καὶ ῥᾴδια·</l>
-<l>εἰ δὲ μὴ βούλῃ φρονεῖν εὖ, τἄμʼ ἐγὼ θήσω καλῶς.</l>
-</sp>
-</div2>
-<div2 type="dialogue">
-<milestone ed="p" n="402" unit="card"/>
-<sp>
-<speaker>Χορός</speaker>
-<l>οἵδʼ αὖ διάφοροι τῶν πάρος λελεγμένων</l>
-<l>μύθων, καλῶς δʼ ἔχουσι, φείδεσθαι τέκνων.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>αἰαῖ, φίλους ἄρʼ οὐχὶ κεκτήμην τάλας.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="405">εἰ τοὺς φίλους γε μὴ θέλεις ἀπολλύναι.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>δείξεις δὲ ποῦ μοι πατρὸς ἐκ ταὐτοῦ γεγώς;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>συνσωφρονεῖν σοι βούλομʼ, ἀλλʼ οὐ συννοσεῖν.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>ἐς κοινὸν ἀλγεῖν τοῖς φίλοισι χρὴ φίλους.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>εὖ δρῶν παρακάλει μʼ, ἀλλὰ μὴ λυπῶν ἐμέ.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l n="410">οὐκ ἄρα δοκεῖ σοι τάδε πονεῖν σὺν Ἑλλάδι;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>Ἑλλὰς δὲ σὺν σοὶ κατὰ θεὸν νοσεῖ τινα.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>σκήπτρῳ νυν αὔχει, σὸν κασίγνητον προδούς.</l>
+<l>εἰ δὲ μὴ βούλῃ φρονεῖν εὖ, τἄμʼ ἐγὼ θήσω καλῶς.</l></sp>
+</div>
+
+<div type="textpart" subtype="dialogue">
+<milestone ed="perseus" unit="card" n="402"/>
+
+<sp><speaker>Χορός</speaker>
+<l n="402">οἵδʼ αὖ διάφοροι τῶν πάρος λελεγμένων</l>
+<l>μύθων, καλῶς δʼ ἔχουσι, φείδεσθαι τέκνων.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="404">αἰαῖ, φίλους ἄρʼ οὐχὶ κεκτήμην τάλας.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="405">εἰ τοὺς φίλους γε μὴ θέλεις ἀπολλύναι.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="406">δείξεις δὲ ποῦ μοι πατρὸς ἐκ ταὐτοῦ γεγώς;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="407">συνσωφρονεῖν σοι βούλομʼ, ἀλλʼ οὐ συννοσεῖν.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="408">ἐς κοινὸν ἀλγεῖν τοῖς φίλοισι χρὴ φίλους.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="409">εὖ δρῶν παρακάλει μʼ, ἀλλὰ μὴ λυπῶν ἐμέ.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="410">οὐκ ἄρα δοκεῖ σοι τάδε πονεῖν σὺν Ἑλλάδι;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="411">Ἑλλὰς δὲ σὺν σοὶ κατὰ θεὸν νοσεῖ τινα.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="412">σκήπτρῳ νυν αὔχει, σὸν κασίγνητον προδούς.</l>
 <l>ἐγὼ δʼ ἐπʼ ἄλλας εἶμι μηχανάς τινας</l>
-<l>φίλους τʼ ἐπʼ ἄλλους — </l>
-</sp>
-<sp>
-<speaker>Αγγελος Α</speaker>
-<l>ὦ Πανελλήνων ἄναξ,</l>
+<l n="414" part="I">φίλους τʼ ἐπʼ ἄλλους — </l></sp>
+
+<sp><speaker>Αγγελος Α</speaker>
+<l n="414b" part="F">ὦ Πανελλήνων ἄναξ,</l>
 <l n="415">Ἀγάμεμνον, ἥκω παῖδά σοι τὴν σὴν ἄγων,</l>
 <l>ἣν Ἰφιγένειαν ὠνόμαζες ἐν δόμοις.</l>
 <l>μήτηρ δʼ ὁμαρτεῖ, σῆς Κλυταιμήστρας δέμας,</l>
@@ -873,11 +760,10 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>στεφανοῦσθε κρᾶτα καὶ σύ, Μενέλεως ἄναξ,</l>
 <l>ὑμέναιον εὐτρέπιζε καὶ κατὰ στέγας</l>
 <l>λωτὸς βοάσθω καὶ ποδῶν ἔστω κτύπος·</l>
-<l>φῶς γὰρ τόδʼ ἥκει μακάριον τῇ παρθένῳ.</l>
-</sp>
-<milestone ed="p" n="440" unit="card"/>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
+<l>φῶς γὰρ τόδʼ ἥκει μακάριον τῇ παρθένῳ.</l></sp>
+<milestone ed="perseus" unit="card" n="440"/>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
 <l n="440">ἐπῄνεσʼ, ἀλλὰ στεῖχε δωμάτων ἔσω·</l>
 <l>τὰ δʼ ἄλλʼ ἰούσης τῆς τύχης ἔσται καλῶς.</l>
 <l>οἴμοι, τί φῶ δύστηνος; ἄρξωμαι πόθεν;</l>
@@ -906,25 +792,21 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="465">παρὼν δʼ Ὀρέστης ἐγγὺς ἀναβοήσεται</l>
 <l>οὐ συνετὰ συνετῶς· ἔτι γάρ ἐστι νήπιος.</l>
 <l>αἰαῖ, τὸν Ἑλένης ὥς μʼ ἀπώλεσεν γάμον</l>
-<l>γήμας ὁ Πριάμου Πάρις, ὃς εἴργασται τάδε.</l>
-</sp>
-<sp>
-<speaker>Χορός</speaker>
-<l>κἀγὼ κατῴκτιρʼ, ὡς γυναῖκα δεῖ ξένην</l>
-<l n="470">ὑπὲρ τυράννων συμφορᾶς καταστένειν.</l>
-</sp>
-<milestone ed="p" n="471" unit="card"/>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>ἀδελφέ, δός μοι δεξιᾶς τῆς σῆς θιγεῖν.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>δίδωμι· σὸν γὰρ τὸ κράτος, ἄθλιος δʼ ἐγώ.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>Πέλοπα κατόμνυμʼ, ὃς πατὴρ τοὐμοῦ πατρὸς</l>
+<l>γήμας ὁ Πριάμου Πάρις, ὃς εἴργασται τάδε.</l></sp>
+
+<sp><speaker>Χορός</speaker>
+<l n="469">κἀγὼ κατῴκτιρʼ, ὡς γυναῖκα δεῖ ξένην</l>
+<l n="470">ὑπὲρ τυράννων συμφορᾶς καταστένειν.</l></sp>
+<milestone ed="perseus" unit="card" n="471"/>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="471">ἀδελφέ, δός μοι δεξιᾶς τῆς σῆς θιγεῖν.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="472">δίδωμι· σὸν γὰρ τὸ κράτος, ἄθλιος δʼ ἐγώ.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="473">Πέλοπα κατόμνυμʼ, ὃς πατὴρ τοὐμοῦ πατρὸς</l>
 <l>τοῦ σοῦ τʼ ἐκλήθη, τὸν τεκόντα τʼ Ἀτρέα,</l>
 <l n="475">ἦ μὴν ἐρεῖν σοι τἀπὸ καρδίας σαφῶς</l>
 <l>καὶ μὴ ʼπίτηδες μηδέν, ἀλλʼ ὅσον φρονῶ.</l>
@@ -954,87 +836,69 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="500">ἀλλʼ ἐς μεταβολὰς ἦλθον ἀπὸ δεινῶν λόγων;</l>
 <l>εἰκὸς πέπονθα· τὸν ὁμόθεν πεφυκότα</l>
 <l>στέργων μετέπεσον. ἀνδρὸς οὐ κακοῦ τροπαὶ</l>
-<l>τοιαίδε, χρῆσθαι τοῖσι βελτίστοις ἀεί.</l>
-</sp>
-<sp>
-<speaker>Χορός</speaker>
-<l>γενναῖʼ ἔλεξας Ταντάλῳ τε τῷ Διὸς</l>
-<l n="505">πρέποντα· προγόνους οὐ καταισχύνεις σέθεν.</l>
-</sp>
-<milestone ed="p" n="506" unit="card"/>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>αἰνῶ σε, Μενέλαʼ, ὅτι παρὰ γνώμην ἐμὴν</l>
+<l>τοιαίδε, χρῆσθαι τοῖσι βελτίστοις ἀεί.</l></sp>
+
+<sp><speaker>Χορός</speaker>
+<l n="504">γενναῖʼ ἔλεξας Ταντάλῳ τε τῷ Διὸς</l>
+<l n="505">πρέποντα· προγόνους οὐ καταισχύνεις σέθεν.</l></sp>
+<milestone ed="perseus" unit="card" n="506"/>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="506">αἰνῶ σε, Μενέλαʼ, ὅτι παρὰ γνώμην ἐμὴν</l>
 <l>ὑπέθηκας ὀρθῶς τοὺς λόγους σοῦ τʼ ἀξίως.</l>
 <l>ταραχὴ δʼ ἀδελφῶν διά τʼ ἔρωτα γίγνεται</l>
 <l>πλεονεξίαν τε δωμάτων· ἀπέπτυσα</l>
 <l n="510">τοιάνδε συγγένειαν ἀλλήλοιν πικράν.</l>
 <l>ἀλλʼ ἥκομεν γὰρ εἰς ἀναγκαίας τύχας,</l>
-<l>θυγατρὸς αἱματηρὸν ἐκπρᾶξαι φόνον.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>πῶς; τίς δʼ ἀναγκάσει σε τήν γε σὴν κτανεῖν;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἅπας Ἀχαιῶν σύλλογος στρατεύματος.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l n="515">οὔκ, ἤν νιν εἰς Ἄργος γʼ ἀποστείλῃς πάλιν.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>λάθοιμι τοῦτʼ ἄν. ἀλλʼ ἐκεῖνʼ οὐ λήσομεν.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>τὸ ποῖον; οὔτοι χρὴ λίαν ταρβεῖν ὄχλον.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>Κάλχας ἐρεῖ μαντεύματʼ Ἀργείων στρατῷ.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>οὔκ, ἢν θάνῃ γε πρόσθε· τοῦτο δʼ εὐμαρές.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="520">τὸ μαντικὸν πᾶν σπέρμα φιλότιμον κακόν.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>† κοὐδέν γʼ ἄχρηστον, οὐδὲ χρήσιμον παρόν. †</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἐκεῖνο δʼ οὐ δέδοικας ὃ ἔμʼ ἐσέρχεται;</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>ὃν μὴ σὺ φράζεις, πῶς ὑπολάβοιμʼ ἂν λόγον;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>τὸ Σισύφειον σπέρμα πάντʼ οἶδεν τάδε.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l n="525">οὐκ ἔστʼ Ὀδυσσεὺς ὅ τι σὲ κἀμὲ πημανεῖ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ποικίλος ἀεὶ πέφυκε τοῦ τʼ ὄχλου μέτα.</l>
-</sp>
-<sp>
-<speaker>Μενέλαος</speaker>
-<l>φιλοτιμίᾳ μὲν ἐνέχεται, δεινῷ κακῷ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>οὐκ οὖν δοκεῖς νιν στάντʼ ἐν Ἀργείοις μέσοις</l>
+<l>θυγατρὸς αἱματηρὸν ἐκπρᾶξαι φόνον.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="513">πῶς; τίς δʼ ἀναγκάσει σε τήν γε σὴν κτανεῖν;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="514">ἅπας Ἀχαιῶν σύλλογος στρατεύματος.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="515">οὔκ, ἤν νιν εἰς Ἄργος γʼ ἀποστείλῃς πάλιν.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="516">λάθοιμι τοῦτʼ ἄν. ἀλλʼ ἐκεῖνʼ οὐ λήσομεν.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="517">τὸ ποῖον; οὔτοι χρὴ λίαν ταρβεῖν ὄχλον.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="518">Κάλχας ἐρεῖ μαντεύματʼ Ἀργείων στρατῷ.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="519">οὔκ, ἢν θάνῃ γε πρόσθε· τοῦτο δʼ εὐμαρές.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="520">τὸ μαντικὸν πᾶν σπέρμα φιλότιμον κακόν.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="521"><sic>κοὐδέν γʼ ἄχρηστον, οὐδὲ χρήσιμον παρόν.</sic></l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="522">ἐκεῖνο δʼ οὐ δέδοικας ὃ ἔμʼ ἐσέρχεται;</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="523">ὃν μὴ σὺ φράζεις, πῶς ὑπολάβοιμʼ ἂν λόγον;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="524">τὸ Σισύφειον σπέρμα πάντʼ οἶδεν τάδε.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="525">οὐκ ἔστʼ Ὀδυσσεὺς ὅ τι σὲ κἀμὲ πημανεῖ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="526">ποικίλος ἀεὶ πέφυκε τοῦ τʼ ὄχλου μέτα.</l></sp>
+
+<sp><speaker>Μενέλαος</speaker>
+<l n="527">φιλοτιμίᾳ μὲν ἐνέχεται, δεινῷ κακῷ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="528">οὐκ οὖν δοκεῖς νιν στάντʼ ἐν Ἀργείοις μέσοις</l>
 <l>λέξειν ἃ Κάλχας θέσφατʼ ἐξηγήσατο,</l>
 <l n="530">κἄμʼ ὡς ὑπέστην θῦμα, κᾆτʼ ἐψευδόμην,</l>
 <l>Ἀρτέμιδι θύσειν; οὐ ξυναρπάσας στρατόν,</l>
@@ -1048,16 +912,17 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ἐλθών, ὅπως ἂν μὴ Κλυταιμήστρα τάδε</l>
 <l n="540">μάθῃ, πρὶν Ἅιδῃ παῖδʼ ἐμὴν προσθῶ λαβών,</l>
 <l>ὡς ἐπʼ ἐλαχίστοις δακρύοις πράσσω κακῶς.</l>
-<l>ὑμεῖς τε σιγήν, ὦ ξέναι, φυλάσσετε.</l>
-</sp>
-</div2>
-</div1>
-<milestone ed="p" n="543" unit="card"/>
-<div1 type="choral">
-<div2 type="strophe" n="1">
-<sp>
-<speaker>Χορός</speaker>
-<l>μάκαρες οἳ μετρίας θεοῦ</l>
+<l>ὑμεῖς τε σιγήν, ὦ ξέναι, φυλάσσετε.</l></sp>
+</div>
+</div>
+<milestone ed="perseus" unit="card" n="543"/>
+
+<div type="textpart" subtype="choral">
+
+<div type="textpart" subtype="strophe" n="1">
+
+<sp><speaker>Χορός</speaker>
+<l n="543">μάκαρες οἳ μετρίας θεοῦ</l>
 <l>μετά τε σωφροσύνας μετέ-</l>
 <l n="545">σχον λέκτρων Ἀφροδίτας,</l>
 <l>γαλανείᾳ χρησάμενοι</l>
@@ -1071,14 +936,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>εἴη δέ μοι μετρία μὲν</l>
 <l n="555">χάρις, πόθοι δʼ ὅσιοι,</l>
 <l>καὶ μετέχοιμι τᾶς Ἀφροδί-</l>
-<l>τας, πολλὰν δʼ ἀποθείμαν.</l>
-</sp>
-<milestone ed="p" n="558" unit="card"/>
-</div2>
-<div2 type="antistrophe" n="1">
-<sp>
-<speaker>Χορός</speaker>
-<l>διάφοροι δὲ φύσεις βροτῶν,</l>
+<l>τας, πολλὰν δʼ ἀποθείμαν.</l></sp>
+<milestone ed="perseus" unit="card" n="558"/>
+</div>
+
+<div type="textpart" subtype="antistrophe" n="1">
+
+<sp><speaker>Χορός</speaker>
+<l n="558">διάφοροι δὲ φύσεις βροτῶν,</l>
 <l>διάφοροι δὲ τρόποι· τὸ δʼ ὀρ-</l>
 <l n="560">θῶς ἐσθλὸν σαφὲς αἰεί·</l>
 <l>τροφαί θʼ αἱ παιδευόμεναι</l>
@@ -1092,14 +957,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>γυναιξὶ μὲν κατὰ Κύπριν</l>
 <l n="570">κρυπτάν, ἐν ἀνδράσι δʼ αὖ</l>
 <l>κόσμος ἐνὼν ὁ μυριοπλη-</l>
-<l>θὴς μείζω πόλιν αὔξει.</l>
-</sp>
-<milestone ed="p" n="573" unit="card"/>
-</div2>
-<div2 type="epode">
-<sp>
-<speaker>Χορός</speaker>
-<l>ἔμολες, ὦ Πάρις, ᾗτε σύ γε</l>
+<l>θὴς μείζω πόλιν αὔξει.</l></sp>
+<milestone ed="perseus" unit="card" n="573"/>
+</div>
+
+<div type="textpart" subtype="epode">
+
+<sp><speaker>Χορός</speaker>
+<l n="573">ἔμολες, ὦ Πάρις, ᾗτε σύ γε</l>
 <l>βουκόλος ἀργενναῖς ἐτράφης</l>
 <l n="575">Ἰδαίαις παρὰ μόσχοις,</l>
 <l>βάρβαρα συρίζων, Φρυγίων</l>
@@ -1115,17 +980,17 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>αὐτὸς ἐπτοάθης.</l>
 <l>ὅθεν ἔρις ἔριν</l>
 <l>Ἑλλάδα σὺν δορὶ ναυσί τʼ ἄγει</l>
-<l>
-<del>ἐς</del> Τροίας πέργαμα <gap/>
-</l>
-</sp>
-</div2>
-</div1>
-<milestone ed="p" n="590" unit="card"/>
-<div1 type="episode">
-<div2 type="anapests">
-<sp>
-<speaker>Χορός ανδρων Αργειων</speaker>
+<l><del>ἐς</del> Τροίας πέργαμα <gap reason="lost" rend=". . . . . . "/>
+</l></sp>
+</div>
+</div>
+<milestone ed="perseus" unit="card" n="590"/>
+
+<div type="textpart" subtype="episode">
+
+<div type="textpart" subtype="anapests">
+
+<sp><speaker>Χορός ανδρων Αργειων</speaker>
 <l n="590">ἰὼ ἰώ· μεγάλαι μεγάλων</l>
 <l>εὐδαιμονίαι· τὴν τοῦ βασιλέως</l>
 <l>ἴδετʼ Ἰφιγένειαν, ἄνασσαν ἐμήν,</l>
@@ -1133,26 +998,25 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ὡς ἐκ μεγάλων ἐβλαστήκασʼ</l>
 <l n="595">ἐπί τʼ εὐμήκεις ἥκουσι τύχας.</l>
 <l>θεοί γʼ οἱ κρείσσους οἵ τʼ ὀλβοφόροι</l>
-<l>τοῖς οὐκ εὐδαίμοσι θνητῶν.</l>
-</sp>
-</div2>
-<div2 type="anapests">
-<sp>
-<speaker>Χορός</speaker>
-<l>στῶμεν, Χαλκίδος ἔκγονα θρέμματα,</l>
+<l>τοῖς οὐκ εὐδαίμοσι θνητῶν.</l></sp>
+</div>
+
+<div type="textpart" subtype="anapests">
+
+<sp><speaker>Χορός</speaker>
+<l n="598">στῶμεν, Χαλκίδος ἔκγονα θρέμματα,</l>
 <l>τὴν βασίλειαν δεξώμεθʼ ὄχων</l>
 <l n="600">ἄπο μὴ σφαλερῶς ἐπὶ γαῖαν,</l>
 <l>ἀγανῶς δὲ χεροῖν μαλακῇ ῥώμῃ,</l>
-<l>μὴ ταρβήσῃ † νεωστί μοι μολὸν</l>
-<l>κλεινὸν τέκνον Ἀγαμέμνονος,</l>
-<l>μηδὲ θόρυβον † μηδʼ ἔκπληξιν</l>
+<l>μὴ ταρβήσῃ <sic>νεωστί μοι μολὸν</sic></l>
+<l><sic>κλεινὸν τέκνον Ἀγαμέμνονος,</sic></l>
+<l><sic>μηδὲ θόρυβον</sic> μηδʼ ἔκπληξιν</l>
 <l n="605">ταῖς Ἀργείαις</l>
-<l>ξεῖναι ξείναις παρέχωμεν.</l>
-</sp>
-<milestone ed="p" n="607" unit="card"/>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὄρνιθα μὲν τόνδʼ αἴσιον ποιούμεθα,</l>
+<l>ξεῖναι ξείναις παρέχωμεν.</l></sp>
+<milestone ed="perseus" unit="card" n="607"/>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="607">ὄρνιθα μὲν τόνδʼ αἴσιον ποιούμεθα,</l>
 <l>τὸ σόν τε χρηστὸν καὶ λόγων εὐφημίαν·</l>
 <l>ἐλπίδα δʼ ἔχω τινʼ ὡς ἐπʼ ἐσθλοῖσιν γάμοις</l>
 <l n="610">πάρειμι νυμφαγωγός. ἀλλʼ ὀχημάτων</l>
@@ -1175,188 +1039,142 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ἑξῆς κάθησο δεῦρό μου ποδός, τέκνον·</l>
 <l>πρὸς μητέρʼ, Ἰφιγένεια, μακαρίαν δέ με</l>
 <l>ξέναισι ταῖσδε πλησία σταθεῖσα δός,</l>
-<l n="630">καὶ — δεῦρο δὴ — πατέρα πρόσειπε σὸν φίλον.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ὦ μῆτερ, ὑποδραμοῦσά σʼ· ὀργισθῇς δὲ μή·</l>
-<l>πρὸς στέρνα πατρὸς στέρνα τἀμὰ περιβαλῶ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὦ σέβας ἐμοὶ μέγιστον, Ἀγαμέμνων ἄναξ,</l>
-<l>ἥκομεν, ἐφετμαῖς οὐκ ἀπιστοῦσαι σέθεν.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l n="635">
-<del>ἐγὼ δὲ βούλομαι τὰ σὰ στέρνʼ, ὦ πάτερ,</del>
-</l>
-<l>
-<del>ὑποδραμοῦσα προσβαλεῖν διὰ χρόνου·</del>
-</l>
-<l>ποθῶ γὰρ ὄμμα δὴ σόν. ὀργισθῇς δὲ μή.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἀλλʼ, ὦ τέκνον, χρή· φιλοπάτωρ δʼ ἀεί ποτʼ εἶ</l>
-<l>μάλιστα παίδων τῷδʼ ὅσους ἐγὼ ʼτεκον.</l>
-</sp>
-<milestone ed="p" n="640" unit="card"/>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l n="640">ὦ πάτερ, ἐσεῖδόν σʼ ἀσμένη πολλῷ χρόνῳ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>καὶ γὰρ πατὴρ σέ· τόδʼ ἴσον ὑπὲρ ἀμφοῖν λέγεις.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>χαῖρʼ· εὖ δέ μʼ ἀγαγὼν πρὸς σʼ ἐποίησας, πάτερ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>οὐκ οἶδʼ ὅπως φῶ τοῦτο καὶ μὴ φῶ, τέκνον.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ἔα·</l>
-<l>ὡς οὐ βλέπεις ἕκηλον ἄσμενός μʼ ἰδών.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="645">πόλλʼ ἀνδρὶ βασιλεῖ καὶ στρατηλάτῃ μέλει.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>παρʼ ἐμοὶ γενοῦ νῦν, μὴ ʼπὶ φροντίδας τρέπου.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἀλλʼ εἰμὶ παρὰ σοὶ νῦν ἅπας κοὐκ ἄλλοθι.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>μέθες νυν ὀφρὺν ὄμμα τʼ ἔκτεινον φίλον.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἰδού, γέγηθά σʼ ὡς γέγηθʼ ὁρῶν, τέκνον.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l n="650">κἄπειτα λείβεις δάκρυʼ ἀπʼ ὀμμάτων σέθεν;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>μακρὰ γὰρ ἡμῖν ἡ ʼπιοῦσʼ ἀπουσία.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>† οὐκ οἶδʼ ὅ τι φῄς, οὐκ οἶδα, φίλτατʼ ἐμοὶ πάτερ. †</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>συνετὰ λέγουσα μᾶλλον εἰς οἶκτόν μʼ ἄγεις.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ἀσύνετά νυν ἐροῦμεν, εἰ σέ γʼ εὐφρανῶ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="655">παπαῖ. τὸ σιγᾶν οὐ σθένω· σὲ δʼ ᾔνεσα.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>μένʼ, ὦ πάτερ, κατʼ οἶκον ἐπὶ τέκνοις σέθεν.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>θέλω γε· τὸ θέλειν δʼ οὐκ ἔχων ἀλγύνομαι.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ὄλοιντο λόγχαι καὶ τὰ Μενέλεω κακά.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἄλλους ὀλεῖ πρόσθʼ ἃ ἐμὲ διολέσαντʼ ἔχει.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l n="660">ὡς πολὺν ἀπῆσθα χρόνον ἐν Αὐλίδος μυχοῖς.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>καὶ νῦν γέ μʼ ἴσχει δή τι μὴ στέλλειν στρατόν.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ποῦ τοὺς Φρύγας λέγουσιν ᾠκίσθαι, πάτερ;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>οὗ μήποτʼ οἰκεῖν ὤφελʼ ὁ Πριάμου Πάρις.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>μακρὰν ἀπαίρεις, ὦ πάτερ, λιπὼν ἐμέ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="665">† εἰς ταὐτόν, ὦ θύγατερ, ἥκεις σῷ πατρί. †</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>φεῦ·</l>
-<l>εἴθʼ ἦν καλόν μοι σοί τʼ ἄγειν σύμπλουν ἐμέ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἔτʼ ἔστι καὶ σοὶ πλοῦς, ἵνʼ ἀμμνήσῃ πατρός.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>σὺν μητρὶ πλεύσασʼ ἢ μόνη πορεύσομαι;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>μόνη, μονωθεῖσʼ ἀπὸ πατρὸς καὶ μητέρος.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l n="670">οὔ πού μʼ ἐς ἄλλα δώματʼ οἰκίζεις, πάτερ;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἐατέʼ· οὐ χρὴ τοιάδʼ εἰδέναι κόρας.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>σπεῦδʼ ἐκ Φρυγῶν μοι, θέμενος εὖ τἀκεῖ, πάτερ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>θῦσαί με θυσίαν πρῶτα δεῖ τινʼ ἐνθάδε.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ἀλλὰ ξὺν ἱεροῖς χρὴ τό γʼ εὐσεβὲς σκοπεῖν.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="675">εἴσῃ σύ· χερνίβων γὰρ ἑστήξῃ πέλας.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>στήσομεν ἄρʼ ἀμφὶ βωμόν, ὦ πάτερ, χορούς;</l>
-</sp>
-<milestone ed="p" n="677" unit="card"/>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ζηλῶ σὲ μᾶλλον ἢ ʼμὲ τοῦ μηδὲν φρονεῖν.</l>
+<l n="630">καὶ — δεῦρο δὴ — πατέρα πρόσειπε σὸν φίλον.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="631">ὦ μῆτερ, ὑποδραμοῦσά σʼ· ὀργισθῇς δὲ μή·</l>
+<l>πρὸς στέρνα πατρὸς στέρνα τἀμὰ περιβαλῶ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="633">ὦ σέβας ἐμοὶ μέγιστον, Ἀγαμέμνων ἄναξ,</l>
+<l>ἥκομεν, ἐφετμαῖς οὐκ ἀπιστοῦσαι σέθεν.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="635"><del>ἐγὼ δὲ βούλομαι τὰ σὰ στέρνʼ, ὦ πάτερ,</del></l>
+<l><del>ὑποδραμοῦσα προσβαλεῖν διὰ χρόνου·</del></l>
+<l>ποθῶ γὰρ ὄμμα δὴ σόν. ὀργισθῇς δὲ μή.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="638">ἀλλʼ, ὦ τέκνον, χρή· φιλοπάτωρ δʼ ἀεί ποτʼ εἶ</l>
+<l>μάλιστα παίδων τῷδʼ ὅσους ἐγὼ ʼτεκον.</l></sp>
+<milestone ed="perseus" unit="card" n="640"/>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="640">ὦ πάτερ, ἐσεῖδόν σʼ ἀσμένη πολλῷ χρόνῳ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="641">καὶ γὰρ πατὴρ σέ· τόδʼ ἴσον ὑπὲρ ἀμφοῖν λέγεις.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="642">χαῖρʼ· εὖ δέ μʼ ἀγαγὼν πρὸς σʼ ἐποίησας, πάτερ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="643">οὐκ οἶδʼ ὅπως φῶ τοῦτο καὶ μὴ φῶ, τέκνον.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="644">ἔα·</l>
+<l n="644a">ὡς οὐ βλέπεις ἕκηλον ἄσμενός μʼ ἰδών.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="645">πόλλʼ ἀνδρὶ βασιλεῖ καὶ στρατηλάτῃ μέλει.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="646">παρʼ ἐμοὶ γενοῦ νῦν, μὴ ʼπὶ φροντίδας τρέπου.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="647">ἀλλʼ εἰμὶ παρὰ σοὶ νῦν ἅπας κοὐκ ἄλλοθι.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="648">μέθες νυν ὀφρὺν ὄμμα τʼ ἔκτεινον φίλον.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="649">ἰδού, γέγηθά σʼ ὡς γέγηθʼ ὁρῶν, τέκνον.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="650">κἄπειτα λείβεις δάκρυʼ ἀπʼ ὀμμάτων σέθεν;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="651">μακρὰ γὰρ ἡμῖν ἡ ʼπιοῦσʼ ἀπουσία.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="652"><sic>οὐκ οἶδʼ ὅ τι φῄς, οὐκ οἶδα, φίλτατʼ ἐμοὶ πάτερ.</sic></l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="653">συνετὰ λέγουσα μᾶλλον εἰς οἶκτόν μʼ ἄγεις.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="654">ἀσύνετά νυν ἐροῦμεν, εἰ σέ γʼ εὐφρανῶ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="655">παπαῖ. τὸ σιγᾶν οὐ σθένω· σὲ δʼ ᾔνεσα.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="656">μένʼ, ὦ πάτερ, κατʼ οἶκον ἐπὶ τέκνοις σέθεν.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="657">θέλω γε· τὸ θέλειν δʼ οὐκ ἔχων ἀλγύνομαι.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="658">ὄλοιντο λόγχαι καὶ τὰ Μενέλεω κακά.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="659">ἄλλους ὀλεῖ πρόσθʼ ἃ ἐμὲ διολέσαντʼ ἔχει.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="660">ὡς πολὺν ἀπῆσθα χρόνον ἐν Αὐλίδος μυχοῖς.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="661">καὶ νῦν γέ μʼ ἴσχει δή τι μὴ στέλλειν στρατόν.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="662">ποῦ τοὺς Φρύγας λέγουσιν ᾠκίσθαι, πάτερ;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="663">οὗ μήποτʼ οἰκεῖν ὤφελʼ ὁ Πριάμου Πάρις.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="664">μακρὰν ἀπαίρεις, ὦ πάτερ, λιπὼν ἐμέ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="665"><sic>εἰς ταὐτόν, ὦ θύγατερ, ἥκεις σῷ πατρί.</sic></l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="666">φεῦ·</l>
+<l n="666a">εἴθʼ ἦν καλόν μοι σοί τʼ ἄγειν σύμπλουν ἐμέ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="667">ἔτʼ ἔστι καὶ σοὶ πλοῦς, ἵνʼ ἀμμνήσῃ πατρός.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="668">σὺν μητρὶ πλεύσασʼ ἢ μόνη πορεύσομαι;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="669">μόνη, μονωθεῖσʼ ἀπὸ πατρὸς καὶ μητέρος.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="670">οὔ πού μʼ ἐς ἄλλα δώματʼ οἰκίζεις, πάτερ;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="671">ἐατέʼ· οὐ χρὴ τοιάδʼ εἰδέναι κόρας.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="672">σπεῦδʼ ἐκ Φρυγῶν μοι, θέμενος εὖ τἀκεῖ, πάτερ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="673">θῦσαί με θυσίαν πρῶτα δεῖ τινʼ ἐνθάδε.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="674">ἀλλὰ ξὺν ἱεροῖς χρὴ τό γʼ εὐσεβὲς σκοπεῖν.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="675">εἴσῃ σύ· χερνίβων γὰρ ἑστήξῃ πέλας.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="676">στήσομεν ἄρʼ ἀμφὶ βωμόν, ὦ πάτερ, χορούς;</l></sp>
+<milestone ed="perseus" unit="card" n="677"/>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="677">ζηλῶ σὲ μᾶλλον ἢ ʼμὲ τοῦ μηδὲν φρονεῖν.</l>
 <l>χώρει δὲ μελάθρων ἐντός — ὀφθῆναι κόραις</l>
 <l>πικρόν — φίλημα δοῦσα δεξιάν τέ μοι,</l>
 <l n="680">μέλλουσα δαρὸν πατρὸς ἀποικήσειν χρόνον.</l>
@@ -1369,203 +1187,154 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>μέλλων Ἀχιλλεῖ θυγατέρʼ ἐκδώσειν ἐμήν.</l>
 <l>ἀποστολαὶ γὰρ μακάριαι μέν, ἀλλʼ ὅμως</l>
 <l>δάκνουσι τοὺς τεκόντας, ὅταν ἄλλοις δόμοις</l>
-<l n="690">παῖδας παραδιδῷ πολλὰ μοχθήσας πατήρ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οὐχ ὧδʼ ἀσύνετός εἰμι, πείσεσθαι δέ με</l>
+<l n="690">παῖδας παραδιδῷ πολλὰ μοχθήσας πατήρ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="691">οὐχ ὧδʼ ἀσύνετός εἰμι, πείσεσθαι δέ με</l>
 <l>καὐτὴν δόκει τάδʼ, ὥστε μή σε νουθετεῖν,</l>
 <l>ὅταν σὺν ὑμεναίοισιν ἐξάγω κόρην·</l>
 <l>ἀλλʼ ὁ νόμος αὐτὰ τῷ χρόνῳ συνισχανεῖ.</l>
 <l n="695">τοὔνομα μὲν οὖν παῖδʼ οἶδʼ ὅτῳ κατῄνεσας,</l>
-<l>γένους δʼ ὁποίου χὡπόθεν, μαθεῖν θέλω.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>Αἴγινα θυγάτηρ ἐγένετʼ Ἀσωποῦ πατρός.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ταύτην δὲ θνητῶν ἢ θεῶν ἔζευξε τίς;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>Ζεύς· Αἰακὸν δʼ ἔφυσεν, Οἰνώνης πρόμον.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="700">τὰ δʼ Αἰακοῦ παῖς τίς κατέσχε δώματα;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>Πηλεύς· ὁ Πηλεὺς δʼ ἔσχε Νηρέως κόρην.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>θεοῦ διδόντος, ἢ βίᾳ θεῶν λαβών;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>Ζεὺς ἠγγύησε καὶ δίδωσʼ ὁ κύριος.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>γαμεῖ δὲ ποῦ νιν; ἦ κατʼ οἶδμα πόντιον;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="705">Χείρων ἵνʼ οἰκεῖ σεμνὰ Πηλίου βάθρα.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οὗ φασι Κενταύρειον ᾠκίσθαι γένος;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἐνταῦθʼ ἔδαισαν Πηλέως γάμους θεοί.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>Θέτις δʼ ἔθρεψεν ἢ πατὴρ Ἀχιλλέα;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>Χείρων, ἵνʼ ἤθη μὴ μάθοι κακῶν βροτῶν.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
+<l>γένους δʼ ὁποίου χὡπόθεν, μαθεῖν θέλω.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="697">Αἴγινα θυγάτηρ ἐγένετʼ Ἀσωποῦ πατρός.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="698">ταύτην δὲ θνητῶν ἢ θεῶν ἔζευξε τίς;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="699">Ζεύς· Αἰακὸν δʼ ἔφυσεν, Οἰνώνης πρόμον.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="700">τὰ δʼ Αἰακοῦ παῖς τίς κατέσχε δώματα;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="701">Πηλεύς· ὁ Πηλεὺς δʼ ἔσχε Νηρέως κόρην.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="702">θεοῦ διδόντος, ἢ βίᾳ θεῶν λαβών;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="703">Ζεὺς ἠγγύησε καὶ δίδωσʼ ὁ κύριος.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="704">γαμεῖ δὲ ποῦ νιν; ἦ κατʼ οἶδμα πόντιον;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="705">Χείρων ἵνʼ οἰκεῖ σεμνὰ Πηλίου βάθρα.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="706">οὗ φασι Κενταύρειον ᾠκίσθαι γένος;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="707">ἐνταῦθʼ ἔδαισαν Πηλέως γάμους θεοί.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="708">Θέτις δʼ ἔθρεψεν ἢ πατὴρ Ἀχιλλέα;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="709">Χείρων, ἵνʼ ἤθη μὴ μάθοι κακῶν βροτῶν.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
 <l n="710">φεῦ·</l>
-<l>σοφός γʼ ὁ θρέψας χὡ διδοὺς σοφώτερος.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>τοιόσδε παιδὸς σῆς ἀνὴρ ἔσται πόσις.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οὐ μεμπτός. οἰκεῖ δʼ ἄστυ ποῖον Ἑλλάδος;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>Ἀπιδανὸν ἀμφὶ ποταμὸν ἐν Φθίας ὅροις.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἐκεῖσʼ ἀπάξει σὴν ἐμήν τε παρθένον;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="715">κείνῳ μελήσει ταῦτα, τῷ κεκτημένῳ.</l>
-</sp>
-<milestone ed="p" n="716" unit="card"/>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἀλλʼ εὐτυχοίτην. τίνι δʼ ἐν ἡμέρᾳ γαμεῖ;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ὅταν σελήνης εὐτυχὴς ἔλθῃ κύκλος.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>προτέλεια δʼ ἤδη παιδὸς ἔσφαξας θεᾷ;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>μέλλω· ʼπὶ ταύτῃ καὶ καθέσταμεν τύχῃ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="720">κἄπειτα δαίσεις τοὺς γάμους ἐς ὕστερον;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>θύσας γε θύμαθʼ ἃ ἐμὲ χρὴ θῦσαι θεοῖς.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἡμεῖς δὲ θοίνην ποῦ γυναιξὶ θήσομεν;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἐνθάδε παρʼ εὐπρύμνοισιν Ἀργείων πλάταις.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>καλῶς ἀναγκαίως τε· συνενέγκοι δʼ ὅμως.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="725">οἶσθʼ οὖν ὃ δρᾶσον, ὦ γύναι; πιθοῦ δέ μοι.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τί χρῆμα; πείθεσθαι γὰρ εἴθισμαι σέθεν.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἡμεῖς μὲν ἐνθάδʼ, οὗπέρ ἐσθʼ ὁ νυμφίος <gap/>
-</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>μητρὸς τί χωρὶς δράσεθʼ, ἃ ἐμὲ δρᾶν χρεών;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἐκδώσομεν σὴν παῖδα Δαναϊδῶν μέτα.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="730">ἡμᾶς δὲ ποῦ χρὴ τηνικαῦτα τυγχάνειν;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>χώρει πρὸς Ἄργος παρθένους τε τημέλει.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>λιποῦσα παῖδα; τίς δʼ ἀνασχήσει φλόγα;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἐγὼ παρέξω φῶς ὃ νυμφίοις πρέπει.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οὐχ ὁ νόμος οὗτος οὐδὲ φαῦλʼ ἡγητέα.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="735">οὐ καλὸν ἐν ὄχλῳ σʼ ἐξομιλεῖσθαι στρατοῦ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>καλὸν τεκοῦσαν τἀμά μʼ ἐκδοῦναι τέκνα.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>καὶ τάς γʼ ἐν οἴκῳ μὴ μόνας εἶναι κόρας.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὀχυροῖσι παρθενῶσι φρουροῦνται καλῶς.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>πιθοῦ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>μὰ τὴν ἄνασσαν Ἀργείαν θεάν.</l>
+<l n="710a">σοφός γʼ ὁ θρέψας χὡ διδοὺς σοφώτερος.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="711">τοιόσδε παιδὸς σῆς ἀνὴρ ἔσται πόσις.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="712">οὐ μεμπτός. οἰκεῖ δʼ ἄστυ ποῖον Ἑλλάδος;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="713">Ἀπιδανὸν ἀμφὶ ποταμὸν ἐν Φθίας ὅροις.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="714">ἐκεῖσʼ ἀπάξει σὴν ἐμήν τε παρθένον;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="715">κείνῳ μελήσει ταῦτα, τῷ κεκτημένῳ.</l></sp>
+<milestone ed="perseus" unit="card" n="716"/>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="716">ἀλλʼ εὐτυχοίτην. τίνι δʼ ἐν ἡμέρᾳ γαμεῖ;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="717">ὅταν σελήνης εὐτυχὴς ἔλθῃ κύκλος.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="718">προτέλεια δʼ ἤδη παιδὸς ἔσφαξας θεᾷ;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="719">μέλλω· ʼπὶ ταύτῃ καὶ καθέσταμεν τύχῃ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="720">κἄπειτα δαίσεις τοὺς γάμους ἐς ὕστερον;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="721">θύσας γε θύμαθʼ ἃ ἐμὲ χρὴ θῦσαι θεοῖς.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="722">ἡμεῖς δὲ θοίνην ποῦ γυναιξὶ θήσομεν;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="723">ἐνθάδε παρʼ εὐπρύμνοισιν Ἀργείων πλάταις.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="724">καλῶς ἀναγκαίως τε· συνενέγκοι δʼ ὅμως.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="725">οἶσθʼ οὖν ὃ δρᾶσον, ὦ γύναι; πιθοῦ δέ μοι.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="726">τί χρῆμα; πείθεσθαι γὰρ εἴθισμαι σέθεν.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="727">ἡμεῖς μὲν ἐνθάδʼ, οὗπέρ ἐσθʼ ὁ νυμφίος—</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="728">μητρὸς τί χωρὶς δράσεθʼ, ἃ ἐμὲ δρᾶν χρεών;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="729">ἐκδώσομεν σὴν παῖδα Δαναϊδῶν μέτα.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="730">ἡμᾶς δὲ ποῦ χρὴ τηνικαῦτα τυγχάνειν;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="731">χώρει πρὸς Ἄργος παρθένους τε τημέλει.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="732">λιποῦσα παῖδα; τίς δʼ ἀνασχήσει φλόγα;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="733">ἐγὼ παρέξω φῶς ὃ νυμφίοις πρέπει.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="734">οὐχ ὁ νόμος οὗτος οὐδὲ φαῦλʼ ἡγητέα.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="735">οὐ καλὸν ἐν ὄχλῳ σʼ ἐξομιλεῖσθαι στρατοῦ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="736">καλὸν τεκοῦσαν τἀμά μʼ ἐκδοῦναι τέκνα.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="737">καὶ τάς γʼ ἐν οἴκῳ μὴ μόνας εἶναι κόρας.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="738">ὀχυροῖσι παρθενῶσι φρουροῦνται καλῶς.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="739" part="I">πιθοῦ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="730b" part="F">μὰ τὴν ἄνασσαν Ἀργείαν θεάν.</l>
 <l n="740">ἐλθὼν δὲ τἄξω πρᾶσσε, τἀν δόμοις δʼ ἐγώ,</l>
-<l>
-<del>ἃ χρὴ παρεῖναι νυμφίοισι παρθένοις.</del>
-</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>οἴμοι· μάτην ᾖξʼ, ἐλπίδος δʼ ἀπεσφάλην,</l>
+<l><del>ἃ χρὴ παρεῖναι νυμφίοισι παρθένοις.</del></l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="742">οἴμοι· μάτην ᾖξʼ, ἐλπίδος δʼ ἀπεσφάλην,</l>
 <l>ἐξ ὀμμάτων δάμαρτʼ ἀποστεῖλαι θέλων.</l>
 <l>σοφίζομαι δὲ κἀπὶ τοῖσι φιλτάτοις</l>
 <l n="745">τέχνας πορίζω, πανταχῇ νικώμενος.</l>
@@ -1573,16 +1342,17 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>κοινῇ τὸ τῆς θεοῦ φίλον, ἐμοὶ δʼ οὐκ εὐτυχές,</l>
 <l>ἐξευπορήσων εἶμι, μόχθον Ἑλλάδος.</l>
 <l>χρὴ δʼ ἐν δόμοισιν ἄνδρα τὸν σοφὸν τρέφειν</l>
-<l n="750">γυναῖκα χρηστὴν κἀγαθήν, ἢ μὴ τρέφειν.</l>
-</sp>
-</div2>
-</div1>
-<milestone ed="p" n="751" unit="card"/>
-<div1 type="choral">
-<div2 type="strophe" n="1">
-<sp>
-<speaker>Χορός</speaker>
-<l>ἥξει δὴ Σιμόεντα καὶ</l>
+<l n="750">γυναῖκα χρηστὴν κἀγαθήν, ἢ μὴ τρέφειν.</l></sp>
+</div>
+</div>
+<milestone ed="perseus" unit="card" n="751"/>
+
+<div type="textpart" subtype="choral">
+
+<div type="textpart" subtype="strophe" n="1">
+
+<sp><speaker>Χορός</speaker>
+<l n="751">ἥξει δὴ Σιμόεντα καὶ</l>
 <l>δίνας ἀργυροειδεῖς</l>
 <l>ἄγυρις Ἑλλάνων στρατιᾶς</l>
 <l>ἀνά τε ναυσὶν καὶ σὺν ὅπλοις</l>
@@ -1592,14 +1362,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ῥίπτειν ξανθοὺς πλοκάμους</l>
 <l>χλωροκόμῳ στεφάνῳ δάφνας</l>
 <l n="760">κοσμηθεῖσαν, ὅταν θεοῦ</l>
-<l>μαντόσυνοι πνεύσωσʼ ἀνάγκαι.</l>
-</sp>
-<milestone ed="p" n="762" unit="card"/>
-</div2>
-<div2 type="antistrophe" n="1">
-<sp>
-<speaker>Χορός</speaker>
-<l>στάσονται δʼ ἐπὶ περγάμων</l>
+<l>μαντόσυνοι πνεύσωσʼ ἀνάγκαι.</l></sp>
+<milestone ed="perseus" unit="card" n="762"/>
+</div>
+
+<div type="textpart" subtype="antistrophe" n="1">
+
+<sp><speaker>Χορός</speaker>
+<l n="762">στάσονται δʼ ἐπὶ περγάμων</l>
 <l>Τροίας ἀμφί τε τείχη</l>
 <l>Τρῶες, ὅταν χάλκασπις Ἄρης</l>
 <l n="765">πόντιος εὐπρῴροιο πλάτας</l>
@@ -1609,14 +1379,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>Διοσκούρων Ἑλέναν</l>
 <l n="770">ἐκ Πριάμου κομίσαι θέλων</l>
 <l>ἐς γᾶν Ἑλλάδα δοριπόνοις</l>
-<l>ἀσπίσι καὶ λόγχαις Ἀχαιῶν.</l>
-</sp>
-<milestone ed="p" n="773" unit="card"/>
-</div2>
-<div2 type="epode">
-<sp>
-<speaker>Χορός</speaker>
-<l>Πέργαμον δὲ Φρυγῶν πόλιν</l>
+<l>ἀσπίσι καὶ λόγχαις Ἀχαιῶν.</l></sp>
+<milestone ed="perseus" unit="card" n="773"/>
+</div>
+
+<div type="textpart" subtype="epode">
+
+<sp><speaker>Χορός</speaker>
+<l n="773">Πέργαμον δὲ Φρυγῶν πόλιν</l>
 <l>λαΐνους περὶ πύργους</l>
 <l n="775">κυκλώσας Ἄρει φονίῳ,</l>
 <l>λαιμοτόμου κεφαλᾶς</l>
@@ -1644,15 +1414,15 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="797">Διὸς ὅτʼ ἠλλάχθη δέμας, εἴτʼ</l>
 <l>ἐν δέλτοις Πιερίσιν</l>
 <l>μῦθοι τάδʼ ἐς ἀνθρώπους</l>
-<l n="800">ἤνεγκαν παρὰ καιρὸν ἄλλως.</l>
-</sp>
-</div2>
-</div1>
-<milestone ed="p" n="801" unit="card"/>
-<div1 type="episode">
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ποῦ τῶν Ἀχαιῶν ἐνθάδʼ ὁ στρατηλάτης;</l>
+<l n="800">ἤνεγκαν παρὰ καιρὸν ἄλλως.</l></sp>
+</div>
+</div>
+<milestone ed="perseus" unit="card" n="801"/>
+
+<div type="textpart" subtype="episode">
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="801">ποῦ τῶν Ἀχαιῶν ἐνθάδʼ ὁ στρατηλάτης;</l>
 <l>τίς ἂν φράσειε προσπόλων τὸν Πηλέως</l>
 <l>ζητοῦντά νιν παῖδʼ ἐν πύλαις Ἀχιλλέα;</l>
 <l>οὐκ ἐξ ἴσου γὰρ μένομεν Εὐρίπου πέλας.</l>
@@ -1669,281 +1439,219 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="815">λέγουσʼ· Ἀχιλλεῦ, τί μένομεν; πόσον χρόνον</l>
 <l>ἔτʼ ἐκμετρῆσαι χρὴ πρὸς Ἰλίου στόλον;</l>
 <l>δρᾶ γʼ, εἴ τι δράσεις, ἢ ἄπαγʼ οἴκαδε στρατόν,</l>
-<l>τὰ τῶν Ἀτρειδῶν μὴ μένων μελλήματα.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὦ παῖ θεᾶς Νηρῇδος, ἔνδοθεν λόγων</l>
-<l n="820">τῶν σῶν ἀκούσασʼ ἐξέβην πρὸ δωμάτων.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ὦ πότνιʼ αἰδώς, τήνδε τίνα λεύσσω ποτὲ</l>
-<l>γυναῖκα, μορφὴν εὐπρεπῆ κεκτημένην;</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οὐ θαῦμά σʼ ἡμᾶς ἀγνοεῖν, οἷς μὴ πάρος</l>
-<l>προσῆκες· αἰνῶ δʼ ὅτι σέβεις τὸ σωφρονεῖν.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
+<l>τὰ τῶν Ἀτρειδῶν μὴ μένων μελλήματα.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="819">ὦ παῖ θεᾶς Νηρῇδος, ἔνδοθεν λόγων</l>
+<l n="820">τῶν σῶν ἀκούσασʼ ἐξέβην πρὸ δωμάτων.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="821">ὦ πότνιʼ αἰδώς, τήνδε τίνα λεύσσω ποτὲ</l>
+<l>γυναῖκα, μορφὴν εὐπρεπῆ κεκτημένην;</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="823">οὐ θαῦμά σʼ ἡμᾶς ἀγνοεῖν, οἷς μὴ πάρος</l>
+<l>προσῆκες· αἰνῶ δʼ ὅτι σέβεις τὸ σωφρονεῖν.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
 <l n="825">τίς δʼ εἶ; τί δʼ ἦλθες Δαναϊδῶν ἐς σύλλογον,</l>
-<l>γυνὴ πρὸς ἄνδρας ἀσπίσιν πεφραγμένους;</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>Λήδας μέν εἰμι παῖς, Κλυταιμήστρα δέ μοι</l>
-<l>ὄνομα, πόσις δέ μοὐστὶν Ἀγαμέμνων ἄναξ.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>καλῶς ἔλεξας ἐν βραχεῖ τὰ καίρια.</l>
-<l n="830">αἰσχρὸν δέ μοι γυναιξὶ συμβάλλειν λόγους.</l>
-</sp>
-<milestone ed="p" n="831" unit="card"/>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>μεῖνον — τί φεύγεις;  — δεξιάν τʼ ἐμῇ χερὶ</l>
-<l>σύναψον, ἀρχὴν μακαρίαν νυμφευμάτων.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>τί φῄς; ἐγώ σοι δεξιάν; αἰδοίμεθʼ ἂν</l>
-<l>Ἀγαμέμνονʼ, εἰ ψαύοιμεν ὧν μή μοι θέμις.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
+<l>γυνὴ πρὸς ἄνδρας ἀσπίσιν πεφραγμένους;</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="827">Λήδας μέν εἰμι παῖς, Κλυταιμήστρα δέ μοι</l>
+<l>ὄνομα, πόσις δέ μοὐστὶν Ἀγαμέμνων ἄναξ.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="829">καλῶς ἔλεξας ἐν βραχεῖ τὰ καίρια.</l>
+<l n="830">αἰσχρὸν δέ μοι γυναιξὶ συμβάλλειν λόγους.</l></sp>
+<milestone ed="perseus" unit="card" n="831"/>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="831">μεῖνον — τί φεύγεις;  — δεξιάν τʼ ἐμῇ χερὶ</l>
+<l>σύναψον, ἀρχὴν μακαρίαν νυμφευμάτων.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="833">τί φῄς; ἐγώ σοι δεξιάν; αἰδοίμεθʼ ἂν</l>
+<l>Ἀγαμέμνονʼ, εἰ ψαύοιμεν ὧν μή μοι θέμις.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
 <l n="835">θέμις μάλιστα, τὴν ἐμὴν ἐπεὶ γαμεῖς</l>
-<l>παῖδʼ, ὦ θεᾶς παῖ ποντίας Νηρηίδος.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ποίους γάμους φῄς; ἀφασία μʼ ἔχει, γύναι·</l>
-<l>εἰ μή τι παρανοοῦσα καινουργεῖς λόγον;</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>πᾶσιν τόδʼ ἐμπέφυκεν, αἰδεῖσθαι φίλους</l>
-<l n="840">καινοὺς ὁρῶσι καὶ γάμου μεμνημένοις.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>οὐπώποτʼ ἐμνήστευσα παῖδα σήν, γύναι,</l>
-<l>οὐδʼ ἐξ Ἀτρειδῶν ἦλθέ μοι λόγος γάμων.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τί δῆτʼ ἂν εἴη; σὺ πάλιν αὖ λόγους ἐμοὺς</l>
-<l>θαύμαζʼ· ἐμοὶ γὰρ θαύματʼ ἐστὶ τὰ παρὰ σοῦ.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
+<l>παῖδʼ, ὦ θεᾶς παῖ ποντίας Νηρηίδος.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="837">ποίους γάμους φῄς; ἀφασία μʼ ἔχει, γύναι·</l>
+<l>εἰ μή τι παρανοοῦσα καινουργεῖς λόγον;</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="839">πᾶσιν τόδʼ ἐμπέφυκεν, αἰδεῖσθαι φίλους</l>
+<l n="840">καινοὺς ὁρῶσι καὶ γάμου μεμνημένοις.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="841">οὐπώποτʼ ἐμνήστευσα παῖδα σήν, γύναι,</l>
+<l>οὐδʼ ἐξ Ἀτρειδῶν ἦλθέ μοι λόγος γάμων.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="843">τί δῆτʼ ἂν εἴη; σὺ πάλιν αὖ λόγους ἐμοὺς</l>
+<l>θαύμαζʼ· ἐμοὶ γὰρ θαύματʼ ἐστὶ τὰ παρὰ σοῦ.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
 <l n="845">εἴκαζε· κοινόν ἐστιν εἰκάζειν τάδε·</l>
-<l>ἄμφω γὰρ οὐ ψευδόμεθα τοῖς λόγοις ἴσως.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἀλλʼ ἦ πέπονθα δεινά; μνηστεύω γάμους</l>
-<l>οὐκ ὄντας, ὡς εἴξασιν· αἰδοῦμαι τάδε.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἴσως ἐκερτόμησε κἀμὲ καὶ σέ τις.</l>
-<l n="850">ἀλλʼ ἀμελίᾳ δὸς αὐτὰ καὶ φαύλως φέρε.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>χαῖρʼ· οὐ γὰρ ὀρθοῖς ὄμμασίν σʼ ἔτʼ εἰσορῶ,</l>
-<l>ψευδὴς γενομένη καὶ παθοῦσʼ ἀνάξια.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>καὶ σοὶ τόδʼ ἐστὶν ἐξ ἐμοῦ· πόσιν δὲ σὸν</l>
-<l>στείχω ματεύσων τῶνδε δωμάτων ἔσω.</l>
-</sp>
-<milestone ed="p" n="855" unit="card"/>
-<div2 type="trochees">
-<sp>
-<speaker>Πρεσβύτης</speaker>
+<l>ἄμφω γὰρ οὐ ψευδόμεθα τοῖς λόγοις ἴσως.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="847">ἀλλʼ ἦ πέπονθα δεινά; μνηστεύω γάμους</l>
+<l>οὐκ ὄντας, ὡς εἴξασιν· αἰδοῦμαι τάδε.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="849">ἴσως ἐκερτόμησε κἀμὲ καὶ σέ τις.</l>
+<l n="850">ἀλλʼ ἀμελίᾳ δὸς αὐτὰ καὶ φαύλως φέρε.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="851">χαῖρʼ· οὐ γὰρ ὀρθοῖς ὄμμασίν σʼ ἔτʼ εἰσορῶ,</l>
+<l>ψευδὴς γενομένη καὶ παθοῦσʼ ἀνάξια.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="853">καὶ σοὶ τόδʼ ἐστὶν ἐξ ἐμοῦ· πόσιν δὲ σὸν</l>
+<l>στείχω ματεύσων τῶνδε δωμάτων ἔσω.</l></sp>
+<milestone ed="perseus" unit="card" n="855"/>
+
+<div type="textpart" subtype="trochees">
+
+<sp><speaker>Πρεσβύτης</speaker>
 <l n="855">ὦ ξένʼ, Αἰακοῦ γένεθλον, μεῖνον· ὦ, σέ τοι λέγω,</l>
-<l>τὸν θεᾶς γεγῶτα παῖδα, καὶ σέ, τὴν Λήδας κόρην.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>τίς ὁ καλῶν πύλας παροίξας; ὡς τεταρβηκὼς καλεῖ.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>δοῦλος, οὐχ ἁβρύνομαι τῷδʼ· ἡ τύχη γὰρ οὐκ ἐᾷ.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>τίνος; ἐμὸς μὲν οὐχί· χωρὶς τἀμὰ καὶ Ἀγαμέμνονος.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l n="860">τῆσδε τῆς πάροιθεν οἴκων, Τυνδάρεω δόντος πατρός.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἕσταμεν· φράζʼ, εἴ τι χρῄζεις, ὧν μʼ ἐπέσχες οὕνεκα.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>ἦ μόνω παρόντε δῆτα ταῖσδʼ ἐφέστατον πύλαις;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ὡς μόνοιν λέγοις ἄν, ἔξω δʼ ἐλθὲ βασιλείων δόμων.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>ὦ Τύχη πρόνοιά θʼ ἡμή, σῴσαθʼ οὓς ἐγὼ θέλω.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l n="865">ὁ λόγος ἐς μέλλοντʼ † ἂν ὤση † χρόνον· ἔχει δʼ ὄγκον τινά.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>δεξιᾶς ἕκατι μὴ μέλλʼ, εἴ τί μοι χρῄζεις λέγειν.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>οἶσθα δῆτʼ ἔμʼ, ὅστις ὢν σοὶ καὶ τέκνοις εὔνους ἔφυν;</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οἶδά σʼ ὄντʼ ἐγὼ παλαιὸν δωμάτων ἐμῶν λάτριν.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>χὥτι μʼ ἐν ταῖς σαῖσι φερναῖς ἔλαβεν Ἀγαμέμνων ἄναξ;</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="870">ἦλθες εἰς Ἄργος μεθʼ ἡμῶν καὶ ἐμὸς ἦσθʼ ἀεί ποτε.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>ὧδʼ ἔχει. καὶ σοὶ μὲν εὔνους εἰμί, σῷ δʼ ἧσσον πόσει.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἐκκάλυπτε νῦν ποθʼ ἡμῖν οὕστινας λέγεις λόγους.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>παῖδα σὴν πατὴρ ὁ φύσας αὐτόχειρ μέλλει κτενεῖν.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>πῶς; ἀπέπτυσʼ, ὦ γεραιέ, μῦθον· οὐ γὰρ εὖ φρονεῖς.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l n="875">φασγάνῳ λευκὴν φονεύων τῆς ταλαιπώρου δέρην.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὦ τάλαινʼ ἐγώ. μεμηνὼς ἆρα τυγχάνει πόσις;</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>ἀρτίφρων, πλὴν ἐς σὲ καὶ σὴν παῖδα· τοῦτο δʼ οὐ φρονεῖ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἐκ τίνος λόγου; τίς αὐτὸν οὑπάγων ἀλαστόρων;</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>θέσφαθʼ, ὥς γέ φησι Κάλχας, ἵνα πορεύηται στρατός.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="880">ποῖ; τάλαινʼ ἐγώ, τάλαινα δʼ ἣν πατὴρ μέλλει κτενεῖν.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>Δαρδάνου πρὸς δώμαθʼ, Ἑλένην Μενέλεως ὅπως λάβῃ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>εἰς ἄρʼ Ἰφιγένειαν Ἑλένης νόστος ἦν πεπρωμένος;</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>πάντʼ ἔχεις· Ἀρτέμιδι θύσειν παῖδα σὴν μέλλει πατήρ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὁ δὲ γάμος τίνʼ εἶχε πρόφασιν, ᾧ μʼ ἐκόμισεν ἐκ δόμων;</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l n="885">ἵνʼ ἀγάγοις χαίρουσʼ Ἀχιλλεῖ παῖδα νυμφεύσουσα σήν.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὦ θύγατερ, ἥκεις ἐπʼ ὀλέθρῳ καὶ σὺ καὶ μήτηρ σέθεν.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>οἰκτρὰ πάσχετον δύʼ οὖσαι· δεινὰ δʼ Ἀγαμέμνων ἔτλη.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οἴχομαι τάλαινα, δακρύων τʼ ὄμματʼ οὐκέτι στέγω.</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>εἴπερ ἀλγεινὸν τὸ τέκνων στερόμενον, δακρυρρόει.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="890">σὺ δὲ τάδʼ, ὦ γέρον, πόθεν φῂς εἰδέναι πεπυσμένος;</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>δέλτον ᾠχόμην φέρων σοι πρὸς τὰ πρὶν γεγραμμένα.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οὐκ ἐῶν ἢ ξυγκελεύων παῖδʼ ἄγειν θανουμένην;</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l>μὴ μὲν οὖν ἄγειν· φρονῶν γὰρ ἔτυχε σὸς πόσις τότʼ εὖ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>κᾆτα πῶς φέρων γε δέλτον οὐκ ἐμοὶ δίδως λαβεῖν;</l>
-</sp>
-<sp>
-<speaker>Πρεσβύτης</speaker>
-<l n="895">Μενέλεως ἀφείλεθʼ ἡμᾶς, ὃς κακῶν τῶνδʼ αἴτιος.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὦ τέκνον Νηρῇδος, ὦ παῖ Πηλέως, κλύεις τάδε;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἔκλυον οὖσαν ἀθλίαν σε, τὸ δʼ ἐμὸν οὐ φαύλως φέρω.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>παῖδά μου κατακτενοῦσι σοῖς δολώσαντες γάμοις.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>μέμφομαι κἀγὼ πόσει σῷ, κοὐχ ἁπλῶς οὕτω φέρω.</l>
-</sp>
-<milestone ed="p" n="900" unit="card"/>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
+<l>τὸν θεᾶς γεγῶτα παῖδα, καὶ σέ, τὴν Λήδας κόρην.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="857">τίς ὁ καλῶν πύλας παροίξας; ὡς τεταρβηκὼς καλεῖ.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="858">δοῦλος, οὐχ ἁβρύνομαι τῷδʼ· ἡ τύχη γὰρ οὐκ ἐᾷ.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="859">τίνος; ἐμὸς μὲν οὐχί· χωρὶς τἀμὰ καὶ Ἀγαμέμνονος.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="860">τῆσδε τῆς πάροιθεν οἴκων, Τυνδάρεω δόντος πατρός.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="861">ἕσταμεν· φράζʼ, εἴ τι χρῄζεις, ὧν μʼ ἐπέσχες οὕνεκα.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="862">ἦ μόνω παρόντε δῆτα ταῖσδʼ ἐφέστατον πύλαις;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="863">ὡς μόνοιν λέγοις ἄν, ἔξω δʼ ἐλθὲ βασιλείων δόμων.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="864">ὦ Τύχη πρόνοιά θʼ ἡμή, σῴσαθʼ οὓς ἐγὼ θέλω.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="865">ὁ λόγος ἐς μέλλοντʼ <sic>ἂν ὤση</sic> χρόνον· ἔχει δʼ ὄγκον τινά.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="866">δεξιᾶς ἕκατι μὴ μέλλʼ, εἴ τί μοι χρῄζεις λέγειν.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="867">οἶσθα δῆτʼ ἔμʼ, ὅστις ὢν σοὶ καὶ τέκνοις εὔνους ἔφυν;</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="868">οἶδά σʼ ὄντʼ ἐγὼ παλαιὸν δωμάτων ἐμῶν λάτριν.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="869">χὥτι μʼ ἐν ταῖς σαῖσι φερναῖς ἔλαβεν Ἀγαμέμνων ἄναξ;</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="870">ἦλθες εἰς Ἄργος μεθʼ ἡμῶν καὶ ἐμὸς ἦσθʼ ἀεί ποτε.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="871">ὧδʼ ἔχει. καὶ σοὶ μὲν εὔνους εἰμί, σῷ δʼ ἧσσον πόσει.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="872">ἐκκάλυπτε νῦν ποθʼ ἡμῖν οὕστινας λέγεις λόγους.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="873">παῖδα σὴν πατὴρ ὁ φύσας αὐτόχειρ μέλλει κτενεῖν.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="874">πῶς; ἀπέπτυσʼ, ὦ γεραιέ, μῦθον· οὐ γὰρ εὖ φρονεῖς.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="875">φασγάνῳ λευκὴν φονεύων τῆς ταλαιπώρου δέρην.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="876">ὦ τάλαινʼ ἐγώ. μεμηνὼς ἆρα τυγχάνει πόσις;</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="877">ἀρτίφρων, πλὴν ἐς σὲ καὶ σὴν παῖδα· τοῦτο δʼ οὐ φρονεῖ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="878">ἐκ τίνος λόγου; τίς αὐτὸν οὑπάγων ἀλαστόρων;</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="879">θέσφαθʼ, ὥς γέ φησι Κάλχας, ἵνα πορεύηται στρατός.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="880">ποῖ; τάλαινʼ ἐγώ, τάλαινα δʼ ἣν πατὴρ μέλλει κτενεῖν.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="881">Δαρδάνου πρὸς δώμαθʼ, Ἑλένην Μενέλεως ὅπως λάβῃ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="882">εἰς ἄρʼ Ἰφιγένειαν Ἑλένης νόστος ἦν πεπρωμένος;</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="883">πάντʼ ἔχεις· Ἀρτέμιδι θύσειν παῖδα σὴν μέλλει πατήρ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="884">ὁ δὲ γάμος τίνʼ εἶχε πρόφασιν, ᾧ μʼ ἐκόμισεν ἐκ δόμων;</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="885">ἵνʼ ἀγάγοις χαίρουσʼ Ἀχιλλεῖ παῖδα νυμφεύσουσα σήν.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="886">ὦ θύγατερ, ἥκεις ἐπʼ ὀλέθρῳ καὶ σὺ καὶ μήτηρ σέθεν.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="887">οἰκτρὰ πάσχετον δύʼ οὖσαι· δεινὰ δʼ Ἀγαμέμνων ἔτλη.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="888">οἴχομαι τάλαινα, δακρύων τʼ ὄμματʼ οὐκέτι στέγω.</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="889">εἴπερ ἀλγεινὸν τὸ τέκνων στερόμενον, δακρυρρόει.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="890">σὺ δὲ τάδʼ, ὦ γέρον, πόθεν φῂς εἰδέναι πεπυσμένος;</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="891">δέλτον ᾠχόμην φέρων σοι πρὸς τὰ πρὶν γεγραμμένα.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="892">οὐκ ἐῶν ἢ ξυγκελεύων παῖδʼ ἄγειν θανουμένην;</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="893">μὴ μὲν οὖν ἄγειν· φρονῶν γὰρ ἔτυχε σὸς πόσις τότʼ εὖ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="894">κᾆτα πῶς φέρων γε δέλτον οὐκ ἐμοὶ δίδως λαβεῖν;</l></sp>
+
+<sp><speaker>Πρεσβύτης</speaker>
+<l n="895">Μενέλεως ἀφείλεθʼ ἡμᾶς, ὃς κακῶν τῶνδʼ αἴτιος.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="896">ὦ τέκνον Νηρῇδος, ὦ παῖ Πηλέως, κλύεις τάδε;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="897">ἔκλυον οὖσαν ἀθλίαν σε, τὸ δʼ ἐμὸν οὐ φαύλως φέρω.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="898">παῖδά μου κατακτενοῦσι σοῖς δολώσαντες γάμοις.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="899">μέμφομαι κἀγὼ πόσει σῷ, κοὐχ ἁπλῶς οὕτω φέρω.</l></sp>
+<milestone ed="perseus" unit="card" n="900"/>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
 <l n="900">οὐκ ἐπαιδεσθήσομαί γε προσπεσεῖν τὸ σὸν γόνυ,</l>
 <l>θνητὸς ἐκ θεᾶς γεγῶτα· τί γὰρ ἐγὼ σεμνύνομαι;</l>
 <l>ἢ τίνος σπουδαστέον μοι μᾶλλον ἢ τέκνου πέρι;</l>
@@ -1958,22 +1666,20 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>οὐκ ἔχω βωμὸν καταφυγεῖν ἄλλον ἢ τὸ σὸν γόνυ·</l>
 <l>οὐδὲ φίλος οὐδεὶς γελᾷ μοι· τὰ δʼ Ἀγαμέμνονος κλύεις,</l>
 <l>ὠμὰ καὶ πάντολμʼ· ἀφῖγμαι δʼ, ὥσπερ εἰσορᾷς, γυνὴ</l>
-<l>ναυτικὸν στράτευμʼ ἄναρχον κἀπὶ τοῖς κακοῖς θρασύ  <gap/>
-</l>
+<l>ναυτικὸν στράτευμʼ ἄναρχον κἀπὶ τοῖς κακοῖς θρασύ—</l>
 <l n="915">χρήσιμον δʼ, ὅταν θέλωσιν. ἢν δὲ τολμήσῃς σύ μου</l>
-<l>χεῖρʼ ὑπερτεῖναι, σεσῴσμεθʼ· εἰ δὲ μή, οὐ σεσῴσμεθα.</l>
-</sp>
-</div2>
-<div2 type="dialogue">
-<milestone ed="p" n="917" unit="card"/>
-<sp>
-<speaker>Χορός</speaker>
-<l>δεινὸν τὸ τίκτειν καὶ φέρει φίλτρον μέγα</l>
-<l>πᾶσίν τε κοινὸν ὥσθʼ ὑπερκάμνειν τέκνων.</l>
-</sp>
-<sp n="*)axilleu/s">
-<speaker>Ἀχιλλεύς</speaker>
-<l>ὑψηλόφρων μοι θυμὸς αἴρεται πρόσω·</l>
+<l>χεῖρʼ ὑπερτεῖναι, σεσῴσμεθʼ· εἰ δὲ μή, οὐ σεσῴσμεθα.</l></sp>
+</div>
+
+<div type="textpart" subtype="dialogue">
+<milestone ed="perseus" unit="card" n="917"/>
+
+<sp><speaker>Χορός</speaker>
+<l n="917">δεινὸν τὸ τίκτειν καὶ φέρει φίλτρον μέγα</l>
+<l>πᾶσίν τε κοινὸν ὥσθʼ ὑπερκάμνειν τέκνων.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="919">ὑψηλόφρων μοι θυμὸς αἴρεται πρόσω·</l>
 <l n="920">ἐπίσταμαι δὲ τοῖς κακοῖσί τʼ ἀσχαλᾶν</l>
 <l>μετρίως τε χαίρειν τοῖσιν ἐξωγκωμένοις.</l>
 <l>λελογισμένοι γὰρ οἱ τοιοίδʼ εἰσὶν βροτῶν</l>
@@ -1998,7 +1704,7 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>εἰ διʼ ἔμʼ ὀλεῖται διά τε τοὺς ἐμοὺς γάμους</l>
 <l>ἡ δεινὰ τλᾶσα κοὐκ ἀνεκτὰ παρθένος,</l>
 <l>θαυμαστὰ δʼ ὡς ἀνάξιʼ ἠτιμασμένη.</l>
-<milestone ed="p" n="944" unit="card"/>
+<milestone ed="perseus" unit="card" n="944"/>
 <l>ἐγὼ κάκιστος ἦν ἄρʼ Ἀργείων ἀνήρ,</l>
 <l n="945">ἐγὼ τὸ μηδέν, Μενέλεως δʼ ἐν ἀνδράσιν,</l>
 <l>ὡς οὐχὶ Πηλέως, ἀλλʼ ἀλάστορος γεγώς,</l>
@@ -2026,20 +1732,18 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>νῦν δʼ οὐδέν εἰμι, παρὰ δὲ τοῖς στρατηλάταις</l>
 <l>ἐν εὐμαρεῖ με δρᾶν τε καὶ μὴ δρᾶν κακῶς.</l>
 <l n="970">τάχʼ εἴσεται σίδηρος, ὃν πρὶν ἐς Φρύγας</l>
-<l>ἐλθεῖν, † φόνου κηλῖσιν αἵματι † χρανῶ,</l>
+<l>ἐλθεῖν, <sic>φόνου κηλῖσιν αἵματι</sic> χρανῶ,</l>
 <l>εἴ τίς με τὴν σὴν θυγατέρʼ ἐξαιρήσεται.</l>
 <l>ἀλλʼ ἡσύχαζε· θεὸς ἐγὼ πέφηνά σοι</l>
-<l>μέγιστος, οὐκ ὤν· ἀλλʼ ὅμως γενήσομαι.</l>
-</sp>
-<sp>
-<speaker>Χορός</speaker>
+<l>μέγιστος, οὐκ ὤν· ἀλλʼ ὅμως γενήσομαι.</l></sp>
+
+<sp><speaker>Χορός</speaker>
 <l n="975">ἔλεξας, ὦ παῖ Πηλέως, σοῦ τʼ ἄξια</l>
-<l>καὶ τῆς ἐναλίας δαίμονος, σεμνῆς θεοῦ.</l>
-</sp>
-<sp n="*klutaimh/stra">
-<speaker>Κλυταιμήστρα</speaker>
-<l>φεῦ·</l>
-<l>πῶς ἄν σʼ ἐπαινέσαιμι μὴ λίαν λόγοις,</l>
+<l>καὶ τῆς ἐναλίας δαίμονος, σεμνῆς θεοῦ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="977">φεῦ·</l>
+<l n="977a">πῶς ἄν σʼ ἐπαινέσαιμι μὴ λίαν λόγοις,</l>
 <l>μηδʼ ἐνδεὴς τοῦδʼ ἀπολέσαιμι τὴν χάριν;</l>
 <l>αἰνούμενοι γὰρ οἱ ἀγαθοὶ τρόπον τινὰ</l>
 <l n="980">μισοῦσι τοὺς αἰνοῦντας, ἢν αἰνῶσʼ ἄγαν.</l>
@@ -2054,17 +1758,16 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>θανοῦσʼ ἐμὴ παῖς, ὅ σε φυλάξασθαι χρεών.</l>
 <l n="990">ἀλλʼ εὖ μὲν ἀρχὰς εἶπας, εὖ δὲ καὶ τέλη·</l>
 <l>σοῦ γὰρ θέλοντος παῖς ἐμὴ σωθήσεται.</l>
-<milestone ed="p" n="992" unit="card"/>
+<milestone ed="perseus" unit="card" n="992"/>
 <l>βούλῃ νιν ἱκέτιν σὸν περιπτύξαι γόνυ;</l>
 <l>ἀπαρθένευτα μὲν τάδʼ· εἰ δέ σοι δοκεῖ,</l>
 <l>ἥξει, διʼ αἰδοῦς ὄμμʼ ἔχουσʼ ἐλεύθερον.</l>
 <l n="995">εἰ δʼ οὐ παρούσης ταὐτὰ τεύξομαι σέθεν,</l>
 <l>μενέτω κατʼ οἴκους· σεμνὰ γὰρ σεμνύνεται.</l>
-<l>ὅμως δʼ ὅσον γε δυνατὸν αἰδεῖσθαι χρεών.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>σὺ μήτε σὴν παῖδʼ ἔξαγʼ ὄψιν εἰς ἐμήν,</l>
+<l>ὅμως δʼ ὅσον γε δυνατὸν αἰδεῖσθαι χρεών.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="998">σὺ μήτε σὴν παῖδʼ ἔξαγʼ ὄψιν εἰς ἐμήν,</l>
 <l>μήτʼ εἰς ὄνειδος ἀμαθὲς ἔλθωμεν, γύναι·</l>
 <l n="1000">στρατὸς γὰρ ἀθρόος, ἀργὸς ὢν τῶν οἴκοθεν,</l>
 <l>λέσχας πονηρὰς καὶ κακοστόμους φιλεῖ.</l>
@@ -2073,38 +1776,30 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>μέγιστος ὑμᾶς ἐξαπαλλάξαι κακῶν.</l>
 <l n="1005">ὡς ἕν γʼ ἀκούσασʼ ἴσθι, μὴ ψευδῶς μʼ ἐρεῖν·</l>
 <l>ψευδῆ λέγων δὲ καὶ μάτην ἐγκερτομῶν,</l>
-<l>θάνοιμι· μὴ θάνοιμι δʼ, ἢν σῴσω κόρην.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὄναιο συνεχῶς δυστυχοῦντας ὠφελῶν.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἄκουε δή νυν, ἵνα τὸ πρᾶγμʼ ἔχῃ καλῶς.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="1010">τί τοῦτʼ ἔλεξας; ὡς ἀκουστέον γέ σου.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>† πειθώμεθʼ αὖτις † πατέρα βέλτιον φρονεῖν.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>κακός τίς ἐστι καὶ λίαν ταρβεῖ στρατόν.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἀλλʼ οἱ λόγοι γε καταπαλαίουσιν λόγους.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ψυχρὰ μὲν ἐλπίς· ὅ τι δὲ χρή με δρᾶν φράσον.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
+<l>θάνοιμι· μὴ θάνοιμι δʼ, ἢν σῴσω κόρην.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1008">ὄναιο συνεχῶς δυστυχοῦντας ὠφελῶν.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1009">ἄκουε δή νυν, ἵνα τὸ πρᾶγμʼ ἔχῃ καλῶς.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1010">τί τοῦτʼ ἔλεξας; ὡς ἀκουστέον γέ σου.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1011"><sic>πειθώμεθʼ αὖτις</sic> πατέρα βέλτιον φρονεῖν.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1012">κακός τίς ἐστι καὶ λίαν ταρβεῖ στρατόν.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1013">ἀλλʼ οἱ λόγοι γε καταπαλαίουσιν λόγους.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1014">ψυχρὰ μὲν ἐλπίς· ὅ τι δὲ χρή με δρᾶν φράσον.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
 <l n="1015">ἱκέτευʼ ἐκεῖνον πρῶτα μὴ κτείνειν τέκνα·</l>
 <l>ἢν δʼ ἀντιβαίνῃ, πρὸς ἐμέ σοι πορευτέον.</l>
 <l>ᾗ γὰρ τὸ χρῇζον ἐπίθετʼ, οὐ τοὐμὸν χρεὼν</l>
@@ -2112,39 +1807,36 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>κἀγώ τʼ ἀμείνων πρὸς φίλον γενήσομαι,</l>
 <l n="1020">στρατός τʼ ἂν οὐ μέμψαιτό μʼ, εἰ τὰ πράγματα</l>
 <l>λελογισμένως πράσσοιμι μᾶλλον ἢ σθένει.</l>
-<l>† καλῶς δὲ κρανθέντων <del>καὶ</del> πρὸς ἡδονὴν φίλοις</l>
-<l>σοί τʼ ἂν γένοιτο κἂν ἐμοῦ χωρὶς τάδε. †</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὡς σώφρονʼ εἶπας. δραστέον δʼ ἅ σοι δοκεῖ.</l>
+<l><sic>καλῶς δὲ κρανθέντων <del>καὶ</del> πρὸς ἡδονὴν φίλοις</sic></l>
+<l><sic>σοί τʼ ἂν γένοιτο κἂν ἐμοῦ χωρὶς τάδε.</sic></l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1024">ὡς σώφρονʼ εἶπας. δραστέον δʼ ἅ σοι δοκεῖ.</l>
 <l n="1025">ἢν δʼ αὖ τι μὴ πράσσωμεν ὧν ἐγὼ θέλω,</l>
 <l>ποῦ σʼ αὖθις ὀψόμεσθα, ποῦ; χρή μʼ ἀθλίαν</l>
-<l>ἐλθοῦσαν εὑρεῖν σὴν χέρʼ ἐπίκουρον κακῶν;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἡμεῖς σε φύλακες οὗ χρεὼν φυλάξομεν,</l>
+<l>ἐλθοῦσαν εὑρεῖν σὴν χέρʼ ἐπίκουρον κακῶν;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1028">ἡμεῖς σε φύλακες οὗ χρεὼν φυλάξομεν,</l>
 <l>μή τίς σʼ ἴδῃ στείχουσαν ἐπτοημένην</l>
 <l n="1030">Δαναῶν διʼ ὄχλου· μηδὲ πατρῷον δόμον</l>
 <l>αἴσχυνʼ· ὁ γάρ τοι Τυνδάρεως οὐκ ἄξιος</l>
-<l>κακῶς ἀκούειν· ἐν γὰρ Ἕλλησιν μέγας.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἔστιν τάδʼ· ἄρχε· σοί με δουλεύειν χρεών.</l>
-<l>εἰ δʼ εἰσὶ θεοί, δίκαιος ὢν ἀνὴρ <add>θεῶν</add>
-</l>
-<l n="1035">ἐσθλῶν κυρήσεις· εἰ δὲ μή, τί δεῖ πονεῖν;</l>
-</sp>
-</div2>
-</div1>
-<milestone ed="p" n="1036" unit="card"/>
-<div1 type="choral">
-<div2 type="strophe" n="1">
-<sp>
-<speaker>Χορός</speaker>
-<l>τίνʼ ἄρʼ Ὑμέναιος διὰ λωτοῦ Λίβυος</l>
+<l>κακῶς ἀκούειν· ἐν γὰρ Ἕλλησιν μέγας.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1033">ἔστιν τάδʼ· ἄρχε· σοί με δουλεύειν χρεών.</l>
+<l>εἰ δʼ εἰσὶ θεοί, δίκαιος ὢν ἀνὴρ <add>θεῶν</add></l>
+<l n="1035">ἐσθλῶν κυρήσεις· εἰ δὲ μή, τί δεῖ πονεῖν;</l></sp>
+</div>
+</div>
+<milestone ed="perseus" unit="card" n="1036"/>
+
+<div type="textpart" subtype="choral">
+
+<div type="textpart" subtype="strophe" n="1">
+
+<sp><speaker>Χορός</speaker>
+<l n="1036">τίνʼ ἄρʼ Ὑμέναιος διὰ λωτοῦ Λίβυος</l>
 <l>μετά τε φιλοχόρου κιθάρας</l>
 <l>συρίγγων θʼ ὑπὸ καλαμοεσ-</l>
 <l>σᾶν ἔστασεν ἰαχάν,</l>
@@ -2164,14 +1856,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>παρὰ δὲ λευκοφαῆ ψάμαθον</l>
 <l n="1055">εἱλισσόμεναι κύκλια</l>
 <l>πεντήκοντα κόραι γάμους</l>
-<l>Νηρέως ἐχόρευσαν.</l>
-</sp>
-<milestone ed="p" n="1058" unit="card"/>
-</div2>
-<div2 type="antistrophe" n="1">
-<sp>
-<speaker>Χορός</speaker>
-<l>ἀνὰ δʼ ἐλάταισι στεφανώδει τε χλόᾳ</l>
+<l>Νηρέως ἐχόρευσαν.</l></sp>
+<milestone ed="perseus" unit="card" n="1058"/>
+</div>
+
+<div type="textpart" subtype="antistrophe" n="1">
+
+<sp><speaker>Χορός</speaker>
+<l n="1058">ἀνὰ δʼ ἐλάταισι στεφανώδει τε χλόᾳ</l>
 <l>θίασος ἔμολεν ἱπποβάτας</l>
 <l n="1060">Κενταύρων ἐπὶ δαῖτα τὰν</l>
 <l>θεῶν κρατῆρά τε Βάκχου.</l>
@@ -2191,17 +1883,17 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>μακάριον τότε δαίμονες</l>
 <l>τᾶς εὐπάτριδος γάμον</l>
 <l>Νηρῄδων ἔθεσαν πρώτας</l>
-<l>Πηλέως θʼ ὑμεναίους.</l>
-</sp>
-<milestone ed="p" n="1080" unit="card"/>
-</div2>
-<div2 type="epode">
-<sp>
-<speaker>Χορός</speaker>
+<l>Πηλέως θʼ ὑμεναίους.</l></sp>
+<milestone ed="perseus" unit="card" n="1080"/>
+</div>
+
+<div type="textpart" subtype="epode">
+
+<sp><speaker>Χορός</speaker>
 <l n="1080">σὲ δʼ ἐπὶ κάρα στέψουσι καλλικόμαν</l>
 <l>πλόκαμον Ἀργεῖοι, βαλιὰν</l>
 <l>ὥστε πετραίων ἀπʼ ἄντρων</l>
-<l>† ἐλθοῦσαν ὀρέων †</l>
+<l><sic>ἐλθοῦσαν ὀρέων</sic></l>
 <l>μόσχον ἀκήρατον, βρότειον</l>
 <l>αἱμάσσοντες λαιμόν·</l>
 <l n="1085">οὐ σύριγγι τραφεῖσαν οὐδʼ</l>
@@ -2216,136 +1908,112 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>σθεν θνατοῖς ἀμελεῖται,</l>
 <l n="1095">Ἀνομία δὲ νόμων κρατεῖ,</l>
 <l>καὶ <add>μὴ</add> κοινὸς ἀγὼν βροτοῖς</l>
-<l>μή τις θεῶν φθόνος ἔλθῃ;</l>
-</sp>
-</div2>
-</div1>
-<milestone ed="p" n="1098" unit="card"/>
-<div1 type="episode">
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἐξῆλθον οἴκων προσκοπουμένη πόσιν,</l>
+<l>μή τις θεῶν φθόνος ἔλθῃ;</l></sp>
+</div>
+</div>
+<milestone ed="perseus" unit="card" n="1098"/>
+
+<div type="textpart" subtype="episode">
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1098">ἐξῆλθον οἴκων προσκοπουμένη πόσιν,</l>
 <l>χρόνιον ἀπόντα κἀκλελοιπότα στέγας.</l>
 <l n="1100">ἐν δακρύοισι δʼ ἡ τάλαινα παῖς ἐμή,</l>
 <l>πολλὰς ἱεῖσα μεταβολὰς ὀδυρμάτων,</l>
 <l>θάνατον ἀκούσασʼ, ὃν πατὴρ βουλεύεται.</l>
 <l>μνήμην δʼ ἄρʼ εἶχον πλησίον βεβηκότος</l>
 <l>Ἀγαμέμνονος τοῦδʼ, ὃς ἐπὶ τοῖς αὑτοῦ τέκνοις</l>
-<l n="1105">ἀνόσια πράσσων αὐτίχʼ εὑρεθήσεται.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>Λήδας γένεθλον, ἐν καλῷ σʼ ἔξω δόμων</l>
+<l n="1105">ἀνόσια πράσσων αὐτίχʼ εὑρεθήσεται.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1106">Λήδας γένεθλον, ἐν καλῷ σʼ ἔξω δόμων</l>
 <l>ηὕρηχʼ, ἵνʼ εἴπω παρθένου χωρὶς λόγους</l>
-<l>οὓς οὐκ ἀκούειν τὰς γαμουμένας πρέπει.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τί δʼ ἔστιν, οὗ σοι καιρὸς ἀντιλάζυται;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
+<l>οὓς οὐκ ἀκούειν τὰς γαμουμένας πρέπει.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1109">τί δʼ ἔστιν, οὗ σοι καιρὸς ἀντιλάζυται;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
 <l n="1110">ἔκπεμπε παῖδα δωμάτων πατρὸς μέτα·</l>
 <l>ὡς χέρνιβες πάρεισιν εὐτρεπισμέναι,</l>
 <l>προχύται τε βάλλειν πῦρ καθάρσιον χεροῖν,</l>
 <l>μόσχοι τε, πρὸ γάμων ἃς θεᾷ πεσεῖν χρεών.</l>
-<l>
-<del>Ἀρτέμιδι, μέλανος αἵματος φυσήματα.</del>
-</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
+<l><del>Ἀρτέμιδι, μέλανος αἵματος φυσήματα.</del></l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
 <l n="1115">τοῖς ὀνόμασιν μὲν εὖ λέγεις, τὰ δʼ ἔργα σου</l>
 <l>οὐκ οἶδʼ ὅπως χρή μʼ ὀνομάσασαν εὖ λέγειν.</l>
 <l>χώρει δέ, θύγατερ, ἐκτός — οἶσθα γὰρ πατρὸς</l>
 <l>πάντως ἃ μέλλει — χὑπὸ τοῖς πέπλοις ἄγε</l>
 <l>λαβοῦσʼ Ὀρέστην, σὸν κασίγνητον, τέκνον.</l>
 <l n="1120">ἰδοὺ πάρεστιν ἥδε πειθαρχοῦσά σοι.</l>
-<l>τὰ δʼ ἄλλʼ ἐγὼ πρὸ τῆσδε κἀμαυτῆς φράσω.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>τέκνον, τί κλαίεις, οὐδʼ ἔθʼ ἡδέως ὁρᾷς,</l>
-<l>ἐς γῆν δʼ ἐρείσασʼ ὄμμα πρόσθʼ ἔχεις πέπλους;</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>φεῦ·</l>
-<l>τίνʼ ἂν λάβοιμι τῶν ἐμῶν ἀρχὴν κακῶν;</l>
+<l>τὰ δʼ ἄλλʼ ἐγὼ πρὸ τῆσδε κἀμαυτῆς φράσω.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1122">τέκνον, τί κλαίεις, οὐδʼ ἔθʼ ἡδέως ὁρᾷς,</l>
+<l>ἐς γῆν δʼ ἐρείσασʼ ὄμμα πρόσθʼ ἔχεις πέπλους;</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1124">φεῦ·</l>
+<l n="1124a">τίνʼ ἂν λάβοιμι τῶν ἐμῶν ἀρχὴν κακῶν;</l>
 <l n="1125">ἅπασι γὰρ πρώτοισι χρήσασθαι πάρα</l>
-<l>κἀν ὑστάτοισι κἀν μέσοισι πανταχοῦ.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>τί δʼ ἔστιν; ὥς μοι πάντες εἰς ἓν ἥκετε,</l>
-<l>σύγχυσιν ἔχοντες καὶ ταραγμὸν ὀμμάτων.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>εἴφʼ ἃν ἐρωτήσω σε γενναίως, πόσι.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="1130">οὐδὲν κελευσμοῦ δεῖ σʼ· ἐρωτᾶσθαι θέλω.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τὴν παῖδα τὴν σὴν τήν τʼ ἐμὴν μέλλεις κτενεῖν;</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἔα·</l>
-<l>τλήμονά γʼ ἔλεξας, ὑπονοεῖς θʼ ἃ μή σε χρή.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἔχʼ ἥσυχος.</l>
-<l>κἀκεῖνό μοι τὸ πρῶτον ἀπόκριναι πάλιν.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>σὺ δʼ, ἤν γʼ ἐρωτᾷς εἰκότʼ, εἰκότʼ ἂν κλύοις.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="1135">οὐκ ἄλλʼ ἐρωτῶ, καὶ σὺ μὴ λέγʼ ἄλλα μοι.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ὦ πότνια μοῖρα καὶ τύχη δαίμων τʼ ἐμός.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>κἀμός γε καὶ τῆσδʼ, εἷς τριῶν δυσδαιμόνων.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>τίνʼ ἠδίκησαι;</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τοῦτʼ ἐμοῦ πεύθῃ πάρα;</l>
-<l>ὁ νοῦς ὅδʼ αὐτὸς νοῦν ἔχων οὐ τυγχάνει.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l n="1140">ἀπωλόμεσθα. προδέδοται τὰ κρυπτά μου.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>πάντʼ οἶδα, καὶ πεπύσμεθʼ ἃ σὺ μέλλεις με δρᾶν·</l>
+<l>κἀν ὑστάτοισι κἀν μέσοισι πανταχοῦ.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1127">τί δʼ ἔστιν; ὥς μοι πάντες εἰς ἓν ἥκετε,</l>
+<l>σύγχυσιν ἔχοντες καὶ ταραγμὸν ὀμμάτων.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1129">εἴφʼ ἃν ἐρωτήσω σε γενναίως, πόσι.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1130">οὐδὲν κελευσμοῦ δεῖ σʼ· ἐρωτᾶσθαι θέλω.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1131">τὴν παῖδα τὴν σὴν τήν τʼ ἐμὴν μέλλεις κτενεῖν;</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1132">ἔα·</l>
+<l n="1132a">τλήμονά γʼ ἔλεξας, ὑπονοεῖς θʼ ἃ μή σε χρή.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1133">ἔχʼ ἥσυχος.</l>
+<l n="1133a">κἀκεῖνό μοι τὸ πρῶτον ἀπόκριναι πάλιν.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1134">σὺ δʼ, ἤν γʼ ἐρωτᾷς εἰκότʼ, εἰκότʼ ἂν κλύοις.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1135">οὐκ ἄλλʼ ἐρωτῶ, καὶ σὺ μὴ λέγʼ ἄλλα μοι.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1136">ὦ πότνια μοῖρα καὶ τύχη δαίμων τʼ ἐμός.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1137">κἀμός γε καὶ τῆσδʼ, εἷς τριῶν δυσδαιμόνων.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1138" part="I">τίνʼ ἠδίκησαι;</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1138b" part="F">τοῦτʼ ἐμοῦ πεύθῃ πάρα;</l>
+<l>ὁ νοῦς ὅδʼ αὐτὸς νοῦν ἔχων οὐ τυγχάνει.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1140">ἀπωλόμεσθα. προδέδοται τὰ κρυπτά μου.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1141">πάντʼ οἶδα, καὶ πεπύσμεθʼ ἃ σὺ μέλλεις με δρᾶν·</l>
 <l>αὐτὸ δὲ τὸ σιγᾶν ὁμολογοῦντός ἐστί σου</l>
-<l>καὶ τὸ στενάζειν· πολλὰ μὴ κάμῃς λέγων.</l>
-</sp>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>ἰδοὺ σιωπῶ· τὸ γὰρ ἀναίσχυντον τί δεῖ</l>
-<l n="1145">ψευδῆ λέγοντα προσλαβεῖν τῇ συμφορᾷ;</l>
-</sp>
-<milestone ed="p" n="1146" unit="card"/>
-<sp n="*klutaimh/stra">
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἄκουε δή νυν· ἀνακαλύψω γὰρ λόγους,</l>
+<l>καὶ τὸ στενάζειν· πολλὰ μὴ κάμῃς λέγων.</l></sp>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1144">ἰδοὺ σιωπῶ· τὸ γὰρ ἀναίσχυντον τί δεῖ</l>
+<l n="1145">ψευδῆ λέγοντα προσλαβεῖν τῇ συμφορᾷ;</l></sp>
+<milestone ed="perseus" unit="card" n="1146"/>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1146">ἄκουε δή νυν· ἀνακαλύψω γὰρ λόγους,</l>
 <l>κοὐκέτι παρῳδοῖς χρησόμεσθʼ αἰνίγμασιν.</l>
 <l>πρῶτον μέν, ἵνα σοι πρῶτα τοῦτʼ ὀνειδίσω,</l>
 <l>ἔγημας ἄκουσάν με κἄλαβες βίᾳ,</l>
@@ -2367,7 +2035,7 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="1165">τόνδʼ, ὧν μιᾶς σὺ τλημόνως μʼ ἀποστερεῖς.</l>
 <l>κἄν τίς σʼ ἔρηται τίνος ἕκατί νιν κτενεῖς,</l>
 <l>λέξον, τί φήσεις; ἢ ʼμὲ χρὴ λέγειν τὰ σά;</l>
-<l>Ἑλένην Μενέλεως ἵνα λάβῃ. καλὸν † γένος †,</l>
+<l>Ἑλένην Μενέλεως ἵνα λάβῃ. καλὸν <sic>γένος</sic>,</l>
 <l>κακῆς γυναικὸς μισθὸν ἀποτεῖσαι τέκνα.</l>
 <l n="1170">τἄχθιστα τοῖσι φιλτάτοις ὠνούμεθα.</l>
 <l>ἄγʼ, εἰ στρατεύσῃ καταλιπών μʼ ἐν δώμασιν,</l>
@@ -2384,9 +2052,9 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>δεξόμεθα δέξιν ἥν σε δέξασθαι χρεών.</l>
 <l>μὴ δῆτα πρὸς θεῶν μήτʼ ἀναγκάσῃς ἐμὲ</l>
 <l>κακὴν γενέσθαι περὶ σέ, μήτʼ αὐτὸς γένῃ.</l>
-<milestone ed="p" n="1185" unit="card"/>
+<milestone ed="perseus" unit="card" n="1185"/>
 <l n="1185">εἶἑν·</l>
-<l>θύσεις † δὲ παῖδʼ, ἔνθα † τίνας εὐχὰς ἐρεῖς;</l>
+<l>θύσεις <sic>δὲ παῖδʼ, ἔνθα</sic> τίνας εὐχὰς ἐρεῖς;</l>
 <l>τί σοι κατεύξῃ τἀγαθόν, σφάζων τέκνον;</l>
 <l>νόστον πονηρόν, οἴκοθέν γʼ αἰσχρῶς ἰών;</l>
 <l>ἀλλʼ ἐμὲ δίκαιον ἀγαθὸν εὔχεσθαί τί σοι;</l>
@@ -2408,18 +2076,16 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ἡ δʼ ἐξαμαρτοῦσʼ, ὑπότροφον νεάνιδα</l>
 <l n="1205">Σπάρτῃ κομίζουσʼ, εὐτυχὴς γενήσεται.</l>
 <l>τούτων ἄμειψαί μʼ εἴ τι μὴ καλῶς λέγω·</l>
-<l>εἰ δʼ εὖ λέλεκται, † νῶι μὴ δή γε κτάνῃς †</l>
-<l>τὴν σήν τε κἀμὴν παῖδα, καὶ σώφρων ἔσῃ.</l>
-</sp>
-<sp>
-<speaker>Χορός</speaker>
-<l>πιθοῦ. τὸ γάρ τοι τέκνα συνσῴζειν καλόν,</l>
-<l n="1210">Ἀγάμεμνον· οὐδεὶς πρὸς τάδʼ ἀντερεῖ βροτῶν.</l>
-</sp>
-<milestone ed="p" n="1211" unit="card"/>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>εἰ μὲν τὸν Ὀρφέως εἶχον, ὦ πάτερ, λόγον,</l>
+<l>εἰ δʼ εὖ λέλεκται, <sic>νῶι μὴ δή γε κτάνῃς</sic></l>
+<l>τὴν σήν τε κἀμὴν παῖδα, καὶ σώφρων ἔσῃ.</l></sp>
+
+<sp><speaker>Χορός</speaker>
+<l n="1209">πιθοῦ. τὸ γάρ τοι τέκνα συνσῴζειν καλόν,</l>
+<l n="1210">Ἀγάμεμνον· οὐδεὶς πρὸς τάδʼ ἀντερεῖ βροτῶν.</l></sp>
+<milestone ed="perseus" unit="card" n="1211"/>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1211">εἰ μὲν τὸν Ὀρφέως εἶχον, ὦ πάτερ, λόγον,</l>
 <l>πείθειν ἐπᾴδουσʼ, ὥσθʼ ὁμαρτεῖν μοι πέτρας,</l>
 <l>κηλεῖν τε τοῖς λόγοισιν οὓς ἐβουλόμην,</l>
 <l>ἐνταῦθʼ ἂν ἦλθον· νῦν δέ, τἀπʼ ἐμοῦ σοφά,</l>
@@ -2460,16 +2126,14 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ἓν συντεμοῦσα πάντα νικήσω λόγον·</l>
 <l n="1250">τὸ φῶς τόδʼ ἀνθρώποισιν ἥδιστον βλέπειν,</l>
 <l>τὰ νέρθε δʼ οὐδέν· μαίνεται δʼ ὃς εὔχεται</l>
-<l>θανεῖν. κακῶς ζῆν κρεῖσσον ἢ καλῶς θανεῖν.</l>
-</sp>
-<sp>
-<speaker>Χορός</speaker>
-<l>ὦ τλῆμον Ἑλένη, διὰ σὲ καὶ τοὺς σοὺς γάμους</l>
-<l>ἀγὼν Ἀτρείδαις καὶ τέκνοις ἥκει μέγας.</l>
-</sp>
-<milestone ed="p" n="1255" unit="card"/>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
+<l>θανεῖν. κακῶς ζῆν κρεῖσσον ἢ καλῶς θανεῖν.</l></sp>
+
+<sp><speaker>Χορός</speaker>
+<l n="1253">ὦ τλῆμον Ἑλένη, διὰ σὲ καὶ τοὺς σοὺς γάμους</l>
+<l>ἀγὼν Ἀτρείδαις καὶ τέκνοις ἥκει μέγας.</l></sp>
+<milestone ed="perseus" unit="card" n="1255"/>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
 <l n="1255">ἐγὼ τά τʼ οἰκτρὰ συνετός εἰμι καὶ τὰ μή,</l>
 <l>φιλῶ τʼ ἐμαυτοῦ τέκνα· μαινοίμην γὰρ ἄν.</l>
 <l>δεινῶς δʼ ἔχει μοι ταῦτα τολμῆσαι, γύναι,</l>
@@ -2490,21 +2154,20 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>θῦσαί σε· τούτου δʼ ἥσσονες καθέσταμεν.</l>
 <l>ἐλευθέραν γὰρ δεῖ νιν ὅσον ἐν σοί, τέκνον,</l>
 <l>κἀμοὶ γενέσθαι, μηδὲ βαρβάροις ὕπο</l>
-<l n="1275">Ἕλληνας ὄντας λέκτρα συλᾶσθαι βίᾳ.</l>
-</sp>
-</div1>
-<milestone ed="p" n="1276" unit="card"/>
-<div1 type="choral">
-<div2 type="lyric">
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὦ τέκνον, ὦ ξέναι,</l>
+<l n="1275">Ἕλληνας ὄντας λέκτρα συλᾶσθαι βίᾳ.</l></sp>
+</div>
+<milestone ed="perseus" unit="card" n="1276"/>
+
+<div type="textpart" subtype="choral">
+<div type="textpart" subtype="lyric">
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1276">ὦ τέκνον, ὦ ξέναι,</l>
 <l>οἲ ʼγὼ θανάτου <add>τοῦ</add> σοῦ μελέα.</l>
-<l>φεύγει σε πατὴρ Ἅιδῃ παραδούς.</l>
-</sp>
-<sp n="*)ifige/neia">
-<speaker>Ἰφιγένεια</speaker>
-<l>οἲ ʼγώ, μᾶτερ· ταὐτὸν τόδε γὰρ</l>
+<l>φεύγει σε πατὴρ Ἅιδῃ παραδούς.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1279">οἲ ʼγώ, μᾶτερ· ταὐτὸν τόδε γὰρ</l>
 <l n="1280">μέλος εἰς ἄμφω πέπτωκε τύχης,</l>
 <l>κοὐκέτι μοι φῶς</l>
 <l>οὐδʼ ἀελίου τόδε φέγγος.</l>
@@ -2533,7 +2196,7 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="1310">ὄνομα μὲν φέροντα Δαναΐ-</l>
 <l>δαισιν, ὦ κόραι, πρόθυμα δʼ</l>
 <l>ἔλαβεν Ἄρτεμις πρὸς Ἴλιον.</l>
-<milestone ed="p" n="1313" unit="card"/>
+<milestone ed="perseus" unit="card" n="1313"/>
 <l>ὁ δὲ τεκών με τὰν τάλαιναν,</l>
 <l>ὦ μᾶτερ ὦ μᾶτερ,</l>
 <l>οἴχεται προδοὺς ἔρημον.</l>
@@ -2543,8 +2206,7 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>σφαγαῖσιν ἀνοσίοισιν ἀνοσίου πατρός.</l>
 <l>μή μοι ναῶν χαλκεμβολάδων</l>
 <l n="1320">πρύμνας <del>ἅδʼ</del> Αὐλὶς δέξασθαι</l>
-<l>τούσδʼ εἰς ὅρμους <del>ἐς Τροίαν</del>
-</l>
+<l>τούσδʼ εἰς ὅρμους <del>ἐς Τροίαν</del></l>
 <l>ὤφελεν ἐλάταν πομπαίαν,</l>
 <l>μηδʼ ἀνταίαν Εὐρίπῳ</l>
 <l>πνεῦσαι πομπὰν Ζεύς, μειλίσσων</l>
@@ -2558,254 +2220,194 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ἀνδράσιν ἀνευρεῖν.</l>
 <l>ἰὼ ἰώ,</l>
 <l>μεγάλα πάθεα, μεγάλα δʼ ἄχεα</l>
-<l n="1335">Δαναΐδαις τιθεῖσα Τυνδαρὶς κόρα.</l>
-</sp>
-</div2>
-</div1>
-<milestone ed="p" n="1336" unit="card"/>
-<div1 type="episode">
-<sp>
-<speaker>Χορός</speaker>
-<l>ἐγὼ μὲν οἰκτίρω σε συμφορᾶς κακῆς</l>
-<l>τυχοῦσαν, οἵας μήποτʼ ὤφελες τυχεῖν.</l>
-</sp>
-<milestone ed="p" n="1338" unit="card"/>
-<div2 type="trochees">
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ὦ τεκοῦσα μῆτερ, ἀνδρῶν ὄχλον εἰσορῶ πέλας.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τόν τε τῆς θεᾶς παῖδα, τέκνον, ᾧ <add>σὺ</add> δεῦρʼ ἐλήλυθας.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l n="1340">διαχαλᾶτέ μοι μέλαθρα, δμῶες, ὡς κρύψω δέμας.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τί δὲ τέκνον, φεύγεις;</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>Ἀχιλλέα τόνδʼ ἰδεῖν αἰσχύνομαι.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὡς τί δή;</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>τὸ δυστυχές μοι τῶν γάμων αἰδῶ φέρει.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οὐκ ἐν ἁβρότητι κεῖσαι πρὸς τὰ νῦν πεπτωκότα.</l>
-<l>ἀλλὰ μίμνʼ· οὐ σεμνότητος ἔργον, ἢν ὀνώμεθα.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l n="1345">ὦ γύναι τάλαινα, Λήδας θύγατερ  <gap/>
-</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οὐ ψευδῆ θροεῖς.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>δείνʼ ἐν Ἀργείοις βοᾶται  <gap/>
-</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τίνα βοήν; σήμαινέ μοι.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἀμφὶ σῆς παιδός  <gap/>
-</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>πονηρὸν εἶπας οἰωνὸν λόγον.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ὡς χρεὼν σφάξαι νιν.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>οὐδεὶς <add>τοῖσδʼ</add> ἐναντίον λέγει;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἐς θόρυβον ἐγώ τι καὐτὸς ἤλυθον  <gap/>
-</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τίνʼ, ὦ ξένε;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l n="1350">σῶμα λευσθῆναι πέτροισι.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>μῶν κόρην σῴζων ἐμήν;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>αὐτὸ τοῦτο.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τίς δʼ ἂν ἔτλη <del>τοῦ</del> σώματος τοῦ σοῦ θιγεῖν;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>πάντες Ἕλληνες.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>στρατὸς δὲ Μυρμιδὼν οὔ σοι παρῆν;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>πρῶτος ἦν ἐκεῖνος ἐχθρός.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>διʼ ἄρʼ ὀλώλαμεν, τέκνον.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>οἵ με τὸν γάμων ἀπεκάλουν ἥσσονα.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἀπεκρίνω δὲ τί;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l n="1355">τὴν ἐμὴν μέλλουσαν εὐνὴν μὴ κτανεῖν  <gap/>
-</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>δίκαια γάρ.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἣν ἐφήμισεν πατήρ μοι.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>καὶ Ἀργόθεν γʼ ἐπέμψατο.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἀλλʼ ἐνικώμην κεκραγμοῦ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τὸ πολὺ γὰρ δεινὸν κακόν.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἀλλʼ ὅμως ἀρήξομέν σοι.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>καὶ μαχῇ πολλοῖσιν εἷς;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>εἰσορᾷς τεύχη φέροντας τούσδε;</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὄναιο τῶν φρενῶν.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l n="1360">ἀλλʼ ὀνησόμεσθα.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>παῖς ἄρʼ οὐκέτι σφαγήσεται;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>οὔκ, ἐμοῦ γʼ ἑκόντος.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἥξει δʼ ὅστις ἅψεται κόρης;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>μυρίοι γʼ, ἄξει δʼ Ὀδυσσεύς.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἆρʼ ὁ Σισύφου γόνος;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>αὐτὸς οὗτος.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἴδια πράσσων, ἢ στρατοῦ ταχθεὶς ὕπο;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>αἱρεθεὶς ἑκών.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>πονηράν γʼ αἵρεσιν, μιαιφονεῖν.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l n="1365">ἀλλʼ ἐγὼ σχήσω νιν.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἄξει δʼ οὐχ ἑκοῦσαν ἁρπάσας;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>δηλαδὴ ξανθῆς ἐθείρας.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἐμὲ δὲ δρᾶν τί χρὴ τότε;</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἀντέχου θυγατρός.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὡς τοῦδʼ εἵνεκʼ οὐ σφαγήσεται.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ἀλλὰ μὴν ἐς τοῦτό γʼ ἥξει.</l>
-</sp>
-<sp n="*)ifige/neia">
-<speaker>Ἰφιγένεια</speaker>
-<l>μῆτερ, εἰσακούσατε</l>
+<l n="1335">Δαναΐδαις τιθεῖσα Τυνδαρὶς κόρα.</l></sp>
+</div>
+</div>
+<milestone ed="perseus" unit="card" n="1336"/>
+
+<div type="textpart" subtype="episode">
+
+<sp><speaker>Χορός</speaker>
+<l n="1336">ἐγὼ μὲν οἰκτίρω σε συμφορᾶς κακῆς</l>
+<l>τυχοῦσαν, οἵας μήποτʼ ὤφελες τυχεῖν.</l></sp>
+<milestone ed="perseus" unit="card" n="1338"/>
+
+<div type="textpart" subtype="trochees">
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1338">ὦ τεκοῦσα μῆτερ, ἀνδρῶν ὄχλον εἰσορῶ πέλας.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1339">τόν τε τῆς θεᾶς παῖδα, τέκνον, ᾧ <add>σὺ</add> δεῦρʼ ἐλήλυθας.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1340">διαχαλᾶτέ μοι μέλαθρα, δμῶες, ὡς κρύψω δέμας.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1341" part="I">τί δὲ τέκνον, φεύγεις;</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1341b" part="F">Ἀχιλλέα τόνδʼ ἰδεῖν αἰσχύνομαι.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1342" part="I">ὡς τί δή;</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1342b" part="F">τὸ δυστυχές μοι τῶν γάμων αἰδῶ φέρει.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1343">οὐκ ἐν ἁβρότητι κεῖσαι πρὸς τὰ νῦν πεπτωκότα.</l>
+<l>ἀλλὰ μίμνʼ· οὐ σεμνότητος ἔργον, ἢν ὀνώμεθα.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1345" part="I">ὦ γύναι τάλαινα, Λήδας θύγατερ—</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1345b" part="F">οὐ ψευδῆ θροεῖς.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1346" part="I">δείνʼ ἐν Ἀργείοις βοᾶται—</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1346b" part="F">τίνα βοήν; σήμαινέ μοι.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1347" part="I">ἀμφὶ σῆς παιδός—</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1347b" part="F">πονηρὸν εἶπας οἰωνὸν λόγον.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1348" part="I">ὡς χρεὼν σφάξαι νιν.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1348b" part="F">οὐδεὶς <add>τοῖσδʼ</add> ἐναντίον λέγει;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1349" part="I">ἐς θόρυβον ἐγώ τι καὐτὸς ἤλυθον—</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1349b" part="F">τίνʼ, ὦ ξένε;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1350" part="I">σῶμα λευσθῆναι πέτροισι.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1350b" part="F">μῶν κόρην σῴζων ἐμήν;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1351" part="I">αὐτὸ τοῦτο.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1351b" part="F">τίς δʼ ἂν ἔτλη <del>τοῦ</del> σώματος τοῦ σοῦ θιγεῖν;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1352" part="I">πάντες Ἕλληνες.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1352b" part="F">στρατὸς δὲ Μυρμιδὼν οὔ σοι παρῆν;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1353" part="I">πρῶτος ἦν ἐκεῖνος ἐχθρός.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1353b" part="F">διʼ ἄρʼ ὀλώλαμεν, τέκνον.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1354" part="I">οἵ με τὸν γάμων ἀπεκάλουν ἥσσονα.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1354b" part="F">ἀπεκρίνω δὲ τί;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1355" part="I">τὴν ἐμὴν μέλλουσαν εὐνὴν μὴ κτανεῖν—</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1355b" part="F">δίκαια γάρ.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1356" part="I">ἣν ἐφήμισεν πατήρ μοι.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1356b" part="F">καὶ Ἀργόθεν γʼ ἐπέμψατο.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1357" part="I">ἀλλʼ ἐνικώμην κεκραγμοῦ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1357b" part="F">τὸ πολὺ γὰρ δεινὸν κακόν.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1358" part="I">ἀλλʼ ὅμως ἀρήξομέν σοι.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1358b" part="F">καὶ μαχῇ πολλοῖσιν εἷς;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1359" part="I">εἰσορᾷς τεύχη φέροντας τούσδε;</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1359b" part="F">ὄναιο τῶν φρενῶν.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1360" part="I">ἀλλʼ ὀνησόμεσθα.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1360b" part="F">παῖς ἄρʼ οὐκέτι σφαγήσεται;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1361" part="I">οὔκ, ἐμοῦ γʼ ἑκόντος.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1361b" part="F">ἥξει δʼ ὅστις ἅψεται κόρης;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1362" part="I">μυρίοι γʼ, ἄξει δʼ Ὀδυσσεύς.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1362b" part="F">ἆρʼ ὁ Σισύφου γόνος;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1363" part="I">αὐτὸς οὗτος.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1363b" part="F">ἴδια πράσσων, ἢ στρατοῦ ταχθεὶς ὕπο;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1364" part="I">αἱρεθεὶς ἑκών.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1364b" part="F">πονηράν γʼ αἵρεσιν, μιαιφονεῖν.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1365" part="I">ἀλλʼ ἐγὼ σχήσω νιν.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1365b" part="F">ἄξει δʼ οὐχ ἑκοῦσαν ἁρπάσας;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1366" part="I">δηλαδὴ ξανθῆς ἐθείρας.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1366b" part="F">ἐμὲ δὲ δρᾶν τί χρὴ τότε;</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1367" part="I">ἀντέχου θυγατρός.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1367b" part="F">ὡς τοῦδʼ εἵνεκʼ οὐ σφαγήσεται.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1368" part="I">ἀλλὰ μὴν ἐς τοῦτό γʼ ἥξει.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1368b" part="F">μῆτερ, εἰσακούσατε</l>
 <l>τῶν ἐμῶν λόγων· μάτην γάρ σʼ εἰσορῶ θυμουμένην</l>
 <l n="1370">σῷ πόσει· τὰ δʼ ἀδύναθʼ ἡμῖν καρτερεῖν οὐ ῥᾴδιον.</l>
 <l>τὸν μὲν οὖν ξένον δίκαιον αἰνέσαι προθυμίας·</l>
 <l>ἀλλὰ καὶ σὲ τοῦθʼ ὁρᾶν χρή, μὴ διαβληθῇ στρατῷ,</l>
 <l>καὶ πλέον πράξωμεν οὐδέν, ὅδε δὲ συμφορᾶς τύχῃ.</l>
-<milestone ed="p" n="1374" unit="card"/>
+<milestone ed="perseus" unit="card" n="1374"/>
 <l>οἷα δʼ εἰσῆλθέν μʼ, ἄκουσον, μῆτερ, ἐννοουμένην·</l>
 <l n="1375">κατθανεῖν μέν μοι δέδοκται· τοῦτο δʼ αὐτὸ βούλομαι</l>
 <l>εὐκλεῶς πρᾶξαι, παρεῖσά γʼ ἐκποδὼν τὸ δυσγενές.</l>
@@ -2833,19 +2435,18 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>θύετʼ, ἐκπορθεῖτε Τροίαν. ταῦτα γὰρ μνημεῖά μου</l>
 <l>διὰ μακροῦ, καὶ παῖδες οὗτοι καὶ γάμοι καὶ δόξʼ ἐμή.</l>
 <l n="1400">βαρβάρων δʼ Ἕλληνας ἄρχειν εἰκός, ἀλλʼ οὐ βαρβάρους,</l>
-<l>μῆτερ, Ἑλλήνων· τὸ μὲν γὰρ δοῦλον, οἳ δʼ ἐλεύθεροι.</l>
-</sp>
-<milestone ed="p" n="1402" unit="card"/>
-</div2>
-<div2 type="dialogue">
-<sp>
-<speaker>Χορός</speaker>
-<l>τὸ μὲν σόν, ὦ νεᾶνι, γενναίως ἔχει·</l>
-<l>τὸ τῆς τύχης δὲ καὶ τὸ τῆς θεοῦ νοσεῖ.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>Ἀγαμέμνονος παῖ, μακάριόν μέ τις θεῶν</l>
+<l>μῆτερ, Ἑλλήνων· τὸ μὲν γὰρ δοῦλον, οἳ δʼ ἐλεύθεροι.</l></sp></div>
+<milestone ed="perseus" unit="card" n="1402"/>
+
+
+<div type="textpart" subtype="dialogue">
+
+<sp><speaker>Χορός</speaker>
+<l n="1402">τὸ μὲν σόν, ὦ νεᾶνι, γενναίως ἔχει·</l>
+<l>τὸ τῆς τύχης δὲ καὶ τὸ τῆς θεοῦ νοσεῖ.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1404">Ἀγαμέμνονος παῖ, μακάριόν μέ τις θεῶν</l>
 <l n="1405">ἔμελλε θήσειν, εἰ τύχοιμι σῶν γάμων.</l>
 <l>ζηλῶ δὲ σοῦ μὲν Ἑλλάδʼ, Ἑλλάδος δὲ σέ.</l>
 <l>εὖ γὰρ τόδʼ εἶπας ἀξίως τε πατρίδος·</l>
@@ -2856,191 +2457,151 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ὅρα δʼ· ἐγὼ γὰρ βούλομαί σʼ εὐεργετεῖν</l>
 <l>λαβεῖν τʼ ἐς οἴκους· ἄχθομαί τʼ, ἴστω Θέτις,</l>
 <l>εἰ μή σε σώσω Δαναΐδαισι διὰ μάχης</l>
-<l n="1415">ἐλθών. ἄθρησον· ὁ θάνατος δεινὸν κακόν.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>λέγω τάδʼ οὐδὲν οὐδένʼ εὐλαβουμένη.</l>
+<l n="1415">ἐλθών. ἄθρησον· ὁ θάνατος δεινὸν κακόν.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1416">λέγω τάδʼ οὐδὲν οὐδένʼ εὐλαβουμένη.</l>
 <l>ἡ Τυνδαρὶς παῖς διὰ τὸ σῶμʼ ἀρκεῖ μάχας</l>
 <l>ἀνδρῶν τιθεῖσα καὶ φόνους· σὺ δʼ, ὦ ξένε,</l>
 <l>μὴ θνῇσκε διʼ ἐμὲ μηδʼ ἀποκτείνῃς τινά,</l>
-<l n="1420">ἔα δὲ σῷσαί μʼ Ἑλλάδʼ, ἢν δυνώμεθα.</l>
-</sp>
-<sp>
-<speaker>Ἀχιλλεύς</speaker>
-<l>ὦ λῆμʼ ἄριστον, οὐκ ἔχω πρὸς τοῦτʼ ἔτι</l>
+<l n="1420">ἔα δὲ σῷσαί μʼ Ἑλλάδʼ, ἢν δυνώμεθα.</l></sp>
+
+<sp><speaker>Ἀχιλλεύς</speaker>
+<l n="1421">ὦ λῆμʼ ἄριστον, οὐκ ἔχω πρὸς τοῦτʼ ἔτι</l>
 <l>λέγειν, ἐπεί σοι τάδε δοκεῖ· γενναῖα γὰρ</l>
 <l>φρονεῖς· τί γὰρ τἀληθὲς οὐκ εἴποι τις ἄν;</l>
 <l>ὅμως δʼ, ἴσως γὰρ κἂν μεταγνοίης τάδε,</l>
-<l n="1425">
-<del>ὡς οὖν ἂν εἰδῇς τἀπʼ ἐμοῦ λελεγμένα,</del>
-</l>
+<l n="1425"><del>ὡς οὖν ἂν εἰδῇς τἀπʼ ἐμοῦ λελεγμένα,</del></l>
 <l>ἐλθὼν τάδʼ ὅπλα θήσομαι βωμοῦ πέλας,</l>
 <l>ὡς οὐκ ἐάσων σʼ ἀλλὰ κωλύσων θανεῖν.</l>
 <l>χρήσῃ δὲ καὶ σὺ τοῖς ἐμοῖς λόγοις τάχα,</l>
 <l>ὅταν πέλας σῆς φάσγανον δέρης ἴδῃς.</l>
 <l n="1430">οὔκουν ἐάσω σʼ ἀφροσύνῃ τῇ σῇ θανεῖν·</l>
 <l>ἐλθὼν δὲ σὺν ὅπλοις τοῖσδε πρὸς ναὸν θεᾶς</l>
-<l>καραδοκήσω σὴν ἐκεῖ παρουσίαν.</l>
-</sp>
-<milestone ed="p" n="1433" unit="card"/>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>μῆτερ, τί σιγῇ δακρύοις τέγγεις κόρας;</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἔχω τάλαινα πρόφασιν ὥστʼ ἀλγεῖν φρένα.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l n="1435">παῦσαι· ʼμὲ μὴ κάκιζε· τάδε δέ μοι πιθοῦ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>λέγʼ· ὡς παρʼ ἡμῶν οὐδὲν ἀδικήσῃ, τέκνον.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>μήτʼ οὖν γε τὸν σὸν πλόκαμον ἐκτέμῃς τριχός,</l>
-<l>μήτʼ ἀμφὶ σῶμα μέλανας ἀμπίσχῃ πέπλους.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τί δὴ τόδʼ εἶπας, τέκνον; ἀπολέσασά σε;</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l n="1440">οὐ σύ γε· σέσῳσμαι, κατʼ ἐμὲ δʼ εὐκλεὴς ἔσῃ.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>πῶς εἶπας; οὐ πενθεῖν με σὴν ψυχὴν χρεών;</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ἥκιστʼ, ἐπεί μοι τύμβος οὐ χωσθήσεται.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τί δαί; τὸ θνῄσκειν, οὐ τάφος, νομίζεται.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>βωμὸς θεᾶς μοι μνῆμα τῆς Διὸς κόρης.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="1445">ἀλλʼ, ὦ τέκνον, σοὶ πείσομαι· λέγεις γὰρ εὖ.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ὡς εὐτυχοῦσά γʼ Ἑλλάδος τʼ εὐεργέτις.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>τί δὴ κασιγνήταισιν ἀγγελῶ σέθεν;</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>μηδʼ ἀμφὶ κείναις μέλανας ἐξάψῃ πέπλους.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>εἴπω δὲ παρὰ σοῦ φίλον ἔπος τι παρθένοις;</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l n="1450">χαίρειν γε. Ὀρέστην τʼ ἔκτρεφʼ ἄνδρα τόνδε μοι.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>προσέλκυσαί νιν ὕστατον θεωμένη.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ὦ φίλτατʼ, ἐπεκούρησας ὅσον εἶχες φίλοις.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἔσθʼ ὅ τι κατʼ Ἄργος δρῶσά σοι χάριν φέρω;</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>πατέρα τὸν ἀμὸν μὴ στύγει, πόσιν γε σόν.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="1455">δεινοὺς ἀγῶνας διὰ σὲ δεῖ κεῖνον δραμεῖν.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ἄκων μʼ ὑπὲρ γῆς Ἑλλάδος διώλεσεν.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>δόλῳ δʼ, ἀγεννῶς Ἀτρέως τʼ οὐκ ἀξίως.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>τίς μʼ εἶσιν ἄξων πρὶν σπαράσσεσθαι κόμης;</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ἐγώ, μετά γε σοῦ <gap/>
-</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>μὴ σύ γʼ· οὐ καλῶς λέγεις.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="1460">πέπλων ἐχομένη σῶν.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ἐμοί, μῆτερ, πιθοῦ·</l>
+<l>καραδοκήσω σὴν ἐκεῖ παρουσίαν.</l></sp>
+<milestone ed="perseus" unit="card" n="1433"/>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1433">μῆτερ, τί σιγῇ δακρύοις τέγγεις κόρας;</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1434">ἔχω τάλαινα πρόφασιν ὥστʼ ἀλγεῖν φρένα.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1435">παῦσαι· ʼμὲ μὴ κάκιζε· τάδε δέ μοι πιθοῦ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1436">λέγʼ· ὡς παρʼ ἡμῶν οὐδὲν ἀδικήσῃ, τέκνον.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1437">μήτʼ οὖν γε τὸν σὸν πλόκαμον ἐκτέμῃς τριχός,</l>
+<l>μήτʼ ἀμφὶ σῶμα μέλανας ἀμπίσχῃ πέπλους.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1439">τί δὴ τόδʼ εἶπας, τέκνον; ἀπολέσασά σε;</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1440">οὐ σύ γε· σέσῳσμαι, κατʼ ἐμὲ δʼ εὐκλεὴς ἔσῃ.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1441">πῶς εἶπας; οὐ πενθεῖν με σὴν ψυχὴν χρεών;</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1442">ἥκιστʼ, ἐπεί μοι τύμβος οὐ χωσθήσεται.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1443">τί δαί; τὸ θνῄσκειν, οὐ τάφος, νομίζεται.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1444">βωμὸς θεᾶς μοι μνῆμα τῆς Διὸς κόρης.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1445">ἀλλʼ, ὦ τέκνον, σοὶ πείσομαι· λέγεις γὰρ εὖ.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1446">ὡς εὐτυχοῦσά γʼ Ἑλλάδος τʼ εὐεργέτις.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1447">τί δὴ κασιγνήταισιν ἀγγελῶ σέθεν;</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1448">μηδʼ ἀμφὶ κείναις μέλανας ἐξάψῃ πέπλους.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1449">εἴπω δὲ παρὰ σοῦ φίλον ἔπος τι παρθένοις;</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1450">χαίρειν γε. Ὀρέστην τʼ ἔκτρεφʼ ἄνδρα τόνδε μοι.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1451">προσέλκυσαί νιν ὕστατον θεωμένη.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1452">ὦ φίλτατʼ, ἐπεκούρησας ὅσον εἶχες φίλοις.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1453">ἔσθʼ ὅ τι κατʼ Ἄργος δρῶσά σοι χάριν φέρω;</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1454">πατέρα τὸν ἀμὸν μὴ στύγει, πόσιν γε σόν.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1455">δεινοὺς ἀγῶνας διὰ σὲ δεῖ κεῖνον δραμεῖν.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1456">ἄκων μʼ ὑπὲρ γῆς Ἑλλάδος διώλεσεν.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1457">δόλῳ δʼ, ἀγεννῶς Ἀτρέως τʼ οὐκ ἀξίως.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1458">τίς μʼ εἶσιν ἄξων πρὶν σπαράσσεσθαι κόμης;</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1459" part="I">ἐγώ, μετά γε σοῦ—</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1459b" part="F">μὴ σύ γʼ· οὐ καλῶς λέγεις.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1460" part="I">πέπλων ἐχομένη σῶν.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1460b" part="F">ἐμοί, μῆτερ, πιθοῦ·</l>
 <l>μένʼ· ὡς ἐμοί τε σοί τε κάλλιον τόδε.</l>
 <l>πατρὸς δʼ ὀπαδῶν τῶνδέ τίς με πεμπέτω</l>
-<l>Ἀρτέμιδος ἐς λειμῶνʼ, ὅπου σφαγήσομαι.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>ὦ τέκνον, οἴχῃ;</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>καὶ πάλιν γʼ οὐ μὴ μόλω.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="1465">λιποῦσα μητέρα;</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ὡς ὁρᾷς γʼ, οὐκ ἀξίως.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>σχές, μή με προλίπῃς.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>οὐκ ἐῶ στάζειν δάκρυ.</l>
+<l>Ἀρτέμιδος ἐς λειμῶνʼ, ὅπου σφαγήσομαι.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1464" part="I">ὦ τέκνον, οἴχῃ;</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1464b" part="F">καὶ πάλιν γʼ οὐ μὴ μόλω.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1465" part="I">λιποῦσα μητέρα;</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1465b" part="F">ὡς ὁρᾷς γʼ, οὐκ ἀξίως.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1466" part="I">σχές, μή με προλίπῃς.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1466b" part="F">οὐκ ἐῶ στάζειν δάκρυ.</l>
 <l>ὑμεῖς δʼ ἐπευφημήσατʼ, ὦ νεάνιδες,</l>
 <l>παιᾶνα τἠμῇ συμφορᾷ Διὸς κόρην</l>
 <l>Ἄρτεμιν· ἴτω δὲ Δαναΐδαις εὐφημία.</l>
 <l n="1470">κανᾶ δʼ ἐναρχέσθω τις, αἰθέσθω δὲ πῦρ</l>
 <l>προχύταις καθαρσίοισι, καὶ πατὴρ ἐμὸς</l>
 <l>ἐνδεξιούσθω βωμόν· ὡς σωτηρίαν</l>
-<l>Ἕλλησι δώσουσʼ ἔρχομαι νικηφόρον.</l>
-</sp>
-<milestone ed="p" n="1475" unit="card"/>
-</div2>
-<div2 type="lyric">
-<sp>
-<speaker>Ἰφιγένεια</speaker>
+<l>Ἕλλησι δώσουσʼ ἔρχομαι νικηφόρον.</l></sp>
+<milestone ed="perseus" unit="card" n="1475"/>
+</div>
+
+<div type="textpart" subtype="lyric">
+
+<sp><speaker>Ἰφιγένεια</speaker>
 <l n="1475">ἄγετέ με τὰν Ἰλίου</l>
 <l>καὶ Φρυγῶν ἑλέπτολιν.</l>
 <l>στέφεα περίβολα δίδοτε, φέρετε</l>
@@ -3050,8 +2611,7 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ἀμφὶ βωμὸν Ἄρτεμιν,</l>
 <l>τὰν ἄνασσαν Ἄρτεμιν,</l>
 <l>τὰν μάκαιραν· ὡς ἐμοῖσιν, εἰ χρεών,</l>
-<l n="1485">αἵμασι θύμασί <del>τε</del>
-</l>
+<l n="1485">αἵμασι θύμασί <del>τε</del></l>
 <l>θέσφατʼ ἐξαλείψω.</l>
 <l>ὦ πότνια πότνια μᾶτερ, οὐ δάκρυά γέ σοι</l>
 <l n="1489">δώσομεν ἁμέτερα·</l>
@@ -3063,36 +2623,31 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ὄνομα διʼ ἐμὸν <del>τᾶσδʼ</del> Αὐλίδος</l>
 <l>στενοπόροις ἐν ὅρμοις.</l>
 <l>ἰὼ γᾶ μᾶτερ ὦ Πελασγία,</l>
-<l>Μυκηναῖαί τʼ ἐμαὶ θεράπναι  <gap/>
-</l>
-</sp>
-<milestone ed="p" n="1500" unit="card"/>
-</div2>
-<div2 type="lyric">
-<sp>
-<speaker>Χορός</speaker>
+<l>Μυκηναῖαί τʼ ἐμαὶ θεράπναι—</l></sp>
+<milestone ed="perseus" unit="card" n="1500"/>
+</div>
+
+<div type="textpart" subtype="lyric">
+
+<sp><speaker>Χορός</speaker>
 <l n="1500">καλεῖς πόλισμα Περσέως,</l>
-<l>Κυκλωπίων πόνον χερῶν;</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
-<l>ἐθρέψαθʼ Ἑλλάδι με φάος·</l>
-<l>θανοῦσα δʼ οὐκ ἀναίνομαι.</l>
-</sp>
-<sp>
-<speaker>Χορός</speaker>
-<l>κλέος γὰρ οὔ σε μὴ λίπῃ.</l>
-</sp>
-<sp>
-<speaker>Ἰφιγένεια</speaker>
+<l>Κυκλωπίων πόνον χερῶν;</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
+<l n="1502">ἐθρέψαθʼ Ἑλλάδι με φάος·</l>
+<l>θανοῦσα δʼ οὐκ ἀναίνομαι.</l></sp>
+
+<sp><speaker>Χορός</speaker>
+<l n="1504">κλέος γὰρ οὔ σε μὴ λίπῃ.</l></sp>
+
+<sp><speaker>Ἰφιγένεια</speaker>
 <l n="1505">ἰὼ ἰώ.</l>
 <l>λαμπαδοῦχος ἁμέρα</l>
 <l>Διός τε φέγγος, ἕτερον ἕτερον</l>
 <l>αἰῶνα καὶ μοῖραν οἰκήσομεν.</l>
-<l>χαῖρέ μοι, φίλον φάος.</l>
-</sp>
-<sp>
-<speaker>Χορός</speaker>
+<l>χαῖρέ μοι, φίλον φάος.</l></sp>
+
+<sp><speaker>Χορός</speaker>
 <l n="1510">ἰὼ ἰώ.</l>
 <l>ἴδεσθε τὰν Ἰλίου</l>
 <l>καὶ Φρυγῶν ἑλέπτολιν</l>
@@ -3101,8 +2656,7 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>βωμόν γε δαίμονος θεᾶς</l>
 <l n="1515">ῥανίσιν αἱματορρύτοις</l>
 <l>χρανοῦσαν εὐφυῆ τε σώματος δέρην</l>
-<l>
-<del>σφαγεῖσαν.</del> εὔδροσοι παγαὶ</l>
+<l><del>σφαγεῖσαν.</del> εὔδροσοι παγαὶ</l>
 <l>πατρῷαι μένουσι χέρνιβές τέ σε</l>
 <l>στρατός τʼ Ἀχαιῶν θέλων</l>
 <l n="1520">Ἰλίου πόλιν μολεῖν.</l>
@@ -3112,38 +2666,34 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l>ὦ πότνια, πότνια, θύμασιν βροτησίοις</l>
 <l n="1525">χαρεῖσα, πέμψον ἐς Φρυγῶν</l>
 <l>γαῖαν Ἑλλάνων στρατὸν</l>
-<l>† καὶ δολόεντα Τροίας ἕδη,</l>
-<l>Ἀγαμέμνονά τε λόγχαις</l>
-<l>Ἑλλάδι κλεινότατον στέφανον</l>
-<l n="1530">δὸς ἀμφὶ κάρα ἑὸν †</l>
-<l>κλέος ἀείμνηστον ἀμφιθεῖναι.</l>
-</sp>
-<milestone ed="p" n="1532" unit="card"/>
-</div2>
-<div2 type="dialogue">
-<sp>
-<speaker>Ἄγγελος</speaker>
-<l>ὦ Τυνδαρεία παῖ, Κλυταιμήστρα, δόμων</l>
-<l>ἔξω πέρασον, ὡς κλύῃς ἐμῶν λόγων.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>φθογγῆς κλύουσα δεῦρο σῆς ἀφικόμην,</l>
+<l><sic>καὶ δολόεντα Τροίας ἕδη,</sic></l>
+<l><sic>Ἀγαμέμνονά τε λόγχαις</sic></l>
+<l><sic>Ἑλλάδι κλεινότατον στέφανον</sic></l>
+<l n="1530"><sic>δὸς ἀμφὶ κάρα ἑὸν </sic></l>
+<l>κλέος ἀείμνηστον ἀμφιθεῖναι.</l></sp>
+<milestone ed="perseus" unit="card" n="1532"/>
+</div>
+
+<div type="textpart" subtype="dialogue">
+
+<sp><speaker>Ἄγγελος</speaker>
+<l n="1532">ὦ Τυνδαρεία παῖ, Κλυταιμήστρα, δόμων</l>
+<l>ἔξω πέρασον, ὡς κλύῃς ἐμῶν λόγων.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1534">φθογγῆς κλύουσα δεῦρο σῆς ἀφικόμην,</l>
 <l n="1535">ταρβοῦσα τλήμων κἀκπεπληγμένη φόβῳ·</l>
 <l>μή μοί τινʼ ἄλλην ξυμφορὰν ἥκεις φέρων</l>
-<l>πρὸς τῇ παρούσῃ;</l>
-</sp>
-<sp>
-<speaker>Ἄγγελος</speaker>
-<l>σῆς μὲν οὖν παιδὸς πέρι</l>
-<l>θαυμαστά σοι καὶ δεινὰ σημῆναι θέλω.</l>
-</sp>
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l>μὴ μέλλε τοίνυν, ἀλλὰ φράζʼ ὅσον τάχος.</l>
-</sp>
-<sp n="*)aggelos">
-<speaker>Ἄγγελος</speaker>
+<l n="1537" part="I">πρὸς τῇ παρούσῃ;</l></sp>
+
+<sp><speaker>Ἄγγελος</speaker>
+<l n="1537b" part="F">σῆς μὲν οὖν παιδὸς πέρι</l>
+<l>θαυμαστά σοι καὶ δεινὰ σημῆναι θέλω.</l></sp>
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1539">μὴ μέλλε τοίνυν, ἀλλὰ φράζʼ ὅσον τάχος.</l></sp>
+
+<sp><speaker>Ἄγγελος</speaker>
 <l n="1540">ἀλλʼ, ὦ φίλη δέσποινα, πᾶν πεύσῃ σαφῶς.</l>
 <l>λέξω δʼ ἀπʼ ἀρχῆς, ἤν τι μὴ σφαλεῖσά μου</l>
 <l>γνώμη ταράξῃ γλῶσσαν ἐν λόγοις ἐμήν.</l>
@@ -3177,194 +2727,84 @@ Revision 1.3  2000/01/11 20:40:41  amahoney convert to P3
 <l n="1570">ἔλεξε δʼ· Ὦ παῖ Ζηνός, ὦ θηροκτόνε,</l>
 <l>τὸ λαμπρὸν εἱλίσσουσʼ ἐν εὐφρόνῃ φάος,</l>
 <l>δέξαι τὸ θῦμα τόδʼ ὅ γέ σοι δωρούμεθα</l>
-<l>στρατός τʼ Ἀχαιῶν † Ἀγαμέμνων ἄναξ θʼ ὁμοῦ, †</l>
+<l>στρατός τʼ Ἀχαιῶν <sic>Ἀγαμέμνων ἄναξ θʼ ὁμοῦ,</sic></l>
 <l>ἄχραντον αἷμα καλλιπαρθένου δέρης,</l>
 <l n="1575">καὶ δὸς γενέσθαι πλοῦν νεῶν ἀπήμονα</l>
 <l>Τροίας τε πέργαμʼ ἐξελεῖν ἡμᾶς δορί.</l>
 <l>ἐς γῆν δʼ Ἀτρεῖδαι πᾶς στρατός τʼ ἔστη βλέπων.</l>
-<milestone ed="p" n="1578" unit="card"/>
-<l>
-<del>ἱερεὺς δὲ φάσγανον λαβὼν ἐπεύξατο,</del>
-</l>
-<l>
-<del>λαιμόν τʼ ἐπεσκοπεῖθʼ, ἵνα πλήξειεν ἄν·</del>
-</l>
-<l n="1580">
-<del>ἐμοὶ δέ τʼ ἄλγος οὐ μικρὸν εἰσῄει φρενί,</del>
-</l>
-<l>
-<del>κἄστην νενευκώς· θαῦμα δʼ ἦν αἴφνης ὁρᾶν.</del>
-</l>
-<l>
-<del>πληγῆς κτύπον γὰρ πᾶς τις ᾔσθετʼ ἂν σαφῶς,</del>
-</l>
-<l>
-<del>τὴν παρθένον δʼ οὐκ εἶδεν οὗ γῆς εἰσέδυ.</del>
-</l>
-<l>
-<del>βοᾷ δʼ ἱερεύς, ἅπας δʼ ἐπήχησε στρατός,</del>
-</l>
-<l n="1585">
-<del>ἄελπτον εἰσιδόντες ἐκ θεῶν τινος</del>
-</l>
-<l>
-<del>φάσμʼ, οὗ γε μηδʼ ὁρωμένου πίστις παρῆν·</del>
-</l>
-<l>
-<del>ἔλαφος γὰρ ἀσπαίρουσʼ ἔκειτʼ ἐπὶ χθονὶ</del>
-</l>
-<l>
-<del>ἰδεῖν μεγίστη διαπρεπής τε τὴν θέαν,</del>
-</l>
-<l>
-<del>ἧς αἵματι βωμὸς ἐραίνετʼ ἄρδην τῆς θεοῦ.</del>
-</l>
-<l n="1590">
-<del>κἀν τῷδε Κάλχας πῶς δοκεῖς χαίρων ἔφη·</del>
-</l>
-<l>
-<del>Ὦ τοῦδʼ Ἀχαιῶν κοίρανοι κοινοῦ στρατοῦ,</del>
-</l>
-<l>
-<del>ὁρᾶτε τήνδε θυσίαν, ἣν ἡ θεὸς</del>
-</l>
-<l>
-<del>προύθηκε βωμίαν, ἔλαφον ὀρειδρόμον;</del>
-</l>
-<l>
-<del>ταύτην μάλιστα τῆς κόρης ἀσπάζεται,</del>
-</l>
-<l n="1595">
-<del>ὡς μὴ μιάνῃ βωμὸν εὐγενεῖ φόνῳ.</del>
-</l>
-<l>
-<del>ἡδέως τε τοῦτʼ ἐδέξατο, καὶ πλοῦν οὔριον</del>
-</l>
-<l>
-<del>δίδωσιν ἡμῖν Ἰλίου τʼ ἐπιδρομάς.</del>
-</l>
-<l>
-<del>πρὸς ταῦτα πᾶς τις θάρσος αἶρε ναυβάτης,</del>
-</l>
-<l>
-<del>χώρει τε πρὸς ναῦν· ὡς ἡμέρᾳ τῇδε δεῖ</del>
-</l>
-<l n="1600">
-<del>λιπόντας ἡμᾶς Αὐλίδος κοίλους μυχοὺς</del>
-</l>
-<l>
-<del>Αἴγαιον οἶδμα διαπερᾶν.</del>
-</l>
-<l>
-<del>ἐπεὶ δʼ ἅπαν</del>
-</l>
-<l>
-<del>κατηνθρακώθη θῦμʼ ἐν Ἡφαίστου φλογί,</del>
-</l>
-<l>
-<del>τὰ πρόσφορʼ ηὔξαθʼ, ὡς τύχοι νόστου στρατός.</del>
-</l>
-<l>
-<del>πέμπει δʼ Ἀγαμέμνων μʼ ὥστε σοι φράσαι τάδε,</del>
-</l>
-<l n="1605">
-<del>λέγειν θʼ ὁποίας ἐκ θεῶν μοίρας κυρεῖ</del>
-</l>
-<l>
-<del>καὶ δόξαν ἔσχεν ἄφθιτον καθʼ Ἑλλάδα.</del>
-</l>
-<l>
-<del>ἐγὼ παρὼν δὲ καὶ τὸ πρᾶγμʼ ὁρῶν λέγω·</del>
-</l>
-<l>
-<del>ἡ παῖς σαφῶς σοι πρὸς θεοὺς ἀφίπτατο.</del>
-</l>
-<l>
-<del>λύπης δʼ ἀφαίρει καὶ πόσει πάρες χόλον·</del>
-</l>
-<l n="1610">
-<del>ἀπροσδόκητα δὲ βροτοῖς τὰ τῶν θεῶν,</del>
-</l>
-<l>
-<del>σώζουσί θʼ οὓς φιλοῦσιν. ἦμαρ γὰρ τόδε</del>
-</l>
-<l>
-<del>θανοῦσαν εἶδε καὶ βλέπουσαν παῖδα σήν.</del>
-</l>
-</sp>
-<sp>
-<speaker>Χορός</speaker>
-<l>
-<del>ὡς ἥδομαί τοι ταῦτʼ ἀκούσασʼ ἀγγέλου·</del>
-</l>
-<l>
-<del>ζῶν δʼ ἐν θεοῖσι σὸν μένειν φράζει τέκος.</del>
-</l>
-</sp>
-<milestone ed="p" n="1615" unit="card"/>
-</div2>
-<div2 type="lyric">
-<sp>
-<speaker>Κλυταιμήστρα</speaker>
-<l n="1615">
-<del>ὦ παῖ, θεῶν τοῦ κλέμμα γέγονας;</del>
-</l>
-<l>
-<del>πῶς σε προσείπω; πῶς δʼ οὐ φῶ</del>
-</l>
-<l>
-<del>παραμυθεῖσθαι τούσδε μάτην μύθους,</del>
-</l>
-<l>
-<del>ὥς σου πένθους λυγροῦ παυσαίμαν;</del>
-</l>
-</sp>
-<sp>
-<speaker>Χορός</speaker>
-<l>
-<del>καὶ μὴν Ἀγαμέμνων ἄναξ στείχει,</del>
-</l>
-<l n="1620">
-<del>τούσδʼ αὐτοὺς ἔχων σοι φράζειν μύθους.</del>
-</l>
-</sp>
-<milestone ed="p" n="1621" unit="card"/>
-<sp>
-<speaker>Ἀγαμέμνων</speaker>
-<l>
-<del>γύναι, θυγατρὸς ἕνεκʼ ὄλβιοι γενοίμεθʼ ἄν·</del>
-</l>
-<l>
-<del>ἔχει γὰρ ὄντως ἐν θεοῖς ὁμιλίαν.</del>
-</l>
-<l>
-<del>χρὴ δέ σε λαβοῦσαν τόνδε μόσχον νεαγενῆ</del>
-</l>
-<l>
-<del>στείχειν πρὸς οἴκους· ὡς στρατὸς πρὸς πλοῦν ὁρᾷ.</del>
-</l>
-<l n="1625">
-<del>καὶ χαῖρε· χρόνια γε τἀμά σοι προσφθέγματα</del>
-</l>
-<l>
-<del>Τροίηθεν ἔσται. καὶ γένοιτό σοι καλῶς.</del>
-</l>
-</sp>
-<milestone ed="p" n="1627" unit="card"/>
-<sp>
-<speaker>Χορός</speaker>
-<l>
-<del>χαίρων, Ἀτρείδη, γῆν ἱκοῦ Φρυγίαν,</del>
-</l>
-<l>
-<del>χαίρων δʼ ἐπάνηκε,</del>
-</l>
-<l>
-<del>κάλλιστά μοι σκῦλʼ ἀπὸ Τροίας ἑλών.</del>
-</l>
-</sp>
-</div2>
-</div1>
+<milestone ed="perseus" unit="card" n="1578"/>
+<l><del>ἱερεὺς δὲ φάσγανον λαβὼν ἐπεύξατο,</del></l>
+<l><del>λαιμόν τʼ ἐπεσκοπεῖθʼ, ἵνα πλήξειεν ἄν·</del></l>
+<l n="1580"><del>ἐμοὶ δέ τʼ ἄλγος οὐ μικρὸν εἰσῄει φρενί,</del></l>
+<l><del>κἄστην νενευκώς· θαῦμα δʼ ἦν αἴφνης ὁρᾶν.</del></l>
+<l><del>πληγῆς κτύπον γὰρ πᾶς τις ᾔσθετʼ ἂν σαφῶς,</del></l>
+<l><del>τὴν παρθένον δʼ οὐκ εἶδεν οὗ γῆς εἰσέδυ.</del></l>
+<l><del>βοᾷ δʼ ἱερεύς, ἅπας δʼ ἐπήχησε στρατός,</del></l>
+<l n="1585"><del>ἄελπτον εἰσιδόντες ἐκ θεῶν τινος</del></l>
+<l><del>φάσμʼ, οὗ γε μηδʼ ὁρωμένου πίστις παρῆν·</del></l>
+<l><del>ἔλαφος γὰρ ἀσπαίρουσʼ ἔκειτʼ ἐπὶ χθονὶ</del></l>
+<l><del>ἰδεῖν μεγίστη διαπρεπής τε τὴν θέαν,</del></l>
+<l><del>ἧς αἵματι βωμὸς ἐραίνετʼ ἄρδην τῆς θεοῦ.</del></l>
+<l n="1590"><del>κἀν τῷδε Κάλχας πῶς δοκεῖς χαίρων ἔφη·</del></l>
+<l><del>Ὦ τοῦδʼ Ἀχαιῶν κοίρανοι κοινοῦ στρατοῦ,</del></l>
+<l><del>ὁρᾶτε τήνδε θυσίαν, ἣν ἡ θεὸς</del></l>
+<l><del>προύθηκε βωμίαν, ἔλαφον ὀρειδρόμον;</del></l>
+<l><del>ταύτην μάλιστα τῆς κόρης ἀσπάζεται,</del></l>
+<l n="1595"><del>ὡς μὴ μιάνῃ βωμὸν εὐγενεῖ φόνῳ.</del></l>
+<l><del>ἡδέως τε τοῦτʼ ἐδέξατο, καὶ πλοῦν οὔριον</del></l>
+<l><del>δίδωσιν ἡμῖν Ἰλίου τʼ ἐπιδρομάς.</del></l>
+<l><del>πρὸς ταῦτα πᾶς τις θάρσος αἶρε ναυβάτης,</del></l>
+<l><del>χώρει τε πρὸς ναῦν· ὡς ἡμέρᾳ τῇδε δεῖ</del></l>
+<l n="1600"><del>λιπόντας ἡμᾶς Αὐλίδος κοίλους μυχοὺς</del></l>
+<l><del>Αἴγαιον οἶδμα διαπερᾶν.</del></l>
+<l><del>ἐπεὶ δʼ ἅπαν</del></l>
+<l><del>κατηνθρακώθη θῦμʼ ἐν Ἡφαίστου φλογί,</del></l>
+<l><del>τὰ πρόσφορʼ ηὔξαθʼ, ὡς τύχοι νόστου στρατός.</del></l>
+<l><del>πέμπει δʼ Ἀγαμέμνων μʼ ὥστε σοι φράσαι τάδε,</del></l>
+<l n="1605"><del>λέγειν θʼ ὁποίας ἐκ θεῶν μοίρας κυρεῖ</del></l>
+<l><del>καὶ δόξαν ἔσχεν ἄφθιτον καθʼ Ἑλλάδα.</del></l>
+<l><del>ἐγὼ παρὼν δὲ καὶ τὸ πρᾶγμʼ ὁρῶν λέγω·</del></l>
+<l><del>ἡ παῖς σαφῶς σοι πρὸς θεοὺς ἀφίπτατο.</del></l>
+<l><del>λύπης δʼ ἀφαίρει καὶ πόσει πάρες χόλον·</del></l>
+<l n="1610"><del>ἀπροσδόκητα δὲ βροτοῖς τὰ τῶν θεῶν,</del></l>
+<l><del>σώζουσί θʼ οὓς φιλοῦσιν. ἦμαρ γὰρ τόδε</del></l>
+<l><del>θανοῦσαν εἶδε καὶ βλέπουσαν παῖδα σήν.</del></l></sp>
+
+<sp><speaker>Χορός</speaker>
+<l n="1613"><del>ὡς ἥδομαί τοι ταῦτʼ ἀκούσασʼ ἀγγέλου·</del></l>
+<l><del>ζῶν δʼ ἐν θεοῖσι σὸν μένειν φράζει τέκος.</del></l></sp>
+<milestone ed="perseus" unit="card" n="1615"/>
+</div>
+
+<div type="textpart" subtype="lyric">
+
+<sp><speaker>Κλυταιμήστρα</speaker>
+<l n="1615"><del>ὦ παῖ, θεῶν τοῦ κλέμμα γέγονας;</del></l>
+<l><del>πῶς σε προσείπω; πῶς δʼ οὐ φῶ</del></l>
+<l><del>παραμυθεῖσθαι τούσδε μάτην μύθους,</del></l>
+<l><del>ὥς σου πένθους λυγροῦ παυσαίμαν;</del></l></sp>
+
+<sp><speaker>Χορός</speaker>
+<l n="1619"><del>καὶ μὴν Ἀγαμέμνων ἄναξ στείχει,</del></l>
+<l n="1620"><del>τούσδʼ αὐτοὺς ἔχων σοι φράζειν μύθους.</del></l></sp>
+<milestone ed="perseus" unit="card" n="1621"/>
+
+<sp><speaker>Ἀγαμέμνων</speaker>
+<l n="1621"><del>γύναι, θυγατρὸς ἕνεκʼ ὄλβιοι γενοίμεθʼ ἄν·</del></l>
+<l><del>ἔχει γὰρ ὄντως ἐν θεοῖς ὁμιλίαν.</del></l>
+<l><del>χρὴ δέ σε λαβοῦσαν τόνδε μόσχον νεαγενῆ</del></l>
+<l><del>στείχειν πρὸς οἴκους· ὡς στρατὸς πρὸς πλοῦν ὁρᾷ.</del></l>
+<l n="1625"><del>καὶ χαῖρε· χρόνια γε τἀμά σοι προσφθέγματα</del></l>
+<l><del>Τροίηθεν ἔσται. καὶ γένοιτό σοι καλῶς.</del></l></sp>
+<milestone ed="perseus" unit="card" n="1627"/>
+
+<sp><speaker>Χορός</speaker>
+<l n="1627"><del>χαίρων, Ἀτρείδη, γῆν ἱκοῦ Φρυγίαν,</del></l>
+<l><del>χαίρων δʼ ἐπάνηκε,</del></l>
+<l><del>κάλλιστά μοι σκῦλʼ ἀπὸ Τροίας ἑλών.</del></l></sp>
+</div>
+</div>
+    </div>
 </body>
 </text>
-</TEI.2>
+</TEI>
