@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/36300099.svg)](https://zenodo.org/badge/latestdoi/36300099)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.596309.svg)](https://doi.org/10.5281/zenodo.596309)
 [![Hook Coverage](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/coverage.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
 [![Hook Texts](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/texts.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
 [![Hook Metadata](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/metadata.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
@@ -9,7 +9,7 @@
 Canonical - Greek Literature
 =========
 
-This will be the base repo for all text and annotation data published in the PDL.
+This will be the base repo for all text and annotation data published in the PDL. Please note: this is a work in progress. Not all headers have been checked for accuracy. Changes may be made at any time to any files and data.
 
 **Please [read the Wiki](https://github.com/PerseusDL/canonical-greekLit/wiki) for information on contacting us and submitting corrections, etc.**
 
