@@ -7,14 +7,15 @@
 filter_secrets: false
 
 language: python
+dist: xenial
 
 python:
-  - '3.5'
+  - '3.7'
 
 install:
-  - pip3 install HookTest>=1.0.0
+  - pip3 install HookTest
 
-script: hooktest ./ --scheme epidoc --workers 3 --verbose 10 --manifest --countword --console table --allowfailure --hookUI "http://ci.perseids.org/api/hook/v2.0/user/repositories/PerseusDL/canonical-greekLit"
+script: hooktest ./ --scheme epidoc --workers 3 --verbose 10 --manifest --countword --console table --allowfailure --hookUI "https://ci.perseids.org/api/hook/v2.0/user/repositories/PerseusDL/canonical-greekLit"
 
 before_deploy:
   - hooktest-build --travis --txt ./
@@ -32,7 +33,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $GITPERM
-  skip_cleanup: true
+ 
   on:
     repo: PerseusDL/canonical-greekLit
     branch: master
