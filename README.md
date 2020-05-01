@@ -1,9 +1,9 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.596309.svg)](https://doi.org/10.5281/zenodo.596309)
-[![Hook Coverage](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/coverage.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
-[![Hook Texts](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/texts.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
-[![Hook Metadata](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/metadata.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
-[![Total words](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/words.svg)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
-[![Greek Words](http://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/words.svg?lang=grc)](http://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
+[![Hook Coverage](https://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/coverage.svg)](https://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
+[![Hook Texts](https://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/texts.svg)](https://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
+[![Hook Metadata](https://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/metadata.svg)](https://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
+[![Total words](https://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/words.svg)](https://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
+[![Greek Words](https://ci.perseids.org/api/hook/v2.0/badges/PerseusDL/canonical-greekLit/words.svg?lang=grc)](https://ci.perseids.org/repo/PerseusDL/canonical-greekLit)
 
 
 Canonical - Greek Literature
