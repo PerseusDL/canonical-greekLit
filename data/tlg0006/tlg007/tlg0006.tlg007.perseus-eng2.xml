@@ -1,16 +1,11 @@
-<?xml version="1.0"?>
-<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
-<!ENTITY % TEI.XML "INCLUDE">
-<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
-%PersDrama;
-]>
-<TEI.2>
-<teiHeader type="text" status="new">
-<fileDesc>
-<titleStmt>
-<title type="work" n="Hec.">Hecuba</title>
-<title type="sub">Machine readable text</title>
-<author n="Eur.">Euripides</author>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+<title type="work">Hecuba</title>
+<author>Euripides</author>
 <editor role="translator">Edward P. Coleridge</editor>
     <sponsor>Perseus Project, Tufts University</sponsor>
     <principal>Gregory Crane</principal>
@@ -23,1066 +18,1245 @@
     </respStmt>
     <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
 </titleStmt>
-<extent>About 100Kb</extent>
     <publicationStmt>
         <publisher>Trustees of Tufts University</publisher>
         <pubPlace>Medford, MA</pubPlace>
         <authority>Perseus Project</authority>
         <date type="release">1996</date>
     </publicationStmt>
-<sourceDesc>
-<biblStruct>
-<monogr>
-<author>Euripides</author>
-<title>The Plays of Euripides, Translated into English Prose from the Text of Paley by Edward P. Coleridge. Volume 1.</title>
-    <idno type="OCLC">988472239</idno>
-<imprint>
-<pubPlace>London</pubPlace>
-<publisher>George Bell and Sons</publisher>
-<date>1906</date>
-</imprint>
-</monogr>
-</biblStruct>
+            <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <author>Euripides</author>
+                        <title>The Plays of Euripides, Translated into English Prose from the Text of Paley by Edward P. Coleridge. Volume II.</title>
+                        <idno type="OCLC">988472239</idno>
+                        <imprint>
+                            <pubPlace>London</pubPlace>
+                            <publisher>George Bell and Sons</publisher>
+                            <date>1891</date>
+                        </imprint>
+                    </monogr>
+                    <ref target="https://archive.org/details/playseuripides00colegoog">Internet Archive</ref>
+                </biblStruct>
 </sourceDesc>
 </fileDesc>
 
-<encodingDesc>
-    <p>Modernized text differs somewhat from print.</p>
-<refsDecl doctype="TEI.2">
-<step refunit="line" from="DESCENDANT (1 L N%1)"/>
-</refsDecl>
-</encodingDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <quotation marks="none"/>
+                <p>Modernized text differs somewhat from print.</p>
+            </editorialDecl>
+            
+            <refsDecl n="CTS">
+                <cRefPattern n="line" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+                    <p>This pointer pattern extracts lines</p>
+                </cRefPattern>
+            </refsDecl>
+        </encodingDesc>
 
-<profileDesc>
-<langUsage>
-<language id="en">English</language>
-<language id="greek">Greek</language>
-</langUsage>
-</profileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="eng">English</language>
+                <language ident="grc">Greek</language>
+            </langUsage>
+        </profileDesc>
+        
 <revisionDesc>
-<change><date>1988</date>
-<respStmt><name>Judith Nelson</name><resp>tagging</resp></respStmt>
-<item>Basic SGML tagging and modernization</item>
-</change>
-<change><date>6/95</date>
-<respStmt><name>Lisa Cerrato</name><resp>ed.</resp></respStmt>
-<item>Added speaker tags where needed.</item>
-</change>
-<change><date>14-Feb-00</date>
-<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
-<item>
-$Log: tlg0006.tlg007.perseus-eng1.xml,v $
-Revision 1.1  2013-09-13 23:17:34  balmas01
-copyrighted CTS texts from sdl and classics in new canonical structure per github repo
-
-Revision 1.1  2013-09-13 11:17:07  balmas01
-moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory
-
-Revision 1.4  2013-06-30 12:34:34  gcrane
-the card divs had had a line range but there was a problem with this, so we just have the start line in the n attribute.
-
-Revision 1.2  2011-10-28 19:53:48  lcerrato
-fixed typo Cinsider to Consider
-
-Revision 1.1  2009-11-23 18:46:15  rsingh04
-moved more xml files around based on copyright status
-
-Revision 1.3  2006/02/10 21:10:16  packel
-places/dates now actually tagged
-
-Revision 1.2  2005/08/01 21:15:27  packel
-removed stray item tags
-
-Revision 1.1  2005/07/25 14:33:45  packel
-Converted to XML
-
-Revision 1.9  2004/04/21 20:27:27  mimno
-added card 1s
-
-Revision 1.8  2003/07/01 22:16:09  yorkc
-Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
-
-Revision 1.7  2001/10/09 22:40:51  dasmith
-Fixed instances of zero for capital O.
-
-Revision 1.6  2000/03/04 20:34:32  dasmith
-Added separate funder entity to TEI header.
-
-Revision 1.5  2000/02/16 22:01:28  amahoney
-use n attribute on sp for speeches interrupted by card breaks, and
-move card milestone out of the end of such speeches
-
-Revision 1.4  2000/02/14 22:21:48  amahoney
-bring up to P3
-
-</item></change>
-</revisionDesc>
+        <change when="2021-02-23" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+        <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+        <change when="2013-06-30" who="gcrane">the card divs had had a line range but there was a problem with this, so we just have the start line in the n attribute.</change>
+        <change when="2011-10-28" who="lcerrato">fixed typo Cinsider to Consider</change>
+        <change when="2009-11-23" who="rsingh04">moved more xml files around based on copyright status</change>
+        <change when="2006-02-10" who="packel">places-dates now actually tagged</change>
+        <change when="2005-08-01" who="packel">removed stray item tags</change>
+        <change when="2005-07-25" who="packel">Converted to XML</change>
+        <change when="2004-04-21" who="mimno">added card 1s</change>
+        <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
+        <change when="2001-10-09" who="dasmith">Fixed instances of zero for capital O.</change>    
+        <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+        <change when="2000-02-16" who="amahoney">use of n attribute on sp when a cardbreak comes within a speech, and moving milestones out of speeches</change>
+    <change when="2000-02-14" who="amahoney">bring up to p3</change>
+        <change when="1998-10-01" who="Bill Merrill">Fixed cardbreak at 444.</change>
+        <change when="1995-06-01" who="Lisa Cerrato">Added speaker tags where needed.</change>
+        <change when="1988-01-01" who="Judith Nelson">Basic SGML tagging and modernization.</change>
+    </revisionDesc>
 </teiHeader>
 
-<text lang="en">
-<body>
-<castList>
-<castItem type="role"><role>Ghost of Polydorus</role></castItem>
-<castItem type="role"><role>Hecuba</role></castItem>
-<castItem type="role"><role>Chorus</role></castItem>
-<castItem type="role"><role>Polyxena</role></castItem>
-<castItem type="role"><role>Odysseus</role></castItem>
-<castItem type="role"><role>Talthybius</role></castItem>
-<castItem type="role"><role>Maid-servant</role></castItem>
-<castItem type="role"><role>Agamemnon</role></castItem>
-<castItem type="role"><role>Polymestor</role></castItem>
-</castList>
+    <text xml:lang="eng">
+        <body>
+            <div type="translation" n="urn:cts:greekLit:tlg0006.tlg007.perseus-eng2" xml:lang="eng">
+                <milestone resp="perseus" unit="card" n="1"/>
+                <l resp="perseus" style="hidden" n="0"/>
+                <note resp="Coleridge" place="inline">
+                    <p rend="center" xml:lang="lat">Dramatis Personae</p>
+                    <p>Ghost of Polydorus</p>
+                    <p>Hecuba</p>
+                    <p>Chorus of Captive Trojan Women</p>
+                    <p>Polyxena</p>
+                    <p>Odysseus</p>
+                    <p>Talthybius</p>
+                    <p>Maid-servant</p>
+                    <p>Agamemnon</p>
+                    <p>Polymestor, and his Children</p>
+                </note>
 
-<milestone unit="episode"/>
-<div1 type="card" n="1">
-<stage>Scene: Before Agamemnon's tent in the Greek camp upon the shore of the Thracian Chersonese. The Ghost of Polydorus appears.</stage>
-<sp n="Ghost">
-<speaker>Ghost</speaker>
-<p>I have come from out of the charnel-house and gates of gloom, where Hades dwells apart from gods, I Polydorus, a son of Hecuba, the daughter of Cisseus, and of Priam. Now my father, when <placeName key="tgn,7002613">Phrygia</placeName>'s capital <milestone resp="perseus" n="5" unit="line"/> was threatened with destruction by the spear of <placeName key="tgn,1000074">Hellas</placeName>, took alarm and conveyed me secretly from the land of <placeName key="perseus,Troy">Troy</placeName> to Polymestor's house, his guest-friend in <placeName key="tgn,7002756">Thrace</placeName>, who sows these fruitful plains of <placeName key="tgn,7010345">Chersonese</placeName>, curbing by his might a nation delighting in horses. <milestone resp="perseus" n="10" unit="line"/> And with me my father sent much gold by stealth, so that, if ever <placeName key="tgn,7002329">Ilium</placeName>'s walls should fall, his children that survived might not want for means to live. I was the youngest of Priam's sons; and this it was that caused my secret removal from the land; for my childish arm was not able <milestone resp="perseus" n="15" unit="line"/> to carry weapons or to wield the spear. So long then as the bulwarks of our land stood firm, and <placeName key="perseus,Troy">Troy</placeName>'s battlements abode unshaken, and my brother Hector prospered in his warring, I, poor child, grew up and flourished, like some vigorous shoot, <milestone resp="perseus" n="20" unit="line"/> at the court of the Thracian, my father's guest-friend. But when <placeName key="perseus,Troy">Troy</placeName> fell and Hector lost his life and my father's hearth was rooted up, and he himself fell butchered at the god-built altar by the hands of Achilles' murderous son; <milestone resp="perseus" n="25" unit="line"/> then my father's friend killed me, his helpless guest, for the sake of the gold, and then cast me into the swell of the sea, to keep the gold for himself in his house. And there I lie, at one time upon the strand, at another in the salt sea's surge, drifting ever up and down upon the billows, <milestone resp="perseus" n="30" unit="line"/> unwept, unburied; but now I am hovering over the head of my dear mother Hecuba, a disembodied spirit, keeping my airy station these three days, ever since my poor mother came from <placeName key="perseus,Troy">Troy</placeName> to linger here in the <placeName key="tgn,7017285">Chersonese</placeName>.</p>
-</sp></div1>
+<div type="textpart" subtype="episode">
+<milestone unit="card" resp="perseus" n="1"/> 
+<stage>Scene: Before Agamemnon’s tent in the Greek camp upon the shore of the Thracian Chersonese. The Ghost of Polydorus appears.</stage>
 
-<div1 type="card" n="35">
-<sp><p><milestone resp="perseus" n="35" unit="line"/> Meanwhile all the Achaeans sit idly here in their ships at the shores of <placeName key="tgn,7002756">Thrace</placeName>; for the son of Peleus, Achilles, appeared above his tomb and stopped the whole army of <placeName key="tgn,1000074">Hellas</placeName>, as they were making straight for home across the sea, <milestone resp="perseus" n="40" unit="line"/> demanding to have my sister Polyxena offered at his tomb, and to receive his reward. And he will obtain this prize, nor will they that are his friends refuse the gift; and on this very day fate is leading my sister to her doom. <milestone resp="perseus" n="45" unit="line"/> So will my mother see two children dead at once, me and that ill-fated maid. For I, to win a grave, ah me! will appear among the rippling waves before her servant-maid's feet. Yes! I have begged this from the powers below, <milestone resp="perseus" n="50" unit="line"/> to find a tomb and fall into my mother's hands. So shall I have my heart's desire; but now I will get out of the way of aged Hecuba, for here she passes on her way from the shelter of Agamemnon's tent, terrified at my spectre. <milestone resp="perseus" n="55" unit="line"/> Alas! O mother, from a palace to face a life of slavery, how sad your lot, as sad as once it was blessed! Some god is now destroying you, setting this in the balance to outweigh your former bliss.
-</p></sp>
+<sp><speaker>Ghost</speaker>
+<l resp="perseus" rend="indent" n="1">I have come from out of the charnel-house and gates of gloom, where Hades dwells apart from gods, I Polydorus, a son of Hecuba, the daughter of Cisseus, and of Priam. Now my father, when <placeName key="tgn,7002613">Phrygia</placeName>’s capital </l>
+<l resp="perseus" n="5">was threatened with destruction by the spear of <placeName key="tgn,1000074">Hellas</placeName>, took alarm and conveyed me secretly from the land of <placeName key="perseus,Troy">Troy</placeName> to Polymestor’s house, his guest-friend in <placeName key="tgn,7002756">Thrace</placeName>, who sows these fruitful plains of <placeName key="tgn,7010345">Chersonese</placeName>, curbing by his might a nation delighting in horses. </l>
+<l resp="perseus" n="10">And with me my father sent much gold by stealth, so that, if ever <placeName key="tgn,7002329">Ilium</placeName>’s walls should fall, his children that survived might not want for means to live. I was the youngest of Priam’s sons; and this it was that caused my secret removal from the land; for my childish arm was not able </l>
+<l resp="perseus" n="15">to carry weapons or to wield the spear. So long then as the bulwarks of our land stood firm, and <placeName key="perseus,Troy">Troy</placeName>’s battlements abode unshaken, and my brother Hector prospered in his warring, I, poor child, grew up and flourished, like some vigorous shoot, </l>
+<l resp="perseus" n="20">at the court of the Thracian, my father’s guest-friend. But when <placeName key="perseus,Troy">Troy</placeName> fell and Hector lost his life and my father’s hearth was rooted up, and he himself fell butchered at the god-built altar by the hands of Achilles’ murderous son; </l>
+<l resp="perseus" n="25">then my father’s friend killed me, his helpless guest, for the sake of the gold, and then cast me into the swell of the sea, to keep the gold for himself in his house. And there I lie, at one time upon the strand, at another in the salt sea’s surge, drifting ever up and down upon the billows, </l>
+<l resp="perseus" n="30">unwept, unburied; but now I am hovering over the head of my dear mother Hecuba, a disembodied spirit, keeping my airy station these three days, ever since my poor mother came from <placeName key="perseus,Troy">Troy</placeName> to linger here in the <placeName key="tgn,7017285">Chersonese</placeName>.</l>
+<milestone unit="card" resp="perseus" n="35"/>
+<l resp="perseus" n="35">Meanwhile all the Achaeans sit idly here in their ships at the shores of <placeName key="tgn,7002756">Thrace</placeName>; for the son of Peleus, Achilles, appeared above his tomb and stopped the whole army of <placeName key="tgn,1000074">Hellas</placeName>, as they were making straight for home across the sea, </l>
+<l resp="perseus" n="40">demanding to have my sister Polyxena offered at his tomb, and to receive his reward. And he will obtain this prize, nor will they that are his friends refuse the gift; and on this very day fate is leading my sister to her doom. </l>
+<l resp="perseus" n="45">So will my mother see two children dead at once, me and that ill-fated maid. For I, to win a grave, ah me! will appear among the rippling waves before her servant-maid’s feet. Yes! I have begged this from the powers below, </l>
+<l resp="perseus" n="50">to find a tomb and fall into my mother’s hands. So shall I have my heart’s desire; but now I will get out of the way of aged Hecuba, for here she passes on her way from the shelter of Agamemnon’s tent, terrified at my spectre. </l>
+<l resp="perseus" n="55">Alas! O mother, from a palace to face a life of slavery, how sad your lot, as sad as once it was blessed! Some god is now destroying you, setting this in the balance to outweigh your former bliss.</l></sp></div>
 
-</div1>
-
-<div1 type="card" n="59">
-<milestone unit="choral"/>
+<milestone unit="card" resp="perseus" n="59"/> 
+<div type="textpart" subtype="choral">
+    <div type="textpart" subtype="anapests">  
 <stage>The Ghost vanishes. Hecuba enters from the tent of Agamemnon, supported by her attendants, captive Trojan women.</stage>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Guide these aged steps, my servants, forth before the house; <milestone resp="perseus" n="60" unit="line"/> guide and support your fellow-slave, once your queen, you maids of <placeName key="perseus,Troy">Troy</placeName>. Grasp my aged hand, take me, support me, guide me, lift me up; <milestone resp="perseus" n="65" unit="line"/> and I will lean upon your bent arm as on a staff and quicken my halting footsteps onwards.</p>
-<p>O dazzling light of Zeus! O gloom of night! why am I thus scared by <milestone resp="perseus" n="70" unit="line"/> fearful visions of the night? O lady Earth, mother of dreams that fly on sable wings! I am seeking to avert the vision of the night, the sight of horror which I learned from my dreams <milestone resp="perseus" n="75" unit="line"/> about my son, who is safe in <placeName key="tgn,7002756">Thrace</placeName>, and Polyxena, my dear daughter. You gods of this land! preserve my son, <milestone resp="perseus" n="80" unit="line"/> the last and only anchor of my house, now settled in <placeName key="tgn,7002756">Thrace</placeName>, the land of snow, safe in the keeping of his father's friend. Some fresh disaster is in store, a new strain of sorrow will be added to our woe. <milestone resp="perseus" n="85" unit="line"/> Such ceaseless thrills of terror never wrung my heart before. Oh! where, you Trojan maidens, can I find inspired Helenus or Cassandra, that they may read me my dream? <milestone resp="perseus" n="90" unit="line"/> For I saw a dappled deer mangled by a wolf's bloody fangs, torn from my knees by force, piteously. And this too filled me with fear; over the summit of his tomb appeared Achilles' phantom, and for his prize <milestone resp="perseus" n="95" unit="line"/> he would have one of the luckless maids of <placeName key="perseus,Troy">Troy</placeName>. Therefore, I implore you, divine powers, avert this horror from my daughter, from my child.</p></sp></div1>
 
-<div1 type="card" n="98">
-<stage>The Chorus of captive Trojan women enters.</stage>
-<sp n="Chorus">
-<speaker>Chorus</speaker>
-<p>Hecuba, I have hastened away to you, leaving my master's tent, <milestone resp="perseus" n="100" unit="line"/> where the lot assigned &lsqb;and appointed&rsqb; me as his slave, when I was driven from the city of <placeName key="tgn,7002329">Ilium</placeName>, hunted by Achaeans at the point of the spear; no alleviation do I bring for your sufferings; <milestone resp="perseus" n="105" unit="line"/> no, I have laden myself with heavy news, and am a herald of sorrow to you, lady. It is said the Achaeans have determined in full assembly to offer your daughter in sacrifice to Achilles; for you know how one day he appeared <milestone resp="perseus" n="110" unit="line"/> standing on his tomb in golden armor, and stayed the sea-borne ships, though they had their sails already hoisted, with this pealing cry: &ldquo;Where away so fast, you Danaids, leaving my tomb <milestone resp="perseus" n="115" unit="line"/> without its prize?&rdquo; A violent dispute with stormy altercation arose, and opinion was divided in the warrior army of <placeName key="tgn,1000074">Hellas</placeName>, some being in favor of offering the sacrifice at the tomb, others dissenting. <milestone resp="perseus" n="120" unit="line"/> There was Agamemnon, all eagerness in your interest, because of his love for the frenzied prophetess; but the two sons of Theseus, scions of <placeName key="perseus,Athens">Athens</placeName>, though supporting different proposals, yet agreed on the same decision, which was to crown Achilles' tomb with fresh blood; <milestone resp="perseus" n="125" unit="line"/> for they said they never would set Cassandra's bed before Achilles' valor.</p>
-</sp></div1>
-
-<div1 type="card" n="130">
-<sp><p>Now the zeal of the rival disputants was <milestone resp="perseus" n="130" unit="line"/> almost equal, until that shifty, smooth-mouthed liar, the son of <placeName key="perseus,Laertes">Laertes</placeName>, whose tongue is always at the service of the mob, persuaded the army not to put aside the best of all the Danaids <milestone resp="perseus" n="135" unit="line"/> for want of a servant-maid's sacrifice, nor have it said by any of the dead that stand beside Persephone that the Danaids have left the plains of <placeName key="perseus,Troy">Troy</placeName> without gratitude <milestone resp="perseus" n="140" unit="line"/> for their companions who died for <placeName key="tgn,1000074">Hellas</placeName>. Odysseus will be here in an instant, to drag the tender maiden from your breast and tear her from your aged arms. Go to the temples, go to the altars, <milestone resp="perseus" n="145" unit="line"/> at Agamemnon's knees sit as a suppliant! Invoke the gods, both those in heaven and those beneath the earth. For either your prayers will avail to spare you the loss of your unhappy child, <milestone resp="perseus" n="150" unit="line"/> or you must see your daughter fall before the tomb, her crimson blood spurting in deep dark jets from her neck encircled with gold.
-</p></sp>
-</div1>
-
-<div1 type="card" n="154">
-<milestone unit="strophe"/>
 <sp><speaker>Hecuba</speaker>
-<p>Woe, woe is me! What words, <milestone resp="perseus" n="155" unit="line"/> or cries, or lamentations can I utter? Ah me! for the sorrows of my closing years! for slavery too cruel to endure, to bear! Woe, woe is me! What champion do I have? Family, <milestone resp="perseus" n="160" unit="line"/> and city&mdash;where are they? Aged Priam is no more; no more my children now. Which way am I to go, either this or that? Where shall I turn my steps? Where is any god or divine power to come to my aid? <milestone resp="perseus" n="165" unit="line"/> Ah, Trojan maids! bringers of evil tidings! Messengers of woe! you have made an end, an utter end of me; life on earth has no more charm for me. Oh! luckless steps, lead on, <milestone resp="perseus" n="170" unit="line"/> guide your aged mistress here to the tent. My child, daughter of a most wretched woman, come forth; listen to your mother's voice. <milestone resp="perseus" n="175" unit="line"/> &lsqb;so that you may know the hideous rumor I now hear about your life, my child.&rsqb;</p></sp></div1>
+<l resp="perseus" rend="indent" n="59">Guide these aged steps, my servants, forth before the house;</l>
+<l resp="perseus" n="60">guide and support your fellow-slave, once your queen, you maids of <placeName key="perseus,Troy">Troy</placeName>. Grasp my aged hand, take me, support me, guide me, lift me up;</l>
+<l resp="perseus" n="65">and I will lean upon your bent arm as on a staff and quicken my halting footsteps onwards. O dazzling light of Zeus! O gloom of night! why am I thus scared by </l>
+<l resp="perseus" n="70">fearful visions of the night? O lady Earth, mother of dreams that fly on sable wings! I am seeking to avert the vision of the night, the sight of horror which I learned from my dreams </l>
+<l resp="perseus" n="75">about my son, who is safe in <placeName key="tgn,7002756">Thrace</placeName>, and Polyxena, my dear daughter. You gods of this land! preserve my son,</l>
+<l resp="perseus" n="80">the last and only anchor of my house, now settled in <placeName key="tgn,7002756">Thrace</placeName>, the land of snow, safe in the keeping of his father’s friend. Some fresh disaster is in store, a new strain of sorrow will be added to our woe.</l>
+<l resp="perseus" n="85">Such ceaseless thrills of terror never wrung my heart before. Oh! where, you Trojan maidens, can I find inspired Helenus or Cassandra, that they may read me my dream?</l>
+<l resp="perseus" n="90">For I saw a dappled deer mangled by a wolf’s bloody fangs, torn from my knees by force, piteously. And this too filled me with fear; over the summit of his tomb appeared Achilles’ phantom, and for his prize </l>
+<l resp="perseus" n="95">he would have one of the luckless maids of <placeName key="perseus,Troy">Troy</placeName>. Therefore, I implore you, divine powers, avert this horror from my daughter, from my child.</l></sp></div>
 
-<div1 type="card" n="177">
-<milestone unit="mesode"/>
+<milestone unit="card" resp="perseus" n="98"/> 
+    
+<div type="textpart" subtype="anapests">
+<stage>The Chorus of captive Trojan women enters.</stage>
+
+<sp><speaker>Chorus</speaker>
+<l resp="perseus" rend="indent" n="98">Hecuba, I have hastened away to you, leaving my master’s tent,</l>
+<l resp="perseus" n="100">where the lot assigned <del>and appointed</del> me as his slave, when I was driven from the city of <placeName key="tgn,7002329">Ilium</placeName>, hunted by Achaeans at the point of the spear; no alleviation do I bring for your sufferings;</l>
+<l resp="perseus" n="105">no, I have laden myself with heavy news, and am a herald of sorrow to you, lady. It is said the Achaeans have determined in full assembly to offer your daughter in sacrifice to Achilles; for you know how one day he appeared </l>
+<l resp="perseus" n="110">standing on his tomb in golden armor, and stayed the sea-borne ships, though they had their sails already hoisted, with this pealing cry: <q>Where away so fast, you Danaids, leaving my tomb</q></l>
+<l resp="perseus" n="115"><q rend="merge">without its prize?</q> A violent dispute with stormy altercation arose, and opinion was divided in the warrior army of <placeName key="tgn,1000074">Hellas</placeName>, some being in favor of offering the sacrifice at the tomb, others dissenting.</l>
+<l resp="perseus" n="120">There was Agamemnon, all eagerness in your interest, because of his love for the frenzied prophetess; but the two sons of Theseus, scions of <placeName key="perseus,Athens">Athens</placeName>, though supporting different proposals, yet agreed on the same decision, which was to crown Achilles’ tomb with fresh blood;</l>
+<l resp="perseus" n="125">for they said they never would set Cassandra’s bed before Achilles’ valor.</l>
+<milestone unit="card" resp="perseus" n="130"/> 
+<l resp="perseus" n="130">Now the zeal of the rival disputants was almost equal, until that shifty, smooth-mouthed liar, the son of <placeName key="perseus,Laertes">Laertes</placeName>, whose tongue is always at the service of the mob, persuaded the army not to put aside the best of all the Danaids </l>
+<l resp="perseus" n="135">for want of a servant-maid’s sacrifice, nor have it said by any of the dead that stand beside Persephone that the Danaids have left the plains of <placeName key="perseus,Troy">Troy</placeName> without gratitude </l>
+<l resp="perseus" n="140">for their companions who died for <placeName key="tgn,1000074">Hellas</placeName>. Odysseus will be here in an instant, to drag the tender maiden from your breast and tear her from your aged arms. Go to the temples, go to the altars,</l>
+<l resp="perseus" n="145">at Agamemnon’s knees sit as a suppliant! Invoke the gods, both those in heaven and those beneath the earth. For either your prayers will avail to spare you the loss of your unhappy child,</l>
+<l resp="perseus" n="150">or you must see your daughter fall before the tomb, her crimson blood spurting in deep dark jets from her neck encircled with gold.
+</l></sp></div>
+
+<milestone unit="card" resp="perseus" n="154"/> 
+<div type="textpart" subtype="strophe">
+    
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" n="154" rend="indent">Woe, woe is me! What words,</l>
+<l resp="perseus" n="155">or cries, or lamentations can I utter? Ah me! for the sorrows of my closing years! for slavery too cruel to endure, to bear! Woe, woe is me! What champion do I have? Family,</l>
+<l resp="perseus" n="160">and city—where are they? Aged Priam is no more; no more my children now. Which way am I to go, either this or that? Where shall I turn my steps? Where is any god or divine power to come to my aid?</l>
+<l resp="perseus" n="165">Ah, Trojan maids! bringers of evil tidings! Messengers of woe! you have made an end, an utter end of me; life on earth has no more charm for me. Oh! luckless steps, lead on,</l>
+<l resp="perseus" n="170">guide your aged mistress here to the tent. My child, daughter of a most wretched woman, come forth; listen to your mother’s voice.</l>
+<l resp="perseus" n="175"><del>so that you may know the hideous rumor I now hear about your life, my child.</del></l></sp></div>
+
+<milestone unit="card" resp="perseus" n="177"/> 
+<div type="textpart" subtype="mesode">
+    
 <stage>Polyxena enters from the tent.</stage>
 <sp><speaker>Polyxena</speaker>
-<p>Oh! mother, mother, why do you call so loud? what news is it you have proclaimed, scaring me, like a cowering bird, from my chamber by this alarm?</p></sp>
+<l resp="perseus" n="177" rend="indent">Oh! mother, mother, why do you call so loud? what news is it you have proclaimed, scaring me, like a cowering bird, from my chamber by this alarm?</l></sp>
+    
 <sp><speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="180" unit="line"/> Alas, my daughter!</p></sp>
+<l resp="perseus" n="180" rend="indent">Alas, my daughter!</l></sp>
+    
 <sp><speaker>Polyxena</speaker>
-<p>Why this ominous address? it means sorrow for me.</p></sp>
+    <l resp="perseus" n="181" rend="indent">Why this ominous address? it means sorrow for me.</l></sp>
+    
 <sp><speaker>Hecuba</speaker>
-<p>Woe for your life!</p></sp>
+    <l resp="perseus" n="182" rend="indent">Woe for your life!</l></sp>
+    
 <sp><speaker>Polyxena</speaker>
-<p>Tell it, hide it no longer. Ah mother! how I dread, I dread <milestone resp="perseus" n="185" unit="line"/> the import of your loud laments.</p></sp>
+    <l resp="perseus" n="183" rend="indent">Tell it, hide it no longer. Ah mother! how I dread, I dread </l>
+<l resp="perseus" n="185">the import of your loud laments.</l></sp>
+    
 <sp><speaker>Hecuba</speaker>
-<p>Ah my daughter! a luckless mother's child!</p></sp>
+    <l resp="perseus" n="186" rend="indent">Ah my daughter! a luckless mother’s child!</l></sp>
+    
 <sp><speaker>Polyxena</speaker>
-<p>Why do you tell me this?</p></sp>
+    <l resp="perseus" n="187" rend="indent">Why do you tell me this?</l></sp>
+    
 <sp><speaker>Hecuba</speaker>
-<p>The Argives with one consent are eager for your sacrifice to the son of Peleus <milestone resp="perseus" n="190" unit="line"/> at his tomb.</p></sp>
+    <l resp="perseus" n="188" rend="indent">The Argives with one consent are eager for your sacrifice to the son of Peleus </l>
+<l resp="perseus" n="190">at his tomb.</l></sp>
+    
 <sp><speaker>Polyxena</speaker>
-<p>Ah! my mother! how can you speak of such a dire mischance? Tell me all, mother, yes all!</p></sp>
+<l resp="perseus" rend="indent" n="191">Ah! my mother! how can you speak of such a dire mischance? Tell me all, mother, yes all!</l></sp>
+    
 <sp><speaker>Hecuba</speaker>
-<p>It is an ill-boding rumor I tell, my child; <milestone resp="perseus" n="195" unit="line"/> they bring me word that sentence is passed upon your life by the Argives' vote.</p></sp></div1>
+<l resp="perseus" rend="indent" n="194">It is an ill-boding rumor I tell, my child;</l>
+<l resp="perseus" n="195">they bring me word that sentence is passed upon your life by the Argives’ vote.</l></sp></div>
 
-<div1 type="card" n="197">
-<milestone unit="antistrophe"/>
+<milestone unit="card" resp="perseus" n="197"/> 
+<div type="textpart" subtype="antistrophe">
+    
 <sp><speaker>Polyxena</speaker>
-<p>Alas, for your cruel sufferings, my persecuted mother! woe for your life of grief! What grievous outrage <milestone resp="perseus" n="200" unit="line"/> has some fiend sent on you, hateful, horrible? No more shall I your daughter share your bondage, hapless youth on hapless age attending. <milestone resp="perseus" n="205" unit="line"/> For you, alas! will see me, your hapless child, torn from your arms like a calf of the hills, and sent beneath the  darkness of the earth with severed throat for Hades, where with the dead <milestone resp="perseus" n="210" unit="line"/> shall I be laid, ah me! For your unhappiness I weep with plaintive wail, mother; but for my own life, its ruin and its outrage, never a tear I shed; no, death has become to me <milestone resp="perseus" n="215" unit="line"/> a happier lot than life.</p></sp></div1>
+<l resp="perseus" rend="indent" n="197">Alas, for your cruel sufferings, my persecuted mother! woe for your life of grief! What grievous outrage </l>
+<l resp="perseus" n="200">has some fiend sent on you, hateful, horrible? No more shall I your daughter share your bondage, hapless youth on hapless age attending.</l>
+<l resp="perseus" n="205">For you, alas! will see me, your hapless child, torn from your arms like a calf of the hills, and sent beneath the  darkness of the earth with severed throat for Hades, where with the dead </l>
+<l resp="perseus" n="210">shall I be laid, ah me! For your unhappiness I weep with plaintive wail, mother; but for my own life, its ruin and its outrage, never a tear I shed; no, death has become to me </l>
+<l resp="perseus" n="215">a happier lot than life.</l></sp></div></div>
 
-<div1 type="card" n="216">
+<milestone unit="card" resp="perseus" n="216"/> 
 
-<milestone unit="episode"/>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>See where Odysseus comes in haste, to announce some fresh command to you, Hecuba.</p></sp>
+<div type="textpart" subtype="episode">
+    
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="216">See where Odysseus comes in haste, to announce some fresh command to you, Hecuba.</l></sp>
+
 <stage>Odysseus enters with his attendants.</stage>
-<sp>
-<speaker>Odysseus</speaker>
-<p>Lady, I think you know already the intention of the army, and the vote that has been passed; still I will declare it. <milestone resp="perseus" n="220" unit="line"/> It is the Achaeans' will to sacrifice your daughter Polyxena at the mound heaped over Achilles' grave; and they appoint me to take the maid and bring her there, while the son of Achilles is chosen to preside over the sacrifice and act as priest. <milestone resp="perseus" n="225" unit="line"/> Do you know then what to do? Do not be forcibly torn from her, nor match your might against mine; recognize the limits of your strength, and the presence of your troubles. Even in adversity it is wise to yield to reason's dictates.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Alas! a dreadful trial is near, it seems, <milestone resp="perseus" n="230" unit="line"/> full of mourning, rich in tears. Yes, I too escaped death where death had been my due, and Zeus did not destroy me but is still preserving my life, that I may witness in my misery fresh sorrows surpassing all before. But if the bond may ask the free <milestone resp="perseus" n="235" unit="line"/> of things that do not grieve them or wrench their heart-strings, you ought to speak in answer to my questions and I ought to hear what you have to say.</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p>Granted; put your questions; I do not grudge you that delay.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Do you know when you came to spy on <placeName key="tgn,7002329">Ilium</placeName>, <milestone resp="perseus" n="240" unit="line"/> disguised in rags and tatters, while down your cheek ran drops of blood?</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p>I do; for it was no slight impression it made upon my heart.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Did Helen recognize you and tell me only?</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p>I well remember the great risk I ran.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="245" unit="line"/> Did you embrace my knees in all humility?</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p>Yes, so that my hand grew dead and cold upon your robe.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Was it I that saved and sent you forth again?</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p>You did, and so I still behold the light of day.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>What did you say then, when in my power?</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p><milestone resp="perseus" n="250" unit="line"/> Doubtless I found plenty to say, to save my life.</p></sp></div1>
 
-<div1 type="card" n="251">
-<sp>
-<speaker>Hecuba</speaker>
-<p>Are not you then playing a sorry part to plot against me thus, after the kind treatment you by your own confession received from me, showing me no gratitude but all the ill you can? A thankless race! all you who covet honor from the mob <milestone resp="perseus" n="255" unit="line"/> for your oratory. Oh that you were unknown to me! you who harm your friends and think no more of it, if you can say a word to win the mob. But tell me, what kind of cleverness did they think it, when against this child they passed their bloody vote? <milestone resp="perseus" n="260" unit="line"/> Was it duty that led them to slay a human victim at the tomb, where sacrifice of oxen is more fitting? or does Achilles, if claiming the lives of those who slew him as his recompense, show his justice by marking her out for death? No! she at least never injured him. <milestone resp="perseus" n="265" unit="line"/> He should have demanded Helen as a victim at his tomb, for she it was that proved his ruin, bringing him to <placeName key="perseus,Troy">Troy</placeName>; or if some captive of surpassing beauty was to be singled out for death, this did not point to us; for the daughter of Tyndareus was fairest of all, <milestone resp="perseus" n="270" unit="line"/> and her injury to him was proved no less than ours. Against the justice of his plea I pit this argument. Now hear the recompense due from you to me at my request. On your own confession, you fell at my feet and embraced my hand and aged cheek; <milestone resp="perseus" n="275" unit="line"/> I in my turn now do the same to you, and claim the favor then bestowed; and I implore you, do not tear my child from my arms or slay her; there are dead enough. In her I take delight and forget my sorrows; <milestone resp="perseus" n="280" unit="line"/> she is my comfort in place of many a loss, my city and my nurse, my staff and journey's guide. It is not right that those in power should use it out of season, or, when prosperous, suppose they will be always so. For I also was prosperous once, but now my life is lived, <milestone resp="perseus" n="285" unit="line"/> and one day robbed me of all my bliss. Friend, by your beard, have some regard and pity for me; go to <placeName key="tgn,7002733">Achaea</placeName>'s army, and talk them over, saying how hateful a thing it is to slay women whom at first you spared out of pity, <milestone resp="perseus" n="290" unit="line"/> after dragging them from the altars. For among you the same law holds good for slave and free alike respecting bloodshed; such a reputation as yours will persuade them even though its words are weak; for the same argument, when proceeding from those of no account, <milestone resp="perseus" n="295" unit="line"/> has not the same force as when it is uttered by men of mark.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Human nature is not so stony-hearted as to hear your plaintive tale and catalogue of sorrows, without shedding a tear.</p></sp></div1>
+ <sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="218">Lady, I think you know already the intention of the army, and the vote that has been passed; still I will declare it.</l>
+<l resp="perseus" n="220">It is the Achaeans’ will to sacrifice your daughter Polyxena at the mound heaped over Achilles’ grave; and they appoint me to take the maid and bring her there, while the son of Achilles is chosen to preside over the sacrifice and act as priest.</l>
+<l resp="perseus" n="225">Do you know then what to do? Do not be forcibly torn from her, nor match your might against mine; recognize the limits of your strength, and the presence of your troubles. Even in adversity it is wise to yield to reason’s dictates.</l></sp>
 
-<div1 type="card" n="299">
-<sp>
-<speaker>Odysseus</speaker>
-<p>O Hecuba, be schooled by me, and do not in your angry mood <milestone resp="perseus" n="300" unit="line"/> count him a foe who speaks wisely. Your life I am prepared to save, for the service I received; I do not say otherwise. But what I said to all, I will not now deny, that after <placeName key="perseus,Troy">Troy</placeName>'s capture I would give your daughter to the chief man of our army <milestone resp="perseus" n="305" unit="line"/> because he asked a victim. For here is a source of weakness to many states, whenever a man of brave and generous soul receives no greater honor than his inferiors. Now Achilles, lady, deserves honor at our hands, <milestone resp="perseus" n="310" unit="line"/> since on behalf of <placeName key="tgn,1000074">Hellas</placeName> the man died most nobly. Is not this a foul reproach to treat him as a friend in life, but, when he is gone from us, to treat him so no more? Enough! what will they say, if once more there comes a gathering of the army and a contest with the foe? <milestone resp="perseus" n="315" unit="line"/> &ldquo;Shall we fight or nurse our lives, seeing the dead have no honors?&rdquo; For myself, indeed, when alive, if my daily store were scant, yet it would be all-sufficient, but my tomb I should wish <milestone resp="perseus" n="320" unit="line"/> to be an object of respect, for this gratitude has long to run. You speak of cruel sufferings; hear my answer. Among us are grey old women and men no less miserable than you, and brides bereft of gallant husbands, <milestone resp="perseus" n="325" unit="line"/> over whom this Trojan dust has closed. Endure these sorrows; for us, if we are wrong in resolving to honor the brave, we shall bring upon ourselves a charge of ignorance; but as for you barbarians, do not regard your friends as such and pay no homage to your gallant dead, <milestone resp="perseus" n="330" unit="line"/> so that <placeName key="tgn,1000074">Hellas</placeName> may prosper and you may reap the fruits of such policy.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Alas! how cursed is slavery always in its nature, forced by the might of the stronger to endure unseemly treatment.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Daughter, my pleading to avert your bloody death <milestone resp="perseus" n="335" unit="line"/> was wasted idly, hurled forth on the air; but you, if endowed with greater power than your mother, make haste to utter every pleading note like the tuneful nightingale, to save your soul from death. Throw yourself pitiably at Odysseus' knees, <milestone resp="perseus" n="340" unit="line"/> and try to move him&mdash;here is your plea: he too has children&mdash;to feel pity for your sad fate.</p></sp></div1>
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="229">Alas! a dreadful trial is near, it seems,</l>
+<l resp="perseus" n="230">full of mourning, rich in tears. Yes, I too escaped death where death had been my due, and Zeus did not destroy me but is still preserving my life, that I may witness in my misery fresh sorrows surpassing all before. But if the bond may ask the free </l>
+<l resp="perseus" n="235">of things that do not grieve them or wrench their heart-strings, you ought to speak in answer to my questions and I ought to hear what you have to say.</l></sp>
 
-<div1 type="card" n="342">
-<sp>
-<speaker>Polyxena</speaker>
-<p>Odysseus, I see you hiding your right hand beneath your robe and turning away your face, so that I may not touch your beard. <milestone resp="perseus" n="345" unit="line"/> Take heart; you are safe from the suppliant's god in my case, for I will follow you, both because I must and because it is my wish to die; for if I were unwilling, a coward would I show myself, a woman faint of heart. Why should I prolong my days? I whose father was lord <milestone resp="perseus" n="350" unit="line"/> of all the Phrygians, my chiefest pride in life. Then I was nursed on fair hopes to be a bride for kings, the center of keen jealousy among suitors, to see whose home I would make my own; and over each lady of Ida I was queen; <milestone resp="perseus" n="355" unit="line"/> ah me! admired among maidens, equal to a goddess, save for death alone, but now I am a slave! That name first makes me long for death, so strange it sounds; and then perhaps my lot might give me <milestone resp="perseus" n="360" unit="line"/> to some savage master, one that would buy me for money&mdash;me the sister of Hector and many others&mdash;who would make me knead him bread within his halls, or sweep his house or set me working at the loom, leading a life of misery; <milestone resp="perseus" n="365" unit="line"/> while some slave, bought I know not where, will taint my bed, once deemed worthy of royalty. No, never! Here I close my eyes upon the light, free as yet, and dedicate myself to Hades. Lead me away, Odysseus, and do your worst, <milestone resp="perseus" n="370" unit="line"/> for I see nothing within my reach to make me hope or expect with any confidence that I am ever again to be happy. Mother, do not seek to hinder me by word or deed, but join in my wish for death before I meet with shameful treatment undeserved. <milestone resp="perseus" n="375" unit="line"/> For whoever is not used to taste of sorrows, though he bears it, yet it galls him when he puts his neck within the yoke; far happier would he be dead than alive, for life bereft of honor is toil and trouble.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>A wondrous mark, most clearly stamped, does noble birth <milestone resp="perseus" n="380" unit="line"/> imprint on men, and the name goes still further where it is deserved.</p></sp></div1>
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="238">Granted; put your questions; I do not grudge you that delay.</l></sp>
 
-<div1 type="card" n="382">
-<sp>
-<speaker>Hecuba</speaker>
-<p>A noble speech, my daughter! but there is sorrow linked with its noble sentiments. Odysseus, if you must please the son of Peleus, and avoid reproach, <milestone resp="perseus" n="385" unit="line"/> do not slay this maid, but lead me to Achilles' pyre and torture me unsparingly; it was I that bore <placeName key="tgn,7008038">Paris</placeName>, whose fatal shaft laid low the son of Thetis.</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p>It is not your death, my lady, that Achilles' ghost <milestone resp="perseus" n="390" unit="line"/> has demanded of the Achaeans, but hers.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>At least then slaughter me with my child; so shall there be a double drink of blood for the earth and the dead that claims this sacrifice.</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p>The maiden's death suffices; no need to add <milestone resp="perseus" n="395" unit="line"/> a second to the first; would we did not need even this!</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Die with my daughter I must and will.</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p>How so? I did not know I had a master.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>I will cling to her like ivy to an oak.</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p>Not if you will listen to those who are wiser than you.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="400" unit="line"/> Be sure I will never willingly relinquish my child.</p></sp>
-<sp>
-<speaker>Odysseus</speaker>
-<p>Well, be equally sure I will never go away and leave her here.</p></sp></div1>
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="239">Do you know when you came to spy on <placeName key="tgn,7002329">Ilium</placeName>,</l>
+<l resp="perseus" n="240">disguised in rags and tatters, while down your cheek ran drops of blood?</l></sp>
 
-<div1 type="card" n="402">
-<sp>
-<speaker>Polyxena</speaker>
-<p>Mother, listen to me; and you, son of <placeName key="perseus,Laertes">Laertes</placeName>, make allowance for a parent's natural wrath. My poor mother, do not fight with our masters. <milestone resp="perseus" n="405" unit="line"/> Will you be thrown to the ground, be roughly thrust aside and wound your aged skin, and in unseemly fashion be torn from me by youthful arms? This you will suffer; but do not, for it is not right for you. No, my dear mother! give me your beloved hand, <milestone resp="perseus" n="410" unit="line"/> and let me press your cheek to mine; for never again, but now for the last time, shall I behold the dazzling sun-god's orb. Take my last farewells now. O mother, my mother! I pass beneath the earth.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="415" unit="line"/> O my daughter, I am still to live and be a slave.</p></sp>
-<sp>
-<speaker>Polyxena</speaker>
-<p>Unwedded I depart, never having tasted the married joys that were my due!</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Yours, my daughter, is a piteous lot, and sad is mine also.</p></sp>
-<sp>
-<speaker>Polyxena</speaker>
-<p>There in Hades' courts shall I lie apart from you.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Ah me, what shall I do? where shall I end my life?</p></sp>
-<sp>
-<speaker>Polyxena</speaker>
-<p><milestone resp="perseus" n="420" unit="line"/> Daughter of a free-born father, a slave I am to die.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Not one of all my fifty children left!</p></sp>
-<sp>
-<speaker>Polyxena</speaker>
-<p>What message can I take for you to Hector or your aged lord?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Tell them that of all women I am the most miserable.</p></sp>
-<sp>
-<speaker>Polyxena</speaker>
-<p>Ah! breasts and paps that fed me with sweet food!</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="425" unit="line"/> Oh, my daughter&mdash;your wretched, untimely fate!</p></sp>
-<sp>
-<speaker>Polyxena</speaker>
-<p>Farewell, my mother! farewell, Cassandra!</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>&ldquo;Fare well!&rdquo; others do, but not your mother, no!</p></sp>
-<sp>
-<speaker>Polyxena</speaker>
-<p>You too, my brother Polydorus, in <placeName key="tgn,7002756">Thrace</placeName>, the home of steeds!</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Yes, if he lives, which I doubt; so luckless am I in every way.</p></sp>
-<sp>
-<speaker>Polyxena</speaker>
-<p><milestone resp="perseus" n="430" unit="line"/> He lives; and, when you die, he will close your eyes.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>I am dead; sorrow has forestalled death here.</p></sp>
-<sp>
-<speaker>Polyxena</speaker>
-<p>Come veil my head, Odysseus, and take me away; for now, before the fatal blow, my heart is melted by my mother's wailing, and hers by mine. <milestone resp="perseus" n="435" unit="line"/> O light of day! for still I may call you by your name, though now my share in you is only the time I take to go between Achilles' tomb and the sword. <stage>Odysseus and his attendants lead Polyxena away.</stage></p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Alas! I faint; my limbs sink under me. O my daughter, embrace your mother, stretch out your hand, <milestone resp="perseus" n="440" unit="line"/> give it to me; do not leave me childless! Ah, friends! it is my death-blow. Oh! to see that Spartan woman, Helen, sister of the sons of Zeus, in such a plight; for her bright eyes have caused the shameful fall of <placeName key="perseus,Troy">Troy</placeName>'s once prosperous town. <stage>Hecuba sinks fainting to the ground.</stage></p></sp></div1>
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="242">I do; for it was no slight impression it made upon my heart.</l></sp>
 
-<div1 type="card" n="444">
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="243">Did Helen recognize you and tell me only?</l></sp>
 
-<milestone unit="choral"/>
-<milestone unit="strophe" n="1"/>
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="244">I well remember the great risk I ran.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="245">Did you embrace my knees in all humility?</l></sp>
+
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="246">Yes, so that my hand grew dead and cold upon your robe.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="247">Was it I that saved and sent you forth again?</l></sp>
+
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="248">You did, and so I still behold the light of day.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="249">What did you say then, when in my power?</l></sp>
+
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="250">Doubtless I found plenty to say, to save my life.</l></sp>
+    
+
+<milestone unit="card" resp="perseus" n="251"/> 
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="251">Are not you then playing a sorry part to plot against me thus, after the kind treatment you by your own confession received from me, showing me no gratitude but all the ill you can? A thankless race! all you who covet honor from the mob </l>
+<l resp="perseus" n="255">for your oratory. Oh that you were unknown to me! you who harm your friends and think no more of it, if you can say a word to win the mob. But tell me, what kind of cleverness did they think it, when against this child they passed their bloody vote?</l>
+<l resp="perseus" n="260">Was it duty that led them to slay a human victim at the tomb, where sacrifice of oxen is more fitting? or does Achilles, if claiming the lives of those who slew him as his recompense, show his justice by marking her out for death? No! she at least never injured him.</l>
+<l resp="perseus" n="265">He should have demanded Helen as a victim at his tomb, for she it was that proved his ruin, bringing him to <placeName key="perseus,Troy">Troy</placeName>; or if some captive of surpassing beauty was to be singled out for death, this did not point to us; for the daughter of Tyndareus was fairest of all,</l>
+<l resp="perseus" n="270">and her injury to him was proved no less than ours. Against the justice of his plea I pit this argument. Now hear the recompense due from you to me at my request. On your own confession, you fell at my feet and embraced my hand and aged cheek;</l>
+<l resp="perseus" n="275">I in my turn now do the same to you, and claim the favor then bestowed; and I implore you, do not tear my child from my arms or slay her; there are dead enough. In her I take delight and forget my sorrows;</l>
+<l resp="perseus" n="280">she is my comfort in place of many a loss, my city and my nurse, my staff and journey’s guide. It is not right that those in power should use it out of season, or, when prosperous, suppose they will be always so. For I also was prosperous once, but now my life is lived,</l>
+<l resp="perseus" n="285">and one day robbed me of all my bliss. Friend, by your beard, have some regard and pity for me; go to <placeName key="tgn,7002733">Achaea</placeName>’s army, and talk them over, saying how hateful a thing it is to slay women whom at first you spared out of pity,</l>
+<l resp="perseus" n="290">after dragging them from the altars. For among you the same law holds good for slave and free alike respecting bloodshed; such a reputation as yours will persuade them even though its words are weak; for the same argument, when proceeding from those of no account,</l>
+<l resp="perseus" n="295">has not the same force as when it is uttered by men of mark.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="296">Human nature is not so stony-hearted as to hear your plaintive tale and catalogue of sorrows, without shedding a tear.</l></sp>
+
+<milestone unit="card" resp="perseus" n="299"/> 
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="299">O Hecuba, be schooled by me, and do not in your angry mood </l>
+<l resp="perseus" n="300">count him a foe who speaks wisely. Your life I am prepared to save, for the service I received; I do not say otherwise. But what I said to all, I will not now deny, that after <placeName key="perseus,Troy">Troy</placeName>’s capture I would give your daughter to the chief man of our army </l>
+<l resp="perseus" n="305">because he asked a victim. For here is a source of weakness to many states, whenever a man of brave and generous soul receives no greater honor than his inferiors. Now Achilles, lady, deserves honor at our hands,</l>
+<l resp="perseus" n="310">since on behalf of <placeName key="tgn,1000074">Hellas</placeName> the man died most nobly. Is not this a foul reproach to treat him as a friend in life, but, when he is gone from us, to treat him so no more? Enough! what will they say, if once more there comes a gathering of the army and a contest with the foe?</l>
+<l resp="perseus" n="315"><q>Shall we fight or nurse our lives, seeing the dead have no honors?</q> For myself, indeed, when alive, if my daily store were scant, yet it would be all-sufficient, but my tomb I should wish </l>
+<l resp="perseus" n="320">to be an object of respect, for this gratitude has long to run. You speak of cruel sufferings; hear my answer. Among us are grey old women and men no less miserable than you, and brides bereft of gallant husbands,</l>
+<l resp="perseus" n="325">over whom this Trojan dust has closed. Endure these sorrows; for us, if we are wrong in resolving to honor the brave, we shall bring upon ourselves a charge of ignorance; but as for you barbarians, do not regard your friends as such and pay no homage to your gallant dead,</l>
+<l resp="perseus" n="330">so that <placeName key="tgn,1000074">Hellas</placeName> may prosper and you may reap the fruits of such policy.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="332">Alas! how cursed is slavery always in its nature, forced by the might of the stronger to endure unseemly treatment.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="334">Daughter, my pleading to avert your bloody death </l>
+<l resp="perseus" n="335">was wasted idly, hurled forth on the air; but you, if endowed with greater power than your mother, make haste to utter every pleading note like the tuneful nightingale, to save your soul from death. Throw yourself pitiably at Odysseus’ knees,</l>
+<l resp="perseus" n="340">and try to move him—here is your plea: he too has children—to feel pity for your sad fate.</l></sp>
+
+<milestone unit="card" resp="perseus" n="342"/> 
+    
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="342">Odysseus, I see you hiding your right hand beneath your robe and turning away your face, so that I may not touch your beard.</l>
+<l resp="perseus" n="345">Take heart; you are safe from the suppliant’s god in my case, for I will follow you, both because I must and because it is my wish to die; for if I were unwilling, a coward would I show myself, a woman faint of heart. Why should I prolong my days? I whose father was lord </l>
+<l resp="perseus" n="350">of all the Phrygians, my chiefest pride in life. Then I was nursed on fair hopes to be a bride for kings, the center of keen jealousy among suitors, to see whose home I would make my own; and over each lady of Ida I was queen;</l>
+<l resp="perseus" n="355">ah me! admired among maidens, equal to a goddess, save for death alone, but now I am a slave! That name first makes me long for death, so strange it sounds; and then perhaps my lot might give me </l>
+<l resp="perseus" n="360">to some savage master, one that would buy me for money—me the sister of Hector and many others—who would make me knead him bread within his halls, or sweep his house or set me working at the loom, leading a life of misery;</l>
+<l resp="perseus" n="365">while some slave, bought I know not where, will taint my bed, once deemed worthy of royalty. No, never! Here I close my eyes upon the light, free as yet, and dedicate myself to Hades. Lead me away, Odysseus, and do your worst,</l>
+<l resp="perseus" n="370">for I see nothing within my reach to make me hope or expect with any confidence that I am ever again to be happy. Mother, do not seek to hinder me by word or deed, but join in my wish for death before I meet with shameful treatment undeserved.</l>
+<l resp="perseus" n="375">For whoever is not used to taste of sorrows, though he bears it, yet it galls him when he puts his neck within the yoke; far happier would he be dead than alive, for life bereft of honor is toil and trouble.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="379">A wondrous mark, most clearly stamped, does noble birth </l>
+<l resp="perseus" n="380">imprint on men, and the name goes still further where it is deserved.</l></sp>
+
+<milestone unit="card" resp="perseus" n="382"/> 
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="382">A noble speech, my daughter! but there is sorrow linked with its noble sentiments. Odysseus, if you must please the son of Peleus, and avoid reproach,</l>
+<l resp="perseus" n="385">do not slay this maid, but lead me to Achilles’ pyre and torture me unsparingly; it was I that bore <placeName key="tgn,7008038">Paris</placeName>, whose fatal shaft laid low the son of Thetis.</l></sp>
+
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="389">It is not your death, my lady, that Achilles’ ghost </l>
+<l resp="perseus" n="390">has demanded of the Achaeans, but hers.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="391">At least then slaughter me with my child; so shall there be a double drink of blood for the earth and the dead that claims this sacrifice.</l></sp>
+
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="394">The maiden’s death suffices; no need to add </l>
+<l resp="perseus" n="395">a second to the first; would we did not need even this!</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="396">Die with my daughter I must and will.</l></sp>
+
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="397">How so? I did not know I had a master.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="398">I will cling to her like ivy to an oak.</l></sp>
+
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="399">Not if you will listen to those who are wiser than you.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="400">Be sure I will never willingly relinquish my child.</l></sp>
+
+<sp><speaker>Odysseus</speaker>
+<l resp="perseus" rend="indent" n="401">Well, be equally sure I will never go away and leave her here.</l></sp>
+
+<milestone unit="card" resp="perseus" n="402"/> 
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="402">Mother, listen to me; and you, son of <placeName key="perseus,Laertes">Laertes</placeName>, make allowance for a parent’s natural wrath. My poor mother, do not fight with our masters.</l>
+<l resp="perseus" n="405">Will you be thrown to the ground, be roughly thrust aside and wound your aged skin, and in unseemly fashion be torn from me by youthful arms? This you will suffer; but do not, for it is not right for you. No, my dear mother! give me your beloved hand,</l>
+<l resp="perseus" n="410">and let me press your cheek to mine; for never again, but now for the last time, shall I behold the dazzling sun-god’s orb. Take my last farewells now. O mother, my mother! I pass beneath the earth.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="415">O my daughter, I am still to live and be a slave.</l></sp>
+
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="416">Unwedded I depart, never having tasted the married joys that were my due!</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="417">Yours, my daughter, is a piteous lot, and sad is mine also.</l></sp>
+
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="418">There in Hades’ courts shall I lie apart from you.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="419">Ah me, what shall I do? where shall I end my life?</l></sp>
+
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="420">Daughter of a free-born father, a slave I am to die.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="421">Not one of all my fifty children left!</l></sp>
+
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="422">What message can I take for you to Hector or your aged lord?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="423">Tell them that of all women I am the most miserable.</l></sp>
+
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="424">Ah! breasts and paps that fed me with sweet food!</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="425">Oh, my daughter—your wretched, untimely fate!</l></sp>
+
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="426">Farewell, my mother! farewell, Cassandra!</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="427"><q>Fare well!</q> others do, but not your mother, no!</l></sp>
+
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="428">You too, my brother Polydorus, in <placeName key="tgn,7002756">Thrace</placeName>, the home of steeds!</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="429">Yes, if he lives, which I doubt; so luckless am I in every way.</l></sp>
+
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="430">He lives; and, when you die, he will close your eyes.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="431">I am dead; sorrow has forestalled death here.</l></sp>
+
+<sp><speaker>Polyxena</speaker>
+<l resp="perseus" rend="indent" n="432">Come veil my head, Odysseus, and take me away; for now, before the fatal blow, my heart is melted by my mother’s wailing, and hers by mine.</l>
+<l resp="perseus" n="435">O light of day! for still I may call you by your name, though now my share in you is only the time I take to go between Achilles’ tomb and the sword. <stage>Odysseus and his attendants lead Polyxena away.</stage></l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="438">Alas! I faint; my limbs sink under me. O my daughter, embrace your mother, stretch out your hand,</l>
+<l resp="perseus" n="440">give it to me; do not leave me childless! Ah, friends! it is my death-blow. Oh! to see that Spartan woman, Helen, sister of the sons of Zeus, in such a plight; for her bright eyes have caused the shameful fall of <placeName key="perseus,Troy">Troy</placeName>’s once prosperous town. <stage>Hecuba sinks fainting to the ground.</stage></l></sp></div>
+
+<milestone unit="card" resp="perseus" n="444"/> 
+
+<div type="textpart" subtype="choral">
+<div type="textpart" subtype="strophe" n="1">
+    
 <sp><speaker>Chorus</speaker>
-<p>O breeze, breeze of the sea, <milestone resp="perseus" n="445" unit="line"/> that wafts swift galleys, ocean's coursers, across the surging main! Where will you bear me, the sorrowful one? To whose house shall I be brought, to be his slave and chattel? <milestone resp="perseus" n="450" unit="line"/> to some haven in the Dorian land, or in <placeName key="perseus,Phthia">Phthia</placeName>, where men say Apidanus, father of fairest streams, makes fat and rich the soil?</p></sp></div1>
+<l resp="perseus" rend="indent" n="444">O breeze, breeze of the sea,</l>
+<l resp="perseus" n="445">that wafts swift galleys, ocean’s coursers, across the surging main! Where will you bear me, the sorrowful one? To whose house shall I be brought, to be his slave and chattel?</l>
+<l resp="perseus" n="450">to some haven in the Dorian land, or in <placeName key="perseus,Phthia">Phthia</placeName>, where men say Apidanus, father of fairest streams, makes fat and rich the soil?</l></sp></div>
 
-<div1 type="card" n="455">
-<milestone unit="antistrophe" n="1"/>
+<milestone unit="card" resp="perseus" n="455"/> 
+<div type="textpart" subtype="antistrophe" n="1">
+    
 <sp><speaker>Chorus</speaker>
-<p><milestone resp="perseus" n="455" unit="line"/> Or to an island home, sent on a  voyage of misery by oars that sweep the brine, leading a wretched existence in halls where the first-created palm and the bay-tree put forth their sacred <milestone resp="perseus" n="460" unit="line"/> shoots for dear <placeName key="tgn,2013536">Latona</placeName>, a memorial of her divine birth-pains? and there with the maids of <placeName key="tgn,7011273">Delos</placeName> shall I hymn <milestone resp="perseus" n="465" unit="line"/> the golden head-band and bow of Artemis, their goddess?</p></sp></div1>
+<l resp="perseus" rend="indent" n="455">Or to an island home, sent on a  voyage of misery by oars that sweep the brine, leading a wretched existence in halls where the first-created palm and the bay-tree put forth their sacred </l>
+<l resp="perseus" n="460">shoots for dear <placeName key="tgn,2013536">Latona</placeName>, a memorial of her divine birth-pains? and there with the maids of <placeName key="tgn,7011273">Delos</placeName> shall I hymn </l>
+<l resp="perseus" n="465">the golden head-band and bow of Artemis, their goddess?</l></sp></div>
 
-<div1 type="card" n="466">
-<milestone unit="strophe" n="2"/>
+<milestone unit="card" resp="perseus" n="466"/> 
+<div type="textpart" subtype="strophe" n="2">
+    
 <sp><speaker>Chorus</speaker>
-<p>Or in the city of Pallas, the home of Athena of the lovely chariot, shall I then upon her saffron robe yoke horses, <milestone resp="perseus" n="470" unit="line"/> embroidering them on my web in brilliant varied shades, or the race of Titans, put to sleep by Zeus the son of Cronos with bolt of flashing flame?</p></sp></div1>
+<l resp="perseus" rend="indent" n="466">Or in the city of Pallas, the home of Athena of the lovely chariot, shall I then upon her saffron robe yoke horses,</l>
+<l resp="perseus" n="470">embroidering them on my web in brilliant varied shades, or the race of Titans, put to sleep by Zeus the son of Cronos with bolt of flashing flame?</l></sp></div>
 
-<div1 type="card" n="475">
-<milestone unit="antistrophe" n="2"/>
+<milestone unit="card" resp="perseus" n="475"/> 
+<div type="textpart" subtype="antistrophe" n="2">
 <sp><speaker>Chorus</speaker>
-<p><milestone resp="perseus" n="475" unit="line"/> Alas for my children! alas for my ancestors, and my country which is falling in smouldering ruin among the smoke, sacked by the <placeName key="tgn,5001993">Argive</placeName> spear, while I upon a foreign <milestone resp="perseus" n="480" unit="line"/> shore am called a slave, indeed!  leaving <placeName key="tgn,1000004">Asia</placeName>, <placeName key="tgn,1000003">Europe</placeName>'s handmaid, and receiving in its place a deadly marriage-bower.</p></sp></div1>
+<l resp="perseus" rend="indent" n="475">Alas for my children! alas for my ancestors, and my country which is falling in smouldering ruin among the smoke, sacked by the <placeName key="tgn,5001993">Argive</placeName> spear, while I upon a foreign </l>
+<l resp="perseus" n="480">shore am called a slave, indeed!  leaving <placeName key="tgn,1000004">Asia</placeName>, <placeName key="tgn,1000003">Europe</placeName>’s handmaid, and receiving in its place a deadly marriage-bower.</l></sp></div></div>
 
-<div1 type="card" n="484">
+<milestone unit="card" resp="perseus" n="484"/> 
 
-<milestone unit="episode"/>
+<div type="textpart" subtype="episode">
 <stage>The herald, Talthybius, enters.</stage>
-<sp>
-<speaker>Talthybius</speaker>
-<p>Where can I find Hecuba, who once was <milestone resp="perseus" n="485" unit="line"/> queen of <placeName key="tgn,7002329">Ilium</placeName>, you Trojan maidens?</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>There she lies near you, Talthybius, stretched full length upon the ground, wrapped in her robe.</p></sp>
-<sp>
-<speaker>Talthybius</speaker>
-<p>O Zeus! what can I say? that your eye is over man? or that we hold this opinion all to no purpose, <milestone resp="perseus" n="490" unit="line"/> &lsqb;falsely thinking there is any race of gods,&rsqb; when it is chance that rules the mortal sphere? Was not this the queen of wealthy <placeName key="tgn,7002613">Phrygia</placeName>, the wife of Priam highly blessed? And now her city is utterly overthrown by the foe, <milestone resp="perseus" n="495" unit="line"/> and she, a slave in her old age, her children dead, lies upon the ground, soiling her wretched head in the dust. Ah! old as I am, may death be my lot before I am caught in any shameful mischance. Arise, poor lady! lift up <milestone resp="perseus" n="500" unit="line"/> yourself and raise that white head.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
+    
+<sp><speaker>Talthybius</speaker>
+<l resp="perseus" rend="indent" n="484">Where can I find Hecuba, who once was </l>
+<l resp="perseus" n="485">queen of <placeName key="tgn,7002329">Ilium</placeName>, you Trojan maidens?</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="486">There she lies near you, Talthybius, stretched full length upon the ground, wrapped in her robe.</l></sp>
+
+<sp><speaker>Talthybius</speaker>
+<l resp="perseus" rend="indent" n="488">O Zeus! what can I say? that your eye is over man? or that we hold this opinion all to no purpose,</l>
+<l resp="perseus" n="490"><del>falsely thinking there is any race of gods,</del> when it is chance that rules the mortal sphere? Was not this the queen of wealthy <placeName key="tgn,7002613">Phrygia</placeName>, the wife of Priam highly blessed? And now her city is utterly overthrown by the foe,</l>
+<l resp="perseus" n="495">and she, a slave in her old age, her children dead, lies upon the ground, soiling her wretched head in the dust. Ah! old as I am, may death be my lot before I am caught in any shameful mischance. Arise, poor lady! lift up </l>
+<l resp="perseus" n="500">yourself and raise that white head.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
 <stage>stirring</stage>
-<p>Oh! who are you that will not let my body rest? Why disturb me in my anguish, whoever you are?</p></sp>
-<sp>
-<speaker>Talthybius</speaker>
-<p>I, Talthybius, have come, the servant of the Danaids; Agamemnon has sent me for you, lady.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="501">Oh! who are you that will not let my body rest? Why disturb me in my anguish, whoever you are?</l></sp>
+
+<sp><speaker>Talthybius</speaker>
+<l resp="perseus" rend="indent" n="503">I, Talthybius, have come, the servant of the Danaids; Agamemnon has sent me for you, lady.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
 <stage>rising</stage>
-<p><milestone resp="perseus" n="505" unit="line"/> Good friend, have you come because the Achaeans are resolved after all to slay me too at the grave? How welcome your tidings would be! Let us hasten and lose no time; please lead the way, old man.</p></sp>
-<sp>
-<speaker>Talthybius</speaker>
-<p>I have come to fetch you to bury your daughter's corpse, lady; and those that send me are <milestone resp="perseus" n="510" unit="line"/> the two sons of Atreus and the Achaean people.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Alas! What will you say? Have you not after all come to fetch me to my doom, but to announce ill news? Lost, my child! snatched from your mother's arms! and I am childless now, at least as regards you; ah, woe is me! <milestone resp="perseus" n="515" unit="line"/> How did you end her life? was any mercy shown? or did you deal ruthlessly with her as though your victim were a foe, old man? Speak, though your words must be pain to me.</p></sp></div1>
+<l resp="perseus" rend="indent" n="505">Good friend, have you come because the Achaeans are resolved after all to slay me too at the grave? How welcome your tidings would be! Let us hasten and lose no time; please lead the way, old man.</l></sp>
 
-<div1 type="card" n="518">
-<sp n="Talthybius">
-<speaker>Talthybius</speaker>
-<p>Lady, you wish me to have a double benefit of tears in pity for your child; for now too as I tell the sad tale <milestone resp="perseus" n="520" unit="line"/> my eyes will be wet, as they were at the tomb when she was dying. All <placeName key="tgn,7002733">Achaea</placeName>'s army was gathered there in full array before the tomb to see your daughter sacrificed; and the son of Achilles took Polyxena by the hand and set her on the top of the mound, while I was near; <milestone resp="perseus" n="525" unit="line"/> and a chosen band of young Achaeans followed to hold your child and prevent her struggling. Then Achilles' son took in his hands a brimming cup of gold and raised in his hand an offering to his dead father, making a sign to me <milestone resp="perseus" n="530" unit="line"/> to proclaim silence throughout the Achaean army. So I stood at his side and in their midst proclaimed, &ldquo;Silence, you Achaeans! let all the people be silent! peace! be still!&rdquo; So I hushed the army. Then he spoke: &ldquo;Son of Peleus, my father, <milestone resp="perseus" n="535" unit="line"/> accept the offering I pour for you to appease your spirit, strong to raise the dead; and come to drink the black blood of a pure girl, which I and the army are offering you; oh! be propitious to us; grant that we may loose our prows and the <milestone resp="perseus" n="540" unit="line"/> cables of our ships, and, meeting with a prosperous voyage from <placeName key="tgn,7002329">Ilium</placeName>, all come to our country.&rdquo; So he spoke; and all the army echoed his prayer. Then seizing his golden sword by the hilt he drew it from its scabbard, signing to the picked young <placeName key="tgn,5001993">Argive</placeName> <milestone resp="perseus" n="545" unit="line"/> warriors to hold the maid. But she, when she perceived it, uttered this speech: &ldquo;O Argives, who have sacked my city! of my free will I die; let no one lay hand on me; for bravely will I yield my neck. <milestone resp="perseus" n="550" unit="line"/> By the gods, leave me free; so slay me, that death may find me free; for to be called a slave among the dead fills my royal heart with shame.&rdquo;</p>
-</sp></div1>
+<sp><speaker>Talthybius</speaker>
+<l resp="perseus" rend="indent" n="508">I have come to fetch you to bury your daughter’s corpse, lady; and those that send me are </l>
+<l resp="perseus" n="510">the two sons of Atreus and the Achaean people.</l></sp>
 
-<div1 type="card" n="553">
-<sp><p>Then the people shouted their applause, and king Agamemnon told the young men to let go the maid. <milestone resp="perseus" n="555" unit="line"/> &lsqb;So they set her free, as soon as they heard this last command from him whose might was over all.&rsqb; And she, hearing her master's words, took her robe and tore it open from the shoulder to the waist, <milestone resp="perseus" n="560" unit="line"/> displaying a breast and bosom fair as a statue's; then sinking on her knee, one word she spoke more piteous than all the rest, &ldquo;Young prince, if it is my breast you are eager to strike, see, here it is, strike home! or if at my neck your sword <milestone resp="perseus" n="565" unit="line"/> you will aim, that throat is here and ready.&rdquo;</p>
-<p>Then he, half glad, half sorry in his pity for the maid, cut with the steel the channels of her breath, and streams of blood gushed forth; but she, even in death, took good heed to fall with grace, <milestone resp="perseus" n="570" unit="line"/> hiding from the gaze of men what must be hidden. When she had breathed her last through the fatal gash, no <placeName key="tgn,5001993">Argive</placeName> set his hand to the same task, but some were strewing leaves over the corpse in handfuls, others bringing pine-logs <milestone resp="perseus" n="575" unit="line"/> and heaping up a pyre; and the one who brought nothing would hear from him who did such taunts as these, &ldquo;Do you stand still, ignoble wretch, with no robe or ornament to bring for the maiden? will you give nothing to her that showed such peerless bravery <milestone resp="perseus" n="580" unit="line"/> and spirit?&rdquo; Such is the tale I tell about your daughter's death, and regard you as blessed beyond all mothers in your noble child, yet crossed in fortune more than all.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Upon the race of Priam and my city some fearful curse has burst; it is sent by God, and we must bear it.</p></sp></div1>
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="511">Alas! What will you say? Have you not after all come to fetch me to my doom, but to announce ill news? Lost, my child! snatched from your mother’s arms! and I am childless now, at least as regards you; ah, woe is me!</l>
+<l resp="perseus" rend="indent" n="515">How did you end her life? was any mercy shown? or did you deal ruthlessly with her as though your victim were a foe, old man? Speak, though your words must be pain to me.</l></sp>
 
-<div1 type="card" n="585">
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="585" unit="line"/> O my daughter! among this crowd of sorrows I do not know where to turn my gaze; for if I set myself to one, another will not let me be; while from this again another grief summons me, finding a successor to sorrow's throne. And now I can not efface from my mind the memory of your sufferings <milestone resp="perseus" n="590" unit="line"/> sufficiently to stay my tears; yet the story of your noble death has taken from the keenness of my grief. Is it not then strange that a poor land, when blessed by heaven with a lucky year, yields a good crop, while that which is good, if robbed of needful care, <milestone resp="perseus" n="595" unit="line"/> bears little fruit; yet among men the base is nothing else but wicked, the good man is good, never changing for the worse because of misfortune, but ever the same? Is then the difference due to birth or bringing up? <milestone resp="perseus" n="600" unit="line"/> Good training doubtless gives lessons in good conduct, and if a man has mastered this, he knows what is shameful by the standard of the good. And these are random shafts from my mind, I know.</p>
-<p><stage>To Talthybius</stage> Go and proclaim to the Argives <milestone resp="perseus" n="605" unit="line"/> that they do not touch my daughter's body but keep the crowd away. For when a countless army is gathered, the mob knows no restraint, and the unruliness of sailors exceeds that of fire, all abstinence from crime being counted criminal. <stage>Talthybius goes out.</stage></p>
-<p><stage>Addressing a servant</stage> Now you, my aged handmaid, take a pitcher <milestone resp="perseus" n="610" unit="line"/> and dip it in the salt sea and bring it here, that I for the last time may wash my child, an unwed bride, a ravished virgin, and lay her out, as she deserves, ah! how can I? impossible! but as best I can; and what will that amount to? <milestone resp="perseus" n="615" unit="line"/> I will collect adornment from the captives, my companions in these tents, if perhaps any of them escaping her new master's eye has made some theft from her home. <stage>The servant departs.</stage></p>
-<p>O towering halls, O home so happy once, <milestone resp="perseus" n="620" unit="line"/> O Priam, rich in store of fairest wealth, most blessed of fathers, and I no less, the grey-haired mother of your race, how are we brought to nothing, stripped of our former pride! And in spite of all we vaunt ourselves, one on the riches of his house, <milestone resp="perseus" n="625" unit="line"/> another because he has an honored name among his fellow-citizens! But these things are nothing; in vain are all our thoughtful schemes, in vain our boastful words. He is happiest who meets no sorrow day by day. <stage>Hecuba enters the tent.</stage></p></sp></div1>
+<milestone unit="card" resp="perseus" n="518"/> 
+<sp><speaker>Talthybius</speaker>
+<l resp="perseus" rend="indent" n="518">Lady, you wish me to have a double benefit of tears in pity for your child; for now too as I tell the sad tale </l>
+<l resp="perseus" n="520">my eyes will be wet, as they were at the tomb when she was dying.</l>
+<l resp="perseus" rend="indent" n="521">All <placeName key="tgn,7002733">Achaea</placeName>’s army was gathered there in full array before the tomb to see your daughter sacrificed; and the son of Achilles took Polyxena by the hand and set her on the top of the mound, while I was near;</l>
+<l resp="perseus" n="525">and a chosen band of young Achaeans followed to hold your child and prevent her struggling. Then Achilles’ son took in his hands a brimming cup of gold and raised in his hand an offering to his dead father, making a sign to me </l>
+<l resp="perseus" n="530">to proclaim silence throughout the Achaean army. So I stood at his side and in their midst proclaimed, <q>Silence, you Achaeans! let all the people be silent! peace! be still!</q> So I hushed the army. Then he spoke: <q>Son of Peleus, my father,</q></l>
+<l resp="perseus" n="535"><q rend="merge">accept the offering I pour for you to appease your spirit, strong to raise the dead; and come to drink the black blood of a pure girl, which I and the army are offering you; oh! be propitious to us; grant that we may loose our prows and the</q> </l>
+<l resp="perseus" n="540"><q rend="merge">cables of our ships, and, meeting with a prosperous voyage from <placeName key="tgn,7002329">Ilium</placeName>, all come to our country.</q> So he spoke; and all the army echoed his prayer. Then seizing his golden sword by the hilt he drew it from its scabbard, signing to the picked young <placeName key="tgn,5001993">Argive</placeName></l>
+<l resp="perseus" n="545">warriors to hold the maid. But she, when she perceived it, uttered this speech: <q>O Argives, who have sacked my city! of my free will I die; let no one lay hand on me; for bravely will I yield my neck.</q></l>
+<l resp="perseus" n="550"><q rend="merge">By the gods, leave me free; so slay me, that death may find me free; for to be called a slave among the dead fills my royal heart with shame.</q></l>
+<milestone unit="card" resp="perseus" n="553"/> 
+<l resp="perseus" n="553">Then the people shouted their applause, and king Agamemnon told the young men to let go the maid.</l>
+<l resp="perseus" n="555"><del>So they set her free, as soon as they heard this last command from him whose might was over all.</del> And she, hearing her master’s words, took her robe and tore it open from the shoulder to the waist,</l>
+<l resp="perseus" n="560">displaying a breast and bosom fair as a statue’s; then sinking on her knee, one word she spoke more piteous than all the rest, <q>Young prince, if it is my breast you are eager to strike, see, here it is, strike home! or if at my neck your sword</q> </l>
+<l resp="perseus" n="565"><q rend="merge">you will aim, that throat is here and ready.</q></l>
+<l resp="perseus" rend="indent" n="566">Then he, half glad, half sorry in his pity for the maid, cut with the steel the channels of her breath, and streams of blood gushed forth; but she, even in death, took good heed to fall with grace,</l>
+<l resp="perseus" n="570">hiding from the gaze of men what must be hidden. When she had breathed her last through the fatal gash, no <placeName key="tgn,5001993">Argive</placeName> set his hand to the same task, but some were strewing leaves over the corpse in handfuls, others bringing pine-logs </l>
+<l resp="perseus" n="575">and heaping up a pyre; and the one who brought nothing would hear from him who did such taunts as these, <q>Do you stand still, ignoble wretch, with no robe or ornament to bring for the maiden? will you give nothing to her that showed such peerless bravery</q> </l>
+<l resp="perseus" n="580"><q rend="merge">and spirit?</q> Such is the tale I tell about your daughter’s death, and regard you as blessed beyond all mothers in your noble child, yet crossed in fortune more than all.</l></sp>
 
-<div1 type="card" n="629">
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="583">Upon the race of Priam and my city some fearful curse has burst; it is sent by God, and we must bear it.</l></sp>
 
-<milestone unit="choral"/>
-<milestone unit="strophe"/>
+<milestone unit="card" resp="perseus" n="585"/> 
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="585">O my daughter! among this crowd of sorrows I do not know where to turn my gaze; for if I set myself to one, another will not let me be; while from this again another grief summons me, finding a successor to sorrow’s throne. And now I can not efface from my mind the memory of your sufferings </l>
+<l resp="perseus" n="590">sufficiently to stay my tears; yet the story of your noble death has taken from the keenness of my grief. Is it not then strange that a poor land, when blessed by heaven with a lucky year, yields a good crop, while that which is good, if robbed of needful care,</l>
+<l resp="perseus" n="595">bears little fruit; yet among men the base is nothing else but wicked, the good man is good, never changing for the worse because of misfortune, but ever the same? Is then the difference due to birth or bringing up?</l>
+<l resp="perseus" n="600">Good training doubtless gives lessons in good conduct, and if a man has mastered this, he knows what is shameful by the standard of the good. And these are random shafts from my mind, I know.</l>
+<l resp="perseus" rend="indent" n="604"><stage>To Talthybius</stage> Go and proclaim to the Argives </l>
+<l resp="perseus" n="605">that they do not touch my daughter’s body but keep the crowd away. For when a countless army is gathered, the mob knows no restraint, and the unruliness of sailors exceeds that of fire, all abstinence from crime being counted criminal. <stage>Talthybius goes out.</stage></l>
+<l resp="perseus" rend="indent" n="609"><stage>Addressing a servant</stage> Now you, my aged handmaid, take a pitcher </l>
+<l resp="perseus" n="610">and dip it in the salt sea and bring it here, that I for the last time may wash my child, an unwed bride, a ravished virgin, and lay her out, as she deserves, ah! how can I? impossible! but as best I can; and what will that amount to?</l>
+<l resp="perseus" n="615">I will collect adornment from the captives, my companions in these tents, if perhaps any of them escaping her new master’s eye has made some theft from her home. <stage>The servant departs.</stage> O towering halls, O home so happy once, </l>
+<l resp="perseus" n="620">O Priam, rich in store of fairest wealth, most blessed of fathers, and I no less, the grey-haired mother of your race, how are we brought to nothing, stripped of our former pride! And in spite of all we vaunt ourselves, one on the riches of his house,</l>
+<l resp="perseus" n="625">another because he has an honored name among his fellow-citizens! But these things are nothing; in vain are all our thoughtful schemes, in vain our boastful words. He is happiest who meets no sorrow day by day. <stage>Hecuba enters the tent.</stage></l></sp></div>
+
+<milestone unit="card" resp="perseus" n="629"/> 
+
+<div type="textpart" subtype="choral">
+<div type="textpart" subtype="strophe">
 <sp><speaker>Chorus</speaker>
-<p>Woe and tribulation <milestone resp="perseus" n="630" unit="line"/> were made my lot in life, when Alexander first cut his beams of pine in Ida's woods, to sail across the heaving sea <milestone resp="perseus" n="635" unit="line"/> in quest of Helen's bed, loveliest woman on whom the sun-god turns his golden eye.</p></sp></div1>
+<l resp="perseus" rend="indent" n="629">Woe and tribulation </l>
+<l resp="perseus" n="630">were made my lot in life, when Alexander first cut his beams of pine in Ida’s woods, to sail across the heaving sea </l>
+<l resp="perseus" n="635">in quest of Helen’s bed, loveliest woman on whom the sun-god turns his golden eye.</l></sp></div>
 
-<div1 type="card" n="638">
-<milestone unit="antistrophe"/>
+<milestone unit="card" resp="perseus" n="638"/> 
+<div type="textpart" subtype="antistrophe">
 <sp><speaker>Chorus</speaker>
-<p>For here begins trouble's cycle, <milestone resp="perseus" n="640" unit="line"/> and, worse than that, relentless fate; and from one man's folly came a universal curse, bringing death to the land of Simois, with trouble from an alien shore. The strife the shepherd decided <milestone resp="perseus" n="645" unit="line"/> on Ida, between three daughters of the blessed gods,</p></sp></div1>
+<l resp="perseus" rend="indent" n="639">For here begins trouble’s cycle,</l>
+<l resp="perseus" n="640">and, worse than that, relentless fate; and from one man’s folly came a universal curse, bringing death to the land of Simois, with trouble from an alien shore. The strife the shepherd decided </l>
+<l resp="perseus" n="645">on Ida, between three daughters of the blessed gods,</l></sp></div>
 
-<div1 type="card" n="648">
-<milestone unit="epode"/>
+<milestone unit="card" resp="perseus" n="648"/> 
+<div type="textpart" subtype="epode">
 <sp><speaker>Chorus</speaker>
-<p>brought as its result war and bloodshed and the ruin of my home; <milestone resp="perseus" n="650" unit="line"/> and many a Spartan maiden too is weeping bitter tears in her halls on the banks of fair Eurotas, and many a mother whose sons are slain, <milestone resp="perseus" n="655" unit="line"/> is smiting her gray head and tearing her cheeks, making her nails bloody in the furrowed gash.</p></sp></div1>
+<l resp="perseus" rend="indent" n="648">brought as its result war and bloodshed and the ruin of my home;</l>
+<l resp="perseus" n="650">and many a Spartan maiden too is weeping bitter tears in her halls on the banks of fair Eurotas, and many a mother whose sons are slain,</l>
+<l resp="perseus" n="655">is smiting her gray head and tearing her cheeks, making her nails bloody in the furrowed gash.</l></sp></div></div>
 
-<div1 type="card" n="658">
+<milestone unit="card" resp="perseus" n="658"/> 
 
-<milestone unit="episode"/>
-<sp>
-<speaker>Maid-servant</speaker>
+<div type="textpart" subtype="episode">
+<sp><speaker>Maid-servant</speaker>
 <stage>entering excitedly, attended by bearers bringing in a covered corpse</stage>
-<p>Oh! ladies, where is Hecuba, our queen of sorrow, who conquers all in tribulation, men and women both alike? <milestone resp="perseus" n="660" unit="line"/> No one shall dispute the crown with her.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>What now, unhappy one with your cry of misery? Your evil tidings never seem to rest.</p></sp>
-<sp>
-<speaker>Maid-servant</speaker>
-<p>It is to Hecuba I bring my bitter news; no easy task is it for mortal lips to speak smooth words in sorrow.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p><milestone resp="perseus" n="665" unit="line"/> Look, she is coming even now from the shelter of the tent, appearing just in time to hear you speak. <stage>Hecuba comes out of the tent.</stage></p></sp>
-<sp>
-<speaker>Maid-servant</speaker>
-<p>O mistress, most hapless beyond all words of mine to tell; you are ruined, you no longer exist, though you are alive; of children, husband, city bereft; hopelessly undone!</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="670" unit="line"/> This is no news but insult; I have heard it all before. But why have you come, bringing here to me the corpse of Polyxena, on whose burial <placeName key="tgn,7002733">Achaea</placeName>'s army was reported to be busily engaged?</p></sp>
-<sp>
-<speaker>Maid-servant</speaker>
-<p>She knows nothing, but mourns <milestone resp="perseus" n="675" unit="line"/> Polyxena, not grasping her new sorrows.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Ah! woe is me! you are surely not bringing here frenzied Cassandra, the prophetic maid?</p></sp>
-<sp>
-<speaker>Maid-servant</speaker>
-<p>You speak of the living; but the dead you do not weep is here. <stage>Uncovering the corpse</stage> Mark well the body now laid bare; <milestone resp="perseus" n="680" unit="line"/> is not this a sight to fill you with wonder, and upset your hopes?</p></sp></div1>
+<l resp="perseus" rend="indent" n="658">Oh! ladies, where is Hecuba, our queen of sorrow, who conquers all in tribulation, men and women both alike?</l>
+<l resp="perseus" n="660">No one shall dispute the crown with her.</l></sp>
 
-<div1 type="card" n="681">
-<sp><speaker>Hecuba</speaker>
-<p>Ah me! it is the corpse of my son Polydorus I behold, whom the Thracian man was keeping safe for me in his halls. Alas! this is the end of all; my life is over.</p>
-<p><stage>chanting</stage>
-O my son, my son, <milestone resp="perseus" n="685" unit="line"/> alas! I now begin the laments, a frantic strain I learned just now from some avenging fiend.</p></sp>
-<sp>
-<speaker>Maid-servant</speaker>
-<p>What! so you knew your son's fate, poor lady?</p></sp>
-<sp><speaker>Hecuba</speaker>
-<p>I cannot, cannot credit this fresh sight I see.</p>
-<stage>chanting</stage>
-<p><milestone resp="perseus" n="690" unit="line"/> One woe succeeds to another; no day will ever pass without groans and tears.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Alas! poor lady, our sufferings are cruel indeed.</p></sp>
-<milestone unit="lyric"/>
-<sp>
-<speaker>Hecuba</speaker>
-<stage>chanting</stage>
-<p>O  my son, child of a luckless mother, <milestone resp="perseus" n="695" unit="line"/> what was the manner of your death? by what fate do you lie here? by whose hands?</p></sp>
-<sp>
-<speaker>Maid-servant</speaker>
-<p>I do not know. I found him on the sea-shore.</p></sp>
-<sp><speaker>Hecuba</speaker>
-<stage>chanting</stage>
-<p>Cast up on the smooth sand, or thrown there <milestone resp="perseus" n="700" unit="line"/> after the murderous blow?</p></sp>
-<sp>
-<speaker>Maid-servant</speaker>
-<p>The waves had washed him ashore.</p></sp>
-<sp><speaker>Hecuba</speaker>
-<stage>chanting</stage>
-<p>Alas! alas! I now know the vision I saw in my sleep; the dusky-winged phantom <milestone resp="perseus" n="705" unit="line"/> did not escape me, the vision I saw of you, my son, now no more within the bright sunshine.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Who slew him then? Can your dream-lore tell us that?</p></sp>
-<milestone unit="lyric"/>
-<sp>
-<speaker>Hecuba</speaker>
-<stage>chanting</stage>
-<p><milestone resp="perseus" n="710" unit="line"/> It was my own familiar friend, the knight of <placeName key="tgn,7002756">Thrace</placeName>, with whom his aged father had placed the boy in hiding.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>O horror! what will you say? did he slay him to get the gold?</p></sp>
-<sp><speaker>Hecuba</speaker>
-<stage>chanting</stage>
-<p>O dreadful crime! O deed without a name! beyond wonder! <milestone resp="perseus" n="715" unit="line"/> impious! intolerable! Where are the laws between guest and host? Accursed of men! how have you mangled his flesh, slashing the poor child's limbs <milestone resp="perseus" n="720" unit="line"/> with ruthless sword, lost to all sense of pity!</p></sp></div1>
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="661">What now, unhappy one with your cry of misery? Your evil tidings never seem to rest.</l></sp>
 
-<div1 type="card" n="722">
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Alas for you! how some deity, whose hand is heavy on you, has sent you troubles beyond all other mortals! But I see our lord and master <milestone resp="perseus" n="725" unit="line"/> Agamemnon; so let us be still from now on, my friends.</p></sp>
+<sp><speaker>Maid-servant</speaker>
+<l resp="perseus" rend="indent" n="663">It is to Hecuba I bring my bitter news; no easy task is it for mortal lips to speak smooth words in sorrow.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="665">Look, she is coming even now from the shelter of the tent, appearing just in time to hear you speak. <stage>Hecuba comes out of the tent.</stage></l></sp>
+
+<sp><speaker>Maid-servant</speaker>
+<l resp="perseus" rend="indent" n="667">O mistress, most hapless beyond all words of mine to tell; you are ruined, you no longer exist, though you are alive; of children, husband, city bereft; hopelessly undone!</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="670">This is no news but insult; I have heard it all before. But why have you come, bringing here to me the corpse of Polyxena, on whose burial <placeName key="tgn,7002733">Achaea</placeName>’s army was reported to be busily engaged?</l></sp>
+
+<sp><speaker>Maid-servant</speaker>
+<l resp="perseus" rend="indent" n="674">She knows nothing, but mourns </l>
+<l resp="perseus" n="675">Polyxena, not grasping her new sorrows.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="676">Ah! woe is me! you are surely not bringing here frenzied Cassandra, the prophetic maid?</l></sp>
+
+<sp><speaker>Maid-servant</speaker>
+<l resp="perseus" rend="indent" n="678">You speak of the living; but the dead you do not weep is here. <stage>Uncovering the corpse</stage> Mark well the body now laid bare;</l>
+<l resp="perseus" n="680">is not this a sight to fill you with wonder, and upset your hopes?</l></sp>
+
+<milestone unit="card" resp="perseus" n="681"/> 
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="681">Ah me! it is the corpse of my son Polydorus I behold, whom the Thracian man was keeping safe for me in his halls. Alas! this is the end of all; my life is over. <stage>chanting</stage> O my son, my son,</l>
+<l resp="perseus" n="685">alas! I now begin the laments, a frantic strain I learned just now from some avenging fiend.</l></sp>
+
+<sp><speaker>Maid-servant</speaker>
+<l resp="perseus" rend="indent" n="688">What! so you knew your son’s fate, poor lady?</l></sp>
+    
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="689">I cannot, cannot credit this fresh sight I see.</l>
+<stage>chanting</stage>
+<l resp="perseus" n="690">One woe succeeds to another; no day will ever pass without groans and tears.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="693">Alas! poor lady, our sufferings are cruel indeed.</l></sp>
+    
+<div type="textpart" subtype="lyric">
+<sp><speaker>Hecuba</speaker>
+<stage>chanting</stage>
+<l resp="perseus" rend="indent" n="694">O  my son, child of a luckless mother,</l>
+<l resp="perseus" n="695">what was the manner of your death? by what fate do you lie here? by whose hands?</l></sp>
+
+<sp><speaker>Maid-servant</speaker>
+<l resp="perseus" rend="indent" n="698">I do not know. I found him on the sea-shore.</l></sp>
+    
+<sp><speaker>Hecuba</speaker>
+<stage>chanting</stage>
+<l resp="perseus" rend="indent" n="699">Cast up on the smooth sand, or thrown there </l>
+<l resp="perseus" n="700">after the murderous blow?</l></sp>
+
+<sp><speaker>Maid-servant</speaker>
+<l resp="perseus" rend="indent" n="701">The waves had washed him ashore.</l></sp></div>
+    
+ <div type="textpart" subtype="lyric">
+<sp><speaker>Hecuba</speaker>
+<stage>chanting</stage>
+<l resp="perseus" rend="indent" n="702">Alas! alas! I now know the vision I saw in my sleep; the dusky-winged phantom </l>
+<l resp="perseus" n="705">did not escape me, the vision I saw of you, my son, now no more within the bright sunshine.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="709">Who slew him then? Can your dream-lore tell us that?</l></sp>
+    
+<sp><speaker>Hecuba</speaker>
+<stage>chanting</stage>
+<l resp="perseus" n="710" rend="indent">It was my own familiar friend, the knight of <placeName key="tgn,7002756">Thrace</placeName>, with whom his aged father had placed the boy in hiding.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="713">O horror! what will you say? did he slay him to get the gold?</l></sp>
+    
+<sp><speaker>Hecuba</speaker>
+<stage>chanting</stage>
+<l resp="perseus" rend="indent" n="714">O dreadful crime! O deed without a name! beyond wonder!</l>
+<l resp="perseus" n="715">impious! intolerable! Where are the laws between guest and host? Accursed of men! how have you mangled his flesh, slashing the poor child’s limbs </l>
+<l resp="perseus" n="720">with ruthless sword, lost to all sense of pity!</l></sp></div>
+
+<milestone unit="card" resp="perseus" n="722"/> 
+<div type="textpart" subtype="iambics">          
+    
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="722">Alas for you! how some deity, whose hand is heavy on you, has sent you troubles beyond all other mortals! But I see our lord and master </l>
+<l resp="perseus" n="725">Agamemnon; so let us be still from now on, my friends.</l></sp>
+    
 <stage>Agamemnon enters.</stage>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Hecuba, why are you delaying to come and bury your daughter? for it was for this that Talthybius brought me your message begging that no one of the Argives should touch your child. And so we granted this, and are not touching her, <milestone resp="perseus" n="730" unit="line"/> but this delay of yours fills me with wonder. And so I have come to send you from here; for our part there is well performed&mdash;if here there is any place for &ldquo;well.&rdquo;</p>
-<p><stage>He sees the body.</stage>
-Oh! what man is this I see near the tents, some Trojan's corpse? It is not an <placeName key="tgn,5001993">Argive</placeName>'s body; <milestone resp="perseus" n="735" unit="line"/> that the garments it is clad in tell me.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
+    
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="726">Hecuba, why are you delaying to come and bury your daughter? for it was for this that Talthybius brought me your message begging that no one of the Argives should touch your child. And so we granted this, and are not touching her,</l>
+<l resp="perseus" n="730">but this delay of yours fills me with wonder. And so I have come to send you from here; for our part there is well performed—if here there is any place for <q>well.</q></l>
+<l resp="perseus" rend="indent" n="733"><stage>He sees the body.</stage> Oh! what man is this I see near the tents, some Trojan’s corpse? It is not an Argive’s body;</l>
+<l resp="perseus" n="735">that the garments it is clad in tell me.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
 <stage>aside</stage>
-<p>Unhappy one! in naming you I name myself; Hecuba, what shall I do? throw myself here at Agamemnon's knees, or bear my sorrows in silence?</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Why do you turn your back towards me and <milestone resp="perseus" n="740" unit="line"/> weep, refusing to say what has happened? Who is this?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="736">Unhappy one! in naming you I name myself; Hecuba, what shall I do? throw myself here at Agamemnon’s knees, or bear my sorrows in silence?</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="739">Why do you turn your back towards me and </l>
+<l resp="perseus" n="740">weep, refusing to say what has happened? Who is this?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
 <stage>aside</stage>
-<p>But if he should count me as a slave and foe and spurn me from his knees, I would add to my anguish.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>I am no prophet born; therefore, if I am not told, I cannot learn the current of your thoughts.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="741">But if he should count me as a slave and foe and spurn me from his knees, I would add to my anguish.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="743">I am no prophet born; therefore, if I am not told, I cannot learn the current of your thoughts.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
 <stage>aside</stage>
-<p><milestone resp="perseus" n="745" unit="line"/> Can it be that in estimating this man's feelings I make him out too ill-disposed, when he is not really so?</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>If your wish really is that I should remain in ignorance, we are of one mind; for I have no wish myself to listen.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
+    <l resp="perseus" rend="indent" n="745">Can it be that in estimating this man’s feelings I make him out too ill-disposed, when he is not really so?</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="747">If your wish really is that I should remain in ignorance, we are of one mind; for I have no wish myself to listen.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
 <stage>aside</stage>
-<p>Without his aid I shall not be able to avenge <milestone resp="perseus" n="750" unit="line"/> my children. Why do I still ponder the matter? I must do and dare whether I win or lose. <stage>Turning to Agamemnon</stage> Agamemnon, by your knees, by your beard and conquering hand I implore you&mdash;</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>What is your desire? to be <milestone resp="perseus" n="755" unit="line"/> set free? that is easily done.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Not that; give me vengeance on the wicked, and I am willing to lead a life of slavery forever.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Well, but why do you call me to your aid?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>It is a matter you little know of, king. <milestone resp="perseus" n="760" unit="line"/> Do you see this corpse, for whom my tears now flow?</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>I do; but what is to follow, I cannot guess.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>He was once my child; I bore him in my womb.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Which of your sons is he, poor sufferer?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Not one of Priam's race who fell beneath <placeName key="tgn,7002329">Ilium</placeName>'s walls.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p><milestone resp="perseus" n="765" unit="line"/> Did you indeed have another son besides those, lady?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Yes, the one you see here, of whom it seems I have small gain.</p></sp></div1>
+<l resp="perseus" rend="indent" n="749">Without his aid I shall not be able to avenge </l>
+<l resp="perseus" n="750">my children. Why do I still ponder the matter? I must do and dare whether I win or lose. <stage>Turning to Agamemnon</stage> Agamemnon, by your knees, by your beard and conquering hand I implore you—</l></sp>
 
-<div1 type="card" n="767">
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Where then was he, when his city was being destroyed?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>His father, fearful of his death, conveyed him out of <placeName key="perseus,Troy">Troy</placeName>.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Where did he place him apart from the sons he then had?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="770" unit="line"/> In this very land, where his corpse was found.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>With Polymestor, the king of this country?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>He was sent here in charge of gold, most bitter trust!</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>By whom was he slain? What death overtook him?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>By whom but this man? His Thracian host slew him.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p><milestone resp="perseus" n="775" unit="line"/> The wretch! could he have been so eager for the gold?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Just so, when he heard of the Phrygians' disaster.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Where did you find him? or did some one bring his corpse?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>This woman, who happened upon it on the sea-shore.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Was she seeking it, or bent on other tasks?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="780" unit="line"/> She had gone to fetch water from the sea to wash Polyxena.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>It seems then his host slew him and cast his body out to sea.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Yes, for the waves to toss, after mangling him in this way.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Woe to you for your measureless troubles!</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>I am ruined; no evil now is left, Agamemnon.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p><milestone resp="perseus" n="785" unit="line"/> Ah! what woman was ever born to such mischance?</p></sp>
-<sp n="Hecuba">
-<speaker>Hecuba</speaker>
-<p>There is no one, unless you would name Chance herself. But hear my reason for throwing myself at your knees. If my treatment seems to you deserved, I will be content; but, if otherwise, help me to punish <milestone resp="perseus" n="790" unit="line"/> this most godless host, fearless alike of gods in heaven or hell, who has done a most unholy deed; who, though often he had shared my board and been counted first of all my guest-friends <milestone resp="perseus" n="795" unit="line"/> meeting with every kindness he could claim&mdash;. And receiving my consideration, he slew my son, and bent though he was on murder, did not think it right to bury him, but cast his body forth to sea.</p>
-<p>I may be a slave and weak as well, but the gods are strong, and Custom too which prevails over them, <milestone resp="perseus" n="800" unit="line"/> for by custom it is that we believe in them and set up boundaries of right and wrong for our lives. Now if this principle, when referred to you, is to be set at nothing, and they are to escape punishment who murder guests or dare to plunder the temples of gods, <milestone resp="perseus" n="805" unit="line"/> then all fairness in human matters is at an end. Consider this then a disgrace and show regard for me, have pity on me, and, like an artist standing back from his picture, look on me and closely scan my piteous state. I was once a queen, but now I am your slave; <milestone resp="perseus" n="810" unit="line"/> a happy mother once, but now childless and old alike, bereft of city, utterly forlorn, the most wretched woman living.</p>
-</sp></div1>
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="754">What is your desire? to be </l>
+<l resp="perseus" n="755">set free? that is easily done.</l></sp>
 
-<div1 type="card" n="812">
-<sp><p><stage>as Agamemnon is turning away.</stage>Ah! woe is me! where would you withdraw your steps from me? My efforts then will be in vain, ah me! Why, oh! why do we mortals toil, as we must, and seek out all other sciences, <milestone resp="perseus" n="815" unit="line"/> but Persuasion, the only real mistress of mankind, we take no further pains to master completely by offering to pay for the knowledge, so that any man could convince his fellows as he pleased and gain his point at once? <milestone resp="perseus" n="820" unit="line"/> How shall anyone hereafter hope for prosperity? All those my sons are gone from me, and she, my daughter, is a slave and suffers shame. I am lost; I see the smoke leaping over my city.</p>
-<p>Further&mdash;though this is perhaps idly urged, <milestone resp="perseus" n="825" unit="line"/> to plead your love, still I will put the case&mdash;at your side lies my daughter, Cassandra, the inspired maiden, as the Phrygians call her. How then, king, will you acknowledge those nights of rapture, or what return shall my daughter or I her mother have <milestone resp="perseus" n="830" unit="line"/> for the love she has lavished on her lord? &lsqb;For from darkness and the endearments of the night mortals have their keenest joys.&rsqb; Listen, then; do you see this corpse? By doing him a service, you will do it to a kinsman of your bride's. <milestone resp="perseus" n="835" unit="line"/> I have only one thing yet to urge. Oh! would I had a voice in arms, in hands, in hair and feet, placed there by the arts of Daedalus or some god, that all together they might with tears embrace your knees, <milestone resp="perseus" n="840" unit="line"/> bringing a thousand pleas to bear on you! O my lord and master, most glorious light of <placeName key="tgn,1000074">Hellas</placeName>, listen, stretch forth a helping hand to this aged woman, for all she is a thing of nothing; still do so. For it is always a good man's duty to help the right, <milestone resp="perseus" n="845" unit="line"/> and to punish evil-doers wherever found.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>It is strange how each extreme meets in human life! Custom determines even our natural ties, making the most bitter foes friends, and regarding as foes those who formerly were friends.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p><milestone resp="perseus" n="850" unit="line"/> Hecuba, I feel compassion for you and your son and your ill-fortune, as well as for your suppliant gesture, and I would gladly see that impious host pay you this forfeit for the sake of heaven and justice, if I could only find some way to help you <milestone resp="perseus" n="855" unit="line"/> without appearing to the army to have plotted the death of the Thracian king for Cassandra's sake. For on one point I am assailed by perplexity: the army count this man their friend, the dead their foe; that he is dear to you <milestone resp="perseus" n="860" unit="line"/> is a matter apart, in which the army has no share. Reflect on this; for though you find me ready to share your toil and quick to lend my aid, yet the risk of being reproached by the Achaeans makes me hesitate.</p></sp></div1>
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="756">Not that; give me vengeance on the wicked, and I am willing to lead a life of slavery forever.</l></sp>
 
-<div1 type="card" n="864">
-<sp>
-<speaker>Hecuba</speaker>
-<p>Ah! there is not in the world a single man free; <milestone resp="perseus" n="865" unit="line"/> for he is a slave either to money or to fortune, or else the people in their thousands or the fear of public prosecution prevents him from following the dictates of his heart. But since you are afraid, deferring too much to the rabble, I will rid you of that fear. <milestone resp="perseus" n="870" unit="line"/> Thus: be aware of my plot if I devise mischief against this murderer, but refrain from any share in it. And if any uproar or attempt at rescue breaks out among the Achaeans, when the Thracian is suffering his doom, check it without seeming to do so on my account. <milestone resp="perseus" n="875" unit="line"/> For what remains&mdash;take heart&mdash;I will arrange everything well.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>How? what will you do? will you take a sword in your old hand and slay the barbarian, or do you have drugs or some means to aid you?  Who will take your part? Where will you procure friends?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="880" unit="line"/>Sheltered beneath these tents is a crowd of Trojan women.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Do you mean the captives, the booty of the Hellenes?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>With their help I will punish my murderous foe.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>How are women to master men?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Numbers are a fearful thing, and joined to craft a desperate foe.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p><milestone resp="perseus" n="885" unit="line"/> True; still I have a mean opinion of the female race.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>What? did not women slay the sons of <placeName key="tgn,7016833">Aegyptus</placeName>, and utterly clear <placeName key="tgn,7011173">Lemnos</placeName> of men? But let it be thus; put an end to our conference, and send this woman for me safely through the army. <milestone resp="perseus" n="890" unit="line"/> <stage>To a servant</stage> And you are to draw near my Thracian friend and say, &ldquo;Hecuba, once queen of <placeName key="tgn,7002329">Ilium</placeName>, summons you, on your own business no less than hers, your children too, for they also must hear what she has to say.&rdquo; <stage>The servant goes out.</stage> Defer awhile, Agamemnon, <milestone resp="perseus" n="895" unit="line"/> the burial of Polyxena lately slain, so that brother and sister may be laid on the same pyre and buried side by side, a double cause of sorrow to their mother.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>So shall it be; yet if the army were able to sail, I could not have granted you this favor; <milestone resp="perseus" n="900" unit="line"/> but as it is, for the god sends forth no favoring breeze, the army must wait and look for a calm voyage. Good luck to you, for this is the interest alike of individual and state, that the wrong-doer be punished and the good man prosper. <stage>Agamemnon departs as Hecuba withdraws into the tent.</stage></p></sp></div1>
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="758">Well, but why do you call me to your aid?</l></sp>
 
-<div1 type="card" n="905">
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="759">It is a matter you little know of, king.</l>
+<l resp="perseus" n="760">Do you see this corpse, for whom my tears now flow?</l></sp>
 
-<milestone unit="choral"/>
-<milestone unit="strophe" n="1"/>
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="761">I do; but what is to follow, I cannot guess.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="762">He was once my child; I bore him in my womb.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="763">Which of your sons is he, poor sufferer?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="764">Not one of Priam’s race who fell beneath <placeName key="tgn,7002329">Ilium</placeName>’s walls.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="765">Did you indeed have another son besides those, lady?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="766">Yes, the one you see here, of whom it seems I have small gain.</l></sp>
+
+<milestone unit="card" resp="perseus" n="767"/> 
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="767">Where then was he, when his city was being destroyed?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="768">His father, fearful of his death, conveyed him out of <placeName key="perseus,Troy">Troy</placeName>.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="769">Where did he place him apart from the sons he then had?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="770">In this very land, where his corpse was found.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="771">With Polymestor, the king of this country?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="772">He was sent here in charge of gold, most bitter trust!</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="773">By whom was he slain? What death overtook him?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="774">By whom but this man? His Thracian host slew him.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="775">The wretch! could he have been so eager for the gold?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="776">Just so, when he heard of the Phrygians’ disaster.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="777">Where did you find him? or did some one bring his corpse?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="778">This woman, who happened upon it on the sea-shore.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="779">Was she seeking it, or bent on other tasks?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="780">She had gone to fetch water from the sea to wash Polyxena.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="781">It seems then his host slew him and cast his body out to sea.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="782">Yes, for the waves to toss, after mangling him in this way.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="783">Woe to you for your measureless troubles!</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="784">I am ruined; no evil now is left, Agamemnon.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="785">Ah! what woman was ever born to such mischance?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="786">There is no one, unless you would name Chance herself. But hear my reason for throwing myself at your knees. If my treatment seems to you deserved, I will be content; but, if otherwise, help me to punish </l>
+<l resp="perseus" n="790">this most godless host, fearless alike of gods in heaven or hell, who has done a most unholy deed; who, though often he had shared my board and been counted first of all my guest-friends </l>
+<l resp="perseus" n="795">meeting with every kindness he could claim—. And receiving my consideration, he slew my son, and bent though he was on murder, did not think it right to bury him, but cast his body forth to sea.</l>
+<l resp="perseus" rend="indent" n="798">I may be a slave and weak as well, but the gods are strong, and Custom too which prevails over them,</l>
+<l resp="perseus" n="800">for by custom it is that we believe in them and set up boundaries of right and wrong for our lives. Now if this principle, when referred to you, is to be set at nothing, and they are to escape punishment who murder guests or dare to plunder the temples of gods,</l>
+<l resp="perseus" n="805">then all fairness in human matters is at an end. Consider this then a disgrace and show regard for me, have pity on me, and, like an artist standing back from his picture, look on me and closely scan my piteous state. I was once a queen, but now I am your slave;</l>
+<l resp="perseus" n="810">a happy mother once, but now childless and old alike, bereft of city, utterly forlorn, the most wretched woman living.</l>
+<milestone unit="card" resp="perseus" n="812"/> 
+<l resp="perseus" n="812"><stage>as Agamemnon is turning away.</stage>Ah! woe is me! where would you withdraw your steps from me? My efforts then will be in vain, ah me! Why, oh! why do we mortals toil, as we must, and seek out all other sciences,</l>
+<l resp="perseus" n="815">but Persuasion, the only real mistress of mankind, we take no further pains to master completely by offering to pay for the knowledge, so that any man could convince his fellows as he pleased and gain his point at once?</l>
+<l resp="perseus" n="820">How shall anyone hereafter hope for prosperity? All those my sons are gone from me, and she, my daughter, is a slave and suffers shame. I am lost; I see the smoke leaping over my city. Further—though this is perhaps idly urged,</l>
+<l resp="perseus" n="825">to plead your love, still I will put the case—at your side lies my daughter, Cassandra, the inspired maiden, as the Phrygians call her. How then, king, will you acknowledge those nights of rapture, or what return shall my daughter or I her mother have </l>
+<l resp="perseus" n="830">for the love she has lavished on her lord? <del>For from darkness and the endearments of the night mortals have their keenest joys.</del>  Listen, then; do you see this corpse? By doing him a service, you will do it to a kinsman of your bride’s.</l>
+<l resp="perseus" n="835">I have only one thing yet to urge. Oh! would I had a voice in arms, in hands, in hair and feet, placed there by the arts of Daedalus or some god, that all together they might with tears embrace your knees,</l>
+<l resp="perseus" n="840">bringing a thousand pleas to bear on you! O my lord and master, most glorious light of <placeName key="tgn,1000074">Hellas</placeName>, listen, stretch forth a helping hand to this aged woman, for all she is a thing of nothing; still do so. For it is always a good man’s duty to help the right,</l>
+<l resp="perseus" n="845">and to punish evil-doers wherever found.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="846">It is strange how each extreme meets in human life! Custom determines even our natural ties, making the most bitter foes friends, and regarding as foes those who formerly were friends.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="850">Hecuba, I feel compassion for you and your son and your ill-fortune, as well as for your suppliant gesture, and I would gladly see that impious host pay you this forfeit for the sake of heaven and justice, if I could only find some way to help you </l>
+<l resp="perseus" n="855">without appearing to the army to have plotted the death of the Thracian king for Cassandra’s sake. For on one point I am assailed by perplexity: the army count this man their friend, the dead their foe; that he is dear to you </l>
+<l resp="perseus" n="860">is a matter apart, in which the army has no share. Reflect on this; for though you find me ready to share your toil and quick to lend my aid, yet the risk of being reproached by the Achaeans makes me hesitate.</l></sp>
+
+<milestone unit="card" resp="perseus" n="864"/> 
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="864">Ah! there is not in the world a single man free;</l>
+<l resp="perseus" n="865">for he is a slave either to money or to fortune, or else the people in their thousands or the fear of public prosecution prevents him from following the dictates of his heart.</l>
+<l resp="perseus" rend="indent" n="868">But since you are afraid, deferring too much to the rabble, I will rid you of that fear.</l>
+<l resp="perseus" n="870">Thus: be aware of my plot if I devise mischief against this murderer, but refrain from any share in it. And if any uproar or attempt at rescue breaks out among the Achaeans, when the Thracian is suffering his doom, check it without seeming to do so on my account.</l>
+<l resp="perseus" n="875">For what remains—take heart—I will arrange everything well.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="876">How? what will you do? will you take a sword in your old hand and slay the barbarian, or do you have drugs or some means to aid you?  Who will take your part? Where will you procure friends?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="880">Sheltered beneath these tents is a crowd of Trojan women.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="881">Do you mean the captives, the booty of the Hellenes?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="882">With their help I will punish my murderous foe.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="883">How are women to master men?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="884">Numbers are a fearful thing, and joined to craft a desperate foe.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="885">True; still I have a mean opinion of the female race.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="886">What? did not women slay the sons of <placeName key="tgn,7016833">Aegyptus</placeName>, and utterly clear <placeName key="tgn,7011173">Lemnos</placeName> of men? But let it be thus; put an end to our conference, and send this woman for me safely through the army.</l>
+<l resp="perseus" n="890"><stage>To a servant</stage> And you are to draw near my Thracian friend and say, <q>Hecuba, once queen of <placeName key="tgn,7002329">Ilium</placeName>, summons you, on your own business no less than hers, your children too, for they also must hear what she has to say.</q> <stage>The servant goes out.</stage> Defer awhile, Agamemnon,</l>
+<l resp="perseus" n="895">the burial of Polyxena lately slain, so that brother and sister may be laid on the same pyre and buried side by side, a double cause of sorrow to their mother.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="898">So shall it be; yet if the army were able to sail, I could not have granted you this favor;</l>
+<l resp="perseus" n="900">but as it is, for the god sends forth no favoring breeze, the army must wait and look for a calm voyage. Good luck to you, for this is the interest alike of individual and state, that the wrong-doer be punished and the good man prosper. <stage>Agamemnon departs as Hecuba withdraws into the tent.</stage></l></sp></div></div>
+
+<milestone unit="card" resp="perseus" n="905"/> 
+
+<div type="textpart" subtype="choral">
+<div type="textpart" subtype="strophe" n="1">
+    
 <sp><speaker>Chorus</speaker>
-<p><milestone resp="perseus" n="905" unit="line"/> No more, my native <placeName key="tgn,7002329">Ilium</placeName>, shall you be counted among the towns never sacked; so thick a cloud of Hellene troops is settling all around, wasting you with the spear; <milestone resp="perseus" n="910" unit="line"/> you are shorn of your crown of towers, and fouled most piteously with filthy soot; no more, ah me! shall I tread your streets.</p></sp></div1>
+<l resp="perseus" rend="indent" n="905">No more, my native <placeName key="tgn,7002329">Ilium</placeName>, shall you be counted among the towns never sacked; so thick a cloud of Hellene troops is settling all around, wasting you with the spear;</l>
+<l resp="perseus" n="910">you are shorn of your crown of towers, and fouled most piteously with filthy soot; no more, ah me! shall I tread your streets.</l></sp></div>
 
-<div1 type="card" n="914">
-<milestone unit="antistrophe" n="1"/>
+<milestone unit="card" resp="perseus" n="914"/> 
+<div type="textpart" subtype="antistrophe" n="1">
+    
 <sp><speaker>Chorus</speaker>
-<p>It was in the middle of the night my ruin came, <milestone resp="perseus" n="915" unit="line"/> in the hour when sleep steals sweetly over the eyes after the feast is done. After the music and dancing, my husband had brought the sacrifice to an end and was lying in our bridal-chamber, <milestone resp="perseus" n="920" unit="line"/> his spear hung on a peg; with never a thought of the sailor-throng encamped upon the Trojan shores.</p></sp></div1>
+<l resp="perseus" rend="indent" n="914">It was in the middle of the night my ruin came,</l>
+<l resp="perseus" n="915">in the hour when sleep steals sweetly over the eyes after the feast is done. After the music and dancing, my husband had brought the sacrifice to an end and was lying in our bridal-chamber,</l>
+<l resp="perseus" n="920">his spear hung on a peg; with never a thought of the sailor-throng encamped upon the Trojan shores.</l></sp></div>
 
-<div1 type="card" n="923">
-<milestone unit="strophe" n="2"/>
+<milestone unit="card" resp="perseus" n="923"/> 
+<div type="textpart" subtype="strophe" n="2">
+    
 <sp><speaker>Chorus</speaker>
-<p>And I was braiding my tresses beneath a tight-drawn head-band <milestone resp="perseus" n="925" unit="line"/> before my golden mirror's countless rays, so that I might lie down to rest; when through the city rose a din, and a cry went ringing down the streets of <placeName key="perseus,Troy">Troy</placeName>: &ldquo;You <milestone resp="perseus" n="930" unit="line"/> sons of <placeName key="tgn,1000074">Hellas</placeName>, when, oh! when will you sack the citadel of <placeName key="tgn,7002329">Ilium</placeName>, and seek your homes?&rdquo;</p></sp></div1>
+<l resp="perseus" rend="indent" n="923">And I was braiding my tresses beneath a tight-drawn head-band </l>
+<l resp="perseus" n="925">before my golden mirror’s countless rays, so that I might lie down to rest; when through the city rose a din, and a cry went ringing down the streets of <placeName key="perseus,Troy">Troy</placeName>: <q>You</q> </l>
+<l resp="perseus" n="930"><q rend="merge">sons of <placeName key="tgn,1000074">Hellas</placeName>, when, oh! when will you sack the citadel of <placeName key="tgn,7002329">Ilium</placeName>, and seek your homes?</q></l></sp></div>
 
-<div1 type="card" n="933">
-<milestone unit="antistrophe" n="2"/>
+<milestone unit="card" resp="perseus" n="933"/> 
+<div type="textpart" subtype="antistrophe" n="2">
 <sp><speaker>Chorus</speaker>
-<p>I left my bed, wearing only a tunic, like a Dorian girl, <milestone resp="perseus" n="935" unit="line"/> and sought in vain, ah me! to station myself at the holy hearth of Artemis; for, after seeing my husband slain, I was led away over the broad sea; with many a backward look at my city, <milestone resp="perseus" n="940" unit="line"/> when the ship began her homeward voyage and parted me from <placeName key="tgn,7002329">Ilium</placeName>'s strand; till alas! for very grief I fainted,</p></sp></div1>
+<l resp="perseus" rend="indent" n="933">I left my bed, wearing only a tunic, like a Dorian girl,</l>
+<l resp="perseus" n="935">and sought in vain, ah me! to station myself at the holy hearth of Artemis; for, after seeing my husband slain, I was led away over the broad sea; with many a backward look at my city,</l>
+<l resp="perseus" n="940">when the ship began her homeward voyage and parted me from <placeName key="tgn,7002329">Ilium</placeName>’s strand; till alas! for very grief I fainted,</l></sp></div>
 
-<div1 type="card" n="943">
-<milestone unit="epode"/>
+<milestone unit="card" resp="perseus" n="943"/> 
+<div type="textpart" subtype="epode">
 <sp><speaker>Chorus</speaker>
-<p>Cursing Helen the sister of the Dioscuri, and <placeName key="tgn,7008038">Paris</placeName> the baleful shepherd of Ida; <milestone resp="perseus" n="945" unit="line"/> for it was their marriage, which was no marriage but misery sent by some demon, that robbed me of my country and drove me from my home. <milestone resp="perseus" n="950" unit="line"/> Oh! may the sea's salt flood never carry her home again; and may she never set foot in her father's halls!</p></sp></div1>
+<l resp="perseus" rend="indent" n="943">Cursing Helen the sister of the Dioscuri, and <placeName key="tgn,7008038">Paris</placeName> the baleful shepherd of Ida;</l>
+<l resp="perseus" n="945">for it was their marriage, which was no marriage but misery sent by some demon, that robbed me of my country and drove me from my home.</l>
+<l resp="perseus" n="950">Oh! may the sea’s salt flood never carry her home again; and may she never set foot in her father’s halls!</l></sp></div></div>
 
-<div1 type="card" n="953">
+<milestone unit="card" resp="perseus" n="953"/> 
 
-<milestone unit="episode"/>
+<div type="textpart" subtype="episode">
 <stage>Hecuba comes out of the tent as Polymestor, his children and guards enter.</stage>
-<sp>
-<speaker>Polymestor</speaker>
-<p>My dear friend Priam, and you no less, Hecuba, I weep to see you and your city thus, and your daughter lately slain. <milestone resp="perseus" n="955" unit="line"/> Ah! there is nothing to be relied on; fair fame is insecure, nor is there any guarantee that prosperity will not be turned to woe. For the gods confound our fortunes, tossing them to and fro, and introduce confusion, so that our perplexity <milestone resp="perseus" n="960" unit="line"/> may make us worship them. But what use is it to lament these things, and make no advance ahead of trouble? If you are blaming me at all for my absence, stop a moment; I happened to be away in the very heart of <placeName key="tgn,7002756">Thrace</placeName> when you came here; but on my return, <milestone resp="perseus" n="965" unit="line"/> just as I was starting from my home for the same purpose, your maid fell in with me, and gave me your message, which brought me here at once.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Polymestor, I am held in such wretchedness that I blush to meet your eye; <milestone resp="perseus" n="970" unit="line"/> for my present evil case makes me ashamed to face you who saw me in happier days, and I could not look on you with unfaltering gaze. Do not then think it ill-will towards you, Polymestor; there is another cause as well, <milestone resp="perseus" n="975" unit="line"/> I mean the custom which forbids women to meet men's gaze.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>No wonder, surely. But what need do you have of me? Why did you send for me to come here from my house?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>I wish to tell you and your children a private matter of my own; please bid <milestone resp="perseus" n="980" unit="line"/> your attendants withdraw from the tent.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="953">My dear friend Priam, and you no less, Hecuba, I weep to see you and your city thus, and your daughter lately slain.</l>
+<l resp="perseus" n="955">Ah! there is nothing to be relied on; fair fame is insecure, nor is there any guarantee that prosperity will not be turned to woe. For the gods confound our fortunes, tossing them to and fro, and introduce confusion, so that our perplexity </l>
+<l resp="perseus" n="960">may make us worship them. But what use is it to lament these things, and make no advance ahead of trouble? If you are blaming me at all for my absence, stop a moment; I happened to be away in the very heart of <placeName key="tgn,7002756">Thrace</placeName> when you came here; but on my return,</l>
+<l resp="perseus" n="965">just as I was starting from my home for the same purpose, your maid fell in with me, and gave me your message, which brought me here at once.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="968">Polymestor, I am held in such wretchedness that I blush to meet your eye;</l>
+<l resp="perseus" n="970">for my present evil case makes me ashamed to face you who saw me in happier days, and I could not look on you with unfaltering gaze. Do not then think it ill-will towards you, Polymestor; there is another cause as well,</l>
+<l resp="perseus" n="975">I mean the custom which forbids women to meet men’s gaze.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="976">No wonder, surely. But what need do you have of me? Why did you send for me to come here from my house?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="978">I wish to tell you and your children a private matter of my own; please bid </l>
+<l resp="perseus" n="980">your attendants withdraw from the tent.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
 <stage>to his attendants</stage>
-<p>Retire; this desert spot is safe enough. <stage>The guards go out; to Hecuba</stage> You are my friend, and this Achaean army is well-disposed to me. But you must tell me how prosperity <milestone resp="perseus" n="985" unit="line"/> is to help its unlucky friends; for I am ready to do so.</p></sp></div1>
+<l resp="perseus" rend="indent" n="981">Retire; this desert spot is safe enough. <stage>The guards go out; to Hecuba</stage> You are my friend, and this Achaean army is well-disposed to me. But you must tell me how prosperity </l>
+<l resp="perseus" n="985">is to help its unlucky friends; for I am ready to do so.</l></sp>
 
-<div1 type="card" n="986">
-<sp>
-<speaker>Hecuba</speaker>
-<p>First tell me of the child Polydorus, whom you are keeping in your house, received from me and his father; is he alive? The rest I will ask you after that.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Yes, you still have a share in fortune there.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="990" unit="line"/> Well said, dear friend! how worthy of you!</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>What next would you learn of me?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>has he any recollection of me his mother?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Yes, he was longing to steal away here to you.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Is the gold safe, which he brought with him from <placeName key="perseus,Troy">Troy</placeName>?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p><milestone resp="perseus" n="995" unit="line"/> Safe under lock and key in my halls.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Do save it, but do not desire your neighbor's goods.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Not I; may I benefit by what I have, lady!</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Do you know what I wish to say to you and your children?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>No; your words will declare it.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="1000" unit="line"/> O you who are as dear to me as you now are, there are&mdash;</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>What is it that I and my children must learn?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Ancient vaults filled full of gold by Priam's ancestors.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Is it this you would tell your son?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Certainly, through you; for you are a righteous man.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p><milestone resp="perseus" n="1005" unit="line"/> What need then of these children's presence?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>It is better they should know it, in case of your death.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Well said; it is also the wiser way.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Then do you know where the shrine of Trojan Athena is?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Is the gold there? what is there to mark it?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="1010" unit="line"/> A black rock rising above the ground.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Is there anything else you want to tell me about the place?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>I wish to keep safe the treasure I brought from <placeName key="perseus,Troy">Troy</placeName>.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Where can it be? inside your dress, or have you hidden it?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>It is safe among a heap of spoils within these tents.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p><milestone resp="perseus" n="1015" unit="line"/> Where? This is the station built by the Achaeans to surround their fleet.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>The captive women have huts of their own.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>It is safe to enter? are there no men about?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>There are no Achaeans within; we women are alone. Enter then the tent, for the Argives <milestone resp="perseus" n="1020" unit="line"/> are eager to set sail from <placeName key="perseus,Troy">Troy</placeName> for home; and, when you have accomplished all that you must do, you shall return with your children to the place where you have lodged my son. <stage>Hecuba leads Polymestor and his children into the tent.</stage></p></sp>
-<sp>
-<speaker>Chorus</speaker>
-<p>Not yet have you paid the penalty, but perhaps you will.</p></sp></div1>
+<milestone unit="card" resp="perseus" n="986"/> 
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="986">First tell me of the child Polydorus, whom you are keeping in your house, received from me and his father; is he alive? The rest I will ask you after that.</l></sp>
 
-<div1 type="card" n="1025">
-<milestone unit="lyric"/>
-<sp>
-<speaker>Chorus</speaker>
-<p><milestone resp="perseus" n="1025" unit="line"/> Like one who slips and falls into the surge with no haven near, so shall you lose your own life for the life you have taken. For where liability to justice coincides with heaven's law; <milestone resp="perseus" n="1030" unit="line"/> there is ruin full of death and doom. Your hopes of this journey shall cheat you, for it has led you, unhappy wretch! to the halls of death; and to no warrior's hand shall you resign your life.</p></sp></div1>
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="989">Yes, you still have a share in fortune there.</l></sp>
 
-<div1 type="card" n="1035">
-<sp>
-<speaker>Polymestor</speaker>
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="990">Well said, dear friend! how worthy of you!</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="991">What next would you learn of me?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="992">has he any recollection of me his mother?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="993">Yes, he was longing to steal away here to you.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="994">Is the gold safe, which he brought with him from <placeName key="perseus,Troy">Troy</placeName>?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="995">Safe under lock and key in my halls.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="996">Do save it, but do not desire your neighbor’s goods.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="997">Not I; may I benefit by what I have, lady!</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="998">Do you know what I wish to say to you and your children?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="999">No; your words will declare it.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1000">O you who are as dear to me as you now are, there are—</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1001">What is it that I and my children must learn?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1002">Ancient vaults filled full of gold by Priam’s ancestors.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1003">Is it this you would tell your son?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1004">Certainly, through you; for you are a righteous man.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1005">What need then of these children’s presence?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1006">It is better they should know it, in case of your death.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1007">Well said; it is also the wiser way.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1008">Then do you know where the shrine of Trojan Athena is?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1009">Is the gold there? what is there to mark it?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1010">A black rock rising above the ground.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1011">Is there anything else you want to tell me about the place?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1012">I wish to keep safe the treasure I brought from <placeName key="perseus,Troy">Troy</placeName>.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1013">Where can it be? inside your dress, or have you hidden it?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1014">It is safe among a heap of spoils within these tents.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1015">Where? This is the station built by the Achaeans to surround their fleet.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1016">The captive women have huts of their own.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1017">It is safe to enter? are there no men about?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1018">There are no Achaeans within; we women are alone. Enter then the tent, for the Argives </l>
+<l resp="perseus" n="1020">are eager to set sail from <placeName key="perseus,Troy">Troy</placeName> for home; and, when you have accomplished all that you must do, you shall return with your children to the place where you have lodged my son. <stage>Hecuba leads Polymestor and his children into the tent.</stage></l></sp>
+
+<sp><speaker>Chorus</speaker>
+<l resp="perseus" rend="indent" n="1024">Not yet have you paid the penalty, but perhaps you will.</l></sp>
+
+<milestone unit="card" resp="perseus" n="1025"/> 
+<div type="textpart" subtype="lyric">
+    
+<sp><speaker>Chorus</speaker>
+<l resp="perseus" rend="indent" n="1025">Like one who slips and falls into the surge with no haven near, so shall you lose your own life for the life you have taken. For where liability to justice coincides with heaven’s law;</l>
+<l resp="perseus" n="1030">there is ruin full of death and doom. Your hopes of this journey shall cheat you, for it has led you, unhappy wretch! to the halls of death; and to no warrior’s hand shall you resign your life.</l></sp>
+
+<milestone unit="card" resp="perseus" n="1035"/> 
+<sp><speaker>Polymestor</speaker>
 <stage>within the tent</stage>
-<p><milestone resp="perseus" n="1035" unit="line"/> O horror! I am blinded of the light of my eyes, ah me!</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Did you hear, friends, that Thracian's cry of woe?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1035">O horror! I am blinded of the light of my eyes, ah me!</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="1036">Did you hear, friends, that Thracian’s cry of woe?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
 <stage>within</stage>
-<p>O horror! horror! my children! 0 the cruel blow.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Friends, there is strange mischief afoot in yo.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
+    <l resp="perseus" rend="indent" n="1037">O horror! horror! my children! 0 the cruel blow.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="1038">Friends, there is strange mischief afoot in yo.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
 <stage>within</stage>
-<p>No, you shall never escape for all your hurried flight; <milestone resp="perseus" n="1040" unit="line"/> for with a blow I will burst open the inmost recesses of this building.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Hark! how he launches a bolt with weighty hand! Shall we force an entry? The crisis calls on us to aid Hecuba and the Trojan women.</p></sp>
+    <l resp="perseus" rend="indent" n="1039">No, you shall never escape for all your hurried flight;</l>
+<l resp="perseus" n="1040">for with a blow I will burst open the inmost recesses of this building.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="1041">Hark! how he launches a bolt with weighty hand! Shall we force an entry? The crisis calls on us to aid Hecuba and the Trojan women.</l></sp>
+    
 <stage>Hecuba enters, calling back into the tent.</stage>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Strike on, spare not, burst the doors! <milestone resp="perseus" n="1045" unit="line"/> you shall never replace bright vision in your eyes or see your children, whom I have slain, alive again.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>What! have you foiled the Thracian stranger and is he in your power, mistress? Is all your threat now brought to pass?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>A moment, and you shall see him before the tent, <milestone resp="perseus" n="1050" unit="line"/> blind, advancing with blind random step; and the bodies of his two children whom I with my brave women of <placeName key="perseus,Troy">Troy</placeName> killed; he has paid me the penalty; here he comes from the tent, as you see. I will withdraw out of his path and stand aside <milestone resp="perseus" n="1055" unit="line"/> from the hot fury of the Thracian, my deadly foe.</p></sp></div1>
+    
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1044">Strike on, spare not, burst the doors!</l>
+<l resp="perseus" n="1045">you shall never replace bright vision in your eyes or see your children, whom I have slain, alive again.</l></sp>
 
-<div1 type="card" n="1056">
-<milestone unit="lyric"/>
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="1047">What! have you foiled the Thracian stranger and is he in your power, mistress? Is all your threat now brought to pass?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1049">A moment, and you shall see him before the tent,</l>
+<l resp="perseus" n="1050">blind, advancing with blind random step; and the bodies of his two children whom I with my brave women of <placeName key="perseus,Troy">Troy</placeName> killed; he has paid me the penalty; here he comes from the tent, as you see. I will withdraw out of his path and stand aside </l>
+<l resp="perseus" n="1055">from the hot fury of the Thracian, my deadly foe.</l></sp></div>
+
+<milestone unit="card" resp="perseus" n="1056"/> 
+<div type="textpart" subtype="lyric">
+    
 <stage>Polymestor rushes out. Blood is streaming from his eyes.</stage>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Woe is me! where can I go, where halt, or turn? shall I crawl like a wild four-footed beast on their track, as my reward? Which path shall I take first, <milestone resp="perseus" n="1060" unit="line"/> this or that, eager as I am to clutch those Trojan murderesses that have destroyed me? You wretched, cursed daughters <milestone resp="perseus" n="1065" unit="line"/> of <placeName key="tgn,7002613">Phrygia</placeName>! to what corner have you fled cowering before me? O sun-god, would you could heal, could heal my bleeding eyes, ridding me of my blindness!</p>
-<p>Ha! <milestone resp="perseus" n="1070" unit="line"/> hush! I catch the stealthy footsteps of the women here. Where can I dart on them and gorge on their flesh and bones, making for myself a wild beasts' meal, inflicting mutilation <milestone resp="perseus" n="1075" unit="line"/> in requital of their outrage on me? Ah, woe is me! where am I rushing, leaving my children unguarded for maenads of hell to mangle, to be murdered and ruthlessly cast forth upon the hills, a feast of blood for dogs? <milestone resp="perseus" n="1080" unit="line"/> Where shall I stay or turn my steps, like a ship that lies anchored at sea, gathering close my linen robe and rushing to that chamber of death, to guard my children?</p></sp></div1>
+    
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1056">Woe is me! where can I go, where halt, or turn? shall I crawl like a wild four-footed beast on their track, as my reward? Which path shall I take first,</l>
+<l resp="perseus" n="1060">this or that, eager as I am to clutch those Trojan murderesses that have destroyed me? You wretched, cursed daughters </l>
+<l resp="perseus" n="1065">of <placeName key="tgn,7002613">Phrygia</placeName>! to what corner have you fled cowering before me? O sun-god, would you could heal, could heal my bleeding eyes, ridding me of my blindness!</l>
+<l resp="perseus" n="1070">Ha! hush! I catch the stealthy footsteps of the women here. Where can I dart on them and gorge on their flesh and bones, making for myself a wild beasts’ meal, inflicting mutilation </l>
+<l resp="perseus" n="1075">in requital of their outrage on me? Ah, woe is me! where am I rushing, leaving my children unguarded for maenads of hell to mangle, to be murdered and ruthlessly cast forth upon the hills, a feast of blood for dogs?</l>
+<l resp="perseus" n="1080">Where shall I stay or turn my steps, like a ship that lies anchored at sea, gathering close my linen robe and rushing to that chamber of death, to guard my children?</l></sp>
 
-<div1 type="card" n="1085">
-<sp>
-<speaker>Chorus Leader</speaker>
-<p><milestone resp="perseus" n="1085" unit="line"/> Woe to you! what grievous outrage has been done to you! a fearful penalty for your foul deed. &lsqb;has the deity imposed, whoever he is whose hand is heavy upon you.&rsqb;</p></sp></div1>
+<milestone unit="card" resp="perseus" n="1085"/> 
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="1085">Woe to you! what grievous outrage has been done to you! a fearful penalty for your foul deed <del>has the deity imposed, whoever he is whose hand is heavy upon you.</del></l></sp></div>
 
-<div1 type="card" n="1089">
-<milestone unit="lyric"/>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Woe is me! Ho! my Thracian spearmen, armed, <milestone resp="perseus" n="1090" unit="line"/> a race of knights whom Ares inspires! Ho! Achaeans! sons of Atreus! To you I loudly call; come here, by the gods! Does any one hearken, or will no one help me? Why do you delay? Women, captive women have destroyed me. <milestone resp="perseus" n="1095" unit="line"/> A fearful fate is mine; ah me! my hideous outrage! Where can I turn or go? <milestone resp="perseus" n="1100" unit="line"/> Shall I take wings and soar aloft to the mansions of the sky, where Orion and Sirius dart from their eyes <milestone resp="perseus" n="1105" unit="line"/> a flash as of fire, or shall I, in my misery, plunge to Hades' murky flood?</p></sp></div1>
+<milestone unit="card" resp="perseus" n="1089"/> 
+<div type="textpart" subtype="lyric">
+    
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1089">Woe is me! Ho! my Thracian spearmen, armed,</l>
+<l resp="perseus" n="1090">a race of knights whom Ares inspires! Ho! Achaeans! sons of Atreus! To you I loudly call; come here, by the gods! Does any one hearken, or will no one help me? Why do you delay? Women, captive women have destroyed me.</l>
+<l resp="perseus" n="1095">A fearful fate is mine; ah me! my hideous outrage! Where can I turn or go?</l>
+<l resp="perseus" n="1100">Shall I take wings and soar aloft to the mansions of the sky, where Orion and Sirius dart from their eyes </l>
+<l resp="perseus" n="1105">a flash as of fire, or shall I, in my misery, plunge to Hades’ murky flood?</l></sp>
 
-<div1 type="card" n="1107">
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>It is pardonable, for a man suffering from evils too heavy to bear, to rid himself of a wretched existence.</p></sp>
+<milestone unit="card" resp="perseus" n="1107"/> 
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="1107">It is pardonable, for a man suffering from evils too heavy to bear, to rid himself of a wretched existence.</l></sp>
+
 <stage>Agamemnon and his retinue enter.</stage>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Hearing a cry I have come here; for Echo, <milestone resp="perseus" n="1110" unit="line"/> child of the mountain-rock, has sent her voice loud-ringing through the army, causing a tumult. If we had not known that <placeName key="perseus,Troy">Troy</placeName>'s towers were levelled by the might of <placeName key="tgn,1000074">Hellas</placeName>, this uproar would have caused no slight panic.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Best of friends! for by your voice I know you, <milestone resp="perseus" n="1115" unit="line"/> Agamemnon; do you see my piteous state?</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>What! hapless Polymestor, who has stricken you? who has blinded your eyes, staining the pupils with blood? who has slain these children? whoever he was, fierce must have been his wrath against you and your children.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p><milestone resp="perseus" n="1120" unit="line"/> Hecuba, helped by the captive women, has destroyed me&mdash;not destroyed, far worse than that.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
+    
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="1109">Hearing a cry I have come here; for Echo,</l>
+<l resp="perseus" n="1110">child of the mountain-rock, has sent her voice loud-ringing through the army, causing a tumult. If we had not known that <placeName key="perseus,Troy">Troy</placeName>’s towers were levelled by the might of <placeName key="tgn,1000074">Hellas</placeName>, this uproar would have caused no slight panic.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1114">Best of friends! for by your voice I know you,</l>
+<l resp="perseus" n="1115">Agamemnon; do you see my piteous state?</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="1116">What! hapless Polymestor, who has stricken you? who has blinded your eyes, staining the pupils with blood? who has slain these children? whoever he was, fierce must have been his wrath against you and your children.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1120">Hecuba, helped by the captive women, has destroyed me—not destroyed, far worse than that.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
 <stage>addressing Hecuba</stage>
-<p>What do you say? Was it you that did this deed, as he says? You, Hecuba, that have ventured on this inconceivable daring?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Ha! what is that? is she somewhere near? <milestone resp="perseus" n="1125" unit="line"/> Show me, tell me where, that I may grip her in my hands and rend her limb from limb, bespattering her with gore.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>You creature, what are you about?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>By the gods I entreat you, let me vent on her the fury of my arm.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Hold! banish that savage spirit from your heart <milestone resp="perseus" n="1130" unit="line"/> and plead your cause, so that after hearing you and her in turn I may fairly decide what reason there is for your present sufferings.</p></sp>
-<sp n="Polymestor">
-<speaker>Polymestor</speaker>
-<p>I will tell my tale. There was a son of Priam, Polydorus, the youngest, a child by Hecuba, whom his father Priam sent to me from <placeName key="perseus,Troy">Troy</placeName> to bring up in my halls, <milestone resp="perseus" n="1135" unit="line"/> suspecting no doubt the fall of <placeName key="perseus,Troy">Troy</placeName>. I killed him; but hear my reason for killing him, how cleverly and wisely I had thought it out. My fear was that if that child were left to be your enemy, he would repeople <placeName key="perseus,Troy">Troy</placeName> and settle it afresh; <milestone resp="perseus" n="1140" unit="line"/> and the Achaeans, knowing that a son of Priam survived, might bring another expedition against the Phrygian land, and then harry and lay waste these plains of <placeName key="tgn,7002756">Thrace</placeName>, for the neighbours of <placeName key="perseus,Troy">Troy</placeName> to experience the very troubles we were lately suffering, O king.</p>
-</sp></div1>
+<l resp="perseus" rend="indent" n="1122">What do you say? Was it you that did this deed, as he says? You, Hecuba, that have ventured on this inconceivable daring?</l></sp>
 
-<div1 type="card" n="1145">
-<sp><p><milestone resp="perseus" n="1145" unit="line"/> Now Hecuba, having discovered the death of her son, brought me here on the following pretext, saying she would tell me of hidden treasure stored up in <placeName key="tgn,7002329">Ilium</placeName> by the race of Priam; and she led me apart with my children into the tent, that no other might hear her news. <milestone resp="perseus" n="1150" unit="line"/> So I sat down on a couch in their midst to rest; for there were many of the Trojan maidens seated there, some on my right hand, some on my left, as if beside a friend; and they were praising the weaving of our Edonian handiwork, looking at this robe as they held it up to the light; <milestone resp="perseus" n="1155" unit="line"/> while others examined my Thracian spear and so stripped me of two-fold protection. And those that were young mothers were dandling my children in their arms, with loud admiration, as they passed them on from hand to hand to remove them far from their father; <milestone resp="perseus" n="1160" unit="line"/> and then after their smooth speeches&mdash;would you believe it?&mdash;in an instant snatching daggers from somewhere in their dress they stab my children; while others, like foes, seized me hand and foot; <milestone resp="perseus" n="1165" unit="line"/> and if I tried to raise my head, anxious to help my children, they would clutch me by the hair; while if I stirred my hands, I could do nothing, poor wretch! for the numbers of the women. At last they did a fearful deed, worse than what had gone before; for they took their brooches <milestone resp="perseus" n="1170" unit="line"/> and stabbed the hapless pupils of my eyes, making them gush with blood, and then fled through the chambers; up I sprang like a wild beast in pursuit of the shameless murderesses, searching along each wall with hunter's care, <milestone resp="perseus" n="1175" unit="line"/> dealing buffets, spreading ruin. This then is what I have suffered because of my zeal for you, Agamemnon, for slaying an enemy of yours. But to spare you a lengthy speech, if any of the men of former times have spoken ill of women, if any does so now, or shall do so hereafter, <milestone resp="perseus" n="1180" unit="line"/> I will say all this in one short sentence; for neither land or sea produces such a race, as whoever has had to do with them knows.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Curb your bold tongue, and do not, because of your own woes, thus embrace the whole race of women in one reproach. <milestone resp="perseus" n="1185" unit="line"/> &lsqb;For though some of us, and those a numerous class, deserve to be disliked, there are others among us who rank naturally among the good.&rsqb;</p></sp></div1>
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1124">Ha! what is that? is she somewhere near?</l>
+<l resp="perseus" n="1125">Show me, tell me where, that I may grip her in my hands and rend her limb from limb, bespattering her with gore.</l></sp>
 
-<div1 type="card" n="1187">
-<sp n="Hecuba">
-<speaker>Hecuba</speaker>
-<p>Never ought words to have outweighed deeds in this world, Agamemnon. No! if a man's deeds were good, so should his words have been; <milestone resp="perseus" n="1190" unit="line"/> if, on the other hand, evil, his words should have been unsound, instead of its being possible at times to speak injustice well. There are, it is true, clever persons, who have made a science of this, but their cleverness cannot last for ever; a miserable end awaits them; no one ever yet escaped.</p>
-<p><milestone resp="perseus" n="1195" unit="line"/> This part of my prelude belongs to you. Now will I turn to this fellow, and will give you your answer, you who say it was to save <placeName key="tgn,7002733">Achaea</placeName> double toil and for Agamemnon's sake that you killed my son. No, villain, in the first place <milestone resp="perseus" n="1200" unit="line"/> the barbarian race would never be friends with <placeName key="tgn,1000074">Hellas</placeName>, nor could it be. Again, what interest did you have to further by your zeal? was it to form some marriage, or on the score of kinship, or what reason? or was it likely that they would sail here again and destroy <milestone resp="perseus" n="1205" unit="line"/> your country's crops? Whom do you expect to persuade into believing that? If you would only speak the truth, it was the gold that slew my son, and your greedy spirit. Now tell me this: why, when <placeName key="perseus,Troy">Troy</placeName> was victorious, when her ramparts still stood round her, <milestone resp="perseus" n="1210" unit="line"/> when Priam was alive, and Hector's warring prospered, why did you not then, if you were really minded to do Agamemnon a service, slay the child, for you had him in your palace beneath your care, or bring him with you alive to the Argives? But when the enemy took us from the light <milestone resp="perseus" n="1215" unit="line"/> and our city made a signal by its smoke, you murdered the guest who had come to your hearth.</p>
-</sp></div1>
+<sp><speaker>Agamemnon</speaker>
+ <l resp="perseus" rend="indent" n="1127" part="I">You creature, what are you about?</l></sp>
 
-<div1 type="card" n="1217">
-<sp><p>Furthermore, to prove your villainy, hear this; if you were really a friend to those Achaeans, you should have brought the gold, which you say you are keeping not for yourself but for this man, <milestone resp="perseus" n="1220" unit="line"/> and given it to them, for they were in need and had endured a long exile from their native land. But not even now can you bring yourself to part with it, but persist in keeping it in your palace. Again, had you kept my son safe and sound, as your duty was, <milestone resp="perseus" n="1225" unit="line"/> a fair renown would have been your reward, for it is in trouble's hour that the good most clearly show their friendship; though prosperity by itself in every case finds friends. If you were in need of money and he were prosperous, that son of mine would have been as a mighty treasure for you to draw upon; <milestone resp="perseus" n="1230" unit="line"/> but now you have him no longer to be your friend, and the benefit of the gold is gone from you, your children too, and you yourself are in this sorry plight. I say to you, Agamemnon, if you help this man, you will show your worthlessness; for you will be serving a guest-friend neither pious nor to be trusted where he should be, <milestone resp="perseus" n="1235" unit="line"/> not devout, not just; while I shall say you delight in evil-doers, being such a one yourself; but I do not abuse my masters.</p></sp>
-<sp>
-<speaker>Chorus Leader</speaker>
-<p>Ah! how a good cause always affords men an opening for a good speech.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p><milestone resp="perseus" n="1240" unit="line"/> To be judge in a stranger's troubles goes much against my grain, but still I must; yes, for to take this matter in hand and then put it from me is a shameful course. My opinion, that you may know it, is that it was not for the sake of the Achaeans or me that you killed your guest, <milestone resp="perseus" n="1245" unit="line"/> but to keep that gold in your own house. In your trouble you make a case in your own interests. Perhaps among you it is a light thing to murder guests, but with us in <placeName key="tgn,1000074">Hellas</placeName> it is a disgrace. How can I escape reproach if I judge you not guilty? <milestone resp="perseus" n="1250" unit="line"/> I could not. No, since you endured your horrid crime, endure as well its painful consequence.</p></sp></div1>
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1127b" part="F">By the gods I entreat you, let me vent on her the fury of my arm.</l></sp>
 
-<div1 type="card" n="1252">
-<sp>
-<speaker>Polymestor</speaker>
-<p>Woe is me! worsted by a woman and a slave, I am, it seems, to suffer by unworthy hands.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Is it not just for your atrocious crime?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p><milestone resp="perseus" n="1255" unit="line"/> Ah, my children! ah, my blinded eyes! woe is me!</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>You grieve; but what of me? Do you think I do not grieve for my son?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>You wicked wretch! Is your delight in mocking me?</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Yes, for I am avenged on you; have I not cause for delight?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>It will soon cease, when ocean's flood&mdash;</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="1260" unit="line"/> Shall convey me to the shores of <placeName key="tgn,1000074">Hellas</placeName>?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>No, but will close over you when you fall from the masthead.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Who will force me to take the leap?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Of your own accord you will climb the ship's mast.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>With wings upon my back, or by what means?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p><milestone resp="perseus" n="1265" unit="line"/> You will become a dog with bloodshot gaze.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>How did you know of my transformation?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Dionysus, our Thracian prophet, told me so.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>And did he prophesy to you nothing of your present trouble?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>No, for you would never have caught me thus by guile.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p><milestone resp="perseus" n="1270" unit="line"/> Dead or alive shall I complete my life here?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Dead; and to your tomb shall be given a name&mdash;</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Recalling my form, or what will you tell me?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>&ldquo;The hapless hound's grave,&rdquo; a mark for mariners.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>It is nothing to me, now that you have paid me the penalty.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p><milestone resp="perseus" n="1275" unit="line"/> Further, your daughter Cassandra must die.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>I scorn the prophecy! I give it to you to keep for yourself.</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>The wife of Agamemnon, grim keeper of his palace, shall slay her.</p></sp>
-<sp>
-<speaker>Hecuba</speaker>
-<p>Never may the daughter of Tyndareus do such a frantic deed!</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>And she shall slay this man as well, lifting high the axe.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p><milestone resp="perseus" n="1280" unit="line"/> You creature, are you mad? are you so eager to find sorrow?</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Kill me, for in <placeName key="perseus,Argos">Argos</placeName> there awaits you a murderous bath.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Ho! servants, drag away him from my sight!</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Do my words pain you?</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Stop his mouth!</p></sp>
-<sp>
-<speaker>Polymestor</speaker>
-<p>Close it now; for I have spoken.</p></sp>
-<sp>
-<speaker>Agamemnon</speaker>
-<p>Make haste <milestone resp="perseus" n="1285" unit="line"/> and cast him upon some desert island, since his mouth is full of such exceeding presumption. Go, unhappy Hecuba, and bury your two corpses; and you, Trojan women, must draw near your masters' tents, for lo! I perceive a breeze <milestone resp="perseus" n="1290" unit="line"/> just rising to waft us home. May we reach our country well and find all well at home, released from troubles here!<stage>Polymestor is dragged away by Agamemnon's guards.</stage></p></sp></div1>
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="1129">Hold! banish that savage spirit from your heart </l>
+<l resp="perseus" n="1130">and plead your cause, so that after hearing you and her in turn I may fairly decide what reason there is for your present sufferings.</l></sp>
 
-<div1 type="card" n="1293--1">
-<sp>
-<speaker>Chorus</speaker>
-<p>Away to the harbour and the tents, my friends, to prove the toils of <milestone resp="perseus" n="1295" unit="line"/> slavery! for such is fate's relentless hest.</p></sp>
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1132">I will tell my tale. There was a son of Priam, Polydorus, the youngest, a child by Hecuba, whom his father Priam sent to me from <placeName key="perseus,Troy">Troy</placeName> to bring up in my halls,</l>
+<l resp="perseus" n="1135">suspecting no doubt the fall of <placeName key="perseus,Troy">Troy</placeName>. I killed him; but hear my reason for killing him, how cleverly and wisely I had thought it out. My fear was that if that child were left to be your enemy, he would repeople <placeName key="perseus,Troy">Troy</placeName> and settle it afresh;</l>
+<l resp="perseus" n="1140">and the Achaeans, knowing that a son of Priam survived, might bring another expedition against the Phrygian land, and then harry and lay waste these plains of <placeName key="tgn,7002756">Thrace</placeName>, for the neighbours of <placeName key="perseus,Troy">Troy</placeName> to experience the very troubles we were lately suffering, O king.</l>
+<milestone unit="card" resp="perseus" n="1145"/> 
+<l resp="perseus" n="1145">Now Hecuba, having discovered the death of her son, brought me here on the following pretext, saying she would tell me of hidden treasure stored up in <placeName key="tgn,7002329">Ilium</placeName> by the race of Priam; and she led me apart with my children into the tent, that no other might hear her news.</l>
+<l resp="perseus" n="1150">So I sat down on a couch in their midst to rest; for there were many of the Trojan maidens seated there, some on my right hand, some on my left, as if beside a friend; and they were praising the weaving of our Edonian handiwork, looking at this robe as they held it up to the light;</l>
+<l resp="perseus" n="1155">while others examined my Thracian spear and so stripped me of two-fold protection. And those that were young mothers were dandling my children in their arms, with loud admiration, as they passed them on from hand to hand to remove them far from their father;</l>
+<l resp="perseus" n="1160">and then after their smooth speeches—would you believe it?—in an instant snatching daggers from somewhere in their dress they stab my children; while others, like foes, seized me hand and foot;</l>
+<l resp="perseus" n="1165">and if I tried to raise my head, anxious to help my children, they would clutch me by the hair; while if I stirred my hands, I could do nothing, poor wretch! for the numbers of the women. At last they did a fearful deed, worse than what had gone before; for they took their brooches </l>
+<l resp="perseus" n="1170">and stabbed the hapless pupils of my eyes, making them gush with blood, and then fled through the chambers; up I sprang like a wild beast in pursuit of the shameless murderesses, searching along each wall with hunter’s care,</l>
+<l resp="perseus" n="1175">dealing buffets, spreading ruin. This then is what I have suffered because of my zeal for you, Agamemnon, for slaying an enemy of yours. But to spare you a lengthy speech, if any of the men of former times have spoken ill of women, if any does so now, or shall do so hereafter,</l>
+<l resp="perseus" n="1180">I will say all this in one short sentence; for neither land or sea produces such a race, as whoever has had to do with them knows.</l></sp>
 
-</div1></body></text>
-</TEI.2>
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="1183">Curb your bold tongue, and do not, because of your own woes, thus embrace the whole race of women in one reproach.</l>
+<l resp="perseus" n="1185"><del>For though some of us, and those a numerous class, deserve to be disliked, there are others among us who rank naturally among the good.</del></l></sp>
+
+<milestone unit="card" resp="perseus" n="1187"/> 
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1187">Never ought words to have outweighed deeds in this world, Agamemnon. No! if a man’s deeds were good, so should his words have been;</l>
+<l resp="perseus" n="1190">if, on the other hand, evil, his words should have been unsound, instead of its being possible at times to speak injustice well. There are, it is true, clever persons, who have made a science of this, but their cleverness cannot last for ever; a miserable end awaits them; no one ever yet escaped.</l>
+<l resp="perseus" n="1195">This part of my prelude belongs to you. Now will I turn to this fellow, and will give you your answer, you who say it was to save <placeName key="tgn,7002733">Achaea</placeName> double toil and for Agamemnon’s sake that you killed my son. No, villain, in the first place </l>
+<l resp="perseus" n="1200">the barbarian race would never be friends with <placeName key="tgn,1000074">Hellas</placeName>, nor could it be. Again, what interest did you have to further by your zeal? was it to form some marriage, or on the score of kinship, or what reason? or was it likely that they would sail here again and destroy </l>
+<l resp="perseus" n="1205">your country’s crops? Whom do you expect to persuade into believing that? If you would only speak the truth, it was the gold that slew my son, and your greedy spirit. Now tell me this: why, when <placeName key="perseus,Troy">Troy</placeName> was victorious, when her ramparts still stood round her,</l>
+<l resp="perseus" n="1210">when Priam was alive, and Hector’s warring prospered, why did you not then, if you were really minded to do Agamemnon a service, slay the child, for you had him in your palace beneath your care, or bring him with you alive to the Argives? But when the enemy took us from the light </l>
+<l resp="perseus" n="1215">and our city made a signal by its smoke, you murdered the guest who had come to your hearth.</l>
+<milestone unit="card" resp="perseus" n="1217"/> 
+<l resp="perseus" n="1217">Furthermore, to prove your villainy, hear this; if you were really a friend to those Achaeans, you should have brought the gold, which you say you are keeping not for yourself but for this man,</l>
+<l resp="perseus" n="1220">and given it to them, for they were in need and had endured a long exile from their native land. But not even now can you bring yourself to part with it, but persist in keeping it in your palace. Again, had you kept my son safe and sound, as your duty was,</l>
+<l resp="perseus" n="1225">a fair renown would have been your reward, for it is in trouble’s hour that the good most clearly show their friendship; though prosperity by itself in every case finds friends. If you were in need of money and he were prosperous, that son of mine would have been as a mighty treasure for you to draw upon;</l>
+<l resp="perseus" n="1230">but now you have him no longer to be your friend, and the benefit of the gold is gone from you, your children too, and you yourself are in this sorry plight. <lb rend="indent"/>I say to you, Agamemnon, if you help this man, you will show your worthlessness; for you will be serving a guest-friend neither pious nor to be trusted where he should be,</l>
+<l resp="perseus" n="1235">not devout, not just; while I shall say you delight in evil-doers, being such a one yourself; but I do not abuse my masters.</l></sp>
+
+<sp><speaker>Chorus Leader</speaker>
+<l resp="perseus" rend="indent" n="1238">Ah! how a good cause always affords men an opening for a good speech.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="1240">To be judge in a stranger’s troubles goes much against my grain, but still I must; yes, for to take this matter in hand and then put it from me is a shameful course. My opinion, that you may know it, is that it was not for the sake of the Achaeans or me that you killed your guest,</l>
+<l resp="perseus" n="1245">but to keep that gold in your own house. In your trouble you make a case in your own interests. Perhaps among you it is a light thing to murder guests, but with us in <placeName key="tgn,1000074">Hellas</placeName> it is a disgrace. How can I escape reproach if I judge you not guilty?</l>
+<l resp="perseus" n="1250">I could not. No, since you endured your horrid crime, endure as well its painful consequence.</l></sp>
+
+<milestone unit="card" resp="perseus" n="1252"/> 
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1252">Woe is me! worsted by a woman and a slave, I am, it seems, to suffer by unworthy hands.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1254">Is it not just for your atrocious crime?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1255">Ah, my children! ah, my blinded eyes! woe is me!</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1256">You grieve; but what of me? Do you think I do not grieve for my son?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1257">You wicked wretch! Is your delight in mocking me?</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1258">Yes, for I am avenged on you; have I not cause for delight?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1259">It will soon cease, when ocean’s flood—</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1260">Shall convey me to the shores of <placeName key="tgn,1000074">Hellas</placeName>?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1261">No, but will close over you when you fall from the masthead.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1262">Who will force me to take the leap?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1263">Of your own accord you will climb the ship’s mast.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1264">With wings upon my back, or by what means?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1265">You will become a dog with bloodshot gaze.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1266">How did you know of my transformation?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1267">Dionysus, our Thracian prophet, told me so.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1268">And did he prophesy to you nothing of your present trouble?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1269">No, for you would never have caught me thus by guile.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1270">Dead or alive shall I complete my life here?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1271">Dead; and to your tomb shall be given a name—;</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1272">Recalling my form, or what will you tell me?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1273"><q>The hapless hound’s grave,</q> a mark for mariners.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1274">It is nothing to me, now that you have paid me the penalty.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1275">Further, your daughter Cassandra must die.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1276">I scorn the prophecy! I give it to you to keep for yourself.</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1277">The wife of Agamemnon, grim keeper of his palace, shall slay her.</l></sp>
+
+<sp><speaker>Hecuba</speaker>
+<l resp="perseus" rend="indent" n="1278">Never may the daughter of Tyndareus do such a frantic deed!</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1279">And she shall slay this man as well, lifting high the axe.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="1280">You creature, are you mad? are you so eager to find sorrow?</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+<l resp="perseus" rend="indent" n="1281">Kill me, for in <placeName key="perseus,Argos">Argos</placeName> there awaits you a murderous bath.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="1282">Ho! servants, drag away him from my sight!</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+    <l resp="perseus" rend="indent" n="1283" part="I">Do my words pain you?</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+    <l resp="perseus" rend="indent" n="1283b" part="F">Stop his mouth!</l></sp>
+
+<sp><speaker>Polymestor</speaker>
+    <l resp="perseus" rend="indent" n="1284" part="I">Close it now; for I have spoken.</l></sp>
+
+<sp><speaker>Agamemnon</speaker>
+<l resp="perseus" rend="indent" n="1284b" part="F">Make haste </l>
+<l resp="perseus" n="1285">and cast him upon some desert island, since his mouth is full of such exceeding presumption. Go, unhappy Hecuba, and bury your two corpses; and you, Trojan women, must draw near your masters’ tents, for lo! I perceive a breeze </l>
+<l resp="perseus" n="1290">just rising to waft us home. May we reach our country well and find all well at home, released from troubles here!<stage>Polymestor is dragged away by Agamemnon’s guards.</stage></l></sp></div>
+
+<milestone resp="perseus" n="1293" unit="card"/>
+<div type="textpart" subtype="anapests">
+<sp><speaker>Chorus</speaker>
+<l resp="perseus" rend="indent" n="1293">Away to the harbour and the tents, my friends, to prove the toils of </l>
+<l resp="perseus" n="1295">slavery! for such is fate’s relentless hest.</l></sp></div>
+
+</div></div></body></text>
+</TEI>
