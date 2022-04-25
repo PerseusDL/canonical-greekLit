@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="eng">
         <fileDesc>
             <titleStmt>
-                <title>Odes (Greek). Machine readable text - I.</title>
+                <title xml:lang="grc">Ἰσθμιονῖκαι</title>
                 <author>Pindar</author>
                 <sponsor>Perseus Project, Tufts University</sponsor>
                 <principal>Gregory Crane</principal>
@@ -19,99 +21,68 @@
                 <publisher>Trustees of Tufts University</publisher>
                 <pubPlace>Medford, MA</pubPlace>
                 <authority>Perseus Project</authority>
+                <date type="release">1992</date>
             </publicationStmt>
 
             <notesStmt>
-                <note anchored="true" place="unspecified"> Text scanned at U. Chicago in 1987. Basic
-                    tagging done by EM and Scott Ettinger. </note>
+               <note anchored="true" place="unspecified">Text scanned at U. Chicago in 1987. Basic tagging done by EM and Scott Ettinger. </note>
+                <note>Perseus 1.0</note>
             </notesStmt>
-            <sourceDesc default="false">
-                <biblStruct default="false">
+            
+            <sourceDesc>
+                <biblStruct>
                     <monogr>
                         <author>Pindar</author>
-                        <title> The Odes of Pindar including the Principal Fragments with an
-                            Introduction and an English Translation by Sir John Sandys, Litt.D.,
-                            FBA. </title>
+                        <title>The Odes of Pindar</title>
+                        <editor>Sir John Sandys</editor>
                         <imprint>
-                            <publisher>Cambridge, MA., Harvard University Press; London, William
-                                Heinemann Ltd.</publisher>
-                            <date>1937</date>
+                            <publisher>Harvard University Press; William Heinemann Ltd.</publisher>   
+                            <pubPlace>Cambridge, MA; London</pubPlace>
+                            <date type="reprint">1937</date>
                         </imprint>
                     </monogr>
+                    <ref target="https://archive.org/details/odesofpindarincl0000pind/page/n55/mode/2up" type="login_restricted">Internet Archive</ref>
+                    <ref target="https://archive.org/details/in.ernet.dli.2015.183513/page/n45/mode/2up" type="free">Internet Archive</ref>
                 </biblStruct>
             </sourceDesc>
+            
         </fileDesc>
         <encodingDesc>
             <refsDecl n="CTS">
                 <cRefPattern n="line" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:l[@n='$2'])">
-                    <p>This pointer pattern extracts poem and line</p>
+                    <p>This pointer pattern extracts poem and line.</p>
                 </cRefPattern>
                 <cRefPattern n="poem" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-                    <p>This pointer pattern extracts poem</p>
+                    <p>This pointer pattern extracts poem.</p>
                 </cRefPattern>
                 
             </refsDecl>
         </encodingDesc>
+        
         <profileDesc>
-            <langUsage default="false">
+            <langUsage>
                 <language ident="grc">Greek</language>
                 <language ident="eng">English</language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
-            <!--
-            <change>
-                <date>1990</date>
-                <respStmt>
-                    <name>EM and SFSH</name>
-                    <resp>(n/a)</resp>
-                </respStmt>
-                <item>Make sure that the file matches new DTDs.</item>
-            </change>
-            <change>
-                <date>8/91</date>
-                <respStmt>
-                    <name>EM</name>
-                    <resp>(n/a)</resp>
-                </respStmt>
-                <item>Revise DTDs and recheck texts.</item>
-            </change>
-            <change>
-                <date>9/91</date>
-                <respStmt>
-                    <name>WPM</name>
-                    <resp>(n/a)</resp>
-                </respStmt>
-                <item>Entered Hubbard's revisions.</item>
-            </change>
-            <change>
-                <date>11/91</date>
-                <respStmt>
-                    <name>WPM</name>
-                    <resp>(n/a)</resp>
-                </respStmt>
-                <item>
-                    Entered Svarlien's responses to Hubbard.Changes made to Sandys' Greek text whenever the translator felt a different reading was necessary are noted in the English text.
-                </item>
-            </change>
-            <change>
-                <date>5/21/92</date>
-                <respStmt>
-                    <name>David Smith</name>
-                    <resp>(n/a)</resp>
-                </respStmt>
-                <item>fixed the accent on *)alfew| to *)alfew=|</item>
-            </change>
-        -->
+            <change when="2022-04-21" who="Lisa Cerrato">reviewed header and content for consistency and best practices</change>
+            <change when="2016-01-22" who="TDBuck">editied mark-up, hookified</change>
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
-            <change when="2016-01-22" who="TDBuck">editied mark-up, CTS compatible</change>
+            <change when="1992-05-21" who="David Smith">fixed the accent on *)alfew| to *)alfew=|</change>
+            <change when="1991-11-01" who="WPM">Entered Svarlien's responses to Hubbard. Changes made to Sandys' Greek text whenever the translator felt a different reading was necessary are noted in the English text.</change>
+            <change when="1991-09-01" who="WPM">Entered Hubbard's revisions.</change>
+            <change when="1991-08-01" who="EM">Revise DTDs and recheck texts.</change>
+            <change when="1990" who="EM and SFSH">Make sure that the file matches new DTDs.</change>
         </revisionDesc>
     </teiHeader>
+    
     <text xml:lang="grc">
         <body>
-            <div n="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" sample="complete" part="N" type="edition" org="uniform" xml:lang="grc">
-                <head xml:lang="grc">ιστημιαν οδες</head>
-                <div n="1" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
+            <div n="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" type="edition" xml:lang="grc">
+                <head xml:lang="grc" rend="center">Isthmian Odes</head>
+                
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="1">
                     <head>
                         <title xml:lang="grc">ιστημιαν 1</title>
                         <persName xml:lang="grc" type="winner">ΗΡΟΔΟΤΩι ΘΗΒΑΙΩι</persName>
@@ -119,112 +90,89 @@
                         <date> </date>
                     </head>
 
-                    <milestone n="str. 1" unit="strophe"/>
-                    <l n="1"> μᾶτερ ἐμά, τὸ τεόν, χρύσασπι Θήβα, </l>
-                    <l n="2"> πρᾶγμα καὶ ἀσχολίας ὑπέρτερον </l>
-                    <l n="3"> θήσομαι. μή μοι κραναὰ νεμεσάσαι </l>
-                    <l n="4"> Δᾶλος, ἐν ᾇ κέχυμαι. </l>
-                    <l n="5"> τί φίλτερον κεδνῶν τοκέων ἀγαθοῖς; </l>
-                    <l n="6"> εἶξον, Ὠπολλωνιάς· ἀμφοτερᾶν τοι χαρίτων σὺν θεοῖς ζεύξω τέλος, <milestone n="ant. 1" unit="strophe"/>
-                    </l>
-                    <l n="7"> καὶ τὸν ἀκειρεκόμαν Φοῖβον χορεύων </l>
-                    <l n="8"> ἐν Κέῳ ἀμφιρύτᾳ σὺν ποντίοις </l>
-                    <l n="9">
-                        <milestone ed="Steph" n="10" unit="line"/> ἀνδράσιν, καὶ τὰν ἁλιερκέα,
-                        Ἰσθμοῦ </l>
-                    <l n="10"> δειράδʼ· ἐπεὶ στεφάνους </l>
-                    <l n="11"> ἓξ ὤπασεν Κάδμου στρατῷ ἐξ ἀέθλων, </l>
-                    <l n="12"> καλλίνικον πατρίδι κῦδος. ἐν ᾇ καὶ τὸν ἀδείμαντον Ἀλκμήνα τέκεν <milestone n="epode 1" unit="strophe"/>
-                    </l>
-                    <l n="13"> παῖδα, θρασεῖαι τόν ποτε Γηρυόνα φρῖξαν κύνες. </l>
-                    <l n="14"> ἀλλʼ ἐγὼ Ἡροδότῳ τεύχων τὸ μὲν ἅρματι τεθρίππῳ γέρας, </l>
-                    <l n="15">
-                        <milestone ed="Steph" n="20" unit="line"/> ἁνία τʼ ἀλλοτρίαις οὐ χερσὶ
-                        νωμάσαντʼ ἐθέλω </l>
-                    <l n="16"> ἢ Καστορείῳ ἢ Ἰολάου ἐναρμόξαι νιν ὕμνῳ. </l>
-                    <l n="17"> κεῖνοι γὰρ ἡρώων διφρηλάται Λακεδαίμονι καὶ Θήβαις ἐτέκνωθεν κράτιστοι·
-                            <milestone n="str. 2" unit="strophe"/>
-                    </l>
-                    <l n="18"> ἔν τʼ ἀέθλοισι θίγον πλείστων ἀγώνων, </l>
-                    <l n="19"> καὶ τριπόδεσσιν ἐκόσμησαν δόμον </l>
-                    <l n="20"> καὶ λεβήτεσσιν φιάλαισί τε χρυσοῦ, </l>
-                    <l n="21"> γευόμενοι στεφάνων </l>
-                    <l n="22">
-                        <milestone ed="Steph" n="30" unit="line"/> νικαφόρων· λάμπει δὲ σαφὴς ἀρετὰ </l>
-                    <l n="23"> ἔν τε γυμνοῖσι σταδίοις σφίσιν ἔν τʼ ἀσπιδοδούποισιν ὁπλίταις δρόμοις,
-                            <milestone n="ant. 2" unit="strophe"/>
-                    </l>
-                    <l n="24"> οἷά τε χερσὶν ἀκοντίζοντες αἰχμαῖς, </l>
-                    <l n="25"> καὶ λιθίνοις ὁπότʼ ἐν δίσκοις ἵεν. </l>
-                    <l n="26"> οὐ γὰρ ἦν πεντάθλιον, ἀλλʼ ἐφʼ ἑκάστῳ </l>
-                    <l n="27"> ἔργματι κεῖτο τέλος. </l>
-                    <l n="28"> τῶν ἀθρόοις ἀνδησάμενοι θαμάκις </l>
-                    <l n="29"> ἔρνεσιν χαίτας ῥεέθροισί τε Δίρκας ἔφανεν καὶ παρʼ Εὐρώτᾳ πέλας, <milestone n="epode 2" unit="strophe"/>
-                    </l>
-                    <l n="30">
-                        <milestone ed="Steph" n="40" unit="line"/> Ἰφικλέος μὲν παῖς ὁμόδαμος ἐὼν
-                        Σπαρτῶν γένει, </l>
-                    <l n="31"> Τυνδαρίδας δʼ ἐν Ἀχαιοῖς ὑψίπεδον Θεράπνας οἰκ <seg type="sling" part="N">έω</seg> ν ἕδος. </l>
-                    <l n="32"> χαίρετʼ. ἐγὼ δὲ Ποσειδάωνι Ἰσθμῷ τε ζαθέᾳ </l>
-                    <l n="33"> Ὀγχηστίαισίν τʼ ἀϊόνεσσιν περιστέλλων ἀοιδὰν </l>
-                    <l n="34">
-                        <milestone ed="Steph" n="50" unit="line"/> γαρύσομαι τοῦδʼ ἀνδρὸς ἐν
-                        τιμαῖσιν ἀγακλέα τὰν Ἀσωποδώρου πατρὸς αἶσαν <milestone n="str. 3" unit="strophe"/>
-                    </l>
-                    <l n="35"> Ὀρχομενοῖό τε πατρῴαν ἄρουραν, </l>
-                    <l n="36"> ἅ νιν ἐρειδόμενον ναυαγίαις </l>
-                    <l n="37"> ἐξ ἀμετρήτας ἁλὸς ἐν κρυοέσσᾳ </l>
-                    <l n="38"> δέξατο συντυχίᾳ· </l>
-                    <l n="39"> νῦν δʼ αὖτις ἀρχαίας ἐπέβασε πότμος </l>
-                    <l n="40"> συγγενὴς εὐαμερίας. ὁ πονήσαις δὲ νόῳ καὶ προμάθειαν φέρει·
-                            <milestone n="ant. 3" unit="strophe"/>
-                    </l>
-                    <l n="41"> εἰ δʼ ἀρετᾷ κατάκειται πᾶσαν ὀργάν, </l>
-                    <l n="42"> ἀμφότερον δαπάναις τε καὶ πόνοις, </l>
-                    <l n="43">
-                        <milestone ed="Steph" n="60" unit="line"/> χρή νιν εὑρόντεσσιν ἀγάνορα
-                        κόμπον </l>
-                    <l n="44"> μὴ φθονεραῖσι φέρειν </l>
-                    <l n="45"> γνώμαις. ἐπεὶ κούφα δόσις ἀνδρὶ σοφῷ </l>
-                    <l n="46"> ἀντὶ μόχθων παντοδαπῶν ἔπος εἰπόντʼ ἀγαθὸν ξυνὸν ὀρθῶσαι καλόν. <milestone n="epode 3" unit="strophe"/>
-                    </l>
-                    <l n="47"> μισθὸς γὰρ ἄλλοις ἄλλος ἐφʼ ἔργμασιν ἀνθρώποις γλυκύς, </l>
-                    <l n="48"> μηλοβότᾳ τʼ ἀρότᾳ τʼ ὀρνιχολόχῳ τε καὶ ὃν πόντος τρέφει· </l>
-                    <l n="49">
-                        <milestone ed="Steph" n="70" unit="line"/> γαστρὶ δὲ πᾶς τις ἀμύνων λιμὸν
-                        αἰανῆ τέταται· </l>
-                    <l n="50"> ὃς δʼ ἀμφʼ ἀέθλοις ἢ πολεμίζων ἄρηται κῦδος ἁβρόν, </l>
-                    <l n="51"> εὐαγορηθεὶς κέρδος ὕψιστον δέκεται, πολιατᾶν καὶ ξένων γλώσσας ἄωτον.
-                            <milestone n="str. 4" unit="strophe"/>
-                    </l>
-                    <l n="52"> ἄμμι δʼ ἔοικε Κρόνου σεισίχθονʼ υἱὸν </l>
-                    <l n="53"> γείτονʼ ἀμειβομένοις εὐεργέταν </l>
-                    <l n="54"> ἁρμάτων ἱπποδρόμιον κελαδῆσαι, </l>
-                    <l n="55"> καὶ σέθεν, Ἀμφιτρύων, </l>
-                    <l n="56">
-                        <milestone ed="Steph" n="80" unit="line"/> παῖδας προσειπεῖν, τὸν Μινύα τε
-                        μυχὸν </l>
-                    <l n="57"> καὶ τὸ Δάματρος κλυτὸν ἄλσος Ἐλευσῖνα καὶ Εὔβοιαν ἐν γναμπτοῖς δρόμοις·
-                            <milestone n="ant. 4" unit="strophe"/>
-                    </l>
-                    <l n="58"> Πρωτεσίλα, τὸ τεὸν δʼ ἀνδρῶν Ἀχαιῶν </l>
-                    <l n="59"> ἐν Φυλάκᾳ τέμενος συμβάλλομαι. </l>
-                    <l n="60"> πάντα δʼ ἐξειπεῖν, ὅσʼ ἀγώνιος Ἑρμᾶς </l>
-                    <l n="61"> Ἡροδότῳ ἔπορεν </l>
-                    <l n="62"> ἵπποις, ἀφαιρεῖται βραχὺ μέτρον ἔχων </l>
-                    <l n="63"> ὕμνος. ἦ μὰν πολλάκι καὶ τὸ σεσωπαμένον εὐθυμίαν μείζω φέρει. <milestone n="epode 4" unit="strophe"/>
-                    </l>
-                    <l n="64">
-                        <milestone ed="Steph" n="90" unit="line"/> εἴη νιν εὐφώνων πτερύγεσσιν
-                        ἀερθέντʼ ἀγλααῖς </l>
-                    <l n="65"> Πιερίδων ἔτι καὶ Πυθῶθεν Ὀλυμπιάδων τʼ ἐξαιρέτοις </l>
-                    <l n="66"> Ἀλφεοῦ ἔρνεσι φράξαι χεῖρα τιμὰν ἑπταπύλοις </l>
-                    <l n="67"> Θήβαισι τεύχοντʼ. εἰ δέ τις ἔνδον νέμει πλοῦτον κρυφαῖον, </l>
-                    <l n="68">
-                        <milestone ed="Steph" n="100" unit="line"/> ἄλλοισι δʼ ἐμπίπτων γελᾷ, ψυχὰν
-                        Ἀΐδᾳ τελέων οὐ φράζεται δόξας ἄνευθεν. </l>
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="1"> μᾶτερ ἐμά, τὸ τεόν, χρύσασπι Θήβα, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="2"> πρᾶγμα καὶ ἀσχολίας ὑπέρτερον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="3"> θήσομαι. μή μοι κραναὰ νεμεσάσαι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="4"> Δᾶλος, ἐν ᾇ κέχυμαι. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="5"> τί φίλτερον κεδνῶν τοκέων ἀγαθοῖς; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="6"> εἶξον, Ὠπολλωνιάς· ἀμφοτερᾶν τοι χαρίτων σὺν θεοῖς ζεύξω τέλος, </l>
+                    <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="7"> καὶ τὸν ἀκειρεκόμαν Φοῖβον χορεύων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="8"> ἐν Κέῳ ἀμφιρύτᾳ σὺν ποντίοις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="9"><milestone ed="Steph" n="10" unit="line"/> ἀνδράσιν, καὶ τὰν ἁλιερκέα, Ἰσθμοῦ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="10"> δειράδʼ· ἐπεὶ στεφάνους </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="11"> ἓξ ὤπασεν Κάδμου στρατῷ ἐξ ἀέθλων, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="12"> καλλίνικον πατρίδι κῦδος. ἐν ᾇ καὶ τὸν ἀδείμαντον Ἀλκμήνα τέκεν </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="13"> παῖδα, θρασεῖαι τόν ποτε Γηρυόνα φρῖξαν κύνες. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="14"> ἀλλʼ ἐγὼ Ἡροδότῳ τεύχων τὸ μὲν ἅρματι τεθρίππῳ γέρας, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="15"><milestone ed="Steph" n="20" unit="line"/> ἁνία τʼ ἀλλοτρίαις οὐ χερσὶ νωμάσαντʼ ἐθέλω </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="16"> ἢ Καστορείῳ ἢ Ἰολάου ἐναρμόξαι νιν ὕμνῳ. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="17"> κεῖνοι γὰρ ἡρώων διφρηλάται Λακεδαίμονι καὶ Θήβαις ἐτέκνωθεν κράτιστοι· </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="18"> ἔν τʼ ἀέθλοισι θίγον πλείστων ἀγώνων, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="19"> καὶ τριπόδεσσιν ἐκόσμησαν δόμον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="20"> καὶ λεβήτεσσιν φιάλαισί τε χρυσοῦ, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="21"> γευόμενοι στεφάνων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="22"><milestone ed="Steph" n="30" unit="line"/> νικαφόρων· λάμπει δὲ σαφὴς ἀρετὰ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="23"> ἔν τε γυμνοῖσι σταδίοις σφίσιν ἔν τʼ ἀσπιδοδούποισιν ὁπλίταις δρόμοις, </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="24"> οἷά τε χερσὶν ἀκοντίζοντες αἰχμαῖς, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="25"> καὶ λιθίνοις ὁπότʼ ἐν δίσκοις ἵεν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="26"> οὐ γὰρ ἦν πεντάθλιον, ἀλλʼ ἐφʼ ἑκάστῳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="27"> ἔργματι κεῖτο τέλος. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="28"> τῶν ἀθρόοις ἀνδησάμενοι θαμάκις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="29"> ἔρνεσιν χαίτας ῥεέθροισί τε Δίρκας ἔφανεν καὶ παρʼ Εὐρώτᾳ πέλας, </l>
+                   <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="30"><milestone ed="Steph" n="40" unit="line"/> Ἰφικλέος μὲν παῖς ὁμόδαμος ἐὼν Σπαρτῶν γένει, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="31"> Τυνδαρίδας δʼ ἐν Ἀχαιοῖς ὑψίπεδον Θεράπνας οἰκ <seg type="sling" part="N">έω</seg> ν ἕδος. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="32"> χαίρετʼ. ἐγὼ δὲ Ποσειδάωνι Ἰσθμῷ τε ζαθέᾳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="33"> Ὀγχηστίαισίν τʼ ἀϊόνεσσιν περιστέλλων ἀοιδὰν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="34"><milestone ed="Steph" n="50" unit="line"/> γαρύσομαι τοῦδʼ ἀνδρὸς ἐν τιμαῖσιν ἀγακλέα τὰν Ἀσωποδώρου πατρὸς αἶσαν </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="35"> Ὀρχομενοῖό τε πατρῴαν ἄρουραν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="36"> ἅ νιν ἐρειδόμενον ναυαγίαις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="37"> ἐξ ἀμετρήτας ἁλὸς ἐν κρυοέσσᾳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="38"> δέξατο συντυχίᾳ· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="39"> νῦν δʼ αὖτις ἀρχαίας ἐπέβασε πότμος </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="40"> συγγενὴς εὐαμερίας. ὁ πονήσαις δὲ νόῳ καὶ προμάθειαν φέρει· </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="41"> εἰ δʼ ἀρετᾷ κατάκειται πᾶσαν ὀργάν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="42"> ἀμφότερον δαπάναις τε καὶ πόνοις, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="43"><milestone ed="Steph" n="60" unit="line"/> χρή νιν εὑρόντεσσιν ἀγάνορα κόμπον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="44"> μὴ φθονεραῖσι φέρειν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="45"> γνώμαις. ἐπεὶ κούφα δόσις ἀνδρὶ σοφῷ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="46"> ἀντὶ μόχθων παντοδαπῶν ἔπος εἰπόντʼ ἀγαθὸν ξυνὸν ὀρθῶσαι καλόν. </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="47"> μισθὸς γὰρ ἄλλοις ἄλλος ἐφʼ ἔργμασιν ἀνθρώποις γλυκύς, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="48"> μηλοβότᾳ τʼ ἀρότᾳ τʼ ὀρνιχολόχῳ τε καὶ ὃν πόντος τρέφει· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="49"><milestone ed="Steph" n="70" unit="line"/> γαστρὶ δὲ πᾶς τις ἀμύνων λιμὸν αἰανῆ τέταται· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="50"> ὃς δʼ ἀμφʼ ἀέθλοις ἢ πολεμίζων ἄρηται κῦδος ἁβρόν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="51"> εὐαγορηθεὶς κέρδος ὕψιστον δέκεται, πολιατᾶν καὶ ξένων γλώσσας ἄωτον. </l>
+                   <milestone unit="strophe" subtype="str." n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="52"> ἄμμι δʼ ἔοικε Κρόνου σεισίχθονʼ υἱὸν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="53"> γείτονʼ ἀμειβομένοις εὐεργέταν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="54"> ἁρμάτων ἱπποδρόμιον κελαδῆσαι, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="55"> καὶ σέθεν, Ἀμφιτρύων, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="56"><milestone ed="Steph" n="80" unit="line"/> παῖδας προσειπεῖν, τὸν Μινύα τε μυχὸν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="57"> καὶ τὸ Δάματρος κλυτὸν ἄλσος Ἐλευσῖνα καὶ Εὔβοιαν ἐν γναμπτοῖς δρόμοις· </l>
+                   <milestone unit="strophe" subtype="ant." n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="58"> Πρωτεσίλα, τὸ τεὸν δʼ ἀνδρῶν Ἀχαιῶν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="59"> ἐν Φυλάκᾳ τέμενος συμβάλλομαι. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="60"> πάντα δʼ ἐξειπεῖν, ὅσʼ ἀγώνιος Ἑρμᾶς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="61"> Ἡροδότῳ ἔπορεν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="62"> ἵπποις, ἀφαιρεῖται βραχὺ μέτρον ἔχων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="63"> ὕμνος. ἦ μὰν πολλάκι καὶ τὸ σεσωπαμένον εὐθυμίαν μείζω φέρει. </l>
+                   <milestone unit="strophe" subtype="epode" n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="64"><milestone ed="Steph" n="90" unit="line"/> εἴη νιν εὐφώνων πτερύγεσσιν ἀερθέντʼ ἀγλααῖς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="65"> Πιερίδων ἔτι καὶ Πυθῶθεν Ὀλυμπιάδων τʼ ἐξαιρέτοις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="66"> Ἀλφεοῦ ἔρνεσι φράξαι χεῖρα τιμὰν ἑπταπύλοις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="67"> Θήβαισι τεύχοντʼ. εἰ δέ τις ἔνδον νέμει πλοῦτον κρυφαῖον, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="68"><milestone ed="Steph" n="100" unit="line"/> ἄλλοισι δʼ ἐμπίπτων γελᾷ, ψυχὰν Ἀΐδᾳ τελέων οὐ φράζεται δόξας ἄνευθεν. </l>
                 </div>
-                <div n="2" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="2">
                     <head>
                         <title xml:lang="grc">ιστημιαν 2</title>
                         <persName xml:lang="grc" type="winner">ΞΕΝΟΚΡΑΤΕΙ ΑΚΡΑΓΑΝΤΙΝΩι</persName>
@@ -232,78 +180,66 @@
                         <date> </date>
                     </head>
 
-                    <milestone n="str. 1" unit="strophe"/>
-                    <l n="1"> οἱ μὲν πάλαι, ὦ Θρασύβουλε, φῶτες, οἳ χρυσαμπύκων </l>
-                    <l n="2"> ἐς δίφρον Μοισᾶν ἔβαινον κλυτᾷ φόρμιγγι συναντόμενοι, </l>
-                    <l n="3"> ῥίμφα παιδείους ἐτόξευον μελιγάρυας ὕμνους, </l>
-                    <l n="4"> ὅστις ἐὼν καλὸς εἶχεν Ἀφροδίτας </l>
-                    <l n="5"> εὐθρόνου μνάστειραν ἁδίσταν ὀπώραν. <milestone n="ant. 1" unit="strophe"/>
-                    </l>
-                    <l n="6">
-                        <milestone ed="Steph" n="10" unit="line"/> ἁ Μοῖσα γὰρ οὐ φιλοκερδής πω τότʼ
-                        ἦν οὐδʼ ἐργάτις· </l>
-                    <l n="7"> οὐδʼ ἐπέρναντο γλυκεῖαι μελιφθόγγου ποτὶ Τερψιχόρας </l>
-                    <l n="8"> ἀργυρωθεῖσαι πρόσωπα μαλθακόφωνοι ἀοιδαί. </l>
-                    <l n="9"> νῦν δʼ ἐφίητι <add>τὸ</add> τὠργείου φυλάξαι </l>
-                    <l n="10"> ῥῆμʼ ἀλαθείας <add>ἐτᾶς</add> ἄγχιστα βαῖνον, <milestone n="epode 1" unit="strophe"/>
-                    </l>
-                    <l n="11">
-                        <q type="unspecified"> χρήματα, χρήματʼ ἀνήρ,</q> ὃς φᾶ κτεάνων θʼ ἅμα
-                        λειφθεὶς καὶ φίλων. </l>
-                    <l n="12"> ἐσσὶ γὰρ ὦν σοφός, οὐκ ἄγνωτʼ ἀείδω </l>
-                    <l n="13">
-                        <milestone ed="Steph" n="20" unit="line"/> Ἰσθμίαν ἵπποισι νίκαν, </l>
-                    <l n="14"> τὰν Ξενοκράτει Ποσειδάων ὀπάσαις, </l>
-                    <l n="15"> Δωρίων αὐτῷ στεφάνωμα κόμᾳ </l>
-                    <l n="16"> πέμπεν ἀναδεῖσθαι σελίνων, <milestone n="str. 2" unit="strophe"/>
-                    </l>
-                    <l n="17"> εὐάρματον ἄνδρα γεραίρων, Ἀκραγαντίνων φάος. </l>
-                    <l n="18"> ἐν Κρίσᾳ δʼ εὐρυσθενὴς εἶδʼ Ἀπόλλων νιν πόρε τʼ ἀγλαΐαν </l>
-                    <l n="19"> καὶ τόθι· κλειναῖς <add>δʼ</add> Ἐρεχθειδᾶν χαρίτεσσιν ἀραρὼς </l>
-                    <l n="20">
-                        <milestone ed="Steph" n="30" unit="line"/> ταῖς λιπαραῖς ἐν Ἀθάναις, οὐκ
-                        ἐμέμφθη </l>
-                    <l n="21"> ῥυσίδιφρον χεῖρα πλαξίπποιο φωτός, <milestone n="ant. 2" unit="strophe"/>
-                    </l>
-                    <l n="22"> τὰν Νικόμαχος κατὰ καιρὸν νεῖμʼ ἁπάσαις ἁνίαις· </l>
-                    <l n="23"> ὅντε καὶ κάρυκες ὡρᾶν ἀνέγνον, σπονδοφόροι Κρονίδα </l>
-                    <l n="24"> Ζηνὸς Ἀλεῖοι, παθόντες πού τι φιλόξενον ἔργον· </l>
-                    <l n="25"> ἁδυπνόῳ τέ νιν ἀσπάζοντο φωνᾷ </l>
-                    <l n="26"> χρυσέας ἐν γούνασιν πίτνοντα Νίκας <milestone n="epode 2" unit="strophe"/>
-                    </l>
-                    <l n="27">
-                        <milestone ed="Steph" n="40" unit="line"/> γαῖαν ἀνὰ σφετέραν, τὰν δὴ
-                        καλέοισιν Ὀλυμπίου Διὸς </l>
-                    <l n="28"> ἄλσος· ἵνʼ ἀθανάτοις Αἰνησιδάμου </l>
-                    <l n="29"> παῖδες ἐν τιμαῖς ἔμιχθεν. </l>
-                    <l n="30"> καὶ γὰρ οὐκ ἀγνῶτες ὑμῖν ἐντὶ δόμοι </l>
-                    <l n="31"> οὔτε κώμων, ὦ Θρασύβουλʼ, ἐρατῶν, </l>
-                    <l n="32"> οὔτε μελικόμπων ἀοιδᾶν. <milestone n="str. 3" unit="strophe"/>
-                    </l>
-                    <l n="33"> οὐ γὰρ πάγος, οὐδὲ προσάντης ἁ κέλευθος γίνεται, </l>
-                    <l n="34">
-                        <milestone ed="Steph" n="50" unit="line"/> εἴ τις εὐδόξων ἐς ἀνδρῶν ἄγοι
-                        τιμὰς Ἑλικωνιάδων. </l>
-                    <l n="35"> μακρὰ δισκήσαις ἀκοντίσσαιμι τοσοῦθʼ, ὅσον ὀργὰν </l>
-                    <l n="36"> Ξεινοκράτης ὑπὲρ ἀνθρώπων γλυκεῖαν </l>
-                    <l n="37"> ἔσχεν. αἰδοῖος μὲν ἦν ἀστοῖς ὁμιλεῖν, <milestone n="ant. 3" unit="strophe"/>
-                    </l>
-                    <l n="38"> ἱπποτροφίας τε νομίζων ἐν Πανελλάνων νόμῳ· </l>
-                    <l n="39"> καὶ θεῶν δαῖτας προσέπτυκτο πάσας· οὐδέ ποτε ξενίαν </l>
-                    <l n="40">
-                        <milestone ed="Steph" n="60" unit="line"/> οὖρος ἐμπνεύσαις ὑπέστειλʼ ἱστίον
-                        ἀμφὶ τράπεζαν· </l>
-                    <l n="41"> ἀλλʼ ἐπέρα ποτὶ μὲν Φᾶσιν θερείαις, </l>
-                    <l n="42"> ἐν δὲ χειμῶνι πλέων Νείλου πρὸς ἀκτάς. <milestone n="epode 3" unit="strophe"/>
-                    </l>
-                    <l n="43"> μή νυν, ὅτι φθονεραὶ θνατῶν φρένας ἀμφικρέμανται ἐλπίδες, </l>
-                    <l n="44"> μήτʼ ἀρετάν ποτε σιγάτω πατρῴαν, </l>
-                    <l n="45"> μηδὲ τούσδʼ ὕμνους· ἐπεί τοι </l>
-                    <l n="46"> οὐκ ἐλινύσοντας αὐτοὺς εἰργασάμαν. </l>
-                    <l n="47"> ταῦτα, Νικάσιππʼ, ἀπόνειμον, ὅταν </l>
-                    <l n="48"> ξεῖνον ἐμὸν ἠθαῖον ἔλθῃς. </l>
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="1"> οἱ μὲν πάλαι, ὦ Θρασύβουλε, φῶτες, οἳ χρυσαμπύκων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="2"> ἐς δίφρον Μοισᾶν ἔβαινον κλυτᾷ φόρμιγγι συναντόμενοι, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="3"> ῥίμφα παιδείους ἐτόξευον μελιγάρυας ὕμνους, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="4"> ὅστις ἐὼν καλὸς εἶχεν Ἀφροδίτας </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="5"> εὐθρόνου μνάστειραν ἁδίσταν ὀπώραν. </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="6"><milestone ed="Steph" n="10" unit="line"/> ἁ Μοῖσα γὰρ οὐ φιλοκερδής πω τότʼ ἦν οὐδʼ ἐργάτις· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="7"> οὐδʼ ἐπέρναντο γλυκεῖαι μελιφθόγγου ποτὶ Τερψιχόρας </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="8"> ἀργυρωθεῖσαι πρόσωπα μαλθακόφωνοι ἀοιδαί. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="9"> νῦν δʼ ἐφίητι <add>τὸ</add> τὠργείου φυλάξαι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="10"> ῥῆμʼ ἀλαθείας <add>ἐτᾶς</add> ἄγχιστα βαῖνον, </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="11"> <q> χρήματα, χρήματʼ ἀνήρ,</q> ὃς φᾶ κτεάνων θʼ ἅμα λειφθεὶς καὶ φίλων. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="12"> ἐσσὶ γὰρ ὦν σοφός, οὐκ ἄγνωτʼ ἀείδω </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="13"><milestone ed="Steph" n="20" unit="line"/> Ἰσθμίαν ἵπποισι νίκαν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="14"> τὰν Ξενοκράτει Ποσειδάων ὀπάσαις, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="15"> Δωρίων αὐτῷ στεφάνωμα κόμᾳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="16"> πέμπεν ἀναδεῖσθαι σελίνων, </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="17"> εὐάρματον ἄνδρα γεραίρων, Ἀκραγαντίνων φάος. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="18"> ἐν Κρίσᾳ δʼ εὐρυσθενὴς εἶδʼ Ἀπόλλων νιν πόρε τʼ ἀγλαΐαν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="19"> καὶ τόθι· κλειναῖς <add>δʼ</add> Ἐρεχθειδᾶν χαρίτεσσιν ἀραρὼς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="20"><milestone ed="Steph" n="30" unit="line"/> ταῖς λιπαραῖς ἐν Ἀθάναις, οὐκ ἐμέμφθη </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="21"> ῥυσίδιφρον χεῖρα πλαξίπποιο φωτός, </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="22"> τὰν Νικόμαχος κατὰ καιρὸν νεῖμʼ ἁπάσαις ἁνίαις· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="23"> ὅντε καὶ κάρυκες ὡρᾶν ἀνέγνον, σπονδοφόροι Κρονίδα </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="24"> Ζηνὸς Ἀλεῖοι, παθόντες πού τι φιλόξενον ἔργον· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="25"> ἁδυπνόῳ τέ νιν ἀσπάζοντο φωνᾷ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="26"> χρυσέας ἐν γούνασιν πίτνοντα Νίκας </l>
+                   <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="27"><milestone ed="Steph" n="40" unit="line"/> γαῖαν ἀνὰ σφετέραν, τὰν δὴ καλέοισιν Ὀλυμπίου Διὸς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="28"> ἄλσος· ἵνʼ ἀθανάτοις Αἰνησιδάμου </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="29"> παῖδες ἐν τιμαῖς ἔμιχθεν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="30"> καὶ γὰρ οὐκ ἀγνῶτες ὑμῖν ἐντὶ δόμοι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="31"> οὔτε κώμων, ὦ Θρασύβουλʼ, ἐρατῶν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="32"> οὔτε μελικόμπων ἀοιδᾶν. </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="33"> οὐ γὰρ πάγος, οὐδὲ προσάντης ἁ κέλευθος γίνεται, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="34"><milestone ed="Steph" n="50" unit="line"/> εἴ τις εὐδόξων ἐς ἀνδρῶν ἄγοι τιμὰς Ἑλικωνιάδων. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="35"> μακρὰ δισκήσαις ἀκοντίσσαιμι τοσοῦθʼ, ὅσον ὀργὰν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="36"> Ξεινοκράτης ὑπὲρ ἀνθρώπων γλυκεῖαν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="37"> ἔσχεν. αἰδοῖος μὲν ἦν ἀστοῖς ὁμιλεῖν, </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="38"> ἱπποτροφίας τε νομίζων ἐν Πανελλάνων νόμῳ· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="39"> καὶ θεῶν δαῖτας προσέπτυκτο πάσας· οὐδέ ποτε ξενίαν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="40"><milestone ed="Steph" n="60" unit="line"/> οὖρος ἐμπνεύσαις ὑπέστειλʼ ἱστίον ἀμφὶ τράπεζαν· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="41"> ἀλλʼ ἐπέρα ποτὶ μὲν Φᾶσιν θερείαις, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="42"> ἐν δὲ χειμῶνι πλέων Νείλου πρὸς ἀκτάς. </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="43"> μή νυν, ὅτι φθονεραὶ θνατῶν φρένας ἀμφικρέμανται ἐλπίδες, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="44"> μήτʼ ἀρετάν ποτε σιγάτω πατρῴαν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="45"> μηδὲ τούσδʼ ὕμνους· ἐπεί τοι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="46"> οὐκ ἐλινύσοντας αὐτοὺς εἰργασάμαν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="47"> ταῦτα, Νικάσιππʼ, ἀπόνειμον, ὅταν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="48"> ξεῖνον ἐμὸν ἠθαῖον ἔλθῃς. </l>
                 </div>
-                <div n="3" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="3">
                     <head>
                         <title xml:lang="grc">ιστημιαν 3</title>
                         <persName xml:lang="grc" type="winner">ΜΕΛΙΣΣΩι ΘΗΒΑΙΩι</persName>
@@ -311,35 +247,30 @@
                         <date> </date>
                     </head>
 
-                    <milestone n="str. 1" unit="strophe"/>
-                    <l n="1"> εἴ τις ἀνδρῶν εὐτυχήσαις ἢ σὺν εὐδόξοις ἀέθλοις </l>
-                    <l n="2"> ἢ σθένει πλούτου κατέχει φρασὶν αἰανῆ κόρον, </l>
-                    <l n="3"> ἄξιος εὐλογίαις ἀστῶν μεμίχθαι. </l>
-                    <l n="4"> Ζεῦ, μεγάλαι δʼ ἀρεταὶ θνατοῖς ἕπονται </l>
-                    <l n="5"> ἐκ σέθεν· ζώει δὲ μάσσων ὄλβος ὀπιζομένων, πλαγίαις δὲ φρένεσσιν </l>
-                    <l n="6">
-                        <milestone ed="Steph" n="10" unit="line"/> οὐχ ὁμῶς πάντα χρόνον θάλλων
-                        ὁμιλεῖ. <milestone n="ant. 1" unit="strophe"/>
-                    </l>
-                    <l n="7"> εὐκλέων δʼ ἔργων ἄποινα χρὴ μὲν ὑμνῆσαι τὸν ἐσλόν, </l>
-                    <l n="8"> χρὴ δὲ κωμάζοντʼ ἀγαναῖς χαρίτεσσιν βαστάσαι. </l>
-                    <l n="9"> ἔστι δὲ καὶ διδύμων <seg type="sling" part="N">ἀέ</seg> θλων Μελίσσῳ </l>
-                    <l n="10"> μοῖρα πρὸς εὐφροσύναν τρέψαι γλυκεῖαν </l>
-                    <l n="11"> ἦτορ, ἐν βάσσαισιν Ἰσθμοῦ δεξαμένῳ στεφάνους, τὰ δὲ κοίλᾳ λέοντος </l>
-                    <l n="12">
-                        <milestone ed="Steph" n="20" unit="line"/> ἐν βαθυστέρνου νάπᾳ κάρυξε Θήβαν
-                            <milestone n="epode 1" unit="strophe"/>
-                    </l>
-                    <l n="13"> ἱπποδρομίᾳ κρατέων. ἀνδρῶν δʼ ἀρετὰν </l>
-                    <l n="14"> σύμφυτον οὐ κατελέγχει. </l>
-                    <l n="15"> ἴστε μὰν Κλεωνύμου </l>
-                    <l n="16"> δόξαν παλαιὰν ἅρμασιν· </l>
-                    <l n="17"> καὶ ματρόθε Λαβδακίδαισιν σύννομοι πλούτου διέστειχον τετραοριᾶν πόνοις. </l>
-                    <l n="18">
-                        <milestone ed="Steph" n="30" unit="line"/> αἰὼν δὲ κυλινδομέναις ἁμέραις
-                        ἄλλʼ ἄλλοτʼ ἐξάλλαξεν· ἄτρωτοί γε μὰν παῖδες θεῶν. </l>
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="1"> εἴ τις ἀνδρῶν εὐτυχήσαις ἢ σὺν εὐδόξοις ἀέθλοις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="2"> ἢ σθένει πλούτου κατέχει φρασὶν αἰανῆ κόρον, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="3"> ἄξιος εὐλογίαις ἀστῶν μεμίχθαι. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="4"> Ζεῦ, μεγάλαι δʼ ἀρεταὶ θνατοῖς ἕπονται </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="5"> ἐκ σέθεν· ζώει δὲ μάσσων ὄλβος ὀπιζομένων, πλαγίαις δὲ φρένεσσιν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="6"><milestone ed="Steph" n="10" unit="line"/> οὐχ ὁμῶς πάντα χρόνον θάλλων ὁμιλεῖ. </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="7"> εὐκλέων δʼ ἔργων ἄποινα χρὴ μὲν ὑμνῆσαι τὸν ἐσλόν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="8"> χρὴ δὲ κωμάζοντʼ ἀγαναῖς χαρίτεσσιν βαστάσαι. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="9"> ἔστι δὲ καὶ διδύμων <seg type="sling" part="N">ἀέ</seg> θλων Μελίσσῳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="10"> μοῖρα πρὸς εὐφροσύναν τρέψαι γλυκεῖαν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="11"> ἦτορ, ἐν βάσσαισιν Ἰσθμοῦ δεξαμένῳ στεφάνους, τὰ δὲ κοίλᾳ λέοντος </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="12"><milestone ed="Steph" n="20" unit="line"/> ἐν βαθυστέρνου νάπᾳ κάρυξε Θήβαν </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="13"> ἱπποδρομίᾳ κρατέων. ἀνδρῶν δʼ ἀρετὰν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="14"> σύμφυτον οὐ κατελέγχει. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="15"> ἴστε μὰν Κλεωνύμου </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="16"> δόξαν παλαιὰν ἅρμασιν· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="17"> καὶ ματρόθε Λαβδακίδαισιν σύννομοι πλούτου διέστειχον τετραοριᾶν πόνοις. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="18"><milestone ed="Steph" n="30" unit="line"/> αἰὼν δὲ κυλινδομέναις ἁμέραις ἄλλʼ ἄλλοτʼ ἐξάλλαξεν· ἄτρωτοί γε μὰν παῖδες θεῶν. </l>
                 </div>
-                <div n="4" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="4">
                     <head>
                         <title xml:lang="grc">ιστημιαν 4</title>
                         <persName xml:lang="grc" type="winner">ΜΕΛΙΣΣΩι ΘΗΒΑΙΩι</persName>
@@ -347,122 +278,95 @@
                         <date> </date>
                     </head>
 
-                    <milestone n="str. 1" unit="strophe"/>
-                    <l n="1"> ἔστι μοι θεῶν ἕκατι μυρία παντᾷ κέλευθος· </l>
-                    <l n="2"> ὦ Μέλισσʼ, εὐμαχανίαν γὰρ ἔφανας Ἰσθμίοις </l>
-                    <l n="3"> ὑμετέρας ἀρετὰς ὕμνῳ διώκειν· </l>
-                    <l n="4"> αἷσι Κλεωνυμίδαι θάλλοντες αἰεὶ </l>
-                    <l n="5"> σὺν θεῷ θνατὸν διέρχονται βιότου τέλος. ἄλλοτε δʼ ἀλλοῖος οὖρος </l>
-                    <l n="6">
-                        <milestone ed="Steph" n="10" unit="line"/> πάντας ἀνθρώπους ἐπαΐσσων
-                        ἐλαύνει. <milestone n="ant. 1" unit="strophe"/>
-                    </l>
-                    <l n="7"> τοὶ μὲν ὦν Θήβαισι τιμάεντες ἀρχᾶθεν λέγονται </l>
-                    <l n="8"> πρόξενοί τʼ ἀμφικτιόνων κελαδεννᾶς τʼ ὀρφανοὶ </l>
-                    <l n="9"> ὕβριος· ὅσσα δʼ ἐπʼ ἀνθρώπους ἄηται </l>
-                    <l n="10"> μαρτύρια φθιμένων ζωῶν τε φωτῶν </l>
-                    <l n="11"> ἀπλέτου δόξας, ἐπέψαυσαν κατὰ πᾶν τέλος· ἀνορέαις δʼ ἐσχάταισιν </l>
-                    <l n="12">
-                        <milestone ed="Steph" n="20" unit="line"/> οἴκοθεν στάλαισιν ἅπτονθʼ
-                        Ἡρακλείαις· <milestone n="epode 1" unit="strophe"/>
-                    </l>
-                    <l n="13"> καὶ μηκέτι μακροτέραν σπεύδειν ἀρετάν. </l>
-                    <l n="14"> ἱπποτρόφοι τʼ ἐγένοντο, </l>
-                    <l n="15"> χαλκέῳ τʼ Ἄρει ἅδον. </l>
-                    <l n="16"> ἀλλʼ ἁμέρᾳ γὰρ ἐν μιᾷ </l>
-                    <l n="17"> τραχεῖα νιφὰς πολέμοιο τεσσάρων </l>
-                    <l n="17b"> ἀνδρῶν ἐρήμωσεν μάκαιραν ἑστίαν· </l>
-                    <l n="18"> νῦν δʼ αὖ μετὰ χειμέριον ποικίλων μηνῶν ζόφον </l>
-                    <l n="18b">
-                        <milestone ed="Steph" n="30" unit="line"/> χθὼν ὥτε φοινικέοισιν ἄνθησεν
-                        ῥόδοις <milestone n="str. 2" unit="strophe"/>
-                    </l>
-                    <l n="19"> δαιμόνων βουλαῖς. ὁ κινητὴρ δὲ γᾶς Ὀγχηστὸν οἰκέων </l>
-                    <l n="20"> καὶ γέφυραν ποντιάδα πρὸ Κορίνθου τειχέων, </l>
-                    <l n="21"> τόνδε πορὼν γενεᾷ θαυμαστὸν ὕμνον </l>
-                    <l n="22"> ἐκ λεχέων ἀνάγει φάμαν παλαιὰν </l>
-                    <l n="23">
-                        <milestone ed="Steph" n="40" unit="line"/> εὐκλέων ἔργων· ἐν ὕπνῳ γὰρ πέσεν·
-                        ἀλλʼ ἀνεγειρομένα χρῶτα λάμπει, </l>
-                    <l n="24"> Ἀωσφόρος θαητὸς ὣς ἄστροις ἐν ἄλλοις· <milestone n="ant. 2" unit="strophe"/>
-                    </l>
-                    <l n="25"> ἅ τε κἀν γουνοῖς Ἀθανᾶν ἅρμα καρύξαισα νικᾶν </l>
-                    <l n="26"> ἔν τʼ Ἀδραστείοις ἀέθλοις Σικυῶνος ὤπασεν </l>
-                    <l n="27"> τοιάδε τῶν τότʼ ἐόντων φύλλʼ ἀοιδᾶν. </l>
-                    <l n="28"> οὐδὲ παναγυρίων ξυνᾶν ἀπεῖχον </l>
-                    <l n="29">
-                        <milestone ed="Steph" n="50" unit="line"/> καμπύλον δίφρον, Πανελλάνεσσι δʼ
-                        ἐριζόμενοι δαπάνᾳ χαῖρον ἵππων. </l>
-                    <l n="30"> τῶν ἀπειράτων γὰρ ἄγνωστοι σιωπαί, <milestone n="epode 2" unit="strophe"/>
-                    </l>
-                    <l n="31"> ἔστιν δʼ ἀφάνεια τύχας καὶ μαρναμένων, </l>
-                    <l n="32"> πρὶν τέλος ἄκρον ἱκέσθαι· </l>
-                    <l n="33"> τῶν τε γὰρ καὶ τῶν διδοῖ· </l>
-                    <l n="34"> καὶ κρέσσονʼ ἀνδρῶν χειρόνων </l>
-                    <l n="35">
-                        <milestone ed="Steph" n="59" unit="line"/> ἔσφαλε τέχνα καταμάρψαισʼ. ἴστε
-                        μὰν Αἴαντος ἀλκὰν φοίνιον, τὰν ὀψίᾳ </l>
-                    <l n="36"> ἐν νυκτὶ ταμὼν περὶ ᾧ φασγάνῳ, μομφὰν ἔχει παίδεσσιν Ἑλλάνων ὅσοι Τρῴανδʼ
-                        ἔβαν. <milestone n="str. 3" unit="strophe"/>
-                    </l>
-                    <l n="37"> ἀλλʼ Ὅμηρός τοι τετίμακεν διʼ ἀνθρώπων, ὃς αὐτοῦ </l>
-                    <l n="38"> πᾶσαν ὀρθώσαις ἀρετὰν κατὰ ῥάβδον ἔφρασεν </l>
-                    <l n="39"> θεσπεσίων ἐπέων λοιποῖς ἀθύρειν. </l>
-                    <l n="40"> τοῦτο γὰρ ἀθάνατον φωνᾶεν ἕρπει, </l>
-                    <l n="41">
-                        <milestone ed="Steph" n="70" unit="line"/> εἴ τις εὖ εἴπῃ τι· καὶ πάγκαρπον
-                        ἐπὶ χθόνα καὶ διὰ πόντον βέβακεν </l>
-                    <l n="42"> ἑργμάτων ἀκτὶς καλῶν ἄσβεστος αἰεί. <milestone n="ant. 3" unit="strophe"/>
-                    </l>
-                    <l n="43"> προφρόνων Μοισᾶν τύχοιμεν, κεῖνον ἅψαι πυρσὸν ὕμνων </l>
-                    <l n="44"> καὶ Μελίσσῳ, παγκρατίου στεφάνωμʼ ἐπάξιον, </l>
-                    <l n="45"> ἔρνεϊ Τελεσιάδα. τόλμᾳ γὰρ εἰκὼς </l>
-                    <l n="46"> θυμὸν ἐριβρεμετᾶν θηρῶν λεόντων </l>
-                    <l n="47">
-                        <milestone ed="Steph" n="80" unit="line"/> ἐν πόνῳ, μῆτιν δʼ ἀλώπηξ, αἰετοῦ
-                        ἅ τʼ ἀναπιτναμένα ῥόμβον ἴσχει. </l>
-                    <l n="48"> χρὴ δὲ πᾶν ἔρδοντα μαυρῶσαι τὸν ἐχθρόν. <milestone n="epode 3" unit="strophe"/>
-                    </l>
-                    <l n="49"> οὐ γὰρ φύσιν Ὠαριωνείαν ἔλαχεν· </l>
-                    <l n="50"> ἀλλʼ ὀνοτὸς μὲν ἰδέσθαι, </l>
-                    <l n="51"> συμπεσεῖν δʼ ἀκμᾷ βαρύς. </l>
-                    <l n="52"> καίτοι πότʼ Ἀνταίου δόμους </l>
-                    <l n="53">
-                        <milestone ed="Steph" n="90" unit="line"/> Θηβᾶν ἀπὸ Καδμεϊᾶν μορφὰν βραχύς,
-                        ψυχὰν δʼ ἄκαμπτος, προσπαλαίσων ἦλθʼ ἀνὴρ </l>
-                    <l n="54"> τὰν πυροφόρον Λιβύαν, κρανίοις ὄφρα ξένων ναὸν Ποσειδάωνος ἐρέφοντα σχέθοι,
-                            <milestone n="str. 4" unit="strophe"/>
-                    </l>
-                    <l n="55"> υἱὸς Ἀλκμήνας· ὃς Οὐλυμπόνδʼ ἔβα, γαίας τε πάσας </l>
-                    <l n="56"> καὶ βαθύκρημνον πολιᾶς ἁλὸς ἐξευρὼν θέναρ, </l>
-                    <l n="57"> ναυτιλίαισί τε πορθμὸν ἁμερώσαις. </l>
-                    <l n="58"> νῦν δὲ παρʼ Αἰγιόχῳ κάλλιστον ὄλβον </l>
-                    <l n="59">
-                        <milestone ed="Steph" n="100" unit="line"/> ἀμφέπων ναίει, τετίματαί τε πρὸς
-                        ἀθανάτων φίλος, Ἥβαν τʼ ὀπυίει, </l>
-                    <l n="60"> χρυσέων οἴκων ἄναξ καὶ γαμβρὸς Ἥρας. <milestone n="ant. 4" unit="strophe"/>
-                    </l>
-                    <l n="61"> τῷ μὲν Ἀλεκτρᾶν ὕπερθεν δαῖτα πορσύνοντες ἀστοὶ </l>
-                    <l n="62"> καὶ νεόδματα στεφανώματα βωμῶν αὔξομεν </l>
-                    <l n="63"> ἔμπυρα χαλκοαρᾶν ὀκτὼ θανόντων, </l>
-                    <l n="64"> τοὺς Μεγάρα τέκε οἱ Κρειοντὶς υἱούς· </l>
-                    <l n="65">
-                        <milestone ed="Steph" n="110" unit="line"/> τοῖσιν ἐν δυθμαῖσιν αὐγᾶν φλὸξ
-                        ἀνατελλομένα συνεχὲς παννυχίζει </l>
-                    <l n="66"> αἰθέρα κνις <seg type="sling" part="N">άε</seg> ντι λακτίζοισα καπνῷ,
-                            <milestone n="epode 4" unit="strophe"/>
-                    </l>
-                    <l n="67"> καὶ δεύτερον ἆμαρ ἐτείων τέρμʼ ἀέθλων </l>
-                    <l n="68"> γίνεται, ἰσχύος ἔργον. </l>
-                    <l n="69"> ἔνθα λευκωθεὶς κάρα </l>
-                    <l n="70"> μύρτοις ὅδʼ ἀνὴρ διπλόαν </l>
-                    <l n="71">
-                        <milestone ed="Steph" n="120" unit="line"/> νίκαν ἀνεφάνατο παίδων
-                            <add>τε</add> τρίταν πρόσθεν, κυβερνατῆρος οἰακοστρόφου </l>
-                    <l n="72"> γνώμᾳ πεπιθὼν πολυβούλῳ. σὺν Ὀρσέᾳ δέ νιν κωμάξομαι, τερπνὰν ἐπιστάζων
-                        χάριν. </l>
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="1"> ἔστι μοι θεῶν ἕκατι μυρία παντᾷ κέλευθος· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="2"> ὦ Μέλισσʼ, εὐμαχανίαν γὰρ ἔφανας Ἰσθμίοις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="3"> ὑμετέρας ἀρετὰς ὕμνῳ διώκειν· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="4"> αἷσι Κλεωνυμίδαι θάλλοντες αἰεὶ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="5"> σὺν θεῷ θνατὸν διέρχονται βιότου τέλος. ἄλλοτε δʼ ἀλλοῖος οὖρος </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="6"><milestone ed="Steph" n="10" unit="line"/> πάντας ἀνθρώπους ἐπαΐσσων ἐλαύνει. </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="7"> τοὶ μὲν ὦν Θήβαισι τιμάεντες ἀρχᾶθεν λέγονται </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="8"> πρόξενοί τʼ ἀμφικτιόνων κελαδεννᾶς τʼ ὀρφανοὶ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="9"> ὕβριος· ὅσσα δʼ ἐπʼ ἀνθρώπους ἄηται </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="10"> μαρτύρια φθιμένων ζωῶν τε φωτῶν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="11"> ἀπλέτου δόξας, ἐπέψαυσαν κατὰ πᾶν τέλος· ἀνορέαις δʼ ἐσχάταισιν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="12"><milestone ed="Steph" n="20" unit="line"/> οἴκοθεν στάλαισιν ἅπτονθʼ Ἡρακλείαις· </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="13"> καὶ μηκέτι μακροτέραν σπεύδειν ἀρετάν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="14"> ἱπποτρόφοι τʼ ἐγένοντο, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="15"> χαλκέῳ τʼ Ἄρει ἅδον. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="16"> ἀλλʼ ἁμέρᾳ γὰρ ἐν μιᾷ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="17"> τραχεῖα νιφὰς πολέμοιο τεσσάρων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="17b"> ἀνδρῶν ἐρήμωσεν μάκαιραν ἑστίαν· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="18"> νῦν δʼ αὖ μετὰ χειμέριον ποικίλων μηνῶν ζόφον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="18b"><milestone ed="Steph" n="30" unit="line"/> χθὼν ὥτε φοινικέοισιν ἄνθησεν ῥόδοις </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="19"> δαιμόνων βουλαῖς. ὁ κινητὴρ δὲ γᾶς Ὀγχηστὸν οἰκέων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="20"> καὶ γέφυραν ποντιάδα πρὸ Κορίνθου τειχέων, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="21"> τόνδε πορὼν γενεᾷ θαυμαστὸν ὕμνον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="22"> ἐκ λεχέων ἀνάγει φάμαν παλαιὰν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="23"><milestone ed="Steph" n="40" unit="line"/> εὐκλέων ἔργων· ἐν ὕπνῳ γὰρ πέσεν· ἀλλʼ ἀνεγειρομένα χρῶτα λάμπει, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="24"> Ἀωσφόρος θαητὸς ὣς ἄστροις ἐν ἄλλοις· </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="25"> ἅ τε κἀν γουνοῖς Ἀθανᾶν ἅρμα καρύξαισα νικᾶν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="26"> ἔν τʼ Ἀδραστείοις ἀέθλοις Σικυῶνος ὤπασεν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="27"> τοιάδε τῶν τότʼ ἐόντων φύλλʼ ἀοιδᾶν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="28"> οὐδὲ παναγυρίων ξυνᾶν ἀπεῖχον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="29"><milestone ed="Steph" n="50" unit="line"/> καμπύλον δίφρον, Πανελλάνεσσι δʼ ἐριζόμενοι δαπάνᾳ χαῖρον ἵππων. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="30"> τῶν ἀπειράτων γὰρ ἄγνωστοι σιωπαί, </l>
+                   <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="31"> ἔστιν δʼ ἀφάνεια τύχας καὶ μαρναμένων, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="32"> πρὶν τέλος ἄκρον ἱκέσθαι· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="33"> τῶν τε γὰρ καὶ τῶν διδοῖ· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="34"> καὶ κρέσσονʼ ἀνδρῶν χειρόνων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="35"><milestone ed="Steph" n="59" unit="line"/> ἔσφαλε τέχνα καταμάρψαισʼ. ἴστε μὰν Αἴαντος ἀλκὰν φοίνιον, τὰν ὀψίᾳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="36"> ἐν νυκτὶ ταμὼν περὶ ᾧ φασγάνῳ, μομφὰν ἔχει παίδεσσιν Ἑλλάνων ὅσοι Τρῴανδʼ ἔβαν. </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="37"> ἀλλʼ Ὅμηρός τοι τετίμακεν διʼ ἀνθρώπων, ὃς αὐτοῦ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="38"> πᾶσαν ὀρθώσαις ἀρετὰν κατὰ ῥάβδον ἔφρασεν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="39"> θεσπεσίων ἐπέων λοιποῖς ἀθύρειν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="40"> τοῦτο γὰρ ἀθάνατον φωνᾶεν ἕρπει, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="41"><milestone ed="Steph" n="70" unit="line"/> εἴ τις εὖ εἴπῃ τι· καὶ πάγκαρπον ἐπὶ χθόνα καὶ διὰ πόντον βέβακεν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="42"> ἑργμάτων ἀκτὶς καλῶν ἄσβεστος αἰεί. </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="43"> προφρόνων Μοισᾶν τύχοιμεν, κεῖνον ἅψαι πυρσὸν ὕμνων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="44"> καὶ Μελίσσῳ, παγκρατίου στεφάνωμʼ ἐπάξιον, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="45"> ἔρνεϊ Τελεσιάδα. τόλμᾳ γὰρ εἰκὼς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="46"> θυμὸν ἐριβρεμετᾶν θηρῶν λεόντων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="47"><milestone ed="Steph" n="80" unit="line"/> ἐν πόνῳ, μῆτιν δʼ ἀλώπηξ, αἰετοῦ ἅ τʼ ἀναπιτναμένα ῥόμβον ἴσχει. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="48"> χρὴ δὲ πᾶν ἔρδοντα μαυρῶσαι τὸν ἐχθρόν. </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="49"> οὐ γὰρ φύσιν Ὠαριωνείαν ἔλαχεν· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="50"> ἀλλʼ ὀνοτὸς μὲν ἰδέσθαι, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="51"> συμπεσεῖν δʼ ἀκμᾷ βαρύς. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="52"> καίτοι πότʼ Ἀνταίου δόμους </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="53"><milestone ed="Steph" n="90" unit="line"/> Θηβᾶν ἀπὸ Καδμεϊᾶν μορφὰν βραχύς, ψυχὰν δʼ ἄκαμπτος, προσπαλαίσων ἦλθʼ ἀνὴρ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="54"> τὰν πυροφόρον Λιβύαν, κρανίοις ὄφρα ξένων ναὸν Ποσειδάωνος ἐρέφοντα σχέθοι, </l>
+                   <milestone unit="strophe" subtype="str." n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="55"> υἱὸς Ἀλκμήνας· ὃς Οὐλυμπόνδʼ ἔβα, γαίας τε πάσας </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="56"> καὶ βαθύκρημνον πολιᾶς ἁλὸς ἐξευρὼν θέναρ, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="57"> ναυτιλίαισί τε πορθμὸν ἁμερώσαις. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="58"> νῦν δὲ παρʼ Αἰγιόχῳ κάλλιστον ὄλβον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="59"><milestone ed="Steph" n="100" unit="line"/> ἀμφέπων ναίει, τετίματαί τε πρὸς ἀθανάτων φίλος, Ἥβαν τʼ ὀπυίει, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="60"> χρυσέων οἴκων ἄναξ καὶ γαμβρὸς Ἥρας. </l>
+                   <milestone unit="strophe" subtype="ant." n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="61"> τῷ μὲν Ἀλεκτρᾶν ὕπερθεν δαῖτα πορσύνοντες ἀστοὶ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="62"> καὶ νεόδματα στεφανώματα βωμῶν αὔξομεν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="63"> ἔμπυρα χαλκοαρᾶν ὀκτὼ θανόντων, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="64"> τοὺς Μεγάρα τέκε οἱ Κρειοντὶς υἱούς· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="65"><milestone ed="Steph" n="110" unit="line"/> τοῖσιν ἐν δυθμαῖσιν αὐγᾶν φλὸξ ἀνατελλομένα συνεχὲς παννυχίζει </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="66"> αἰθέρα κνις <seg type="sling" part="N">άε</seg> ντι λακτίζοισα καπνῷ, </l>
+                   <milestone unit="strophe" subtype="epode" n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="67"> καὶ δεύτερον ἆμαρ ἐτείων τέρμʼ ἀέθλων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="68"> γίνεται, ἰσχύος ἔργον. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="69"> ἔνθα λευκωθεὶς κάρα </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="70"> μύρτοις ὅδʼ ἀνὴρ διπλόαν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="71"><milestone ed="Steph" n="120" unit="line"/> νίκαν ἀνεφάνατο παίδων <add>τε</add> τρίταν πρόσθεν, κυβερνατῆρος οἰακοστρόφου </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="72"> γνώμᾳ πεπιθὼν πολυβούλῳ. σὺν Ὀρσέᾳ δέ νιν κωμάξομαι, τερπνὰν ἐπιστάζων χάριν. </l>
                 </div>
-                <div n="5" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="5">
                     <head>
                         <title xml:lang="grc">ιστημιαν 5</title>
                         <persName xml:lang="grc" type="winner">ΦΥΛΑΚΙΔΑι ΑΙΓΙΝΗΤΗι</persName>
@@ -470,96 +374,81 @@
                         <date> </date>
                     </head>
 
-                    <milestone n="str. 1" unit="strophe"/>
-                    <l n="1"> μᾶτερ Ἁλίου πολυώνυμε Θεία, </l>
-                    <l n="2"> σέο ἕκατι καὶ μεγασθενῆ νόμισαν </l>
-                    <l n="3"> χρυσὸν ἄνθρωποι περιώσιον ἄλλων· </l>
-                    <l n="4"> καὶ γὰρ ἐριζόμεναι </l>
-                    <l n="5"> νᾶες ἐν πόντῳ καὶ <add>ὑφʼ</add> ἅρμασιν ἵπποι </l>
-                    <l n="6"> διὰ τεάν, ὤνασσα, τιμὰν ὠκυδινάτοις ἐν ἁμίλλαισι θαυμασταὶ πέλονται·
-                            <milestone n="ant. 1" unit="strophe"/>
-                    </l>
-                    <l n="7"> ἔν τʼ ἀγωνίοις ἀέθλοισι ποθεινὸν </l>
-                    <l n="8">
-                        <milestone ed="Steph" n="10" unit="line"/> κλέος ἔπραξεν, ὅντινʼ ἀθρόοι
-                        στέφανοι </l>
-                    <l n="9"> χερσὶ νικάσαντʼ ἀνέδησαν ἔθειραν </l>
-                    <l n="10"> ἢ ταχυτᾶτι ποδῶν. </l>
-                    <l n="11"> κρίνεται δʼ ἀλκὰ διὰ δαίμονας ἀνδρῶν. </l>
-                    <l n="12"> δύο δέ τοι ζωᾶς ἄωτον μοῦνα ποιμαίνοντι τὸν ἄλπνιστον εὐανθεῖ σὺν ὄλβῳ,
-                            <milestone n="epode 1" unit="strophe"/>
-                    </l>
-                    <l n="13"> εἴ τις εὖ πάσχων λόγον ἐσλὸν ἀκούῃ. </l>
-                    <l n="14"> μὴ μάτευε Ζεὺς γενέσθαι· πάντʼ ἔχεις, </l>
-                    <l n="15"> εἴ σε τούτων μοῖρʼ ἐφίκοιτο καλῶν. </l>
-                    <l n="16">
-                        <milestone ed="Steph" n="20" unit="line"/> θνατὰ θνατοῖσι πρέπει. </l>
-                    <l n="17"> τὶν δʼ ἐν Ἰσθμῷ διπλόα θάλλοισʼ ἀρετά, </l>
-                    <l n="18"> Φυλακίδα, κεῖται, Νεμέα δὲ καὶ ἀμφοῖν, </l>
-                    <l n="19"> Πυθέᾳ τε παγκρατίου. τὸ δʼ ἐμὸν </l>
-                    <l n="20"> οὐκ ἄτερ Αἰακιδᾶν κέαρ ὕμνων γεύεται· </l>
-                    <l n="21"> σὺν Χάρισιν δʼ ἔμολον Λάμπωνος υἱοῖς <milestone n="str. 2" unit="strophe"/>
-                    </l>
-                    <l n="22"> τάνδʼ ἐς εὔνομον πόλιν. εἰ δὲ τέτραπται </l>
-                    <l n="23"> θεοδότων ἔργων κέλευθον ἂν καθαράν, </l>
-                    <l n="24">
-                        <milestone ed="Steph" n="30" unit="line"/> μὴ φθόνει κόμπον τὸν ἐοικότʼ
-                        ἀοιδᾷ </l>
-                    <l n="25"> κιρνάμεν ἀντὶ πόνων. </l>
-                    <l n="26"> καὶ γὰρ ἡρώων ἀγαθοὶ πολεμισταὶ </l>
-                    <l n="27"> λόγον ἐκέρδαναν, κλέονται δʼ ἔν τε φορμίγγεσσιν ἐν αὐλῶν τε παμφώνοις
-                        ὁμοκλαῖς <milestone n="ant. 2" unit="strophe"/>
-                    </l>
-                    <l n="28"> μυρίον χρόνον· μελέταν δὲ σοφισταῖς </l>
-                    <l n="29"> Διὸς ἕκατι πρόσβαλον σεβιζόμενοι· </l>
-                    <l n="30"> ἐν μὲν Αἰτωλῶν θυσίαισι φαενναῖς </l>
-                    <l n="31"> Οἰνεΐδαι κρατεροί, </l>
-                    <l n="32">
-                        <milestone ed="Steph" n="40" unit="line"/> ἐν δὲ Θήβαις ἱπποσόας Ἰόλαος </l>
-                    <l n="33"> γέρας ἔχει, Περσεὺς δʼ ἐν Ἄργει, Κάστορος δʼ αἰχμὰ Πολυδεύκ <seg type="sling" part="N">εο</seg> ς τʼ ἐπʼ Εὐρώτα ῥεέθροις. <milestone n="epode 2" unit="strophe"/>
-                    </l>
-                    <l n="34"> ἀλλʼ ἐν Οἰνώνᾳ μεγαλήτορες ὀργαὶ </l>
-                    <l n="35"> Αἰακοῦ παίδων τε· τοὶ καὶ σὺν μάχαις </l>
-                    <l n="36"> δὶς πόλιν Τρώων πράθον ἑσπόμενοι </l>
-                    <l n="37"> Ἡρακλῆϊ πρότερον, </l>
-                    <l n="38"> καὶ σὺν Ἀτρείδαις. ἔλα νῦν μοι πεδόθεν· </l>
-                    <l n="39"> λέγε, τίνες Κύκνον, τίνες Ἕκτορα πέφνον, </l>
-                    <l n="40">
-                        <milestone ed="Steph" n="50" unit="line"/> καὶ στράταρχον Αἰθιόπων ἄφοβον </l>
-                    <l n="41"> Μέμνονα χαλκοάραν· τίς ἄρʼ ἐσλὸν Τήλεφον </l>
-                    <l n="42"> τρῶσεν ἑῷ δορὶ Καΐκου παρʼ ὄχθαις; <milestone n="str. 3" unit="strophe"/>
-                    </l>
-                    <l n="43"> τοῖσιν Αἴγιναν προφέρει στόμα πάτραν </l>
-                    <l n="44"> διαπρεπέα νᾶσον· τετείχισται δὲ πάλαι </l>
-                    <l n="45"> πύργος ὑψηλαῖς ἀρεταῖς ἀναβαίνειν. </l>
-                    <l n="46"> πολλὰ μὲν ἀρτιεπὴς </l>
-                    <l n="47"> γλῶσσά μοι τοξεύματʼ ἔχει περὶ κείνων </l>
-                    <l n="48">
-                        <milestone ed="Steph" n="60" unit="line"/> κελαδέσαι· καὶ νῦν ἐν Ἄρει
-                        μαρτυρήσαι κεν πόλις Αἴαντος ὀρθωθεῖσα ναύταις <milestone n="ant. 3" unit="strophe"/>
-                    </l>
-                    <l n="49"> ἐν πολυφθόρῳ Σαλαμὶς Διὸς ὄμβρῳ </l>
-                    <l n="50"> ἀναρίθμων ἀνδρῶν χαλαζάεντι φόνῳ. </l>
-                    <l n="51"> ἀλλʼ ὅμως καύχημα κατάβρεχε σιγᾷ· </l>
-                    <l n="52"> Ζεὺς τά τε καὶ τὰ νέμει, </l>
-                    <l n="53"> Ζεὺς ὁ πάντων κύριος. ἐν δʼ ἐρατεινῷ </l>
-                    <l n="54">
-                        <milestone ed="Steph" n="70" unit="line"/> μέλιτι καὶ τοιαίδε τιμαὶ
-                        καλλίνικον χάρμʼ ἀγαπάζοντι. μαρνάσθω τις ἔρδων <milestone n="epode 3" unit="strophe"/>
-                    </l>
-                    <l n="55"> ἀμφʼ ἀέθλοισιν γενεὰν Κλεονίκου </l>
-                    <l n="56"> ἐκμαθών· οὔτοι τετύφλωται μακρὸς </l>
-                    <l n="57"> μόχθος ἀνδρῶν· οὐδʼ ὁπόσαι δαπάναι </l>
-                    <l n="58"> ἐλπίδων ἔκνισʼ ὄπιν. </l>
-                    <l n="59"> αἰνέω καὶ Πυθέαν ἐν γυιοδάμαις </l>
-                    <l n="60"> Φυλακίδᾳ πλαγᾶν δρόμον εὐθυπορῆσαι </l>
-                    <l n="61"> χερσὶ δεξιόν, νόῳ ἀντίπαλον. </l>
-                    <l n="62"> λάμβανέ οἱ στέφανον, φέρε δʼ εὔμαλλον μίτραν, </l>
-                    <l n="63">
-                        <milestone ed="Steph" n="80" unit="line"/> καὶ πτερόεντα νέον σύμπεμψον
-                        ὕμνον. </l>
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="1"> μᾶτερ Ἁλίου πολυώνυμε Θεία, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="2"> σέο ἕκατι καὶ μεγασθενῆ νόμισαν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="3"> χρυσὸν ἄνθρωποι περιώσιον ἄλλων· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="4"> καὶ γὰρ ἐριζόμεναι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="5"> νᾶες ἐν πόντῳ καὶ <add>ὑφʼ</add> ἅρμασιν ἵπποι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="6"> διὰ τεάν, ὤνασσα, τιμὰν ὠκυδινάτοις ἐν ἁμίλλαισι θαυμασταὶ πέλονται· </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="7"> ἔν τʼ ἀγωνίοις ἀέθλοισι ποθεινὸν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="8"><milestone ed="Steph" n="10" unit="line"/> κλέος ἔπραξεν, ὅντινʼ ἀθρόοι στέφανοι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="9"> χερσὶ νικάσαντʼ ἀνέδησαν ἔθειραν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="10"> ἢ ταχυτᾶτι ποδῶν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="11"> κρίνεται δʼ ἀλκὰ διὰ δαίμονας ἀνδρῶν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="12"> δύο δέ τοι ζωᾶς ἄωτον μοῦνα ποιμαίνοντι τὸν ἄλπνιστον εὐανθεῖ σὺν ὄλβῳ, </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="13"> εἴ τις εὖ πάσχων λόγον ἐσλὸν ἀκούῃ. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="14"> μὴ μάτευε Ζεὺς γενέσθαι· πάντʼ ἔχεις, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="15"> εἴ σε τούτων μοῖρʼ ἐφίκοιτο καλῶν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="16"><milestone ed="Steph" n="20" unit="line"/> θνατὰ θνατοῖσι πρέπει. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="17"> τὶν δʼ ἐν Ἰσθμῷ διπλόα θάλλοισʼ ἀρετά, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="18"> Φυλακίδα, κεῖται, Νεμέα δὲ καὶ ἀμφοῖν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="19"> Πυθέᾳ τε παγκρατίου. τὸ δʼ ἐμὸν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="20"> οὐκ ἄτερ Αἰακιδᾶν κέαρ ὕμνων γεύεται· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="21"> σὺν Χάρισιν δʼ ἔμολον Λάμπωνος υἱοῖς </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="22"> τάνδʼ ἐς εὔνομον πόλιν. εἰ δὲ τέτραπται </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="23"> θεοδότων ἔργων κέλευθον ἂν καθαράν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="24"><milestone ed="Steph" n="30" unit="line"/> μὴ φθόνει κόμπον τὸν ἐοικότʼ ἀοιδᾷ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="25"> κιρνάμεν ἀντὶ πόνων. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="26"> καὶ γὰρ ἡρώων ἀγαθοὶ πολεμισταὶ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="27"> λόγον ἐκέρδαναν, κλέονται δʼ ἔν τε φορμίγγεσσιν ἐν αὐλῶν τε παμφώνοις ὁμοκλαῖς </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="28"> μυρίον χρόνον· μελέταν δὲ σοφισταῖς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="29"> Διὸς ἕκατι πρόσβαλον σεβιζόμενοι· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="30"> ἐν μὲν Αἰτωλῶν θυσίαισι φαενναῖς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="31"> Οἰνεΐδαι κρατεροί, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="32"><milestone ed="Steph" n="40" unit="line"/> ἐν δὲ Θήβαις ἱπποσόας Ἰόλαος </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="33"> γέρας ἔχει, Περσεὺς δʼ ἐν Ἄργει, Κάστορος δʼ αἰχμὰ Πολυδεύκ <seg type="sling" part="N">εο</seg> ς τʼ ἐπʼ Εὐρώτα ῥεέθροις. </l>
+                   <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="34"> ἀλλʼ ἐν Οἰνώνᾳ μεγαλήτορες ὀργαὶ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="35"> Αἰακοῦ παίδων τε· τοὶ καὶ σὺν μάχαις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="36"> δὶς πόλιν Τρώων πράθον ἑσπόμενοι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="37"> Ἡρακλῆϊ πρότερον, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="38"> καὶ σὺν Ἀτρείδαις. ἔλα νῦν μοι πεδόθεν· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="39"> λέγε, τίνες Κύκνον, τίνες Ἕκτορα πέφνον, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="40"><milestone ed="Steph" n="50" unit="line"/> καὶ στράταρχον Αἰθιόπων ἄφοβον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="41"> Μέμνονα χαλκοάραν· τίς ἄρʼ ἐσλὸν Τήλεφον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="42"> τρῶσεν ἑῷ δορὶ Καΐκου παρʼ ὄχθαις; </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="43"> τοῖσιν Αἴγιναν προφέρει στόμα πάτραν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="44"> διαπρεπέα νᾶσον· τετείχισται δὲ πάλαι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="45"> πύργος ὑψηλαῖς ἀρεταῖς ἀναβαίνειν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="46"> πολλὰ μὲν ἀρτιεπὴς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="47"> γλῶσσά μοι τοξεύματʼ ἔχει περὶ κείνων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="48"><milestone ed="Steph" n="60" unit="line"/> κελαδέσαι· καὶ νῦν ἐν Ἄρει μαρτυρήσαι κεν πόλις Αἴαντος ὀρθωθεῖσα ναύταις </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="49"> ἐν πολυφθόρῳ Σαλαμὶς Διὸς ὄμβρῳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="50"> ἀναρίθμων ἀνδρῶν χαλαζάεντι φόνῳ. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="51"> ἀλλʼ ὅμως καύχημα κατάβρεχε σιγᾷ· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="52"> Ζεὺς τά τε καὶ τὰ νέμει, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="53"> Ζεὺς ὁ πάντων κύριος. ἐν δʼ ἐρατεινῷ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="54"><milestone ed="Steph" n="70" unit="line"/> μέλιτι καὶ τοιαίδε τιμαὶ καλλίνικον χάρμʼ ἀγαπάζοντι. μαρνάσθω τις ἔρδων </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="55"> ἀμφʼ ἀέθλοισιν γενεὰν Κλεονίκου </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="56"> ἐκμαθών· οὔτοι τετύφλωται μακρὸς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="57"> μόχθος ἀνδρῶν· οὐδʼ ὁπόσαι δαπάναι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="58"> ἐλπίδων ἔκνισʼ ὄπιν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="59"> αἰνέω καὶ Πυθέαν ἐν γυιοδάμαις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="60"> Φυλακίδᾳ πλαγᾶν δρόμον εὐθυπορῆσαι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="61"> χερσὶ δεξιόν, νόῳ ἀντίπαλον. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="62"> λάμβανέ οἱ στέφανον, φέρε δʼ εὔμαλλον μίτραν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="63"><milestone ed="Steph" n="80" unit="line"/> καὶ πτερόεντα νέον σύμπεμψον ὕμνον. </l>
                 </div>
-                <div n="6" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="6">
                     <head>
                         <title xml:lang="grc">ιστημιαν 6</title>
                         <persName xml:lang="grc" type="winner">ΦΥΛΑΚΙΔΑι ΑΙΓΙΝΗΤΗι</persName>
@@ -567,124 +456,93 @@
                         <date> </date>
                     </head>
 
-                    <milestone n="str. 1" unit="strophe"/>
-                    <l n="1"> θάλλοντος ἀνδρῶν ὡς ὅτε συμποσίου </l>
-                    <l n="2"> δεύτερον κρητῆρα Μοισαίων μελέων </l>
-                    <l n="3"> κίρναμεν Λάμπωνος εὐάθλου γενεᾶς ὕπερ, ἐν Νεμέᾳ μὲν πρῶτον, ὦ Ζεῦ, </l>
-                    <l n="4"> τίν γʼ ἄωτον δεξάμενοι στεφάνων, </l>
-                    <l n="5"> νῦν αὖτε Ἰσθμοῦ δεσπότᾳ </l>
-                    <l n="6"> Νηρεΐδεσσί τε πεντήκοντα, παίδων ὁπλοτάτου </l>
-                    <l n="7">
-                        <milestone ed="Steph" n="10" unit="line"/> Φυλακίδα νικῶντος. εἴη δὲ τρίτον </l>
-                    <l n="8"> σωτῆρι πορσαίνοντας Ὀλυμπίῳ Αἴγιναν κάτα </l>
-                    <l n="9"> σπένδειν μελιφθόγγοις ἀοιδαῖς. <milestone n="ant. 1" unit="strophe"/>
-                    </l>
-                    <l n="10"> εἰ γάρ τις ἀνθρώπων δαπάνᾳ τε χαρεὶς </l>
-                    <l n="11"> καὶ πόνῳ πράσσει θεοδμάτους ἀρετάς, </l>
-                    <l n="12"> σύν τέ οἱ δαίμων φυτεύει δόξαν ἐπήρατον, ἐσχατιαῖς ἤδη πρὸς ὄλβου </l>
-                    <l n="13"> βάλλετʼ ἄγκυραν θεότιμος ἐών. </l>
-                    <l n="14">
-                        <milestone ed="Steph" n="20" unit="line"/> τοίαισιν ὀργαῖς εὔχεται </l>
-                    <l n="15"> ἀντιάσαις Ἀΐδαν γῆράς τε δέξασθαι πολιὸν </l>
-                    <l n="16"> ὁ Κλεονίκου παῖς· ἐγὼ δʼ ὑψίθρονον </l>
-                    <l n="17"> Κλωθὼ κασιγνήτας τε προσεννέπω ἑσπέσθαι κλυταῖς </l>
-                    <l n="18"> ἀνδρὸς φίλου Μοίρας ἐφετμαῖς. <milestone n="epode 1" unit="strophe"/>
-                    </l>
-                    <l n="19"> ὔμμε τʼ, ὦ χρυσάρματοι Αἰακίδαι, </l>
-                    <l n="20"> τέθμιόν μοι φαμὶ σαφέστατον ἔμμεν </l>
-                    <l n="21">
-                        <milestone ed="Steph" n="30" unit="line"/> τάνδʼ ἐπιστείχοντα νᾶσον ῥαινέμεν
-                        εὐλογίαις. </l>
-                    <l n="22"> μυρίαι δʼ ἔργων καλῶν τέτμηνθʼ ἑκατόμπεδοι ἐν σχερῷ κέλευθοι, </l>
-                    <l n="23"> καὶ πέραν Νείλοιο παγᾶν καὶ διʼ Ὑπερβορέους· </l>
-                    <l n="24"> οὐδʼ ἔστιν οὕτω βάρβαρος οὔτε παλίγγλωσσος πόλις, </l>
-                    <l n="25"> ἅτις οὐ Πηλέος ἀΐει κλέος ἥρωος, εὐδαίμονος γαμβροῦ θεῶν, <milestone n="str. 2" unit="strophe"/>
-                    </l>
-                    <l n="26"> οὐδʼ ἅτις Αἴαντος Τελαμωνιάδα </l>
-                    <l n="27"> καὶ πατρός· τὸν χαλκοχάρμαν ἐς πόλεμον </l>
-                    <l n="28">
-                        <milestone ed="Steph" n="40" unit="line"/> ἆγε σὺν Τιρυνθίοισι πρόφρονα
-                        σύμμαχον ἐς Τρωΐαν, ἥρωσι μόχθον, </l>
-                    <l n="29"> Λαομεδοντίαν ὑπὲρ ἀμπλακίαν </l>
-                    <l n="30"> ἐν ναυσὶν Ἀλκμήνας τέκος. </l>
-                    <l n="31"> εἷλε δὲ Περγαμίαν, πέφνεν δὲ σὺν κείνῳ Μερόπων </l>
-                    <l n="32"> ἔθνεα καὶ τὸν βουβόταν οὔρεϊ ἴσον </l>
-                    <l n="33"> Φλέγραισιν εὑρὼν Ἀλκυονῆ, σφετέρας δʼ οὐ φείσατο </l>
-                    <l n="34">
-                        <milestone ed="Steph" n="50" unit="line"/> χερσὶν βαρυφθόγγοιο νευρᾶς
-                            <milestone n="ant. 2" unit="strophe"/>
-                    </l>
-                    <l n="35"> Ἡρακλέης. ἀλλʼ Αἰακίδαν καλέων </l>
-                    <l n="36"> ἐς πλόον <add>κεῖνον</add> κύρησε δαινυμένων. </l>
-                    <l n="37"> τὸν μὲν ἐν ῥινῷ λέοντος στάντα κελήσατο νεκταρέαις σπονδαῖσιν ἄρξαι </l>
-                    <l n="38"> καρτεραίχμαν Ἀμφιτρυωνιάδαν, </l>
-                    <l n="39"> ἄνδωκε δʼ αὐτῷ φέρτατος </l>
-                    <l n="40"> οἰνοδόκον φιάλαν χρυσῷ πεφρικυῖαν Τελαμών, </l>
-                    <l n="41">
-                        <milestone ed="Steph" n="60" unit="line"/> ὁ δʼ ἀνατείναις οὐρανῷ χεῖρας
-                        ἀμάχους </l>
-                    <l n="42"> αὔδασε τοιοῦτον ἔπος· <q type="unspecified"> εἴ ποτʼ ἐμάν, ὦ Ζεῦ πάτερ,
-                        </q></l>
-                    <l n="43">
-                        <q type="unspecified">θυμῷ ἐθέλων ἀρὰν ἄκουσας, <milestone n="epode 2" unit="strophe"/>
-                        </q>
-                    </l>
-                    <l n="44"><q type="unspecified"> νῦν σε, νῦν εὐχαῖς ὑπὸ θεσπεσίαις </q></l>
-                    <l n="45"><q type="unspecified"> λίσσομαι παῖδα θρασὺν ἐξ Ἐριβοίας</q>
-                    </l>
-                    <l n="46"><q type="unspecified"> ἀνδρὶ τῷδε, ξεῖνον ἀμὸν μοιρίδιον τελέσαι,</q>
-                    </l>
-                    <l n="47"><q type="unspecified"> τὸν μὲν ἄρρηκτον φυάν, ὥσπερ τόδε δέρμα με νῦν
-                            περιπλανᾶται </q></l>
-                    <l n="48"><q type="unspecified">
-                            <milestone ed="Steph" n="70" unit="line"/> θηρός, ὃν πάμπρωτον ἄθλων
-                            κτεῖνά ποτʼ ἐν Νεμέᾳ·</q>
-                    </l>
-                    <l n="49">
-                        <q type="unspecified">θυμὸς δʼ ἑπέσθω. </q> ταῦτʼ ἄρα οἱ φαμένῳ πέμψεν θεὸς </l>
-                    <l n="50"> ἀρχὸν οἰωνῶν μέγαν αἰετόν· ἁδεῖα δʼ ἔνδον νιν ἔκνιξεν χάρις,
-                            <milestone n="str. 3" unit="strophe"/>
-                    </l>
-                    <l n="51"> εἶπέν τε φωνήσαις ἅτε μάντις ἀνήρ· </l>
-                    <l n="52">
-                        <q type="unspecified"> ἔσσεταί τοι παῖς, ὃν αἰτεῖς, ὦ Τελαμών· </q></l>
-                    <l n="53"><q type="unspecified"> καί νιν ὄρνιχος φανέντος κέκλεʼ ἐπώνυμον εὐρυβίαν
-                            Αἴαντα, λαῶν </q></l>
-                    <l n="54"><q type="unspecified">
-                            <milestone ed="Steph" n="80" unit="line"/> ἐν πόνοις ἔκπαγλον Ἐνυαλίου.
-                        </q>
-                    </l>
-                    <l n="55"> ὣς ἆρα εἰπὼν αὐτίκα </l>
-                    <l n="56"> ἕζετʼ. ἐμοὶ δὲ μακρὸν πάσας <add>ἀν</add> αγήσασθʼ ἀρετάς· </l>
-                    <l n="57"> Φυλακίδᾳ γὰρ ἦλθον, ὦ Μοῖσα, ταμίας </l>
-                    <l n="58"> Πυθέᾳ τε κώμων Εὐθυμένει τε. τὸν Ἀργείων τρόπον </l>
-                    <l n="59"> εἰρήσεταί που κἀν βραχίστοις. <milestone n="ant. 3" unit="strophe"/>
-                    </l>
-                    <l n="60"> ἄραντο γὰρ νίκας ἀπὸ παγκρατίου </l>
-                    <l n="61"> τρεῖς ἀπʼ Ἰσθμοῦ, τὰς δʼ ἀπʼ εὐφύλλου Νεμέας, </l>
-                    <l n="62">
-                        <milestone ed="Steph" n="90" unit="line"/> ἀγλαοὶ παῖδές τε καὶ μάτρως· ἀνὰ
-                        δʼ ἄγαγον ἐς φάος οἵαν μοῖραν ὕμνων· </l>
-                    <l n="63"> τὰν Ψαλυχιδᾶν δὲ πάτραν Χαρίτων </l>
-                    <l n="64"> ἄρδοντι καλλίστᾳ δρόσῳ, </l>
-                    <l n="65"> τόν τε Θεμιστίου ὀρθώσαντες οἶκον τάνδε πόλιν </l>
-                    <l n="66"> θεοφιλῆ ναίοισι. Λάμπων δὲ μελέταν </l>
-                    <l n="67"> ἔργοις ὀπάζων Ἡσιόδου μάλα τιμᾷ τοῦτʼ ἔπος, </l>
-                    <l n="68">
-                        <milestone ed="Steph" n="100" unit="line"/> υἱοῖσί τε φράζων παραινεῖ,
-                            <milestone n="epode 3" unit="strophe"/>
-                    </l>
-                    <l n="69"> ξυνὸν ἄστει κόσμον ἑῷ προσάγων, </l>
-                    <l n="70"> καὶ ξένων εὐεργεσίαις ἀγαπᾶται, </l>
-                    <l n="71"> μέτρα μὲν γνώμᾳ διώκων, μέτρα δὲ καὶ κατέχων· </l>
-                    <l n="72"> γλῶσσα δʼ οὐκ ἔξω φρενῶν· φαίης κέ νιν ἀνδράσιν ἀθληταῖσιν ἔμμεν </l>
-                    <l n="73"> Ναξίαν πέτραις ἐν ἄλλαις χαλκοδάμαντʼ ἀκόναν. </l>
-                    <l n="74"> πίσω σφε Δίρκας ἁγνὸν ὕδωρ, τὸ βαθύζωνοι κόραι </l>
-                    <l n="75">
-                        <milestone ed="Steph" n="110" unit="line"/> χρυσοπέπλου Μναμοσύνας ἀνέτειλαν
-                        παρʼ εὐτειχέσιν Κάδμου πύλαις. </l>
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="1"> θάλλοντος ἀνδρῶν ὡς ὅτε συμποσίου </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="2"> δεύτερον κρητῆρα Μοισαίων μελέων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="3"> κίρναμεν Λάμπωνος εὐάθλου γενεᾶς ὕπερ, ἐν Νεμέᾳ μὲν πρῶτον, ὦ Ζεῦ, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="4"> τίν γʼ ἄωτον δεξάμενοι στεφάνων, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="5"> νῦν αὖτε Ἰσθμοῦ δεσπότᾳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="6"> Νηρεΐδεσσί τε πεντήκοντα, παίδων ὁπλοτάτου </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="7"><milestone ed="Steph" n="10" unit="line"/> Φυλακίδα νικῶντος. εἴη δὲ τρίτον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="8"> σωτῆρι πορσαίνοντας Ὀλυμπίῳ Αἴγιναν κάτα </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="9"> σπένδειν μελιφθόγγοις ἀοιδαῖς. </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="10"> εἰ γάρ τις ἀνθρώπων δαπάνᾳ τε χαρεὶς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="11"> καὶ πόνῳ πράσσει θεοδμάτους ἀρετάς, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="12"> σύν τέ οἱ δαίμων φυτεύει δόξαν ἐπήρατον, ἐσχατιαῖς ἤδη πρὸς ὄλβου </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="13"> βάλλετʼ ἄγκυραν θεότιμος ἐών. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="14"><milestone ed="Steph" n="20" unit="line"/> τοίαισιν ὀργαῖς εὔχεται </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="15"> ἀντιάσαις Ἀΐδαν γῆράς τε δέξασθαι πολιὸν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="16"> ὁ Κλεονίκου παῖς· ἐγὼ δʼ ὑψίθρονον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="17"> Κλωθὼ κασιγνήτας τε προσεννέπω ἑσπέσθαι κλυταῖς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="18"> ἀνδρὸς φίλου Μοίρας ἐφετμαῖς. </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="19"> ὔμμε τʼ, ὦ χρυσάρματοι Αἰακίδαι, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="20"> τέθμιόν μοι φαμὶ σαφέστατον ἔμμεν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="21"><milestone ed="Steph" n="30" unit="line"/> τάνδʼ ἐπιστείχοντα νᾶσον ῥαινέμεν εὐλογίαις. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="22"> μυρίαι δʼ ἔργων καλῶν τέτμηνθʼ ἑκατόμπεδοι ἐν σχερῷ κέλευθοι, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="23"> καὶ πέραν Νείλοιο παγᾶν καὶ διʼ Ὑπερβορέους· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="24"> οὐδʼ ἔστιν οὕτω βάρβαρος οὔτε παλίγγλωσσος πόλις, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="25"> ἅτις οὐ Πηλέος ἀΐει κλέος ἥρωος, εὐδαίμονος γαμβροῦ θεῶν, </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="26"> οὐδʼ ἅτις Αἴαντος Τελαμωνιάδα </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="27"> καὶ πατρός· τὸν χαλκοχάρμαν ἐς πόλεμον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="28"><milestone ed="Steph" n="40" unit="line"/> ἆγε σὺν Τιρυνθίοισι πρόφρονα σύμμαχον ἐς Τρωΐαν, ἥρωσι μόχθον, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="29"> Λαομεδοντίαν ὑπὲρ ἀμπλακίαν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="30"> ἐν ναυσὶν Ἀλκμήνας τέκος. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="31"> εἷλε δὲ Περγαμίαν, πέφνεν δὲ σὺν κείνῳ Μερόπων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="32"> ἔθνεα καὶ τὸν βουβόταν οὔρεϊ ἴσον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="33"> Φλέγραισιν εὑρὼν Ἀλκυονῆ, σφετέρας δʼ οὐ φείσατο </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="34"><milestone ed="Steph" n="50" unit="line"/> χερσὶν βαρυφθόγγοιο νευρᾶς </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="35"> Ἡρακλέης. ἀλλʼ Αἰακίδαν καλέων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="36"> ἐς πλόον <add>κεῖνον</add> κύρησε δαινυμένων. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="37"> τὸν μὲν ἐν ῥινῷ λέοντος στάντα κελήσατο νεκταρέαις σπονδαῖσιν ἄρξαι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="38"> καρτεραίχμαν Ἀμφιτρυωνιάδαν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="39"> ἄνδωκε δʼ αὐτῷ φέρτατος </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="40"> οἰνοδόκον φιάλαν χρυσῷ πεφρικυῖαν Τελαμών, </l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="41"><milestone ed="Steph" n="60" unit="line"/> ὁ δʼ ἀνατείναις οὐρανῷ χεῖρας ἀμάχους </l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="42"> αὔδασε τοιοῦτον ἔπος· <q> εἴ ποτʼ ἐμάν, ὦ Ζεῦ πάτερ, </q></l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="43"> <q rend="merge">θυμῷ ἐθέλων ἀρὰν ἄκουσας, </q></l>
+                    <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="44"><q rend="merge"> νῦν σε, νῦν εὐχαῖς ὑπὸ θεσπεσίαις </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="45"><q rend="merge"> λίσσομαι παῖδα θρασὺν ἐξ Ἐριβοίας</q> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="46"><q rend="merge"> ἀνδρὶ τῷδε, ξεῖνον ἀμὸν μοιρίδιον τελέσαι,</q> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="47"><q rend="merge"> τὸν μὲν ἄρρηκτον φυάν, ὥσπερ τόδε δέρμα με νῦν περιπλανᾶται </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="48"><milestone ed="Steph" n="70" unit="line"/><q rend="merge"> θηρός, ὃν πάμπρωτον ἄθλων κτεῖνά ποτʼ ἐν Νεμέᾳ·</q> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="49"> <q rend="merge">θυμὸς δʼ ἑπέσθω.</q> ταῦτʼ ἄρα οἱ φαμένῳ πέμψεν θεὸς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="50"> ἀρχὸν οἰωνῶν μέγαν αἰετόν· ἁδεῖα δʼ ἔνδον νιν ἔκνιξεν χάρις, </l>
+                    <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="51"> εἶπέν τε φωνήσαις ἅτε μάντις ἀνήρ· </l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="52"> <q> ἔσσεταί τοι παῖς, ὃν αἰτεῖς, ὦ Τελαμών· </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="53"><q rend="merge"> καί νιν ὄρνιχος φανέντος κέκλεʼ ἐπώνυμον εὐρυβίαν Αἴαντα, λαῶν </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="54"><milestone ed="Steph" n="80" unit="line"/><q rend="merge"> ἐν πόνοις ἔκπαγλον Ἐνυαλίου. </q> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="55"> ὣς ἆρα εἰπὼν αὐτίκα </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="56"> ἕζετʼ. ἐμοὶ δὲ μακρὸν πάσας <add>ἀν</add> αγήσασθʼ ἀρετάς· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="57"> Φυλακίδᾳ γὰρ ἦλθον, ὦ Μοῖσα, ταμίας </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="58"> Πυθέᾳ τε κώμων Εὐθυμένει τε. τὸν Ἀργείων τρόπον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="59"> εἰρήσεταί που κἀν βραχίστοις. </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="60"> ἄραντο γὰρ νίκας ἀπὸ παγκρατίου </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="61"> τρεῖς ἀπʼ Ἰσθμοῦ, τὰς δʼ ἀπʼ εὐφύλλου Νεμέας, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="62"><milestone ed="Steph" n="90" unit="line"/> ἀγλαοὶ παῖδές τε καὶ μάτρως· ἀνὰ δʼ ἄγαγον ἐς φάος οἵαν μοῖραν ὕμνων· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="63"> τὰν Ψαλυχιδᾶν δὲ πάτραν Χαρίτων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="64"> ἄρδοντι καλλίστᾳ δρόσῳ, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="65"> τόν τε Θεμιστίου ὀρθώσαντες οἶκον τάνδε πόλιν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="66"> θεοφιλῆ ναίοισι. Λάμπων δὲ μελέταν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="67"> ἔργοις ὀπάζων Ἡσιόδου μάλα τιμᾷ τοῦτʼ ἔπος, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="68"><milestone ed="Steph" n="100" unit="line"/> υἱοῖσί τε φράζων παραινεῖ, </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="69"> ξυνὸν ἄστει κόσμον ἑῷ προσάγων, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="70"> καὶ ξένων εὐεργεσίαις ἀγαπᾶται, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="71"> μέτρα μὲν γνώμᾳ διώκων, μέτρα δὲ καὶ κατέχων· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="72"> γλῶσσα δʼ οὐκ ἔξω φρενῶν· φαίης κέ νιν ἀνδράσιν ἀθληταῖσιν ἔμμεν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="73"> Ναξίαν πέτραις ἐν ἄλλαις χαλκοδάμαντʼ ἀκόναν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="74"> πίσω σφε Δίρκας ἁγνὸν ὕδωρ, τὸ βαθύζωνοι κόραι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="75"><milestone ed="Steph" n="110" unit="line"/> χρυσοπέπλου Μναμοσύνας ἀνέτειλαν παρʼ εὐτειχέσιν Κάδμου πύλαις. </l>
                 </div>
-                <div n="7" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="7">
                     <head>
                         <title xml:lang="grc">ιστημιαν 7</title>
                         <persName xml:lang="grc" type="winner">ΣΤΡΕΨΙΑΔΗι ΘΗΒΑΙΩι</persName>
@@ -692,85 +550,69 @@
                         <date> </date>
                     </head>
 
-                    <milestone n="str. 1" unit="strophe"/>
-                    <l n="1"> τίνι τῶν πάρος, ὦ μάκαιρα Θήβα, </l>
-                    <l n="2"> καλῶν ἐπιχωρίων μάλιστα θυμὸν τεὸν </l>
-                    <l n="3"> εὔφρανας; ἦ ῥα χαλκοκρότου πάρεδρον </l>
-                    <l n="4"> Δαμάτερος ἁνίκʼ εὐρυχαίταν </l>
-                    <l n="5"> ἄντειλας Διόνυσον; ἢ χρυσῷ μεσονύκτιον νίφοντα δεξαμένα τὸν φέρτατον
-                        θεῶν, <milestone n="ant. 1" unit="strophe"/>
-                    </l>
-                    <l n="6"> ὁπότʼ Ἀμφιτρύωνος ἐν θυρέτροις </l>
-                    <l n="7">
-                        <milestone ed="Steph" n="10" unit="line"/> σταθεὶς ἄλοχον μετῆλθεν
-                        Ἡρακλείοις γοναῖς; </l>
-                    <l n="8"> ἢ ὅτʼ ἀμφὶ πυκναῖς Τειρεσίαο βουλαῖς; </l>
-                    <l n="9"> ἢ ὅτʼ ἀμφʼ Ἰόλαον ἱππόμητιν; </l>
-                    <l n="10"> ἢ Σπαρτῶν ἀκαμαντολογχᾶν; ἢ ὅτε καρτερᾶς Ἄδραστον ἐξ ἀλαλᾶς ἄμπεμψας
-                        ὀρφανὸν <milestone n="epode 1" unit="strophe"/>
-                    </l>
-                    <l n="11"> μυρίων ἑτάρων ἐς Ἄργος ἵππιον; </l>
-                    <l n="12"> ἢ Δωρίδʼ ἀποικίαν οὕνεκεν ὀρθῷ </l>
-                    <l n="13"> ἔστασας ἐπὶ σφυρῷ </l>
-                    <l n="14">
-                        <milestone ed="Steph" n="20" unit="line"/> Λακεδαιμονίων, ἕλον δʼ Ἀμύκλας </l>
-                    <l n="15"> Αἰγεῖδαι σέθεν ἔκγονοι, μαντεύμασι Πυθίοις; </l>
-                    <l n="16"> ἀλλὰ παλαιὰ γὰρ </l>
-                    <l n="17"> εὕδει χάρις, ἀμνάμονες δὲ βροτοί, <milestone n="str. 2" unit="strophe"/>
-                    </l>
-                    <l n="18"> ὅ τι μὴ σοφίας ἄωτον ἄκρον </l>
-                    <l n="19"> κλυταῖς ἐπέων ῥοαῖσιν ἐξίκηται ζυγέν. </l>
-                    <l n="20"> κώμαζʼ ἔπειτεν ἁδυμελεῖ σὺν ὕμνῳ </l>
-                    <l n="21"> καὶ Στρεψιάδᾳ· φέρει γὰρ Ἰσθμοῖ </l>
-                    <l n="22">
-                        <milestone ed="Steph" n="30" unit="line"/> νίκαν παγκρατίου· σθένει τʼ
-                        ἔκπαγλος ἰδεῖν τε μορφάεις· ἄγει τʼ ἀρετὰν οὐκ αἴσχιον φυᾶς. <milestone n="ant. 2" unit="strophe"/>
-                    </l>
-                    <l n="23"> φλέγεται δὲ ἰοπλόκοισι Μοίσαις, </l>
-                    <l n="24"> μάτρωΐ θʼ ὁμωνύμῳ δέδωκε κοινὸν θάλος, </l>
-                    <l n="25"> χάλκασπις ᾧ πότμον μὲν Ἄρης ἔμιξεν, </l>
-                    <l n="26"> τιμὰ δʼ ἀγαθοῖσιν ἀντίκειται. </l>
-                    <l n="27">
-                        <milestone ed="Steph" n="40" unit="line"/> ἴστω γὰρ σαφὲς ὅστις ἐν ταύτᾳ
-                        νεφέλᾳ χάλαζαν αἵματος πρὸ φίλας πάτρας ἀμύνεται, <milestone n="epode 2" unit="strophe"/>
-                    </l>
-                    <l n="28"> λοιγὸν ἄντα φέρων ἐναντίῳ στρατῷ, </l>
-                    <l n="29"> ἀστῶν γενεᾷ μέγιστον κλέος αὔξων </l>
-                    <l n="30"> ζώων τʼ ἀπὸ καὶ θανών. </l>
-                    <l n="31"> τὺ δέ, Διοδότοιο παῖ, μαχατὰν </l>
-                    <l n="32"> αἰνέων Μελέαγρον, αἰνέων δὲ καὶ Ἕκτορα </l>
-                    <l n="33"> Ἀμφιάρηόν τε, </l>
-                    <l n="34"> εὐανθέʼ ἀπέπνευσας ἁλικίαν <milestone n="str. 3" unit="strophe"/>
-                    </l>
-                    <l n="35"> προμάχων ἀνʼ ὅμιλον, ἔνθʼ ἄριστοι </l>
-                    <l n="36">
-                        <milestone ed="Steph" n="50" unit="line"/> ἔσχον πολέμοιο νεῖκος ἐσχάταις
-                        ἐλπίσιν. </l>
-                    <l n="37"> ἔτλαν δὲ πένθος οὐ φατόν· ἀλλὰ νῦν μοι </l>
-                    <l n="38"> Γαιάοχος εὐδίαν ὄπασσεν </l>
-                    <l n="39"> ἐκ χειμῶνος. ἀείσομαι χαίταν στεφάνοισιν ἁρμόσαις. ὁ δʼ ἀθανάτων μὴ θρασσέτω
-                        φθόνος, <milestone n="ant. 3" unit="strophe"/>
-                    </l>
-                    <l n="40"> ὅ τι τερπνὸν ἐφάμερον διώκων </l>
-                    <l n="41"> ἕκαλος ἔπειμι γῆρας ἔς τε τὸν μόρσιμον </l>
-                    <l n="42"> αἰῶνα. θνᾴσκομεν γὰρ ὁμῶς ἅπαντες· </l>
-                    <l n="43">
-                        <milestone ed="Steph" n="60" unit="line"/> δαίμων δʼ ἄϊσος· τὰ μακρὰ δʼ εἴ
-                        τις </l>
-                    <l n="44"> παπταίνει, βραχὺς ἐξικέσθαι χαλκόπεδον θεῶν ἕδραν· ὅτι πτερόεις ἔρριψε
-                        Πάγασος <milestone n="epode 3" unit="strophe"/>
-                    </l>
-                    <l n="45"> δεσπόταν ἐθέλοντʼ ἐς οὐρανοῦ σταθμοὺς </l>
-                    <l n="46"> ἐλθεῖν μεθʼ ὁμάγυριν Βελλεροφόνταν </l>
-                    <l n="47"> Ζηνός· τὸ δὲ πὰρ δίκαν </l>
-                    <l n="48"> γλυκὺ πικροτάτα μένει τελευτά. </l>
-                    <l n="49">
-                        <milestone ed="Steph" n="70" unit="line"/> ἄμμι δʼ, ὦ χρυσέᾳ κόμᾳ θάλλων,
-                        πόρε, Λοξία, </l>
-                    <l n="50"> τεαῖσιν ἁμίλλαισιν </l>
-                    <l n="51"> εὐανθέα καὶ Πυθόϊ στέφανον. </l>
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="1"> τίνι τῶν πάρος, ὦ μάκαιρα Θήβα, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="2"> καλῶν ἐπιχωρίων μάλιστα θυμὸν τεὸν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="3"> εὔφρανας; ἦ ῥα χαλκοκρότου πάρεδρον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="4"> Δαμάτερος ἁνίκʼ εὐρυχαίταν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="5"> ἄντειλας Διόνυσον; ἢ χρυσῷ μεσονύκτιον νίφοντα δεξαμένα τὸν φέρτατον θεῶν, </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="6"> ὁπότʼ Ἀμφιτρύωνος ἐν θυρέτροις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="7"><milestone ed="Steph" n="10" unit="line"/> σταθεὶς ἄλοχον μετῆλθεν Ἡρακλείοις γοναῖς; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="8"> ἢ ὅτʼ ἀμφὶ πυκναῖς Τειρεσίαο βουλαῖς; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="9"> ἢ ὅτʼ ἀμφʼ Ἰόλαον ἱππόμητιν; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="10"> ἢ Σπαρτῶν ἀκαμαντολογχᾶν; ἢ ὅτε καρτερᾶς Ἄδραστον ἐξ ἀλαλᾶς ἄμπεμψας ὀρφανὸν </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="11"> μυρίων ἑτάρων ἐς Ἄργος ἵππιον; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="12"> ἢ Δωρίδʼ ἀποικίαν οὕνεκεν ὀρθῷ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="13"> ἔστασας ἐπὶ σφυρῷ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="14"><milestone ed="Steph" n="20" unit="line"/> Λακεδαιμονίων, ἕλον δʼ Ἀμύκλας </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="15"> Αἰγεῖδαι σέθεν ἔκγονοι, μαντεύμασι Πυθίοις; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="16"> ἀλλὰ παλαιὰ γὰρ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="17"> εὕδει χάρις, ἀμνάμονες δὲ βροτοί, </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="18"> ὅ τι μὴ σοφίας ἄωτον ἄκρον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="19"> κλυταῖς ἐπέων ῥοαῖσιν ἐξίκηται ζυγέν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="20"> κώμαζʼ ἔπειτεν ἁδυμελεῖ σὺν ὕμνῳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="21"> καὶ Στρεψιάδᾳ· φέρει γὰρ Ἰσθμοῖ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="22"><milestone ed="Steph" n="30" unit="line"/> νίκαν παγκρατίου· σθένει τʼ ἔκπαγλος ἰδεῖν τε μορφάεις· ἄγει τʼ ἀρετὰν οὐκ αἴσχιον φυᾶς. </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="23"> φλέγεται δὲ ἰοπλόκοισι Μοίσαις, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="24"> μάτρωΐ θʼ ὁμωνύμῳ δέδωκε κοινὸν θάλος, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="25"> χάλκασπις ᾧ πότμον μὲν Ἄρης ἔμιξεν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="26"> τιμὰ δʼ ἀγαθοῖσιν ἀντίκειται. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="27"><milestone ed="Steph" n="40" unit="line"/> ἴστω γὰρ σαφὲς ὅστις ἐν ταύτᾳ νεφέλᾳ χάλαζαν αἵματος πρὸ φίλας πάτρας ἀμύνεται, </l>
+                   <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="28"> λοιγὸν ἄντα φέρων ἐναντίῳ στρατῷ, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="29"> ἀστῶν γενεᾷ μέγιστον κλέος αὔξων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="30"> ζώων τʼ ἀπὸ καὶ θανών. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="31"> τὺ δέ, Διοδότοιο παῖ, μαχατὰν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="32"> αἰνέων Μελέαγρον, αἰνέων δὲ καὶ Ἕκτορα </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="33"> Ἀμφιάρηόν τε, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="34"> εὐανθέʼ ἀπέπνευσας ἁλικίαν </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="35"> προμάχων ἀνʼ ὅμιλον, ἔνθʼ ἄριστοι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="36"><milestone ed="Steph" n="50" unit="line"/> ἔσχον πολέμοιο νεῖκος ἐσχάταις ἐλπίσιν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="37"> ἔτλαν δὲ πένθος οὐ φατόν· ἀλλὰ νῦν μοι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="38"> Γαιάοχος εὐδίαν ὄπασσεν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="39"> ἐκ χειμῶνος. ἀείσομαι χαίταν στεφάνοισιν ἁρμόσαις. ὁ δʼ ἀθανάτων μὴ θρασσέτω φθόνος, </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="40"> ὅ τι τερπνὸν ἐφάμερον διώκων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="41"> ἕκαλος ἔπειμι γῆρας ἔς τε τὸν μόρσιμον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="42"> αἰῶνα. θνᾴσκομεν γὰρ ὁμῶς ἅπαντες· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="43"><milestone ed="Steph" n="60" unit="line"/> δαίμων δʼ ἄϊσος· τὰ μακρὰ δʼ εἴ τις </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="44"> παπταίνει, βραχὺς ἐξικέσθαι χαλκόπεδον θεῶν ἕδραν· ὅτι πτερόεις ἔρριψε Πάγασος </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="45"> δεσπόταν ἐθέλοντʼ ἐς οὐρανοῦ σταθμοὺς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="46"> ἐλθεῖν μεθʼ ὁμάγυριν Βελλεροφόνταν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="47"> Ζηνός· τὸ δὲ πὰρ δίκαν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="48"> γλυκὺ πικροτάτα μένει τελευτά. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="49"><milestone ed="Steph" n="70" unit="line"/> ἄμμι δʼ, ὦ χρυσέᾳ κόμᾳ θάλλων, πόρε, Λοξία, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="50"> τεαῖσιν ἁμίλλαισιν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="51"> εὐανθέα καὶ Πυθόϊ στέφανον. </l>
                 </div>
-                <div n="8" sample="complete" part="N" subtype="poem" type="textpart" org="uniform">
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="8">
                     <head>
                         <title xml:lang="grc">ιστημιαν 8</title>
                         <persName xml:lang="grc" type="winner">ΚΛΕΑΝΔΡΩι ΑΙΓΙΝΗΤΗι</persName>
@@ -778,124 +620,83 @@
                         <date> </date>
                     </head>
 
-                    <milestone n="str. 1" unit="strophe"/>
-                    <l n="1"> Κλεάνδρῳ τις ἁλικίᾳ τε λύτρον </l>
-                    <l n="2"> εὔδοξον, ὦ νέοι, καμάτων </l>
-                    <l n="3"> πατρὸς ἀγλαὸν Τελεσάρχου παρὰ πρόθυρον ἰὼν ἀνεγειρέτω </l>
-                    <l n="4"> κῶμον, Ἰσθμιάδος τε νίκας ἄποινα, καὶ Νεμέᾳ </l>
-                    <l n="5">
-                        <milestone ed="Steph" n="10" unit="line"/> ἀέθλων ὅτι κράτος ἐξεῦρε. τῷ καὶ
-                        ἐγώ, καίπερ ἀχνύμενος θυμόν, αἰτέομαι χρυσέαν καλέσαι Μοῖσαν. ἐκ μεγάλων δὲ
-                        πενθ <seg type="sling" part="N">έω</seg> ν λυθέντες </l>
-                    <l n="6"> μήτʼ ἐν ὀρφανίᾳ πέσωμεν στεφάνων, </l>
-                    <l n="7"> μήτε κάδεα θεράπευε· παυσάμενοι δʼ ἀπρήκτων κακῶν </l>
-                    <l n="8"> γλυκύ τι δαμωσόμεθα καὶ μετὰ πόνον· </l>
-                    <l n="9">
-                        <milestone ed="Steph" n="20" unit="line"/> ἐπειδὴ τὸν ὑπὲρ κεφαλᾶς </l>
-                    <l n="10"> τὸν Ταντάλου λίθον παρά τις ἔτρεψεν ἄμμι θεός, <milestone n="str. 2" unit="strophe"/>
-                    </l>
-                    <l n="11"> ἀτόλματον Ἑλλάδι μόχθον. ἀλλά </l>
-                    <l n="12"> μοι δεῖμα μὲν παροιχόμενον </l>
-                    <l n="13"> καρτερὰν ἔπαυσε μέριμναν· τὸ δὲ πρὸ ποδὸς ἄρειον ἀεὶ <add>σκοπεῖν</add>
-                    </l>
-                    <l n="14"> χρῆμα πᾶν. δόλιος γὰρ αἰὼν ἐπʼ ἀνδράσι κρέμαται, </l>
-                    <l n="15">
-                        <milestone ed="Steph" n="30" unit="line"/> ἑλίσσων βίου πόρον· ἰατὰ δʼ ἔστι
-                        βροτοῖς σύν γʼ ἐλευθερίᾳ καὶ τά. χρὴ δʼ ἀγαθὰν ἐλπίδʼ ἀνδρὶ μέλειν· χρὴ δʼ
-                        ἐν ἑπταπύλοισι Θήβαις τραφέντα </l>
-                    <l n="16"> Αἰγίνᾳ Χαρίτων ἄωτον προνέμειν, </l>
-                    <l n="17"> πατρὸς οὕνεκα δίδυμαι γένοντο θύγατρες Ἀσωπίδων </l>
-                    <l n="18">
-                        <milestone ed="Steph" n="40" unit="line"/> ὁπλόταται, Ζηνί τε ἅδον βασιλέϊ. </l>
-                    <l n="19"> ὃ τὰν μὲν παρὰ καλλιρόῳ </l>
-                    <l n="20"> Δίρκᾳ φιλαρμάτου πόλιος ᾤκισσεν ἁγεμόνα· <milestone n="str. 3" unit="strophe"/>
-                    </l>
-                    <l n="21"> σὲ δʼ ἐς νᾶσον Οἰνοπίαν ἐνεγκὼν </l>
-                    <l n="22"> κοιμᾶτο, δῖον ἔνθα τέκες </l>
-                    <l n="23"> Αἰακὸν βαρυσφαράγῳ πατρὶ κεδνότατον ἐπιχθονίων· ὃ καὶ </l>
-                    <l n="24">
-                        <milestone ed="Steph" n="50" unit="line"/> δαιμόνεσσι δίκας ἐπείραινε· τοῦ
-                        μὲν ἀντίθεοι </l>
-                    <l n="25"> ἀρίστευον υἱέες υἱέων τʼ ἀρηΐφιλοι παῖδες ἀνορέᾳ χάλκεον στονόεντʼ
-                        ἀμφέπειν ὅμαδον· σώφρονές τʼ ἐγένοντο πινυτοί τε θυμόν. </l>
-                    <l n="26"> ταῦτα καὶ μακάρων ἐμέμναντʼ ἀγοραί, </l>
-                    <l n="27">
-                        <milestone ed="Steph" n="60" unit="line"/> Ζεὺς ὅτʼ ἀμφὶ Θέτιος ἀγλαός τʼ
-                        ἔρισαν Ποσειδᾶν γάμῳ, </l>
-                    <l n="28"> ἄλοχον εὐειδέʼ ἐθέλων ἑκάτερος </l>
-                    <l n="29"> ἑὰν ἔμμεν· ἔρως γὰρ ἔχεν. </l>
-                    <l n="30"> ἀλλʼ οὔ σφιν ἄμβροτοι τέλεσαν εὐνὰν θεῶν πραπίδες, <milestone n="str. 4" unit="strophe"/>
-                    </l>
-                    <l n="31"> ἐπεὶ θεσφάτων ἐπάκουσαν· εἶπε δʼ </l>
-                    <l n="32"> εὔβουλος ἐν μέσοισι Θέμις, </l>
-                    <l n="33">
-                        <milestone ed="Steph" n="70" unit="line"/> οὕνεκεν πεπρωμένον ἦν φέρτερον
-                        γόνον ἄνακτα πατρὸς τεκεῖν </l>
-                    <l n="34"> ποντίαν θεόν, ὃς κεραυνοῦ τε κρέσσον ἄλλο βέλος </l>
-                    <l n="35"> διώξει χερὶ τριόδοντός τʼ ἀμαιμακέτου, Δί τε μισγομέναν ἢ Διὸς παρʼ
-                        ἀδελφεοῖσιν.— <q type="unspecified"> ἀλλὰ τὰ μὲν παύσατε· βροτέων δὲ λεχέων
-                            τυχοῖσα </q></l>
-                    <l n="36"><q type="unspecified">
-                            <milestone ed="Steph" n="80" unit="line"/> υἱὸν εἰσιδέτω θανόντʼ ἐν
-                            πολέμῳ, </q></l>
-                    <l n="37"><q type="unspecified"> χεῖρας Ἄρεΐ <add>τʼ</add> ἐναλίγκιον στεροπαῖσί τʼ
-                            ἀκμὰν ποδῶν. </q></l>
-                    <l n="38"><q type="unspecified"> τὸ μὲν ἐμὸν Πηλέϊ γάμου θεόμορον </q></l>
-                    <l n="39"><q type="unspecified"> ὀπάσσαι γέρας Αἰακίδᾳ, </q></l>
-                    <l n="40"><q type="unspecified"> ὅντʼ εὐσεβέστατον φάτις Ἰωλκοῦ τράφειν πεδίον·
-                                <milestone n="str. 5" unit="strophe"/>
-                        </q>
-                    </l>
-                    <l n="41"><q type="unspecified"> ἰόντων δʼ ἐς ἄφθιτον ἄντρον εὐθὺς </q></l>
-                    <l n="42"><q type="unspecified">
-                            <milestone ed="Steph" n="90" unit="line"/> Χείρωνος αὐτίκʼ ἀγγελίαι·
-                        </q>
-                    </l>
-                    <l n="43"><q type="unspecified"> μηδὲ Νηρέος θυγάτηρ νεικέων πέταλα δὶς ἐγγυαλιζέτω
-                        </q></l>
-                    <l n="44"><q type="unspecified"> ἄμμιν· ἐν διχομηνίδεσσιν δὲ ἑσπέραις ἐρατὸν </q></l>
-                    <l n="45"><q type="unspecified">
-                            <milestone ed="Steph" n="100" unit="line"/> λύοι κεν χαλινὸν ὑφʼ ἥρωϊ
-                            παρθενίας. </q> ὣς φάτο Κρονίδαις ἐννέποισα θεά· τοὶ δʼ ἐπὶ γλεφάροις
-                        νεῦσαν ἀθανάτοισιν· ἐπέων δὲ καρπὸς </l>
-                    <l n="46"> οὐ κατέφθινε. φαντὶ γὰρ ξύνʼ ἀλέγειν </l>
-                    <l n="47"> καὶ γάμον Θέτιος ἄνακτα. καὶ νεαρὰν ἔδειξαν σοφῶν </l>
-                    <l n="48"> στόματʼ ἀπείροισιν ἀρετὰν Ἀχιλέος· </l>
-                    <l n="49"> ὃ καὶ Μύσιον ἀμπελόεν </l>
-                    <l n="50">
-                        <milestone ed="Steph" n="110" unit="line"/> αἵμαξε Τηλέφου μέλανι ῥαίνων
-                        φόνῳ πεδίον, <milestone n="str. 6" unit="strophe"/>
-                    </l>
-                    <l n="51"> γεφύρωσέ τʼ Ἀτρεΐδαισι νόστον, </l>
-                    <l n="52"> Ἑλέναν τʼ ἐλύσατο, Τρωΐας </l>
-                    <l n="53"> ἶνας ἐκταμὼν δορί, ταί νιν ῥύοντό ποτε μάχας ἐναριμβρότου </l>
-                    <l n="54"> ἔργον ἐν πεδίῳ κορύσσοντα, Μέμνονός τε βίαν </l>
-                    <l n="55">
-                        <milestone ed="Steph" n="120" unit="line"/> ὑπέρθυμον Ἕκτορά τʼ ἄλλους τʼ
-                        ἀριστέας· οἷς δῶμα Φερσεφόνας μανύων Ἀχιλεύς, οὖρος Αἰακιδᾶν, Αἴγιναν
-                        σφετέραν τε ῥίζαν πρόφαινεν. </l>
-                    <l n="56"> τὸν μὲν οὐδὲ θανόντʼ ἀοιδαὶ ἔλιπον, </l>
-                    <l n="57"> ἀλλά οἱ παρά τε πυρὰν τάφον θʼ Ἑλικώνιαι παρθένοι </l>
-                    <l n="58"> στάν, ἐπὶ θρῆνόν τε πολύφαμον ἔχεαν. </l>
-                    <l n="59">
-                        <milestone ed="Steph" n="130" unit="line"/> ἔδοξʼ ἆρα τόδʼ ἀθανάτοις, </l>
-                    <l n="60"> ἐσλόν γε φῶτα καὶ φθίμενον ὕμνοις θεᾶν διδόμεν. <milestone n="str. 7" unit="strophe"/>
-                    </l>
-                    <l n="61"> τὸ καὶ νῦν φέρει λόγον, ἔσσυταί τε </l>
-                    <l n="62"> Μοισαῖον ἅρμα Νικοκλέος </l>
-                    <l n="63"> μνᾶμα πυγμάχου κελαδῆσαι. γεραίρετέ νιν, ὃς Ἴσθμιον ἂν νάπος </l>
-                    <l n="64"> Δωρίων ἔλαχεν σελίνων· ἐπεὶ περικτίονας </l>
-                    <l n="65">
-                        <milestone ed="Steph" n="140" unit="line"/> ἐνίκασε δή ποτε καὶ κεῖνος
-                        ἄνδρας ἀφύκτῳ χερὶ κλονέων. τὸν μὲν οὐ κατελέγχει κριτοῦ γενεὰ πατραδελφεοῦ·
-                        ἁλίκων τῷ τις ἁβρὸν </l>
-                    <l n="66"> ἀμφὶ παγκρατίου Κλεάνδρῳ πλεκέτω </l>
-                    <l n="67"> μυρσίνας στέφανον, ἐπεί νιν Ἀλκαθόου τʼ ἀγὼν σὺν τύχᾳ </l>
-                    <l n="68">
-                        <milestone ed="Steph" n="150" unit="line"/> ἐν Ἐπιδαύρῳ τε νεότας δέκετο
-                        πρίν· </l>
-                    <l n="69"> τὸν αἰνεῖν ἀγαθῷ παρέχει· </l>
-                    <l n="70"> ἥβαν γὰρ οὐκ ἄπειρον ὑπὸ χειᾷ καλῶν δάμασεν. </l>
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="1"> Κλεάνδρῳ τις ἁλικίᾳ τε λύτρον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="2"> εὔδοξον, ὦ νέοι, καμάτων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="3"> πατρὸς ἀγλαὸν Τελεσάρχου παρὰ πρόθυρον ἰὼν ἀνεγειρέτω </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="4"> κῶμον, Ἰσθμιάδος τε νίκας ἄποινα, καὶ Νεμέᾳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="5"><milestone ed="Steph" n="10" unit="line"/> ἀέθλων ὅτι κράτος ἐξεῦρε. τῷ καὶ ἐγώ, καίπερ ἀχνύμενος θυμόν, αἰτέομαι χρυσέαν καλέσαι Μοῖσαν. ἐκ μεγάλων δὲ πενθ <seg type="sling" part="N">έω</seg> ν λυθέντες </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="6"> μήτʼ ἐν ὀρφανίᾳ πέσωμεν στεφάνων, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="7"> μήτε κάδεα θεράπευε· παυσάμενοι δʼ ἀπρήκτων κακῶν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="8"> γλυκύ τι δαμωσόμεθα καὶ μετὰ πόνον· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="9"><milestone ed="Steph" n="20" unit="line"/> ἐπειδὴ τὸν ὑπὲρ κεφαλᾶς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="10"> τὸν Ταντάλου λίθον παρά τις ἔτρεψεν ἄμμι θεός, </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="11"> ἀτόλματον Ἑλλάδι μόχθον. ἀλλά </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="12"> μοι δεῖμα μὲν παροιχόμενον </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="13"> καρτερὰν ἔπαυσε μέριμναν· τὸ δὲ πρὸ ποδὸς ἄρειον ἀεὶ <add>σκοπεῖν</add> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="14"> χρῆμα πᾶν. δόλιος γὰρ αἰὼν ἐπʼ ἀνδράσι κρέμαται, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="15"><milestone ed="Steph" n="30" unit="line"/> ἑλίσσων βίου πόρον· ἰατὰ δʼ ἔστι βροτοῖς σύν γʼ ἐλευθερίᾳ καὶ τά. χρὴ δʼ ἀγαθὰν ἐλπίδʼ ἀνδρὶ μέλειν· χρὴ δʼ ἐν ἑπταπύλοισι Θήβαις τραφέντα </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="16"> Αἰγίνᾳ Χαρίτων ἄωτον προνέμειν, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="17"> πατρὸς οὕνεκα δίδυμαι γένοντο θύγατρες Ἀσωπίδων </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="18"><milestone ed="Steph" n="40" unit="line"/> ὁπλόταται, Ζηνί τε ἅδον βασιλέϊ. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="19"> ὃ τὰν μὲν παρὰ καλλιρόῳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="20"> Δίρκᾳ φιλαρμάτου πόλιος ᾤκισσεν ἁγεμόνα· </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="21"> σὲ δʼ ἐς νᾶσον Οἰνοπίαν ἐνεγκὼν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="22"> κοιμᾶτο, δῖον ἔνθα τέκες </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="23"> Αἰακὸν βαρυσφαράγῳ πατρὶ κεδνότατον ἐπιχθονίων· ὃ καὶ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="24"><milestone ed="Steph" n="50" unit="line"/> δαιμόνεσσι δίκας ἐπείραινε· τοῦ μὲν ἀντίθεοι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="25"> ἀρίστευον υἱέες υἱέων τʼ ἀρηΐφιλοι παῖδες ἀνορέᾳ χάλκεον στονόεντʼ ἀμφέπειν ὅμαδον· σώφρονές τʼ ἐγένοντο πινυτοί τε θυμόν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="26"> ταῦτα καὶ μακάρων ἐμέμναντʼ ἀγοραί, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="27"><milestone ed="Steph" n="60" unit="line"/> Ζεὺς ὅτʼ ἀμφὶ Θέτιος ἀγλαός τʼ ἔρισαν Ποσειδᾶν γάμῳ, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="28"> ἄλοχον εὐειδέʼ ἐθέλων ἑκάτερος </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="29"> ἑὰν ἔμμεν· ἔρως γὰρ ἔχεν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="30"> ἀλλʼ οὔ σφιν ἄμβροτοι τέλεσαν εὐνὰν θεῶν πραπίδες, </l>
+                   <milestone unit="strophe" subtype="str." n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="31"> ἐπεὶ θεσφάτων ἐπάκουσαν· εἶπε δʼ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="32"> εὔβουλος ἐν μέσοισι Θέμις, </l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="33"><milestone ed="Steph" n="70" unit="line"/> οὕνεκεν πεπρωμένον ἦν φέρτερον γόνον ἄνακτα πατρὸς τεκεῖν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="34"> ποντίαν θεόν, ὃς κεραυνοῦ τε κρέσσον ἄλλο βέλος </l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="35"> διώξει χερὶ τριόδοντός τʼ ἀμαιμακέτου, Δί τε μισγομέναν ἢ Διὸς παρʼ ἀδελφεοῖσιν.— <q> ἀλλὰ τὰ μὲν παύσατε· βροτέων δὲ λεχέων τυχοῖσα </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="36"><milestone ed="Steph" n="80" unit="line"/><q rend="merge"> υἱὸν εἰσιδέτω θανόντʼ ἐν πολέμῳ, </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="37"><q rend="merge"> χεῖρας Ἄρεΐ <add>τʼ</add> ἐναλίγκιον στεροπαῖσί τʼ ἀκμὰν ποδῶν. </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="38"><q rend="merge"> τὸ μὲν ἐμὸν Πηλέϊ γάμου θεόμορον </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="39"><q rend="merge"> ὀπάσσαι γέρας Αἰακίδᾳ, </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="40"><q rend="merge"> ὅντʼ εὐσεβέστατον φάτις Ἰωλκοῦ τράφειν πεδίον·</q></l>
+                    <milestone unit="strophe" subtype="str." n="5"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="41"><q rend="merge"> ἰόντων δʼ ἐς ἄφθιτον ἄντρον εὐθὺς </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="42"><milestone ed="Steph" n="90" unit="line"/> <q rend="merge">Χείρωνος αὐτίκʼ ἀγγελίαι· </q> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="43"><q rend="merge"> μηδὲ Νηρέος θυγάτηρ νεικέων πέταλα δὶς ἐγγυαλιζέτω </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="44"><q rend="merge"> ἄμμιν· ἐν διχομηνίδεσσιν δὲ ἑσπέραις ἐρατὸν </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="45"><milestone ed="Steph" n="100" unit="line"/> <q rend="merge">λύοι κεν χαλινὸν ὑφʼ ἥρωϊ παρθενίας. </q> ὣς φάτο Κρονίδαις ἐννέποισα θεά· τοὶ δʼ ἐπὶ γλεφάροις νεῦσαν ἀθανάτοισιν· ἐπέων δὲ καρπὸς </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="46"> οὐ κατέφθινε. φαντὶ γὰρ ξύνʼ ἀλέγειν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="47"> καὶ γάμον Θέτιος ἄνακτα. καὶ νεαρὰν ἔδειξαν σοφῶν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="48"> στόματʼ ἀπείροισιν ἀρετὰν Ἀχιλέος· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="49"> ὃ καὶ Μύσιον ἀμπελόεν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="50"><milestone ed="Steph" n="110" unit="line"/> αἵμαξε Τηλέφου μέλανι ῥαίνων φόνῳ πεδίον, </l>
+                     <milestone unit="strophe" subtype="str." n="6"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="51"> γεφύρωσέ τʼ Ἀτρεΐδαισι νόστον, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="52"> Ἑλέναν τʼ ἐλύσατο, Τρωΐας </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="53"> ἶνας ἐκταμὼν δορί, ταί νιν ῥύοντό ποτε μάχας ἐναριμβρότου </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="54"> ἔργον ἐν πεδίῳ κορύσσοντα, Μέμνονός τε βίαν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="55"><milestone ed="Steph" n="120" unit="line"/> ὑπέρθυμον Ἕκτορά τʼ ἄλλους τʼ ἀριστέας· οἷς δῶμα Φερσεφόνας μανύων Ἀχιλεύς, οὖρος Αἰακιδᾶν, Αἴγιναν σφετέραν τε ῥίζαν πρόφαινεν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="56"> τὸν μὲν οὐδὲ θανόντʼ ἀοιδαὶ ἔλιπον, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="57"> ἀλλά οἱ παρά τε πυρὰν τάφον θʼ Ἑλικώνιαι παρθένοι </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="58"> στάν, ἐπὶ θρῆνόν τε πολύφαμον ἔχεαν. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="59"><milestone ed="Steph" n="130" unit="line"/> ἔδοξʼ ἆρα τόδʼ ἀθανάτοις, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="60"> ἐσλόν γε φῶτα καὶ φθίμενον ὕμνοις θεᾶν διδόμεν. </l>
+                   <milestone unit="strophe" subtype="str." n="7"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="61"> τὸ καὶ νῦν φέρει λόγον, ἔσσυταί τε </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="62"> Μοισαῖον ἅρμα Νικοκλέος </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="63"> μνᾶμα πυγμάχου κελαδῆσαι. γεραίρετέ νιν, ὃς Ἴσθμιον ἂν νάπος </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="64"> Δωρίων ἔλαχεν σελίνων· ἐπεὶ περικτίονας </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="65"><milestone ed="Steph" n="140" unit="line"/> ἐνίκασε δή ποτε καὶ κεῖνος ἄνδρας ἀφύκτῳ χερὶ κλονέων. τὸν μὲν οὐ κατελέγχει κριτοῦ γενεὰ πατραδελφεοῦ· ἁλίκων τῷ τις ἁβρὸν </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="66"> ἀμφὶ παγκρατίου Κλεάνδρῳ πλεκέτω </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="67"> μυρσίνας στέφανον, ἐπεί νιν Ἀλκαθόου τʼ ἀγὼν σὺν τύχᾳ </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="68"><milestone ed="Steph" n="150" unit="line"/> ἐν Ἐπιδαύρῳ τε νεότας δέκετο πρίν· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="69"> τὸν αἰνεῖν ἀγαθῷ παρέχει· </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="70"> ἥβαν γὰρ οὐκ ἄπειρον ὑπὸ χειᾷ καλῶν δάμασεν. </l>
                 </div>
             </div>
         </body>
