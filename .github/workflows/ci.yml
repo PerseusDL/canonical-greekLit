@@ -26,7 +26,7 @@ jobs:
       - name: Install Hooktest
         run: pip3 install HookTest
       - name: Run Hooktest
-        run: hooktest ./ --console --scheme epidoc --workers 3 --verbose 5 --manifest --countword
+        run: hooktest ./ --console --scheme epidoc --workers 3 --verbose 10 --manifest --countword --allowfailure
       - name: Export manifest.txt
         id: export_manifest
         uses: actions/upload-artifact@v3
@@ -76,6 +76,7 @@ jobs:
           git commit -m "Removed failing files" -m "Release $GIT_TAG"
           git tag $GIT_TAG -a -m "$DATE" -m "PASSING FILES" -m "$results"
           git push -q origin "${GIT_TAG}"
+          ls -R
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
