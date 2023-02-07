@@ -1,44 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader>
+  <teiHeader xml:lang="eng">
     <fileDesc>
       <titleStmt>
-        <title>Epigrams </title>
+        <title xml:lang="grc">Ἐπιγράμματα</title>
         <author>Theocritus</author>
+        <editor>Roger James Cholmeley</editor>
         <sponsor>Perseus Project, Tufts University</sponsor>
         <principal>Gregory Crane</principal>
         <respStmt>
           <resp>Prepared under the supervision of</resp>
           <name>Lisa Cerrato</name>
-          <name>William Merrill</name>
-          <name>Elli Mylonas</name>
+          <name>Anne Mahoney</name>
           <name>David Smith</name>
         </respStmt>
         <funder n="org:Tufts">Tufts University</funder>
       </titleStmt>
+      
       <publicationStmt>
         <publisher>Trustees of Tufts University</publisher>
         <pubPlace>Medford, MA</pubPlace>
         <authority>Perseus Project</authority>
+        <date type="release" cert="high" notBefore="2002">Perseus 3.0</date>
+        <idno type="filename">tlg0005.tlg002.perseus-grc1.xml</idno>
+        <availability>
+          <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+        </availability>
       </publicationStmt>
-
-
+      
       <sourceDesc>
         <biblStruct>
           <monogr>
-            <title>Idylls</title>
+            <title>The Idylls of Theocritus</title>
             <author>Theocritus</author>
-            <editor>R. J. Cholmeley, M.A.</editor>
+            <editor>Roger James Cholmeley</editor>
             <imprint>
               <pubPlace>London</pubPlace>
-              <publisher>George Bell and Sons</publisher>
-              <date>1901</date>
+              <publisher>George Bell and Sons, Ltd.</publisher>
+              <date>1901-1919</date>
             </imprint>
           </monogr>
+          <ref target="https://archive.org/details/idyllsoftheocrit00theouoft/page/174/mode/2up">Internet Archive</ref>
         </biblStruct>
       </sourceDesc>
     </fileDesc>
-
+    
     <encodingDesc>
       <editorialDecl>
         <correction status="medium" method="silent">
@@ -46,319 +53,398 @@
           <p>Perseus DL</p>
         </correction>
       </editorialDecl>
-      <refsDecl>
-        <refState unit="text"/>
-        <refState unit="poem"/>
-        <refState unit="line"/>
-      </refsDecl>
+      
+      <refsDecl n="CTS">
+        <cRefPattern n="line" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:l[@n='$2'])">
+          <p>This pointer pattern extracts poem and line.</p>
+        </cRefPattern>
+        
+        <cRefPattern n="poem" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+          <p>This pointer pattern extracts poem.</p>
+        </cRefPattern>
+      </refsDecl>    
     </encodingDesc>
-
+    
+    
+    
     <profileDesc>
       <langUsage>
-        <language ident="greek">Greek</language>
-        <language ident="en">English</language>
-        <language ident="la">Latin</language>
-        <language ident="de">German</language>
-        <language ident="fr">French</language>
-        <language ident="it">Italian</language>
+        <language ident="grc">Greek</language>
+        <language ident="lat">Latin</language>
       </langUsage>
     </profileDesc>
-
+    
     <revisionDesc>
-      <!--
-<change><date>29-Jul-02</date>
-<respStmt><name>AEM</name><resp>markup</resp></respStmt>
-<item>initial markup
-</item>
-</change>
-<change><date>July 2014</date>
-    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
-    <item>split composite text and converted to unicode</item>
-      </change>-->
+      <change when="2023-02-03" who="Lisa Cerrato">CTS and EpiDoc conversion review; header updates</change>
       <change when="2014-08-01" who="Stella Dee">edited markup</change>
+      <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
+      <change when="2002-07-29" who="AEM">initial markup</change>
     </revisionDesc>
-
+    
   </teiHeader>
-  <text xml:lang="grc">
+  
+  <text>
     <body>
 
+<div type="edition" n="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" xml:lang="grc"> 
+ <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="1"> 
+<head rend="align(right)"><bibl n="AP 6.336" xml:lang="lat">A. Pal. vi. 336</bibl></head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:1" n="1">τὰ ῥόδα τὰ δροσόεντα καὶ ἁ κατάπυκνος ἐκείνα </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:1" rend="align(indent)" n="2">ἕρπυλλος κεῖται ταῖς Ἑλικωνιάσι, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:1" n="3">ταὶ δὲ μελάμφυλλοι δάφναι τὶν Πύθιε Παιάν, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:1" rend="align(indent)" n="4">δελφὶς ἐπεὶ πέτρα τοῦτό τοι ἀγλάισε. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:1" n="5">βωμὸν δʼ αἱμαξεῖ κεραὸς τράγος οὗτος ὁ μαλός, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:1" rend="align(indent)" n="6">τερμίνθου τρώγων ἔσχατον ἀκρεμόνα.</l> </div><pb n="175"/> 
 
-      <div n="1" type="poem">
-        <head><bibl n="AP 6.336" xml:lang="lat">A. Pal. vi. 336</bibl></head>
-        <p><lb/>τὰ ῥόδα τὰ δροσόεντα καὶ ἁ κατάπυκνος ἐκείνα <lb rend="displayNumAndIndent"
-          />ἕρπυλλος κεῖται ταῖς Ἑλικωνιάσι, <lb/>ταὶ δὲ μελάμφυλλοι δάφναι τὶν Πύθιε Παιάν, <lb
-            rend="displayNumAndIndent"/>δελφὶς ἐπεὶ πέτρα τοῦτό τοι ἀγλάισε. <lb n="5"
-            rend="displayNum"/>βωμὸν δʼ αἱμαξεῖ κεραὸς τράγος οὗτος ὁ μαλός, <lb
-            rend="displayNumAndIndent"/>τερμίνθου τρώγων ἔσχατον ἀκρεμόνα. <pb n="175"/>
-        </p>
-      </div>
-      <div n="2" type="poem">
-        <head><bibl n="AP 6.177" xml:lang="lat">A. Pal. vi. 177</bibl></head>
-        <p><lb/>Δάφνις ὁ λευκόχρως, ὁ καλᾷ σύριγγι μελίσδων <lb rend="displayNumAndIndent"
-          />βουκολικοὺς ὕμνους, ἄνθετο Πανὶ τάδε, <lb/>τοὺς τρητοὺς δόνακας, τὸ λαγωβόλον, ὀξὺν
-          ἄκοντα, <lb rend="displayNumAndIndent"/>νεβρίδα, τὰν πήραν, ᾇ ποκʼ ἐμαλοφόρει. </p>
-      </div>
-      <div n="3" type="poem">
-        <head><bibl n="AP 9.338" xml:lang="lat">A. Pal. ix. 338</bibl></head>
-        <p><lb/>εὕδεις φυλλοστρῶτι πέδῳ Δάφνι σῶμα κεκμακὸς <lb rend="displayNumAndIndent"/>ἀμπαύων·
-          στάλικες δʼ ἀρτιπαγεῖς ἀνʼ ὄρη. <lb/>ἀγρεύει δέ τυ Πὰν καὶ ὁ τὸν κροκόεντα Πρίηπος <lb
-            rend="displayNumAndIndent"/>κισσὸν ἐφʼ ἱμερτῷ κρατὶ καθαπτόμενος, <lb n="5"
-            rend="displayNum"/>ἄντρον ἔσω στείχοντες ὁμόρροθοι. ἀλλὰ τὺ φεῦγε, <lb
-            rend="displayNumAndIndent"/>φεῦγε μεθεὶς ὕπνου κῶμα καταγρόμενον. </p>
-      </div>
-      <div n="4" type="poem">
-        <head><bibl n="AP 9.437" xml:lang="lat">A. Pal. ix. 437</bibl></head>
-        <p><lb/>τήναν τὰν λαύραν τάς τε δρύας αἰπόλε κάμψας <lb rend="displayNumAndIndent"/>σύκινον
-          εὑρήσεις ἀρτιγλυφὲς ξόανον, <lb/>τρισκελὲς αὐτόφλοιον ἀνούατον, ἀλλὰ φάλητι <lb
-            rend="displayNumAndIndent"/>παιδογόνῳ δυνατὸν Κύπριδος ἔργα τελεῖν. <lb n="5"
-            rend="displayNum"/>σακός οἱ ἱερὸς περιδέδρομεν, ἀέναον δὲ <lb rend="displayNumAndIndent"
-          />ῥεῖθρον ἀπὸ σπιλάδων πάντοσε τηλεθάει <lb/>δάφναις καὶ μύρτοισι καὶ εὐώδει κυπαρίσσῳ.
-            <lb rend="displayNumAndIndent"/>ἔνθα πέριξ κέχυται βοτρυόπαις ἕλικι <lb/>ἄμπελος,
-          εἰαρινοὶ δὲ λιγυφθόγγοισιν ἀοιδαῖς <lb rend="displayNumAndIndent" n="10"/>κόσσυφοι ἀχεῦσιν
-          ποικιλότραυλα μέλη. <lb/>ξουθαὶ δʼ ἀδονίδες μινυρίσμασιν ἀνταχεῦσι <lb
-            rend="displayNumAndIndent"/>μέλπουσαι στόμασιν τὰν μελίγαρυν ὄπα. <pb n="176"/>
-          <lb/>ἕζεο δὴ τηνεῖ καὶ τῷ χαρίεντι Πριήπῳ <lb rend="displayNumAndIndent"/>εὔχεʼ ἀποστέρξαι
-          τοὺς Δάφνιδός με πόθους, <lb n="15" rend="displayNum"/>κεὐθὺς ἐπιρρέξειν χίμαρον καλόν. ἢν
-          δʼ ἀνανεύσῃ, <lb rend="displayNumAndIndent"/>τοῦδε τυχὼν ἐθέλω τρισσὰ θύη τελέσαι·
-          <lb/>ῥέξω γὰρ δαμάλαν, λάσιον τράγον, ἄρνα τὸν ἴσχω <lb rend="displayNumAndIndent"
-          />σακίταν. ἀίοι δʼ εὐμενέως ὁ θεός. </p>
-      </div>
-      <div n="5" type="poem">
-        <head><bibl n="AP 9.433" xml:lang="lat">A. Pal. ix. 433</bibl></head>
-        <p><lb/>λῇς ποτὶ τᾶν Νυμφᾶν διδύμοις αὐλοῖσιν ἀεῖσαι <lb rend="displayNumAndIndent"/>ἁδύ τί
-          μοι; κἠγὼ πακτίδʼ ἀειράμενος <lb/>ἀρξεῦμαί τι κρέκειν, ὁ δὲ βουκόλος ἄμμιγα θελξεῖ <lb
-            rend="displayNumAndIndent"/>Δάφνις, κηροδέτῳ πνεύματι μελπόμενος. <lb n="5"
-            rend="displayNum"/>ἐγγὺς δὲ στάντες λασίας δρυὸς ἄντρου ὄπισθεν <lb
-            rend="displayNumAndIndent"/>Πᾶνα τὸν αἰγιβάταν ὀρφανίσωμες ὕπνου. </p>
-      </div>
-      <div n="6" type="poem">
-        <head><bibl n="AP 9.432" xml:lang="lat">A. Pal. ix. 432</bibl></head>
-        <p><lb/>͂̓Α δειλαῖε τὺ Θύρσι, τί τὸ πλέον, εἰ καταταξεῖς <lb rend="displayNumAndIndent"
-          />δάκρυσι διγλήνους ὦπας ὀδυρόμενος; <lb/>οἴχεται ἁ χίμαρος, τὸ καλὸν τέκος, οἴχετʼ
-          ἐς Ἅιδαν· <lb rend="displayNumAndIndent"/>τραχὺς γὰρ χαλαῖς ἀμφεπίαξε λύκος. <lb n="5"
-            rend="displayNum"/>αἱ δὲ κύνες κλαγγεῦντι· τί τὸ πλέον, ἁνίκα τήνας <lb
-            rend="displayNumAndIndent"/>ὀστίον οὐδὲ τέφρα λείπεται οἰχομένας; </p>
-      </div>
-      <div n="7" type="poem">
-        <head><bibl n="AP 7.659" xml:lang="lat">A. Pal. vii. 659</bibl></head>
-        <p><lb/>νήπιον υἱὸν ἔλειπες, ἐν ἁλικίᾳ δὲ καὶ αὐτός, <lb rend="displayNumAndIndent"
-          />Εὐρύμεδον τύμβου τοῦδε θανὼν ἔτυχες. <lb/>σοὶ μὲν ἕδρα θείοισι μετʼ ἀνδράσι· τὸν δὲ
-          πολῖται <lb rend="displayNumAndIndent"/>τιμασεῦντι, πατρὸς μνώμενοι ὡς ἀγαθοῦ. <pb n="177"
-          />
-        </p>
-      </div>
-      <div n="8" type="poem">
-        <head><bibl n="AP 6.337" xml:lang="lat">A. Pal. vi. 337</bibl></head>
-        <p><lb/>͂̓Ηλθε καὶ ἐς Μίλητον ὁ τοῦ Παιήονος υἱός, <lb rend="displayNumAndIndent"/>ἰητῆρι
-          νόσων ἀνδρὶ συνοισόμενος <lb/>Νικίᾳ, ὅς μιν ἐπʼ ἦμαρ ἀεὶ θυέεσσιν ἱκνεῖται, <lb
-            rend="displayNumAndIndent"/>καὶ τόδʼ ἀπʼ εὐώδους γλύψατʼ ἄγαλμα κέδρου, <lb n="5"
-              rend="displayNum"/>Ἠετίωνι χάριν γλαφυρᾶς χερὸς ἄκρον ὑποστὰς <lb
-            rend="displayNumAndIndent"/>μισθόν· ὁ δʼ εἰς ἔργον πᾶσαν ἀφῆκε τέχνην. </p>
-      </div>
-      <div n="9" type="poem">
-        <head><bibl n="AP 7.660" xml:lang="lat">A. Pal. vii. 660</bibl></head>
-        <p><lb/>ξεῖνε, Συρακόσιός τοι ἀνὴρ τόδʼ ἐφίεται Ὄρθων· <lb rend="displayNumAndIndent"
-          />χειμερίας μεθύων μηδαμὰ νυκτὸς ἴοις. <lb/>καὶ γὰρ ἐγὼ τοιοῦτον ἔχω πότμον· ἀντὶ δὲ
-          πολλᾶς <lb rend="displayNumAndIndent"/>πατρίδος ὀθνείαν κεῖμαι ἐφεσσάμενος. </p>
-      </div>
-      <div n="10" type="poem">
-        <head><bibl n="AP 6.338" xml:lang="lat">A. Pal. vi. 338</bibl></head>
-        <p><lb/>̔Υμῖν τοῦτο θεαὶ κεχαρισμένον ἐννέα πάσαις <lb rend="displayNumAndIndent"/>τὤγαλμα
-          Ξενοκλῆς θῆκε τὸ μαρμάρινον, <lb/>μουσικός· οὐχ ἑτέρως τις ἐρεῖ. σοφίῃ δʼ ἐπὶ τῇδε <lb
-            rend="displayNumAndIndent"/>αἶνον ἔχων Μουσέων οὐκ ἐπιλανθάνεται. </p>
-      </div>
-      <div n="11" type="poem">
-        <head><bibl n="AP 7.661" xml:lang="lat">A. Pal. vii. 661</bibl></head>
-        <p><lb/>Εὐσθένεος τὸ μνῆμα· φυσιγνώμων ὁ σοφιστής, <lb rend="displayNumAndIndent"/>δεινὸς
-          ἀπʼ ὀφθαλμοῦ καὶ τὸ νόημα μαθεῖν. <lb/>εὖ μιν ἔθαψαν ἑταῖροι ἐπὶ ξείνης ξένον ὄντα· <lb
-            rend="displayNumAndIndent"/>χὑμνοθέτης αὐτοῖς δαιμονίως φίλος ἦν. <lb n="5"
-            rend="displayNum"/>πάντων ὧν ἐπέοικεν ἔχειν τεθνεὼς ὁ σοφιστὴς <lb
-            rend="displayNumAndIndent"/>καίπερ ἄκικυς ἐὼν εἶχʼ ἄρα κηδεμόνας. <pb n="178"/>
-        </p>
-      </div>
-      <div n="12" type="poem">
-        <head><bibl n="AP 6.339" xml:lang="lat">A. Pal. vi. 339</bibl></head>
-        <p><lb/>Δημομέλης ὁ χορηγός, ὁ τὸν τρίποδʼ ὦ Διόνυσε <lb rend="displayNumAndIndent"/>καὶ σὲ
-          τὸν ἥδιστον θεῶν μακάρων ἀναθείς, <lb/>μέτριος ἦν ἐν πᾶσι, χορῷ δʼ ἐκτήσατο νίκην <lb
-            rend="displayNumAndIndent"/>ἀνδρῶν, καὶ τὸ καλὸν καὶ τὸ προσῆκον ὁρῶν. </p>
-      </div>
-      <div n="13" type="poem">
-        <head><bibl n="AP 6.340" xml:lang="lat">A. Pal. vi. 340</bibl></head>
-        <p><lb/>̔Η Κύπρις οὐ πάνδημος. ἱλάσκεο τὴν θεὸν εἰπὼν <lb rend="displayNumAndIndent"
-        />οὐρανίην, ἁγνῆς ἄνθεμα Χρυσογόνης <lb/>οἴκῳ ἐν Ἀμφικλέους, ᾧ καὶ τέκνα καὶ βίον εἶχε
-            <lb rend="displayNumAndIndent"/>ξυνόν. ἀεὶ δέ σφιν λώιον εἰς ἔτος ἦν <lb n="5"
-            rend="displayNum"/>ἐκ σέθεν ἀρχομένοις ὦ πότνια· κηδόμενοι γὰρ <lb
-            rend="displayNumAndIndent"/>ἀθανάτων αὐτοὶ πλεῖον ἔχουσι βροτοί. </p>
-      </div>
-      <div n="14" type="poem">
-        <head><bibl n="AP 9.435" xml:lang="lat">A. Pal. ix. 435</bibl></head>
-        <p><lb/>Ἀστοῖς καὶ ξείνοισιν ἴσον νέμει ἥδε τράπεζα· <lb rend="displayNumAndIndent"/>θεὶς
-          ἀνελοῦ ψήφου πρὸς λόγον ἐρχομένης. <lb/>ἄλλός τις πρόφασιν λεγέτω· τὰ δʼ ὀθνεῖα Κάικος <lb
-            rend="displayNumAndIndent"/>χρήματα καὶ νυκτὸς βουλομένοις ἀριθμεῖ. </p>
-      </div>
-      <div n="15" type="poem">
-        <head><bibl n="AP 7.658" xml:lang="lat">A. Pal. vii. 658</bibl></head>
-        <p><lb/>γνώσομαι, εἴ τι νέμεις ἀγαθοῖς πλέον, ἢ καὶ ὁ δειλὸς <lb rend="displayNumAndIndent"
-          />ἐκ σέθεν ὡσαύτως ἶσον ὁδοιπόρʼ ἔχει. <lb/><q>χαιρέτω οὗτος ὁ τύμβος" ἐρεῖς "ἐπεὶ
-            Εὐρυμέδοντος <lb rend="displayNumAndIndent"/>κεῖται τῆς ἱερῆς κοῦφος ὑπὲρ κεφαλῆς.</q>
-          <pb n="179"/>
-        </p>
-      </div>
-      <div n="16" type="poem">
-        <head><bibl n="AP 7.662" xml:lang="lat">A. Pal. vii. 662</bibl></head>
-        <p><lb/>̔Η παῖς ᾤχετʼ ἄωρος ἐν ἑβδόμῳ ἥδʼ ἐνιαυτῷ <lb rend="displayNumAndIndent"/>εἰς Ἀίδην
-          πολλοῖς ἡλικίης προτέρη, <lb/>δειλαίη, ποθέουσα τὸν εἰκοσάμηνον ἀδελφόν, <lb
-            rend="displayNumAndIndent"/>νήπιον ἀστόργου γευσάμενον θανάτου. <lb n="5"
-            rend="displayNum"/>αἰαῖ ἐλεινὰ παθοῦσα Περιστερί, ὡς ἐν ἑτοίμῳ <lb
-            rend="displayNumAndIndent"/>ἀνθρώποις δαίμων θῆκε τὰ λυγρότατα. </p>
-      </div>
-      <div n="17" type="poem">
-        <head><bibl n="AP 9.599" xml:lang="lat">A. Pal. ix. 599</bibl></head>
-        <p><lb/>θᾶσαι τὸν ἀνδριάντα τοῦτον ὦ ξένε <lb rend="displayNumAndIndent"/>σπουδᾷ, καὶ λέγʼ
-          ἐπὴν ἐς οἶκον ἔνθῃς· <lb/><q>̓Ανακρέοντος εἰκόνʼ εἶδον ἐν Τέῳ <lb
-              rend="displayNumAndIndent"/>τῶν πρόσθʼ εἴ τι περισσὸν ᾠδοποιοῦ.</q>
-          <lb n="5" rend="displayNum"/>προσθεὶς δὲ χὥτι τοῖς νέοισιν ἅδετο, <lb
-            rend="displayNumAndIndent"/>ἐρεῖς ἀτρεκέως ὅλον τὸν ἄνδρα. </p>
-      </div>
-      <div n="18" type="poem">
-        <head><bibl n="AP 9.600" xml:lang="lat">A. Pal. ix. 600</bibl></head>
-        <p><lb/>̔́Α τε φωνὰ Δώριος χὡνὴρ ὁ τὰν κωμῳδίαν εὑρὼν Ἐπίχαρμος. <lb
-            rend="displayNumAndIndent"/>ὦ Βάκχε, χάλκεόν νιν ἀντʼ ἀλαθινοῦ τὶν ὧδʼ ἀνέθηκαν <lb
-            n="5" rend="displayNum"/>τοὶ Συρακόσσαις ἐνίδρυνται πεδωρισταὶ πόλει, οἷʼ ἀνδρὶ πολίτᾳ·
-            <lb rend="displayNumAndIndent"/>σωρὸν γὰρ εἶχε ῥημάτων μεμναμένοις τελεῖν ἐπίχειρα. <lb
-            rend="displayNumAndIndent"/>πολλὰ γὰρ πὸτ τὰν ζόαν τοῖς πᾶσιν εἶπε χρήσιμα. μεγάλα χάρις
-          αὐτῷ. <pb n="180"/>
-        </p>
-      </div>
-      <div n="19" type="poem">
-        <head><bibl n="AP 13.3" xml:lang="lat">A. Pal. xiii. 3</bibl></head>
-        <p><lb/>̔Ο μουσοποιὸς ἐνθάδʼ Ἱππῶναξ κεῖται. <lb/>εἰ μὲν πονηρός, μὴ ποτέρχευ τῷ τύμβῳ·
-          <lb/>εἰ δʼ ἐσσὶ κρήγυός τε καὶ παρὰ χρηστῶν, <lb/>θαρσέων καθίζευ, κἢν θέλῃς ἀπόβριξον.
-        </p>
-      </div>
-      <div n="20" type="poem">
-        <head><bibl n="AP 7.663" xml:lang="lat">A. Pal. vii. 663</bibl></head>
-        <p><lb rend="displayNumAndIndent"/>̔Ο μικκὸς τόδʼ ἔτευξε τᾷ Θραΐσσᾳ <lb/>Μήδειος τὸ μνᾶμʼ
-          ἐπὶ τᾷ ὁδῷ κἠπέγραψε Κλείτας. <lb rend="displayNumAndIndent"/>ἑξεῖ τὰν χάριν ἁ γυνὰ ἀντὶ
-          τήνων, <lb/>ὧν τὸν κοῦρον ἔθρεψε. τί μάν; ἔτι χρησίμα καλεῖται. </p>
-      </div>
-      <div n="21" type="poem">
-        <head><bibl n="AP 7.664" xml:lang="lat">A. Pal. vii. 664</bibl></head>
-        <p><lb/>Ἀρχίλοχον καὶ στᾶθι καὶ εἴσιδε τὸν πάλαι ποιητὰν <lb rend="displayNumAndIndent"
-          />τὸν τῶν ἰάμβων, οὗ τὸ μυρίον κλέος <lb rend="displayNumAndIndent"/>διῆλθε κἠπὶ νύκτα καὶ
-          πρὸς ἀῶ. <lb/>ἦ ῥά νιν αἱ Μοῖσαι καὶ ὁ Δάλιος ἠγάπευν Ἀπόλλων, <lb
-            rend="displayNumAndIndent" n="5"/>ὡς ἐμμελής τʼ ἔγεντο κἠπιδέξιος <lb
-            rend="displayNumAndIndent"/>ἔπεά τε ποιεῖν πρὸς λύραν τʼ ἀείδειν. </p>
-      </div>
-      <div n="22" type="poem">
-        <head><bibl n="AP 9.598" xml:lang="lat">A. Pal. ix. 598</bibl></head>
-        <p><lb/>τὸν τοῦ Ζανὸς ὅδʼ ὗμιν υἱὸν ὡνὴρ <lb/>τὸν λεοντομάχαν, τὸν ὀξύχειρα, <lb/>πρᾶτος τῶν
-          ἐπάνωθε μουσοποιῶν <lb/>Πείσανδρος συνέγραψεν ὡκ Καμίρου <lb n="5" rend="displayNum"
-          />χὥσους ἐξεπόνασεν εἶπʼ ἀέθλους. <lb/>τοῦτον δʼ αὐτὸν ὁ δᾶμος, ὡς σάφʼ εἰδῇς, <lb/>ἔστασʼ
-          ἐνθάδε χάλκεον ποιήσας <lb/>πολλοῖς μησὶν ὄπισθε κἠνιαυτοῖς. <pb n="181"/>
-        </p>
-      </div>
-      <div n="23" type="poem">
-        <head>ἐκ τῆς Βερενίκης <bibl xml:lang="lat">Athenaeus vii. 
-          284.</bibl></head>
-        <p><lb/>Καἴ τις ἀνὴρ αἰτεῖται ἐπαγροσύνην τε καὶ ὄλβον, <lb/>ἐξ ἁλὸς ᾧ ζωή, τὰ δὲ δίκτυα
-          κείνῳ ἄροτρα, <lb/>σφάζων ἀκρόνυχος ταύτῃ θεῷ ἱερὸν ἰχθύν, <lb/>ὃν λεῦκον καλέουσιν, ὁ γὰρ
-          φιερώτατος ἄλλων, <lb n="5" rend="displayNum"/>καί κε λίνα στήσαιτο καὶ ἐξερύσαιτο
-          θαλάσσης <lb/>ἔμπλεα. </p>
-      </div>
-      <div n="24" type="poem">
-        <head>Μεγάρα</head>
-        <p><lb rend="displayNumAndIndent"/><q>μῆτερ ἐμή, τίφθʼ ὧδε φίλον κατὰ θυμὸν ἰάπτεις
-            <lb/>ἐκπάγλως ἀχέουσα, τὸ πρὶν δέ τοι οὐκέτʼ ἔρευθος <lb/>σώζετʼ ἐπὶ ῥεθέεσσι; τί μοι
-            τόσον ἠνίησαι; <lb/>ἦ ῥʼ ὅτι ἄλγεα πάσχει ἀπείριτα φαίδιμος υἱὸς <lb n="5"
-              rend="displayNum"/>ἀνδρὸς ὑπʼ οὐτιδανοῖο, λέων ὡσείθʼ ὑπὸ νεβροῦ; <lb/>ὤμοι ἐγώ, τί νυ
-            δή με θεοὶ τόσον ἠτίμησαν <lb/>ἀθάνατοι; τί νύ μʼ ὧδε κακῇ γονέες τέκον αἴσῃ;
-            <lb/>δύσμορος, ἥτʼ ἐπεὶ ἀνδρὸς ἀμύμονος ἐς λέχος ἦλθον, <lb/>τὸν μὲν ἐγὼ τίεσκον ἴσον
-            φαέεσσιν ἐμοῖσιν <lb n="10" rend="displayNum"/>ἠδʼ ἔτι νῦν σέβομαί τε καὶ αἰδέομαι κατὰ
-            θυμόν· <lb/>τοῦ δʼ οὔτις γένετʼ ἄλλος ἀποτμότερος ζωόντων, <lb/>οὐδὲ τόσων σφετέρῃσιν
-          ἐγεύσατο φροντίσι κηδέων. <lb/>σχέτλιος, ὃς τόξοισιν, ἅ οἱ πόρεν αὐτὸς Ἀπόλλων <lb/>ἠέ
-          τινος Κηρῶν ἢ Ἐριννύος αἰνὰ βέλεμνα, <lb n="15" rend="displayNum"/>παῖδας ἑοὺς
-            κατέπεφνε καὶ ἐκ φίλον εἵλετο θυμὸν <lb/>μαινόμενος κατὰ οἶκον, ὁ δʼ ἔμπλεος ἔσκε
-            φόνοιο. <lb/>τοὺς μὲν ἐγὼ δύστηνος ἐμοῖς ἴδον ὀφθαλμοῖσι <lb/>βαλλομένους ὑπὸ πατρί· τὸ
-            δʼ οὐδʼ ὄναρ ἤλυθεν ἄλλῳ· <pb n="182"/>
-            <lb/>οὐδέ σφιν δυνάμην ἀδινὸν καλέουσιν ἀρῆξαι <lb n="20" rend="displayNum"/>μητέρʼ ἑήν,
-            ἐπεὶ ἐγγὺς ἀνίκητον κακὸν ἦεν. <lb/>ὡς δʼ ὄρνις ὀδύρηται ἐπὶ σφετέροισι νεοσσοῖς
-            <lb/>ὀλλυμένοις, οὕστʼ αἰνὸς ὄφις ἔτι νηπιάχοντας <lb/>θάμνοις ἐν πυκινοῖσι κατεσθίει· ἡ
-            δὲ κατʼ αὐτοὺς <lb/>πωτᾶται κλάζουσα μάλα λιγὺ πότνια μήτηρ, <lb n="25"
-              rend="displayNum"/>οὐδʼ ἄρʼ ἔχει τέκνοισιν ἐπαρκέσαι· ἦ ῥά οἱ αὐτῇ <lb/>ἆσσον ἴμεν
-            μέγα τάρβος ἀμειλίκτοιο πελώρου· <lb/>ὣς ἐγὼ αἰνοτόκεια φίλον γόνον αἰάζουσα
-            <lb/>μαινομένοισι πόδεσσι δόμον κάτα πολλὸν ἐφοίτων. <lb/>ὥς γʼ ὄφελον μετὰ παισὶν ἅμα
-            θνήσκουσα καὶ αὐτὴ <lb n="30" rend="displayNum"/>κεῖσθαι φαρμακόεντα διʼ ἥπατος ἰὸν
-            ἔχουσα, <lb n="30a" rend="displayNum"/><add>ἢ καὶ σοῖς ἀγανοῖσιν ὑπαὶ βελέεσσι
-              δαμῆναι</add>
-          <lb/>Ἄρτεμι θηλυτέρῃσι μέγα κρείουσα γυναιξί. <lb/>τῷ χʼ ἡμᾶς κλαύσαντε φίλῃς ἐπὶ
-            χερσὶ τοκῆες <lb/>πολλοῖς σὺν κτερέεσσι πυρῆς ἐπέβησαν ὁμοίης, <lb/>καί κεν ἕνα χρύσειον
-            ἐς ὀστέα κρωσσὸν ἁπάντων <lb n="35" rend="displayNum"/>λέξαντες κατέθαψαν, ὅθι πρῶτον
-            γενόμεσθα. <lb/>νῦν δʼ οἱ μὲν Θήβην ἱπποτρόφον ἐνναίουσιν <lb/>Ἀονίου πεδίοιο βαθεῖαν
-          βῶλον ἀροῦντες· <lb/>αὐτὰρ ἐγὼ Τίρυνθα κατὰ κραναὴν πόλιν Ἥρης <lb/>πολλοῖσιν δύστηνος
-            ἰάπτομαι ἄλγεσιν ἦτορ <lb n="40" rend="displayNum"/>αἰεὶ ὁμῶς· δακρύων δὲ πάρεστί μοι
-            οὐδʼ ἴʼ ἐρωή. <lb/>ἀλλὰ πόσιν μὲν ὁρῶ παῦρον χρόνον ὀφθαλμοῖσιν <lb/>οἴκῳ ἐν ἡμετέρῳ·
-            πολέων δὲ οἱ ἔργον ἑτοῖμον <lb/>μόχθων, τοὺς ἐπὶ γαῖαν ἀλώμενος ἠδὲ θάλασσαν
-            <lb/>μοχθίζει πέτρης ὅγʼ ἔχων νόον ἠὲ σιδήρου <lb n="45" rend="displayNum"/>καρτερὸν ἐν
-            στήθεσσι· σὺ δʼ ἠύτε λείβεται ὕδωρ, <lb/>νύκτας τε κλαίουσα καὶ ἐκ Διὸς ἤμαθʼ ὁπόσσα.
-              <pb n="183"/>
-            <lb/>ἄλλος μὰν οὐκ ἄν τις ἐυφρήναι με παραστὰς <lb/>κηδεμόνων· οὐ γάρ σφε δόμων κατὰ
-          τεῖχος ἐέργει. <lb/>καὶ λίην πάντες γε πέρην πιτυώδεος Ἰσθμοῦ <lb n="50"
-              rend="displayNum"/>ναίουσʼ, οὐδέ μοί ἐστι πρὸς ὅντινά κε βλέψασα <lb/>ο̣̣α γυνὴ
-            πανάποτμος ἀναψύξαιμι φίλον κῆρ, <lb/>νόσφι γε δὴ Πύρρης συνομαίμονος· ἡ δὲ καὶ αὐτὴ
-          <lb/>ἀμφὶ πόσει σφετέρῳ πλέον ἄχνυται Ἰφικλῆι, <lb/>σῷ υἱεῖ· πάντων γὰρ ὀϊζυρώτατα
-            τέκνα <lb n="55" rend="displayNum"/>γείνασθαί σε θεῷ τε καὶ ἀνέρι θνητῷ ἔολπα.</q>
-          <lb rend="displayNumAndIndent"/>ὣς ἄρʼ ἔφη· τὰ δέ οἱ θαλερώτερα δάκρυα μήλων <lb/>κόλπον
-          ἐς ἱμερόεντα κατὰ βλεφάρων ἐχέοντο, <lb/>μνησαμένῃ τέκνων τε καὶ ὧν μετέπειτα τοκήων.
-          <lb/>ὡς δʼ αὔτως δακρύοισι παρήια λεύκʼ ἐδίαινεν <lb n="60" rend="displayNum"/>Ἀλκμήνη·
-          βαρὺ δʼ ἥγε καὶ ἐκ θυμοῦ στενάχουσα <lb/>μύθοισιν πυκινοῖσι φίλην νυὸν ὧδε μετηύδα· <lb
-            rend="displayNumAndIndent"/><q>δαιμονίη παίδων, τί νύ τοι φρεσὶν ἔμπεσε τοῦτο
-            <lb/>πευκαλίμῃς; πῶς ἄμμʼ ἐθέλεις ὀροθυνέμεν ἄμφω <lb/>κήδεʼ ἄλαστα λέγουσα; τὰ δʼ οὐ
-            νῦν πρῶτα κέκλαυται. <lb/>ἢ οὐχ ἅλις, οἷς ἐχόμεσθα τὸ δεύτατον αἰεὶ ἐπʼ ἦμαρ <lb n="66"
-              rend="displayNum"/>γινομένοις; μάλα μέν γε φιλοθρηνής κέ τις εἴη, <lb n="67"
-              rend="displayNum"/>ὅστις ἀριθμήσειεν……… <lb n="67a" rend="displayNum"/>……ἐφʼ ἡμετέροις
-            ἀχέεσσι <lb n="68" rend="displayNum"/>θάρσει. οὐ τοιῆσδʼ ἐκυρήσαμεν ἐκ θεοῦ αἴσης.
-            <lb/>καὶ δʼ αὐτὴν ὁρόω δε, φίλον τέκος, ἀτρύτοισιν <lb n="70" rend="displayNum"/>ἄλγεσι
-            μοχθίζουσαν. ἐπιγνώμων δέ τοί εἰμι <lb/>ἀσχαλάαν, ὅτε δή γε καὶ εὐφροσύνης κόρος ἐστί.
-              <pb n="184"/>
-            <lb/>καί σε μάλʼ ἐκπάγλως ὀλοφύρομαι ἠδʼ ἐλεαίρω, <lb/>οὕνεκεν ἡμετέροιο λυγροῦ μετὰ
-            δαίμονος ἔσχες, <lb/>ὅσθʼ ἡμῖν ἐφύπερθε κάρης βαρὺς αἰωρεῖται. <lb n="75"
-              rend="displayNum"/>ἴστω γὰρ Κούρη τε καὶ εὐέανος Δημήτηρ, <lb/>ἅς κε μέγα βλαφθείς τις
-            ἑκὼν ἐπίορκον ὀμόσσῃ <lb/>δυσμενέων, μηδέν δε χερειότερον φρεσὶν ᾗσι <lb/>στέργειν ἢ εἴ
-            πέρ μοι ὑπὲκ νηδυίοφιν ἦλθες <lb n="79" rend="displayNum"/>καί μοι τηλυγέτη ἐνὶ δώμασι
-            παρθένος ἦσθα. <lb/>οὐδʼ αὐτήν γέ νυ πάμπαν ἔολπά δε τοῦτό γε λήθειν. <lb/>τῷ μηδʼ
-            ἐξείπῃς πότʼ, ἐμὸν θάλος, ὥς σευ ἀκηδέω, <lb/>μηδʼ εἴ κʼ ἠυκόμου Νιόβης πυκινώτερα
-            κλαίω. <lb/>οὐδὲν γὰρ νεμεσητὸν ὑπὲρ τέκνου γοάασθαι <lb/>μητέρι δυσπαθέοντος· ἐπεὶ δέκα
-            μῆνας ἔκαμνον <lb n="85" rend="displayNum"/>πρὶν ἤπερ τʼ ἰδέειν μιν, ἐμῷ ὑπὸ ἥπατʼ
-            ἔχουσα, <lb/>καί με πυλάρταο σχεδὸν ἤγαγεν Αἰδωνῆος· <lb/>ὧδέ ἑ δυστοκέουσα κακὰς ὠδῖνας
-            ἀνέτλην. <lb/>νῦν δέ μοι οἴχεται υἱὸς ἐπʼ ἀλλοτρίης νέον ἆθλον <lb/>ἐκτελέων· οὐδʼ οἶδα
-            δυσάμμορος, εἴτε μιν αὐτὸν <lb n="90" rend="displayNum"/>ἐνθάδε νοστήσανθʼ ὑποδέξομαι,
-            εἴτε καὶ οὐκί. <lb/>πρὸς δʼ ἔτι μʼ ἐπτοίησε διὰ γλυκὺν αἰνὸς ὄνειρος <lb/>ὕπνον·
-            δειμαίνω δὲ παλίγκοτον ὄψιν ἰδοῦσα <lb/>ἐκπάγλως, μή μοί τι τέκνοις ἀποθύμιον ἔρδοι.
-            <lb/>εἴσατο γάρ μοι ἔχων μακέλην εὐεργέα χερσὶ <lb n="95" rend="displayNum"/>παῖς ἐμὸς
-              ἀμφοτέρῃσι, βίη Ἡρακληείη· <lb/>τῇ μεγάλην ἐλάχαινε δεδεγμένος ὡς ἐπὶ μισθῷ <lb/>τάφρον
-            τηλεθάοντος ἐπʼ ἐσχατιῇ τινος ἀγροῦ, <lb/>γυμνὸς ἄτερ χλαίνης τε καὶ εὐμίτροιο χιτῶνος.
-            <lb/>αὐτὰρ ἐπειδὴ παντὸς ἀφίκετο πρὸς τέλος ἔργου <pb n="185"/>
-            <lb n="100" rend="displayNum"/>καρτερὸν οἰνοφόροιο πονεύμενος ἕρκος ἀλωῆς, <lb/>ἤτοι ὁ
-            λίστρον ἔμελλεν ἐπὶ προύχοντος ἐρείσας <lb/>ἀνδήρου καταδῦναι ἃ καὶ πάρος εἵματα ἕστο·
-            <lb/>ἐξαπίνης δʼ ἀνέλαμψεν ὑπὲρ καπέτοιο βαθείης <lb/>πῦρ ἄμοτον, περὶ δʼ αὐτὸν
-            ἀθέσφατος εἱλεῖτο φλόξ. <lb n="105" rend="displayNum"/>αὐτὰρ ὅγʼ αἰὲν ὄπισθε θοοῖς
-              ἀνεχάζετο ποσσίν, <lb/>ἐκφυγέειν μεμαὼς ὀλοὸν μένος Ἡφαίστοιο· <lb/>αἰεὶ δὲ προπάροιθεν
-            ἑοῦ χροὸς ἠύτε γέρρον <lb/>νώμασκεν μακέλην· περὶ δʼ ὄμμασιν ἔνθα καὶ ἔνθα
-            <lb/>πάπταινεν, μὴ δή μιν ἐπιφλέξῃ δήιον πῦρ. <lb n="110" rend="displayNum"/>τῷ μὲν
-            ἀοσσῆσαι λελιημένος, ὥς μοι ἔικτο, <lb/>Ἰφικλέης μεγάθυμος ἐπʼ οὔδεϊ κάππεσʼ ὀλισθὼν
-            <lb/>πρὶν ἐλθεῖν, οὐδʼ ὀρθὸς ἀναστῆναι δύνατʼ αὖτις, <lb/>ἀλλʼ ἀστεμφὲς ἔκειτο, γέρων
-            ὡσείτʼ ἀμενηνός, <lb/>ὅντε καὶ οὐκ ἐθέλοντα βιήσατο γῆρας ἀτερπὲς <lb/>καππεσέειν,
-            κεῖται δʼ ὅγʼ ἐπὶ χθονὸς ἔμπεδον αὐτοῦ <lb n="116" rend="displayNum"/>εἰς ὅ κε τις
-            χειρός μιν ἀνειρύσσῃ παριόντων <lb/>αἰδεσθεὶς ὄπιδα τρομερὴν πολιοῖο γενείου. <lb/>ὣς ἐν
-              γῇ λελίαστο σακεσπάλος Ἰφικλείης. <lb/>αὐτὰρ ἐγὼ κλαίεσκον ἀμηχανέοντας ὁρῶσα
-            <lb/>παῖδας ἐμούς, μέχρι δή μοι ἀπέσσυτο νήδυμος ὕπνος <lb n="121" rend="displayNum"
-            />ὀφθαλμῶν, ἠὼς δὲ παραυτίκα φαινόλις ἦλθε. <lb/>τοῖα, φίλη, μοι ὄνειρα διὰ φρένας
-            ἐπτοίησαν <lb/>παννυχίῃ· τὰ δὲ πάντα πρὸς Εὐρυσθῆα τρέποιτο <lb/>οἴκου ἀφʼ ἡμετέροιο,
-            γένοιτο δὲ μάντις ἐκείνῳ <lb n="125" rend="displayNum"/>θυμὸς ἐμός, μηδʼ ἄλλο παρὲκ
-            τελέσειέ τι δαίμων.</q>
-          <pb n="186"/></p>
-      </div>
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="2"> 
+<head rend="align(right)"><bibl n="AP 6.177" xml:lang="lat">A. Pal. vi. 177</bibl></head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:2" n="1">Δάφνις ὁ λευκόχρως, ὁ καλᾷ σύριγγι μελίσδων </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:2" rend="align(indent)" n="2">βουκολικοὺς ὕμνους, ἄνθετο Πανὶ τάδε, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:2" n="3">τοὺς τρητοὺς δόνακας, τὸ λαγωβόλον, ὀξὺν ἄκοντα, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:2" rend="align(indent)" n="4">νεβρίδα, τὰν πήραν, ᾇ ποκʼ ἐμαλοφόρει. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="3"> 
+<head rend="align(right)"><bibl n="AP 9.338" xml:lang="lat">A. Pal. ix. 338</bibl></head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:3" n="1">εὕδεις φυλλοστρῶτι πέδῳ Δάφνι σῶμα κεκμακὸς </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:3" rend="align(indent)" n="2">ἀμπαύων· στάλικες δʼ ἀρτιπαγεῖς ἀνʼ ὄρη. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:3" n="3">ἀγρεύει δέ τυ Πὰν καὶ ὁ τὸν κροκόεντα Πρίηπος </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:3" rend="align(indent)" n="4">κισσὸν ἐφʼ ἱμερτῷ κρατὶ καθαπτόμενος, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:3" n="5">ἄντρον ἔσω στείχοντες ὁμόρροθοι. ἀλλὰ τὺ φεῦγε, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:3" rend="align(indent)" n="6">φεῦγε μεθεὶς ὕπνου κῶμα καταγρόμενον. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="4"> 
+<head rend="align(right)"><bibl n="AP 9.437" xml:lang="lat">A. Pal. ix. 437</bibl></head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" n="1">τήναν τὰν λαύραν τάς τε δρύας αἰπόλε κάμψας </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" rend="align(indent)" n="2">σύκινον εὑρήσεις ἀρτιγλυφὲς ξόανον, </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" n="3">τρισκελὲς αὐτόφλοιον ἀνούατον, ἀλλὰ φάλητι </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" rend="align(indent)" n="4">παιδογόνῳ δυνατὸν Κύπριδος ἔργα τελεῖν. </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" n="5">σακός οἱ ἱερὸς περιδέδρομεν, ἀέναον δὲ </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" rend="align(indent)" n="6">ῥεῖθρον ἀπὸ σπιλάδων πάντοσε τηλεθάει </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" n="7">δάφναις καὶ μύρτοισι καὶ εὐώδει κυπαρίσσῳ. </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" rend="align(indent)" n="8">ἔνθα πέριξ κέχυται βοτρυόπαις ἕλικι </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" n="9">ἄμπελος, εἰαρινοὶ δὲ λιγυφθόγγοισιν ἀοιδαῖς</l> 
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" rend="align(indent)" n="10">κόσσυφοι ἀχεῦσιν ποικιλότραυλα μέλη. </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" n="11">ξουθαὶ δʼ ἀδονίδες μινυρίσμασιν ἀνταχεῦσι </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" rend="align(indent)" n="12">μέλπουσαι στόμασιν τὰν μελίγαρυν ὄπα.</l> <pb n="176"/> 
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" n="13">ἕζεο δὴ τηνεῖ καὶ τῷ χαρίεντι Πριήπῳ </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" rend="align(indent)" n="14">εὔχεʼ ἀποστέρξαι τοὺς Δάφνιδός με πόθους, </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" n="15">κεὐθὺς ἐπιρρέξειν χίμαρον καλόν. ἢν δʼ ἀνανεύσῃ, </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" rend="align(indent)" n="16">τοῦδε τυχὼν ἐθέλω τρισσὰ θύη τελέσαι· </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" n="17">ῥέξω γὰρ δαμάλαν, λάσιον τράγον, ἄρνα τὸν ἴσχω </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:4" rend="align(indent)" n="18">σακίταν. ἀίοι δʼ εὐμενέως ὁ θεός. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="5"> 
+<head rend="align(right)"><bibl n="AP 9.433" xml:lang="lat">A. Pal. ix. 433</bibl></head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:5" n="1">λῇς ποτὶ τᾶν Νυμφᾶν διδύμοις αὐλοῖσιν ἀεῖσαι </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:5" rend="align(indent)" n="2">ἁδύ τί μοι; κἠγὼ πακτίδʼ ἀειράμενος </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:5" n="3">ἀρξεῦμαί τι κρέκειν, ὁ δὲ βουκόλος ἄμμιγα θελξεῖ </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:5" rend="align(indent)" n="4">Δάφνις, κηροδέτῳ πνεύματι μελπόμενος. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:5" n="5">ἐγγὺς δὲ στάντες λασίας δρυὸς ἄντρου ὄπισθεν </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:5" rend="align(indent)" n="6">Πᾶνα τὸν αἰγιβάταν ὀρφανίσωμες ὕπνου. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="6"> 
+<head rend="align(right)"><bibl n="AP 9.432" xml:lang="lat">A. Pal. ix. 432</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:6" n="1">Ἆ δειλαῖε τὺ Θύρσι, τί τὸ πλέον, εἰ καταταξεῖς </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:6" rend="align(indent)" n="2">δάκρυσι διγλήνους ὦπας ὀδυρόμενος; </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:6" n="3">οἴχεται ἁ χίμαρος, τὸ καλὸν τέκος, οἴχετʼ ἐς Ἅιδαν· </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:6" rend="align(indent)" n="4">τραχὺς γὰρ χαλαῖς ἀμφεπίαξε λύκος. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:6" n="5">αἱ δὲ κύνες κλαγγεῦντι· τί τὸ πλέον, ἁνίκα τήνας </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:6" rend="align(indent)" n="6">ὀστίον οὐδὲ τέφρα λείπεται οἰχομένας; 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="7"> 
+<head rend="align(right)"><bibl n="AP 7.659" xml:lang="lat">A. Pal. vii. 659</bibl></head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:7" n="1">νήπιον υἱὸν ἔλειπες, ἐν ἁλικίᾳ δὲ καὶ αὐτός, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:7" rend="align(indent)" n="2">Εὐρύμεδον τύμβου τοῦδε θανὼν ἔτυχες. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:7" n="3">σοὶ μὲν ἕδρα θείοισι μετʼ ἀνδράσι· τὸν δὲ πολῖται </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:7" rend="align(indent)" n="4">τιμασεῦντι, πατρὸς μνώμενοι ὡς ἀγαθοῦ.</l></div> <pb n="177" /> 
+
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="8"> 
+<head rend="align(right)"><bibl n="AP 6.337" xml:lang="lat">A. Pal. vi. 337</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:8" n="1">Ἦλθε καὶ ἐς Μίλητον ὁ τοῦ Παιήονος υἱός, </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:8" rend="align(indent)" n="2">ἰητῆρι νόσων ἀνδρὶ συνοισόμενος </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:8" n="3">Νικίᾳ, ὅς μιν ἐπʼ ἦμαρ ἀεὶ θυέεσσιν ἱκνεῖται, </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:8" rend="align(indent)" n="4">καὶ τόδʼ ἀπʼ εὐώδους γλύψατʼ ἄγαλμα κέδρου, </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:8" n="5">Ἠετίωνι χάριν γλαφυρᾶς χερὸς ἄκρον ὑποστὰς </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:8" rend="align(indent)" n="6">μισθόν· ὁ δʼ εἰς ἔργον πᾶσαν ἀφῆκε τέχνην. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="9"> 
+<head rend="align(right)"><bibl n="AP 7.660" xml:lang="lat">A. Pal. vii. 660</bibl></head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:9" n="1">ξεῖνε, Συρακόσιός τοι ἀνὴρ τόδʼ ἐφίεται Ὄρθων· </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:9" rend="align(indent)" n="2">χειμερίας μεθύων μηδαμὰ νυκτὸς ἴοις. </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:9" n="3">καὶ γὰρ ἐγὼ τοιοῦτον ἔχω πότμον· ἀντὶ δὲ πολλᾶς </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:9" rend="align(indent)" n="4">πατρίδος ὀθνείαν κεῖμαι ἐφεσσάμενος. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="10"> 
+<head rend="align(right)"><bibl n="AP 6.338" xml:lang="lat">A. Pal. vi. 338</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:10" n="1">Ὑμῖν τοῦτο θεαὶ κεχαρισμένον ἐννέα πάσαις </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:10" rend="align(indent)" n="2">τὤγαλμα Ξενοκλῆς θῆκε τὸ μαρμάρινον, </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:10" n="3">μουσικός· οὐχ ἑτέρως τις ἐρεῖ. σοφίῃ δʼ ἐπὶ τῇδε </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:10" rend="align(indent)" n="4">αἶνον ἔχων Μουσέων οὐκ ἐπιλανθάνεται. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="11"> 
+<head rend="align(right)"><bibl n="AP 7.661" xml:lang="lat">A. Pal. vii. 661</bibl></head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:11" n="1">Εὐσθένεος τὸ μνῆμα· φυσιγνώμων ὁ σοφιστής, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:11" rend="align(indent)" n="2">δεινὸς ἀπʼ ὀφθαλμοῦ καὶ τὸ νόημα μαθεῖν. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:11" n="3">εὖ μιν ἔθαψαν ἑταῖροι ἐπὶ ξείνης ξένον ὄντα· </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:11" rend="align(indent)" n="4">χὑμνοθέτης αὐτοῖς δαιμονίως φίλος ἦν. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:11" n="5">πάντων ὧν ἐπέοικεν ἔχειν τεθνεὼς ὁ σοφιστὴς </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:11" rend="align(indent)" n="6">καίπερ ἄκικυς ἐὼν εἶχʼ ἄρα κηδεμόνας.</l></div> <pb n="178"/> 
+
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="12"> 
+<head rend="align(right)"><bibl n="AP 6.339" xml:lang="lat">A. Pal. vi. 339</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:12" n="1">Δημομέλης ὁ χορηγός, ὁ τὸν τρίποδʼ ὦ Διόνυσε </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:12" rend="align(indent)" n="2">καὶ σὲ τὸν ἥδιστον θεῶν μακάρων ἀναθείς, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:12" n="3">μέτριος ἦν ἐν πᾶσι, χορῷ δʼ ἐκτήσατο νίκην </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:12" rend="align(indent)" n="4">ἀνδρῶν, καὶ τὸ καλὸν καὶ τὸ προσῆκον ὁρῶν. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="13"> 
+<head rend="align(right)"><bibl n="AP 6.340" xml:lang="lat">A. Pal. vi. 340</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:13" n="1">Ἡ Κύπρις οὐ πάνδημος. ἱλάσκεο τὴν θεὸν εἰπὼν </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:13" rend="align(indent)" n="2">οὐρανίην, ἁγνῆς ἄνθεμα Χρυσογόνης </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:13" n="3">οἴκῳ ἐν Ἀμφικλέους, ᾧ καὶ τέκνα καὶ βίον εἶχε </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:13" rend="align(indent)" n="4">ξυνόν. ἀεὶ δέ σφιν λώιον εἰς ἔτος ἦν </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:13" n="5">ἐκ σέθεν ἀρχομένοις ὦ πότνια· κηδόμενοι γὰρ </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:13" rend="align(indent)" n="6">ἀθανάτων αὐτοὶ πλεῖον ἔχουσι βροτοί. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="14"> 
+<head rend="align(right)"><bibl n="AP 9.435" xml:lang="lat">A. Pal. ix. 435</bibl></head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:14" n="1">Ἀστοῖς καὶ ξείνοισιν ἴσον νέμει ἥδε τράπεζα· </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:14" rend="align(indent)" n="2">θεὶς ἀνελοῦ ψήφου πρὸς λόγον ἐρχομένης. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:14" n="3">ἄλλός τις πρόφασιν λεγέτω· τὰ δʼ ὀθνεῖα Κάικος </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:14" rend="align(indent)" n="4">χρήματα καὶ νυκτὸς βουλομένοις ἀριθμεῖ. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="15"> 
+<head rend="align(right)"><bibl n="AP 7.658" xml:lang="lat">A. Pal. vii. 658</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:15" n="1">γνώσομαι, εἴ τι νέμεις ἀγαθοῖς πλέον, ἢ καὶ ὁ δειλὸς </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:15" rend="align(indent)" n="2">ἐκ σέθεν ὡσαύτως ἶσον ὁδοιπόρʼ ἔχει. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:15" n="3"><q>χαιρέτω οὗτος ὁ τύμβος" ἐρεῖς "ἐπεὶ Εὐρυμέδοντος</q> </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:15" rend="align(indent)" n="4"><q rend="merge">κεῖται τῆς ἱερῆς κοῦφος ὑπὲρ κεφαλῆς.</q></l></div> <pb n="179"/> 
+
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="16"> 
+<head rend="align(right)"><bibl n="AP 7.662" xml:lang="lat">A. Pal. vii. 662</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:16" n="1">Ἡ παῖς ᾤχετʼ ἄωρος ἐν ἑβδόμῳ ἥδʼ ἐνιαυτῷ </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:16" rend="align(indent)" n="2">εἰς Ἀίδην πολλοῖς ἡλικίης προτέρη, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:16" n="3">δειλαίη, ποθέουσα τὸν εἰκοσάμηνον ἀδελφόν, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:16" rend="align(indent)" n="4">νήπιον ἀστόργου γευσάμενον θανάτου. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:16" n="5">αἰαῖ ἐλεινὰ παθοῦσα Περιστερί, ὡς ἐν ἑτοίμῳ </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:16" rend="align(indent)" n="6">ἀνθρώποις δαίμων θῆκε τὰ λυγρότατα. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="17"> 
+<head rend="align(right)"><bibl n="AP 9.599" xml:lang="lat">A. Pal. ix. 599</bibl></head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:17" n="1">θᾶσαι τὸν ἀνδριάντα τοῦτον ὦ ξένε </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:17" rend="align(indent)" n="2">σπουδᾷ, καὶ λέγʼ ἐπὴν ἐς οἶκον ἔνθῃς· </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:17" n="3"><q>Ἀνακρέοντος εἰκόνʼ εἶδον ἐν Τέῳ</q> </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:17" rend="align(indent)" n="4"><q rend="merge">τῶν πρόσθʼ εἴ τι περισσὸν ᾠδοποιοῦ.</q> </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:17" n="5">προσθεὶς δὲ χὥτι τοῖς νέοισιν ἅδετο, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:17" rend="align(indent)" n="6">ἐρεῖς ἀτρεκέως ὅλον τὸν ἄνδρα. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="18"> 
+<head rend="align(right)"><bibl n="AP 9.600" xml:lang="lat">A. Pal. ix. 600</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:18" n="1">Ἅ τε φωνὰ Δώριος χὡνὴρ ὁ τὰν κωμῳδίαν</l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:18" rend="align(indent)" n="2">εὑρὼν Ἐπίχαρμος. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:18" n="3">ὦ Βάκχε, χάλκεόν νιν ἀντʼ ἀλαθινοῦ</l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:18" rend="align(indent)" n="4">̔́τὶν ὧδʼ ἀνέθηκαν </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:18" n="5">τοὶ Συρακόσσαις ἐνίδρυνται πεδωρισταὶ πόλει,</l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:18" rend="align(indent)" n="6">οἷʼ ἀνδρὶ πολίτᾳ· </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:18" n="7">σωρὸν γὰρ εἶχε ῥημάτων μεμναμένοις</l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:18" rend="align(indent)" n="8">̔́τελεῖν ἐπίχειρα. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:18" n="9">πολλὰ γὰρ πὸτ τὰν ζόαν τοῖς πᾶσιν εἶπε χρήσιμα. </l>    
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:18" rend="align(indent)" n="10">μεγάλα χάρις αὐτῷ.</l></div> <pb n="180"/> 
+
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="19"> 
+<head rend="align(right)"><bibl n="AP 13.3" xml:lang="lat">A. Pal. xiii. 3</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:19" n="1">Ὁ μουσοποιὸς ἐνθάδʼ Ἱππῶναξ κεῖται. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:19" n="2">εἰ μὲν πονηρός, μὴ ποτέρχευ τῷ τύμβῳ· </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:19" n="3">εἰ δʼ ἐσσὶ κρήγυός τε καὶ παρὰ χρηστῶν, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:19" n="4">θαρσέων καθίζευ, κἢν θέλῃς ἀπόβριξον. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="20"> 
+<head rend="align(right)"><bibl n="AP 7.663" xml:lang="lat">A. Pal. vii. 663</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:20" rend="align(indent)" n="1">Ὁ μικκὸς τόδʼ ἔτευξε τᾷ Θραΐσσᾳ </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:20" n="2">Μήδειος τὸ μνᾶμʼ ἐπὶ τᾷ ὁδῷ κἠπέγραψε Κλείτας. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:20" rend="align(indent)" n="3">ἑξεῖ τὰν χάριν ἁ γυνὰ ἀντὶ τήνων, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:20" n="4">ὧν τὸν κοῦρον ἔθρεψε. τί μάν; ἔτι χρησίμα καλεῖται. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="21"> 
+<head rend="align(right)"><bibl n="AP 7.664" xml:lang="lat">A. Pal. vii. 664</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:21" n="1">Ἀρχίλοχον καὶ στᾶθι καὶ εἴσιδε τὸν πάλαι ποιητὰν </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:21" rend="align(indent)" n="2">τὸν τῶν ἰάμβων, οὗ τὸ μυρίον κλέος </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:21" rend="align(indent)" n="3">διῆλθε κἠπὶ νύκτα καὶ πρὸς ἀῶ. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:21" n="4">ἦ ῥά νιν αἱ Μοῖσαι καὶ ὁ Δάλιος ἠγάπευν Ἀπόλλων, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:21" rend="align(indent)" n="5">ὡς ἐμμελής τʼ ἔγεντο κἠπιδέξιος </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:21" rend="align(indent)" n="6">ἔπεά τε ποιεῖν πρὸς λύραν τʼ ἀείδειν. 
+</l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="22"> 
+<head rend="align(right)"><bibl n="AP 9.598" xml:lang="lat">A. Pal. ix. 598</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:22" n="1">τὸν τοῦ Ζανὸς ὅδʼ ὗμιν υἱὸν ὡνὴρ </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:22" n="2">τὸν λεοντομάχαν, τὸν ὀξύχειρα, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:22" n="3">πρᾶτος τῶν ἐπάνωθε μουσοποιῶν </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:22" n="4">Πείσανδρος συνέγραψεν ὡκ Καμίρου </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:22" n="5">χὥσους ἐξεπόνασεν εἶπʼ ἀέθλους. </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:22" n="6">τοῦτον δʼ αὐτὸν ὁ δᾶμος, ὡς σάφʼ εἰδῇς, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:22" n="7">ἔστασʼ ἐνθάδε χάλκεον ποιήσας </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:22" n="8">πολλοῖς μησὶν ὄπισθε κἠνιαυτοῖς. </l></div>
+  <pb n="181"/> 
+
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="23"> 
+<head rend="align(center)">ἐκ τῆς Βερενίκης <lb/><bibl xml:lang="lat">Athenaeus vii. 284.</bibl></head>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:23" n="1">Καἴ τις ἀνὴρ αἰτεῖται ἐπαγροσύνην τε καὶ ὄλβον, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:23" n="2">ἐξ ἁλὸς ᾧ ζωή, τὰ δὲ δίκτυα κείνῳ ἄροτρα, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:23" n="3">σφάζων ἀκρόνυχος ταύτῃ θεῷ ἱερὸν ἰχθύν, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:23" n="4">ὃν λεῦκον καλέουσιν, ὁ γὰρ φιερώτατος ἄλλων, </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:23" n="5">καί κε λίνα στήσαιτο καὶ ἐξερύσαιτο θαλάσσης </l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:23" n="6">ἔμπλεα. </l></div>
+
+<div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1" n="24"> 
+<head rend="align(center)">Μεγάρα</head>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" rend="align(indent)" n="1"><q>μῆτερ ἐμή, τίφθʼ ὧδε φίλον κατὰ θυμὸν ἰάπτεις</q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="2"><q rend="merge">ἐκπάγλως ἀχέουσα, τὸ πρὶν δέ τοι οὐκέτʼ ἔρευθος </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="3"><q rend="merge">σώζετʼ ἐπὶ ῥεθέεσσι; τί μοι τόσον ἠνίησαι; </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="4"><q rend="merge">ἦ ῥʼ ὅτι ἄλγεα πάσχει ἀπείριτα φαίδιμος υἱὸς </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="5"><q rend="merge">ἀνδρὸς ὑπʼ οὐτιδανοῖο, λέων ὡσείθʼ ὑπὸ νεβροῦ; </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="6"><q rend="merge">ὤμοι ἐγώ, τί νυ δή με θεοὶ τόσον ἠτίμησαν </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="7"><q rend="merge">ἀθάνατοι; τί νύ μʼ ὧδε κακῇ γονέες τέκον αἴσῃ; </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="8"><q rend="merge">δύσμορος, ἥτʼ ἐπεὶ ἀνδρὸς ἀμύμονος ἐς λέχος ἦλθον, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="9"><q rend="merge">τὸν μὲν ἐγὼ τίεσκον ἴσον φαέεσσιν ἐμοῖσιν </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="10"><q rend="merge">ἠδʼ ἔτι νῦν σέβομαί τε καὶ αἰδέομαι κατὰ θυμόν· </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="11"><q rend="merge">τοῦ δʼ οὔτις γένετʼ ἄλλος ἀποτμότερος ζωόντων, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="12"><q rend="merge">οὐδὲ τόσων σφετέρῃσιν ἐγεύσατο φροντίσι κηδέων. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="13"><q rend="merge">σχέτλιος, ὃς τόξοισιν, ἅ οἱ πόρεν αὐτὸς Ἀπόλλων </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="14"><q rend="merge">ἠέ τινος Κηρῶν ἢ Ἐριννύος αἰνὰ βέλεμνα, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="15"><q rend="merge">παῖδας ἑοὺς κατέπεφνε καὶ ἐκ φίλον εἵλετο θυμὸν </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="16"><q rend="merge">μαινόμενος κατὰ οἶκον, ὁ δʼ ἔμπλεος ἔσκε φόνοιο. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="17"><q rend="merge">τοὺς μὲν ἐγὼ δύστηνος ἐμοῖς ἴδον ὀφθαλμοῖσι </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="18"><q rend="merge">βαλλομένους ὑπὸ πατρί· τὸ δʼ οὐδʼ ὄναρ ἤλυθεν ἄλλῳ· <pb n="182"/> </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="19"><q rend="merge">οὐδέ σφιν δυνάμην ἀδινὸν καλέουσιν ἀρῆξαι </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="20"><q rend="merge">μητέρʼ ἑήν, ἐπεὶ ἐγγὺς ἀνίκητον κακὸν ἦεν. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="21"><q rend="merge">ὡς δʼ ὄρνις ὀδύρηται ἐπὶ σφετέροισι νεοσσοῖς </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="22"><q rend="merge">ὀλλυμένοις, οὕστʼ αἰνὸς ὄφις ἔτι νηπιάχοντας </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="23"><q rend="merge">θάμνοις ἐν πυκινοῖσι κατεσθίει· ἡ δὲ κατʼ αὐτοὺς </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="24"><q rend="merge">πωτᾶται κλάζουσα μάλα λιγὺ πότνια μήτηρ, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="25"><q rend="merge">οὐδʼ ἄρʼ ἔχει τέκνοισιν ἐπαρκέσαι· ἦ ῥά οἱ αὐτῇ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="26"><q rend="merge">ἆσσον ἴμεν μέγα τάρβος ἀμειλίκτοιο πελώρου· </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="27"><q rend="merge">ὣς ἐγὼ αἰνοτόκεια φίλον γόνον αἰάζουσα </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="28"><q rend="merge">μαινομένοισι πόδεσσι δόμον κάτα πολλὸν ἐφοίτων. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="29"><q rend="merge">ὥς γʼ ὄφελον μετὰ παισὶν ἅμα θνήσκουσα καὶ αὐτὴ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="30"><q rend="merge">κεῖσθαι φαρμακόεντα διʼ ἥπατος ἰὸν ἔχουσα, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="30a"><q rend="merge"><add>ἢ καὶ σοῖς ἀγανοῖσιν ὑπαὶ βελέεσσι δαμῆναι</add> </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="31"><q rend="merge">Ἄρτεμι θηλυτέρῃσι μέγα κρείουσα γυναιξί. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="32"><q rend="merge">τῷ χʼ ἡμᾶς κλαύσαντε φίλῃς ἐπὶ χερσὶ τοκῆες </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="33"><q rend="merge">πολλοῖς σὺν κτερέεσσι πυρῆς ἐπέβησαν ὁμοίης, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="34"><q rend="merge">καί κεν ἕνα χρύσειον ἐς ὀστέα κρωσσὸν ἁπάντων </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="35"><q rend="merge">λέξαντες κατέθαψαν, ὅθι πρῶτον γενόμεσθα. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="36"><q rend="merge">νῦν δʼ οἱ μὲν Θήβην ἱπποτρόφον ἐνναίουσιν </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="37"><q rend="merge">Ἀονίου πεδίοιο βαθεῖαν βῶλον ἀροῦντες· </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="38"><q rend="merge">αὐτὰρ ἐγὼ Τίρυνθα κατὰ κραναὴν πόλιν Ἥρης </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="39"><q rend="merge">πολλοῖσιν δύστηνος ἰάπτομαι ἄλγεσιν ἦτορ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="40"><q rend="merge">αἰεὶ ὁμῶς· δακρύων δὲ πάρεστί μοι οὐδʼ ἴʼ ἐρωή. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="41"><q rend="merge">ἀλλὰ πόσιν μὲν ὁρῶ παῦρον χρόνον ὀφθαλμοῖσιν </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="42"><q rend="merge">οἴκῳ ἐν ἡμετέρῳ· πολέων δὲ οἱ ἔργον ἑτοῖμον </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="43"><q rend="merge">μόχθων, τοὺς ἐπὶ γαῖαν ἀλώμενος ἠδὲ θάλασσαν </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="44"><q rend="merge">μοχθίζει πέτρης ὅγʼ ἔχων νόον ἠὲ σιδήρου </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="45"><q rend="merge">καρτερὸν ἐν στήθεσσι· σὺ δʼ ἠύτε λείβεται ὕδωρ, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="46"><q rend="merge">νύκτας τε κλαίουσα καὶ ἐκ Διὸς ἤμαθʼ ὁπόσσα. <pb n="183"/> </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="47"><q rend="merge">ἄλλος μὰν οὐκ ἄν τις ἐυφρήναι με παραστὰς </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="48"><q rend="merge">κηδεμόνων· οὐ γάρ σφε δόμων κατὰ τεῖχος ἐέργει. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="49"><q rend="merge">καὶ λίην πάντες γε πέρην πιτυώδεος Ἰσθμοῦ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="50"><q rend="merge">ναίουσʼ, οὐδέ μοί ἐστι πρὸς ὅντινά κε βλέψασα </q></l>
+  <l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="51"><q rend="merge">οἷα γυνὴ πανάποτμος ἀναψύξαιμι φίλον κῆρ, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="52"><q rend="merge">νόσφι γε δὴ Πύρρης συνομαίμονος· ἡ δὲ καὶ αὐτὴ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="53"><q rend="merge">ἀμφὶ πόσει σφετέρῳ πλέον ἄχνυται Ἰφικλῆι, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="54"><q rend="merge">σῷ υἱεῖ· πάντων γὰρ ὀϊζυρώτατα τέκνα </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="55"><q rend="merge">γείνασθαί σε θεῷ τε καὶ ἀνέρι θνητῷ ἔολπα.</q> </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" rend="align(indent)" n="56"><q rend="merge">ὣς ἄρʼ ἔφη· τὰ δέ οἱ θαλερώτερα δάκρυα μήλων </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="57">κόλπον ἐς ἱμερόεντα κατὰ βλεφάρων ἐχέοντο, </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="58">μνησαμένῃ τέκνων τε καὶ ὧν μετέπειτα τοκήων. </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="59">ὡς δʼ αὔτως δακρύοισι παρήια λεύκʼ ἐδίαινεν </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="60">Ἀλκμήνη· βαρὺ δʼ ἥγε καὶ ἐκ θυμοῦ στενάχουσα </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="61">μύθοισιν πυκινοῖσι φίλην νυὸν ὧδε μετηύδα· </l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" rend="align(indent)" n="62"><q>δαιμονίη παίδων, τί νύ τοι φρεσὶν ἔμπεσε τοῦτο </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="63"><q rend="merge">πευκαλίμῃς; πῶς ἄμμʼ ἐθέλεις ὀροθυνέμεν ἄμφω </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="64"><q rend="merge">κήδεʼ ἄλαστα λέγουσα; τὰ δʼ οὐ νῦν πρῶτα κέκλαυται. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="65"><q rend="merge">ἢ οὐχ ἅλις, οἷς ἐχόμεσθα τὸ δεύτατον αἰεὶ ἐπʼ ἦμαρ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="66"><q rend="merge">γινομένοις; μάλα μέν γε φιλοθρηνής κέ τις εἴη, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="67"><q rend="merge">ὅστις ἀριθμήσειεν……… </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="67a"><q rend="merge">……ἐφʼ ἡμετέροις ἀχέεσσι </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="68"><q rend="merge">θάρσει. οὐ τοιῆσδʼ ἐκυρήσαμεν ἐκ θεοῦ αἴσης. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="69"><q rend="merge">καὶ δʼ αὐτὴν ὁρόω δε, φίλον τέκος, ἀτρύτοισιν </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="70"><q rend="merge">ἄλγεσι μοχθίζουσαν. ἐπιγνώμων δέ τοί εἰμι </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="71"><q rend="merge">ἀσχαλάαν, ὅτε δή γε καὶ εὐφροσύνης κόρος ἐστί. <pb n="184"/> </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="72"><q rend="merge">καί σε μάλʼ ἐκπάγλως ὀλοφύρομαι ἠδʼ ἐλεαίρω, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="73"><q rend="merge">οὕνεκεν ἡμετέροιο λυγροῦ μετὰ δαίμονος ἔσχες, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="74"><q rend="merge">ὅσθʼ ἡμῖν ἐφύπερθε κάρης βαρὺς αἰωρεῖται. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="75"><q rend="merge">ἴστω γὰρ Κούρη τε καὶ εὐέανος Δημήτηρ, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="76"><q rend="merge">ἅς κε μέγα βλαφθείς τις ἑκὼν ἐπίορκον ὀμόσσῃ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="77"><q rend="merge">δυσμενέων, μηδέν δε χερειότερον φρεσὶν ᾗσι </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="78"><q rend="merge">στέργειν ἢ εἴ πέρ μοι ὑπὲκ νηδυίοφιν ἦλθες </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="79"><q rend="merge">καί μοι τηλυγέτη ἐνὶ δώμασι παρθένος ἦσθα. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="80"><q rend="merge">οὐδʼ αὐτήν γέ νυ πάμπαν ἔολπά δε τοῦτό γε λήθειν. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="81"><q rend="merge">τῷ μηδʼ ἐξείπῃς πότʼ, ἐμὸν θάλος, ὥς σευ ἀκηδέω, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="82"><q rend="merge">μηδʼ εἴ κʼ ἠυκόμου Νιόβης πυκινώτερα κλαίω. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="83"><q rend="merge">οὐδὲν γὰρ νεμεσητὸν ὑπὲρ τέκνου γοάασθαι </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="84"><q rend="merge">μητέρι δυσπαθέοντος· ἐπεὶ δέκα μῆνας ἔκαμνον </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="85"><q rend="merge">πρὶν ἤπερ τʼ ἰδέειν μιν, ἐμῷ ὑπὸ ἥπατʼ ἔχουσα, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="86"><q rend="merge">καί με πυλάρταο σχεδὸν ἤγαγεν Αἰδωνῆος· </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="87"><q rend="merge">ὧδέ ἑ δυστοκέουσα κακὰς ὠδῖνας ἀνέτλην. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="88"><q rend="merge">νῦν δέ μοι οἴχεται υἱὸς ἐπʼ ἀλλοτρίης νέον ἆθλον </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="89"><q rend="merge">ἐκτελέων· οὐδʼ οἶδα δυσάμμορος, εἴτε μιν αὐτὸν </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="90"><q rend="merge">ἐνθάδε νοστήσανθʼ ὑποδέξομαι, εἴτε καὶ οὐκί. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="91"><q rend="merge">πρὸς δʼ ἔτι μʼ ἐπτοίησε διὰ γλυκὺν αἰνὸς ὄνειρος </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="92"><q rend="merge">ὕπνον· δειμαίνω δὲ παλίγκοτον ὄψιν ἰδοῦσα </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="93"><q rend="merge">ἐκπάγλως, μή μοί τι τέκνοις ἀποθύμιον ἔρδοι. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="94"><q rend="merge">εἴσατο γάρ μοι ἔχων μακέλην εὐεργέα χερσὶ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="95"><q rend="merge">παῖς ἐμὸς ἀμφοτέρῃσι, βίη Ἡρακληείη· </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="96"><q rend="merge">τῇ μεγάλην ἐλάχαινε δεδεγμένος ὡς ἐπὶ μισθῷ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="97"><q rend="merge">τάφρον τηλεθάοντος ἐπʼ ἐσχατιῇ τινος ἀγροῦ, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="98"><q rend="merge">γυμνὸς ἄτερ χλαίνης τε καὶ εὐμίτροιο χιτῶνος. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="99"><q rend="merge">αὐτὰρ ἐπειδὴ παντὸς ἀφίκετο πρὸς τέλος ἔργου <pb n="185"/> </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="100"><q rend="merge">καρτερὸν οἰνοφόροιο πονεύμενος ἕρκος ἀλωῆς, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="101"><q rend="merge">ἤτοι ὁ λίστρον ἔμελλεν ἐπὶ προύχοντος ἐρείσας </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="102"><q rend="merge">ἀνδήρου καταδῦναι ἃ καὶ πάρος εἵματα ἕστο· </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="103"><q rend="merge">ἐξαπίνης δʼ ἀνέλαμψεν ὑπὲρ καπέτοιο βαθείης </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="104"><q rend="merge">πῦρ ἄμοτον, περὶ δʼ αὐτὸν ἀθέσφατος εἱλεῖτο φλόξ. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="105"><q rend="merge">αὐτὰρ ὅγʼ αἰὲν ὄπισθε θοοῖς ἀνεχάζετο ποσσίν, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="106"><q rend="merge">ἐκφυγέειν μεμαὼς ὀλοὸν μένος Ἡφαίστοιο· </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="107"><q rend="merge">αἰεὶ δὲ προπάροιθεν ἑοῦ χροὸς ἠύτε γέρρον </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="108"><q rend="merge">νώμασκεν μακέλην· περὶ δʼ ὄμμασιν ἔνθα καὶ ἔνθα </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="109"><q rend="merge">πάπταινεν, μὴ δή μιν ἐπιφλέξῃ δήιον πῦρ. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="110"><q rend="merge">τῷ μὲν ἀοσσῆσαι λελιημένος, ὥς μοι ἔικτο, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="111"><q rend="merge">Ἰφικλέης μεγάθυμος ἐπʼ οὔδεϊ κάππεσʼ ὀλισθὼν </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="112"><q rend="merge">πρὶν ἐλθεῖν, οὐδʼ ὀρθὸς ἀναστῆναι δύνατʼ αὖτις, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="113"><q rend="merge">ἀλλʼ ἀστεμφὲς ἔκειτο, γέρων ὡσείτʼ ἀμενηνός, </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="114"><q rend="merge">ὅντε καὶ οὐκ ἐθέλοντα βιήσατο γῆρας ἀτερπὲς </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="115"><q rend="merge">καππεσέειν, κεῖται δʼ ὅγʼ ἐπὶ χθονὸς ἔμπεδον αὐτοῦ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="116"><q rend="merge">εἰς ὅ κε τις χειρός μιν ἀνειρύσσῃ παριόντων </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="117"><q rend="merge">αἰδεσθεὶς ὄπιδα τρομερὴν πολιοῖο γενείου. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="118"><q rend="merge">ὣς ἐν γῇ λελίαστο σακεσπάλος Ἰφικλείης. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="119"><q rend="merge">αὐτὰρ ἐγὼ κλαίεσκον ἀμηχανέοντας ὁρῶσα </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="120"><q rend="merge">παῖδας ἐμούς, μέχρι δή μοι ἀπέσσυτο νήδυμος ὕπνος </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="121"><q rend="merge">ὀφθαλμῶν, ἠὼς δὲ παραυτίκα φαινόλις ἦλθε. </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="122"><q rend="merge">τοῖα, φίλη, μοι ὄνειρα διὰ φρένας ἐπτοίησαν </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="123"><q rend="merge">παννυχίῃ· τὰ δὲ πάντα πρὸς Εὐρυσθῆα τρέποιτο </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="124"><q rend="merge">οἴκου ἀφʼ ἡμετέροιο, γένοιτο δὲ μάντις ἐκείνῳ </q></l>
+<l xml:base="urn:cts:greekLit:tlg0005.tlg002.perseus-grc1:24" n="125"><q rend="merge">θυμὸς ἐμός, μηδʼ ἄλλο παρὲκ τελέσειέ τι δαίμων.</q></l></div> </div>
     </body>
   </text>
 
