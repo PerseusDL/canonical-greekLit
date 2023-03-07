@@ -1,0 +1,88 @@
+name: Hooktest and Release
+
+on:
+  push:
+    # Dispatch when pushing to default branch; currently `master`
+    branches:
+    - master
+  # Dispatch on pull requests
+  pull_request:
+jobs:
+  run_hooktest:
+    name: Run Hooktest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Setup Python
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: "3.x"
+      # Setup Java for Hooktest
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: "zulu"
+          java-version: "11"
+      - name: Install Hooktest
+        run: pip3 install HookTest
+      - name: Run Hooktest
+        run: hooktest ./ --console --scheme epidoc --workers 3 --verbose 10 --manifest --countword --allowfailure
+      # Include manifest.txt as a job artifact so we can re-use it when creating the release.
+      - name: Export manifest.txt
+        id: export_manifest
+        uses: actions/upload-artifact@v3
+        with:
+          name: manifest-txt
+          path: manifest.txt
+  create_release:
+    name: Create release
+    # Only create releases on commits to the default branch; currently `master`.
+    # We are able to use the event.repository.default_branch variable within the job definition,
+    # but _not_ in workflow:on definition above.
+    if: success() && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    needs: run_hooktest
+    env:
+      MAJOR_VERSION: 0
+      MINOR_VERSION: 0
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      # Setup Python
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: "3.x"
+      # Setup Java for Hooktest
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: "zulu"
+          java-version: "11"
+      - name: Install Hooktest
+        run: pip3 install HookTest
+      - name: Restore manifest.txt
+        id: restore_manifest
+        uses: actions/download-artifact@v3
+        with:
+          name: manifest-txt
+      - name: Prepare tag
+        run: |
+          hooktest-build --travis --txt ./
+          results=$(cat manifest.txt)
+          DATE=`date +%Y-%m-%d`
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          export GIT_TAG=$MAJOR_VERSION.$MINOR_VERSION.$GITHUB_RUN_ID
+          git add -A
+          git commit -m "Removed failing files" -m "Release $GIT_TAG"
+          git tag $GIT_TAG -a -m "$DATE" -m "PASSING FILES" -m "$results"
+          git push -q origin "${GIT_TAG}"
+          ls -R
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ env.MAJOR_VERSION }}.${{ env.MINOR_VERSION }}.${{ github.run_id }}
