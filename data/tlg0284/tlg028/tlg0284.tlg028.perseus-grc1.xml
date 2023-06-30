@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader xml:lang="eng">
     <fileDesc>
       <titleStmt>
-	    <title xml:lang="lat">Orationes 28</title>
+        <title xml:lang="grc">Ἱεροὶ λόγοι ἕκτος</title>
 	    <author>Aelius Aristides</author>
 	    <editor>Wilhelm Dindorf</editor>
 	<sponsor>Perseus Project, Tufts University</sponsor>
@@ -27,53 +28,51 @@
       </publicationStmt>       
 	
       <sourceDesc>
-		<listBibl>
-		  <biblStruct>
-		    <analytic></analytic>
-		    <monogr>
-		      <author>Aelius Aristides</author>
-		      <title>Aristides</title>
-		      <respStmt><resp>ex recensione Guilielmi Dindorfii</resp>
-			    <name></name>
-		      
-		      <imprint>
-			<pubPlace>Leipzig</pubPlace>
-			<publisher>Weidmann</publisher>
-			<date>1829</date>
-		      </imprint>
-		      <biblScope type="volume">1-2</biblScope>
-		    </monogr>
-		  </biblStruct>
-		</listBibl>
+        <biblStruct>
+          <monogr>
+            <author>Aristides</author>
+            <title>Aristides</title>
+            <editor>Wilhelm Dindorf</editor>
+            <imprint>
+              <pubPlace>Leipzig</pubPlace>
+              <publisher>Reimer</publisher>
+              <date>1829</date>
+            </imprint>
+            <biblScope unit="volume">1</biblScope>
+          </monogr>
+          <ref target="https://babel.hathitrust.org/cgi/pt?id=uc1.b4287026&amp;view=2up&amp;seq=567">HathiTrust</ref>
+        </biblStruct>
       </sourceDesc>
     </fileDesc>
-     <encodingDesc>
-		<refsDecl>
-		<state delim="." unit="text"/>
-		refState unit="Jebb page"/>
-		</refsDecl>
+    
+    <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="Jebb_page" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+          <p>This pointer pattern extracts Jebb page.</p>
+        </cRefPattern>
+      </refsDecl>
+      
+      <refsDecl>
+        <refState delim="." unit="text"/>
+        <refState unit="Jebb_page"/>
+      </refsDecl>
     </encodingDesc>
-     <profileDesc>
+    
+    <profileDesc>
       <langUsage>
-		<language ident="grc">Greek</language>
+        <language ident="grc">Greek</language>
       </langUsage>
     </profileDesc>
-</teiHeader><text xml:lang="grc"><body><pb id="v.1.p.551"></pb>
-<head rend="align(center)">Ἱεροὶ λόγοι ς#</head>
-<p>
-<milestone n="362" unit="Jebb page"/>
-τὰ μὲν δὴ πολλὰ οὕτω διῆγεν ἡμᾶς ὁ θεὸς, σημαίνων
-τε ἃ χρὴ ποιεῖν καὶ ἔχων ὑπακούοντας εἴ τις καὶ ἄλλος
-ἀνθρώπων ὑπήκουσε θεῷ. δευτέρῳ δὲ ἔτει μετὰ τὴν
-ἀναχώρησιν τὴν ἀπʼ Αἰσήπου, δωδεκάτῳ δὲ ἀφʼ οὗ
-πρῶτον ἔκαμον, πολλὰ καὶ θαυμαστὰ ἐφοίτα φαντάσματα,
-ἄγοντα εἰς Ἐπίδαυρον τὴν ἱερὰν τοῦ θεοῦ. καὶ τό γε ἐν
-πρώτοις γενόμενον τοιοῦτον ἦν· προτρέπων μέ τις θαρρῆσαι Μουσωνίου διῄει λόγον· ἐκεῖνος, ἔφη, βουλόμενός
-τινα ἀναστῆσαι κάμνοντα καὶ ἀπειρηκότα οὑτωσί πως
-εἰπεῖν καθαπτόμενος, τί μένεις; ποῖ βλέπεις; ἢ μέχρι ἂν
-αὐτὸς ὁ θεὸς παραστάς σοι φωνὴν ἀφιῇ; ἔκκοψον τὸ
-τεθνηκὸς τῆς ψυχῆς καὶ γνώσει τὸν θεόν. τοιαῦτʼ ἔφη
-τὸν Μουσώνιον εἰπεῖν. καὶ πρός γε τούτοις ἦσαν φωναὶ,
-σῶσον αὐτὸν τῇ Ἀθηναίων πόλει· τὸ δʼ ἦν οἷον τοῖς
-Ἕλλησι· καὶ περὶ τῶν ἐν Ἰταλίᾳ μεγάλαι προρρήσεις.</p></body></text>
+    
+    <revisionDesc>
+      <change when="2023-06-29" who="Lisa Cerrato" >EpiDoc and CTS Conversion</change>
+    </revisionDesc>
+  </teiHeader>
+  
+  <text>
+    <body>
+      <div type="edition" n="urn:cts:greekLit:tlg0284.tlg028.perseus-grc2" xml:lang="grc">
+      <pb xml:id="v.1.p.551"/> 
+      <head rend="align(center)">Ἱεροὶ λόγοι ἕκτος</head>
+<div type="textpart" subtype="Jebb_page" xml:base="urn:cts:greekLit:tlg0284.tlg028.perseus-grc2" n="362"><p>τὰ μὲν δὴ πολλὰ οὕτω διῆγεν ἡμᾶς ὁ θεὸς, σημαίνων τε ἃ χρὴ ποιεῖν καὶ ἔχων ὑπακούοντας εἴ τις καὶ ἄλλος ἀνθρώπων ὑπήκουσε θεῷ. δευτέρῳ δὲ ἔτει μετὰ τὴν ἀναχώρησιν τὴν ἀπʼ Αἰσήπου, δωδεκάτῳ δὲ ἀφʼ οὗ πρῶτον ἔκαμον, πολλὰ καὶ θαυμαστὰ ἐφοίτα φαντάσματα, ἄγοντα εἰς Ἐπίδαυρον τὴν ἱερὰν τοῦ θεοῦ. καὶ τό γε ἐν πρώτοις γενόμενον τοιοῦτον ἦν· προτρέπων μέ τις θαρρῆσαι Μουσωνίου διῄει λόγον· ἐκεῖνος, ἔφη, βουλόμενός τινα ἀναστῆσαι κάμνοντα καὶ ἀπειρηκότα οὑτωσί πως εἰπεῖν καθαπτόμενος, τί μένεις; ποῖ βλέπεις; ἢ μέχρι ἂν αὐτὸς ὁ θεὸς παραστάς σοι φωνὴν ἀφιῇ; ἔκκοψον τὸ τεθνηκὸς τῆς ψυχῆς καὶ γνώσει τὸν θεόν. τοιαῦτʼ ἔφη τὸν Μουσώνιον εἰπεῖν. καὶ πρός γε τούτοις ἦσαν φωναὶ, σῶσον αὐτὸν τῇ Ἀθηναίων πόλει· τὸ δʼ ἦν οἷον τοῖς Ἕλλησι· καὶ περὶ τῶν ἐν Ἰταλίᾳ μεγάλαι προρρήσεις.</p></div></div></body></text>
 </TEI>
