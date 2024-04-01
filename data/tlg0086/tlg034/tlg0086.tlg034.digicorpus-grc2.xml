@@ -16,7 +16,7 @@
           <authority>Perseus Digital Library Project</authority>
           <publisher>Harvard University</publisher>
           <pubPlace>Cambridge, MA</pubPlace>
-          <authority ref="https://www.graeco-arabic-studies.org/">Digital Corpus for Graeco-Arabic Studies</authority>
+          <authority>Digital Corpus for Graeco-Arabic Studies</authority>
           <date type="release" when="2015" cert="low">Digital Corpus for Graeco-Arabic Studies</date>
           <idno type="filename">tlg0086.tlg034.digicorpus-grc2.xml</idno>
           <availability>
@@ -44,12 +44,16 @@
       </fileDesc>
     
       <encodingDesc>
-         <refsDecl n="CTS">
-            <cRefPattern n="chapter"
-                         matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@n=\'$1\'])">
-                <p>This pointer pattern extracts chapter</p>
-            </cRefPattern>
+        <refsDecl n="CTS">
+          <!--<cRefPattern n="section" matchPattern="(\w+).(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])">
+            <p>This pointer pattern extracts book and chapter and section.</p>
+          </cRefPattern>            -->
+          <cRefPattern n="subchapter" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+            <p>This pointer pattern extracts chapter and subchapter.</p>
+          </cRefPattern>
+          <cRefPattern n="chapter" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+            <p>This pointer pattern extracts chapter.</p>
+          </cRefPattern>
         </refsDecl>
          <refsDecl n="text=1">
             <refState unit="text"/>
