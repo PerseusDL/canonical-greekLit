@@ -1,35 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-<teiHeader>
+<teiHeader xml:lang="eng">
 <fileDesc>
 <titleStmt>
-<title>IOANNIS ZONARAE EPITOME HISTORIARUM</title>
-<editor>LUDOVICUS DINDORFIUS.</editor>
+ <title xml:lang="mul">Ἐπιτομὴ Ἱστοριῶν (Vol. 1)</title>
+ <author>Joannes Zonaras</author>
+ <editor>Ludwig August Dindorf</editor>
 <sponsor>University of Leipzig</sponsor>
+ 
 <funder>European Social Fund Saxony</funder>
 <principal>Gregory Crane</principal>
 <principal>Monica Berti</principal>
-<meeting/>
+
 <respStmt>
 <persName xml:id="DDD">Digital Divide Data</persName>
 <resp>Corrected and encoded the text</resp>
 </respStmt>
-<respStmt>
+ 
+ <respStmt>
+<resp>Project Manager</resp>
 <persName>Greta Franzini</persName>
-<resp>Project Manager (University of Leipzig)</resp>
+<orgName>University of Leipzig</orgName>
 </respStmt>
+ 
 <respStmt>
-<persName>Simona Stoyanova</persName>
-<resp>Project Assistant (University of Leipzig)</resp>
+<resp>Project Assistant</resp>
+ <persName>Simona Stoyanova</persName>
+ <orgName>University of Leipzig</orgName>
 </respStmt>
+ 
 <respStmt>
-<persName>Bruce Robertson</persName>
 <resp>Technical Advisor</resp>
+ <persName>Bruce Robertson</persName>
+ <orgName>Mount Allison University</orgName>
 </respStmt>
 </titleStmt>
+ 
 <publicationStmt>
 <authority>University of Leipzig</authority>
-<idno type="filename">zonaras01.xml</idno>
+<idno type="filename">tlg3135.tlg001.opp-grc3.xml</idno>
 <availability>
 <p>Available under a Creative Commons Attribution-ShareAlike 4.0 International License</p>
 </availability>
@@ -37,69 +47,57 @@
 <publisher>University of Leipzig</publisher>
 <pubPlace>Germany</pubPlace>
 </publicationStmt>
+ 
 <sourceDesc>
-<listBibl xml:lang="la">
 <biblStruct>
 <monogr>
-<title>IOANNIS ZONARAE EPITOME HISTORIARUM</title>
-<editor>
-<persName>
-<name xml:lang="la">LUDOVICUS DINDORFIUS.</name>
-</persName>
-</editor>
-<author ref="urn:tmp">LUDOVICUS DINDORFIUS.</author>
+ <title xml:lang="lat">Ioannis Zonarae Epitome historiarum</title>
+ <editor>Ludwig August Dindorf</editor>
+ <author>Joannes Zonaras</author>
 <imprint>
-<publisher>IN AEDIBUS Β. G. TEUBNERI.</publisher>
-<pubPlace>LIPSIAE</pubPlace>
+<publisher>Teubner</publisher>
+<pubPlace>Leipzig</pubPlace>
 <date>1868</date>
 </imprint>
 <biblScope unit="volume">1</biblScope>
 </monogr>
+ <ref target="http://www.archive.org/stream/aristotelisopera02arisrich#page/1248/mode/2up">Internet Archive</ref>
 </biblStruct>
-</listBibl>
 </sourceDesc>
 </fileDesc>
+
 <encodingDesc>
 <p>Text encoded in accordance with the latest EpiDoc standards (January 2014)</p>
-<refsDecl n="CTS">
-<cRefPattern 
-n="paragraph"
-matchPattern="(.+).(.+).(.+)"
-replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n=\'$1\']/tei:div[@n=\'$2\']/tei:p[@n=\'$3\'])">
-<p>This pointer pattern extracts book, chapter and paragraph.</p>
-</cRefPattern>
-<cRefPattern 
-n="chapter"
-matchPattern="(.+).(.+)"
-replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
-<p>This pointer pattern extracts book and chapter.</p>
-</cRefPattern>
-<cRefPattern 
-n="book"
-matchPattern="(.+)"
-replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n=\'$1\']/)">
-<p>This pointer pattern extracts book.</p>
-</cRefPattern>
-</refsDecl>
+ 
+ <refsDecl n="CTS">
+  <!-- <cRefPattern n="section" matchPattern="(\w+).(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])">
+   <p>This pointer pattern extracts book and chapter and section.</p>
+  </cRefPattern>        -->
+  <cRefPattern n="chapter" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+   <p>This pointer pattern extracts book and chapter.</p>
+  </cRefPattern>
+  <cRefPattern n="book" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+   <p>This pointer pattern extracts book.</p>
+  </cRefPattern></refsDecl>
+
 </encodingDesc>
+ 
 <profileDesc>
 <langUsage>
-<language ident="el">Greek</language>
-<language ident="la">Latin</language>
+<language ident="grc">Greek</language>
+<language ident="lat">Latin</language>
 </langUsage>
 </profileDesc>
+ 
 <revisionDesc>
 <change/>
 </revisionDesc>
 </teiHeader>
+ 
 <text>
 <body>
-<div type="bibliography">
-<listBibl>
-<bibl/>
-</listBibl>
-</div>
-<div type="commentary" subtype="preface">
+<div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg3135.tlg001.opp-grc3">
+<div type="textpart" subtype="book" n="preface">
 <pb n="iii"/>
 <head>PRAEFATIO.</head>
 <p>Ioannis Zonarae Epitomen historiarum quum propter scriptores ab eo non solum excerptos, sed etiam
@@ -245,7 +243,7 @@ et meas quae ad crisin pertinent ad finem operis exhibebo, quum scriptorum quos 
 a Pindero post Schmidtium accurate notatos in imo paginarum margine indicaverim.</p>
 </div>
 
-<div type="commentary" subtype="ducangii">
+<div type="textpart" subtype="book" n="pref_ducangii">
 <pb n="x"/>
 <head>EX DUCANGII PRAEFATIONE*).</head>
 <p>Ut de hisce qui nunc prodeunt Annalibus ac de eorum auctore Zonara quaedam praemittamus, hos
@@ -747,7 +745,7 @@ potuerit quod Calpurnius5) de Carino imperatore cecinit: <lg>
 <note type="footnote">5) ecl. ult.</note>
 </div>
 
-<div type="commentary" subtype="wolfii">
+<div type="textpart" subtype="book" n="pref_wolfii">
 <pb n="xxx"/>
 <head>ΕΧ WOLFII PRAEFATIONE.</head>
 <p>Wolfius de codicibus quibus usus est ita in praefatione ad Antonium Fuggerum vol. 1, p. 9 : „ Ut
@@ -869,15 +867,14 @@ ducem.</note>
 lectoribus, etsi non omisit Iosephum describens.]</note>
 </div>
 
-<div type="edition" subtype="work" n="urn:cts:greekLit:tlg3135.tlg001.opp-grc3">
-<pb n="1"/>
-<milestone unit="biblos" n="2"/>
-<head>ΕΠΙΤΟΜΗ ΙΣΤΟΡΙΩΝ</head>
-<milestone unit="pagep" n="PI 1"/>
-<milestone unit="pagew" n="WI 1"/>
-<head>ΣΥΛΛΕΓΕΙΣΑ ΚΑΙ ΣΥΓΓΡΑΦΕΙΣΑ ΠΑΡΑ ΕΠΙΤΟΜΗ ΙΣΤΟΡΙΩΝ ΙΩΑΝΝΟΥ ΜΟΝΑΧΟΥ ΤΟΥ ΖΩΝΑΡΑ ΤΟΥ ΓΕΓΟΝΟΤΟΣ
-ΜΕΓΑΛΟΥ ΔΡΟΥΓΓΑΡΙΟΥ ΤΗΣ ΒΙΓΛΑΣ ΚΑΙ ΠΡΩΤΟΑΣΗΚΡΗΤΙΣ.</head>
 <div type="textpart" subtype="book" n="praef">
+ <pb n="1"/>
+ <milestone unit="biblos" n="2"/>
+ <head>ΕΠΙΤΟΜΗ ΙΣΤΟΡΙΩΝ</head>
+ <milestone unit="pagep" n="PI 1"/>
+ <milestone unit="pagew" n="WI 1"/>
+ <head>ΣΥΛΛΕΓΕΙΣΑ ΚΑΙ ΣΥΓΓΡΑΦΕΙΣΑ ΠΑΡΑ ΕΠΙΤΟΜΗ ΙΣΤΟΡΙΩΝ ΙΩΑΝΝΟΥ ΜΟΝΑΧΟΥ ΤΟΥ ΖΩΝΑΡΑ ΤΟΥ ΓΕΓΟΝΟΤΟΣ
+  ΜΕΓΑΛΟΥ ΔΡΟΥΓΓΑΡΙΟΥ ΤΗΣ ΒΙΓΛΑΣ ΚΑΙ ΠΡΩΤΟΑΣΗΚΡΗΤΙΣ.</head>
 <div type="textpart" subtype="chapter" n="1">
 <head>ΠΡΟΟΙΜΙΟΝ.</head>
 <p n="1">Εὐστόχως ἄν τις εἴποι ἐπιτωθάζων μοι, μεῖζόν <note type="marginal">1</note>
