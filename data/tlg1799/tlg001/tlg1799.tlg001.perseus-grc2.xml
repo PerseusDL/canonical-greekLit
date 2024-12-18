@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng"
-schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader xml:lang="eng">
 <fileDesc>
 <titleStmt>
-<title xml:lang="lat">Elementa</title>
+ <title xml:lang="grc">Στοιχεῖα</title>
 <author>Euclid</author>
-<editor>J. L. Heiberg</editor>
+ <editor>Johan Ludvig Heiberg</editor>
 <sponsor>Perseus Project, Tufts University</sponsor>
 <principal>Gregory Crane</principal>
 <respStmt>
 <resp>Prepared under the supervision of</resp>
 <name>Lisa Cerrato</name>
-<name>William Merrill</name>
-<name>Elli Mylonas</name>
 <name>David Smith</name>
 </respStmt>
 <funder n="org:NSF">The National Science Foundation</funder>
 </titleStmt>
 <publicationStmt>
-<publisher>Trustees of Tufts University</publisher>
-<pubPlace>Medford, MA</pubPlace>
-<authority>Perseus Project</authority>
-</publicationStmt>
+    <publisher>Trustees of Tufts University</publisher>
+    <pubPlace>Medford, MA</pubPlace>
+    <authority>Perseus Digital Library Project</authority>
+    <date cert="medium" when="1995-11" type="release">Perseus 3.0</date>
+    <idno type="filename">tlg1799.tlg001.perseus-grc2.xml</idno>
+    <availability>
+     <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+    </availability></publicationStmt>
 <sourceDesc>
 <biblStruct>
 <monogr>
 <author>Euclid</author>
 <title>Euclidis Opera Omnia</title>
-    <title type="s">Euclidis Elementa</title>
-<editor>J. L. Heiberg</editor>
+  <title type="subtitle">Euclidis Elementa</title>
+  <editor>Johan Ludvig Heiberg</editor>
 <imprint>
 <pubPlace>Leipzig</pubPlace>
 <publisher>Teubner</publisher>
@@ -38,11 +39,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 </imprint>
     <biblScope unit="Volume">1-5</biblScope>
 </monogr>
-    <ref target="Internet Archive">http://www.archive.org/stream/euclidisoperaomn01eucluoft</ref><!-- Volume 1 -->
-    <ref target="Internet Archive">http://www.archive.org/stream/euclidisoperaomn02eucluoft</ref><!-- Volume 2 -->
-    <ref target="HathiTrust">https://hdl.handle.net/2027/coo.31924101918617</ref><!-- Volume 3 -->
-    <ref target="HathiTrust">https://hdl.handle.net/2027/coo.31924102028861</ref><!-- Volume 4 -->
-    <ref target="HathiTrust">https://hdl.handle.net/2027/coo.31924102028929</ref><!-- Volume 5 -->
+    <ref target="http://www.archive.org/stream/euclidisoperaomn01eucluoft">Internet Archive</ref><!-- Volume 1 -->
+    <ref target="http://www.archive.org/stream/euclidisoperaomn02eucluoft">Internet Archive</ref><!-- Volume 2 -->
+    <ref target="https://hdl.handle.net/2027/coo.31924101918617">HathiTrust</ref><!-- Volume 3 -->
+    <ref target="https://hdl.handle.net/2027/coo.31924102028861">HathiTrust</ref><!-- Volume 4 -->
+    <ref target="https://hdl.handle.net/2027/coo.31924102028929">HathiTrust</ref><!-- Volume 5 -->
 </biblStruct>
     
 </sourceDesc>
@@ -55,19 +56,19 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
  </refsDecl>-->
   <refsDecl n="CTS">
     <cRefPattern n="number"
-                 matchPattern="(\\w+).(\\w+).(\\w+)"
-                 replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']/tei:div[@n=\'$2\']/tei:div[@n=\'$3\'])">
-        <p>This pointer pattern extracts book and type and number</p>
+                 matchPattern="(\w+).(\w+).(\w+)"
+                 replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])">
+        <p>This pointer pattern extracts book and type and number.</p>
     </cRefPattern>
     <cRefPattern n="type"
                  matchPattern="(\\w+).(\\w+)"
-                 replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']/tei:div[@n=\'$2\'])">
-        <p>This pointer pattern extracts book and type</p>
+                 replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+        <p>This pointer pattern extracts book and type.</p>
     </cRefPattern>
     <cRefPattern n="book"
                  matchPattern="(\\w+)"
-                 replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
-        <p>This pointer pattern extracts book</p>
+                 replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+        <p>This pointer pattern extracts book.</p>
     </cRefPattern>
 </refsDecl>
 </encodingDesc>
@@ -77,77 +78,34 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
  </langUsage>
 </profileDesc>
 <revisionDesc>
-<change>
-<!--<date>12/1/97</date>
-<respStmt>
-<name>DAS</name>
-<resp>ed.</resp>
-</respStmt>
-<item>
-$Log: euc.elem_gk.xml,v $
-Revision 1.2  2011-09-07 13:56:14  rsingh04
-adding rend=displayNum to lb tags
-
-Revision 1.1  2011-01-04 05:42:34  gcrane
-base sdl file
-
-Revision 1.1  2009/11/23 18:46:53  rsingh04
-moved more xml files around based on copyright status
-
-Revision 1.4  2009/01/16 20:00:04  rsingh04
-fixed some more entities and chunking
-
-Revision 1.3  2009/01/15 21:58:10  rsingh04
-lots of cleanup to chunking schemes, entities, head tags, etc
-
-Revision 1.2  2005/08/01 21:17:14  packel
-removed stray item tags
-
-    Revision 1.1  2005/07/25 14:33:11  packel
-    Converted to XML
-    
-Revision 1.11  2004/06/02 19:16:22  lcerrato
-missing div for 7.20; added without checking source
-
-Revision 1.10  2004/01/20 17:22:06  dasmith
-Made DIV types explicit on all elements, since the inheritance behavior
-didn't survive XML conversion.
-
-Revision 1.9  2003/08/29 19:04:45  lcerrato
-changed TEI header to reflect correct edition
-
-Revision 1.8  2003/07/01 22:16:08  yorkc
-Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
-
-Revision 1.7  2000/10/17 17:40:32  lcerrato
-fixed numeration problem at book 7 definitions
-
-Revision 1.6  2000/03/04 20:34:30  dasmith
-Added separate funder entity to TEI header.
-
-Revision 1.5  2000/02/11 00:51:31  dasmith
-Type all DIVs properly.
-Write refsDecl that works for whole document.
-
-Revision 1.4  2000/02/10 20:58:15  dasmith
-Added refsDecl for definitions, etc.
-
-Revision 1.3  1997/12/01 23:05:36  textgod
-Tagged points and line segments as NUMs.
-
-Revision 1.2  1997/12/01 22:51:02  textgod
-New header.
-
-
-</item>-->
-</change>
+    <change when="2024-12-05" who="Lisa Cerrato">Epidoc and CTS conversion and header review for best practices</change>
+    <change when="2015-08-15" who="Thibault Clérice">Epidoc and CTS conversion</change>
+    <change when="2011-09-07" who="rsingh04">adding rend=displayNum to lb tags</change>
+    <change when="2011-01-04" who="gcrane">base sdl file</change>
+    <change when="2009-11-23" who="rsingh04">moved more xml files around based on copyright status</change>
+    <change when="2009-01-16" who="rsingh04">fixed some more entities and chunking</change>
+    <change when="2009-01-15" who="rsingh04">lots of cleanup to chunking schemes, entities, head tags, etc</change>
+    <change when="2005-08-01" who="packel">removed stray item tags</change>
+    <change when="2005-07-25" who="packel">Converted to XML</change>
+    <change when="2004-06-02" who="lcerrato">missing div for 7.20; added without checking source</change>
+    <change when="2004-01-20" who="dasmith">Made DIV types explicit on all elements, since the inheritance behavior didn't survive XML conversion.</change>
+    <change when="2003-08-29" who="lcerrato">changed TEI header to reflect correct edition</change>
+    <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+    </change>
+    <change when="2000-10-17" who="lcerrato">fixed numeration problem at book 7 definitions</change>
+    <change when="2000-10-17" who="lcerrato">Added separate funder entity to TEI header.</change>
+    <change when="2000-03-04" who="dasmith">Type all DIVs properly.  Write refsDecl that works for whole document.</change>
+    <change when="2000-02-11" who="dasmith">Added refsDecl for definitions, etc.</change>
+    <change when="2000-02-10" who="dasmith">Tagged points and line segments as NUMs.</change>
+    <change when="1997-12-01" who="textgod">New header</change>
 </revisionDesc>
 </teiHeader>
-<text xml:lang="grc">
+    
+<text>
 <body>
 <div type="edition" n="urn:cts:greekLit:tlg1799.tlg001.perseus-grc2" xml:lang="grc">
 <div type="textpart" subtype="book" n="1">
-<div type="textpart" subtype="type" n="Def">
+<div type="textpart" subtype="type" n="def">
 <div type="textpart" subtype="number" n="1">
 <p>σημεῖόν ἐστιν, οὗ μέρος οὐθέν.</p>
 </div>
@@ -253,7 +211,7 @@ New header.
 μέρη ἐπὶ μηδέτερα συμπίπτουσιν ἀλλήλαις.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Post">
+<div type="textpart" subtype="type" n="post">
 <div type="textpart" subtype="number" n="1">
 <p>Ἠιτήσθω ἀπὸ παντὸς σημείου ἐπὶ πᾶν σημεῖον 
 εὐθεῖαν γραμμὴν ἀγαγεῖν.</p>
@@ -275,7 +233,7 @@ New header.
 ἐφʼ ἃ μέρη εἰσὶν αἱ τῶν δύο ὀρθῶν ἐλάσσονες.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="CN">
+<div type="textpart" subtype="type" n="comm_not">
 <div type="textpart" subtype="number" n="1">
 <p>τὰ τῷ αὐτῷ ἴσα καὶ ἀλλήλοις ἐστὶν ἴσα.</p>
 </div>
@@ -311,7 +269,7 @@ New header.
 <p>καὶ δύο εὐθεῖαι χωρίον οὐ περιέχουσιν.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>ἐπὶ τῆς δοθείσης εὐθείας πεπερασμένης τρίγωνον ἰσόπλευρον 
 συστήσασθαι. </p>
@@ -1790,7 +1748,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="2">
-<div type="textpart" subtype="type" n="Def">
+<div type="textpart" subtype="type" n="def">
 <div type="textpart" subtype="number" n="1">
 <p>πᾶν παραλληλόγραμμον ὀρθογώνιον περιέχεσθαι 
 λέγεται ὑπὸ δύο τῶν τὴν ὀρθὴν γωνίαν περιεχουσῶν 
@@ -1802,7 +1760,7 @@ New header.
 σὺν τοῖς δυσὶ παραπληρώμασι γνώμων καλείσθω.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>ἐὰν ὦσι δύο εὐθεῖαι, τμηθῇ δὲ ἡ ἑτέρα αὐτῶν εἰς ὁσαδηποτοῦν 
 τμήματα, τὸ περιεχόμενον ὀρθογώνιον ὑπὸ τῶν 
@@ -2420,7 +2378,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="3">
-<div type="textpart" subtype="type" n="Def">
+<div type="textpart" subtype="type" n="def">
 <div type="textpart" subtype="number" n="1">
 <p>ἴσοι κύκλοι εἰσίν, ὧν αἱ διάμετροι ἴσαι εἰσίν, ἢ ὧν 
 αἱ ἐκ τῶν κέντρων ἴσαι εἰσίν.</p>
@@ -2473,7 +2431,7 @@ New header.
 ἴσας, ἢ ἐν οἷς αἱ γωνίαι ἴσαι ἀλλήλαις εἰσίν.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>τοῦ δοθέντος κύκλου τὸ κέντρον εὑρεῖν. </p>
 <p>ἔστω ὁ δοθεὶς κύκλος ὁ <num>ΑΒΓ</num>· δεῖ δὴ τοῦ <num>ΑΒΓ</num> κύκλου 
@@ -3869,7 +3827,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="4">
-<div type="textpart" subtype="type" n="Def">
+<div type="textpart" subtype="type" n="def">
 <div type="textpart" subtype="number" n="1">
 <p>σχῆμα εὐθύγραμμον εἰς σχῆμα εὐθύγραμμον ἐγγράφεσθαι 
 λέγεται, ὅταν ἑκάστη τῶν τοῦ ἐγγραφομένου 
@@ -3906,7 +3864,7 @@ New header.
 πέρατα αὐτῆς ἐπὶ τῆς περιφερείας ᾖ τοῦ κύκλου.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>εἰς τὸν δοθέντα κύκλον τῇ δοθείσῃ εὐθείᾳ μὴ μείζονι 
 οὔσῃ τῆς τοῦ κύκλου διαμέτρου ἴσην εὐθεῖαν ἐναρμόσαι. </p>
@@ -4555,7 +4513,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="5">
-<div type="textpart" subtype="type" n="Def">
+<div type="textpart" subtype="type" n="def">
 <div type="textpart" subtype="number" n="1">
 <p>μέρος ἐστὶ μέγεθος μεγέθους τὸ ἔλασσον τοῦ 
 μείζονος, ὅταν καταμετρῇ τὸ μεῖζον.</p>
@@ -4648,7 +4606,7 @@ New header.
 ἄλλο τι, οὕτως ἐν τοῖς δευτέροις ἄλλο τι πρὸς ἡγούμενον.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>ἐὰν ᾖ ὁποσαοῦν μεγέθη ὁποσωνοῦν μεγεθῶν ἴσων τὸ 
 πλῆθος ἕκαστον ἑκάστου ἰσάκις πολλαπλάσιον, ὁσαπλάσιόν 
@@ -5546,7 +5504,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="6">
-<div type="textpart" subtype="type" n="Def">
+<div type="textpart" subtype="type" n="def">
 <div type="textpart" subtype="number" n="1">
 <p>ὅμοια σχήματα εὐθύγραμμά ἐστιν, ὅσα τάς τε 
 γωνίας ἴσας ἔχει κατὰ μίαν καὶ τὰς περὶ τὰς ἴσας γωνίας 
@@ -5575,7 +5533,7 @@ New header.
 </p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>τὰ τρίγωνα καὶ τὰ παραλληλόγραμμα, τὰ ὑπὸ τὸ 
 αὐτὸ ὕψος ὄντα πρὸς ἄλληλά ἐστιν ὡς αἱ βάσεις.<figure/>
@@ -7097,7 +7055,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="7">
-<div type="textpart" subtype="type" n="Def">
+<div type="textpart" subtype="type" n="def">
 <div type="textpart" subtype="number" n="1">
 <p>μονάς ἐστιν, καθʼ ἣν ἕκαστον τῶν ὄντων ἓν 
 λέγεται.</p>
@@ -7189,7 +7147,7 @@ New header.
 ἴσος ὤν.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>δύο ἀριθμῶν ἀνίσων ἐκκειμένων, ἀνθυφαιρουμένου δὲ 
 ἀεὶ τοῦ ἐλάσσονος ἀπὸ τοῦ μείζονος, ἐὰν ὁ λειπόμενος 
@@ -8249,7 +8207,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="8">
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>ἐὰν ὦσιν ὁσοιδηποτοῦν ἀριθμοὶ ἑξῆς ἀνάλογον, οἱ δὲ 
 ἄκροι αὐτῶν πρῶτοι πρὸς ἀλλήλους ὦσιν, ἐλάχιστοί εἰσι 
@@ -9149,7 +9107,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="9">
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>ἐὰν δύο ὅμοιοι ἐπίπεδοι ἀριθμοὶ πολλαπλασιάσαντες 
 ἀλλήλους ποιῶσί τινα, ὁ γενόμενος τετράγωνος ἔσται.<figure/>
@@ -10118,7 +10076,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="10">
-<div type="textpart" subtype="type" n="Def1">
+<div type="textpart" subtype="type" n="def1">
 <div type="textpart" subtype="number" n="1">
 <p>σύμμετρα μεγέθη λέγεται τὰ τῷ αὐτῷ μέτρῳ 
 μετρούμενα, ἀσύμμετρα δέ, ὧν μηδὲν ἐνδέχεται κοινὸν 
@@ -10146,7 +10104,7 @@ New header.
 <lb rend="displayNum" n="5"/>εὐθύγραμμα, αἱ ἴσα αὐτοῖς τετράγωνα ἀναγράφουσαι.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop1">
+<div type="textpart" subtype="type" n="prop1">
 <div type="textpart" subtype="number" n="1">
 <p>δύο μεγεθῶν ἀνίσων ἐκκειμένων, ἐὰν ἀπὸ τοῦ μείζονος 
 ἀφαιρεθῇ μεῖζον ἢ τὸ ἥμισυ καὶ τοῦ καταλειπομένου 
@@ -11945,7 +11903,7 @@ New header.
 <lb rend="displayNum" n="35"/>διαιρεῖται· καθʼ ἓν ἄρα μόνον <del>σημεῖον</del> διαιρεῖται.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Def2">
+<div type="textpart" subtype="type" n="def2">
 <div type="textpart" subtype="number" n="1">
 <p>ὑποκειμένης ῥητῆς καὶ τῆς ἐκ δύο ὀνομάτων 
 διῃρημένης εἰς τὰ ὀνόματα, ἧς τὸ μεῖζον ὄνομα τοῦ 
@@ -11975,7 +11933,7 @@ New header.
 <p>ἐὰν δὲ μηδέτερον, ἕκτη.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop2">
+<div type="textpart" subtype="type" n="prop2">
 <div type="textpart" subtype="number" n="48">
 <p>εὑρεῖν τὴν ἐκ δύο ὀνομάτων πρώτην. </p>
 <p>Ἐκκείσθωσαν δύο ἀριθμοὶ οἱ <num>ΑΓ</num>, <num>ΓΒ</num>, ὥστε τὸν 
@@ -13549,7 +13507,7 @@ New header.
 δὶς ὑπʼ αὐτῶν· ὅπερ ἔδει δεῖξαι.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Def3">
+<div type="textpart" subtype="type" n="def3">
 <div type="textpart" subtype="number" n="1">
 <p>ὑποκειμένης ῥητῆς καὶ ἀποτομῆς, ἐὰν μὲν ἡ ὅλη 
 τῆς προσαρμοζούσης μεῖζον δύνηται τῷ ἀπὸ συμμέτρου 
@@ -13580,7 +13538,7 @@ New header.
 <p>ἐὰν δὲ μηδετέρα, ἕκτη.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop3">
+<div type="textpart" subtype="type" n="prop3">
 <div type="textpart" subtype="number" n="85">
 <p>εὑρεῖν τὴν πρώτην ἀποτομήν. </p>
 <p>Ἐκκείσθω ῥητὴ ἡ <num>Α</num>, καὶ τῇ <num>Α</num> μήκει σύμμετρος ἔστω 
@@ -15207,7 +15165,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="11">
-<div type="textpart" subtype="type" n="Def">
+<div type="textpart" subtype="type" n="def">
 <div type="textpart" subtype="number" n="1">
 <p>στερεόν ἐστι τὸ μῆκος καὶ πλάτος καὶ βάθος ἔχον.</p>
 </div>
@@ -15340,7 +15298,7 @@ New header.
 πενταγώνων ἴσων καὶ ἰσοπλεύρων καὶ ἰσογωνίων περιεχόμενον.</p>
 </div>
 </div>
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>εὐθείας γραμμῆς μέρος μέν τι οὐκ ἔστιν ἐν τῷ ὑποκειμένῳ, 
 ἐπιπέδῳ, μέρος δέ τι ἐν μετεωροτέρῳ.<figure/>
@@ -17009,7 +16967,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="12">
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>τὰ ἐν τοῖς κύκλοις ὅμοια πολύγωνα πρὸς ἄλληλά ἐστιν 
 ὡς τὰ ἀπὸ τῶν διαμέτρων τετράγωνα. </p>
@@ -18434,7 +18392,7 @@ New header.
 </div>
 </div>
 <div type="textpart" subtype="book" n="13">
-<div type="textpart" subtype="type" n="Prop">
+<div type="textpart" subtype="type" n="prop">
 <div type="textpart" subtype="number" n="1">
 <p>ἐὰν εὐθεῖα γραμμὴ ἄκρον καὶ μέσον λόγον τμηθῇ, τὸ 
 μεῖζον τμῆμα προσλαβὸν τὴν ἡμίσειαν τῆς ὅλης πενταπλάσιον 
