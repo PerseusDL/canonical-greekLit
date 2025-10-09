@@ -1,1 +1,0 @@
-NB tlg0557.tlg003.perseus-grc was initially three works (via TLG) and has been split to reflect this. The translation will need the same type of work.

@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader>
+  <teiHeader xml:lang="eng">
       <fileDesc>
          <titleStmt>
-            <title>Poetica</title>
+            <title xml:lang="lat">Ars Poetica</title>
             <author>Aristotle</author>
-            <editor>ʿAbd al-Raḥmān Badawī</editor>
+            <editor role="translator">ʿAbd al-Raḥmān Badawī</editor>
             <funder>Andrew W. Mellon Foundation</funder>
          </titleStmt>
-         <publicationStmt>
-            <publisher>Tufts University/Harvard University</publisher>
-            <pubPlace>Boston</pubPlace>
-            <authority>Digicorpus</authority>
-         </publicationStmt>
+        
+        <publicationStmt>
+          <publisher>Trustees of Tufts University</publisher>
+          <pubPlace>Medford, MA</pubPlace>
+          <authority>Perseus Digital Library Project</authority>
+          <publisher>Harvard University</publisher>
+          <pubPlace>Cambridge, MA</pubPlace>
+          <authority>Digital Corpus for Graeco-Arabic Studies</authority>
+          <date type="release" when="2015" cert="low">Digital Corpus for Graeco-Arabic Studies</date>
+          <idno type="filename">tlg0086.tlg034.digicorpus-ara1.xml</idno>
+          <availability>
+            <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+          </availability>
+        </publicationStmt>
+        
          <sourceDesc>
             <biblStruct>
                <monogr>
@@ -30,14 +41,21 @@
             </biblStruct>
          </sourceDesc>
       </fileDesc>
+    
       <encodingDesc>
-         <refsDecl n="CTS">
-            <cRefPattern n="chapter"
-                         matchPattern="(\\w+)"
-                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@n=\'$1\'])">
-                <p>This pointer pattern extracts chapter</p>
-            </cRefPattern>
+        
+        <refsDecl n="CTS">
+          <!--<cRefPattern n="section" matchPattern="(\w+).(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])">
+            <p>This pointer pattern extracts book and chapter and section.</p>
+          </cRefPattern>  
+          <cRefPattern n="subchapter" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+            <p>This pointer pattern extracts chapter and subchapter.</p>
+          </cRefPattern>-->
+          <cRefPattern n="chapter" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+            <p>This pointer pattern extracts chapter.</p>
+          </cRefPattern>
         </refsDecl>
+       
          <editorialDecl default="true">
             <correction status="high" default="true" method="silent">
                <p>Data Entry</p>
@@ -50,16 +68,17 @@
       </encodingDesc>
       <profileDesc>
          <langUsage default="true">
-            <language ident="arabic">Arabic</language>
+            <language ident="ara">Arabic</language>
          </langUsage>
       </profileDesc>
+    <revisionDesc>
+      <change when="2024-09-18" who="Lisa Cerrato">Minor revisions to header.</change></revisionDesc>
   </teiHeader>
 
-  <text xml:lang="arabic"
-         xml:id="tlg0086.tlg034.alpheios-text-ara2"
-         n="urn:cts:greekLit:tlg0086.tlg034.digicorpus-ara1">
+  <text>
+    
       <body>
-
+        <div type="translation" xml:lang="ara" n="urn:cts:greekLit:tlg0086.tlg034.digicorpus-ara1">
          <pb n="85"/>
          <div type="textpart" subtype="chapter" n="1">
             <p> بسم الله الرحمن الرحيم </p>
@@ -1027,7 +1046,7 @@
           أوديفوس الذى وضعه سوفاقلس فى الأفى التى له فى هذه التى إيلياذا هى فيها، فى التشبيه
           والمحاكاة التى للذين يصنعون الأفى. والعلامة هى هذه: وهى أن الواحدة من صنعة أفى أنها كانت
           قد تحدث مديحات كثيرة... </p>
-         </div>
+         </div></div>
       </body>
   </text>
 </TEI>
