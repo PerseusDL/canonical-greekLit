@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader xml:lang="eng">
     <fileDesc>
@@ -23,6 +23,11 @@
         <publisher>Trustees of Tufts University</publisher>
         <pubPlace>Medford, MA</pubPlace>
         <authority>Perseus Project</authority>
+        <date type="release" when="1996">Perseus 2.0</date>
+        <idno type="filename">tlg0010.tlg005.perseus-grc2.xml</idno>
+        <availability>
+          <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+        </availability>
       </publicationStmt>
 
       <sourceDesc>
@@ -47,10 +52,8 @@
 
     <encodingDesc>
       <refsDecl n="CTS">
-        <cRefPattern n="section"
-          matchPattern="(\\w+)"
-          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
-          <p>This pointer pattern extracts section</p>
+       <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+          <p>This pointer pattern extracts section.</p>
         </cRefPattern>
       </refsDecl>
       <refsDecl>
@@ -87,77 +90,32 @@
     </profileDesc>
 
     <revisionDesc>
-      <!--
-      <change><date>April 1992</date>
-	<respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
-	<item>Threw out isoc.gk.sgml because first letter of each line was missing. Started from scratch again from isoc.gk.raw. Change markup in accordance with orator dtd</item>
-      </change>
-      <change><date>June 1992</date>
-	<respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
-	<item>put speeches in numerical order. Consolidated files.</item>
-      </change>
-      <change><date>June 1995</date>
-	<respStmt><name>Lisa Cerrato</name><resp>ed.</resp></respStmt>
-	<item>made section after 11.21 11.22. It was 11.37.</item>
-      </change>
-      <change><date>1 March 2000</date>
-	<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
-	<item>
-$Log: isoc.orat_gk.xml,v $
-Revision 1.1  2009-11-24 20:08:29  rsingh04
-moved more xml files around based on copyright status
-
-Revision 1.4  2009/06/24 16:04:24  lcerrato
-fixed bad bibls
-
-Revision 1.3  2009/06/11 17:56:55  student
-fixed bibl errors - zr
-
-Revision 1.2  2006/02/10 21:10:24  packel
-places/dates now actually tagged
-
-Revision 1.1  2005/08/01 18:01:20  packel
-split up letters and speeches
-
-Revision 1.1  2005/07/25 14:37:37  packel
-Converted to XML
-	
-Revision 1.12  2003/07/01 22:17:05  yorkc
-Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
-
-Revision 1.11  2000/10/24 16:30:03  lcerrato
-repetition of end of word in 7.38 eliminated
-
-Revision 1.10  2000/03/22 17:08:04  dasmith
-Corrected title of fifth letter.
-
-Revision 1.9  2000/03/04 20:34:40  dasmith
-Added separate funder entity to TEI header.
-
-Revision 1.8  2000/03/01 22:22:15  dasmith
-Only look up speeches in the orat. subdoc.
-
-Revision 1.7  2000/03/01 22:15:43  dasmith
-Can't have tags in change log.
-
-Revision 1.6  2000/03/01 22:14:46  dasmith
-Erroneously copied "text xml:lang=eng" from English file.
-
-Revision 1.5  2000/03/01 22:08:47  dasmith
-Converted to TEI P3.
-Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
-
-
-      </item></change>
-    <change><date>July 2014</date>
-    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
-    <item>split speeches and converted to unicode</item>
-      </change></change>-->
-      <change when="2014-10-01" who="Stella Dee">edited markup</change>
+      <change when="2025-10-15" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes</change>
       <change when="2016-01-26" who="TDBuck">epidoc and CTS</change>
+      <change when="2014-10-01" who="Stella Dee">edited markup</change>
+      <change when="2014-07" who="Stella Dee">split speeches and converted to unicode</change>  
+      <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
+      <change when="2009-06-24" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-06-11" who="student">fixed bibl errors - zr</change>
+      <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
+      <change when="2005-08-01" who="packel">split up letters and speeches</change>
+      <change when="2005-07-25" who="packel">Converted to XML</change> 
+      <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.) </change>
+      <change when="2000-10-24" who="lcerrato">repetition of end of word in 7.38 eliminated </change>
+      <change when="2000-03-22" who="dasmith">Corrected title of fifth letter.</change> 
+      <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change> 
+      <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change> 
+      <change when="2000-03-01" who="dasmith">Can't have tags in change log.</change>
+      <change when="2000-03-01" who="dasmith">Erroneously copied "text xml:lang=eng" from English file.</change> 
+      <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.</change>
+      <change when="2000-03" who="David Smith"/>
+      <change when="1995-06" who="Lisa Cerrato">made section after 11.21 11.22. It was 11.37.</change>
+      <change when="1992-06" who="W. Merrill">put speeches in numerical order. Consolidated files.</change>
+      <change when="1992-04" who="W. Merrill">Threw out isoc.gk.sgml because first letter of each line was missing. Started from scratch again from isoc.gk.raw. Change markup in accordance with orator dtd</change>
     </revisionDesc>
-  </teiHeader>
-  <text xml:lang="grc">
+</teiHeader>
+  
+  <text>
     <body>
       <div type="edition" n="urn:cts:greekLit:tlg0010.tlg005.perseus-grc2" xml:lang="grc">
       <div subtype="section" type="textpart" n="1">
@@ -194,28 +152,18 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
       <div subtype="section" type="textpart" n="6">
         <p>παρʼ ὑμῶν ἐξαιτεῖν. ἐν τοσούτοις δὲ κακοῖς ὤν, ὦ ἄνδρες δικασταί, λέγω πρὸς Πασίωνα τὰς
           ἐμαυτοῦ συμφοράς· οὕτω γὰρ οἰκείως πρὸς αὐτὸν διεκείμην ὥστε μὴ μόνον περὶ χρημάτων ἀλλὰ
-          καὶ περὶ τῶν ἄλλων τούτῳ μάλιστα πιστεύειν. ἡγούμην<note resp="ed" xml:lang="en"
-            anchored="true"><foreign xml:lang="greek">ἡγούμην...πρὸς Σάτυρον·</foreign>these lines,
-            not found in the MSS., are cited from this speech by the critic Dionysius of <placeName
-              key="tgn,7016142">ηαλιξαρνασσυς</placeName>. Blass brackets them.</note> δʼ εἰ μὲν
-          προοίμην ἅπαντα τὰ χρήματα, κινδυνεύειν, εἴ τι πάθοι ʼκεῖνος, στερηθεὶς καὶ τῶν ἐνθάδε καὶ
+          καὶ περὶ τῶν ἄλλων τούτῳ μάλιστα πιστεύειν. ἡγούμην<note resp="editor" xml:lang="eng"><foreign xml:lang="grc">ἡγούμην...πρὸς Σάτυρον·</foreign> these lines, not found in the MSS., are cited from this speech by the critic Dionysius of <placeName key="tgn,7016142">Halicarnassus</placeName>. Blass brackets them.</note> δʼ εἰ μὲν  προοίμην ἅπαντα τὰ χρήματα, κινδυνεύειν, εἴ τι πάθοι ʼκεῖνος, στερηθεὶς καὶ τῶν ἐνθάδε καὶ
           τῶν ἐκεῖ, πάντων ἐνδεὴς γενήσεσθαι· εἰ δʼ ὁμολογῶν εἶναι ἐπιστείλαντος Σατύρου μὴ
           παραδοίην, εἰς τὰς μεγίστας διαβολὰς ἐμαυτὸν καὶ τὸν πατέρα καταστήσειν πρὸς Σάτυρον. </p>
       </div>
       <div subtype="section" type="textpart" n="7">
-        <p>βουλευομένοις οὖν ἡμῖν ἐδόκει βέλτιστον εἶναι προσομολογεῖν<note resp="ed" xml:lang="en"
-            anchored="true"><foreign xml:lang="greek">προσομολογεῖν . . . καὶ·</foreign>these words
-            are not found in the best MSS., nor in Dionysius. It is probable that they are a
-            gloss.</note> πάντα ποιεῖν, ὅσα Σάτυρος προσέταττε, καὶ τὰ μὲν φανερὰ τῶν χρημάτων
-          παραδοῦναι, περὶ δὲ τῶν παρὰ τούτῳ κειμένων μὴ μόνον ἔξαρνον εἶναι ἀλλὰ καὶ ὀφείλοντά με
-          καὶ τούτῳ καὶ ἑτέροις ἐπὶ τόκῳ φαίνεσθαι καὶ πάντα ποιεῖν ἐξ ὧν ἐκεῖνοι μάλιστʼ ἤμελλον
-          πεισθήσεσθαι μὴ εἶναί μοι χρήματα. </p>
+        <p>βουλευομένοις οὖν ἡμῖν ἐδόκει βέλτιστον εἶναι προσομολογεῖν<note resp="editor" xml:lang="eng"><foreign xml:lang="grc">προσομολογεῖν . . . καὶ·</foreign> these words are not found in the best MSS., nor in Dionysius. It is probable that they are a gloss.</note> πάντα ποιεῖν, ὅσα Σάτυρος προσέταττε, καὶ τὰ μὲν φανερὰ τῶν χρημάτων παραδοῦναι, περὶ δὲ τῶν παρὰ τούτῳ κειμένων μὴ μόνον ἔξαρνον εἶναι ἀλλὰ καὶ ὀφείλοντά με καὶ τούτῳ καὶ ἑτέροις ἐπὶ τόκῳ φαίνεσθαι καὶ πάντα ποιεῖν ἐξ ὧν ἐκεῖνοι μάλιστʼ ἤμελλον πεισθήσεσθαι μὴ εἶναί μοι χρήματα. </p>
       </div>
       <div subtype="section" type="textpart" n="8">
         <p>τότε μὲν οὖν, ὦ ἄνδρες δικασταί, ἐνόμιζόν μοι Πασίωνα διʼ εὔνοιαν ἅπαντα ταῦτα
           συμβουλεύειν· ἐπειδὴ δὲ πρὸς τοὺς παρὰ Σατύρου διεπραξάμην, ἔγνων αὐτὸν ἐπιβουλεύοντα τοῖς
           ἐμοῖς. βουλομένου γὰρ ἐμοῦ κομίσασθαι τἀμαυτοῦ καὶ πλεῖν εἰς Βυζάντοιν, ἡγησάμενος οὗτος
-          κάλλιστον αὑτῷ καιρὸν παραπεπτωκέναι -- τὰ μὲν γὰρ χρήματα πόλλʼ εἶναι τὰ παρʼ αὑτῷ
+          κάλλιστον αὑτῷ καιρὸν παραπεπτωκέναι — τὰ μὲν γὰρ χρήματα πόλλʼ εἶναι τὰ παρʼ αὑτῷ
           κείμενα καὶ ἄξιʼ ἀναισχυντίας, ἐμὲ δὲ πολλῶν ἀκουόντων ἔξαρνον γεγενῆσθαι μηδὲν κεκτῆσθαι,
           πᾶσί τε φανερὸν ἀπαιτούμενον καὶ ἑτέροις προσομολογοῦντα ὀφείλειν— </p>
       </div>
@@ -248,8 +196,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
           μηδεὶς ἔλεγχος μηδὲ βάσανος γένοιτο περὶ αὐτῶν, ἔφασκεν ἡμᾶς ἀφανίσαντας τὸν παῖδʼ
           ἀντεγκαλεῖν αὑτῷ καὶ ἐξαιτεῖν τοῦτον, ὃν αὐτοὶ ἠφανίσαμεν. καὶ ταῦτα λέγων καὶ ἀγανακτῶν
           καὶ δακρύων εἷλκέ με πρὸς τὸν πολέμαρχον, ἐγγυητὰς αἰτῶν, καὶ οὐ πρότερον ἀφῆκεν, ἕως αὐτῷ
-          κατέστησʼ ἓξ ταλάντῶν ἐγγυητάς. καί μοι κάλει τούτων μάρτυρας.<quote type="*ma/rtures"/>
-        </p>
+          κατέστησʼ ἓξ ταλάντῶν ἐγγυητάς. καί μοι κάλει τούτων μάρτυρας.</p>
+        <p rend="align(center)"><label>Μάρτυρες</label></p>
       </div>
       <div subtype="section" type="textpart" n="13">
         <p>τῶν μὲν μαρτύρων ἀκηκόατε, ὦ ἄνδρες δικασταί· ἐγὼ δὲ τὰ μὲν ἀπολωλεκὼς ἤδη, περὶ δὲ τῶν
@@ -262,8 +210,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
           ᾐσχύνετʼ οὐδʼ ἐδεδοίκει, ὃν ἔφασκεν ὑφʼ ἡμῶν ἠνδραποδίσθαι καὶ παρʼ οὗ τοσαῦτα χρήμαθʼ
           ἡμᾶς ἔχειν, τοῦτον ἐξαιρούμενος εἰς ἐλευθερίαν καὶ κωλύων βασανίζεσθαι. ὃ δὲ πάντων
           δεινότατον· κατεγγυῶντος γὰρ Μενεξένου πρὸς τὸν πολέμαρχον τὸν παῖδα, Πασίων αὐτὸν ἑπτὰ
-          ταλάντων διηγγυήσατο. καί μοι τούτων ἀνάβητε μάρτυρες.<quote type="*ma/rtures"/>
-        </p>
+          ταλάντων διηγγυήσατο. καί μοι τούτων ἀνάβητε μάρτυρες.</p>
+        <p rend="align(center)"><label>Μάρτυρες</label></p>
       </div>
       <div subtype="section" type="textpart" n="15">
         <p>τούτων τοίνυν αὐτῷ πεπραγμένων, ὦ ἄνδρες δικασταί, ἡγούμενος περὶ μὲν τῶν παρεληλυθότων
@@ -277,8 +225,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
         <p>εἴ τι βούλοιντο. διαφερομένων δʼ ἡμῶν οἱ βασανισταὶ αὐτοὶ μὲν οὐκ ἔφασαν βασανιεῖν,
           ἔγνωσαν δὲ Πασίωνʼ ἐμοὶ παραδοῦναι τὸν παῖδα. οὗτος δʼ οὕτω σφόδρʼ ἔφευγε τὴν βάσανον,
           ὥστε περὶ μὲν τῆς παραδόσεως οὐκ ἤθελεν αὐτοῖς πείθεσθαι, τὸ δʼ ἀργύριον ἕτοιμος ἦν
-          ἀποτίνειν, εἰ καταγνοῖεν αὐτοῦ. καί μοι κάλει τούτων μάρτυρας.<quote type="*ma/rtures"/>
-        </p>
+          ἀποτίνειν, εἰ καταγνοῖεν αὐτοῦ. καί μοι κάλει τούτων μάρτυρας.</p>
+        <p rend="align(center)"><label>Μάρτυρες</label></p>
       </div>
       <div subtype="section" type="textpart" n="17">
         <p>ἐπειδὴ τοίνυν ἐκ τῶν συνόδων, ὦ ἄνδρες δικασταί, πάντες αὐτοῦ κατεγίγνωσκον ἀδικεῖν καὶ
@@ -311,8 +259,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
       </div>
       <div subtype="section" type="textpart" n="21">
         <p>τὰ μὲν οὖν ἡμέτερʼ, ὦ ἄνδρες δικασταί, οὕτω διεπέπρακτο· Μενέξενος δʼ ὀργιζόμενος ὑπὲρ
-          τῆς αἰτίας ἧς κἀκεῖνον Πασίων<note resp="ed" xml:lang="en" anchored="true"><foreign
-              xml:lang="greek">Πασίων,</foreign> omitted by <foreign xml:lang="greek">ΛΕ</foreign>,
+          τῆς αἰτίας ἧς κἀκεῖνον Πασίων<note resp="editor" xml:lang="eng"><foreign
+              xml:lang="grc">Πασίων,</foreign> omitted by <foreign xml:lang="grc">ΛΕ</foreign>, 
             is bracketed by Blass.</note> ᾐτιάσατο, λαχὼν δίκην ἐξῄτει τὸν Κίττον, ἀξιῶν τὴν αὐτὴν
           Πασίωνι ψευδομένῳ γίγνεσθαι ζημίαν ἧσπερ ἂν αὐτὸς ἐτύγχανεν, εἴ τι τούτων ἐφαίνετο
           ποιήσας. καὶ οὗτος, ὦ ἄνδρες δικασταί, ἐδεῖτο μου ἀπαλλάττειν Μενέξενον, λέγων ὅτι οὐδὲν
@@ -332,11 +280,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
           διαπραξάμενος ταῦτα καὶ θρασύτατος ἁπάντων ἀνθρώπων ἐγένετο, καὶ οὔτʼ εἰς τὸν Πόντον ἔφη
           μοι συμπλευσεῖσθαι οὔτʼ εἶναι πρός ἔμʼ αὐτῷ συμβόλαιον οὐδέν, ἀνοίγειν τʼ ἐκέλευε τὸ
           γραμματεῖον ἐναντιόν μαρτύρων. τί ἂν ὑμῖν τὰ πολλὰ λέγοιμι, ὦ ἄνδρες δικασταί; εὑρέθη γάρ
-          ἐν τὦ γραμματείῳ γεγραμμένος<note resp="ed" xml:lang="en" anchored="true"><foreign
-              xml:lang="greek">Γεγραμμένος</foreign> Benseler: <foreign xml:lang="greek"
-              >γεγραμμένον</foreign> MSS.: <foreign xml:lang="greek">ἐν τῷ γραμματείῳ
-              γεγραμμένον</foreign> is bracketed by Blass.</note> ἀφειμένος ἁπάντων τῶν ἐγκλημάτων
-          ὑπʼ ἐμοῦ. </p>
+          ἐν τὦ γραμματείῳ γεγραμμένος<note resp="editor" xml:lang="eng"><foreign xml:lang="grc">Γεγραμμένος</foreign> Benseler: <foreign xml:lang="grc">γεγραμμένον</foreign> MSS.: <foreign xml:lang="grc">ἐν τῷ γραμματείῳ γεγραμμένον</foreign> is bracketed by Blass.</note> ἀφειμένος ἁπάντων τῶν ἐγκλημάτων ὑπʼ ἐμοῦ. </p>
       </div>
       <div subtype="section" type="textpart" n="24">
         <p>τὰ μὲν οὖν γεγενημένα, ὡς ἀκριβέστατα οἶός τʼ ἦν, ἅπανθʼ ὑμῖν εἴρηκα. ἡγοῦμαι δὲ Πασίωνʼ,
@@ -393,8 +337,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
           ὧν ψευδομένους ἡμᾶς ἔμελλεν ἐξελέγξειν; οὔκουν ἐπειδή γε μετεγράφησαν, τούτους ἔλεγε τοὺς
           λόγους, ἀλλὰ περὶ ἁπάντων εἰς ἐκείνας κατέφευγε καὶ ἀνοίγειν ἐκέλευε τὸ γραμματεῖον. ὡς
           οὖν τὸ πρῶτον ἀναιρεῖν ἐζήτει τὰς συνθήκας, αὐτὸν Ἀγύρριον μαρτυροῦντα παρέξομαι. καί μοι
-            ἀνάβηθι.<quote type="*marturi/a"/>
-        </p>
+            ἀνάβηθι.</p>
+        <p rend="align(center)"><label>Μαρτυρία</label></p>
       </div>
       <div subtype="section" type="textpart" n="33">
         <p>ὅτι μὲν τοίνυν συνθήκας δʼ ἐποιησάμεθʼ οὐχ ὡς Πασίων ἐπιχειρήσει λέγειν, ἀλλʼ ὡς ἐγὼ πρὸς
@@ -430,8 +374,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
           τὰ ἐπεσταλμένα, αὐτὸς δʼ ἐκπλεύσας ἐνθάδʼ ἐμὲ μὴ καταλάβῃ, Πασίωνʼ αὐτῷ συνέστησα, καὶ
           ὡμολόγησεν οὗτος αὐτῷ καὶ τὸ ἀρχαῖον καὶ τοὺς τόκους τοὺς γιγνομένους ἀποδώσειν. δώσειν.
           καίτοι εἰ μηδὲν ἔκειτο παρʼ αὐτῷ τῶν ἐμῶν, οἴεσθʼ ἄν αὐτὸν οὕτω ῥᾳδίως τοσούτων χρημάτων
-          ἐγγυητήν μου γενέσθαι; καί μοι ἀνάβητε, μάρτυρες.<quote type="*ma/rtures"/>
-        </p>
+          ἐγγυητήν μου γενέσθαι; καί μοι ἀνάβητε, μάρτυρες.</p>
+        <p rend="align(center)"><label>Μάρτυρες</label></p>
       </div>
       <div subtype="section" type="textpart" n="38">
         <p>ἴσως τοίνυν, ὦ ἄνδρες δικασταί, καὶ τούτων ὑμῖν μάρτυρας παρέξεται, ὡς ἔξαρνος ἐγενόμην
@@ -457,13 +401,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
         <p>πρὸς δὲ τούτοις εἰσφορᾶς ἡμῖν προσταχθείσης καὶ ἑτέρων ἐπιγραφέων γενομένων ἐγὼ πλεῖστον
           εἰσήνεγκα τῶν ξένων, αὐτός θʼ αἱρεθεὶς ἐμαυτῷ μὲν ἐπέγραψα τὴν μεγίστην εἰσφοράν, ὑπὲρ
           Πασίωνος δʼ ἐδεόμην τῶν συνεπιγραφέων, λέγων ὅτι τοῖς ἐμοῖς χρήμασι τυγχάνει χρώμενος. καί
-          μοι ἀνάβητε μάρτυρες.<quote type="*ma/rtures">
-              
-                  <p>Μάρτυρες
-              </p>
-              
-            </quote>
-        </p>
+          μοι ἀνάβητε μάρτυρες.</p>
+        <p rend="align(center)"><label>Μάρτυρες</label></p>
       </div>
       <div subtype="section" type="textpart" n="42">
         <p>αὐτὸν τοίνυν Πασίωνʼ ἔργῳ παρέξομαι τούτοις συμμαρτυροῦντα. ὁλκάδα γάρ, ἐφʼ ᾗ πολλὰ
@@ -518,7 +457,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
       
         
       <div subtype="section" type="textpart" n="49">
-      <milestone unit="para" ed="P"/>
+      <milestone unit="para" ed="perseus"/>
         <p>ἀλλὰ γὰρ ἴσως περὶ τούτων μόνον ἀλλʼ οὐ καὶ περὶ τῶν ἄλλων ἐναντίʼ αὐτὸς αὑτῷ καὶ λέγων
           καὶ πράττων φανερός ἐστιν· ὃς τὸν μὲν παῖδα, ὃν αὐτὸς ἠφάνισεν, ὑφʼ ἡμῶν ἔφασκεν
           ἀνδραποδισθῆναι, τὸν αὐτὸν δὲ τοῦτον ἀπεγράψατο μὲν ἐν τοῖς τιμήμασιν ὡς δοῦλον μετὰ τῶν
@@ -542,8 +481,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
           συμβολαίων, ἄλλως τε καὶ μὴ παρόντος τούτου μηδὲ μέλλοντος ποιήσειν ἃ ἐκεῖνος δικάσειεν,
           οὕτω δὲ σφόδρʼ ἐνόμιζεν ἀδικεῖσθαί με, ὥστε συγκαλέσας τοὺς ναυκλήρους ἐδεῖτʼ αὐτῶν
           βοηθεῖν ἐμοὶ καὶ μὴ περιορᾶν ἀδικούμενον, καὶ πρὸς τὴν πόλιν συγγράψας ἐπιστολὴν ἔδωκε
-          φέρειν Θενοτίμῳ τῷ Καρκίνου. καί μοι ἀνάγνωθι αὐτοῖς.<quote type="*)epistolh/"/>
-        </p>
+          φέρειν Θενοτίμῳ τῷ Καρκίνου. καί μοι ἀνάγνωθι αὐτοῖς.</p>
+        <p rend="align(center)"><label>Ἐπιστολή</label></p>
       </div>
       <div subtype="section" type="textpart" n="53">
         <p>οὕτω τοίνυν, ὦ ἄνδρες δικασταί, πολλῶν μοι τῶν δικαίων ὑπαρχόντων, ἐκεῖνʼ ἡγοῦμαι
@@ -553,16 +492,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
           αὐτῶν ποιούμεθα. </p>
       </div>
       <div subtype="section" type="textpart" n="54">
-        <p>ὁρῶ δὲ καὶ ὑμᾶς καὶ περὶ τῶν ἰδίων καὶ περὶ τῶν δημοσίων οὐδὲν πιστότερον οὐδʼ
-          ἀληθέστερον βασάνου νομίζοντας, καὶ μάρτυρας μὲν ἡγουμένους<note resp="ed" xml:lang="en"
-            anchored="true"><foreign xml:lang="greek">ἡγουμένους ΓΕ· μὴ
-            γενομένους</foreign>Blass.</note> οἷόν τʼ εἶναι καὶ τῶν μὴ γενομένων<note resp="ed"
-            xml:lang="en" anchored="true"><foreign xml:lang="greek"
-              >γενομένων</foreign>Drerup:<foreign xml:lang="greek">παραγενομένων ΓΕ·
-              πεπραγμένων</foreign>Fuhr, Blass.</note> παρασκευάσασθαι, τὰς δὲ βασάνους φανερῶς
-          ἐπιδεικνύναι, ὁπότεροι τἀληθῆ λέγουσιν. ἃ οὗτος εἰδὼς ἠβουλήθη εἰκάζειν ὑμᾶς περὶ τοῦ
-          πράγματος μᾶλλον ἢ σαφῶς εἰδέναι. οὐ γὰρ δὴ τοῦτό γʼ ἂν εἰπεῖν ἔχοι, ὡς ἔλαττον ἔμελλεν
-          ἕξειν ἐν τῇ βασάνῳ, καὶ διὰ τοῦτʼ οὐκ εἰκὸς ἦν αὐτὸν ἐκδοῦναι. </p>
+        <p>ὁρῶ δὲ καὶ ὑμᾶς καὶ περὶ τῶν ἰδίων καὶ περὶ τῶν δημοσίων οὐδὲν πιστότερον οὐδʼ ἀληθέστερον βασάνου νομίζοντας, καὶ μάρτυρας μὲν ἡγουμένους<note resp="editor" xml:lang="eng"><foreign xml:lang="grc">ἡγουμένους ΓΕ· μὴ γενομένους</foreign> Blass.</note> οἷόν τʼ εἶναι καὶ τῶν μὴ γενομένων<note resp="editor" xml:lang="eng"><foreign xml:lang="grc">γενομένων</foreign> Drerup: <foreign xml:lang="grc">παραγενομένων ΓΕ· πεπραγμένων</foreign> Fuhr, Blass.</note> παρασκευάσασθαι, τὰς δὲ βασάνους φανερῶς ἐπιδεικνύναι, ὁπότεροι τἀληθῆ λέγουσιν. ἃ οὗτος εἰδὼς ἠβουλήθη εἰκάζειν ὑμᾶς περὶ τοῦ πράγματος μᾶλλον ἢ σαφῶς εἰδέναι. οὐ γὰρ δὴ τοῦτό γʼ ἂν εἰπεῖν ἔχοι, ὡς ἔλαττον ἔμελλεν ἕξειν ἐν τῇ βασάνῳ, καὶ διὰ τοῦτʼ οὐκ εἰκὸς ἦν αὐτὸν ἐκδοῦναι. </p>
       </div>
       <div subtype="section" type="textpart" n="55">
         <p>πάντες γὰρ ἐπίστασθʼ ὅτι κατειπὼν μὲν ἤμελλε τὸν ἐπίλοιπον χρόνον ὑπὸ τούτου κάκιστʼ
@@ -572,8 +502,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
           τούτου γενέσθαι. </p>
       </div>
       <div subtype="section" type="textpart" n="56">
-      
-      <milestone unit="para" ed="P"/>
+      <milestone unit="para" ed="perseus"/>
         <p>ἐγὼ οὖ ὑμῶν δέομαι μεμνημένους τούτων καταψηφίσασθαι Πασίωνος, καὶ μὴ τοσαύτην πονηρίαν
           ἐμοῦ καταγνῶναι, ὡς οἰκῶν ἐν τῷ Πόντῳ καὶ τοσαύτην οὐσίαν κεκτημένος ὥστε καὶ ἑτέρους εὖ
           ποιεῖν δύνασθαι, Πασίωνʼ ἦλθον συκοφαντήσων καὶ ψευδεῖς αὐτῷ παρακαταθήκας ἐγκαλῶν. </p>
