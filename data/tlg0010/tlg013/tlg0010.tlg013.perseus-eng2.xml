@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader xml:lang="eng">
     <fileDesc>
@@ -23,6 +23,11 @@
         <publisher>Trustees of Tufts University</publisher>
         <pubPlace>Medford, MA</pubPlace>
         <authority>Perseus Project</authority>
+        <date type="release" when="1996">Perseus 2.0</date>
+        <idno type="filename">tlg0010.tlg013.perseus-eng2.xml</idno>
+        <availability>
+          <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+        </availability>
       </publicationStmt>
 
       <sourceDesc>
@@ -47,10 +52,8 @@
 
     <encodingDesc>
       <refsDecl n="CTS">
-        <cRefPattern n="section"
-          matchPattern="(\\w+)"
-          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
-          <p>This pointer pattern extracts section</p>
+        <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+          <p>This pointer pattern extracts section.</p>
         </cRefPattern>
       </refsDecl>
       <refsDecl>
@@ -60,8 +63,9 @@
     
     <profileDesc>
       <langUsage>
-        <language ident="eng">English </language>
-        <language ident="grc">Greek </language>
+        <language ident="eng">English</language>
+        <language ident="grc">Greek</language>
+        <language ident="lat">Latin</language>
       </langUsage>
 
       <textClass xml:id="gen.epideictic">
@@ -87,120 +91,48 @@
     </profileDesc>
 
     <revisionDesc>
-      <!--
-      <change><date>April 1992</date>
-	<respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
-	<item>Put bios and intros to speeches into separate files. Change markup in accordance with orator dtd</item>
-      </change>
-      <change><date>June 1992</date>
-	<respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
-	<item>put speechs in numerical order and consolidated files</item>
-      </change>
-      <change><date>September-October 1992</date>
-	<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
-	<item>Fixed the notes, mostly citations</item>
-      </change>
-      <change><date>1 March 2000</date>
-	<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
-	<item>
-$Log: isoc.orat_eng.xml,v $
-Revision 1.3  2011-09-22 19:56:10  lcerrato
-fixed bibl to Aesch. Seven 1
-
-Revision 1.2  2010-06-16 15:52:16  lcerrato
-fixed bibls for Plut. Mor. to correct work title
-
-Revision 1.1  2009/11/24 20:08:29  rsingh04
-moved more xml files around based on copyright status
-
-Revision 1.18  2009/08/03 14:20:33  student
-fixed Aristot. Nic. Eth. reference - zr
-
-Revision 1.17  2009/07/23 20:24:35  student
-fixed section numbers - zr
-
-Revision 1.16  2009/06/26 17:51:34  student
-fixed bibl errors - zr
-
-Revision 1.15  2009/06/24 16:04:25  lcerrato
-fixed bad bibls
-
-Revision 1.14  2009/06/19 19:06:52  lcerrato
-fixed bad bibls
-
-Revision 1.13  2009/06/11 20:25:01  student
-fixed bibl errors - zr
-
-Revision 1.12  2009/06/11 19:55:46  rsingh04
-fixed section error
-
-Revision 1.11  2009/05/19 20:57:47  lcerrato
-fixed bad bibls
-
-Revision 1.10  2009/04/29 02:29:49  lcerrato
-fixed bad bibls
-
-Revision 1.9  2009/04/17 19:20:30  lcerrato
-fixing bad bibls
-
-Revision 1.8  2009/04/03 20:20:43  lcerrato
-fixing bad bibl refs
-
-Revision 1.7  2009/03/02 19:01:28  rsingh04
-fixed date, dateRange and dateStruct tags
-
-Revision 1.6  2009/02/05 18:43:43  lcerrato
-fixed bad bibls
-
-Revision 1.5  2009/01/07 21:38:23  lcerrato
-fixed bibl refs to Bacchylides
-
-Revision 1.4  2008/12/18 20:25:05  lcerrato
-fixing typos
-
-Revision 1.3  2008/11/19 21:22:11  lcerrato
-fixed bad refs to Aristot. Nic. Eth. and Solon
-
-Revision 1.2  2006/02/10 21:10:25  packel
-places/dates now actually tagged
-
-Revision 1.1  2005/08/01 18:01:19  packel
-split up letters and speeches
-
-Revision 1.1  2005/07/25 14:37:33  packel
-Converted to XML
-	
-Revision 1.8  2003/07/01 22:17:03  yorkc
-Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
-
-Revision 1.7  2001/10/09 22:40:51  dasmith
-Fixed instances of zero for capital O.
-
-Revision 1.6  2000/03/04 20:34:39  dasmith
-Added separate funder entity to TEI header.
-
-Revision 1.5  2000/03/01 22:22:15  dasmith
-Only look up speeches in the orat. subdoc.
-
-Revision 1.4  2000/03/01 21:45:05  dasmith
-Converted to TEI P3.
-Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
-
-
-      </item></change>
-    <change><date>July 2014</date>
-    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
-    <item>split speeches and converted to unicode</item>
-      </change></change>-->
+      <change when="2025-10-31" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes</change>
       <change when="2014-10-01" who="Stella Dee">edited markup</change>
+      <change when="2014-07" who="Stella Dee">split speeches and converted to unicode</change>  
+      <change when="2011-09-22" who="lcerrato"> fixed bibl to Aesch. Seven 1</change>
+      <change when="2010-06-16" who="lcerrato"> fixed bibls for Plut. Mor. to correct work title</change>
+      <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
+      <change when="2009-08-03" who="student">fixed Aristot. Nic. Eth. reference - zr</change>
+      <change when="2009-07-23" who="student">fixed section numbers - zr</change>
+      <change when="2009-06-26" who="student">fixed bibl errors - zr</change>
+      <change when="2009-06-24" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-06-19" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-06-11" who="student">fixed bibl errors - zr</change>
+      <change when="2009-06-11" who="rsingh04">fixed section error</change>
+      <change when="2009-05-19" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-04-29" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-04-17" who="lcerrato">fixing bad bibls</change>
+      <change when="2009-04-03" who="lcerrato">fixing bad bibl refs</change>
+      <change when="2009-03-02" who="rsingh04">fixed date, dateRange and dateStruct tags</change>
+      <change when="2009-02-05" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-01-07" who="lcerrato">fixed bibl refs to Bacchylides</change>
+      <change when="2008-12-18" who="lcerrato">fixing typos</change>
+      <change when="2008-11-19" who="lcerrato">fixed bad refs to Aristot. Nic. Eth. and Solon</change>
+      <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
+      <change when="2005-08-01" who="packel">split up letters and speeches</change>
+      <change when="2005-07-25" who="packel">Converted to XML</change>	
+      <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
+      <change when="2001-10-09" who="dasmith">Fixed instances of zero for capital O.</change>
+      <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+      <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change>
+      <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.</change>
+      <change when="2000-03" who="David Smith"/>
+      <change when="1992-10" who="David Smith">Fixed the notes, mostly citations</change>
+      <change when="1992-06" who="W. Merrill">put speeches in numerical order. Consolidated files.</change>
+      <change when="1992-04" who="W. Merrill">Put bios and intros to speeches into separate files. Change markup in accordance with orator dtd</change>
     </revisionDesc>
   </teiHeader>
-  <text xml:lang="eng">
+  <text>
     <body>
       <div type="translation" n="urn:cts:greekLit:tlg0010.tlg013.perseus-eng2" xml:lang="eng">
       <div n="1" subtype="section" type="textpart">
         <p> When men make it a habit, Nicocles, to bring to you who are rulers of kingdoms articles
-          of dress or of bronze or of wrought gold,<note anchored="true" resp="ed">Echoed from <bibl
+          of dress or of bronze or of wrought gold,<note resp="editor">Echoed from <bibl
               n="Hom. Od. 16.231">Hom. Od. 16.231</bibl>.</note> or other such valuables of which
           they themselves have need and you have plenty, it seems to me all too evident that they
           are not engaged in giving but in bargaining, and that they are much more skillful in
@@ -217,8 +149,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="3" subtype="section" type="textpart">
         <p>next, the laws by which in each case their civic life is governed; furthermore, freedom
           of speech and the privilege which is openly granted to friends to rebuke and to enemies to
-          attack each other's faults; besides, a number of the poets of earlier times<note
-            anchored="true" resp="ed">Especially the “gnomic” poets mentioned in 43.</note> have
+          attack each other’s faults; besides, a number of the poets of earlier times<note resp="editor">Especially the “gnomic” poets mentioned in 43.</note> have
           left precepts which direct them how to live; so that, from all these influences, they may
           reasonably be expected to become better men. </p>
       </div>
@@ -245,14 +176,14 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="6" subtype="section" type="textpart">
         <p>And the cause of this inconsistency and confusion is that men believe that the office of
-          king is, like that of priest,<note anchored="true" resp="ed">The priestly office in
+          king is, like that of priest,<note resp="editor">The priestly office in
               <placeName key="tgn,1000074">Greece</placeName> demanded care in the administration of
             ritual, but, apart from this, no special competence; it was often hereditary and
             sometimes filled by lot.</note> one which any man can fill, whereas it is the most
           important of human functions and demands the greatest wisdom. Now as to each particular
           course of action, it is the business of those who are at the time associated with a king
           to advise him how he may handle it in the best way possible, and how he may both preserve
-          what is good and prevent disaster; but as regards a king's conduct in general, I shall
+          what is good and prevent disaster; but as regards a king’s conduct in general, I shall
           attempt to set forth the objects at which he should aim and the pursuits to which he
           should devote himself. </p>
       </div>
@@ -272,10 +203,9 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="9" subtype="section" type="textpart">
         <p> First, then, we must consider what is the function of kings; for if we can properly
-          encompass the essence of the whole matter in a general principle<note anchored="true"
-            resp="ed">For the habit of definition in Isocrates see General Introd. p. xvii.</note>
+          encompass the essence of the whole matter in a general principle<note resp="editor">For the habit of definition in Isocrates see General Introd. p. xvii.</note>
           we shall, with this before us, speak to better purpose about its parts. I think that all
-          would agree that it is a king's business to relieve the state when it is in distress, to
+          would agree that it is a king’s business to relieve the state when it is in distress, to
           maintain it in prosperity, and to make it great when it is small; for it is with these
           ends in view that the other duties which present themselves day by day must be performed.
         </p>
@@ -284,13 +214,12 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p>And surely this much is clear, that those who are able to do all this, and who pronounce
           on matters of so great moment, must not be indolent nor careless, but must see to it that
           they are superior to all others in intelligence; for it is evident that they will reign
-          well or ill according to the manner in which they equip their own minds.<note
-            anchored="true" resp="ed">Cf. <bibl n="Isoc. 9.41">Isoc. 9.41</bibl>.</note>
+          well or ill according to the manner in which they equip their own minds.<note resp="editor">Cf. <bibl n="Isoc. 9.41">Isoc. 9.41</bibl>.</note>
         </p>
       </div>
       <div n="11" subtype="section" type="textpart">
         <p>Therefore, no athlete is so called upon to train his body as is a king to train his
-            soul;<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.12">Isoc. 1.12</bibl>.</note>
+            soul;<note resp="editor">Cf. <bibl n="Isoc. 1.12">Isoc. 1.12</bibl>.</note>
           for not all the public festivals in the world offer a prize comparable to those for which
           you who are kings strive every day of your lives. This thought you must lay to heart, and
           see to it that in proportion as you are above the others in rank so shall you surpass them
@@ -301,7 +230,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           avail to make us better and wiser; and do not deem us, the human kind, so unfortunate
           that, although in dealing with wild beasts we have discovered arts by which we tame their
           spirits and increase their worth, yet in our own case we are powerless to help ourselves
-          in the pursuit of virtue.<note anchored="true" resp="ed">This thought and comparison is
+          in the pursuit of virtue.<note resp="editor">This thought and comparison is
             elaborated with verbal echoes from here in <bibl n="Isoc. 15.209">Isoc.
               15.209-214</bibl>. Cf. the debate on whether virtue can be taught: <bibl n="Thgn. 429"
               >Theog. 429</bibl>; <bibl n="Xen. Mem. 1.2.19">Xen. Mem. 1.2.19 ff.</bibl>; <bibl
@@ -320,10 +249,10 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           properly the duties of a king, and to govern the state as he should. </p>
       </div>
       <div n="14" subtype="section" type="textpart">
-        <p>But<note anchored="true" resp="ed">The passage here to 39 is quoted in a somewhat
+        <p>But<note resp="editor">The passage here to 39 is quoted in a somewhat
             abbreviated form in <bibl n="Isoc. 15.73">Isoc. 15.73</bibl>.</note> the strongest
           challenge to your task you will find in yourself, if only you consider it monstrous that
-          the worse should rule the better,<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 3.14"
+          the worse should rule the better,<note resp="editor">Cf. <bibl n="Isoc. 3.14"
               >Isoc. 3.14 ff.</bibl></note> and that the more foolish should give orders to men of
           greater wisdom; for the more vigorously you condemn folly in others, the more diligently
           will you train your own understanding. </p>
@@ -339,7 +268,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p>knowing that all governments—oligarchies as well as the others—have the longest life when
           they best serve the masses. You will be a wise leader of the people if you do not allow
           the multitude either to do or to suffer outrage, but see to it that the best among them
-          shall have the honors,<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 3.14">Isoc.
+          shall have the honors,<note resp="editor">Cf. <bibl n="Isoc. 3.14">Isoc.
               3.14</bibl>.</note> while the rest shall suffer no impairment of their rights; for
           these are the first and most important elements of good government. </p>
       </div>
@@ -373,13 +302,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p> In the worship of the gods, follow the example of your ancestors, but believe that the
           noblest sacrifice and the greatest devotion is to show yourself in the highest degree a
           good and just man; for such men have greater hope of enjoying a blessing from the
-            gods<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.39">Isoc. 1.39</bibl> and
+            gods<note resp="editor">Cf. <bibl n="Isoc. 1.39">Isoc. 1.39</bibl> and
             note.</note> than those who slaughter many victims. Honor with office those of your
           friends who are nearest of kin, but honor in very truth those who are the most loyal. </p>
       </div>
       <div n="21" subtype="section" type="textpart">
         <p>Believe that your staunchest body-guard lies in the virtue of your friends, the loyalty
-          of your citizens and your own wisdom;<note anchored="true" resp="ed">Cf. <bibl
+          of your citizens and your own wisdom;<note resp="editor">Cf. <bibl
               n="Isoc. 10.37">Isoc. 10.37</bibl>.</note> for it is through these that one can best
           acquire as well as keep the powers of royalty. Watch over the estates of your citizens,
           and consider that the spenders are paying from your pocket, and the workers are adding to
@@ -388,7 +317,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="22" subtype="section" type="textpart">
         <p>Throughout all your life show that you value truth so highly that your word is more to be
-          trusted than the oaths of other men.<note anchored="true" resp="ed">Cf. <bibl
+          trusted than the oaths of other men.<note resp="editor">Cf. <bibl
               n="Isoc. 4.81">Isoc. 4.81</bibl>.</note> To all foreigners, see that the city offers
           security and good faith in its engagements; and in your treatment of those who come from
           abroad, make the most, not of those who bring you gifts, but of those who expect to
@@ -407,9 +336,9 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           but by causing your subjects one and all to defer to your judgement and to believe that
           your plans for their welfare are better than their own. Be warlike in your knowledge of
           war and in your preparations for it, but peaceful in your avoidance of all unjust
-            aggression.<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 8.136">Isoc.
+            aggression.<note resp="editor">Cf. <bibl n="Isoc. 8.136">Isoc.
             8.136</bibl>.</note> Deal with weaker states as you would expect stronger states to deal
-          with you.<note anchored="true" resp="ed">For the golden rule in the relations of states
+          with you.<note resp="editor">For the golden rule in the relations of states
             compare <bibl n="Isoc. 4.81">Isoc. 4.81</bibl>. Cf. <bibl n="Isoc. 1.14">Isoc.
               1.14</bibl> and note.</note>
         </p>
@@ -423,7 +352,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="26" subtype="section" type="textpart">
         <p>Emulate, not those who have most widely extended their dominion, but those who have made
-          best use of the power they already possess;<note anchored="true" resp="ed">Cf. <bibl
+          best use of the power they already possess;<note resp="editor">Cf. <bibl
               n="Isoc. 3.34">Isoc. 3.34</bibl>.</note> and believe that you will enjoy the utmost
           happiness, not if you rule over the whole world at the price of fears and dangers and
           baseness, but rather if, being the man you should be, and continuing to act as at the
@@ -450,7 +379,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="29" subtype="section" type="textpart">
         <p>Visit the same punishment on false-accusers as on evil-doers. Govern yourself no less
           than your subjects, and consider that you are in the highest sense a king when you are a
-          slave to no pleasure<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.21">Isoc.
+          slave to no pleasure<note resp="editor">Cf. <bibl n="Isoc. 1.21">Isoc.
               1.21</bibl>.</note> but rule over your desires more firmly than over your people. Do
           not contract any intimacy heedlessly or without reflection, but accustom yourself to take
           pleasure in that society which will contribute to your advancement and heighten your fame
@@ -459,7 +388,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="30" subtype="section" type="textpart">
         <p>Do not show yourself ambitious for those things which lie within the power of base men
           also to achieve, but show that you pride yourself on virtue, in which base men have no
-            part.<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.38">Isoc. 1.38</bibl>.</note>
+            part.<note resp="editor">Cf. <bibl n="Isoc. 1.38">Isoc. 1.38</bibl>.</note>
           Consider that the truest respect is shown you, not in the public demonstrations which are
           inspired by fear, but when people in the privacy of their homes speak with admiration of
           your wisdom rather than of your fortune. Let it not be known of men if perchance you take
@@ -469,8 +398,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="31" subtype="section" type="textpart">
         <p> Do not think that while all other people should live with sobriety, kings may live with
           license; on the contrary, let your own self-control stand as an example to the rest,
-          realizing that the manners of the whole state are copied from its rulers.<note
-            anchored="true" resp="ed">Cf. <bibl n="Isoc. 3.37">Isoc. 3.37</bibl>; <placeName
+          realizing that the manners of the whole state are copied from its rulers.<note resp="editor">Cf. <bibl n="Isoc. 3.37">Isoc. 3.37</bibl>; <placeName
               key="tgn,2068515">Cicero</placeName>, <title>Ep. ad Fam.</title> i. 9. 12: “quales in
             republica principles essent, tales reliquos soler esse cives.”</note> Let it be a sign
           to you that you rule wisely if you see all your subjects growing more prosperous and more
@@ -478,10 +406,9 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="32" subtype="section" type="textpart">
         <p>Consider it more important to leave to your children a good name than great riches; for
-          riches endure for a day, a good name for all time; a good name may bring wealth,<note
-            anchored="true" resp="ed">Cf. <bibl n="Isoc. 3.50">Isoc. 3.50</bibl>.</note> but wealth
+          riches endure for a day, a good name for all time; a good name may bring wealth,<note resp="editor">Cf. <bibl n="Isoc. 3.50">Isoc. 3.50</bibl>.</note> but wealth
           cannot buy a good name; wealth comes even to men of no account, but a good name can only
-          be acquired by men of superior merit.<note anchored="true" resp="ed">It is a commonplace
+          be acquired by men of superior merit.<note resp="editor">It is a commonplace
             of Greek ethics that “virtue” (wisdom, justice, temperance) and the good name which it
             ensures are enduring possessions in which the worthy only may share, as distinguished
             from such transitory goods as wealth, power, beauty, etc., which are shared even by the
@@ -496,10 +423,10 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p> Keep watch always on your words and actions, that you may fall into as few mistakes as
           possible. For while it is best to grasp your opportunities at exactly the right moment,
           yet, since they are difficult to discern, choose to fall short rather than to overreach
-            them;<note anchored="true" resp="ed">Cf. <bibl n="Aristot. Nic. Eth. 1105b">Artistot.
+            them;<note resp="editor">Cf. <bibl n="Aristot. Nic. Eth. 1105b">Artistot.
               Nic. Eth. 2.5</bibl>; <placeName key="tgn,2068515">Cicero</placeName>,
-              <title>Orat.</title> xxii. : “etsi suus cuique rei modus est, tamen magis offendit
-            nimium quam parum.”</note> for the happy mean is to be found in defect rather than in
+              <title>Orat.</title> xxii.: “<foreign xml:lang="lat">etsi suus cuique rei modus est, tamen magis offendit
+            nimium quam parum.</foreign>”</note> for the happy mean is to be found in defect rather than in
           excess. </p>
       </div>
       <div n="34" subtype="section" type="textpart">
@@ -518,21 +445,19 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           kings, for if you are mindful of the past you will plan better for the future. </p>
       </div>
       <div n="36" subtype="section" type="textpart">
-        <p>Consider that where there are common men who are ready to lay down their lives<note
-            anchored="true" resp="ed">Cf. <bibl n="Isoc. 5.135">Isoc. 5.135</bibl>.</note> that they
+        <p>Consider that where there are common men who are ready to lay down their lives<note resp="editor">Cf. <bibl n="Isoc. 5.135">Isoc. 5.135</bibl>.</note> that they
           may be praised after they are dead, it is shameful for kings not to have the courage to
           pursue a course of conduct from which they will gain renown during their lives. Prefer to
           leave behind you as a memorial images of your character rather than of your body. Put
-          forth every effort to preserve your own and your state's security, but if you are
-          compelled to risk your life, choose to die with honor rather than to live in shame.<note
-            anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.43">Isoc. 1.43</bibl>.</note>
+          forth every effort to preserve your own and your state’s security, but if you are
+          compelled to risk your life, choose to die with honor rather than to live in shame.<note resp="editor">Cf. <bibl n="Isoc. 1.43">Isoc. 1.43</bibl>.</note>
         </p>
       </div>
       <div n="37" subtype="section" type="textpart">
         <p>In all your actions remember that you are a king, and take care never to do anything
           which is beneath the dignity of your station. Do not suffer your life to be at once wholly
           blotted out, but since you were allotted a perishable body, seek to leave behind an
-          imperishable memorial of your soul.<note anchored="true" resp="ed">Cf. <bibl
+          imperishable memorial of your soul.<note resp="editor">Cf. <bibl
               n="Isoc. 5.134">Isoc. 5.134</bibl>; <bibl n="Isoc. 1.39">Isoc. 1.39</bibl> and
             note.</note>
         </p>
@@ -547,12 +472,12 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="39" subtype="section" type="textpart">
         <p>Regard as wise men, not those who dispute subtly about trifling matters, but those who
-          speak well on the great issues;<note anchored="true" resp="ed">Cf. <bibl n="Isoc. 4.188"
+          speak well on the great issues;<note resp="editor">Cf. <bibl n="Isoc. 4.188"
               >Isoc. 4.188-189</bibl> and note.</note> and not those who, being themselves in sorry
           straits, hold forth to others the promise of a prosperous fortune, but those who, while
           making modest claims for themselves, are able to deal with both affairs and men, and are
           not upset by the vicissitudes of existence, but have learned to bear moderately and
-          bravely both the good and the evil chances of life.<note anchored="true" resp="ed">Cf.
+          bravely both the good and the evil chances of life.<note resp="editor">Cf.
               <bibl n="Isoc. 1.42">Isoc. 1.42</bibl> and note.</note>
         </p>
       </div>
@@ -576,32 +501,30 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           compositions, whether in verse or prose, are the most useful which counsel us how to live,
           yet it is certainly not to them that they listen with greatest pleasure; nay, they feel
           about these just as they feel about the people who admonish them; for while they praise
-          the latter, they choose for associates<note anchored="true" resp="ed">Cf. <bibl
+          the latter, they choose for associates<note resp="editor">Cf. <bibl
               n="Isoc. 1.45">Isoc. 1.45</bibl>.</note> those who share in, and not those who would
           dissuade them from, their faults. </p>
       </div>
       <div n="43" subtype="section" type="textpart">
-        <p>As a case in point, one might cite the poetry of Hesiod and Theognis and Phocylides;<note
-            anchored="true" resp="ed">Theognis and Phocylides (middle of sixth century) were the
+        <p>As a case in point, one might cite the poetry of Hesiod and Theognis and Phocylides;<note resp="editor">Theognis and Phocylides (middle of sixth century) were the
             leading gnomic poets. Theognis was used in the schools, and we have over a thousand of
             his verses. Phocylides survives in but a few fragments. Hesiod is classed with them
             because in his epic <title>The Works and Days</title> are scattered many maxims.</note>
           for these, they say, have proved the best counsellors for human conduct; but in spite of
-          what they say, people prefer to occupy themselves with each other's follies rather than
+          what they say, people prefer to occupy themselves with each other’s follies rather than
           with the admonitions of these teachers. </p>
       </div>
       <div n="44" subtype="section" type="textpart">
         <p>And, again, if one were to make a selection from the leading poets of their maxims, as we
           call them, into which they have put their best thought, men would show a similar attitude
-          toward them also; for they would lend a readier ear to the cheapest comedy<note
-            anchored="true" resp="ed">Isocrates had a poor opinion of comedy, himself having been
+          toward them also; for they would lend a readier ear to the cheapest comedy<note resp="editor">Isocrates had a poor opinion of comedy, himself having been
             subjected to its licence. Cf. <bibl n="Isoc. 8.14">Isoc. 8.14</bibl>.</note> than to the
           creations of such finished art. Yet why should I spend time in giving single instances?
         </p>
       </div>
       <div n="45" subtype="section" type="textpart">
         <p>For if we are willing to survey human nature as a whole, we shall find that the majority
-          of men do not take pleasure in the food<note anchored="true" resp="ed">Cf. <bibl
+          of men do not take pleasure in the food<note resp="editor">Cf. <bibl
               n="Isoc. 1.45">Isoc. 1.45</bibl>.</note> that is the most wholesome, nor in the
           pursuits that are the most honorable, nor in the actions that are the noblest, nor in the
           creatures that are the most useful, but that they have tastes which are in every way
@@ -617,7 +540,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="47" subtype="section" type="textpart">
         <p>and they would rather be ill in body than exert the soul and give thought to anything in
-          the line of duty. Observe them when they are in each other's company, and you will find
+          the line of duty. Observe them when they are in each other’s company, and you will find
           them giving and taking abuse; observe them when they are by themselves, and you will find
           them occupied, not with plans, but with idle dreams. I am, however, speaking now not of
           all, but of those only who are open to the charges I have made. </p>
@@ -646,8 +569,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="51" subtype="section" type="textpart">
         <p>especially, since the teachers of philosophy, however much they debate about the proper
-          discipline of the soul (some contending that it is through disputation,<note
-            anchored="true" resp="ed">See <bibl n="Isoc. 12.26">Isoc. 12.26</bibl>; <bibl
+          discipline of the soul (some contending that it is through disputation,<note resp="editor">See <bibl n="Isoc. 12.26">Isoc. 12.26</bibl>; <bibl
               n="Isoc. 15.261">Isoc. 15.261</bibl>; General Introduction, p. xxi.</note> others that
           it is through political discussion, others that it is through other means that their
           disciples are to attain to greater wisdom), yet are all agreed on this, that the
@@ -655,7 +577,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           ability to deliberate and decide. </p>
       </div>
       <div n="52" subtype="section" type="textpart">
-        <p>You should, therefore, avoid what is in controversy and test men's value in the light of
+        <p>You should, therefore, avoid what is in controversy and test men’s value in the light of
           what is generally agreed upon, if possible taking careful note of them when they present
           their views on particular situations; or, if that is not possible, when they discuss
           general questions. And when they are altogether lacking in what they ought to know, reject
