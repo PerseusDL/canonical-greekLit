@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader xml:lang="eng">
     <fileDesc>
@@ -23,6 +23,11 @@
         <publisher>Trustees of Tufts University</publisher>
         <pubPlace>Medford, MA</pubPlace>
         <authority>Perseus Project</authority>
+        <date type="release" when="1996">Perseus 2.0</date>
+        <idno type="filename">tlg0010.tlg014.perseus-grc2.xml</idno>
+        <availability>
+          <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+        </availability>
       </publicationStmt>
 
       <sourceDesc>
@@ -47,10 +52,8 @@
 
     <encodingDesc>
       <refsDecl n="CTS">
-        <cRefPattern n="section"
-          matchPattern="(\\w+)"
-          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
-          <p>This pointer pattern extracts section</p>
+       <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+          <p>This pointer pattern extracts section.</p>
         </cRefPattern>
       </refsDecl>
       <refsDecl>
@@ -87,76 +90,31 @@
     </profileDesc>
 
     <revisionDesc>
-      <!--
-      <change><date>April 1992</date>
-	<respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
-	<item>Threw out isoc.gk.sgml because first letter of each line was missing. Started from scratch again from isoc.gk.raw. Change markup in accordance with orator dtd</item>
-      </change>
-      <change><date>June 1992</date>
-	<respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
-	<item>put speeches in numerical order. Consolidated files.</item>
-      </change>
-      <change><date>June 1995</date>
-	<respStmt><name>Lisa Cerrato</name><resp>ed.</resp></respStmt>
-	<item>made section after 11.21 11.22. It was 11.37.</item>
-      </change>
-      <change><date>1 March 2000</date>
-	<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
-	<item>
-$Log: isoc.orat_gk.xml,v $
-Revision 1.1  2009-11-24 20:08:29  rsingh04
-moved more xml files around based on copyright status
-
-Revision 1.4  2009/06/24 16:04:24  lcerrato
-fixed bad bibls
-
-Revision 1.3  2009/06/11 17:56:55  student
-fixed bibl errors - zr
-
-Revision 1.2  2006/02/10 21:10:24  packel
-places/dates now actually tagged
-
-Revision 1.1  2005/08/01 18:01:20  packel
-split up letters and speeches
-
-Revision 1.1  2005/07/25 14:37:37  packel
-Converted to XML
-	
-Revision 1.12  2003/07/01 22:17:05  yorkc
-Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
-
-Revision 1.11  2000/10/24 16:30:03  lcerrato
-repetition of end of word in 7.38 eliminated
-
-Revision 1.10  2000/03/22 17:08:04  dasmith
-Corrected title of fifth letter.
-
-Revision 1.9  2000/03/04 20:34:40  dasmith
-Added separate funder entity to TEI header.
-
-Revision 1.8  2000/03/01 22:22:15  dasmith
-Only look up speeches in the orat. subdoc.
-
-Revision 1.7  2000/03/01 22:15:43  dasmith
-Can't have tags in change log.
-
-Revision 1.6  2000/03/01 22:14:46  dasmith
-Erroneously copied "text xml:lang=eng" from English file.
-
-Revision 1.5  2000/03/01 22:08:47  dasmith
-Converted to TEI P3.
-Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
-
-
-      </item></change>
-    <change><date>July 2014</date>
-    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
-    <item>split speeches and converted to unicode</item>
-      </change></change>-->
+      <change when="2025-10-15" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes</change>
       <change when="2014-10-01" who="Stella Dee">edited markup</change>
+      <change when="2014-07" who="Stella Dee">split speeches and converted to unicode</change>  
+      <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
+      <change when="2009-06-24" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-06-11" who="student">fixed bibl errors - zr</change>
+      <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
+      <change when="2005-08-01" who="packel">split up letters and speeches</change>
+      <change when="2005-07-25" who="packel">Converted to XML</change> 
+      <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.) </change>
+      <change when="2000-10-24" who="lcerrato">repetition of end of word in 7.38 eliminated </change>
+      <change when="2000-03-22" who="dasmith">Corrected title of fifth letter.</change> 
+      <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change> 
+      <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change> 
+      <change when="2000-03-01" who="dasmith">Can't have tags in change log.</change>
+      <change when="2000-03-01" who="dasmith">Erroneously copied "text xml:lang=eng" from English file.</change> 
+      <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.</change>
+      <change when="2000-03" who="David Smith"/>
+      <change when="1995-06" who="Lisa Cerrato">made section after 11.21 11.22. It was 11.37.</change>
+      <change when="1992-06" who="W. Merrill">put speeches in numerical order. Consolidated files.</change>
+      <change when="1992-04" who="W. Merrill">Threw out isoc.gk.sgml because first letter of each line was missing. Started from scratch again from isoc.gk.raw. Change markup in accordance with orator dtd</change>
     </revisionDesc>
   </teiHeader>
-  <text xml:lang="grc">
+  
+  <text>
     <body>
       <div type="edition" n="urn:cts:greekLit:tlg0010.tlg014.perseus-grc2" xml:lang="grc">
       <div subtype="section" type="textpart" n="1">
@@ -297,10 +255,10 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
         </p>
       </div>
       <div subtype="section" type="textpart" n="21">
-        <p>τὸ δὲ μέγιστον· τοῖς γὰρ κοινοῖς οἱ μὲν ὡς ἀλλοτρίοις, οἱ δʼ ὡς ἰδίοις<note resp="ed"
-            xml:lang="en" anchored="true"><foreign xml:lang="greek">οἱ μὲν ὡς ἀλλοτρίοις, οἱ δʼ ὡς
-              ἰδίοις</foreign>see Norlin, Class. Phil. xvii. p. 356:<foreign xml:lang="greek">οἱ μὲν
-              ὡς ἰδίοις, οἱ δʼ ὡς ἀλλοτρίοις</foreign>MSS.</note> προσέχουσι τὸν νοῦν, καὶ
+        <p>τὸ δὲ μέγιστον· τοῖς γὰρ κοινοῖς οἱ μὲν ὡς ἀλλοτρίοις, οἱ δʼ ὡς ἰδίοις<note resp="editor"
+            xml:lang="eng"><foreign xml:lang="grc">οἱ μὲν ὡς ἀλλοτρίοις, οἱ δʼ ὡς
+              ἰδίοις</foreign> see Norlin, Class. Phil. xvii. p. 356: <foreign xml:lang="grc">οἱ μὲν
+              ὡς ἰδίοις, οἱ δʼ ὡς ἀλλοτρίοις</foreign> MSS.</note> προσέχουσι τὸν νοῦν, καὶ
           συμβούλοις χρῶνται περὶ αὐτῶν οἱ μὲν τῶν ἀστῶν τοῖς τολμηροτάτοις, οἱ δʼ ἐξ ἁπάντων
           ἐκλεξάμενοι τοῖς φρονιμωτάτοις, καὶ τιμῶσιν οἱ μὲν τοὺς ἐν τοῖς ὄχλοις εἰπεῖν δυναμένους,
           οἱ δὲ τοὺς χρῆσθαι τοῖς πράγμασιν ἐπισταμένους. </p>
@@ -308,9 +266,9 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
       <div subtype="section" type="textpart" n="22">
         <p>οὐ μόνον δʼ ἐν τοῖς ἐγκυκλίοις καὶ τοῖς κατὰ τὴν ἡμέραν ἑκάστην γιγνομένοις αἱ μοναρχίαι
           διαφέρουσιν, ἀλλὰ καὶ τὰς ἐν τῷ πολέμῳ πλεονεξίας ἁπάσας περιειλήφασιν. καὶ γὰρ
-          παρασκευάσασθαι δυνάμεις καὶ χρήσασθαι ταύταις, ὥστε καὶ λαθεῖν καὶ φθῆναι,<note resp="ed"
-            xml:lang="en" anchored="true"><foreign xml:lang="greek">φθῆναι</foreign>Coray:<foreign
-              xml:lang="greek">ὀφθῆναι</foreign>MSS.</note> καὶ τοὺς μὲν πεῖσαι, τοὺς δὲ βιάσασθαι,
+          παρασκευάσασθαι δυνάμεις καὶ χρήσασθαι ταύταις, ὥστε καὶ λαθεῖν καὶ φθῆναι,<note resp="editor"
+            xml:lang="eng"><foreign xml:lang="grc">φθῆναι</foreign> Coray: <foreign
+              xml:lang="grc">ὀφθῆναι</foreign> MSS.</note> καὶ τοὺς μὲν πεῖσαι, τοὺς δὲ βιάσασθαι,
           παρὰ δὲ τῶν ἐκπρίασθαι, τοὺς δὲ ταῖς ἄλλαις θεραπείαις προσαγαγέσθαι, μᾶλλον αἱ τυραννίδες
           τῶν ἄλλων πολιτειῶν οἷαί τʼ εἰσίν. καὶ ταῦτʼ ἐκ τῶν ἔργων ἄν τις οὐχ ἧττον ἢ τῶν λόγων
           πιστεύσειεν. </p>
@@ -323,12 +281,12 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
           μεγίστην τῶν Ἑλληνίδων πόλεων ἐποίησεν· ἔτι δὲ Καρχηδονίους καὶ Λακεδαιμονίους, </p>
       </div>
       <div subtype="section" type="textpart" n="24">
-        <p>τοὺς ἄριστα τῶν ἄλλων<note resp="ed" xml:lang="en" anchored="true"><foreign
-              xml:lang="greek">ἄλλων</foreign>Blass:<foreign xml:lang="greek"
-            >Ἑλλήνων</foreign>MSS.</note> πολιτευομένους, οἴκοι μὲν ὀλιγαρχουμένους, παρὰ δὲ τὸν
-          πόλεμον βασιλευομένους. ἔχοι δʼ ἄν τις ἐπιδεῖξαι καὶ τὴν πόλιν,<note resp="ed"
-            xml:lang="en" anchored="true"><foreign xml:lang="greek">πόλιν Γ· πόλιν τῶν
-              Ἀθηναίων</foreign>vulg.</note> τὴν μάλιστα τὰς τυραννίδας μισοῦσαν, ὅταν μὲν πολλοὺς
+        <p>τοὺς ἄριστα τῶν ἄλλων<note resp="editor" xml:lang="eng"><foreign
+              xml:lang="grc">ἄλλων</foreign> Blass: <foreign xml:lang="grc"
+            >Ἑλλήνων</foreign> MSS.</note> πολιτευομένους, οἴκοι μὲν ὀλιγαρχουμένους, παρὰ δὲ τὸν
+          πόλεμον βασιλευομένους. ἔχοι δʼ ἄν τις ἐπιδεῖξαι καὶ τὴν πόλιν,<note resp="editor"
+            xml:lang="eng"><foreign xml:lang="grc">πόλιν Γ· πόλιν τῶν
+              Ἀθηναίων</foreign> vulg.</note> τὴν μάλιστα τὰς τυραννίδας μισοῦσαν, ὅταν μὲν πολλοὺς
           ἐκπέμψῃ στρατηγούς, ἀτυχοῦσαν, ὅταν δὲ διʼ ἑνὸς ποιήσηται τοὺς κινδύνους, κατορθοῦσαν.
         </p>
       </div>
@@ -555,10 +513,10 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.
       <div subtype="section" type="textpart" n="57">
         <p>προτρέπετε τοὺς νεωτέρους ἐπʼ ἀρετὴν μὴ μόνον παραινοῦντες, ἀλλὰ καὶ περὶ τὰς πράξεις
           ὑποδεικνύοντες αὐτοῖς οἵους εἶναι χρὴ τοὺς ἄνδρας τοὺς ἀγαθούς. διδάσκετε τοὺς παῖδας τοὺς
-          ὑμετέρους αὐτῶν πειθαρχεῖν,<note resp="ed" xml:lang="en" anchored="true"><foreign
-              xml:lang="greek">πειθαρχεῖν Γ· βασιλεύεσθαι</foreign>vulg.</note> καὶ περὶ τὴν
-          παίδευσιν τὴν εἰρημένην<note resp="ed" xml:lang="en" anchored="true"><foreign
-              xml:lang="greek">τὴν εἰρημένην Γ· τὴν τοιαύτην</foreign>vulg.</note> ἐθίζετʼ αὐτοὺς ὡς
+          ὑμετέρους αὐτῶν πειθαρχεῖν,<note resp="editor" xml:lang="eng"><foreign
+              xml:lang="grc">πειθαρχεῖν Γ· βασιλεύεσθαι</foreign> vulg.</note> καὶ περὶ τὴν
+          παίδευσιν τὴν εἰρημένην<note resp="editor" xml:lang="eng"><foreign
+              xml:lang="grc">τὴν εἰρημένην Γ· τὴν τοιαύτην</foreign> vulg.</note> ἐθίζετʼ αὐτοὺς ὡς
           μάλιστα διατρίβειν· ἢν γὰρ καλῶς ἄρχεσθαι μάθωσι, πολλῶν ἄρχειν δυνήσονται, καὶ πιστοὶ μὲν
           ὄντες καὶ δίκαιοι μεθέξουσι τῶν ἡμετέρων ἀγαθῶν, κακοὶ δὲ γενόμενοι κινδυνεύσουσι περὶ τῶν
           ὑπαρχόντων. </p>
