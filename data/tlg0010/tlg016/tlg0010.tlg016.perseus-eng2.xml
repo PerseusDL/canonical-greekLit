@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader xml:lang="eng">
     <fileDesc>
@@ -23,6 +23,11 @@
         <publisher>Trustees of Tufts University</publisher>
         <pubPlace>Medford, MA</pubPlace>
         <authority>Perseus Project</authority>
+        <date type="release" when="1996">Perseus 2.0</date>
+        <idno type="filename">tlg0010.tlg016.perseus-eng2.xml</idno>
+        <availability>
+          <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+        </availability>
       </publicationStmt>
 
       <sourceDesc>
@@ -40,17 +45,15 @@
               <date type="printing">1928</date>
             </imprint>
           </monogr><series><title>Loeb Classical Library</title></series>  
-          <ref target="https://archive.org/details/isocrates01isoc/page/246/mode/2up">Internet Archive</ref>
+          <ref target="https://archive.org/details/isocrates01isoc/page/346/mode/2up">Internet Archive</ref>
         </biblStruct>
       </sourceDesc>
     </fileDesc>
 
     <encodingDesc>
       <refsDecl n="CTS">
-        <cRefPattern n="section"
-          matchPattern="(\\w+)"
-          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\'])">
-          <p>This pointer pattern extracts section</p>
+       <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+          <p>This pointer pattern extracts section.</p>
         </cRefPattern>
       </refsDecl>
       <refsDecl>
@@ -87,120 +90,49 @@
     </profileDesc>
 
     <revisionDesc>
-      <!--
-      <change><date>April 1992</date>
-	<respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
-	<item>Put bios and intros to speeches into separate files. Change markup in accordance with orator dtd</item>
-      </change>
-      <change><date>June 1992</date>
-	<respStmt><name>W. Merrill</name><resp>ed.</resp></respStmt>
-	<item>put speechs in numerical order and consolidated files</item>
-      </change>
-      <change><date>September-October 1992</date>
-	<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
-	<item>Fixed the notes, mostly citations</item>
-      </change>
-      <change><date>1 March 2000</date>
-	<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
-	<item>
-$Log: isoc.orat_eng.xml,v $
-Revision 1.3  2011-09-22 19:56:10  lcerrato
-fixed bibl to Aesch. Seven 1
-
-Revision 1.2  2010-06-16 15:52:16  lcerrato
-fixed bibls for Plut. Mor. to correct work title
-
-Revision 1.1  2009/11/24 20:08:29  rsingh04
-moved more xml files around based on copyright status
-
-Revision 1.18  2009/08/03 14:20:33  student
-fixed Aristot. Nic. Eth. reference - zr
-
-Revision 1.17  2009/07/23 20:24:35  student
-fixed section numbers - zr
-
-Revision 1.16  2009/06/26 17:51:34  student
-fixed bibl errors - zr
-
-Revision 1.15  2009/06/24 16:04:25  lcerrato
-fixed bad bibls
-
-Revision 1.14  2009/06/19 19:06:52  lcerrato
-fixed bad bibls
-
-Revision 1.13  2009/06/11 20:25:01  student
-fixed bibl errors - zr
-
-Revision 1.12  2009/06/11 19:55:46  rsingh04
-fixed section error
-
-Revision 1.11  2009/05/19 20:57:47  lcerrato
-fixed bad bibls
-
-Revision 1.10  2009/04/29 02:29:49  lcerrato
-fixed bad bibls
-
-Revision 1.9  2009/04/17 19:20:30  lcerrato
-fixing bad bibls
-
-Revision 1.8  2009/04/03 20:20:43  lcerrato
-fixing bad bibl refs
-
-Revision 1.7  2009/03/02 19:01:28  rsingh04
-fixed date, dateRange and dateStruct tags
-
-Revision 1.6  2009/02/05 18:43:43  lcerrato
-fixed bad bibls
-
-Revision 1.5  2009/01/07 21:38:23  lcerrato
-fixed bibl refs to Bacchylides
-
-Revision 1.4  2008/12/18 20:25:05  lcerrato
-fixing typos
-
-Revision 1.3  2008/11/19 21:22:11  lcerrato
-fixed bad refs to Aristot. Nic. Eth. and Solon
-
-Revision 1.2  2006/02/10 21:10:25  packel
-places/dates now actually tagged
-
-Revision 1.1  2005/08/01 18:01:19  packel
-split up letters and speeches
-
-Revision 1.1  2005/07/25 14:37:33  packel
-Converted to XML
-	
-Revision 1.8  2003/07/01 22:17:03  yorkc
-Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
-
-Revision 1.7  2001/10/09 22:40:51  dasmith
-Fixed instances of zero for capital O.
-
-Revision 1.6  2000/03/04 20:34:39  dasmith
-Added separate funder entity to TEI header.
-
-Revision 1.5  2000/03/01 22:22:15  dasmith
-Only look up speeches in the orat. subdoc.
-
-Revision 1.4  2000/03/01 21:45:05  dasmith
-Converted to TEI P3.
-Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
-
-
-      </item></change>
-    <change><date>July 2014</date>
-    <respStmt><name>Stella Dee</name><resp>ed.</resp></respStmt>
-    <item>split speeches and converted to unicode</item>
-      </change></change>-->
+      <change when="2025-10-31" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes</change>
       <change when="2014-10-01" who="Stella Dee">edited markup</change>
+      <change when="2014-07" who="Stella Dee">split speeches and converted to unicode</change>  
+      <change when="2011-09-22" who="lcerrato"> fixed bibl to Aesch. Seven 1</change>
+      <change when="2010-06-16" who="lcerrato"> fixed bibls for Plut. Mor. to correct work title</change>
+      <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
+      <change when="2009-08-03" who="student">fixed Aristot. Nic. Eth. reference - zr</change>
+      <change when="2009-07-23" who="student">fixed section numbers - zr</change>
+      <change when="2009-06-26" who="student">fixed bibl errors - zr</change>
+      <change when="2009-06-24" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-06-19" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-06-11" who="student">fixed bibl errors - zr</change>
+      <change when="2009-06-11" who="rsingh04">fixed section error</change>
+      <change when="2009-05-19" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-04-29" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-04-17" who="lcerrato">fixing bad bibls</change>
+      <change when="2009-04-03" who="lcerrato">fixing bad bibl refs</change>
+      <change when="2009-03-02" who="rsingh04">fixed date, dateRange and dateStruct tags</change>
+      <change when="2009-02-05" who="lcerrato">fixed bad bibls</change>
+      <change when="2009-01-07" who="lcerrato">fixed bibl refs to Bacchylides</change>
+      <change when="2008-12-18" who="lcerrato">fixing typos</change>
+      <change when="2008-11-19" who="lcerrato">fixed bad refs to Aristot. Nic. Eth. and Solon</change>
+      <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
+      <change when="2005-08-01" who="packel">split up letters and speeches</change>
+      <change when="2005-07-25" who="packel">Converted to XML</change>	
+      <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
+      <change when="2001-10-09" who="dasmith">Fixed instances of zero for capital O.</change>
+      <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+      <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change>
+      <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.</change>
+      <change when="2000-03" who="David Smith"/>
+      <change when="1992-10" who="David Smith">Fixed the notes, mostly citations</change>
+      <change when="1992-06" who="W. Merrill">put speeches in numerical order. Consolidated files.</change>
+      <change when="1992-04" who="W. Merrill">Put bios and intros to speeches into separate files. Change markup in accordance with orator dtd</change>
     </revisionDesc>
   </teiHeader>
-  <text xml:lang="eng">
+  
+  <text>
     <body>
       <div type="translation" n="urn:cts:greekLit:tlg0010.tlg016.perseus-eng2" xml:lang="eng">
       <div n="1" subtype="section" type="textpart">
         <p> Doubtless some of you are astonished that I, who heretofore have observed the
-            customs<note anchored="true" resp="ed">In <placeName key="perseus,Sparta"
+            customs<note resp="editor">In <placeName key="perseus,Sparta"
               >Sparta</placeName> the young were not supposed to appear in public places. Plutarch
             states (<bibl n="Plut. Lyc. 25">Plut. Lyc. 25</bibl>) that men were not allowed even in
             the market-place until after they were thirty years old.</note> of the state more
@@ -232,7 +164,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="5" subtype="section" type="textpart">
         <p>I am amazed at those who think that we are fit to command ships of war and to lead armies
-          in the field,<note anchored="true" resp="ed">Archidamus had commanded Spartan armies in
+          in the field,<note resp="editor">Archidamus had commanded Spartan armies in
             370 and 367. See <bibl n="Xen. Hell. 6.4.17">Xen. Hell. 6.4.17</bibl> and vii. 1.
             28.</note> where bad judgement on our part would involve the state in many grave
           disasters, and yet do not think that we ought to express our views on matters which you
@@ -259,9 +191,9 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p> As for myself, at any rate, if I may speak my own mind, I had rather die this moment for
           not complying with the dictates of the foe than live many times my allotted span of life
           at the price of voting what the Thebans demand. For I should feel disgraced, I who am
-          descended from Heracles,<note anchored="true" resp="ed">The Spartan kings claimed descent
+          descended from Heracles,<note resp="editor">The Spartan kings claimed descent
             from Heracles <bibl n="Isoc. 4.62">Isoc. 4.62</bibl>.</note> who am the son of the
-          ruling king and likely myself to attain to this honor,<note anchored="true" resp="ed"
+          ruling king and likely myself to attain to this honor,<note resp="editor"
             >Archidamus became king after the death of Agesilaus in <date when="-0361">361
               B.C.</date></note> if I did not strive with all the strength that is in me to prevent
           this territory, which our fathers left to us, from becoming the possession of our slaves.
@@ -269,9 +201,8 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="9" subtype="section" type="textpart">
         <p>And I expect you also to share my feelings when you reflect that, while until the present
-          day we seem to have been unfortunate in our contest with the Thebans,<note anchored="true"
-            resp="ed">Since the battle of Leuctra.</note> and to have been overcome in body because
-          of the mistakes of our leader,<note anchored="true" resp="ed">Cleombrotus the king was
+          day we seem to have been unfortunate in our contest with the Thebans,<note resp="editor">Since the battle of Leuctra.</note> and to have been overcome in body because
+          of the mistakes of our leader,<note resp="editor">Cleombrotus the king was
             partly blamed for the Spartan defeat at Leuctra.</note> yet up to this moment we possess
           our spirits unconquered; </p>
       </div>
@@ -283,16 +214,15 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           therefore, persuade you to fasten such a disgrace upon the state. </p>
       </div>
       <div n="11" subtype="section" type="textpart">
-        <p> And yet our allies<note anchored="true" resp="ed">Especially the Corinthians. See
+        <p> And yet our allies<note resp="editor">Especially the Corinthians. See
             Introduction.</note> have been only too zealous in advising you that you must give up
             <placeName key="perseus,Messene">Messene</placeName> and make peace. Because of this
-          they merit your indignation far more than those who revolted<note anchored="true"
-            resp="ed">The Arcadians had joined the Thebans in invading <placeName
+          they merit your indignation far more than those who revolted<note resp="editor">The Arcadians had joined the Thebans in invading <placeName
               key="perseus,Sparta">Sparta</placeName>. The Argives, Eleans, and Achaeans had also
             forsaken <placeName key="perseus,Sparta">Sparta</placeName> and gone over partly or
             wholly to the Thebans.</note> from you at the beginning. For the latter, when they had
           forsaken your friendship, destroyed their own cities, plunging them into civil strife and
-          massacres and vicious forms of government.<note anchored="true" resp="ed">Such
+          massacres and vicious forms of government.<note resp="editor">Such
             disturbances and changes of government took place about this time in <placeName
               key="tgn,7002735">Arcadia</placeName>, <placeName key="perseus,Argos"
               >Argos</placeName>, <placeName key="tgn,7011098">Sicyon</placeName>, <placeName
@@ -304,8 +234,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="12" subtype="section" type="textpart">
         <p>for they are trying to persuade us to throw away in one brief hour the glory which our
-          forefathers amid manifold dangers during the course of seven hundred years<note
-            anchored="true" resp="ed">A round number for the period between <date when="-1104">1104
+          forefathers amid manifold dangers during the course of seven hundred years<note resp="editor">A round number for the period between <date when="-1104">1104
               B.C.</date>, the traditional date when the sons of Heracles took <placeName
               key="perseus,Sparta">Sparta</placeName>, and the date of the present oration, <date
               when="-0366">366 B.C.</date></note> acquired and bequeathed to us—a disaster more
@@ -315,7 +244,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="13" subtype="section" type="textpart">
         <p>So far do they go in their selfish greed, so great is the cowardice which they impute to
           us, that they, who have time and again called upon us to make war in defense of their own
-            territory,<note anchored="true" resp="ed">Especially <placeName key="perseus,Corinth"
+            territory,<note resp="editor">Especially <placeName key="perseus,Corinth"
               >Corinth</placeName> and Phlius. See <bibl n="Xen. Hell. 4.4.7">Xen. Hell.
               4.4.7</bibl> and 15.</note> think we ought not to risk battle for <placeName
             key="perseus,Messene">Messene</placeName>, but, in order that they may themselves
@@ -332,8 +261,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="15" subtype="section" type="textpart">
         <p> Although I have never been fond of oratory, having in fact always thought that those who
-          cultivate the power of speech are somewhat lacking in capacity for action,<note
-            anchored="true" resp="ed">An allusion to the traditional Spartan fondness for brevity
+          cultivate the power of speech are somewhat lacking in capacity for action,<note resp="editor">An allusion to the traditional Spartan fondness for brevity
             and distrust of eloquence.</note> yet at the moment there is nothing I should value more
           than the ability to speak as I desire about the question now before us; for in the present
           crisis I am confident that with this aid I could render a very great service to the state.
@@ -350,9 +278,9 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="17" subtype="section" type="textpart">
         <p> When Heracles had put off this life and from being mortal became a god, his sons at
           first went on divers wanderings and faced many perils because of the power of their
-            enemies;<note anchored="true" resp="ed">For the return of the the sons of Heracles and
+            enemies;<note resp="editor">For the return of the the sons of Heracles and
             details connected therewith see <bibl n="Apollod. 2.8.2">Apollod. 2.8.2-4</bibl>, and
-            Frazer's notes on this passage (Loeb Classical Library, Vol.I). Cf. <bibl n="Isoc. 4.54"
+            Frazer’s notes on this passage (Loeb Classical Library, Vol.I). Cf. <bibl n="Isoc. 4.54"
               >Isoc. 4.54-58</bibl> and notes.</note> but after the death of Eurystheus they fixed
           their habitation among the Dorians. In the third generation thereafter they came to
             <placeName key="perseus,Delphi">Delphi</placeName>, desiring to consult the oracle about
@@ -362,17 +290,16 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="18" subtype="section" type="textpart">
         <p>Searching into the meaning of the oracle, they found, first, that <placeName
             key="perseus,Argos">Argos</placeName> belonged to them by right of their being next of
-          kin, for after the death of Eurystheus they were the sole survivors of Perseus' line;<note
-            anchored="true" resp="ed">Sthenelus, father of Eurystheus, was a son of Perseus. For the
-            manner of Eurystheus' death see <bibl n="Isoc. 4.60">Isoc. 4.60</bibl>.</note> next,
+          kin, for after the death of Eurystheus they were the sole survivors of Perseus’ line;<note resp="editor">Sthenelus, father of Eurystheus, was a son of Perseus. For the
+            manner of Eurystheus’ death see <bibl n="Isoc. 4.60">Isoc. 4.60</bibl>.</note> next,
           that <placeName key="tgn,7011065">Lacedaemon</placeName> was theirs by right of gift, for
-          when Tyndareus, having been driven from his throne,<note anchored="true" resp="ed"
-            >Tyndareus, son of Perieres and of Perseus' daughter, Gorgophone, was king of <placeName
+          when Tyndareus, having been driven from his throne,<note resp="editor"
+            >Tyndareus, son of Perieres and of Perseus’ daughter, Gorgophone, was king of <placeName
               key="tgn,7011065">Lacedaemon</placeName> until driven out by his half-brother
-            Hippocoön and by Hippocoön's sons. See <bibl n="Apollod. 3.10.5">Apollod.
-            3.10.5</bibl>.</note> was restored to it by Heracles,<note anchored="true" resp="ed"
+            Hippocoön and by Hippocoön’s sons. See <bibl n="Apollod. 3.10.5">Apollod.
+            3.10.5</bibl>.</note> was restored to it by Heracles,<note resp="editor"
             >Heracles slew Hippocoön and his twenty sons and restored Tyndareus.</note> after Castor
-          and Polydeuces had vanished from among men,<note anchored="true" resp="ed">Castor was
+          and Polydeuces had vanished from among men,<note resp="editor">Castor was
             slain during a foray in <placeName key="perseus,Messene">Messene</placeName>. His
             brother, Polydeuces, who according to most accounts was a son of Zeus by Leda, while
             Castor was a son of Tyndareus by Leda, refused to accept immortality unless it was
@@ -386,28 +313,26 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="19" subtype="section" type="textpart">
         <p>and lastly, they found that <placeName key="perseus,Messene">Messene</placeName> was
           theirs as a prize taken in war, for Heracles, when he had been robbed of the cattle from
-            Erytheia,<note anchored="true" resp="ed">To fetch the cattle of Geryon from Erytheia, an
+            Erytheia,<note resp="editor">To fetch the cattle of Geryon from Erytheia, an
             island off the coast of <placeName key="tgn,1000095">Spain</placeName>, was the tenth
             labor imposed on Heracles by Eurystheus. See <bibl n="Apollod. 2.5.10">Apollod.
               2.5.10</bibl>.</note> by Neleus and all his sons except Nestor, had taken the country
-          captive and slain the offenders, but had committed the city to Nestor's charge, believing
+          captive and slain the offenders, but had committed the city to Nestor’s charge, believing
           him to be prudent, because, although the youngest of his brethren, he had taken no part in
           their iniquity. </p>
       </div>
       <div n="20" subtype="section" type="textpart">
         <p> Assuming this to be the purport of the oracle, they joined forces with your forefathers
-          and organized an army, sharing meantime their own country with their followers,<note
-            anchored="true" resp="ed">That is, the common folk of the Dorians as distinguished from
+          and organized an army, sharing meantime their own country with their followers,<note resp="editor">That is, the common folk of the Dorians as distinguished from
             the descendants of Heracles, the ancestors of Archidamus.</note> but receiving from them
           the kingship as the prize reserved for themselves alone; then having confirmed these
           covenants by mutual pledges, they set out upon the expedition. </p>
       </div>
       <div n="21" subtype="section" type="textpart">
-        <p>The perils which befell them on the march, and the other incidents<note anchored="true"
-            resp="ed">Such as are told in <bibl n="Apollod. 2.8.3">Apollod. 2.8.3</bibl>.</note>
+        <p>The perils which befell them on the march, and the other incidents<note resp="editor">Such as are told in <bibl n="Apollod. 2.8.3">Apollod. 2.8.3</bibl>.</note>
           which have no bearing on the present theme, I need not take the time to describe. Let it
           suffice that, having conquered in war those who dwelt in the regions which I have
-          mentioned, they divided their kingdom into three parts.<note anchored="true" resp="ed"
+          mentioned, they divided their kingdom into three parts.<note resp="editor"
             >Procles and Eurysthenes, twin sons of Aristodemus, along with Temenos and Cresphontes,
             sons of Aristomachus, drew lots for <placeName key="perseus,Argos">Argos</placeName>,
               <placeName key="tgn,7011065">Lacedaemon</placeName>, and <placeName
@@ -425,7 +350,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="23" subtype="section" type="textpart">
         <p>His sons, however, escaped the perils which confronted them and threw themselves upon the
           mercy of <placeName key="perseus,Sparta">Sparta</placeName>, beseeching us to come to the
-          aid of their dead father<note anchored="true" resp="ed">According to the usual account, it
+          aid of their dead father<note resp="editor">According to the usual account, it
             was Aepytus, a son of Cresphontes, who avenged the death of his father. <bibl
               n="Apollod. 2.8.5">Apollod. 2.8.5</bibl>.</note> and offering us their land. And you,
           after inquiring of Apollo, and being directed by him to accept this gift and avenge the
@@ -457,18 +382,18 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           when they have remained for a long time in the hands of their owner, are by all men
           acknowledged to be hereditary and incontestable. Now we took <placeName
             key="perseus,Messene">Messene</placeName> before the Persians acquired their
-            kingdom<note anchored="true" resp="ed">In <date when="-0559">559 B.C.</date>, when Cyrus
+            kingdom<note resp="editor">In <date when="-0559">559 B.C.</date>, when Cyrus
             became ruler of <placeName key="tgn,7000231">Persia</placeName>.</note> and became
           masters of the continent, in fact before a number of the Hellenic cities were even
           founded. </p>
       </div>
       <div n="27" subtype="section" type="textpart">
         <p>And yet notwithstanding that we hold these titles, the Thebans would on the one hand
-          restore Asia as his ancestral right to the barbarian,<note anchored="true" resp="ed">By
+          restore Asia as his ancestral right to the barbarian,<note resp="editor">By
             the peace terms of Pelopidas. See introduction to this oration.</note> who has not yet
           held sway over it for two hundred years, while on the other hand they would rob us of
             <placeName key="perseus,Messene">Messene</placeName>, which we have held for more than
-          twice that length of time;<note anchored="true" resp="ed"><placeName key="perseus,Messene"
+          twice that length of time;<note resp="editor"><placeName key="perseus,Messene"
               >Messene</placeName> was not actually subdued until <date from="-0724" to="-0723"
               >724-723 B.C.</date> Perhaps Isocrates is speaking loosely, or perhaps he follows
             another source than Pausanias, who is almost our sole authority for this period.
@@ -477,22 +402,21 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               4.4.3</bibl>. Dinarchus (<bibl n="Din. 1.73">Din. 1.73</bibl>) gives the same figure
             as lsocrates.</note> and although it was only the other day that they razed both
             <placeName key="tgn,5004258">Thespiae</placeName> and <placeName key="perseus,Plataea"
-            >Plataea</placeName> to the ground,<note anchored="true" resp="ed"><placeName
+            >Plataea</placeName> to the ground,<note resp="editor"><placeName
               key="perseus,Plataea">Plataea</placeName> was destroyed about <date when="-0372">372
               B.C.</date>, and <placeName key="tgn,5004258">Thespiae</placeName> shortly after. See
               <bibl n="Diod. 15.46.4">Dio. Sic. 15.46.4</bibl> and <bibl n="Xen. Hell. 6.3.1">Xen.
               Hell. 6.3.1</bibl>. Others give the date as <date when="-0374">374 B.C.</date></note>
           yet now, after a lapse of four hundred years, they propose to settle their colonists in
             <placeName key="perseus,Messene">Messene</placeName> acting in both cases contrary to
-          the oaths and covenants.<note anchored="true" resp="ed">Cf. the Peace of Antalcidas. See
+          the oaths and covenants.<note resp="editor">Cf. the Peace of Antalcidas. See
               <bibl n="Isoc. 4.115">Isoc. 4.115 ff.</bibl> and note.</note>
         </p>
       </div>
       <div n="28" subtype="section" type="textpart">
         <p>Were they restoring those who are truly Messenians, they would still be acting unjustly,
           but at least they would have a more plausible pretext for wronging us; but as the case
-          stands, it is the Helots whom they are trying to settle on our frontier,<note
-            anchored="true" resp="ed">See introduction.</note> so that the worst fate which
+          stands, it is the Helots whom they are trying to settle on our frontier,<note resp="editor">See introduction.</note> so that the worst fate which
           threatens us is not that we shall be robbed of our land contrary to justice, but that we
           shall see our slaves made masters of it. </p>
       </div>
@@ -501,7 +425,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           most unfairly and that in the past we held <placeName key="perseus,Messene"
             >Messene</placeName> justly. For in the many wars which have befallen us we have before
           this at times been forced to make peace when we were in much worse case than our
-            foes.<note anchored="true" resp="ed">such were the Peace of Nicias (<date when="-0421"
+            foes.<note resp="editor">such were the Peace of Nicias (<date when="-0421"
               >421 B.C.</date>, Thucyd. v. 18), the Peace of Antalcidas, and the separate peace
             between <placeName key="perseus,Athens">Athens</placeName> and <placeName
               key="perseus,Sparta">Sparta</placeName> (<bibl n="Xen. Hell. 6.2.1">Xen. Hell.
@@ -525,7 +449,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           appealing for deliverance and we inquiring how we could most speedily make ourselves
           masters of their city, the god gave them no answer, thus showing that their appeal was
           unjust, while to us he revealed both what sacrifices we should perform and to whom we
-          should send for aid.<note anchored="true" resp="ed">in the second Messenian War,
+          should send for aid.<note resp="editor">in the second Messenian War,
               <date from="-0685" to="-0668">685-668 B.C.</date>, the Athenians are said to
             have sent Tyrtaeus, the lame school-master, to the aid of the Spartans. See Pausanias
             iv. 15.</note>
@@ -558,7 +482,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="35" subtype="section" type="textpart">
         <p> In all else I agree with them, but no man could ever persuade me that one should ever
-          deem anything to be of greater consequence than justice;<note anchored="true" resp="ed"
+          deem anything to be of greater consequence than justice;<note resp="editor"
             >For this Isocratean idealism cf. <bibl n="Isoc. 8.31">Isoc. 8.31-35</bibl>.</note> for
           I see that our laws have been made to secure it, that men of character and reputation
           pride themselves upon practicing it, and that it constitutes the chief concern of all
@@ -569,8 +493,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           accordance with the strongest forces, but in accordance with justice; and that, in
           general, the life of man is destroyed by vice and preserved by virtue. Therefore those
           should not lack courage who are about to take up arms in a just cause, but far more those
-          who are insolent and do not know how to bear their good fortune with moderation.<note
-            anchored="true" resp="ed">Cf. <bibl n="Isoc. 1.42">Isoc. 1.42</bibl> and <bibl
+          who are insolent and do not know how to bear their good fortune with moderation.<note resp="editor">Cf. <bibl n="Isoc. 1.42">Isoc. 1.42</bibl> and <bibl
               n="Isoc. 12.31">Isoc. 12.31-32</bibl>.</note>
         </p>
       </div>
@@ -610,7 +533,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="41" subtype="section" type="textpart">
         <p> Now in the case of <placeName key="perseus,Sparta">Sparta</placeName> I can cite no
           instance of this kind, for in times past no nation stronger than ourselves ever invaded
-          our territory;<note anchored="true" resp="ed">That is, before the Theban invasion of <date
+          our territory;<note resp="editor">That is, before the Theban invasion of <date
               when="-0369">369 B.C.</date></note> but in the case of other states there are many
           such examples which one might use, and especially is this true of the city of the
           Athenians. </p>
@@ -619,38 +542,36 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p>For we shall find that as a result of dictating to others they lost repute with the
           Hellenes, while by defending themselves against insolent invaders they won fame among all
           mankind. Now if I were to recount the wars of old which they fought against the Amazons or
-          the Thracians or the Peloponnesians<note anchored="true" resp="ed">See <bibl
+          the Thracians or the Peloponnesians<note resp="editor">See <bibl
               n="Isoc. 4.56">Isoc. 4.56</bibl> and 70.</note> who under the leadership of Eurystheus
           invaded <placeName key="tgn,7002681">Attica</placeName>, no doubt I should be thought to
           speak on matters ancient and remote from the present situation; but in their war against
-          the Persians,<note anchored="true" resp="ed">See <bibl n="Isoc. 4.71">Isoc.
+          the Persians,<note resp="editor">See <bibl n="Isoc. 4.71">Isoc.
             4.71-98</bibl>.</note> who does not know from what hardships they arose to great
           good-fortune? </p>
       </div>
       <div n="43" subtype="section" type="textpart">
         <p>For they alone of those who dwelt outside of the <placeName key="tgn,7017076"
             >Peloponnesus</placeName>, although they saw that the strength of the barbarians was
-          irresistible, did not think it honorable to consider the terms imposed upon them,<note
-            anchored="true" resp="ed">These terms were to give earth and water, in token of
+          irresistible, did not think it honorable to consider the terms imposed upon them,<note resp="editor">These terms were to give earth and water, in token of
             submission, to the heralds of the Great King. <bibl n="Hdt. 7.133">Hdt.
             7.133</bibl>.</note> but straightway chose to see their city ravaged rather than
-          enslaved. Leaving their own country,<note anchored="true" resp="ed">Cf. <bibl
+          enslaved. Leaving their own country,<note resp="editor">Cf. <bibl
               n="Isoc. 4.96">Isoc. 4.96</bibl>.</note> and adopting Freedom as their fatherland,
           they shared the dangers of war with us, and wrought such a change in their fortunes that,
           after being deprived of their own possessions for but a few days, they became for many
-          years masters of the rest of the world.<note anchored="true" resp="ed">Cf. <bibl
+          years masters of the rest of the world.<note resp="editor">Cf. <bibl
               n="Isoc. 4.72">Isoc. 4.72</bibl>.</note>
         </p>
       </div>
       <div n="44" subtype="section" type="textpart">
         <p>
           <placeName key="perseus,Athens">Athens</placeName>, however, is not the only instance by
-          which one might show how great are the advantages of daring to resist one's enemies. There
+          which one might show how great are the advantages of daring to resist one’s enemies. There
           is also the case of the tyrant Dionysius, who, when he was besieged by the Carthaginians,
           seeing not a glimmer of hope for deliverance, but being hard pressed both by the war and
           by the disaffection of his citizens, was, for his part, on the point of sailing away, when
-          one of his companions made bold to declare that “royalty is a glorious shroud.”<note
-            anchored="true" resp="ed">That is, it is a glorious thing to die a king. For the event,
+          one of his companions made bold to declare that “royalty is a glorious shroud.”<note resp="editor">That is, it is a glorious thing to die a king. For the event,
               <date when="-0396">396 B.C.</date>, See <bibl n="Diod. 14.58">Dio. Sic. 14.58</bibl>,
             and for the anecdote, <bibl n="Diod. 14.8.5">Dio. Sic. 14.8.5</bibl> and <bibl
               n="Ael. VH 4.8">Ael. Var. Hist. 4.8</bibl>.</note>
@@ -658,11 +579,10 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="45" subtype="section" type="textpart">
         <p>Ashamed of what he had planned to do, and taking up the war afresh, he destroyed
-          countless hosts of the Carthaginians,<note anchored="true" resp="ed"><bibl
+          countless hosts of the Carthaginians,<note resp="editor"><bibl
               n="Diod. 14.72.6">Dio. Sic. 14.72.6</bibl>, says the shore was strewn with
             corpses.</note> strengthened his authority over his subjects, acquired far greater
-          dominion than he had possessed before, ruled with absolute power until his death,<note
-            anchored="true" resp="ed">Dionysius died in the spring of <date when="-0367">367
+          dominion than he had possessed before, ruled with absolute power until his death,<note resp="editor">Dionysius died in the spring of <date when="-0367">367
               B.C.</date></note> and left his son in possession of the same honors and powers as he
           himself had enjoyed. </p>
       </div>
@@ -673,8 +593,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           hearing someone praise the remark made to Dionysius, and, like Dionysius, repenting of his
           decision, Amyntas seized a small fortified post, sent out thence for reinforcements,
           recovered the whole of <placeName key="tgn,7006667">Macedonia</placeName> within three
-          months, spent the remainder of his days on the throne, and finally died of old age.<note
-            anchored="true" resp="ed">Amyntas, defeated by the Illyrians, won such a victory in
+          months, spent the remainder of his days on the throne, and finally died of old age.<note resp="editor">Amyntas, defeated by the Illyrians, won such a victory in
               <date when="-0393">393 B.C.</date> See <bibl n="Diod. 14.92.3">Dio. Sic.
               14.92.3</bibl>. Amyntas was father of Philip, and reigned from 394 to <date
               when="-0370">370 B.C.</date></note>
@@ -685,7 +604,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           examine every incident of this sort; nay, if we were to recall also our experience with
             <placeName key="perseus,Thebes">Thebes</placeName>, while we should be grieved over past
           events, we should gain better hopes for the future. For when they ventured to withstand
-          our inroads and our threats,<note anchored="true" resp="ed">Of Agesilaus in 394, 378, and
+          our inroads and our threats,<note resp="editor">Of Agesilaus in 394, 378, and
               <date when="-0377">377 B.C.</date>; of Phoebidas in 382, and of Cleombrotus in 378 and
               <date when="-0376">376 B.C.</date></note> fortune so completely reversed their
           situation that they, who at all other times have been in our power, now assert their right
@@ -736,13 +655,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           greater number of these men, but I, too, can recount the most illustrious of them: </p>
       </div>
       <div n="53" subtype="section" type="textpart">
-        <p>Pedaritus,<note anchored="true" resp="ed">Harmost of <placeName key="tgn,7002670"
+        <p>Pedaritus,<note resp="editor">Harmost of <placeName key="tgn,7002670"
               >Chios</placeName> in <date when="-0412">412 B.C.</date>, who was successful against
             the Athenians for a time, but was defeated and slain in <date when="-0412">412
               B.C.</date> See Thucyd. viii. 55. 3.</note> sailing to <placeName key="tgn,7002670"
             >Chios</placeName>, saved that city; Brasidas entered <placeName
             key="perseus,Amphipolis">Amphipolis</placeName> and, having rallied about him a few of
-          those who were under siege, defeated the besiegers<note anchored="true" resp="ed">Brasidas
+          those who were under siege, defeated the besiegers<note resp="editor">Brasidas
             entered <placeName key="perseus,Amphipolis">Amphipolis</placeName> in <date when="-0422"
               >422 B.C.</date>, and in command of 150 hoplites sallied out against Cleon, the
             Athenian general. The greater part of the besieged forces was commanded by Clearidas.
@@ -750,7 +669,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
             local hero at <placeName key="perseus,Amphipolis">Amphipolis</placeName>. See Thucyd. v.
             8-11.</note> in battle in spite of their numbers; Gylippus, by bringing aid to the
           Syracusans, not only saved them from destruction, but also captured the entire armament of
-          the enemy, which dominated them both by land and by sea.<note anchored="true" resp="ed">In
+          the enemy, which dominated them both by land and by sea.<note resp="editor">In
             the memorable Sicilian expedition of <date when="-0414">414 B.C.</date> Gylippus
             defeated the Athenian general Nicias and took his entire forces captive.</note>
         </p>
@@ -761,7 +680,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           to save our own city? Is it not shameful that, when we fought for others, we filled
             <placeName key="tgn,1000003">Europe</placeName> and Asia with trophies, but now, when
           our own country is so openly outraged, we cannot show that we have fought in her behalf a
-          single battle worthy of note?<note anchored="true" resp="ed">That is, since the battle of
+          single battle worthy of note?<note resp="editor">That is, since the battle of
             Leuctra. In addition to others mentioned above, Agesilaus, father of Archidamus, had won
             many victories in <placeName key="tgn,7002294">Asia Minor</placeName> (<date
               from="-0396" to="-0394">396-394 B.C.</date>).</note>
@@ -769,13 +688,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="55" subtype="section" type="textpart">
         <p>Is it not shameful, finally, that other cities have endured the last extremities of siege
-          to preserve our empire,<note anchored="true" resp="ed">For example, <placeName
+          to preserve our empire,<note resp="editor">For example, <placeName
               key="tgn,5004258">Thespiae</placeName>. See <bibl n="Xen. Hell. 6.3">Xen. Hell.
               6.3</bibl>. For other examples see <bibl n="Paus. 9.14">Paus. 9.14</bibl>, and <bibl
               n="Diod. 15.57">Dio. Sic. 15.57</bibl> and 69.</note> while we ourselves see no reason
           why we should bear even slight hardships to prevent our being forced to do anything
           contrary to our just rights, but are to be seen even at this moment feeding teams of
-          ravenous horses,<note anchored="true" resp="ed">Horses were kept for racing, and were
+          ravenous horses,<note resp="editor">Horses were kept for racing, and were
             regarded as an expensive luxury.</note> although, like men reduced to the direst
           extremities and in want of their daily bread, we sue for peace in this fashion? </p>
       </div>
@@ -789,8 +708,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="57" subtype="section" type="textpart">
         <p>Who would not censure us if, while the Messenians withstood siege for twenty years in
-          order to retain <placeName key="perseus,Messene">Messene</placeName>,<note anchored="true"
-            resp="ed">In the first Messenian war, <date from="-0743" to="-0724">743-724
+          order to retain <placeName key="perseus,Messene">Messene</placeName>,<note resp="editor">In the first Messenian war, <date from="-0743" to="-0724">743-724
               B.C.</date>
             <bibl n="Paus. 4.13.4">Paus. 4.13.4</bibl>.</note> we should so quickly withdraw from it
           under a treaty and should take no thought of our forefathers, but should allow ourselves
@@ -827,12 +745,11 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p>and that we still remain faithful to the customs and ways of life which we established
           here in the very beginning, while the rest of the Hellenes are not able to stand even
           their good fortune, but have become completely demoralized, some of them seizing the
-          cities of their allies,<note anchored="true" resp="ed">That is, those of the Theban
+          cities of their allies,<note resp="editor">That is, those of the Theban
             league. Isocrates is here describing <placeName key="perseus,Thebes">Thebes</placeName>
             and especially her allies in the <placeName key="tgn,7017076"
             >Peloponnesus</placeName>.</note> others opposing them in this; some disputing with
-          their neighbors about territory, others, again, indulging their envy of one another<note
-            anchored="true" resp="ed">See note a, p. 352. <bibl n="Xen. Hell. 7.1.32">Xen. Hell.
+          their neighbors about territory, others, again, indulging their envy of one another<note resp="editor">See note a, p. 352. <bibl n="Xen. Hell. 7.1.32">Xen. Hell.
               7.1.32</bibl>, says that the Thebans and Eleans were no less pleased at the defeat of
             their allies, the Arcadians, in the “tearless” battle of <date when="-0367">367
               B.C.</date> than were the Lacedaemonians.</note> rather than making war against us.
@@ -841,7 +758,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="62" subtype="section" type="textpart">
         <p> But if I must also speak of aid from the outside, I think that many will be disposed to
-          assist us.<note anchored="true" resp="ed">For <placeName key="perseus,Athens"
+          assist us.<note resp="editor">For <placeName key="perseus,Athens"
               >Athens</placeName> see <bibl n="Isoc. 8.105">Isoc. 8.105</bibl> and <bibl
               n="Isoc. 5.44">Isoc. 5.44</bibl>. Among the states in <placeName key="tgn,7017076"
               >Peloponnesus</placeName>, Phlius, <placeName key="perseus,Heraea">Heraea</placeName>,
@@ -852,7 +769,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
               Hell. 6.5.11</bibl>.) The reference is to Dionysius the younger, who began to reign
               <date from="-0367" to="-0366">367-366 B.C.</date> His father had given aid to
               <placeName key="perseus,Sparta">Sparta</placeName> on various occasions. See
-            Underhill's note on <bibl n="Xen. Hell. 5.1.28">Xen. Hell. 5.1.28</bibl> (<placeName
+            Underhill’s note on <bibl n="Xen. Hell. 5.1.28">Xen. Hell. 5.1.28</bibl> (<placeName
               key="tgn,7011931">Oxford</placeName> edition). Nectanebos (<date from="-0378"
               to="-0364">378-364 B.C.</date>) was king of <placeName key="tgn,7016833"
               >Egypt</placeName> at this time. <placeName key="tgn,7016833">Egypt</placeName>
@@ -873,10 +790,9 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p>again, that the tyrant Dionysius, and the king of <placeName key="tgn,7016833"
             >Egypt</placeName>, and the various dynasts throughout Asia, each so far as he has the
           power, would willingly lend us aid; and, furthermore, that the Hellenes who rank first in
-          wealth and stand foremost in reputation and who desire the best of governments,<note
-            anchored="true" resp="ed">Those who sympathize with an oligarchy such as the Spartan
-            government. <foreign xml:lang="greek">oi( be/ltistoi</foreign> is almost technical for
-            “the aristocratic party.” as <foreign xml:lang="greek">ta\ be/ltista</foreign> for an
+          wealth and stand foremost in reputation and who desire the best of governments,<note resp="editor">Those who sympathize with an oligarchy such as the Spartan
+            government. <foreign xml:lang="grc">οἱ βέλτιστοι</foreign> is almost technical for
+            “the aristocratic party.” as <foreign xml:lang="grc">τὰ βέλτιστα</foreign> for an
             aristocratic government. Cf. <bibl n="Xen. Hell. 5.2.6">Xen. Hell. 5.2.6</bibl>. Such
             people might be expected to form a conspiracy to set up an oligarchy favorable to
               <placeName key="perseus,Sparta">Sparta</placeName>.</note> even though they have not
@@ -885,8 +801,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="64" subtype="section" type="textpart">
         <p> Also I think that not only the people of the <placeName key="tgn,7017076"
-            >Peloponnesus</placeName> in general but even the adherents of democracy,<note
-            anchored="true" resp="ed">Those in <placeName key="tgn,7017076">Peloponnesus</placeName>
+            >Peloponnesus</placeName> in general but even the adherents of democracy,<note resp="editor">Those in <placeName key="tgn,7017076">Peloponnesus</placeName>
             who are not definitely committed to an oligarchic government.</note> whom we consider to
           be especially unfriendly to us, are already yearning for our protection. For by revolting
           from us they have gained nothing of what they anticipated; on the contrary, they have got
@@ -905,8 +820,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p>for not one of their states is unscathed, not one but has neighbors ready to do it
           injury; in consequence, their fields have been laid waste, their cities sacked, their
           people driven from their homes, their constitutions overturned, and the laws abolished
-          under which they were once the most fortunate among the Hellenes.<note anchored="true"
-            resp="ed">The Acheans (<bibl n="Plb. 2.38">Polyb. 2.38.6</bibl>) and the Mantineans
+          under which they were once the most fortunate among the Hellenes.<note resp="editor">The Acheans (<bibl n="Plb. 2.38">Polyb. 2.38.6</bibl>) and the Mantineans
               (<bibl n="Ael. VH 2.22">Ael. Var. Hist. 2.22</bibl>) were famed for their excellent
             laws.</note>
         </p>
@@ -920,8 +834,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           the possessions of the rich; </p>
       </div>
       <div n="68" subtype="section" type="textpart">
-        <p>having ceased sacrificing victims at the altars they slaughter one another<note
-            anchored="true" resp="ed">Possibly Isocrates may have in mind the massacre at <placeName
+        <p>having ceased sacrificing victims at the altars they slaughter one another<note resp="editor">Possibly Isocrates may have in mind the massacre at <placeName
               key="perseus,Corinth">Corinth</placeName> in <date when="-0392">392 B.C.</date> (<bibl
               n="Xen. Hell. 4.4.3">Xen. Hell. 4.4.3</bibl>), the murder of certain Achaean
             suppliants, who took refuge in the temple of Heliconian Poseidon (Pausanias vii. 25), or
@@ -943,7 +856,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           then, are the hopes which I entertain. </p>
       </div>
       <div n="70" subtype="section" type="textpart">
-        <p> However, so far am I from complying with the enemy's demands that, if none of these
+        <p> However, so far am I from complying with the enemy’s demands that, if none of these
           hopes should be realized and we should fail to obtain help from any quarter, but on the
           contrary some of the Hellenes should wrong us and the rest should look on with
           indifference—even so I should not alter my opinion; but I would undergo all the hazards
@@ -973,7 +886,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p> For I declare that we must send our parents and our wives and children and the mass of
           the people away from <placeName key="perseus,Sparta">Sparta</placeName>, some to
             <placeName key="tgn,7003122">Sicily</placeName>, some to <placeName key="tgn,7000639"
-            >Cyrene</placeName>, others to the mainland of Asia,<note anchored="true" resp="ed"
+            >Cyrene</placeName>, others to the mainland of Asia,<note resp="editor"
             >Greek emigration from the home country was commonly towards the far west (<placeName
               key="tgn,7003122">Sicily</placeName>), the east (coast of <placeName key="tgn,7002294"
               >Asia Minor</placeName>), or the south (<placeName key="tgn,7000639"
@@ -1046,11 +959,11 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
         <p> But the remainder of the day would fail me if I undertook to set forth the advantages we
           should gain by such a course. This much, at any rate, is clear to all—that we have been
           superior to all the Hellenes, not because of the size of our city or the number of its
-            inhabitants,<note anchored="true" resp="ed"><placeName key="perseus,Sparta"
+            inhabitants,<note resp="editor"><placeName key="perseus,Sparta"
               >Sparta</placeName> was about six miles in circumference. The number of pure Spartan
             inhabitants never exceeded 10,000.</note> but because the government which we have
           established is like a military camp, well administered and rendering willing obedience to
-          its officers.<note anchored="true" resp="ed">The whole life of a Spartan youth was
+          its officers.<note resp="editor">The whole life of a Spartan youth was
             supervised by military officers of one sort or another. Those over twenty years of age
             ate at a common table, or military mess. War was the first and only duty of a Spartan
             citizen, and obedience more important even than life.</note> If, then, we shall create
@@ -1060,7 +973,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="82" subtype="section" type="textpart">
         <p> We know, moreover, that those who became the founders of this city entered the
             <placeName key="tgn,7017076">Peloponnesus</placeName> with but a small army and yet made
-          themselves masters of many powerful states.<note anchored="true" resp="ed">For example, of
+          themselves masters of many powerful states.<note resp="editor">For example, of
               <placeName key="perseus,Corinth">Corinth</placeName>, <placeName key="tgn,7011098"
               >Sicyon</placeName> and <placeName key="perseus,Megara">Megara</placeName>.</note> It
           were fitting, then, to imitate our forefathers and, by retracing our steps, now that we
@@ -1069,8 +982,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="83" subtype="section" type="textpart">
         <p>But, monstrous above all things would be our conduct if, knowing well that the Athenians
-          abandoned their country to preserve the freedom of the Hellenes,<note anchored="true"
-            resp="ed">Cf. <bibl n="Isoc. 4.96">Isoc. 4.96</bibl>.</note> we should lack the courage
+          abandoned their country to preserve the freedom of the Hellenes,<note resp="editor">Cf. <bibl n="Isoc. 4.96">Isoc. 4.96</bibl>.</note> we should lack the courage
           to give up our city even to preserve our own lives, and should refuse, when it behoves us
           to set the example for others in such deeds, even to imitate the conduct of the Athenians.
         </p>
@@ -1078,8 +990,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="84" subtype="section" type="textpart">
         <p>Even more should we deserve the ridicule of men if, having before us the example of the
           Phocaeans who, to escape the tyranny of the Great King, left Asia and founded a new
-          settlement at <placeName key="tgn,7008781">Massilia</placeName>,<note anchored="true"
-            resp="ed">The first party of the Phocaeans left Asia about <date when="-0524">524
+          settlement at <placeName key="tgn,7008781">Massilia</placeName>,<note resp="editor">The first party of the Phocaeans left Asia about <date when="-0524">524
               B.C.</date> Besieged by Harpalus, they swore that never would they return to their
             city until the iron which they had cast into the sea should rise and float on the water.
             See Horace, <title>Epode.</title> xvi., and <bibl n="Hdt. 1.165">Hdt. 1.165</bibl>. A
@@ -1164,13 +1075,13 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="94" subtype="section" type="textpart">
         <p>these we must avoid, but first and foremost we should be careful that we are never found
           doing any cowardly deed or making any unjust concessions to the foe; for it would be
-          shameful if we, who once<note anchored="true" resp="ed">Spartan supremacy lasted,
+          shameful if we, who once<note resp="editor">Spartan supremacy lasted,
             theoretically, more than thirty years, from the end of the Peloponnesian War (<date
               when="-0404">404 B.C.</date>) to the battle of Leuctra. Meantime, however, the
             Athenians secured for a short period their second naval empire (<date when="-0378">378
               B.C.</date>).</note> were thought worthy to rule the Hellenes, should be seen carrying
           out their commands, and should fall so far below our forefathers that, while they were
-          willing to die in order that they might dictate to others,<note anchored="true" resp="ed"
+          willing to die in order that they might dictate to others,<note resp="editor"
             >Thucydides, i. 140, puts in the mouth of Pericles the assertion that the Spartans
             prefer to resolve their complaints by war and not by words, dictating terms instead of
             bringing charges.</note> we would not dare to hazard a battle in order that we might
@@ -1196,9 +1107,9 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           our resentment until that will no longer avail us, but must consider now how we may
           prevent such a disaster. For it is disgraceful that we, who in former times would not
           allow even free men the right of equal speech, are now openly tolerating licence of speech
-          on the part of slaves.<note anchored="true" resp="ed">Others translate <foreign
-              xml:lang="greek">i)shgari/as</foreign> as “political unity” and understand <foreign
-              xml:lang="greek">tw=n e)leuqe/rwn</foreign> to refer to the allies of <placeName
+          on the part of slaves.<note resp="editor">Others translate <foreign
+              xml:lang="grc">ἰσηγαρίας</foreign> as “political unity” and understand <foreign
+                xml:lang="grc">τῶν ἐλευθέρων</foreign> to refer to the allies of <placeName
               key="perseus,Sparta">Sparta</placeName>. But the passage is probably better taken as
             referring to the military harshness of the Spartans toward any and all with whom they
             came in contact, as, for instance, when Astyochus started to beat free men for speaking
@@ -1214,11 +1125,11 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           forefathers. </p>
       </div>
       <div n="99" subtype="section" type="textpart">
-        <p> Remember the men who at Dipaea<note anchored="true" resp="ed">In <date when="-0471">471
+        <p> Remember the men who at Dipaea<note resp="editor">In <date when="-0471">471
               B.C.</date> See <bibl n="Hdt. 9.35">Hdt. 9.35</bibl>, and <bibl n="Paus. 8.8.4">Paus.
               8.8.4</bibl>.</note> fought against the Arcadians, of whom we are told that, albeit
           they stood arrayed with but a single line of soldiery, they raised a trophy over thousands
-          upon thousands; remember the three hundred who at Thyrea<note anchored="true" resp="ed">In
+          upon thousands; remember the three hundred who at Thyrea<note resp="editor">In
               <date when="-0542">542 B.C.</date> See <bibl n="Hdt. 1.82">Hdt. 1.82</bibl>, and <bibl
               n="Paus. 2.38.5">Paus. 2.38.5</bibl>. lsocrates confuses two contests, one earlier,
             where three hundred Argives fought against three hundred Spartans, one later, where both
@@ -1228,8 +1139,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       </div>
       <div n="100" subtype="section" type="textpart">
         <p>who, although they engaged seven hundred thousand of the barbarians, did not flee nor
-          suffer defeat, but laid down their lives on the spot where they were stationed,<note
-            anchored="true" resp="ed">Cf. <bibl n="Isoc. 4.90">Isoc. 4.90-92</bibl>.</note>
+          suffer defeat, but laid down their lives on the spot where they were stationed,<note resp="editor">Cf. <bibl n="Isoc. 4.90">Isoc. 4.90-92</bibl>.</note>
           acquitting themselves so nobly that even those who eulogize them with all the resources of
           art can find no praises equal to their valor. </p>
       </div>
@@ -1240,8 +1150,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           just in such emergencies as these that men of worth must show their superiority; </p>
       </div>
       <div n="102" subtype="section" type="textpart">
-        <p>for prosperity helps to hide the baseness even of inferior men,<note anchored="true"
-            resp="ed">For the thought compare <bibl n="Dem. 2.20">Dem. 2.20</bibl>.</note> but
+        <p>for prosperity helps to hide the baseness even of inferior men,<note resp="editor">For the thought compare <bibl n="Dem. 2.20">Dem. 2.20</bibl>.</note> but
           adversity speedily reveals every man as he really is; and in adversity we of <placeName
             key="perseus,Sparta">Sparta</placeName> must show whether we have been in any wise
           better nurtured and trained to valor than the rest of mankind. </p>
@@ -1258,8 +1167,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
           are foremost—<placeName key="perseus,Athens">Athens</placeName> and <placeName
             key="perseus,Thebes">Thebes</placeName>, I mean—have not derived their great progress
           from peace, but that, on the contrary, it was in consequence of their recovery from
-          previous reverses in war that one of them was made leader of the Hellenes,<note
-            anchored="true" resp="ed">The Athenians won their second naval supremacy after the
+          previous reverses in war that one of them was made leader of the Hellenes,<note resp="editor">The Athenians won their second naval supremacy after the
             reverses of the Peloponnesian war.</note> while the other has at the present time become
           a greater state than anyone ever expected she would be. Indeed, honors and distinctions
           are wont to be gained, not by repose, but by struggle, </p>
@@ -1293,8 +1201,7 @@ Wrap letters in DIV1 so we can cite them as "L. 4.3" within document.
       <div n="109" subtype="section" type="textpart">
         <p>always remembering that it is a nobler thing to exchange a mortal body for immortal
           glory, and to purchase with a life which at best we shall retain for only a few years a
-          fame which will abide with our descendants throughout all the ages<note anchored="true"
-            resp="ed">For the language cf. <bibl n="Dem. 60.27">Dem. 60.27</bibl>, and <bibl
+          fame which will abide with our descendants throughout all the ages<note resp="editor">For the language cf. <bibl n="Dem. 60.27">Dem. 60.27</bibl>, and <bibl
               n="Hyp. 6.24">Hyp. 6.24</bibl>.</note>—a far nobler course than to cling greedily to a
           little span of life and cover ourselves with great disgrace! </p>
       </div>
