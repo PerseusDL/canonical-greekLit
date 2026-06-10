@@ -1,73 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-<teiHeader xml:lang="eng">
-<fileDesc>
-<titleStmt>
-<title xml:lang="eng">Loukios, Or, the Ass</title>
- <author>Pseudo-Lucian</author>
-<editor role="translator">Emily James Smith</editor>
- <funder>National Endowment for the Humanities</funder>
- <principal>Gregory Crane</principal>
- <respStmt>
-  <persName>Gregory Crane</persName>
-<resp>Digital conversion and editing</resp>
- </respStmt>
- </titleStmt>
-<publicationStmt>
-<authority>Perseus Digital Library</authority>
-<idno type="filename">tlg0061.tlg001.perseus-eng1.xml</idno>
-<availability>
- <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
-</availability>
-<date type="release">2023-08-01</date>
-<publisher>Tufts University</publisher>
-<pubPlace>United States</pubPlace>
-</publicationStmt>
-<sourceDesc>
-<listBibl>
- <biblStruct>
- <monogr>
-<title xml:lang="eng">Selections from Lucian</title>
-  <editor role="translator">Emily James Smith</editor>
-  <author>Lucian of Samosata</author>
-  <imprint>
-   <publisher>Harper and Brothers</publisher>
-	<pubPlace>New York</pubPlace>
-	<date>1892</date>
-  </imprint>
- </monogr>
-  <ref target="https://hdl.handle.net/2027/hvd.hw3j0n?urlappend=%3Bseq=257%3Bownerid=27021597767339600-275">The Hathi Trust</ref>
- </biblStruct>
-</listBibl>
-</sourceDesc>
-</fileDesc>
-<encodingDesc>
- <p>Text encoded in accordance with the latest EpiDoc standards</p>
- <refsDecl n="CTS">
-  <cRefPattern matchPattern="(\w+)"
-   replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-   <p>This pointer pattern extracts section.</p>
-  </cRefPattern>
- </refsDecl>
-</encodingDesc>
-<profileDesc>
-<langUsage>
-<language ident="eng">English</language>
-</langUsage>
-</profileDesc>
-<revisionDesc>
-<change when="2023-08-10" who="Alison Babeu">Updated URN and metadata</change>
-<change when="2023-08-09" who="Greg Crane">Creation of initial translation file</change>
-</revisionDesc>
-</teiHeader>
-<text xml:lang="eng">
-<body>
-<div type="translation" n="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1" xml:lang="eng">
-<head>LOUKIOS; OR, THE ASS.
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="eng">Loukios, Or, the Ass</title>
+            <author>Pseudo-Lucian</author>
+            <editor role="translator">Emily James Smith</editor>
+            <funder>National Endowment for the Humanities</funder>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <persName>Gregory Crane</persName>
+               <resp>Digital conversion and editing</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Perseus Digital Library</authority>
+            <idno type="filename">tlg0061.tlg001.perseus-eng1.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <date type="release">2023-08-01</date>
+            <publisher>Tufts University</publisher>
+            <pubPlace>United States</pubPlace>
+            <idno type="CTS">urn:cts:greekLit:tlg0061.tlg001.perseus-eng1</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <biblStruct>
+                  <monogr>
+                     <title xml:lang="eng">Selections from Lucian</title>
+                     <editor role="translator">Emily James Smith</editor>
+                     <author>Lucian of Samosata</author>
+                     <imprint>
+                        <publisher>Harper and Brothers</publisher>
+                        <pubPlace>New York</pubPlace>
+                        <date>1892</date>
+                     </imprint>
+                  </monogr>
+                  <ref target="https://hdl.handle.net/2027/hvd.hw3j0n?urlappend=%3Bseq=257%3Bownerid=27021597767339600-275">The Hathi Trust</ref>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <p>Text encoded in accordance with the latest EpiDoc standards</p>
+         <refsDecl n="CTS">
+            <cRefPattern matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts section.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-section"/>
+         </textClass>
+         <langUsage>
+            <language ident="eng">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change when="2023-08-10" who="Alison Babeu">Updated URN and metadata</change>
+         <change when="2023-08-09" who="Greg Crane">Creation of initial translation file</change>
+      </revisionDesc>
+   </teiHeader>
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1">
+         <head>LOUKIOS; OR, THE ASS.
 </head>
-<head></head>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="1"><p>
+         <head/>
+         <div n="1" type="section">
+            <p>
 
 I once made a journey to Thessaly,
 having a matter of business connected with my paternal estate to
@@ -91,9 +100,9 @@ miser."
 When we had come very near the town we saw
 a garden with a tolerable cottage in it, and this
 was where Hipparchos dwelt. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="2">
-<p>So the others made
+         </div>
+         <div n="2" type="section">
+            <p>So the others made
 
 
 <pb n="v.1.p.240"/>
@@ -136,9 +145,9 @@ At these words the girl Palaistra led the way
 and showed a very pretty little sleeping-room.
 "That is your bed," said she; "and for your servant I will set a couch alongside and put a pillow
 on it." </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="3">
-<p>When she had thus spoken we went off
+         </div>
+         <div n="3" type="section">
+            <p>When she had thus spoken we went off
 to bathe, and I gave the girl money to buy a little barley for my horse. She carried in all my
 belongings and deposited them in my room.
 When we had bathed and come back to the
@@ -152,9 +161,9 @@ Next day Hipparchos asked me whither I purposed going next, or whether I was goi
 there all the time. "I am going on to Larissa,"
 said I, "but probably I shall spend four or five
 days here." </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="4">
-<p>This, however, was a subterfuge. I
+         </div>
+         <div n="4" type="section">
+            <p>This, however, was a subterfuge. I
 had the greatest desire to remain there and
 search out one of the women versed in sorcery,
 and see some of their marvellous exhibitions—a
@@ -209,9 +218,9 @@ young, so that you find favor with women at
 once ; and you are a stranger, so that there is
 no danger in dealing with you."
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="5">
-<p>
+         </div>
+         <div n="5" type="section">
+            <p>
 When I heard that what I had been seeking
 so long was living in the same house with me, I
 paid no more heed to the lady. As soon as I
@@ -228,9 +237,9 @@ either; but Palaistra was sitting by the fire preparing the dinner, and I opened
 forthwith.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="6">
-<p>
+         </div>
+         <div n="6" type="section">
+            <p>
 "Lovely Palaistra,” said I, “how gracefully
 you turn and sway your body and the kettle at
 the same time! My marrow melts at the sight.
@@ -275,9 +284,9 @@ At this she burst into a peal of sweet laughter,
 and after that she was a complete conquest.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="11">
-<p>
+         </div>
+         <div n="11" type="section">
+            <p>
 I said to her one day, "My dear, get me sight of
 your mistress practising her mysteries or changing
 
@@ -306,9 +315,9 @@ art. But if I should have a chance, I will try
 to show her to you in the act of changing her
 shape."
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="12">
-<p>
+         </div>
+         <div n="12" type="section">
+            <p>
 A few days later Palaistra informed me that
 her mistress was intending to put on the guise of
 a bird and fly off to her lover.
@@ -339,9 +348,9 @@ properties and traits of a bird. She was nothing
 else than a night-hawk. When she was completely feathered she gave a harsh cry like a hawk's,
 stood up, and took her flight out of the window.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="13">
-<p>
+         </div>
+         <div n="13" type="section">
+            <p>
 I thought I must be dreaming such a sight as
 this, and rubbed my eyelids with my fingers, not
 believing that I had seen with my own waking
@@ -369,9 +378,9 @@ However, I stretched out my lower lip, and by
 my shape itself and by my sidelong asinine glance
 I reproached her as well as I could for having
 made me an ass instead of a bird. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="14">
-<p>She smote
+         </div>
+         <div n="14" type="section">
+            <p>She smote
 her face with both hands. "Wretched girl that
 I am," she cried, "what a dreadful thing I have
 done! In my hurry I blundered, because the
@@ -386,9 +395,9 @@ and fetch you some roses, and you will eat them
 and be cured."
 While she spoke thus she stroked my ears and
 the rest of my hide. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="15">
-<p>I was an ass in all other
+         </div>
+         <div n="15" type="section">
+            <p>I was an ass in all other
 
 
 <pb n="v.1.p.248"/>
@@ -412,9 +421,9 @@ are that I shall be killed, though I have done
 nothing wrong." But though I reflected thus, I
 had no idea, poor devil! of the evil that awaited
 me.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="16">
-<p>
+         </div>
+         <div n="16" type="section">
+            <p>
 When the night was already far advanced, with
 its great silence and sweet sleep, there was a
 noise from without as though the wall were being broken through, and so it was. There was a
@@ -448,9 +457,9 @@ vain, I resolved to go on in silence, with the gain,
 at least, of not being beaten.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="17">
-<p>
+         </div>
+         <div n="17" type="section">
+            <p>
 After this day came, and we had already climbed
 many mountains. They muzzled us so that we
 might not browse along the road for our breakfasts and thus be caught; so for that day, too, I
@@ -478,9 +487,9 @@ eat raw; but those roses were not real ones, they
 were such as grow on the wild laurel. The plant
 is called rose-laurel, and it makes a poor breakfast for any ass or horse, for it is said that if they
 eat it they die on the spot.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="18">
-<p>
+         </div>
+         <div n="18" type="section">
+            <p>
 In the mean time the gardener perceived me,
 snatched up a club, and ran into the garden.
 When he saw the enemy, the destroyer of his
@@ -505,9 +514,9 @@ They captured the dogs who had been chasing
 me, and tied them up, but me they beat and did
 not stop until in my agony I had cast up all the
 vegetables.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="19">
-<p>
+         </div>
+         <div n="19" type="section">
+            <p>
 When it was time to take to the road again they
 also heaped most of the booty and the heaviest
 on me, and this having been arranged we set out.
@@ -543,9 +552,9 @@ of my captivity and burdens, they laid hold of
 him, cut the sinews of his legs with a sword, and
 thrust him still quivering over the precipice, and
 down he went, dancing the death-dance.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="20">
-<p>
+         </div>
+         <div n="20" type="section">
+            <p>
 When I saw in the case of my fellow-traveller
 the outcome of the plans I had formed I made
 up my mind to bear my present plight bravely
@@ -571,9 +580,9 @@ their clothes, anointed themselves before the fire.
 There was a jar in the house full of warm water,
 from which they drew and poured over themselves,
 thus taking a hasty bath. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="21">
-<p>A little later a number of young men arrived, bringing as much gold
+         </div>
+         <div n="21" type="section">
+            <p>A little later a number of young men arrived, bringing as much gold
 and silver and clothing as they could carry, and a
 great deal of jewelry, women's and men's. These
 were accomplices of the others, and when they
@@ -596,9 +605,9 @@ young man was tall, and had a dangerous look,
 
 
 moreover, and he always carried a sword and fastened the door every time he went out.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="22">
-<p>
+         </div>
+         <div n="22" type="section">
+            <p>
 Three days after this, almost at midnight, the
 robbers came back, bringing no gold or silver or
 anything else except a very beautiful young girl.
@@ -641,9 +650,9 @@ me. But I, hearing their talk, walked the rest of
 the way on my wounded foot as though it belonged to somebody else, for the fear of death
 made me insensible to the pain of it.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="23">
-<p>
+         </div>
+         <div n="23" type="section">
+            <p>
 
 When we came to our abiding place they took
 the booty from our shoulders and put it carefully
@@ -695,11 +704,10 @@ attention if I should save the maiden.
 
 
 <pb n="v.1.p.257"/>
-
-</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="24">
-<p>
+            </p>
+         </div>
+         <div n="24" type="section">
+            <p>
 But when we came to where the road split into
 three the enemy met us on their homeward way.
 They recognized their unhappy prisoners in the
@@ -724,9 +732,9 @@ admiringly of her courage, cut her down, and threw
 her over the precipice with the cord round her
 neck. The girl they tied up inside the house, and
 then they supped and drank heavily.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="25">
-<p> Meanwhile
+         </div>
+         <div n="25" type="section">
+            <p> Meanwhile
 they began at once to talk with each other about
 the girl.
 
@@ -775,9 +783,9 @@ of an ass, then to bake with the beast in the hottest sun of summer, and to die 
 finally, the vultures will make their way in through
 the ass, and tear her flesh along with his while she
 is yet alive."</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="27">
-<p>
+         </div>
+         <div n="27" type="section">
+            <p>
 A general shout of applause greeted this monstrous idea as though it were something delightful; but I bewailed my lot. I was destined to be
 slaughtered, and not even after death to lie a
 peaceful corpse, but to serve as the tomb of an
@@ -820,9 +828,9 @@ of doing no more work.
 When we arrived at the farm the herdsman put
 me with the mares, and led the drove of us into
 the pasture. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="28">
-<p>But even here it was fated that I
+         </div>
+         <div n="28" type="section">
+            <p>But even here it was fated that I
 should have the same experience as Kandaules;
 for the man in charge of the mares left me in
 the possession of his wife, Megapole, for domestic service, and she harnessed me in the mill, and
@@ -841,9 +849,9 @@ So I grew thin and ugly in a short time, for I had
 no.comfort in-doors at the mill, nor out-of-doors
 in the pasture, because my fellow-grazers fought
 with me. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="29">
-<p>Moreover, I was often sent up into
+         </div>
+         <div n="29" type="section">
+            <p>Moreover, I was often sent up into
 the mountain to fetch wood on my shoulders, and
 this was the crown of my sorrows. In the first
 place, there was a high mountain to be climbed
@@ -877,9 +885,9 @@ equal weight of useless stones. Moreover, there
 was a stream that crossed the road and was never dry, and the boy, to save wetting his shoes, used
 to perch on my back behind the wood, and thus
 cross the river.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="30">
-<p>
+         </div>
+         <div n="30" type="section">
+            <p>
 If ever I fell down, worn out with carrying my
 load, that would be the occasion of unendurable
 suffering. He who ought to have dismounted
@@ -903,9 +911,9 @@ that horror at my back attacked me sharply. In
 fact, my
 driver's one object in life was to kill me.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="31">
-<p>
+         </div>
+         <div n="31" type="section">
+            <p>
 Once, when I could no longer bear my many
 cruel sufferings, I let out at him with my heels,
 and he never forgot that kick. He was ordered
@@ -935,9 +943,9 @@ had plunged into the fireplace of my own accord
 
 as I was passing it. Well, that time I survived
 the tow, though I did not expect to; </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="32">
-<p>but the villain of a boy invented something much worse
+         </div>
+         <div n="32" type="section">
+            <p>but the villain of a boy invented something much worse
 than this for me. He took me up the mountain
 and put a great load of wood on me, but this he
 sold to a neighboring farmer, and drove me home
@@ -945,17 +953,17 @@ with no load and no wood, and accused me falsely
 to his master. "I don't see the good, sir," said
 he, "of supporting this ass, for he is terribly lazy
 and slow." </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="33">
-<p>When the master heard this he said,
+         </div>
+         <div n="33" type="section">
+            <p>When the master heard this he said,
 "Well, if he is willing neither to walk nor to carry a load, kill him and give his vitals to the dogs,
 but save his flesh for the work-people, and if any
 questions are asked as to the manner of his death
 lay it to the wolf." The rascally boy, my driver,
 was charmed, and was for killing me at once, </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="34">
-<p>but
+         </div>
+         <div n="34" type="section">
+            <p>but
 in the dead of night a messenger came from the
 village to the farm, saying that the bride, the one
 who was stolen by the robbers, had been walking
@@ -981,9 +989,9 @@ We travelled all night over a painful road, and
 in three days more we finished our journey and
 came to Beroia, a large and populous town in
 Macedonia. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="35">
-<p>There our drivers determined to
+         </div>
+         <div n="35" type="section">
+            <p>There our drivers determined to
 settle us and themselves, and we beasts were sold
 at auction by a loud-voiced crier in the middle
 of the market-place. The by-standers wished to
@@ -1001,9 +1009,9 @@ an old rascal of the sort who carry the Syrian
 goddess around among the villages and farms,
 and make her beg. This man bought me at the
 handsome price of six dollars! </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="36">
-<p>When we arrived
+         </div>
+         <div n="36" type="section">
+            <p>When we arrived
 at Philebos's lodging—for this was my purchaser's name he shouted in a loud voice, just before the door, "Little girls, I have bought you a
 slave, a handsome, stout Cappadocian." These
 "little girls" were a crowd of abandoned men,
@@ -1015,9 +1023,9 @@ coadjutors of Philebos, and they all applauded in
 
 
 answer to his shout, for they thought he had really made a human purchase. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="37">
-<p>But when they saw
+         </div>
+         <div n="37" type="section">
+            <p>But when they saw
 his slave was an ass they jeered Philebos and
 burst out laughing.
 The next day they got ready for work, as they
@@ -1043,9 +1051,9 @@ bushel of wheat or barley for the ass.
 By these
 means the company provided for their own maintenance and the service of the goddess whom I
 carried.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="39">
-<p>
+         </div>
+         <div n="39" type="section">
+            <p>
 Towards evening one day we halted at the
 farm of a rich man. The master was at home,
 received the goddess in his house with much
@@ -1080,9 +1088,9 @@ thought, wife," said he. “It is my only way to
 escape a flogging, and it shall be done immediately." Thus did the wretch who was to be my
 cook plot with his wife, standing in my presence.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="40">
-<p>
+         </div>
+         <div n="40" type="section">
+            <p>
 But when I saw what was going to happen, I
 made a strong resolve to save myself from the
 knife; so, breaking the halter they led me by, I
@@ -1107,9 +1115,9 @@ the room where my masters were to sleep, and,
 seeing this, they closed the doors carefully from
 the outside.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="41">
-<p>
+         </div>
+         <div n="41" type="section">
+            <p>
 As soon as day dawned I received the goddess
 on my back again, and set out in company with
 the begging priests, and we came to another village, large and populous, where they announced
@@ -1142,9 +1150,9 @@ led them back, and cast them into prison. The
 goddess whom I carried they took and placed in
 another temple, and the golden vessel they restored to the local goddess.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="42">
-<p>
+         </div>
+         <div n="42" type="section">
+            <p>
 The next day they decided to sell the prisoners' goods and me, and they disposed of me to a
 stranger from a neighboring village, a baker by
 trade. He took possession of me, bought ten
@@ -1172,9 +1180,9 @@ experiment that it will not do for a slave to wait
 for the master's hand before he does his work.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="43">
-<p>
+         </div>
+         <div n="43" type="section">
+            <p>
 Well, I grew very thin and weak in body, till
 my master decided to sell me, and he disposed
 of me to a man who was a market-gardener by
@@ -1198,9 +1206,9 @@ for man and beast alike was lettuces, hard and
 bitter.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="44">
-<p>
+         </div>
+         <div n="44" type="section">
+            <p>
 One day, when we were setting out for the
 town, we happened upon a fine-looking man in a
 soldier's uniform, who began to address us in the
@@ -1223,9 +1231,9 @@ This frightened the gardener, so that he left him
 lying there just as he was, carried off the sword,
 and rode away on me to the town.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="45">
-<p>
+         </div>
+         <div n="45" type="section">
+            <p>
 When we were arrived there he confided the
 charge of the garden to a partner of his, and,
 fearing possible danger from the affair in the
@@ -1273,9 +1281,9 @@ information from the upper story and betrayed
 my own master, and I was the origin, on this occasion, of the proverb about the "peeping ass."
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="46">
-<p>
+         </div>
+         <div n="46" type="section">
+            <p>
 I do not know what happened the next day to
 my master the gardener, but the soldier determined to sell me, and parted with me for five dollars. The purchaser was a servant to a very rich
 man of Thessalonika, the largest town in Macedonia. His trade was to cook meats for his master, and he had a brother, a fellow-slave, who
@@ -1307,9 +1315,9 @@ him thief, robber of common goods, lost to all
 sense of honor, and after that they both grew
 careful, and counted the morsels.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="47">
-<p>
+         </div>
+         <div n="47" type="section">
+            <p>
 The effect on me was that by living this pleasant and luxurious life I grew handsome again in
 body from having my natural food, and my hide
 shone with a fresh growth of hair. But my most
@@ -1350,9 +1358,9 @@ drinks wine, too, if any one will pour some out
 for him." So the master ordered it, and I drank
 what was offered me.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="48">
-<p>
+         </div>
+         <div n="48" type="section">
+            <p>
 He perceived, as you may suppose, that I was
 a remarkable creature, and ordered one of his
 stewards to pay my price to the man who had
@@ -1389,9 +1397,9 @@ My harness was superb. I wore a purple saddlecloth, my bit was inlaid with gold 
 I was hung with bells which made the sweetest
 music.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="49">
-<p>
+         </div>
+         <div n="49" type="section">
+            <p>
 As I have said, Menekles, our master, was from
 Thessalonika, and had come to this place to
 make arrangements for a spectacle he had promised his countrymen of men skilled to fight with
@@ -1411,9 +1419,9 @@ my versatility and manlike gifts of dancing and
 wrestling. My master displayed me to the most
 distinguished of his townsmen over their wine,
 and made those amazing frolics of mine an accessary of the dinner. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="52">
-<p>But the man in charge of
+         </div>
+         <div n="52" type="section">
+            <p>But the man in charge of
 me made an income of a good many dollars out
 of me.
 He used to lock me up in a room, and
@@ -1424,9 +1432,9 @@ that in a few days, by dining with my master and
 the townsfolk, I had already grown large and
 terribly fat.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="53">
-<p>
+         </div>
+         <div n="53" type="section">
+            <p>
 Finally that day arrived which was to bring
 such distinction to my master. They decided to
 exhibit me in the theatre, and this was the manner of my appearance. A large couch was prepared, wrought of Indian tortoise-shell fastened
@@ -1442,11 +1450,10 @@ was standing behind, bade me eat my dinner,
 
 
 <pb n="v.1.p.278"/>
-
-</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="54">
-<p>
+            </p>
+         </div>
+         <div n="54" type="section">
+            <p>
 
 But I was divided between shame at being exposed in the theatre and fear lest, perchance, a
 bear or a lion should leap in.
@@ -1474,11 +1481,10 @@ that I had told him my true history.
 
 
 <pb n="v.1.p.279"/>
-
-</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="55">
-<p>
+            </p>
+         </div>
+         <div n="55" type="section">
+            <p>
 "Tell us your name," said the governor, “and
 the names of your parents and relatives, if you
 have any, and your city."
@@ -1504,9 +1510,9 @@ we went down to the sea, looked out a ship, and
 put our luggage aboard.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0061.tlg001.perseus-eng1:" n="56">
-<p>
+         </div>
+         <div n="56" type="section">
+            <p>
 Then we sailed away
 from the city with a favorable wind, and a few
 days later I arrived in my native land. There I
@@ -1522,6 +1528,8 @@ Heaven, but out of the curiosity of the ass.
 
 
 <pb n="v.1.p.282"/>
-</p></div>
-</div>
-</body></text></TEI>
+            </p>
+         </div>
+      </body>
+   </text>
+</TEI>

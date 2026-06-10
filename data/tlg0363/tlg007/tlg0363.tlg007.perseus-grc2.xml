@@ -1,103 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader xml:lang="eng">
-    <fileDesc>
-      <titleStmt>
-        <title xml:lang="grc">Τετράβιβλος</title>
-        <author>Claudius Ptolemy</author>
-        <editor>Frank Egleston Robbins</editor>
-        <sponsor>Perseus Project, Tufts University</sponsor>
-        <principal>Gregory Crane</principal>
-        <respStmt>
-          <resp>Prepared under the supervision of</resp>
-          <name>Lisa Cerrato</name>
-          <name>Rashmi Singhal</name> 
-          <name>Bridget Almas</name>
-        </respStmt>   
-        <funder n="org:Google">Google Digital Humanities Awards Program</funder>
-      </titleStmt>
-      <publicationStmt>
-        <publisher>Trustees of Tufts University</publisher>
-        <pubPlace>Medford, MA</pubPlace>
-        <authority>Perseus Project</authority>
-        <date type="release" when="2011-09-12">Perseus 4.0</date>
-        <idno type="filename">tlg0363.tlg007.perseus-grc2.xml</idno>
-        <availability>
-          <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence> 
-        </availability>
-      </publicationStmt>
-      
-      <sourceDesc>
-        <biblStruct>
-          <monogr>
-            <title>Tetrabiblos</title>
-            <author>Ptolemy</author>
-            <editor>Frank Egleston Robbins</editor> 
-            <imprint>
-              <publisher>Harvard University Press</publisher>
-              <pubPlace>Cambridge, Mass.</pubPlace>
-              <publisher>William Heinemann Ltd.</publisher>
-              <pubPlace>London</pubPlace>
-              <date type="printing">1964</date>
-            </imprint>
-          </monogr>
-          <series>
-            <title>Loeb Classical Library</title>
-          </series>
-          <ref target="https://archive.org/details/L350ManethoHistoryOfEgyptPtolemyTetrabiblos_201312/page/n325/mode/2up">Internet Archive</ref>
-        </biblStruct>
-      </sourceDesc></fileDesc>
-    
-<encodingDesc>
-  <editorialDecl>
-    <correction method="silent">
-      <p>keyboarding</p>
-    </correction>
-  </editorialDecl>
-  
-  <refsDecl n="CTS">
-    <cRefPattern matchPattern="(\w+).(\w+)"
-      replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])" n="chapter">
-      <p>This pointer pattern extracts book and chapter.</p>
-    </cRefPattern>
-    <cRefPattern matchPattern="(\w+)"
-      replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])" n="book">
-      <p>This pointer pattern extracts book</p>
-    </cRefPattern>
-  </refsDecl>
-  
-<refsDecl>
-<refState delim="." unit="book"/>
-<refState delim="." n="chunk" unit="chapter"/>
-</refsDecl>
- <refsDecl>
- <refState delim="." unit="Camerarius_2ed_page"/>        
-</refsDecl>
-</encodingDesc>
-
-    <profileDesc>
-      <langUsage>
-         <language ident="grc">Greek</language>
-        <language ident="eng">English</language>
-      </langUsage>
-    </profileDesc>
-    
-    <revisionDesc>
-      <change when="2023-09-18" who="Lisa Cerrato">EpiDoc and CTS Conversion</change>
-    </revisionDesc>
-  </teiHeader>
-
-  <text>
-    <body>
-  <div type="edition" n="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2" xml:lang="grc">
-<pb xml:id="p.2"/>
-<head rend="align(center)">Κλαυδίου Πτολεμαίου μαθηματικῆς τετραβίβλου συντάξεως</head>
-<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2" n="1">
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="1">
-<head rend="align(center)">προοίμιον</head>
-<p>
-<milestone n="1" unit="Camerarius_2ed_page"/>Τῶν τὸ δἰ ἀστρονομίας προγνωστικὸν τέλος
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="grc">Τετράβιβλος</title>
+            <author>Claudius Ptolemy</author>
+            <editor>Frank Egleston Robbins</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>Rashmi Singhal</name>
+               <name>Bridget Almas</name>
+            </respStmt>
+            <funder n="org:Google">Google Digital Humanities Awards Program</funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" when="2011-09-12">Perseus 4.0</date>
+            <idno type="filename">tlg0363.tlg007.perseus-grc2.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0363.tlg007.perseus-grc2</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <title>Tetrabiblos</title>
+                  <author>Ptolemy</author>
+                  <editor>Frank Egleston Robbins</editor>
+                  <imprint>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>Cambridge, Mass.</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <pubPlace>London</pubPlace>
+                     <date type="printing">1964</date>
+                  </imprint>
+               </monogr>
+               <series>
+                  <title>Loeb Classical Library</title>
+               </series>
+               <ref target="https://archive.org/details/L350ManethoHistoryOfEgyptPtolemyTetrabiblos_201312/page/n325/mode/2up">Internet Archive</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction method="silent">
+               <p>keyboarding</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl n="CTS">
+            <cRefPattern matchPattern="(\w+).(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])"
+                         n="chapter">
+               <p>This pointer pattern extracts book and chapter.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
+                         n="book">
+               <p>This pointer pattern extracts book</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl>
+            <refState delim="." unit="book"/>
+            <refState delim="." n="chunk" unit="chapter"/>
+         </refsDecl>
+         <refsDecl>
+            <refState delim="." unit="Camerarius_2ed_page"/>
+         </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="book" delim=":" match="div[@type='book']" use="@n">
+                  <citeStructure unit="chapter" delim="." match="div[@type='chapter']" use="@n"/>
+               </citeStructure>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-book-chapter"/>
+         </textClass>
+         <langUsage>
+            <language ident="grc">Greek</language>
+            <language ident="eng">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change when="2023-09-18" who="Lisa Cerrato">EpiDoc and CTS Conversion</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2">
+         <pb xml:id="p.2"/>
+         <head rend="align(center)">Κλαυδίου Πτολεμαίου μαθηματικῆς τετραβίβλου συντάξεως</head>
+         <div n="1" type="book">
+            <div n="1" type="chapter">
+               <head rend="align(center)">προοίμιον</head>
+               <p>
+                  <milestone n="1" unit="Camerarius_2ed_page"/>Τῶν τὸ δἰ ἀστρονομίας προγνωστικὸν τέλος
 παρασκευαζόντων, ὦ Σύρε, δύο τῶν μεγίστων καὶ
 κυριωτάτων ὑπαρχόντων, ἑνὸς μὲν τοῦ πρώτου καὶ
 τάξει καὶ δυνάμει, καθʼ ὃ τοὺς γινομένους ἑκάστοτε
@@ -117,7 +123,7 @@
 αὐτοῦ παραβάλλοι τῇ τοῦ πρώτου καὶ ἀεὶ
 ὡσαύτως ἔχοντος βεβαιότητι, τὸ ἐν πολλοῖς ἀσθενὲς
 <pb xml:id="p.4"/>
-<milestone n="2" unit="Camerarius_2ed_page"/> καὶ δυσεικαστον τῆς ὑλικῆς ποιότητος προσποιούμενος,
+                  <milestone n="2" unit="Camerarius_2ed_page"/> καὶ δυσεικαστον τῆς ὑλικῆς ποιότητος προσποιούμενος,
 μήτε πρὸς τὴν κατὰ τὸ ἐνδεχόμενον ἐπίσκεψιν
 ἀποκνοίη, τῶν τε πλείστων καὶ ὁλοσχερῶν
 συμπτωμάτων ἐναργῶς οὕτω τὴν ἀπὸ τοῦ περιέχοντος
@@ -133,10 +139,10 @@
 τῆς κατὰ μέρος ὑφηγήσεως τὸ μέτρον ἑκατέρου τοῦ
 τε δυνατοῦ καὶ τοῦ χρησίμου τῆς τοιαύτης προγνώσεως
 ἐπισκέψασθαι· καὶ πρῶτον τοῦ δυνατοῦ.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="2">
-<p>Ὅτι καταληπτικὴ ἡ δἰ ἀστρονομίας
+</p>
+            </div>
+            <div n="2" type="chapter">
+               <p>Ὅτι καταληπτικὴ ἡ δἰ ἀστρονομίας
 γνῶσις, καὶ μέχρι τίνος
 Ὅτι μὲν τοίνυν διαδίδοται καὶ διικνεῖταί τις
 δύναμις ἀπὸ τῆς αἰθερώδους καὶ ἀιδίου φύσεως
@@ -321,10 +327,10 @@
 τὰ γένη καὶ τὰς χώρας καὶ τὰς τροφάς, ἢ καί τινα
 τῶν ἤδη συμβεβηκότων, μὴ ἀγανακτεῖν ὑποτιθεμένοις.
 <pb xml:id="p.20"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="3">
-<p>Ὅτι καὶ ὠφέλιμος
+               </p>
+            </div>
+            <div n="3" type="chapter">
+               <p>Ὅτι καὶ ὠφέλιμος
 Τίνα μὲν οὖν τρόπον δυνατὸν γίνεται τὸ δἰ
 ἀστρονομίας προγνωστικόν, καὶ ὅτι μέχρι μόνον
 ἂν φθάνοι τῶν τε κατʼ αὐτὸ τὸ περιέχον συμπτωμάτων
@@ -516,10 +522,10 @@
 παλαιῶν κατὰ τὸν φυσικὸν τρόπον ἐφηρμοσμέναις
 παρατηρήσεσι, καὶ πρώταις ταῖς τῶν πλανωμένων
 ἀστέρων δυνάμεσι ἡλίου τε καὶ σελήνης
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="4">
-<p>Περὶ τῆς τῶν πλανωμένων
+</p>
+            </div>
+            <div n="4" type="chapter">
+               <p>Περὶ τῆς τῶν πλανωμένων
 ἀστέρων δυνάμεως
 Ὁ ἥλιος κατείληπται τὸ ποιητικὸν ἔχων τῆς
 οὐσίας ἐν τῷ θερμαίνειν, καὶ ἠρέμα ξηραίνειν.
@@ -569,10 +575,10 @@
 ἐπικεῖσθαι, ταχείας δὲ ποιεῖσθαι τὰς ἐν ἀμφοτέροις
 <milestone n="19" unit="Camerarius_2ed_page"/> μεταβολάς, πνευματούμενος ὥσπερ ὑπὸ τῆς περὶ
 αὐτὸν τὸν ἥλιον ὀξυκινησίας.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="5">
-<p>Περὶ ἀγαθοποιῶν καὶ κακοποιῶν
+</p>
+            </div>
+            <div n="5" type="chapter">
+               <p>Περὶ ἀγαθοποιῶν καὶ κακοποιῶν
 Τούτων οὕτως ἐχόντων, ἐπειδὴ τῶν τεττάρων
 χυμάτων δύο μέν ἐστι τὰ γόνιμα καὶ ποιητικά, τό
 τε τοῦ θερμοῦ καὶ τὸ τοῦ ὑγροῦ· διὰ τούτων γὰρ
@@ -590,10 +596,10 @@
 δυναμένους, καὶ μᾶλλον συντρεπομένους, οἷς ἂν τῶν
 ἄλλων προσγένωνται.
 <pb xml:id="p.40"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="6">
-<p>Περὶ ἀρρενικῶν καὶ θηλυκῶν ἀστέρων
+               </p>
+            </div>
+            <div n="6" type="chapter">
+               <p>Περὶ ἀρρενικῶν καὶ θηλυκῶν ἀστέρων
 Πάλιν ἐπειδὴ τὰ πρῶτα γένη τῶν φύσεών ἐστι
 δύο, τό τε ἀρρενικὸν καὶ τὸ θῆλυ, τῶν δὲ προκειμένων
 δυνάμεων ἡ τῆς ὑγρᾶς οὐσίας μάλιστα θηλυκὴ
@@ -616,10 +622,10 @@
 ἀρρενοῦσθαι· ἐν δὲ τοῖς λοιποῖς δυσὶ τεταρτημορίοις
 ὡς λιβυκοὺς θηλύνεσθαι.
 <pb xml:id="p.42"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="7">
-<p>Περὶ ἡμερινῶν καὶ νυκτερινῶν
+               </p>
+            </div>
+            <div n="7" type="chapter">
+               <p>Περὶ ἡμερινῶν καὶ νυκτερινῶν
 Ὁμοίως δὲ ἐπειδὴ τῶν ποιούντων τὸν χρόνον τὰ
 ἐκφανέστατα διαστήματα δύο ταῦτα τυγχάνει τό τε
 τῆς ἡμέρας ἠρρενωμένον μᾶλλον διὰ τὸ ἐν αὐτῇ
@@ -643,10 +649,10 @@
 ὑπὸ τῆς κράσεως τῆς συμμετρίας τυχὼν
 οἰκεῖος γίνεται τῆς τὸ εὔκρατον παρασχούσης αἱρέσεως.
 <pb xml:id="p.44"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="8">
-<p>Περὶ τῆς δυνάμεως τῶν πρὸς
+               </p>
+            </div>
+            <div n="8" type="chapter">
+               <p>Περὶ τῆς δυνάμεως τῶν πρὸς
 τὸν ἥλιον σχηματισμῶν
 Ἤδη μέντοι καὶ παρὰ τοὺς πρὸς τὸν ἥλιον συσχηματισμοὺς
 ἥ τε σελήνη καὶ οἱ τρεῖς τῶν πλανωμένων
@@ -671,10 +677,10 @@
 δυνάμεως, τρεπομένης δὲ κατὰ τὸ ποσὸν ὑπὸ τῆς
 τῶν σχηματιζομένων.
 <pb xml:id="p.46"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="9">
-<p>Περὶ τῆς τῶν ἀπλανῶν
+               </p>
+            </div>
+            <div n="9" type="chapter">
+               <p>Περὶ τῆς τῶν ἀπλανῶν
 ἀστέρων δυνάμεως
 Ἑξῆς δὲ ὄντος καὶ τὰς τῶν ἀπλανῶν φύσεις κατὰ
 τὸ ἰδίως αὐτῶν ποιητικὸν ἐπιδραμεῖν, ἐκθησόμεθα
@@ -846,10 +852,10 @@
 τῷ τε τοῦ Κρόνου καὶ τῷ τοῦ Ἑρμοῦ.
 Αἱ μὲν οὖν τῶν ἀστέρων καθʼ ἑαυτὰς δυνάμεις
 τοιαύτης ἔτυχον ὑπὸ τῶν παλαιοτέρων παρατηρήσεως.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="10">
-<p>Περὶ τῆς τῶν ὡρῶν καὶ <num n="4">δ</num> γωνιῶν
+</p>
+            </div>
+            <div n="10" type="chapter">
+               <p>Περὶ τῆς τῶν ὡρῶν καὶ <num n="4">δ</num> γωνιῶν
 δυνάμεως
 Καὶ τῶν ὡρῶν δὲ τῶν τοῦ ἔτους <num n="4">δ</num> οὐσῶν, ἔαρος
 τε καὶ θέρους καὶ μετοπώρου καὶ χειμῶνος, τὸ μὲν
@@ -920,10 +926,11 @@
 ταῖς ξηραῖς οἱ ὑγραντικοὶ καὶ ἐν ταῖς ἄλλαις δὲ
 ὡσαύτως κατὰ τὸ ἀνάλογον τῇ διὰ τῆς μίξεως
 συγκιρναμένῃ ποιότητι.
-<milestone n="31" unit="Camerarius_2ed_page"/></p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="11">
-<p>Περὶ τροπικῶν καὶ ἰσημερινῶν
+<milestone n="31" unit="Camerarius_2ed_page"/>
+               </p>
+            </div>
+            <div n="11" type="chapter">
+               <p>Περὶ τροπικῶν καὶ ἰσημερινῶν
 καὶ στερεῶν καὶ δισώμων ζῳδιων
 Τούτων δὲ οὕτω προεκτεθέντων ἀκόλουθον ἂν εἴη
 συνάψαι καὶ τὰς αὐτῶν τῶν τοῦ ζωδιακοῦ δωδεκατημορίων
@@ -970,10 +977,10 @@
 εἶναι τῶν στερεῶν καὶ τῶν τροπικῶν καὶ ἰσημερινῶν,
 καὶ ὥσπερ κεκοινωνηκέναι κατὰ τὰ τέλη καὶ
 τὰς ἀρχὰς τῆς τῶν δύο καταστημάτων φυσικῆς ἰδιοτροπίας.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="12">
-<p>Περὶ ἀρρενικῶν καὶ θηλυκῶν ζῳδίων
+</p>
+            </div>
+            <div n="12" type="chapter">
+               <p>Περὶ ἀρρενικῶν καὶ θηλυκῶν ζῳδίων
 Πάλιν δὲ ὡσαύτως ἓξ μὲν τῶν δωδεκατημορίων
 ἀπένειμαν τῇ φύσει τῇ ἀρρενικῇ καὶ ἡμερινῇ, τὰ δὲ
 ἴσα τῇ θηλυκῇ καὶ νυκτερινῇ. καὶ ἡ μὲν τάξις
@@ -1013,18 +1020,18 @@
 ἐκ τῶν τοιούτων διατυπώσεων ποιότητος ἐν αἷς ἂν
 τῶν προτελέσεων χρησίμη φαίνηται δυναμένης προεκτίθεσθαι.
 <pb xml:id="p.72"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="13">
-<p>Περὶ τῶν συσχηματιζομένων
+               </p>
+            </div>
+            <div n="13" type="chapter">
+               <p>Περὶ τῶν συσχηματιζομένων
 δωδεκατημορίων
 Οἰκειοῦται δὲ ἀλλήλοις τῶν μερῶν τοῦ ζωδιακοῦ
 πρῶτον τὰ συσχηματιζόμενα. ταῦτα δʼ ἐστὶν ὅσα
 διάμετρον ἔχει στάσιν, περιέχοντα δύο ὀρθὰς γωνίας
-καὶ ἓξ τῶν δωδεκατημορίων καὶ μοίρας ρπ<num n="0"></num>· καὶ
+καὶ ἓξ τῶν δωδεκατημορίων καὶ μοίρας ρπ<num n="0"/>· καὶ
 ὅσα τρίγωνον ἔχει στάσιν, περιέχοντα μίαν ὀρθὴν
 γωνίαν καὶ τρίτον καὶ δʼ δωδεκατημόρια καὶ μοίρας
-ρκ<num n="0"></num>· καὶ ὅσα τετραγωνίζειν λέγεται, περιέχοντα
+ρκ<num n="0"/>· καὶ ὅσα τετραγωνίζειν λέγεται, περιέχοντα
 μίαν ὀρθὴν καὶ <num n="3">γ</num> δωδεκατημόρια καὶ μοίρας (??)·
 καὶ ἔτι ὅσα ἑξάγωνον ποιεῖται στάσιν, περιέχοντα
 δίμοιρον μιᾶς ὀρθῆς καὶ <num n="2">β</num> δωδεκατημόρια καὶ μοίρας <num n="60">ξ</num>.
@@ -1050,10 +1057,10 @@
 ἢ ἀρρενικῶν ἀσύμφωνοι δὲ οἱ τετράγωνοι καὶ οἱ
 κατὰ διάμετρον διότι κατὰ ἀντίθεσιν τῶν ὁμογενῶν
 τὴν σύστασιν λαμβάνουσιν.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="14">
-<p>Περὶ προσταττόντων καὶ ἀκουόντων
+</p>
+            </div>
+            <div n="14" type="chapter">
+               <p>Περὶ προσταττόντων καὶ ἀκουόντων
 Ὡσαύτως δὲ προστάττοντα καὶ ἀκούοντα λέγεται
 τμήματα τὰ κατʼ ἴσην διάστασιν ἀπὸ τοῦ
 αὐτοῦ, ἢ καὶ ὁποτέρου, τῶν ἰσημερινῶν σημείων
@@ -1065,10 +1072,11 @@
 ὑπακούοντα, διὰ τὸ κατʼ ἐκεῖνο μὲν γινόμενον τὸν
 ἥλιον μείζονα ποιεῖν τῆς νυκτὸς τὴν ἡμέραν, κατὰ
 τοῦτο δὲ ἐλάττω.
-<milestone n="36" unit="Camerarius_2ed_page"/></p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="15">
-<p>Περὶ βλεπόντων καὶ ἰσοδυναμούντων
+<milestone n="36" unit="Camerarius_2ed_page"/>
+               </p>
+            </div>
+            <div n="15" type="chapter">
+               <p>Περὶ βλεπόντων καὶ ἰσοδυναμούντων
 Πάλιν δὲ ἰσοδυναμεῖν φασιν ἀλλήλοις μέρη τὰ τοῦ
 αὐτοῦ καὶ ὁποτέρου τῶν τροπικῶν σημείων τὸ ἴσον
 ἀφεστῶτα, διὰ τὸ καθʼ ἑκάτερον αὐτῶν τοῦ ἡλίου
@@ -1078,10 +1086,10 @@
 ἄλληλα λέγεται διά τε τὰ προειρημένα καὶ
 ἐπειδήπερ ἑκάτερον αὐτῶν ἔκ τε τῶν αὐτῶν μερῶν
 τοῦ ὁρίζοντος ἀνατέλλει καὶ εἰς τὰ αὐτὰ καταδύνει.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="16">
-<p>Περὶ ἀσυνδέτων
+</p>
+            </div>
+            <div n="16" type="chapter">
+               <p>Περὶ ἀσυνδέτων
 Ἀσύνδετα δὲ καὶ ἀπηλλοτριωμένα καλεῖται τμήματα
 ὅσα μηδένα λόγον ἁπλῶς ἔχει πρὸς ἄλληλα
 τῶν προκατειλεγμένων οἰκειώσεων. ταῦτα δέ
@@ -1097,10 +1105,10 @@
 ἑνὸς περιέχει γωνίαν, τὰ δὲ διὰ πέντε εἰς ἄνισα
 <milestone n="37" unit="Camerarius_2ed_page"/> διαιρεῖ τὸν ὅλον κύκλον, τῶν ἄλλων σχηματισμῶν
 εἰς ἴσα τὴν τῆς περιμέτρου διαίρεσιν ποιουμένων.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="17">
-<p>Περὶ οἴκων ἑκάστου ἀστέρος
+</p>
+            </div>
+            <div n="17" type="chapter">
+               <p>Περὶ οἴκων ἑκάστου ἀστέρος
 Συνοικειοῦνται δὲ καὶ οἱ πλάνητες τοῖς τοῦ
 ζωδιακοῦ μέρεσι κατά τε τοὺς καλουμένους οἴκους
 καὶ τρίγωνα καὶ ὑψώματα καὶ ὅρια καὶ τὰ τοιαῦτα.
@@ -1154,10 +1162,11 @@
 τῶν φωτῶν, τὰ λοιπὰ καὶ συνεχῆ τοῖς ἐκείνων
 οἴκοις ἐδόθη δύο δωδεκατημόρια τό τε τῶν Διδύμων
 καὶ τὸ τῆς Παρθένου.
-<milestone n="39" unit="Camerarius_2ed_page"/></p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="18">
-<p>Περὶ τριγώνων
+<milestone n="39" unit="Camerarius_2ed_page"/>
+               </p>
+            </div>
+            <div n="18" type="chapter">
+               <p>Περὶ τριγώνων
 Ἡ δὲ πρὸς τὰ τρίγωνα συνοικείωσις τοιαύτη τις
 οὖσα τυγχάνει. ἐπειδὴ γὰρ τὸ τρίγωνον καὶ
 ἰσόπλευρον σχῆμα συμφωνότατόν ἐστιν ἑαυτῷ καὶ
@@ -1230,10 +1239,10 @@
 οἰκοδεσποτίαν, κατὰ μῖξιν δὲ νοτολιβυκὸν διὰ τὴν
 τῆς Ἀφροδίτης οἰκοδεσποτίαν.
 <pb xml:id="p.88"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="19">
-<p>Περὶ ὑψωμάτων
+               </p>
+            </div>
+            <div n="19" type="chapter">
+               <p>Περὶ ὑψωμάτων
 Τὰ δὲ καλούμενα τῶν πλανωμένων ὑψώματα
 λόγον ἔχει τοιόνδε ἐπειδὴ γὰρ ὁ ἥλιος ἐν μὲν τῷ
 Κριῷ γενόμενος τὴν εἰς τὸ ὑψηλὸν καὶ βόρειον
@@ -1276,10 +1285,11 @@
 ὢν εἰκότως καὶ κατὰ τὸ ἀντικείμενον ἐν μὲν τῇ
 Παρθένῳ καθʼ ἣν τὸ ξηρὸν μετόπωρον προσημαίνεται,
 καὶ αὐτὸς ὥσπερ ὑψοῦται, κατὰ δὲ τοὺς Ἰχθῦς ταπεινοῦται.
-<milestone n="43" unit="Camerarius_2ed_page"/></p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="20">
-<p>Περὶ ὁρίων διαθέσεως
+<milestone n="43" unit="Camerarius_2ed_page"/>
+               </p>
+            </div>
+            <div n="20" type="chapter">
+               <p>Περὶ ὁρίων διαθέσεως
 Περὶ δὲ τῶν ὁρίων δισσοὶ μάλιστα φέρονται
 τρόποι, καὶ ὁ μέν ἐστιν Αἰγυπτιακός, ὁ πρὸς τὰς
 τῶν οἴκων ὡς ἐπὶ πᾶν κυρίας· ὁ δὲ Χαλδαϊκός, ὁ
@@ -1342,12 +1352,12 @@
 <pb xml:id="p.96"/>
 Τὰ μέντοι φερόμενα παρὰ τοῖς πολλοῖς διὰ τὴν
 τῆς ἐπάνωθεν παραδόσεως ἀξιοπιστίαν τοῦτον ὑπόκειται τὸν τρόπον.
-<figure n="e#3uation"></figure>
-<pb xml:id="p.98"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="21">
-<p>Κατὰ Χαλδαίους
+<figure n="e#3uation"/>
+                  <pb xml:id="p.98"/>
+               </p>
+            </div>
+            <div n="21" type="chapter">
+               <p>Κατὰ Χαλδαίους
 Ὁ δὲ Χαλδαϊκὸς τρόπος ἁπλῆν μέν τινα ἔχει καὶ
 μᾶλλον πιθανήν, οὐχ οὕτω δὲ αὐταρκῆ πρός τε
 τὰς τῶν τριγώνων δεσποτίας ἀκολουθίαν καὶ τὴν
@@ -1383,7 +1393,7 @@
 Κρόνου μοῖραι ἡμέρας μὲν <num n="78">οη</num>, νυκτὸς δὲ <num n="66">ξς</num>·
 τοῦ δὲ Διὸς <num n="72">οβ</num>· τοῦ δὲ Ἄρεως <num n="69">ξθ</num>· τῆς δὲ
 Ἀφροδίτης <num n="75">οε</num>· τοῦ δὲ Ἑρμοῦ ἡμέρας μὲν <num n="66">ξς</num>,
-νυκτὸς δὲ <num n="78">οη</num>. γίνονται μοῖραι τξ<num n="0"></num>.
+νυκτὸς δὲ <num n="78">οη</num>. γίνονται μοῖραι τξ<num n="0"/>.
 Τούτων μὲν οὖν τῶν ὁρίων ἀξιοπιστότερα, ὡς
 <milestone n="47" unit="Camerarius_2ed_page"/> ἔφαμεν, τυγχάνει τὰ κατὰ τὸν Αἰγυπτιακὸν τρόπον
 καὶ διὰ τὸ τὴν συναγωγὴν αὐτῶν παρὰ τοῖς Αἰγυπτίοις
@@ -1448,12 +1458,12 @@
 <pb xml:id="p.106"/>
 βραδύτερον αὐτῶν τῆς κινήσεως. ἔστι δὲ καὶ ἡ
 τούτων τῶν ὁρίων ἔκθεσις τοιαύτη.
-<figure n="e#3uation"></figure>
-<pb xml:id="p.108"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="22">
-<p>Περὶ τόπων καὶ μοιρῶν
+<figure n="e#3uation"/>
+                  <pb xml:id="p.108"/>
+               </p>
+            </div>
+            <div n="22" type="chapter">
+               <p>Περὶ τόπων καὶ μοιρῶν
 Διεῖλον δέ τινες καὶ εἰς ἔτι τούτων λεπτομερέστερα
 τμήματα τῆς οἰκοδεσποτίας, τόπους καὶ
 μοίρας ὀνομάσαντες, καὶ τόπον μὲν ὑποτιθέμενοι
@@ -1479,10 +1489,10 @@
 ἀναγκασθησόμεθα ἢ συγχρώμενοι διαπίπτειν,
 παραβάντων καὶ ἀπαλλοτριωθέντων τῶν τὰς
 δυνάμεις αὐτοῖς ἐμπεριποιησάντων τοῦ ζωδιακοῦ διαστημάτων.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="23">
-<p>Περὶ προσώπων καὶ λαμπηνῶν
+</p>
+            </div>
+            <div n="23" type="chapter">
+               <p>Περὶ προσώπων καὶ λαμπηνῶν
 καὶ τῶν τοιούτων
 Αἱ μὲν οὖν συνοικειώσεις τῶν ἀστέρων καὶ τῶν
 δωδεκατημορίων σχεδὸν ἂν εἶεν τοσαῦται. λέγονται
@@ -1510,10 +1520,11 @@
 καταλαμβάνωνται, πολὺ παραλύεται τὸ τῆς οἰκείας
 αὐτῶν δυνάμεως, ἄλλην τινὰ φύσιν μικτὴν ἀποτελούσης
 τῆς κατὰ τὸ ἀνόμοιον τῶν περιεχόντων ζῳδίων κράσεως.
-<milestone n="52" unit="Camerarius_2ed_page"/></p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:1" n="24">
-<p>Περὶ συναφειῶν καὶ ἀπορροιῶν
+<milestone n="52" unit="Camerarius_2ed_page"/>
+               </p>
+            </div>
+            <div n="24" type="chapter">
+               <p>Περὶ συναφειῶν καὶ ἀπορροιῶν
 καὶ τῶν ἄλλων δυνάμεων
 Καὶ καθʼ ὅλου δὲ συνάπτειν μὲν λέγονται τοῖς
 ἑπομένοις οἱ προηγούμενοι, ἀπερρυηκέναι δὲ οἱ
@@ -1548,12 +1559,15 @@
 καὶ μᾶλλον ὅταν ἐπὶ τοῦ ἀνατολικοῦ,
 ἧττον δὲ ὅταν ὑπὸ γῆν μεσουρανῶσιν ἢ ἄλλως συσχηματίζωνται
 τῷ ἀνατέλλοντι τόπῳ· μὴ οὕτω δὲ
-ἔχοντες ἀδύναμοι παντελῶς τυγχάνουσιν.</p></div></div>
-
-<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2" n="2">
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="1">
-<head rend="align(center)"><add>προοίμιον</add></head>
-<p>
+ἔχοντες ἀδύναμοι παντελῶς τυγχάνουσιν.</p>
+            </div>
+         </div>
+         <div n="2" type="book">
+            <div n="1" type="chapter">
+               <head rend="align(center)">
+                  <add>προοίμιον</add>
+               </head>
+               <p>
 Τὰ μὲν δὴ κυριώτερα τῶν πινακικῶς προεκτεθειμένων
 νῦν εἰς τὴν τῶν κατὰ μέρος προρρήσεων
 ἐπίσκεψιν ὡς ἐν κεφαλαίοις μέχρι τοσούτων ἡμῖν
@@ -1565,7 +1579,7 @@
 διαιρουμένου τοῦ δἰ ἀστρονομίας προγνωστικοῦ,
 καὶ πρώτου μὲν ὄντος καὶ γενικωτέρου τοῦ καθ̓
 <pb xml:id="p.118"/>
-<milestone n="54" unit="Camerarius_2ed_page"/> ὅλα ἔθνη καὶ χώρας καὶ πόλεις λαμβανομένου, ὃ
+                  <milestone n="54" unit="Camerarius_2ed_page"/> ὅλα ἔθνη καὶ χώρας καὶ πόλεις λαμβανομένου, ὃ
 καλεῖται καθολικόν, δευτέρου δὲ καὶ εἰδικωτέρου
 τοῦ καθʼ ἕνα ἕκαστον τῶν ἀνθρώπων, ὃ καὶ αὐτὸ
 καλεῖται γενεθλιαλογικόν, προσήκειν ἡγούμεθα περὶ
@@ -1605,10 +1619,10 @@
 ἐπὶ πᾶν σωματικάς τε καὶ ἠθικὰς ἰδιοτροπίας, οὐκ
 ἀλλοτρίας τυγχανούσας τῆς τῶν συνοικειουμένων
 ἀστέρων τε καὶ δωδεκατημορίων φυσικῆς περιστάσεως.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="2">
-<p>Περὶ τῶν καθʼ ὅλα κλίματα ἰδιωμάτων
+</p>
+            </div>
+            <div n="2" type="chapter">
+               <p>Περὶ τῶν καθʼ ὅλα κλίματα ἰδιωμάτων
 Τῶν τοίνυν ἐθνικῶν ἰδιωμάτων τὰ μὲν καθ̓
 ὅλους παραλλήλους καὶ γωνίας ὅλας διαιρεῖσθαι
 συμβέβηκε ὑπὸ τῆς πρὸς τὸν διὰ μέσων τῶν ζῳδίων
@@ -1645,7 +1659,7 @@
 Οἱ δὲ μεταξὺ τοῦ θερινοῦ τροπικοῦ καὶ τῶν
 ἄρκτων, μήτε κατὰ κορυφὴν γινομένου παρʼ αὐτοῖς
 <pb xml:id="p.124"/>
-<milestone n="57" unit="Camerarius_2ed_page"/> τοῦ ἡλίου μήτε πολὺ κατὰ τὰς μεσημβρινὰς παρόδους
+                  <milestone n="57" unit="Camerarius_2ed_page"/> τοῦ ἡλίου μήτε πολὺ κατὰ τὰς μεσημβρινὰς παρόδους
 ἀφισταμένου, τῆς τε τῶν ἀέρων εὐκρασίας
 μετειλήφασι, καὶ αὐτῆς μὲν διαφερούσης ἀλλʼ οὐ
 σφόδρα μεγάλην τὴν παραλλαγὴν τῶν καυμάτων
@@ -1692,10 +1706,10 @@
 ἀναγκαῖον οὖν ἐφʼ ὧν ἂν εἴη χρήσιμον πρὸς τὰς
 κατὰ μέρος ἐπισκέψεις κεφαλαιωδῶς ἐπελθεῖν.
 <pb xml:id="p.128"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="3">
-<p>Περὶ τῆς τῶν χωρῶν πρὸς τὰ τρίγωνα
+               </p>
+            </div>
+            <div n="3" type="chapter">
+               <p>Περὶ τῆς τῶν χωρῶν πρὸς τὰ τρίγωνα
 καὶ τοὺς ἀστέρας συνοικειώσεως
 Τεττάρων δὴ τριγωνικῶν σχημάτων ἐν τῷ
 <milestone n="59" unit="Camerarius_2ed_page"/> ζωδιακῷ θεωρουμένων, ὡς δέδεικται διὰ τῶν ἔμπροσθεν
@@ -2124,10 +2138,10 @@
 ὡροσκοποῦν· ἐφʼ ὧν δʼ οἱ χρόνοι τῶν κτίσεων οὐχ
 εὑρίσκονται, καθʼ ὧν ἐν ταῖς τῶν κατὰ καιρὸν
 ἀρχόντων ἢ βασιλευόντων γενέσεσιν ἐκπίπτει τὸ μεσουράνημα.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="4">
-<p>Ἔφοδος εἰς τὰς κατὰ μέρος προτελέσεις
+</p>
+            </div>
+            <div n="4" type="chapter">
+               <p>Ἔφοδος εἰς τὰς κατὰ μέρος προτελέσεις
 Τούτων οὕτως προεπεσκεμμένων ἀκόλουθον ἂν
 εἴη λοιπὸν τὰς τῶν προτελέσεων ἐφόδους κεφαλαιώδως
 ἐπελθεῖν, καὶ πρῶτον τῶν καθʼ ὅλας περιστάσεις
@@ -2149,10 +2163,10 @@
 λαμβάνειν περὶ ποῖα τῶν γενῶν ἀποβήσεται τὸ σύμπτωμα·
 τελευταῖον δὲ τὸ εἰδικόν, καθʼ ὃ τὴν αὐτοῦ
 τοῦ ἀποτελεσθησομένου ποιότητα θεωρήσομεν.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="5">
-<p>Περὶ τῆς τῶν διατιθεμένων
+</p>
+            </div>
+            <div n="5" type="chapter">
+               <p>Περὶ τῆς τῶν διατιθεμένων
 χωρῶν ἐπισκέψεως
 Περὶ μὲν οὖν τοῦ πρώτου καὶ τοπικοῦ τὴν διάληψιν
 ποιησόμεθα τοιαύτην· κατὰ γὰρ τὰς γινομένας
@@ -2171,10 +2185,10 @@
 περὶ τὰς πρὸς αὐτὸ τὸ τῆς ἐκλείψεως δωδεκατημόριον
 λόγον ἐχούσας καὶ ἐν ὅσαις αὐτῶν ὑπὲρ γῆν
 οὖσα ἡ ἔκλειψις ἐφαίνετο.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="6">
-<p>Περὶ τοῦ χρόνου τῶν ἀποτελουμένων
+</p>
+            </div>
+            <div n="6" type="chapter">
+               <p>Περὶ τοῦ χρόνου τῶν ἀποτελουμένων
 Τὸ δὲ δεύτερον καὶ χρονικὸν κεφάλαιον, καθʼ ὃ
 τοὺς καιροὺς τῶν ἐπισημασιῶν καὶ τῆς παρατάσεως
 τὴν ποσότητα προσήκει διαγινώσκειν, ἐπισκεψόμεθα
@@ -2217,10 +2231,10 @@
 ποιοῦνται τῶν συμπτωμάτων, δύνοντες δὲ καὶ ὑπὸ
 τὰς αὐγὰς ὄντες ἢ ἀκρονύκτους ποιούμενοι προηγήσεις
 ἄνεσιν τῶν ἀποτελουμένων ποιοῦσιν.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="7">
-<p>Περὶ τοῦ γένους τῶν διατιθεμένων
+</p>
+            </div>
+            <div n="7" type="chapter">
+               <p>Περὶ τοῦ γένους τῶν διατιθεμένων
 Τρίτου δʼ ὄντος κεφαλαίου τοῦ γενικοῦ, καθʼ ὃ δεῖ
 διαλαβεῖν περὶ ποῖα τῶν γενῶν ἀποβήσεται τὸ
 σύμπτωμα, λαμβάνεται καὶ τοῦτο διὰ τῆς τῶν
@@ -2328,10 +2342,10 @@
 διαμετροῦντες δὲ ἐπὶ τὸ ἥμισυ· ἑῷοι δὲ σχηματιζόμενοι
 πρὸς τὰς ἡλιακὰς ἢ ἑσπέριοι πρὸς τὰς
 σεληνιακὰς ἐπὶ τὸ πλεῖον
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="8">
-<p>Περὶ τῆς αὐτοῦ τοῦ ἀποτελέσματος ποιότητος
+</p>
+            </div>
+            <div n="8" type="chapter">
+               <p>Περὶ τῆς αὐτοῦ τοῦ ἀποτελέσματος ποιότητος
 Τέταρτον δʼ ἐστὶ κεφάλαιον τὸ περὶ αὐτῆς τῆς
 τοῦ ἀποτελέσματος ποιότητος, τουτέστι, πότερον
 ἀγαθῶν ἢ τῶν ἐναντίων ἐστὶ ποιητικὸν καὶ ποδαπὸν
@@ -2522,10 +2536,10 @@
 μάλιστα καὶ δυσφύλακτοι τυγχάνουσιν αἱ μοιρικαὶ
 καθέξεις ἢ διαμετρήσεις τῶν ἐκλειπτικῶν τόπων
 πρὸς ὁπότερον τῶν φωτῶν.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="9">
-<p>Περὶ χρωμάτων τῶν ἐκλείψεων
+</p>
+            </div>
+            <div n="9" type="chapter">
+               <p>Περὶ χρωμάτων τῶν ἐκλείψεων
 καὶ κομητῶν καὶ τῶν τοιούτων
 Τηρητέον δὲ πρὸς τὰς καθʼ ὅλου περιστάσεις καὶ
 τὰ περὶ τὰς ἐκλείψεις χρώματα ἤτοι τῶν φωτῶν
@@ -2562,10 +2576,10 @@
 συμπτωμάτων· διὰ δὲ τῆς πρὸς τὸν ἥλιον σχέσεως
 καὶ τὴν καταρχήν, ἐπειδήπερ ἑῷοι μὲν ἐπὶ πολὺ
 φαινόμεναι τάχιον ἐπισημαίνουσιν, ἑσπέριοι δὲ βράδιον.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="10">
-<p>Περὶ τῆς τοῦ ἔτους νουμηνίας
+</p>
+            </div>
+            <div n="10" type="chapter">
+               <p>Περὶ τῆς τοῦ ἔτους νουμηνίας
 Δεδειγμένης δὲ τῆς ἐφόδου τῆς περὶ τὰς καθ̓
 ὅλου περιστάσεις χωρῶν τε καὶ πόλεων, λοιπὸν ἂν
 εἴη καὶ περὶ τῶν λεπτομερεστέρων ὑπομνηματίσασθαι·
@@ -2638,10 +2652,10 @@
 ἕκαστα δεδηλώκαμεν ἐν τοῖς ἔμπροσθεν. ὑπόλοιπον
 <milestone n="94" unit="Camerarius_2ed_page"/> δʼ ἂν εἴη καὶ περὶ τῆς ἐπὶ μέρους τῶν ζῳδίων
 φύσεως εἰπεῖν.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="11">
-<p>Περὶ τῆς μερικῆς πρὸς τὰ καταστήματα
+</p>
+            </div>
+            <div n="11" type="chapter">
+               <p>Περὶ τῆς μερικῆς πρὸς τὰ καταστήματα
 φύσεως τῶν ζῳδίων
 Τὸ μὲν οὖν τοῦ Κριοῦ δωδεκατημόριον καθʼ ὅλου
 μέν ἐστι διὰ τὴν ἰσημερινὴν ἐπισημασίαν βροντῶδες
@@ -2714,10 +2728,10 @@
 κάθυγρα, τὰ δὲ ἑπόμενα καυσώδη· τὰ δὲ βόρεια
 πνευματώδη, τὰ δὲ νότια ὑδατώδη.
 <pb xml:id="p.206"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="12">
-<p>Περὶ τῆς ἐπὶ μέρους τῶν
+               </p>
+            </div>
+            <div n="12" type="chapter">
+               <p>Περὶ τῆς ἐπὶ μέρους τῶν
 καταστημάτων ἐπισκέψεως
 Τούτων δὲ οὕτως προεκτεθειμένων αἱ κατὰ μέρος
 ἔφοδοι τῶν ἐπισημασιῶν περιέχουσι τὸν τρόπον
@@ -2796,10 +2810,11 @@
 βεβαιουμένης δὲ μάλιστα καὶ ἰσχυροποιουμένης τῆς
 ἐνεργείας, ὅταν οἱ τῶν καθʼ ὅλου φύσεων οἰκοδεσποτήσαντες
 ἀστέρες καὶ ταῖς ἐπὶ μέρους τύχωσι συσχηματιζόμενοι.
-<milestone n="100" unit="Camerarius_2ed_page"/></p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:2" n="13">
-<p>Περὶ τῆς τῶν μετεώρων σημειώσεως
+<milestone n="100" unit="Camerarius_2ed_page"/>
+               </p>
+            </div>
+            <div n="13" type="chapter">
+               <p>Περὶ τῆς τῶν μετεώρων σημειώσεως
 Χρήσιμοι δʼ ἂν εἶεν πρὸς τὰς τῶν κατὰ μέρος
 ἐπισημασιῶν προγνώσεις καὶ αἱ τῶν γινομένων
 σημείων περί τε τὸν ἥλιον καὶ τὴν σελήνην καὶ τοὺς
@@ -2887,12 +2902,14 @@
 μέχρι τοσούτων ἡμῖν κατὰ τὸ κεφαλαιῶδες ὑπομνηματίσθω.
 τῆς δὲ κατὰ τὸ γενεθλιαλογικὸν εἶδος
 προγνώσεως τὰς πραγματείας ἐν τοῖς ἑξῆς κατὰ
-τὴν προσήκουσαν ἀκολουθίαν ἐφοδεύσομεν.</p></div></div>
-<pb xml:id="p.220"/>
-<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2" n="3">
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="1">
-<head rend="align(center)">προοίμιον</head>
-<p>
+τὴν προσήκουσαν ἀκολουθίαν ἐφοδεύσομεν.</p>
+            </div>
+         </div>
+         <pb xml:id="p.220"/>
+         <div n="3" type="book">
+            <div n="1" type="chapter">
+               <head rend="align(center)">προοίμιον</head>
+               <p>
 Ἐφωδευμένης ἡμῖν ἐν τοῖς ἔμπροσθεν τῆς περὶ
 τὰ καθʼ ὅλου συμπτώματα θεωρίας, ὡς προηγουμένης
 καὶ τὰ πολλὰ κατακρατεῖν δυναμένης τῶν
@@ -3012,10 +3029,10 @@
 αὐτὴν τὴν σύγκρισιν ἰδιώματα καὶ τῶν κατὰ τὸν
 τῆς σπορᾶς χρόνον διὰ τῆς αὐτῆς θεωρίας
 ὑποπιπτόντων ἰδιωμάτων.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="2">
-<p>Περὶ μοίρας ὡροσκοπούσης
+</p>
+            </div>
+            <div n="2" type="chapter">
+               <p>Περὶ μοίρας ὡροσκοπούσης
 Ἐπειδὴ περὶ τοῦ πρώτου καὶ κυριωτάτου, τουτέστι
 τοῦ μορίου τῆς κατὰ τὴν ἐκτροπὴν ὥρας, ἀπορία
 γίνεται πολλάκις, μόνης μὲν ὡς ἐπὶ πᾶν τῆς δἰ
@@ -3069,10 +3086,10 @@
 ὅμοιον μεσουράνημα, τῷ αὐτῷ ἀριθμῷ πρὸς τὴν
 μεσουρανοῦσαν μοῖραν καταχρησάμενοι, διὰ ταύτης
 καὶ τὰ λοιπὰ τῶν κέντρων διαστησόμεθα.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="3">
-<p>Διαίρεσις γενεθλιαλογίας
+</p>
+            </div>
+            <div n="3" type="chapter">
+               <p>Διαίρεσις γενεθλιαλογίας
 Τούτων δὴ προεκτεθειμένων, εἴ τις αὐτῆς τῆς
 τάξεως ἕνεκα διαιροίη τὸ καθʼ ὅλου τῆς γενεθλιαλογικῆς
 θεωρίας, εὕροι ἂν τῶν κατὰ φύσιν καὶ
@@ -3151,10 +3168,10 @@
 ἑῷοι μὲν γὰρ ὄντες ἢ ἐπίκεντροι κατʼ ἀρχὰς
 γίνονται δραστικώτεροι, ἑσπέριοι δὲ ἢ ἐπὶ τῶν
 ἐπαναφορῶν βραδύτεροι.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="4">
-<p>Περὶ γονέων
+</p>
+            </div>
+            <div n="4" type="chapter">
+               <p>Περὶ γονέων
 Ὁ μὲν οὖν προηγούμενος τύπος τῆς κατʼ εἶδος
 ἐπισκέψεως, οὗ διὰ παντὸς ἔχεσθαι προσήκει,
 τοῦτον ἔχει τὸν τρόπον. ἀρξόμεθα δὲ ἤδη κατὰ
@@ -3294,10 +3311,10 @@
 ἐκβάσεως οὐκέτι τὸ τῆς πρώτης δεσποτίας αἴτιον,
 ἀλλʼ ἡ τοῦ κυριεύσαντός πως πρός τε τὸν ἥλιον καὶ
 τὰς τοῦ κόσμου γωνίας διάστασις.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="5">
-<p>Περι ἀδελφῶν
+</p>
+            </div>
+            <div n="5" type="chapter">
+               <p>Περι ἀδελφῶν
 Ὁ μὲν οὖν περὶ γονέων τόπος σχεδὸν καὶ ἀπὸ
 τούτων ἂν ἡμῖν γένοιτο καταφανής· ὁ δὲ περὶ
 ἀδελφῶν, εἴ τις κἀνταῦθα τὸ καθʼ ὅλου μόνον
@@ -3345,10 +3362,10 @@
 καὶ ἐνταῦθα πάλιν, τοῦ διδόντος ἀστέρος ὑποτιθεμένου
 κατὰ τὸν ὡροσκοπικὸν λόγον καὶ τῶν λοιπῶν
 ὡς ἐπὶ γενέσεως συνθεωρουμένων.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="6">
-<p>Περὶ ἀρρενικῶν καὶ θηλυκῶν
+</p>
+            </div>
+            <div n="6" type="chapter">
+               <p>Περὶ ἀρρενικῶν καὶ θηλυκῶν
 Ὑπʼ ὄψιν ἤδη καὶ τοῦ περὶ ἀδελφῶν λόγου κατὰ
 τὸν ἀρμόζοντα καὶ φυσικὸν τρόπον ἡμῖν γεγονότος,
 ἑξῆς ἂν εἴη τῶν κατʼ αὐτὴν τὴν γένεσιν ἄρξασθαι,
@@ -3375,10 +3392,10 @@
 ἥλιον, ἑῷοι μὲν γὰρ πάλιν ὄντες ἀρρενοῦνται,
 θηλύνονται δὲ ἑσπέριοι· δἰ ὧν πάντων τὴν κατὰ
 τὸ πλεῖστον ἐπικράτησιν τοῦ γένους προσήκει καταστοχάζεσθαι.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="7">
-<p>Περὶ διδυμογόνων
+</p>
+            </div>
+            <div n="7" type="chapter">
+               <p>Περὶ διδυμογόνων
 Καὶ περὶ τῶν γεννωμένων δὲ ὁμοίως ἀνὰ δύο ἢ
 καὶ πλειόνων τοὺς αὐτοὺς δύο τόπους παρατηρεῖν
 προσήκει, τουτέστι τά τε δύο φῶτα καὶ τὸν ὡροσκόπον.
@@ -3416,10 +3433,10 @@
 τινῶν σωματικῶν ἀποκυΐσκεσθαι καὶ ἔτι τὸ γίνεσθαί
 τινα τοῖς τόποις ἐξαίρετα καὶ ἀπροσδόκητα διὰ τῆς
 τῶν τοιούτων συμπτωμάτων ὥσπερ ἐπιφανείας.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="8">
-<p>Περὶ τεράτων
+</p>
+            </div>
+            <div n="8" type="chapter">
+               <p>Περὶ τεράτων
 Οὐκ ἀλλότριος δὲ τῆς προκειμένης σκέψεως οὐδ̓
 ὁ περὶ τῶν τεράτων λόγος. πρῶτον μὲν γὰρ
 ἐπὶ τῶν τοιούτων τὰ μὲν φῶτα ἀποκεκλικότα
@@ -3467,10 +3484,10 @@
 μόνος δὲ ὁ τοῦ Ἑρμοῦ νωδοὺς καὶ
 <pb xml:id="p.264"/>
 κωφούς, εὐφυεῖς μέντοι καὶ πανούργους ἄλλως ἀπεργάζεται.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="9">
-<p>Περὶ ἀτρόφων
+</p>
+            </div>
+            <div n="9" type="chapter">
+               <p>Περὶ ἀτρόφων
 Λοιποῦ δʼ ὄντος εἰς τὰ κατʼ αὐτὴν τὴν γένεσιν
 τοῦ περὶ ἀτρόφων λόγου, προσήκει διαλαβεῖν ὅτι
 πῂ μὲν ὁ τρόπος οὗτος ἔχεται τοῦ περὶ χρόνων
@@ -3536,16 +3553,16 @@
 δύσιν τις εἴη, ὑπʼ αὐτῶν τῶν γονέων ἀναληφθήσεται.
 κατὰ τὸν αὐτὸν δὲ τὸν τρόπον καὶ ἐπὶ τῶν πλειστογονούντων.
 <pb xml:id="p.270"/>
-<milestone n="127" unit="Camerarius_2ed_page"/> ἐὰν μὲν ὑπὸ δύσιν τις ᾖ τῶν κατὰ
+                  <milestone n="127" unit="Camerarius_2ed_page"/> ἐὰν μὲν ὑπὸ δύσιν τις ᾖ τῶν κατὰ
 δύο ἢ καὶ πλείους συνεσχηματισμένων ἀστέρων,
 ἡμιθανές τι ἢ σάρκωμα καὶ ἀτελὲς τὸ γεννώμενον
 ἀποτεχθήσεται. ἐὰν δὲ ὑπὸ κακοποιῶν καθυπερτερῆται,
 ἄτροφον ἢ ἄχρονον ἔσται τὸ ὑπὸ τῆς κατ̓
 αὐτὸν αἰτίας συγγεγενημένον.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="10">
-<p>Περὶ χρόνων ζωῆς
+</p>
+            </div>
+            <div n="10" type="chapter">
+               <p>Περὶ χρόνων ζωῆς
 Τῶν δὲ μετὰ τὴν γένεσιν συμπτωμάτων ἡγεῖται
 μὲν ὁ περὶ χρόνων ζωῆς λόγος, ἐπειδήπερ κατὰ
 τὸν ἀρχαῖον γέλοιόν ἐστι τὰ καθʼ ἕκαστα τῶν
@@ -3790,13 +3807,13 @@
 ἀνατελλέτω πρῶτον ἡ ἀρχὴ τοῦ Κριοῦ, ἵνα μεσουρανῇ
 ἡ ἀρχὴ τοῦ Αἰγοκέρωτος, καὶ ἀπεχέτω τοῦ ὑπὲρ
 γῆν μεσουρανήματος ἡ ἀρχὴ τῶν Διδύμων χρόνους
-ἰσημερινοὺς ρμη<num n="0"></num>. ἐπεὶ οὖν ἡ τοῦ Κριοῦ ἀρχὴ ἀπέχει
+ἰσημερινοὺς ρμη<num n="0"/>. ἐπεὶ οὖν ἡ τοῦ Κριοῦ ἀρχὴ ἀπέχει
 τοῦ μεσημβρινοῦ μεσουρανήματος καιρικὰς ὥρας
 ἕξ, ταύτας πολλαπλασιάσαντες ἐπὶ τοὺς <num n="17">ιζ</num> χρόνους,
 οἵπερ εἰσὶ τοῦ ὡριαίου μεγέθους τῆς ἀρχῆς τῶν
 Διδύμων, ἐπειδήπερ πρὸς τὸ ὑπὲρ γῆν μεσουράνημά
-ἐστιν ἡ τῶν ρμη<num n="0"></num> χρόνων ἀποχή, ἕξομεν καὶ ταύτης
-τῆς διαστάσεως χρόνους ρβ<num n="0"></num>. μετὰ τοὺς τῆς
+ἐστιν ἡ τῶν ρμη<num n="0"/> χρόνων ἀποχή, ἕξομεν καὶ ταύτης
+τῆς διαστάσεως χρόνους ρβ<num n="0"/>. μετὰ τοὺς τῆς
 ὑπεροχῆς ἄρα χρόνους <num n="46">μς</num> ὁ ἑπόμενος τόπος ἐπὶ
 τὸν τοῦ προηγουμένου μεταβήσεται. τοσοῦτοι δ̓
 εἰσὶν ἔγγιστα χρόνοι καὶ τῆς ἀναφορᾶς τοῦ τε
@@ -3817,7 +3834,7 @@
 εἰς τὰ προηγούμενα χρόνους ἰσημερινοὺς <num n="32">λβ</num>. ἐπεὶ
 οὖν πάλιν ἓξ ὥρας καιρικὰς ἀπέχει τοῦ μεσημβρινοῦ
 ἡ ἀρχὴ τοῦ Κριοῦ πρὸς δυσμάς, ἐὰν ἑπτακαιδεκάκις
-ταύτας ποιήσωμεν, ἕξομεν ρβ<num n="0"></num> χρόνους, οὓς ἀφέξει
+ταύτας ποιήσωμεν, ἕξομεν ρβ<num n="0"/> χρόνους, οὓς ἀφέξει
 τοῦ μεσημβρινοῦ καὶ ἡ ἀρχὴ τῶν Διδύμων ὅταν
 δύνῃ. ἀπεῖχε δὲ καὶ κατὰ τὴν πρώτην θέσιν ἐπὶ
 τὰ αὐτὰ χρόνους <num n="32">λβ</num>· ἐν τοῖς τῆς ὑπεροχῆς ἄρα
@@ -3910,10 +3927,10 @@
 κατακολουθεῖν, ἢ πρὸς ἁπάσας ὡς κατʼ ἰσότητα τῆς
 δυνάμεως ἰσχυούσας παρατηρητικῶς ἔχειν, τὸ μᾶλλον
 καὶ ἧττον αὐτῶν κατὰ τὸν αὐτὸν τρόπον ἐπισκεπτομένους.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="11">
-<p>Περὶ μορφῆς καὶ κράσεως
+</p>
+            </div>
+            <div n="11" type="chapter">
+               <p>Περὶ μορφῆς καὶ κράσεως
 σωματικῆς
 Ἐφοδευομένης δὲ καὶ τῆς τοῦ περὶ χρόνων ζωῆς
 <milestone n="142" unit="Camerarius_2ed_page"/> λόγου πραγματείας, λέγομεν ἀρχὴν τὴν κατὰ μέρος
@@ -4041,10 +4058,10 @@
 καὶ συνεπικίρναντας προσήκει τὴν ἐκ τῆς κράσεως
 συναγομένην ἰδιοτροπίαν περί τε τὰς μορφώσεις καὶ
 τὰς κράσεις τῶν σωμάτων καταστοχάζεσθαι.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="12">
-<p>Περὶ σινῶν καὶ παθῶν σωματικῶν
+</p>
+            </div>
+            <div n="12" type="chapter">
+               <p>Περὶ σινῶν καὶ παθῶν σωματικῶν
 Ἑπομένου δὲ τούτοις τοῦ περὶ τὰ σωματικὰ σίνη
 τε καὶ πάθη λόγου, συνάψομεν αὐτοῖς κατὰ τὸ
 ἑξῆς τὴν κατὰ τοῦτο τὸ εἶδος συνισταμένην ἐπίσκεψιν
@@ -4250,10 +4267,10 @@
 τοῦ δὲ τοῦ Ἑρμοῦ μετʼ ἐπικουρίας καὶ
 πορισμοῦ τινος δἰ αὐτῶν τῶν σινῶν ἢ καὶ παθῶν
 τοῖς ἔχουσι περιγινομένου.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="13">
-<p>Περὶ ποιότητος ψυχῆς
+</p>
+            </div>
+            <div n="13" type="chapter">
+               <p>Περὶ ποιότητος ψυχῆς
 Περὶ μὲν οὖν τῶν σωματικῶν συμπτωμάτων ὁ
 τύπος τῆς ἐπισκέψεως τοιοῦτος ἄν τις εἴη. τῶν
 δὲ ψυχικῶν ποιοτήτων αἱ μὲν περὶ τὸ λογικὸν καὶ
@@ -4352,7 +4369,7 @@
 Ὁ μὲν οὖν τοῦ Κρόνου ἀστὴρ μόνος τὴν οἰκοδεσποτίαν
 τῆς ψυχῆς λαβὼν καὶ αὐθεντήσας τοῦ τε Ἑρμοῦ
 <pb xml:id="p.340"/>
-<milestone n="158" unit="Camerarius_2ed_page"/> καὶ τῆς σελήνης, ἐὰν μὲν ἐνδόξως ἔχῃ πρός τε τὸ κοσμικὸν
+                  <milestone n="158" unit="Camerarius_2ed_page"/> καὶ τῆς σελήνης, ἐὰν μὲν ἐνδόξως ἔχῃ πρός τε τὸ κοσμικὸν
 καὶ τὰ κέντρα, ποιεῖ φιλοσωμάτους, ἰσχυρογνώμονας,
 βαθύφρονας, αὐστηρούς, μονογνώμονας,
 ἐπιμόχθους, ἐπιτακτικούς, κολαστικούς, περιουσιαστικούς,
@@ -4619,10 +4636,10 @@
 καὶ ἀσημότερον καὶ ὠμότερον καὶ μονογνωμονέστερον
 καὶ αὐστηρότερον καὶ δυσδιαγωγότερον καὶ
 ὅλως ἐπὶ τὸ δυσκατορθώτερον.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:3" n="14">
-<p>Περὶ παθῶν ψυχικῶν
+</p>
+            </div>
+            <div n="14" type="chapter">
+               <p>Περὶ παθῶν ψυχικῶν
 Ἐπεὶ δὲ τοῖς τῆς ψυχῆς ἰδιώμασιν ἀκολουθεῖ πως
 καὶ ὁ περὶ τῶν ἐξαιρέτων αὐτῆς παθῶν λόγος, καθ̓
 ὅλου μὲν πάλιν ἐπισημαίνεσθαι καὶ παρατηρεῖν
@@ -4753,12 +4770,15 @@
 συνεργεῖν, ὁ δὲ τοῦ Διὸς πρὸς τὸ εὐσχημονέστερον
 καὶ φυλακτικώτερον καὶ αἰδημονέστερον, ὁ δὲ τοῦ
 Ἑρμοῦ πρός τε τὸ περιβοητότερον καὶ τὸ τῶν
-παθῶν εὐκινητότερον καὶ πολυτροπώτερον καὶ εὐπροσκοπώτερον.</p></div></div>
-
-<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2" n="4">
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="1">
-<head rend="align(center)"><add>προοίμιον</add></head>
-<p>
+παθῶν εὐκινητότερον καὶ πολυτροπώτερον καὶ εὐπροσκοπώτερον.</p>
+            </div>
+         </div>
+         <div n="4" type="book">
+            <div n="1" type="chapter">
+               <head rend="align(center)">
+                  <add>προοίμιον</add>
+               </head>
+               <p>
 Τὰ μὲν οὖν πρὸ τῆς γενέσεως καὶ τὰ κατʼ αὐτὴν
 τὴν γένεσιν δυνάμενα θεωρεῖσθαι, καὶ ἔτι τῶν μετὰ
 τὴν γένεσιν ὅσα τῆς συστάσεως ἐστὶν ἴδια τὸ καθ̓
@@ -4768,10 +4788,10 @@
 μὲν ὁ περὶ τύχης κτητικῆς τε καὶ ἀξιωματικῆς
 λόγος, συνῆπται δʼ ὥσπερ ἡ μὲν κτητικὴ ταῖς τοῦ
 σώματος οἰκειώσεσιν, ἡ δʼ ἀξιωματικὴ ταῖς τῆς ψυχῆς.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="2">
-<p>Περὶ τύχης κτητικῆς
+</p>
+            </div>
+            <div n="2" type="chapter">
+               <p>Περὶ τύχης κτητικῆς
 Τὰ μὲν οὖν τῆς κτήσεως ὁποῖά τινα ἔσται
 ληπτέον ἀπὸ τοῦ καλουμένου κλήρου τῆς τύχης,
 <milestone n="174" unit="Camerarius_2ed_page"/> μόνου μέντοι καθʼ ὃν πάντοτε τὴν ἀπὸ τοῦ ἡλίου
@@ -4809,10 +4829,10 @@
 αὐτοῖς, καθαιρέσεις ποιοῦνται τῶν ὑπαρχόντων, τοῦ
 καθολικοῦ καιροῦ λαμβανομένου διὰ τῆς τῶν τὸ
 αἴτιον ποιούντων πρὸς τὰ κέντρα καὶ τὰς ἐπαναφορὰς προσνεύσεως.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="3">
-<p>Περὶ τύχης ἀξιωματικῆς
+</p>
+            </div>
+            <div n="3" type="chapter">
+               <p>Περὶ τύχης ἀξιωματικῆς
 Τὰ δὲ τῆς ἀξίας καὶ τῆς τοιαύτης εὐδαιμονίας
 δεήσει σκοπεῖν ἀπό τε τῆς τῶν φωτῶν διαθέσεως
 καὶ τῆς τῶν δορυφορούντων ἀστέρων οἰκειώσεως
@@ -4870,10 +4890,10 @@
 καὶ νίκαις καὶ φόβοις τῶν ὑποτεταγμένων·
 ὁ δὲ τοῦ Ἑρμοῦ διὰ σύνεσιν ἢ παιδείαν καὶ ἐπιμέλειαν
 καὶ οἰκονομίαν τῶν πραγμάτων.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="4">
-<p>Περὶ πράξεως ποιότητος
+</p>
+            </div>
+            <div n="4" type="chapter">
+               <p>Περὶ πράξεως ποιότητος
 Ὁ δὲ τῆς πράξεως τὴν κυρίαν ἐπέχων λαμβάνεται
 κατὰ τρόπους δύο, ἀπὸ τοῦ τε ἡλίου καὶ τοῦ μεσουρανοῦντος
 ζῳδίου. σκοπεῖν γὰρ δεήσει τόν τε τὴν
@@ -5012,10 +5032,10 @@
 τῆς ταπεινώσεως πάλιν θεωρουμένου διὰ τῆς τῶν
 αἰτίων τοῦ ἀποτελέσματος ἀστέρων πρὸς τὰ ἑῷα
 καὶ τὰ ἑσπέρια κέντρα ἀεὶ διαθέσεως.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="5">
-<p>Περὶ συναρμογῶν
+</p>
+            </div>
+            <div n="5" type="chapter">
+               <p>Περὶ συναρμογῶν
 Ἑξῆς δὲ τούτοις ὄντος τοῦ περὶ συναρμογῶν
 λόγου, περὶ μὲν τῶν κατὰ νόμους ἀνδρὸς καὶ
 γυναικὸς συμβιώσεων οὕτω σκεπτέον. ἐπὶ μὲν
@@ -5207,10 +5227,10 @@
 τοῦ μὲν τοῦ Διὸς πάλιν ἀεὶ πρὸς τὸ εὐσχημονέστερον
 τῶν παθῶν συλλαμβανομένου, τοῦ δὲ τοῦ
 Ἑρμοῦ πρὸς τὸ διαβοητότερον καὶ εὐπταιστότερον.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="6">
-<p>Περὶ τέκνων
+</p>
+            </div>
+            <div n="6" type="chapter">
+               <p>Περὶ τέκνων
 Ἐπειδὴ δὲ τῷ περὶ γάμου τόπῳ καὶ ὁ περὶ τέκνων
 ἀκολουθεῖ, σκοπεῖν δεήσει τοὺς τῷ κατὰ κορυφὴν
 τόπῳ ἢ τῷ ἐπιφερομένῳ, τουτέστι τῷ τοῦ ἀγαθοῦ
@@ -5267,10 +5287,10 @@
 πεποιημένῳ τῶν ἀστέρων ὡροσκοπίῳ καὶ ἀπὸ τῆς
 λοιπῆς διαθέσεως ὡς ἐπὶ γενέσεως τὴν περὶ τῶν
 ὁλοσχερεστέρων ἐπίσκεψιν ποιούμενος.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="7">
-<p>Περὶ φίλων καὶ ἐχθρῶν
+</p>
+            </div>
+            <div n="7" type="chapter">
+               <p>Περὶ φίλων καὶ ἐχθρῶν
 Τῶν δὲ φιλικῶν διαθέσεων καὶ τῶν ἐναντίων, ὧν
 τὰς μὲν μείζους καὶ πολυχρονίους καλοῦμεν συμπαθείας
 καὶ ἔχθρας, τὰς δὲ ἐλάττους καὶ προσκαίρους
@@ -5373,10 +5393,10 @@
 συμφωνῶσι τοῖς αὐθεντικοῖς τόποις τῆς γενέσεως
 ἢ ἐναντίους ποιῶνται τοὺς συσχηματισμούς.
 <pb xml:id="p.422"/>
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="8">
-<p>Περὶ ξενιτείας
+               </p>
+            </div>
+            <div n="8" type="chapter">
+               <p>Περὶ ξενιτείας
 Ὁ δὲ περὶ ξενιτείας τόπος καταλαμβάνεται διὰ
 τῆς τῶν φωτῶν πρὸς τὰ κέντρα στάσεως, ἀμφοτέρων
 μέν, μάλιστα δὲ τῆς σελήνης. δύνουσα γὰρ ἢ ἀποκεκλικυῖα
@@ -5441,10 +5461,10 @@
 μάλιστα ποιησόντων καιρῶν ἐκ τῆς τῶν <num n="5">ε</num> πλανωμένων
 κατὰ χρόνους ἐπεμβάσεων ποιότητος. καὶ
 ταῦτα μὲν ἡμῖν μέχρι τοσούτων ὑποτετυπώσθω.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="9">
-<p>Περὶ θανάτου ποιότητος
+</p>
+            </div>
+            <div n="9" type="chapter">
+               <p>Περὶ θανάτου ποιότητος
 Καταλειπομένης δʼ ἐπὶ πᾶσι τῆς περὶ τὸ ποιὸν
 <milestone n="198" unit="Camerarius_2ed_page"/> τῶν θανάτων ἐπισκέψεως, προδιαληψόμεθα διὰ
 τῶν ἐν τοῖς περὶ τῶν χρόνων τῆς ζωῆς ἐφωδευμένων
@@ -5572,10 +5592,10 @@
 ἀποκλίμασιν ἐκπεσόντων, καὶ μάλισθʼ ὅταν καὶ ἡ
 σελήνη παροῦσα ἢ τετραγωνίζουσα ἢ διαμηκίζουσα
 τύχῃ τοὺς εἰρημένους τόπους.
-</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="10">
-<p>Περὶ χρόνων διαιρέσεως
+</p>
+            </div>
+            <div n="10" type="chapter">
+               <p>Περὶ χρόνων διαιρέσεως
 Ἐφωδευμένου δὲ ἡμῖν κεφαλαιωδῶς τοῦ τύπου
 τῆς καθʼ ἕκαστον εἶδος ἐπισκέψεως μέχρι μόνων
 <pb xml:id="p.438"/>
@@ -5828,10 +5848,11 @@
 τύχωσιν ἐσχηκότες. ὁ μὲν οὖν τύπος τῆς τῶν
 καιρῶν ἐπισκέψεως τοιοῦτός τις ἂν γίγνοιτο,
 <pb xml:id="p.458"/>
-</p></div>
-  <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="10a">
-<head rend="align(center)" xml:lang="eng">Conclusion according to Parisinus 2425:</head>
-<p>
+               </p>
+            </div>
+            <div n="10a" type="chapter">
+               <head rend="align(center)" xml:lang="eng">Conclusion according to Parisinus 2425:</head>
+               <p>
 κατὰ τὸν ἁρμόζοντα ταῖς φυσικαῖς χρηματείαις
 τύπον· τὰς δὲ κατὰ μέρος ἐπιβολὰς τῆς ποιότητος
 τῶν χρονικῶν ἀποτελεσμάτων πολυχόως καὶ
@@ -5843,11 +5864,11 @@
 καὶ τοῖς ἐπὶ μέρους ὁμοίως κατὰ τὸ ἀκόλουθον
 ἐφαρμόζειν δυναμένου. διοδευομένου δὲ καὶ τοῦ
 γενεθλιαλογικοῦ τόπου κεφαλαιωδῶς <add>καλῶς</add> ἂν
-ἔχοι καὶ τῇδε τῇ πραγματείᾳ τὸ προσῆκον ἐπιθεῖναι τέλος.</p></div>
-
-<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0363.tlg007.perseus-grc2:4" n="10b">
-<head rend="align(center)" xml:lang="eng">Conclusion according to MADProc.Cam.:</head>
-<p>
+ἔχοι καὶ τῇδε τῇ πραγματείᾳ τὸ προσῆκον ἐπιθεῖναι τέλος.</p>
+            </div>
+            <div n="10b" type="chapter">
+               <head rend="align(center)" xml:lang="eng">Conclusion according to MADProc.Cam.:</head>
+               <p>
 τὰ δὲ εἴδη τῶν ἀποτελεσμάτων τῶν συμβαινόντων
 κατὰ χρόνους συνάπτειν ἐνταῦθα κατὰ διέξοδον
 παραλείψομεν, δἰ ὃν ἔφην σκοπὸν ἐξ ἀρχῆς, ὅτι
@@ -5856,4 +5877,9 @@
 τὸ ἀκόλουθον ἐφαρμόζεσθαι δύναται, συναπτομένων
 εὐστόχως τῆς τε αἰτίας τοῦ μαθηματικοῦ
 καὶ τῆς αἰτίας τῆς ἐκ τῆς συγκράσεως.
-</p></div></div></div></body></text></TEI>
+</p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

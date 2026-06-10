@@ -1,176 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?> 
-<TEI xmlns="http://www.tei-c.org/ns/1.0">     
-    
-    <teiHeader xml:lang="eng">
-        <fileDesc>
-            <titleStmt>
-                <title>3 John</title>                
-                <author role="textgroup">New Testament</author>
-                <editor role="translator">Rainbow Missions, Inc.</editor>
-                <sponsor>Perseus Project, Tufts University</sponsor>
-                <principal>Gregory Crane</principal>
-                <respStmt>
-                    <resp>Prepared under the supervision of</resp>
-                    <name>Lisa Cerrato</name>
-                    <name>William Merrill</name>
-                    <name>Elli Mylonas</name>
-                    <name>David Smith</name>
-                </respStmt>
-                <funder n="org:FIPSE">Fund for the Improvement of Postsecondary Education</funder>
-            </titleStmt>
-            
-            <publicationStmt>
-                <publisher>Trustees of Tufts University</publisher>
-                <pubPlace>Medford, MA</pubPlace>
-                <authority>Perseus Project</authority>
-                <date type="release" notBefore="1999-10">Perseus 3.0</date>
-                <idno type="filename">tlg0031.tlg025.perseus-eng2.xml</idno>
-                <availability><licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence></availability>
-            </publicationStmt>
-            <sourceDesc>
-                <biblStruct>
-                    <monogr>
-                        <title>World English Bible</title>
-                        <editor>Michael Paul Johnson</editor>
-                        <edition>Revision of the American Standard Version of 1901</edition>
-                        <imprint>
-                            <publisher>Rainbow Missions, Inc.</publisher>
-                            <date>2000-2024</date>
-                        </imprint>
-                    </monogr>
-                    <ref target="http://ebible.org/bible/web">The World English Bible</ref>
-                </biblStruct>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
-            <refsDecl n="CTS">
-                <cRefPattern n="verse"
-                    matchPattern="(\w+).(\w+)"
-                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
-                    <p>This pointer pattern extracts chapter and verse</p>
-                </cRefPattern>
-                <cRefPattern n="chapter"
-                    matchPattern="(\w+)"
-                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-                    <p>This pointer pattern extracts chapter</p>
-                </cRefPattern>
-            </refsDecl>
-            
-            <refsDecl>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title>3 John</title>
+            <author role="textgroup">New Testament</author>
+            <editor role="translator">Rainbow Missions, Inc.</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <funder n="org:FIPSE">Fund for the Improvement of Postsecondary Education</funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" notBefore="1999-10">Perseus 3.0</date>
+            <idno type="filename">tlg0031.tlg025.perseus-eng2.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0031.tlg025.perseus-eng2</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <title>World English Bible</title>
+                  <editor>Michael Paul Johnson</editor>
+                  <edition>Revision of the American Standard Version of 1901</edition>
+                  <imprint>
+                     <publisher>Rainbow Missions, Inc.</publisher>
+                     <date>2000-2024</date>
+                  </imprint>
+               </monogr>
+               <ref target="http://ebible.org/bible/web">The World English Bible</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="verse"
+                         matchPattern="(\w+).(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+               <p>This pointer pattern extracts chapter and verse</p>
+            </cRefPattern>
+            <cRefPattern n="chapter"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts chapter</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl>
                 <!--<refState delim=" " unit="book"/>-->
-                <refState delim=":" unit="chapter"/>
-                <refState unit="verse"/>
-            </refsDecl>
-            
-            <!--<refsDecl>
+            <refState delim=":" unit="chapter"/>
+            <refState unit="verse"/>
+         </refsDecl>
+         <!--<refsDecl>
                 <step to="DITTO" from="DESCENDANT (1 DIV1 N %1)" refunit="book" delim=" "/>
                 <step to="DITTO" from="DESCENDANT (1 DIV2 N %2)" refunit="chapter" delim="."/>
                 <step to="DITTO" from="DESCENDANT (1 MILESTONE N %3)" refunit="verse"/>
             </refsDecl>-->
-        </encodingDesc>
-        <profileDesc>
-            <langUsage>
-                <language ident="eng">English</language>
-            </langUsage>
-        </profileDesc>
-        <revisionDesc>
-            <change when="2025-03-21" who="Alison Babeu">Metadata and header updates</change>
-            <change when="2016-10-28" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
-            <change when="2014-08-01" who="Stella Dee">edited markup</change>
-            <change when="2010-06-29" who="student">fixing place tags AD</change>
-            <change when="2009-10-08" who="rsingh04">began reorganizing texts module by collection.created separate work directory in texts module to keep hopper files separate from in progress files</change>
-            <change when="2009-05-27" who="rsingh04">added/fixed cvs log keyword</change>
-            <change when="1999-10-14" who="Anne Mahoney">Initial markup from flat ASCII text</change>
-        </revisionDesc>
-    </teiHeader>
-    
-    <text xml:lang="eng">
-        <body>
-            <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0031.tlg025.perseus-eng2">
-                <head>John's Third Letter</head>
-                <div type="textpart" subtype="chapter" n="1">
-                  
-
-<div type="textpart" subtype="verse" n="1"><p>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="chapter" delim="." match="div[@type='chapter']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-chapter"/>
+         </textClass>
+         <langUsage>
+            <language ident="eng">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change when="2025-03-21" who="Alison Babeu">Metadata and header updates</change>
+         <change when="2016-10-28" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+         <change when="2014-08-01" who="Stella Dee">edited markup</change>
+         <change when="2010-06-29" who="student">fixing place tags AD</change>
+         <change when="2009-10-08" who="rsingh04">began reorganizing texts module by collection.created separate work directory in texts module to keep hopper files separate from in progress files</change>
+         <change when="2009-05-27" who="rsingh04">added/fixed cvs log keyword</change>
+         <change when="1999-10-14" who="Anne Mahoney">Initial markup from flat ASCII text</change>
+      </revisionDesc>
+   </teiHeader>
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0031.tlg025.perseus-eng2">
+         <head>John's Third Letter</head>
+         <div n="1" type="chapter">
+            <div n="1" type="verse">
+               <p>
                     
                         The elder to Gaius the beloved, whom I love in truth.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="2"><p>
+                        </p>
+            </div>
+            <div n="2" type="verse">
+               <p>
                         Beloved, I pray that you may prosper in all things and be
 healthy, even as your soul prospers.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="3"><p>
+                        </p>
+            </div>
+            <div n="3" type="verse">
+               <p>
                         For I rejoiced greatly, when
 brothers came and testified about your truth, even as you walk in
 truth.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="4"><p>
+                        </p>
+            </div>
+            <div n="4" type="verse">
+               <p>
                         I have no greater joy than this, to hear about my children
 walking in truth.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="5"><p>
+                        </p>
+            </div>
+            <div n="5" type="verse">
+               <p>
                         Beloved, you do a faithful work in whatever you accomplish for
 those who are brothers and strangers.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="6"><p>
+                        </p>
+            </div>
+            <div n="6" type="verse">
+               <p>
                         They have testified about
 your love before the assembly. You will do well to send them forward on
 their journey in a manner worthy of God,
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="7"><p>
+                        </p>
+            </div>
+            <div n="7" type="verse">
+               <p>
                         because for the sake of
 the Name they went out, taking nothing from the Gentiles.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="8"><p>
+                        </p>
+            </div>
+            <div n="8" type="verse">
+               <p>
                         We
 therefore ought to receive such, that we may be fellow workers for the
 truth.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="9"><p>
+                        </p>
+            </div>
+            <div n="9" type="verse">
+               <p>
                         I wrote to the assembly, but Diotrephes, who loves to be first
 among them, doesn't accept what we say.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="10"><p>
+                        </p>
+            </div>
+            <div n="10" type="verse">
+               <p>
                         Therefore, if I come, I
 will call attention to his deeds which he does, unjustly accusing us
 with wicked words. Not content with this, neither does he himself
 receive the brothers, and those who would, he forbids and throws out of
 the assembly.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="11"><p>
+                        </p>
+            </div>
+            <div n="11" type="verse">
+               <p>
                         Beloved, don't imitate that which is evil, but
 that which is good. He who does good is of God. He who does evil hasn't
 seen God.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="12"><p>
+                        </p>
+            </div>
+            <div n="12" type="verse">
+               <p>
                         Demetrius has the testimony of all, and of the truth
 itself; yes, we also testify, and you know that our testimony is true.
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="13"><p>
+                        </p>
+            </div>
+            <div n="13" type="verse">
+               <p>
                         I had many things to write to you, but I am unwilling to
 write to you with ink and pen;
-                        </p></div>
-
-<div type="textpart" subtype="verse" n="14"><p>
+                        </p>
+            </div>
+            <div n="14" type="verse">
+               <p>
                         but I hope to see you soon, and
 we will speak face to face. Peace be to you. The friends greet you.
-Greet the friends by name.</p></div>
-                    
-                </div>
+Greet the friends by name.</p>
             </div>
-        </body>
-    </text>
+         </div>
+      </body>
+   </text>
 </TEI>

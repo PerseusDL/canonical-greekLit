@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng"schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-	<teiHeader xml:lang="eng">
+   <teiHeader xml:lang="eng">
       <fileDesc>
          <titleStmt>
-         	<title>Of Brotherly Love</title>
+            <title>Of Brotherly Love</title>
             <author>Plutarch</author>
             <editor>William W. Goodwin</editor>
-         	<editor role="translator">John Thomson</editor>
-         	<sponsor>Perseus Project, Tufts University</sponsor>
-         	<principal>Gregory Crane</principal>
-         	<respStmt>
-         		<resp>Prepared under the supervision of</resp>
-         		<name>Lisa Cerrato</name>
-         		<name>Rashmi Singhal</name> 
-         		<name>Bridget Almas</name>
-         		
-         	</respStmt>
-         	<funder n="org:NEH">The National Endowment for the Humanities</funder>
-         	<respStmt>
-         		<persName>Angelia Hanhardt</persName>
-         		<orgName>Center for Hellenic Studies</orgName>        
-         		<resp>CTS conversion</resp>
-         	</respStmt>
+            <editor role="translator">John Thomson</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>Rashmi Singhal</name>
+               <name>Bridget Almas</name>
+            </respStmt>
+            <funder n="org:NEH">The National Endowment for the Humanities</funder>
+            <respStmt>
+               <persName>Angelia Hanhardt</persName>
+               <orgName>Center for Hellenic Studies</orgName>
+               <resp>CTS conversion</resp>
+            </respStmt>
          </titleStmt>
-      	<publicationStmt>
-      		<publisher>Trustees of Tufts University</publisher>
-      		<pubPlace>Medford, MA</pubPlace>
-      		<authority>Perseus Project</authority>
-      		<date type="release">2010-12-13</date>
-      	</publicationStmt>
-      	<sourceDesc>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release">2010-12-13</date>
+            <idno type="CTS">urn:cts:greekLit:tlg0007.tlg097.perseus-eng4</idno>
+         </publicationStmt>
+         <sourceDesc>
             <biblStruct>
                <monogr>
                   <author>Plutarch</author>
@@ -48,43 +48,53 @@
                   </imprint>
                   <biblScope unit="volume">3</biblScope>
                </monogr>
-            	<ref target="https://archive.org/details/plutarchsmorals03plut/page/36">The Internet Archive</ref>
+               <ref target="https://archive.org/details/plutarchsmorals03plut/page/36">The Internet Archive</ref>
             </biblStruct>
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
-      	<editorialDecl><quotation marks="none"/></editorialDecl>
-      	
+         <editorialDecl>
+            <quotation marks="none"/>
+         </editorialDecl>
          <!--<refsDecl doctype="TEI.2">
             <state unit="section"/>
          </refsDecl><refsDecl doctype="TEI.2">
 				<state unit="stephpage" n="chunk"/>
 				</refsDecl>-->
-      	<p>The following text is encoded in accordance with EpiDoc standards and with the CTS/CITE Architecture</p>
-      	<refsDecl n="CTS">
-      		<cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-      			<p>This pointer pattern extracts section</p>
-      		</cRefPattern>
-      	</refsDecl>
+         <p>The following text is encoded in accordance with EpiDoc standards and with the CTS/CITE Architecture</p>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts section</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
       </encodingDesc>
       <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-section"/>
+         </textClass>
          <langUsage>
             <language ident="eng">English</language>
             <language ident="grc">Greek</language>
-         	<language ident="lat">Latin</language>
+            <language ident="lat">Latin</language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
          <change when="2006" who="GRC">tagging</change>
-      	<change when="2019-07-16" who="Angelia Hanhardt">EpiDoc and CTS conversion</change>
+         <change when="2019-07-16" who="Angelia Hanhardt">EpiDoc and CTS conversion</change>
       </revisionDesc>
    </teiHeader>
-	<text xml:lang="eng">
-      <body>
-      	<div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0007.tlg097.perseus-eng4">
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg097.perseus-eng4">
          <head>Of Brotherly Love.</head>
          <pb xml:id="v.3.p.36"/>
-      		<div type="textpart" subtype="section" n="1">
+         <div n="1" type="section">
             <p rend="indent">THE ancient statues of Castor and Pollux are called
 				by the Spartans Docana; and they are two pieces of wood
 				one over against the other joined with two other cross
@@ -114,7 +124,7 @@
 				should make use of the hands, feet, and eyes of two
 				bodies.</p>
          </div>
-      		<div type="textpart" subtype="section" n="2">
+         <div n="2" type="section">
             <p rend="indent">And Nature hath given us very near examples of the
 				use of brothers, by contriving most of the necessary parts
 				of our bodies double, as it were, brothers and twins,—as hands, feet, eyes, ears, nostrils,—thereby telling us
@@ -163,7 +173,7 @@
 					adopting the pernicious acquaintance of such as are ready
 					enough to crowd into the room of their betters.</p>
          </div>
-      		<div type="textpart" subtype="section" n="3">
+         <div n="3" type="section">
             <p rend="indent">The Arcadian prophet in Herodotus was forced to
 				supply the loss of one of his feet with an artificial one
 				made of wood. But he who in a difference throws off his
@@ -215,7 +225,7 @@
 					should be, and that never yet considered that Nature is a
 					most sacred thing.</p>
          </div>
-      		<div type="textpart" subtype="section" n="4">
+         <div n="4" type="section">
             <p rend="indent">I remember, when I was at Rome, I undertook an
 				umpirage between two brothers. The one pretended to the
 				study of philosophy, but (as it appeared by the event) with
@@ -252,7 +262,7 @@
 				can be more delightful and rejoicing, than firm love and
 				amity amongst them?</p>
          </div>
-      		<div type="textpart" subtype="section" n="5">
+         <div n="5" type="section">
             <p rend="indent">And this may be understood by lesser instances. For,
 				if parents will be displeased when an old servant that has
 				been favored by them shall be reproached and flouted at
@@ -295,7 +305,7 @@
 				plagues his brother can hardly forbear blaming the father
 				who begot and the mother who bare him.</p>
          </div>
-      		<div type="textpart" subtype="section" n="6">
+         <div n="6" type="section">
             <p rend="indent">Wherefore Pisistratus, being about to marry again,
 				his sons being grown up to a mature age, gave them their
 				deserved character of praise, together with the reason of
@@ -315,7 +325,8 @@
                      <l>Stern Jove has in some angry mood
 				</l>
                      <l>Condemned our race to solitude.</l>
-                     <note resp="editor" place="unspecified" anchored="true"><title rend="italic">Odyss</title>. XVI. 117.</note>
+                     <note resp="editor" place="unspecified" anchored="true">
+                        <title rend="italic">Odyss</title>. XVI. 117.</note>
                   </lg>
                </quote>
             </p>
@@ -360,7 +371,7 @@
                      <l>Beneath the earth, I’d balk no enterprise,
 				</l>
                      <l>To gain Jove’s mighty power and tyrannize.</l>
-                  	<note resp="editor" place="unspecified" anchored="true">Eurip. <title rend="italic">Phoeniss</title>. 504 and 536.</note>
+                     <note resp="editor" place="unspecified" anchored="true">Eurip. <title rend="italic">Phoeniss</title>. 504 and 536.</note>
                   </lg>
                </quote>
             </p>
@@ -397,7 +408,7 @@
                </quote>
             </p>
          </div>
-      		<div type="textpart" subtype="section" n="7">
+         <div n="7" type="section">
             <p rend="indent">It is therefore very needful to throw off those ill dispositions, as being very grievous and troublesome to their
 				parents, and more destructive to children in respect of the
 				ill example. Besides, it occasions many strange censures
@@ -455,7 +466,7 @@
 				him.<note resp="editor" place="unspecified" anchored="true">See Sophocles, <title rend="italic">Antig</title>. 905-912.</note>
             </p>
          </div>
-      		<div type="textpart" subtype="section" n="8">
+         <div n="8" type="section">
             <p rend="indent">You will ask me then, What shall a man do with an
 				untoward brother? I answer, every kind and degree of
 				friendship is subject to abuse from the persons, and in that
@@ -492,7 +503,8 @@
                      <l>I cannot leave you thus under a cloud
 					</l>
                      <l>Of infelicities,</l>
-                  	<note resp="editor" place="unspecified" anchored="true"><title rend="italic">Odyss</title>. XIII. 331.</note>
+                     <note resp="editor" place="unspecified" anchored="true">
+                        <title rend="italic">Odyss</title>. XIII. 331.</note>
                   </lg>
                </quote>
             </p>
@@ -521,7 +533,7 @@
 					but are willing enough daily to frequent and haunt their
 					company.</p>
          </div>
-      		<div type="textpart" subtype="section" n="9">
+         <div n="9" type="section">
             <p rend="indent">And this may serve for the beginning of my discourse.
 				I shall enter upon my instructions not as others do, with
 				the distribution of the parents’ goods, but with advice rather
@@ -564,7 +576,8 @@
                      <l>I am the only cause. All his delay
 				</l>
                      <l>Waits my attempts:</l>
-                  	<note resp="editor" place="unspecified" anchored="true"><title rend="italic">Il</title>. X. 122.</note>
+                     <note resp="editor" place="unspecified" anchored="true">
+                        <title rend="italic">Il</title>. X. 122.</note>
                   </lg>
                </quote>
             </p>
@@ -579,7 +592,7 @@
 					offended father at the same time fairly advances his own
 					interest, and grows deservedly the more in favor.</p>
          </div>
-      		<div type="textpart" subtype="section" n="10">
+         <div n="10" type="section">
             <p rend="indent">But when the storm is once over, it is necessary to
 				
 				<pb xml:id="v.3.p.48"/>
@@ -608,7 +621,7 @@
 					injury, in cases of this kind defeat is more pleasant to
 					them than victory.</p>
          </div>
-      		<div type="textpart" subtype="section" n="11">
+         <div n="11" type="section">
             <p rend="indent">But when the father is dead, it is fitting brothers
 				should close the nearer in affection; immediately in their
 				sadness and sorrow communicating their mutual love, and,
@@ -668,7 +681,7 @@
 					and unconcerned ease his brother’s outrage, that was
 					become notorious throughout all Greece.</p>
          </div>
-      		<div type="textpart" subtype="section" n="12">
+         <div n="12" type="section">
             <p rend="indent">Solon discoursing about the commonwealth approved of equality, as being that which would occasion no
 				tumult or faction. But this opinion appeared too popular;
 				for by this arithmetical method he would have set up
@@ -721,7 +734,7 @@
 				that concerning the Commonwealth, and Antipho his
 				youngest brother in his Parmenides.</p>
          </div>
-      		<div type="textpart" subtype="section" n="13">
+         <div n="13" type="section">
             <p rend="indent">Besides, as there is difference in the natures and
 				fortunes of brothers, so neither is it possible that the one
 				
@@ -764,7 +777,7 @@
 					yielding disposition,—all this while has done himself no
 					wrong, and has bravely advanced his brother.</p>
          </div>
-      		<div type="textpart" subtype="section" n="14">
+         <div n="14" type="section">
             <p rend="indent">And this is the advice one would offer to the excelling brother. The other should consider that, as his
 				brother excels him in wealth, learning, esteem, he must
 				expect to come behind not him only but millions more,
@@ -804,12 +817,13 @@
                      <l>Trojans I have and friends; you, what I hate,—
 					</l>
                      <l>Grecians to envy and to emulate.</l>
-                  	<note resp="editor" place="unspecified" anchored="true"><title rend="italic">Il</title>. VI. 227.</note>
+                     <note resp="editor" place="unspecified" anchored="true">
+                        <title rend="italic">Il</title>. VI. 227.</note>
                   </lg>
                </quote>
             </p>
          </div>
-      		<div type="textpart" subtype="section" n="15">
+         <div n="15" type="section">
             <p rend="indent">Brothers should not be like the scales of a balance,
 				the one rising upon the other’s sinking; but rather like
 				numbers in arithmetic, the lesser and greater mutually
@@ -841,7 +855,8 @@
 				cuffs, and Castor at racing. Thus Homer brings in Teucer as expert in the bow, whom his brother Ajax, who was
 				best in close fight,
 				
-            	<quote rend="blockquote">Protected over with a glittering shield.<note resp="editor" place="unspecified" anchored="true"><title rend="italic">Il</title>. VIII. 272.</note>
+            	<quote rend="blockquote">Protected over with a glittering shield.<note resp="editor" place="unspecified" anchored="true">
+                     <title rend="italic">Il</title>. VIII. 272.</note>
                </quote>
             </p>
             <p rend="indent">And amongst those who are concerned in the Common
@@ -870,7 +885,7 @@
 					their designs, and so enjoy at once their honor and them
 					selves.</p>
          </div>
-      		<div type="textpart" subtype="section" n="16">
+         <div n="16" type="section">
             <p rend="indent">But, besides this, they must beware of the suggestions of kindred, servants, or even wives, that may work
 				much in a vain-glorious mind. Your brother, say they, is
 				the great man of action, whom the people honor and admire;
@@ -942,7 +957,7 @@
 				of a kind and affectionate brother Timon, which cannot be
 				unknown to any who have conversed with me, and especially those of my own family.</p>
          </div>
-      		<div type="textpart" subtype="section" n="17">
+         <div n="17" type="section">
             <p rend="indent">There are yet other disturbances that brothers near
 				the same age ought to be warned of; they are but small
 				indeed at present, but they are frequent and leave a lasting grudge, such as makes them ready upon all occasions
@@ -994,7 +1009,7 @@
 				matter served only for a false scar, drawn over on purpose
 				to hide the cause of an incurable wound.</p>
          </div>
-      		<div type="textpart" subtype="section" n="18">
+         <div n="18" type="section">
             <p rend="indent">It is worth the while at present to hear an account
 				of a dispute between two foreign brothers, not concerning
 				a little patch of land, nor a few servants or cattle, but no
@@ -1111,7 +1126,7 @@
 					management of his affairs and even his regal authority not
 					merely with his brothers, but also with his friends.</p>
          </div>
-      		<div type="textpart" subtype="section" n="19">
+         <div n="19" type="section">
             <p rend="indent">Again, this rule is to be observed, that, whenever
 				any difference happens betwixt brothers, during the time
 				of strangeness especially they hold a correspondence with
@@ -1163,7 +1178,7 @@
 				and instigators of mischief, whom they improvidently admit into their society, are the things that do them the
 				greatest hurt.</p>
          </div>
-      		<div type="textpart" subtype="section" n="20">
+         <div n="20" type="section">
             <p rend="indent">Therefore (this discourse suggesting one thing after
 				another) Theophrastus said well: If there ought to be all
 				things common amongst friends, why should not the best
@@ -1224,7 +1239,7 @@
 					influence from it, will not be forward to assist it in its
 					operations; it may rather spoil and cross them.</p>
          </div>
-      		<div type="textpart" subtype="section" n="21">
+         <div n="21" type="section">
             <p rend="indent">Now as the kind regards of brother to brother are
 				highly commendable, so may they be expressed to the
 				greater advantage, when he confines them not wholly to
@@ -1322,7 +1337,6 @@
 					also Matuta) have a custom of nursing their sisters’ children
 					instead of their own, during the time of the festival.</p>
          </div>
-      	</div>
       </body>
    </text>
 </TEI>

@@ -1,107 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-<teiHeader xml:lang="eng">
-<fileDesc>
-<titleStmt>
-<title>Toxaris; Or, Friendship</title>
- <author>Lucian of Samosata</author>
-<editor role="translator">Emily James Smith</editor>
- <funder>National Endowment for the Humanities</funder>
- <principal>Gregory Crane</principal>
- <respStmt>
-  <persName>Gregory Crane</persName>
-<resp>Digital conversion and editing</resp>
- </respStmt>
- </titleStmt>
-<publicationStmt>
-<publisher>Trustees of Tufts University</publisher>
-<pubPlace>Medford, MA</pubPlace>
-<authority>Perseus Project</authority>
- <date type="release" when="2023-08-11">Perseus 5.0</date>
- <idno type="filename">tlg0062.tlg044.perseus-eng5.xml</idno>
- <availability>
- <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
- </availability>
-</publicationStmt><sourceDesc>
-<listBibl>
- <biblStruct>
- <monogr>
-<title>Selections from Lucian</title>
-  <editor role="translator">Emily James Smith</editor>
-  <author ref="urn:cts:greekLit:tlg0062">Lucian of Samosata</author>
-  <imprint>
-   <publisher>Harper and Brothers</publisher>
-	<pubPlace>New York</pubPlace>
-	<date>1892</date>
-  </imprint>
- </monogr>
-  <ref target="https://hdl.handle.net/2027/hvd.hw3j0n?urlappend=%3Bseq=207">The Hathi Trust</ref>
- </biblStruct>
-</listBibl>
-</sourceDesc>
-</fileDesc>
-<encodingDesc>
- <p>Text encoded in accordance with the latest EpiDoc standards</p>
- <refsDecl n="CTS">
-  <cRefPattern n="section" matchPattern="(\w+)"
-   replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-   <p>This pointer pattern extracts section.</p>
-  </cRefPattern>
- </refsDecl>
-</encodingDesc>
-<profileDesc>
-<langUsage>
-<language ident="eng">English</language>
-</langUsage>
-</profileDesc>
-<revisionDesc>
-<change who="Gregory Crane" when="2023-08-11">Created initial file in repository. The major task was adding section breaks. There are missing sections because the translator silently skipped passages that did not conform with contemporary standards of propiety.</change>
-</revisionDesc>
-</teiHeader>
-<text>
-<body>
-<div type="translation" n="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5" xml:lang="eng">
-<head>TOXARIS; OR, FRIENDSHIP.</head>
-<head>Characters: <label>MNESIPPOS</label>. <label>TOXARIS</label>.</head>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="1"><p>
-
-
-
-<label>Mnesippos</label> What do you say, Toxaris? Do you Scythians sacrifice to
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title>Toxaris; Or, Friendship</title>
+            <author>Lucian of Samosata</author>
+            <editor role="translator">Emily James Smith</editor>
+            <funder>National Endowment for the Humanities</funder>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <persName>Gregory Crane</persName>
+               <resp>Digital conversion and editing</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" when="2023-08-11">Perseus 5.0</date>
+            <idno type="filename">tlg0062.tlg044.perseus-eng5.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0062.tlg044.perseus-eng5</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <biblStruct>
+                  <monogr>
+                     <title>Selections from Lucian</title>
+                     <editor role="translator">Emily James Smith</editor>
+                     <author ref="urn:cts:greekLit:tlg0062">Lucian of Samosata</author>
+                     <imprint>
+                        <publisher>Harper and Brothers</publisher>
+                        <pubPlace>New York</pubPlace>
+                        <date>1892</date>
+                     </imprint>
+                  </monogr>
+                  <ref target="https://hdl.handle.net/2027/hvd.hw3j0n?urlappend=%3Bseq=207">The Hathi Trust</ref>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <p>Text encoded in accordance with the latest EpiDoc standards</p>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts section.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-section"/>
+         </textClass>
+         <langUsage>
+            <language ident="eng">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change who="Gregory Crane" when="2023-08-11">Created initial file in repository. The major task was adding section breaks. There are missing sections because the translator silently skipped passages that did not conform with contemporary standards of propiety.</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5">
+         <head>TOXARIS; OR, FRIENDSHIP.</head>
+         <head>Characters: <label>MNESIPPOS</label>. <label>TOXARIS</label>.</head>
+         <div n="1" type="section">
+            <p>
+               <label>Mnesippos</label> What do you say, Toxaris? Do you Scythians sacrifice to
 Orestes and Pylades, and believe in
 them as gods?</p>
-
-
-<p><label>Toxaris</label> We sacrifice to them,
+            <p>
+               <label>Toxaris</label> We sacrifice to them,
 certainly; still we do not hold them to be gods,
 but good men.</p>
-
-
-<p><label>Mnesippos</label> But is it customary with you to sacrifice to good men, too, when they die, just as you
+            <p>
+               <label>Mnesippos</label> But is it customary with you to sacrifice to good men, too, when they die, just as you
 do to the gods?</p>
-
-
-<p><label>Toxaris</label> Not only that, but we keep feast-days
+            <p>
+               <label>Toxaris</label> Not only that, but we keep feast-days
 and holidays in their honor.</p>
-
-
-<p><label>Mnesippos</label> What do you hope to get from them?
+            <p>
+               <label>Mnesippos</label> What do you hope to get from them?
 Surely you don't offer sacrifice for the sake of
 getting the good-will of dead men.</p>
-
-
-<p><label>Toxaris</label> It is no harm to have even the dead
+            <p>
+               <label>Toxaris</label> It is no harm to have even the dead
 on your side. But we also consider that we act
 for the advantage of the living by keeping the
 great and good in mind, and for this reason we
 honor the dead. For it is our belief that by these
 means many of our people will conceive a desire
 to be such men as these were.</p>
-
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="2">
-<p><label>Mnesippos</label> You are right about that. But what
+         </div>
+         <div n="2" type="section">
+            <p>
+               <label>Mnesippos</label> You are right about that. But what
 was it you found so admirable in Orestes and
 
 
@@ -129,9 +132,9 @@ suppose, you will transfer your devotions from
 the whole body of gods to the men who come to
 steal them, and sacrifice to your temple-robbers
 as if they were divine.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="3">
-<p>But if it is not for these
+         </div>
+         <div n="3" type="section">
+            <p>But if it is not for these
 achievements that you honor Orestes and Pylades,
 tell me, Toxaris, what else they ever did for your
 good, in return for which you have now reversed
@@ -140,9 +143,10 @@ bringing victims to those who once came extremely near being victims themselves.
 absurdly inconsistent with the past.
 
 
-<pb n="p.191"/></p>
-
-<p><label>Toxaris</label> And yet, Mnesippos, those were noble
+<pb n="p.191"/>
+            </p>
+            <p>
+               <label>Toxaris</label> And yet, Mnesippos, those were noble
 deeds, though you laugh at them. Just think,
 they were only two men, and yet they dared this
 gallant adventure; sailed all this distance from
@@ -160,11 +164,10 @@ Now, are not these wonderful achievements, and
 really worthy of divine honor from any one who
 gives bravery his approval? Still, it is not because we see these traits in Orestes and Pylades
 that we deem them heroes.</p>
-
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="4">
-
-<p><label>Mnesippos</label> Do go on and tell of something else
+         </div>
+         <div n="4" type="section">
+            <p>
+               <label>Mnesippos</label> Do go on and tell of something else
 they did, really divine and godlike. As far as
 their voyage and their journey into foreign lands
 are concerned, I could show you a great many
@@ -184,11 +187,10 @@ late in the autumn they sail back to their own
 country. To be consistent, you hold these, too,
 as gods-peddlers, and perhaps fish-mongers,
 though most of them be.</p>
-
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="5">
-
-<p><label>Toxaris</label> Now listen, my amazing friend, and
+         </div>
+         <div n="5" type="section">
+            <p>
+               <label>Toxaris</label> Now listen, my amazing friend, and
 observe how much more candidly we barbarians
 judge good men than you Greeks. In Argos and
 Mykenai there is not even a noble tomb to be
@@ -210,9 +212,9 @@ that friends must share all fortunes, and thus win
 the reverence of the best of the Scythians.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="6">
-<p>
+         </div>
+         <div n="6" type="section">
+            <p>
 Our ancestors inscribed an account of their
 sufferings with each other, or for each other, on a
 
@@ -241,9 +243,9 @@ completely and some get wounded, and others,
 in fear of a like fate, swim off to land.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="7">
-<p>
+         </div>
+         <div n="7" type="section">
+            <p>
 In this
 picture we can see best how much tenderness
 they showed for each other in the struggle with
@@ -276,10 +278,10 @@ and Pylades, who were the best in what the Scythians deem good, and pre-eminent 
 which we admire above all things. So we have
 given them the name of “Korakoi,” which in our
 language signifies "genii of friendship."</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="8">
-
-<p><label>Mnesippos</label> Toxaris, I see that the Scythians
+         </div>
+         <div n="8" type="section">
+            <p>
+               <label>Mnesippos</label> Toxaris, I see that the Scythians
 have not only been great archers, and better
 than other nations in warlike pursuits, but are
 also the most persuasive orators in the world.
@@ -303,10 +305,10 @@ anger, and entertained no friendship towards
 even their next of kin, judging from the things
 we hear of them, and particularly that they eat
 their fathers when they are dead.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="9">
-
-<p><label>Toxaris</label> Whether we are juster and more
+         </div>
+         <div n="9" type="section">
+            <p>
+               <label>Toxaris</label> Whether we are juster and more
 pious than the Greeks in these other matters,
 such as our relations with our parents, is not a
 point that I care to dispute with you at present;
@@ -336,9 +338,9 @@ proportion as we are poorer in arguments about
 friendship we are richer in its works.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="10">
-<p>
+         </div>
+         <div n="10" type="section">
+            <p>
 Come, now, let us do something of this sort, if
 it takes your fancy. Let us leave the friends of
 old whom you or I could count out of the question; for under that head you would be rich in
@@ -359,12 +361,10 @@ vastly prefer losing my right hand for having
 been worsted in single combat-that is the Scythian forfeit to being judged inferior to another
 man in respect of friendship, and that, too, though
 I am a Greek Scythian myself.</p>
-
-
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="11">
-
-<p><label>Mnesippos</label> It is no joke, Toxaris, to venture
+         </div>
+         <div n="11" type="section">
+            <p>
+               <label>Mnesippos</label> It is no joke, Toxaris, to venture
 single combat with a man like you for opponent,
 equipped with arguments so pointed and so apt.
 However, I will not basely leave the whole Greek
@@ -380,45 +380,41 @@ would be fair to cut off, not my right hand, as
 your custom is, but my tongue. But shall we
 limit ourselves as to the number of friendly exploits, or shall he who is able to mention most
 have so much better chance of victory?</p>
-
-
-<p><label>Toxaris</label> Oh dear, no. Let us agree that victory shall not lie in the number of exploits; but
+            <p>
+               <label>Toxaris</label> Oh dear, no. Let us agree that victory shall not lie in the number of exploits; but
 if yours are better and more striking than mine,
 though the same in number, they will, of course,
 wound me more vitally, and I shall give way
 sooner before their blows.
 
 
-<pb n="p.198"/></p>
-
-
-<p><label>Mnesippos</label> Very well. Let us agree how many
+<pb n="p.198"/>
+            </p>
+            <p>
+               <label>Mnesippos</label> Very well. Let us agree how many
 are enough. Five apiece, it strikes me.</p>
-
-
-<p><label>Toxaris</label> I think so, too. But first declare, and
+            <p>
+               <label>Toxaris</label> I think so, too. But first declare, and
 upon oath, that you will speak the very truth.
 Otherwise, to invent this kind of thing is no great
 job, and refutation would be difficult; but if you
 should take your oath it would be impious not to
 believe you.</p>
-
-
-<p><label>Mnesippos</label> We will swear, if you do not think
+            <p>
+               <label>Mnesippos</label> We will swear, if you do not think
 an oath superfluous. But which of our gods do
 you
 Or will the God of Friendship do?</p>
-
-
-<p><label>Toxaris</label> Certainly; but I will take our national oath when it is my turn to speak.</p>
-
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="12">
-<p><label>Mnesippos</label> Then let Zeus, the God of Friendship, witness that all I shall tell you I speak
+            <p>
+               <label>Toxaris</label> Certainly; but I will take our national oath when it is my turn to speak.</p>
+         </div>
+         <div n="12" type="section">
+            <p>
+               <label>Mnesippos</label> Then let Zeus, the God of Friendship, witness that all I shall tell you I speak
 either of my own knowledge or having learned
 from others, with all the exactitude in my power,
 and adding nothing of my own to the story.</p>
-<p>
+            <p>
 [His first story celebrates the friendship of
 Agathokles of Samos for Deinias of Ephesos.
 Deinias was a very rich young man, who was
@@ -438,15 +434,17 @@ for life to one of the Cyclades. Agathokles accompanied him into exile, tended h
 long illness, and after his death continued to
 live in the island to be near the grave of his
 friend.]</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="18">
-<p><label>Toxaris</label> I wish you were not on oath, Mnesippos, so that I might be at liberty to disbelieve
+         </div>
+         <div n="18" type="section">
+            <p>
+               <label>Toxaris</label> I wish you were not on oath, Mnesippos, so that I might be at liberty to disbelieve
 your story. By your account this Agathokles is
 a true Scythian in friendship. I hope you are
 not going to tell of any one else like him.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="19">
-<p><label>Mnesippos</label> Then hear about another, Euthydikos of Chalkis. Simylos, the ship-master of
+         </div>
+         <div n="19" type="section">
+            <p>
+               <label>Mnesippos</label> Then hear about another, Euthydikos of Chalkis. Simylos, the ship-master of
 Megara, told me the story, swearing that he had
 seen the thing with his own eyes. He said he
 was sailing from Italy to Athens early in the autumn, carrying passengers from various places,
@@ -478,9 +476,9 @@ wretch! which made swimming all the harder.
 He straightway gave a choking shriek, hardly
 keeping himself on top of the wave.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="20">
-<p>
+         </div>
+         <div n="20" type="section">
+            <p>
 When Euthydikos, who happened to have his clothes off
 in bed, heard it, he threw himself into the sea,
 got hold of Damon, who had already given upall this could be seen from a distance in the
@@ -509,15 +507,14 @@ instantly and swimming with him, fearful lest Damon should perish before him.
 This is the way
 to see that in Euthydikos, too, I have described
 for you no unworthy friend.</p>
-
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="21">
-<p><label>Toxaris</label> Were they lost, Mnesippos, or were
+         </div>
+         <div n="21" type="section">
+            <p>
+               <label>Toxaris</label> Were they lost, Mnesippos, or were
 they saved by some miracle? I am greatly
 alarmed about them.</p>
-
-
-<p><label>Mnesippos</label> Be comforted. They were saved,
+            <p>
+               <label>Mnesippos</label> Be comforted. They were saved,
 and they are in Athens at this moment, pursuing
 philosophy. Simylos could only tell me what he
 saw that night, that the one fell overboard and
@@ -528,9 +525,9 @@ upon some of the corks and supported themselves
 on these, swimming with difficulty; and later,
 towards daybreak, they saw the companion and
 swam to it, and, mounted on this, they swam easily the rest of the way to Zakynthos.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="22">
-<p>
+         </div>
+         <div n="22" type="section">
+            <p>
 After these, who are not bad specimens in my
 opinion, hear of a third man no whit worse than
 they. Eudamidas of Corinth, himself a very poor
@@ -558,9 +555,9 @@ of them went off laughing and saying that Aretaios
 and Charixenes had come into a joyful inheritance if they were to make payment to Eudamidas,
 and if they who were living were to leave their
 property to a dead man. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="23">
-<p>But the heirs to whom
+         </div>
+         <div n="23" type="section">
+            <p>But the heirs to whom
 these things were bequeathed came as soon as
 they heard of it, and carried out the provisions of
 the will. Now, Charixenes died only five days.
@@ -583,18 +580,17 @@ example of friendship, inheriting such a legacy
 and not betraying his friend's bequest? Or shall
 our mature decision be to place him as one
 among the five?</p>
-
-
-<p><label>Toxaris</label> He, too, is a noble man. But I admire far more the confidence which Eudamidas
+            <p>
+               <label>Toxaris</label> He, too, is a noble man. But I admire far more the confidence which Eudamidas
 placed in his friends. He showed that he, too,
 would have done likewise for them, even if the
 duty had not been left him by will, and would
 have been the first to come as the unappointed
 heir of such a legacy.</p>
-
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="24">
-<p><label>Mnesippos</label> You are right. But I will tell you
+         </div>
+         <div n="24" type="section">
+            <p>
+               <label>Mnesippos</label> You are right. But I will tell you
 of a fourth, Zenothemis, the son of Charmoleos,
 from Marseilles. He was pointed out to me in
 Italy when I was there on an embassy from our
@@ -631,9 +627,9 @@ without a struggle, even with all the fortune her
 father once possessed. She was also said to have
 epileptic fits at the waxing of the moon.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="25">
-<p>
+         </div>
+         <div n="25" type="section">
+            <p>
 But Zenothemis, to whom he was pouring out
 these griefs, said to him, “Cheer up, Menekrates.
 You are not utterly destitute, nor will your daughter fail to find a bridegroom worthy of her race."
@@ -661,9 +657,9 @@ off the bride and presently came back, having
 married her. And from that day he has held to
 her with great affection, and takes her everywhere
 with him, as you see. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="26">
-<p>Far from being ashamed
+         </div>
+         <div n="26" type="section">
+            <p>Far from being ashamed
 of his marriage, he seems to take pride in it,
 showing that he despises bodily charms or blemishes and wealth and public opinion, but regards
 only his friend Menekrates, who, he thinks, is
@@ -689,9 +685,9 @@ said Zenothemis had done for his friend, a noble
 action, as you see, and such as few Scythians
 would do, who are said to be particular in choosing the most beautiful women even for their harems.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="27">
-<p>
+         </div>
+         <div n="27" type="section">
+            <p>
 We have the fifth case still to consider, and I
 should not like to name another man and pass
 over Demetrios of Sounion. This Demetrios
@@ -715,9 +711,9 @@ Being desirous, then, of seeing the Pyramids and
 hearing the Memnon, he sailed up the Nile, leaving Antiphilos, who dreaded the journey and the
 heat, behind.
 When Demetrios had been gone six months,</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="28">
-<p>
+         </div>
+         <div n="28" type="section">
+            <p>
 Antiphilos got into a scrape that called for some
 very good friend. A slave of his, Syros by name
 and a Syrian by nation, joined himself to a gang
@@ -741,9 +737,9 @@ or feasted with him. His other slaves, two in
 number, cleared everything out of the house, and
 ran off.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="29">
-<p>
+         </div>
+         <div n="29" type="section">
+            <p>
 The unhappy Antiphilos had accordingly been
 in durance a long time, with the reputation of
 
@@ -768,9 +764,9 @@ room, cramped for space and hardly breathing,
 the clang of iron, the scarcity of sleep-all these
 things were oppressive and unendurable to a man
 who was unused to them, and had had no experience of such a squalid life.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="30">
-<p>
+         </div>
+         <div n="30" type="section">
+            <p>
 When he had begun to despair, and would not
 even take food, Demetrios arrived one day, ignorant of all these events. When he learned how
 things stood he came running forthwith to the
@@ -799,10 +795,9 @@ stood. He bade him be of good courage, and,
 tearing his cloak in two, he wrapped himself in
 one half and the other he gave to Antiphilos,
 stripping off the dirty, ragged clouts he wore.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="31">
-
-<p>
+         </div>
+         <div n="31" type="section">
+            <p>
 After this he kept him company, caring for
 him and serving him in every way. He hired
 himself to the merchants at the docks from daybreak till noon, and earned a good wage as a
@@ -822,11 +817,9 @@ cheering him up; but when night fell he would
 rest close by the door on a little bed he had
 made, with leaves thrown on it.
 Some time, then, they passed in this way, Demetrios being free of entry and Antiphilos finding his misfortunes easier to bear. </p>
-
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="32">
-
-<p>But after a
+         </div>
+         <div n="32" type="section">
+            <p>But after a
 certain robber died in the prison, apparently of
 poison, a strict guard was instituted, and no permissions whatever were granted to those who
 asked to visit the prison. In these circumstances
@@ -842,9 +835,9 @@ own sufferings. And yet he fell ill himself, but
 he suffered the less because his mind was bent
 on securing rest for his friend. So they bore
 their troubles lightly, being together.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="33">
-<p>
+         </div>
+         <div n="33" type="section">
+            <p>
 After a while an event happened, as follows,
 which put an end to their misfortunes. One of
 the prisoners provided himself with a file from
@@ -875,9 +868,9 @@ a careful examination of the matter. When he
 had informed himself of their innocence he dismissed them with eulogies, expressing great admiration for Demetrios in particular, and condoling with them on the punishment which they
 had unjustly borne. He made them each a present out of his own pocket, two thousand dollars
 to Antiphilos and twice as much to Demetrios.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="34">
-<p>
+         </div>
+         <div n="34" type="section">
+            <p>
 Antiphilos is still living in Egypt, but Demetrios
 
 
@@ -898,9 +891,9 @@ many noble arguments that Demetrios used in
 court, not defending himself at all, but Antiphilos,
 actually with tears and supplications, until Syros
 was flogged into acquitting them both.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="35">
-<p>
+         </div>
+         <div n="35" type="section">
+            <p>
 My story, then, is told of this handful of good
 and true friends out of the many that memory first
 supplied me with, so I will now descend from
@@ -912,9 +905,8 @@ absurd experience for you if, after having praised
 Orestes and Pylades like a professional orator,
 you should prove an indifferent speaker in behalf
 of the Scythians.</p>
-
-
-<p><label>Toxaris</label> It is all very well that you spur me
+            <p>
+               <label>Toxaris</label> It is all very well that you spur me
 on to speak! Don't you care whether you lose
 
 
@@ -930,9 +922,9 @@ who offered himself for imprisonment with the
 certainty of a speedy release. For all these are
 trifles, and not one of them calls for exertion or
 courage. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="36">
-<p>But I will tell you of many a murder
+         </div>
+         <div n="36" type="section">
+            <p>But I will tell you of many a murder
 and war and death for the sake of a friend, to
 show that it is childish to compare your case with
 ours in Scythia. Still, your feeling is reasonable
@@ -950,11 +942,10 @@ them our only invincible weapons.
 
 
 <pb n="p.214"/>
-
-</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="37">
-<p>
+            </p>
+         </div>
+         <div n="37" type="section">
+            <p>
 
 In the first place, I should like to describe to
 you our manner of acquiring friends. We do not
@@ -976,9 +967,9 @@ friends seems as bad to us as a woman with many
 lovers or husbands, and we think his friendship
 will no longer be so sure when it is parcelled
 among many tendernesses.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="38">
-<p>
+         </div>
+         <div n="38" type="section">
+            <p>
 I will begin with the recent adventures of Dandamis. When his friend Amizokes was carried
 off as a prisoner of war by the Sauromatians—
 but first I will take our national oath for you,
@@ -992,46 +983,40 @@ I swear
 by the Wind and by the Sword, Mnesippos, that
 I will tell you nothing false about Scythian
 friends.</p>
-
-
-<p><label>Mnesippos</label> I did not insist on an oath from
+            <p>
+               <label>Mnesippos</label> I did not insist on an oath from
 you, Toxaris; but you did well not to swear by
 any god.</p>
-
-
-<p><label>Toxaris</label> What do you mean? Don't you think
+            <p>
+               <label>Toxaris</label> What do you mean? Don't you think
 that the Wind and the Sword are gods? Are you,
 perhaps, unaware that nothing is greater to men
 than life and death? So whenever we swear by
 the Wind and the Sword we swear by the Wind
 as the source of life and the Sword because it
 brings death.</p>
-
-
-<p><label>Mnesippos</label> If that is your reason you might
+            <p>
+               <label>Mnesippos</label> If that is your reason you might
 have plenty of other gods like the Sword: the
 arrow and the spear and the hemlock and the
 noose, and the like.
 For this god Death has
 many forms, and offers innumerable roads lead
 ing his way.</p>
-
-
-<p><label>Toxaris</label> See now how captious you are! What
+            <p>
+               <label>Toxaris</label> See now how captious you are! What
 a lawyer's trick it is to break in in the midst and
 spoil my speech! I held my tongue while you
 were talking.</p>
-
-
-<p><label>Mnesippos</label> I'll not do it again, Toxaris, your
+            <p>
+               <label>Mnesippos</label> I'll not do it again, Toxaris, your
 reproof was very just. So go on with confidence
 just as if I were not present to hear you. I will
 be as silent as that.</p>
-
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="39">
-
-<p><label>Toxaris</label> It was the fourth day of friendship
+         </div>
+         <div n="39" type="section">
+            <p>
+               <label>Toxaris</label> It was the fourth day of friendship
 between Dandamis and Amizokes, that is, since
 
 
@@ -1053,9 +1038,9 @@ on both banks of the Tanais. They next proceeded to drive off our flocks, secure
 of which they captured, men and all, and they insulted our wives and concubines under our very
 eyes, which nearly maddened us.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="40">
-<p>
+         </div>
+         <div n="40" type="section">
+            <p>
 Now Amizokes was taken prisoner, and as they
 were leading him off he called upon his friend by
 name, cruelly bound as he was, and reminded him
@@ -1074,7 +1059,7 @@ and of him he demanded his friend. The commander
 asked for a ransom, saying the prisoner
 should not go forth unless he got a great price
 for him.</p>
- <p>"All that I possessed," said Dandamis, "has
+            <p>"All that I possessed," said Dandamis, "has
 been pillaged by you. But if, stripped as I am,
 I can in any way pay the price, I am at your service. Command what you will. If you like, take
 me in his stead, and use me as you see fit."
@@ -1088,9 +1073,9 @@ and the Sauromatians were in possession of the
 ransom, he received Amizokes and went away
 leaning on him, and together they swam across
 and returned to us saved. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="41">
-<p>This event put heart
+         </div>
+         <div n="41" type="section">
+            <p>This event put heart
 into all the Scythians, and they no longer considered themselves worsted by the Sauromatians,
 seeing that the enemy had not carried off our
 greatest good, but that our noble disposition was
@@ -1112,9 +1097,9 @@ life by the Scythian commonwealth, and supported
 at the public expense with every honor.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="42">
-<p>
+         </div>
+         <div n="42" type="section">
+            <p>
 What could you tell to match this, Mnesippos,
 if I should let you count up ten more in addition
 to your five, and not on oath, either, so that you
@@ -1126,9 +1111,9 @@ and what he said and how he went off again, and
 how the Scythians received him with blessings,
 and the other devices you are wont to employ on
 your audience.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="43">
-<p>
+         </div>
+         <div n="43" type="section">
+            <p>
 But now hear of another man, equally admirable: Belittas, a cousin of this Amizokes. When
 he saw his friend Basthes dragged from his horse
 by a lion-they happened to be hunting together
@@ -1150,9 +1135,9 @@ died together, and we buried them, digging two
 graves near together, one for the friends and one
 opposite for the lion.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="44">
-<p>
+         </div>
+         <div n="44" type="section">
+            <p>
 My third case, Mnesippos, shall be the friendship of Makentes, Lonchates, and Arsakomas.
 This Arsakomas fell in love with Mazaia, daughter of Leukanor, king of the Bosporians, when he
 went as an envoy in the matter of the tribute
@@ -1181,9 +1166,9 @@ out a libation on the table, and propose for the
 girl, setting forth his advantages of birth, or
 wealth, or influence, in the most favorable light.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="45">
-<p>
+         </div>
+         <div n="45" type="section">
+            <p>
 In accordance with this custom many had poured
 out the libation and made their proposals, counting up their kingdoms and riches; and last of all
 Arsakomas called for a glass, and instead of pouring out a libation-for it is not our practice to
@@ -1211,9 +1196,9 @@ he was drunk. In the early morning Adyrmachos,
 who had been chosen from the other suitors, made
 ready to conduct his bride to the Maiotis among
 the Machlyëans. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="46">
-<p>But Arsakomas made his way
+         </div>
+         <div n="46" type="section">
+            <p>But Arsakomas made his way
 home and told his friends how he had been insulted by the king, and laughed to scorn at the
 dinner because they thought him poor.
 "And yet," said he, "I explained to the king
@@ -1241,12 +1226,10 @@ treated in that way."
 
 
 <pb n="p.222"/>
-
-
-</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="47">
-<p>
+            </p>
+         </div>
+         <div n="47" type="section">
+            <p>
 “The next question,” said Makentes, “is, what
 Ishall we do in this case?"
 "Let us parcel out the job," said Lonchates.
@@ -1268,9 +1251,9 @@ and Makentes to the Machlyëans, both on horseback. Arsakomas stayed at home and
 himself to the young men, armed a force of his
 kinsmen, and finally seated himself on the oxhide.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="48">
-<p>
+         </div>
+         <div n="48" type="section">
+            <p>
 The custom of the hide is this: When a man
 has received an injury and wishes to revenge
 himself on some one, but sees that his unaided
@@ -1297,9 +1280,9 @@ In this way Arsakomas occupied himself, and
 about five thousand horsemen joined him, and
 hoplites and foot-soldiers to the number of twen.
 ty thousand.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="49">
-<p>
+         </div>
+         <div n="49" type="section">
+            <p>
 Lonchates made his way to the Bosporos incognito, and presented himself before the king,
 who was engaged in affairs of state, saying that
 he came as a public emissary from Scythia, but
@@ -1320,9 +1303,9 @@ general consent, but declare that each of them
 carries on his robbery for his own private advantage; and that if one of them should be caught
 you are authorized to punish him. This is their
 communication. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="50">
-<p>But I will inform you on my
+         </div>
+         <div n="50" type="section">
+            <p>But I will inform you on my
 own account of a great expedition that is coming
 against you under Arsakomas, son of Mariantes,
 who was recently an envoy to your court. I believe your rejection of him as a suitor for your
@@ -1386,9 +1369,9 @@ for it was a long time before the Bosporians
 found out what had happened, and when they
 did find it out they fell to quarrelling about the
 succession. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="51">
-<p>These, then, were the exploits of
+         </div>
+         <div n="51" type="section">
+            <p>These, then, were the exploits of
 Lonchates, done in fulfilling his promise to Arsakomas by bringing the head of Leukanor.
 Makentes, on his part, arrived among the Machlyëans, having heard on the road what had
 happened at the Bosporus. Thus he was the
@@ -1424,9 +1407,9 @@ Alanian's would probably be. So by these means
 he got credence as a relative of Masteira and
 Mazaia.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="52">
-<p>
+         </div>
+         <div n="52" type="section">
+            <p>
 "And now, Adyrmachos," said he, "I am ready
 to ride with you to the Bosporos if you like, or,
 if need be, to stay behind and escort the young
@@ -1453,9 +1436,9 @@ crossed the Machlyëan border into Scythia. His
 horse, when he stopped galloping, stood still for
 a moment, and then fell dead.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="53">
-<p>
+         </div>
+         <div n="53" type="section">
+            <p>
 Makentes handed over Mazaia to Arsakomas,
 saying, "Receive the fulfilment of my promise
 also." He was stunned by the unexpected vision,
@@ -1470,9 +1453,9 @@ think it a great thing if a part of us does something for the good of the whole 
 for his own good that he does it, seeing he is part
 of the benefitted whole." Thus did Makentes
 meet Arsakomas's thanks.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="54">
-<p>
+         </div>
+         <div n="54" type="section">
+            <p>
 Adyrmachos, when he heard of the fraud, did
 not continue his journey to the Bosporos, for
 Eubiotos was already installed in office, having
@@ -1502,9 +1485,9 @@ in every direction with a generous discharge of
 arrows and darts, so that the surrounded were
 almost exhausted, and most of them were already
 throwing down their arms. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="55">
-<p>As it happened, both
+         </div>
+         <div n="55" type="section">
+            <p>As it happened, both
 Lonchates and Makentes were in this division,
 and they had both been wounded already through
 their hardihood-Lonchates in the thigh with the
@@ -1545,35 +1528,31 @@ for friends.
 
 
 <pb n="p.231"/>
-
-</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="56">
-<p>
-<label>Mnesippos</label> Very tragical and romance-like.
+            </p>
+         </div>
+         <div n="56" type="section">
+            <p>
+               <label>Mnesippos</label> Very tragical and romance-like.
 But may the Sword and the Wind, by whom you
 swore, have mercy on me; for I do not think a
 man would be much to blame if he should disbelieve your tales.</p>
-
-
-<p><label>Toxaris</label> Beware, my friend, lest your doubt be
+            <p>
+               <label>Toxaris</label> Beware, my friend, lest your doubt be
 envy. Doubt as you will, you will not keep me
 from telling other such deeds of Scythians that I
 know of.</p>
-
-
-<p><label>Mnesippos</label> Only not at great length, my dear
+            <p>
+               <label>Mnesippos</label> Only not at great length, my dear
 fellow, nor using such unbridled words. You
 abused my silence to run up and down through
 Scythia and Machlyëne, and off to the Bosporos
 and back again.</p>
-
-
-<p><label>Toxaris</label> I must obey your commands even in
+            <p>
+               <label>Toxaris</label> I must obey your commands even in
 this, and speak briefly lest you weary of following me about with your ears. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="57">
-<p>But hear what
+         </div>
+         <div n="57" type="section">
+            <p>But hear what
 services I myself received from a friend named
 Sisinnes. When I left home and went to Athens,
 through my desire for a Greek education, I put
@@ -1598,9 +1577,9 @@ were many of them, or the landlord, for we were
 afraid most people would think us sharpers if we
 said that some one had robbed us of fifteen hundred dollars, a great deal of clothing, some rugs,
 and everything else we had. </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="58">
-<p>We considered our
+         </div>
+         <div n="58" type="section">
+            <p>We considered our
 circumstances and what we should do, utterly without resources in a foreign country, and my opinion
 was that we had better thrust our swords between
 our ribs then and there and die, rather than submit to be shamefully destroyed by hunger and
@@ -1618,9 +1597,9 @@ in three days. He made full inquiries about
 them, and then came to me and said, "Don't call
 yourself poor any longer, Toxaris, for in three days
 I shall prove you rich."</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="59">
-<p>
+         </div>
+         <div n="59" type="section">
+            <p>
 That was all he told me, and we managed to
 eke out a wretched existence in the interval.
 
@@ -1645,9 +1624,9 @@ me and gave it into my hands. "If I should
 win, Toxaris," he said, "we will go off together
 with plenty of money, but if I fall, bury me and
 go back to Scythia." Thereupon I cried out,</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="60">
-<p> but
+         </div>
+         <div n="60" type="section">
+            <p> but
 he took the armor and put it all on except the
 helmet. This he did not wear, but fought bareheaded. The first thing that happened was that
 he was wounded, cut under the knee with a
@@ -1673,9 +1652,9 @@ day in Scythia, married to my sister. But, nevertheless, he is lame from his wou
 Alania, so as to be unsupported by evidence and
 open to disbelief, but many of the folk of Amastris are at hand who remember the contest of
 Sisinnes.</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="61">
-<p>
+         </div>
+         <div n="61" type="section">
+            <p>
 When I have told you as my fifth case the
 deeds of Abauchas I will stop. This Abauchas
 once came into a city of the Borysthenites, bringing with him his wife, whom he loved tenderly,
@@ -1712,17 +1691,16 @@ children to bring Gyndanes out, he would say,
 will be good or not; but it would take me a long
 time to find another such friend as Gyndanes,
 who has given me great proof of his affection."</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="62">
-<p>
+         </div>
+         <div n="62" type="section">
+            <p>
 These five, Mnesippos, I have chosen from
 many to tell you of. And now it should be time
 to decide between us whether you are to lose
 your tongue or I my right hand. Who, then,
 shall be our judge?</p>
-
-
-<p><label>Mnesippos</label> No one, for we did not appoint any
+            <p>
+               <label>Mnesippos</label> No one, for we did not appoint any
 arbiter of the discussion. But do you know what
 we shall do? Since we have this time shot our
 arrows without a mark, let us choose an umpire
@@ -1748,28 +1726,23 @@ they form something like the painters' picture of
 Geryon, a man with six hands and three heads.
 It strikes me that they were three people acting
 in concert as they ought to do, if they are friends.</p>
-
-
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg044.perseus-eng5:" n="63">
-
-<p><label>Toxaris</label> You are right; let us do so.</p>
-
-
-<p><label>Mnesippos</label> But we need no blood, Toxaris, and
+         </div>
+         <div n="63" type="section">
+            <p>
+               <label>Toxaris</label> You are right; let us do so.</p>
+            <p>
+               <label>Mnesippos</label> But we need no blood, Toxaris, and
 no sword to cement our friendship. For this
 present talk of ours and our striving for like
 things will be more sure than that cup of which
 you drink, since to my mind such matters need
 not compulsion but good-will.</p>
-
-
-<p><label>Toxaris</label> I approve. Let us be friends and
+            <p>
+               <label>Toxaris</label> I approve. Let us be friends and
 hosts from this moment, you to me here in Greece,
 and I to you if you should ever come to Scythia.</p>
-
-
-<p><label>Mnesippos</label> I assure you I would cheerfully go
+            <p>
+               <label>Mnesippos</label> I assure you I would cheerfully go
 farther yet to find such friends as your words
 prove you to be, Toxaris.
 
@@ -1779,8 +1752,9 @@ prove you to be, Toxaris.
 
 
 
-</p></div>
-</div>
-<pb n="p.239"/>
-</body></text></TEI>
-
+</p>
+         </div>
+         <pb n="p.239"/>
+      </body>
+   </text>
+</TEI>

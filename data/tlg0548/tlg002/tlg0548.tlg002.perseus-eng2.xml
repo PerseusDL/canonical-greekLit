@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
       <fileDesc>
          <titleStmt>
             <title>Epitome</title>
-             <author>Apollodorus</author>
+            <author>Apollodorus</author>
             <editor>Sir James George Frazer</editor>
             <sponsor>Perseus Project, Tufts University</sponsor>
             <principal>Gregory Crane</principal>
@@ -22,6 +22,7 @@
             <publisher>Trustees of Tufts University</publisher>
             <pubPlace>Medford, MA</pubPlace>
             <authority>Perseus Project</authority>
+            <idno type="CTS">urn:cts:greekLit:tlg0548.tlg002.perseus-eng2</idno>
          </publicationStmt>
          <sourceDesc>
             <bibl>
@@ -48,8 +49,18 @@
 				        <state delim="." unit="volume"/>
 				        <state unit="page"/>
 			      </refsDecl>-->
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="chapter" delim=":" match="div[@type='chapter']" use="@n">
+                  <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+               </citeStructure>
+            </citeStructure>
+         </refsDecl>
       </encodingDesc>
       <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-chapter-section"/>
+         </textClass>
          <langUsage>
             <language ident="eng">English </language>
             <language ident="grc">Greek </language>
@@ -155,11 +166,10 @@
          <change when="2016-02-11" who="TDBuck">epidoc and cts update</change>
       </revisionDesc>
    </teiHeader>
-   <text  xml:lang="eng">
-      <body>
-          <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0548.tlg002.perseus-eng2">
-         <div n="1" subtype="chapter" type="textpart">
-            <div n="1" subtype="section" type="textpart">
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0548.tlg002.perseus-eng2">
+         <div n="1" type="chapter">
+            <div n="1" type="section">
                <p>
                   <pb n="129"/>
                   <milestone unit="para"/>Third, he slew at Crommyon the sow that was called
@@ -176,13 +186,13 @@
                                     Mythologie</title>, ii.1450ff.</bibl>
                   </note> that sow, some say, was the offspring of Echidna and Typhon. </p>
             </div>
-            <div n="2" subtype="section" type="textpart">
+            <div n="2" type="section">
                <p>Fourth, he slew Sciron, the Corinthian, son of Pelops, or, as some say, of
                         Poseidon. He in the Megarian territory held the rocks called after him
                         Scironian, and compelled passers-by to wash his feet, and in the act of
                         washing he kicked them into the deep to be the prey of a huge turtle. </p>
             </div>
-            <div n="3" subtype="section" type="textpart">
+            <div n="3" type="section">
                <p>But Theseus seized him by the feet and threw him into the sea.<note anchored="true" resp="ed" place="unspecified">Compare <bibl n="Bacchyl. Dith. 18.24">Bacch. 17(18).24ff., ed. Jebb</bibl>;
                                 <bibl>Diod. 4.59.4</bibl>; <bibl n="Plut. Thes. 10">Plut. Thes.
                                 10</bibl>; <bibl n="Paus. 1.44.8">Paus. 1.44.8</bibl>;
@@ -223,7 +233,7 @@
                             way from the Isthmus of <name type="place" key="perseus,Corinth">Corinth</name> to <name type="place" key="perseus,Athens">Athens</name>.</note>
                </p>
             </div>
-            <div n="4" subtype="section" type="textpart">
+            <div n="4" type="section">
                <p>Sixth, he slew Damastes, whom some call Polypemon.<note anchored="true" resp="ed" place="unspecified">More commonly known as Procrustes. See
                                 <bibl n="Bacchyl. Dith. 18.27">Bacch. 17(18).27ff., ed. Jebb</bibl>;
                                 <bibl>Diod. 4.59.5</bibl>; <bibl n="Plut. Thes. 11">Plut. Thes.
@@ -263,7 +273,7 @@
                         body that projected beyond it. <milestone unit="para"/>So, having cleared
                         the road, Theseus came to <name type="place" key="perseus,Athens">Athens</name>. </p>
             </div>
-            <div n="5" subtype="section" type="textpart">
+            <div n="5" type="section">
                <p>But Medea, being then wedded to Aegeus, plotted against him<note anchored="true" resp="ed" place="unspecified">That Theseus was sent
                             against the Marathonian bull at the instigation of Medea is affirmed
                             also by the First Vatican Mythographer. See <bibl>Scriptores rerum
@@ -273,7 +283,7 @@
                         Aegeus to beware of him as a traitor. And Aegeus, not knowing his own son,
                         was afraid and sent him against the Marathonian bull. </p>
             </div>
-            <div n="6" subtype="section" type="textpart">
+            <div n="6" type="section">
                <p>And when Theseus had killed it, Aegeus presented to him a poison which he had
                         received the selfsame day from Medea. But just as the draught was about to
                         be administered to him, he gave his father the sword, and on recognizing it
@@ -287,7 +297,7 @@
                   </note> And when <pb n="135"/>Theseus was thus made known to his father and
                         informed of the plot, he expelled Medea. </p>
             </div>
-            <div n="7" subtype="section" type="textpart">
+            <div n="7" type="section">
                <p>
                   <milestone unit="para"/>And he was numbered among those who were to be sent
                         as the third tribute to the Minotaur; or, as some affirm, he offered himself
@@ -313,14 +323,14 @@
                             easily as a white sail at a great distance.</note>
                </p>
             </div>
-            <div n="8" subtype="section" type="textpart">
+            <div n="8" type="section">
                <p>And when he came to <name type="place" key="tgn,7012056">Crete</name>,
                         Ariadne, daughter of Minos, being amorously disposed to him, offered to help
                         him if he would agree to carry her away to <name type="place" key="perseus,Athens">Athens</name> and have her to wife. Theseus having
                         agreed on oath to do so, she besought Daedalus to disclose the way out of
                         the labyrinth. </p>
             </div>
-            <div n="9" subtype="section" type="textpart">
+            <div n="9" type="section">
                <p>And at his suggestion she gave Theseus a clue when he went in; Theseus
                         fastened it to the door, and, drawing it after him, entered in.<note anchored="true" resp="ed" place="unspecified">Compare <bibl>Scholiast on
                                 Hom. Od. xi.322</bibl>, <bibl>Scholiast on Hom. Il.
@@ -373,7 +383,7 @@
                             20</bibl>).</note>
                </p>
             </div>
-            <div n="10" subtype="section" type="textpart">
+            <div n="10" type="section">
                <p>
                   <milestone unit="para"/>In his grief on account of Ariadne, Theseus forgot
                         to spread white sails on his ship when he stood for port; and Aegeus, seeing
@@ -393,7 +403,7 @@
                             son.</note>
                </p>
             </div>
-            <div n="11" subtype="section" type="textpart">
+            <div n="11" type="section">
                <p>But Theseus <pb n="139"/>succeeded to the sovereignty of <name type="place" key="perseus,Athens">Athens</name>, and killed the sons of Pallas, fifty
                         in number;<note anchored="true" resp="ed" place="unspecified">Pallas was the
                             brother of Aegeus (see above, <bibl n="Apollod. 3.15.5">Apollod.
@@ -416,7 +426,7 @@
                                 1.28.10</bibl>).</note> likewise all who would oppose him were
                         killed by him, and he got the whole government to himself. </p>
             </div>
-            <div n="12" subtype="section" type="textpart">
+            <div n="12" type="section">
                <p>
                   <milestone unit="para"/>On being apprized of the flight of Theseus and his
                         company, Minos shut up the guilty Daedalus in the labyrinth, along with his
@@ -426,7 +436,7 @@
                         melt in the sun and the wings should drop off, nor to fly near the sea, lest
                         the pinions should be detached by the damp. </p>
             </div>
-            <div n="13" subtype="section" type="textpart">
+            <div n="13" type="section">
                <p>But the infatuated Icarus, disregarding his father's injunctions, soared ever
                         higher, till, the glue melting, he fell into the sea called after him
                         Icarian, and perished.<note anchored="true" resp="ed" place="unspecified">Compare <bibl n="Strab. 14.1.19">Strab. 14.1.19</bibl>; <bibl>Lucian,
@@ -452,7 +462,7 @@
                             slave woman named Naucrate.</note> But Daedalus made his way safely to
                             <pb n="141"/>Camicus in <name type="place" key="tgn,7003122">Sicily</name>. </p>
             </div>
-            <div n="14" subtype="section" type="textpart">
+            <div n="14" type="section">
                <p>And Minos pursued Daedalus, and in every country that he searched he carried
                         a spiral shell and promised to give a great reward to him who should pass a
                         thread through the shell, believing that by that means he should discover
@@ -460,7 +470,7 @@
                         concealed, he showed the spiral shell. Cocalus took it, and promised to
                         thread it, and gave it to Daedalus; </p>
             </div>
-            <div n="15" subtype="section" type="textpart">
+            <div n="15" type="section">
                <p>and Daedalus fastened a thread to an ant, and, having bored a hole in the
                         spiral shell, allowed the ant to pass through it. But when Minos found the
                         thread passed through the shell, he perceived that Daedalus was with
@@ -511,7 +521,7 @@
                                 senectus dissolvit</foreign>).</note>
                </p>
             </div>
-            <div n="16" subtype="section" type="textpart">
+            <div n="16" type="section">
                <p>
                   <milestone unit="para"/>Theseus joined Hercules in his expedition against
                         the Amazons and carried off Antiope, or, as some say, Melanippe; but
@@ -547,7 +557,7 @@
                         vanquished by the Athenians under Theseus. And though he had a son
                         Hippolytus by the Amazon, </p>
             </div>
-            <div n="17" subtype="section" type="textpart">
+            <div n="17" type="section">
                <p>Theseus afterwards received from Deucalion<note anchored="true" resp="ed" place="unspecified">This Deucalion was a son of Minos and reigned after
                             him; he was thus a brother of Phaedra. See above, <bibl n="Apollod. 3.1.2">Apollod. 3.1.2</bibl>; <bibl>Diod. 4.62.1</bibl>.
                             He is not to be confounded with the more famous Deucalion in whose time
@@ -558,7 +568,7 @@
                         assembled guests. But they hastily closed the doors and killed her. However,
                         some say that she was slain in battle by Theseus. </p>
             </div>
-            <div n="18" subtype="section" type="textpart">
+            <div n="18" type="section">
                <p>And Phaedra, after she had borne two children, Acamas and Demophon, to
                         Theseus, fell in love with the son he had by the Amazon, to wit, Hippolytus,
                         and besought him to lie with her. Howbeit, he fled from her embraces,
@@ -566,7 +576,7 @@
                         his father, cleft open the doors of her bed-chamber, rent her garments, and
                         falsely charged Hippolytus with an assault. </p>
             </div>
-            <div n="19" subtype="section" type="textpart">
+            <div n="19" type="section">
                <p>Theseus believed her and prayed to Poseidon that Hippolytus might perish. So,
                         when Hippolytus was riding in his chariot and driving beside the sea,
                         Poseidon sent up a bull from the surf, and the horses were frightened, the
@@ -637,7 +647,7 @@
                   <pb n="149"/>
                </p>
             </div>
-            <div n="20" subtype="section" type="textpart">
+            <div n="20" type="section">
                <p>
                   <milestone unit="para"/>Ixion fell in love with Hera and attempted to force
                         her; and when Hera reported it, Zeus, wishing to know if the thing were so,
@@ -666,7 +676,7 @@
                         <title>Zeus</title>, i.198-211</bibl>.</note>
                </p>
             </div>
-            <div n="21" subtype="section" type="textpart">
+            <div n="21" type="section">
                <p>
                   <cit>
                      <quote>
@@ -712,7 +722,7 @@
                   </cit>
                </p>
             </div>
-            <div n="22" subtype="section" type="textpart">
+            <div n="22" type="section">
                <p>
                   <milestone unit="para"/>Caeneus was formerly a woman, but after that
                         Poseidon had intercourse with her, she asked to become an invulnerable man;
@@ -766,7 +776,7 @@
                   <pb n="153"/>
                </p>
             </div>
-            <div n="23" subtype="section" type="textpart">
+            <div n="23" type="section">
                <p>
                   <milestone unit="para"/>Having made a compact with Pirithous that they would
                         marry daughters of Zeus, Theseus, with the help of Pirithous, carried off
@@ -792,7 +802,7 @@
                   </note>
                </p>
             </div>
-            <div n="24" subtype="section" type="textpart">
+            <div n="24" type="section">
                <p>But when Theseus arrived with Pirithous in Hades, he was beguiled; for, on
                         the pretence that they were about to partake of good cheer, Hades bade them
                         first be seated on the Chair of Forgetfulness, to which they grew and were
@@ -823,8 +833,8 @@
                </p>
             </div>
          </div>
-         <div n="2" subtype="chapter" type="textpart">
-            <div n="1" subtype="section" type="textpart">
+         <div n="2" type="chapter">
+            <div n="1" type="section">
                <p>
                   <milestone unit="para"/>Tantalus is punished in Hades by having a stone
                         impending over him, by being perpetually in a lake and seeing at his
@@ -871,7 +881,7 @@
                   </note>
                </p>
             </div>
-            <div n="2" subtype="section" type="textpart">
+            <div n="2" type="section">
                <p>
                   <milestone unit="para"/>Broteas, a hunter, did not honor Artemis, and <pb n="157"/>said that even fire could not hurt him. So he went mad and
                         threw himself into fire.<note anchored="true" resp="ed" place="unspecified">This Broteas, mentioned by Apollodorus between Tantalus and Pelops, is
@@ -900,7 +910,7 @@
                   </note>
                </p>
             </div>
-            <div n="3" subtype="section" type="textpart">
+            <div n="3" type="section">
                <p>
                   <milestone unit="para"/>Pelops, after being slaughtered and boiled at the
                         banquet of the gods, was fairer than ever when he came to life again,<note anchored="true" resp="ed" place="unspecified">The story was that at a
@@ -933,7 +943,7 @@
                             5.17.7</bibl>).</note>
                </p>
             </div>
-            <div n="4" subtype="section" type="textpart">
+            <div n="4" type="section">
                <p>Now Oenomaus, the king of <name type="place" key="perseus,Pisa">Pisa</name>,
                         had a daughter Hippodamia,<note anchored="true" resp="ed" place="unspecified">The following account of the wooing and winning of Hippodamia by Pelops
                             is the fullest that has come down to us. Compare <bibl n="Pind. O. 1">Pind. O. 1.67(109)ff.</bibl>; <bibl>Diod. 4.73</bibl>; <bibl n="Paus. 5.10.6">Paus. 5.10.6ff.</bibl>; <bibl n="Paus. 5.14.6">Paus. 5.14.6</bibl>; <bibl n="Paus. 5.17.7">Paus. 5.17.7</bibl>;
@@ -1006,7 +1016,7 @@
                         suitors were put by him to death. <pb n="161"/>
                </p>
             </div>
-            <div n="5" subtype="section" type="textpart">
+            <div n="5" type="section">
                <p>For he had arms and horses given him by Ares, and he offered as a prize to
                         the suitors the hand of his daughter, and each suitor was bound to take up
                         Hippodamia on his own chariot and flee as far as the Isthmus of <name type="place" key="perseus,Corinth">Corinth</name>, and Oenomaus
@@ -1028,13 +1038,13 @@
                             he would help him in the race.</note>
                </p>
             </div>
-            <div n="6" subtype="section" type="textpart">
+            <div n="6" type="section">
                <p>
                   <milestone unit="para"/>So Pelops also came a-wooing; and when Hippodamia
                         saw his beauty, she conceived a passion for him, and persuaded Myrtilus, son
                         of Hermes, to help him; for Myrtilus was charioteer to Oenomaus. </p>
             </div>
-            <div n="7" subtype="section" type="textpart">
+            <div n="7" type="section">
                <p>Accordingly Myrtilus, being in love with her and wishing to gratify her, did
                         not insert the linchpins in the boxes of the wheels,<note anchored="true" resp="ed" place="unspecified">According to another account, which had
                             the support of Pherecydes, Myrtilus substituted linchpins of wax for
@@ -1051,7 +1061,7 @@
                         treachery he had discovered, praying that he might perish by the hand of
                         Pelops. </p>
             </div>
-            <div n="8" subtype="section" type="textpart">
+            <div n="8" type="section">
                <p>
                   <milestone unit="para"/>Pelops, therefore, got Hippodamia; and on his
                         journey, in which he was accompanied by Myrtilus, he came to a certain
@@ -1066,7 +1076,7 @@
                   </note>; and Myrtilus, as he was being thrown, uttered curses against the
                         house of Pelops. </p>
             </div>
-            <div n="9" subtype="section" type="textpart">
+            <div n="9" type="section">
                <p>When Pelops had reached the Ocean and been cleansed by Hephaestus,<note anchored="true" resp="ed" place="unspecified">Compare <bibl>Tzetzes,
                                 Scholiast on Lycophron 156</bibl>; <bibl>Scholiast on Eur. Or.
                                 990</bibl>.</note> he returned to <name type="place" key="perseus,Pisa">Pisa</name> in <name type="place" key="perseus,Elis">Elis</name> and succeeded to the kingdom of Oenomaus, but not till he
@@ -1079,7 +1089,7 @@
                                 960</bibl>).</note>
                </p>
             </div>
-            <div n="10" subtype="section" type="textpart">
+            <div n="10" type="section">
                <p>
                   <milestone unit="para"/>The sons of Pelops were Pittheus, Atreus, Thyestes,
                         and others.<note anchored="true" resp="ed" place="unspecified">According to
@@ -1105,7 +1115,7 @@
                         sacrifice to Artemis the finest of his flocks; but when a golden lamb
                         appeared, they say that he neglected to perform his vow, </p>
             </div>
-            <div n="11" subtype="section" type="textpart">
+            <div n="11" type="section">
                <p>and having choked the lamb, he deposited it in a box and kept it there, and
                         Aerope gave it to Thyestes, by whom she had been debauched. For the
                         Mycenaeans had received an oracle which bade them choose a Pelopid for their
@@ -1114,7 +1124,7 @@
                         kingdom ought to belong to him who owned the golden lamb, and when Atreus
                         agreed, Thyestes produced the lamb and was made king. </p>
             </div>
-            <div n="12" subtype="section" type="textpart">
+            <div n="12" type="section">
                <p>But Zeus sent Hermes to Atreus and told him to stipulate with Thyestes that
                         Atreus should be king if the sun should go backward; and when Thyestes
                         agreed, the sun set in the east; hence the deity having plainly attested the
@@ -1191,7 +1201,7 @@
                   </note>
                </p>
             </div>
-            <div n="13" subtype="section" type="textpart">
+            <div n="13" type="section">
                <p>But afterwards being apprized <pb n="167"/>of the adultery, he sent a herald
                         to Thyestes with a proposal of accommodation; and when he had lured Thyestes
                         by a pretence of friendship, he slaughtered the sons, Aglaus, Callileon, and
@@ -1222,7 +1232,7 @@
                             named by Seneca and Hyginus.</note>
                </p>
             </div>
-            <div n="14" subtype="section" type="textpart">
+            <div n="14" type="section">
                <p>But seeking by all means to pay Atreus <pb n="169"/>out, Thyestes inquired of
                         the oracle on the subject, and received an answer that it could be done if
                         he were to beget a son by intercourse with his own daughter. He did so
@@ -1245,7 +1255,7 @@
                             relationship to him, she stabbed herself to death.</note>
                </p>
             </div>
-            <div n="15" subtype="section" type="textpart">
+            <div n="15" type="section">
                <p>
                   <quote type="verse">
                      <l>But<note anchored="true" resp="ed" place="unspecified">The passage
@@ -1288,7 +1298,7 @@
                   </quote>
                </p>
             </div>
-            <div n="16" subtype="section" type="textpart">
+            <div n="16" type="section">
                <p>
                   <milestone unit="para"/>And Agamemnon reigned over the Mycenaeans and
                         married Clytaemnestra, daughter of Tyndareus, after slaying her former
@@ -1310,15 +1320,15 @@
                </p>
             </div>
          </div>
-         <div n="3" subtype="chapter" type="textpart">
-            <div n="1" subtype="section" type="textpart">
+         <div n="3" type="chapter">
+            <div n="1" type="section">
                <p>
                   <milestone unit="para"/>But afterwards Alexander carried off Helen, as some
                         say, because such was the will of Zeus, in order that his daughter might be
                         famous for having embroiled <name type="place" key="tgn,1000003">Europe</name> and <name type="place" key="tgn,1000004">Asia</name>; or,
                         as others have said, that the race of the demigods might be exalted. </p>
             </div>
-            <div n="2" subtype="section" type="textpart">
+            <div n="2" type="section">
                <p>For <pb n="173"/>one of these reasons Strife threw an apple as a prize of
                         beauty to be contended for by Hera, Athena, and Aphrodite; and Zeus
                         commanded Hermes to lead them to Alexander on Ida in order to be judged by
@@ -1359,7 +1369,7 @@
                             Compare <bibl>Tzetzes, Scholiast on Lycophron 97</bibl>.</note>
                </p>
             </div>
-            <div n="3" subtype="section" type="textpart">
+            <div n="3" type="section">
                <p>For nine days he was entertained by Menelaus; but on the tenth day, Menelaus
                         having gone on a journey to <name type="place" key="tgn,7012056">Crete</name> to perform the obsequies of his mother's father Catreus,
                         Alexander persuaded Helen to go off<note anchored="true" resp="ed" place="unspecified">The Greek for “to go off” is <foreign xml:lang="grc">ἀπαγαγεῖν</foreign>, a rare use of <foreign xml:lang="grc">ἀπάγειν</foreign>, which, however, occurs in the common phrase,
@@ -1375,7 +1385,7 @@
                   </note>
                </p>
             </div>
-            <div n="4" subtype="section" type="textpart">
+            <div n="4" type="section">
                <p>But Hera sent them a heavy storm which forced them to put in at <name type="place" key="tgn,7002861">Sidon</name>. And fearing lest he should
                         be pursued, Alexander spent much time in <name type="place" key="tgn,6004687">Phoenicia</name> and <name type="place" key="tgn,1000112">Cyprus</name>.<note anchored="true" resp="ed" place="unspecified">The voyage of Paris and Helen to <name type="place" key="tgn,7002861">Sidon</name> was known to <bibl n="Hom. Il. 6.289">Hom. Il. 6.289ff.</bibl>, with the <bibl>Scholiast on Hom. Il.
                                 6.291</bibl>. It was also recorded in the epic
@@ -1396,7 +1406,7 @@
                             vessels. See <bibl>Dictys Cretensis i.5</bibl>.</note> But when he
                         thought that all chance of pursuit was over, he came to <name type="place" key="perseus,Troy">Troy</name> with Helen. </p>
             </div>
-            <div n="5" subtype="section" type="textpart">
+            <div n="5" type="section">
                <p>But some say that Hermes, in obedience to the will of Zeus, stole Helen and
                         carried her to <name type="place" key="tgn,7016833">Egypt</name>, and gave
                         her to Proteus, king of the Egyptians, to guard, and that Alexander repaired
@@ -1439,7 +1449,7 @@
                   <pb n="177"/>
                </p>
             </div>
-            <div n="6" subtype="section" type="textpart">
+            <div n="6" type="section">
                <p>
                   <milestone unit="para"/>When Menelaus was aware of the rape, he came to
                         Agamemnon at <name type="place" key="perseus,Mycenae">Mycenae</name>, and
@@ -1449,7 +1459,7 @@
                         offered equally to the whole of <name type="place" key="tgn,1000074">Greece</name>. And while many were eager to join in the expedition,
                         some repaired also to Ulysses in <name type="place" key="tgn,1007519">Ithaca</name>. </p>
             </div>
-            <div n="7" subtype="section" type="textpart">
+            <div n="7" type="section">
                <p>But he, not wishing to go to the war, feigned madness. However, Palamedes,
                         son of Nauplius, proved his madness to be fictitious; and when Ulysses
                         pretended to rave, Palamedes followed him, and snatching Telemachus from
@@ -1485,7 +1495,7 @@
                   <pb n="179"/>
                </p>
             </div>
-            <div n="8" subtype="section" type="textpart">
+            <div n="8" type="section">
                <p>
                   <milestone unit="para"/>Having taken a Phrygian prisoner, Ulysses compelled
                         him to write a letter of treasonable purport ostensibly sent by Priam to
@@ -1509,7 +1519,7 @@
                             rocks which they hurled down on the top of him.</note>
                </p>
             </div>
-            <div n="9" subtype="section" type="textpart">
+            <div n="9" type="section">
                <p>
                   <milestone unit="para"/>Menelaus went with Ulysses and Talthybius to Cinyras
                         in <name type="place" key="tgn,1000112">Cyprus</name> and tried to persuade
@@ -1536,7 +1546,7 @@
                             send a hundred ships, he sent none at all.</note>
                </p>
             </div>
-            <div n="10" subtype="section" type="textpart">
+            <div n="10" type="section">
                <p>
                   <milestone unit="para"/>The daughters of Anius, the son of Apollo, to wit,
                             <pb n="181"/>Elais, Spermo, and Oeno, are called the Wine-growers:
@@ -1591,7 +1601,7 @@
                             persons of the women.</note>
                </p>
             </div>
-            <div n="11" subtype="section" type="textpart">
+            <div n="11" type="section">
                <p>
                   <milestone unit="para"/>The armament mustered in <name type="place" key="perseus,Aulis">Aulis</name>. The men who went to the Trojan war
                         were as follows<note anchored="true" resp="ed" place="unspecified">As to list
@@ -1628,7 +1638,7 @@
                         ships. Of the Athenians, Menestheus: he brought fifty ships. Of the
                         Salaminians, Telamonian Ajax: he brought twelve ships. </p>
             </div>
-            <div n="12" subtype="section" type="textpart">
+            <div n="12" type="section">
                <p>Of the Argives, Diomedes, son of Tydeus, and his company: they brought eighty
                         ships. Of the Mycenaeans, Agamemnon, son of Atreus and Aerope: a hundred
                         ships. Of the Lacedaemonians, Menelaus, son of Atreus and Aerope: sixty
@@ -1639,12 +1649,12 @@
                         the Aetolians, Thoas, son of Andraemon and Gorge: he brought forty ships.
                     </p>
             </div>
-            <div n="13" subtype="section" type="textpart">
+            <div n="13" type="section">
                <p>Of the Cretans, Idomeneus, son of Deucalion: forty ships. Of the Rhodians,
                         Tlepolemus, son of Hercules and Astyoche: nine ships. Of the Symaeans, <pb n="185"/>Nireus, son of Charopus: three ships. Of the Coans, Phidippus
                         and Antiphus, the sons of Thessalus: thirty ships. </p>
             </div>
-            <div n="14" subtype="section" type="textpart">
+            <div n="14" type="section">
                <p>Of the Myrmidons, Achilles, son of Peleus and Thetis: fifty ships. From <name type="place" key="perseus,Phylace">Phylace</name>, Protesilaus, son of
                         Iphiclus: forty ships. Of the Pheraeans, Eumelus, son of Admetus: eleven
                         ships. Of the Olizonians, Philoctetes, son of Poeas: seven ships. Of the
@@ -1654,7 +1664,7 @@
                         Prothous, son of Tenthredon: forty ships. The total of ships was one
                         thousand and thirteen; of leaders, forty-three; of leaderships, thirty. </p>
             </div>
-            <div n="15" subtype="section" type="textpart">
+            <div n="15" type="section">
                <p>
                   <milestone unit="para"/>When the armament was in <name type="place" key="perseus,Aulis">Aulis</name>, after a sacrifice to Apollo, a serpent
                         darted from the altar beside the neighboring plane-tree, in which there was
@@ -1668,7 +1678,7 @@
                                 ii.30.63-65</bibl>; <bibl n="Ov. Met. 12.11">Ov. Met.
                                 12.11-23</bibl>.</note> And they made ready to sail against <name type="place" key="perseus,Troy">Troy</name>. </p>
             </div>
-            <div n="16" subtype="section" type="textpart">
+            <div n="16" type="section">
                <p>So Agamemnon in person was in command of the whole <pb n="187"/>army, and
                         Achilles was admiral,<note anchored="true" resp="ed" place="unspecified">No
                             other ancient writer mentions that Achilles was high admiral of the
@@ -1678,7 +1688,7 @@
                             and Phoenix, while that of the land forces was divided between
                             Palamedes, Diomedes, and Ulysses.</note> being fifteen years old. </p>
             </div>
-            <div n="17" subtype="section" type="textpart">
+            <div n="17" type="section">
                <p>
                   <milestone unit="para"/>But not knowing the course to steer for <name type="place" key="perseus,Troy">Troy</name>, they put in to <name type="place" key="tgn,7016748">Mysia</name> and ravaged it, supposing it
                         to be <name type="place" key="perseus,Troy">Troy</name>.<note anchored="true" resp="ed" place="unspecified">With the following account of the landing
@@ -1703,7 +1713,7 @@
                         Telephus did not abide the onset and was pursued, and in the pursuit he was
                         entangled in a vine-branch and wounded with a spear in the thigh. </p>
             </div>
-            <div n="18" subtype="section" type="textpart">
+            <div n="18" type="section">
                <p>Departing from <name type="place" key="tgn,7016748">Mysia</name>, the Greeks
                         put to sea, and a violent storm coming on, they were separated from each
                         other and landed in their own countries.<note anchored="true" resp="ed" place="unspecified">Compare <bibl>Proclus in Epicorum Graecorum
@@ -1718,13 +1728,13 @@
                         Helen that the Greeks, <pb n="189"/>having completed their preparations, set
                         out on the expedition and after their retirement from <name type="place" key="tgn,7016748">Mysia</name> to <name type="place" key="tgn,1000074">Greece</name> eight years elapsed before they again returned to <name type="place" key="perseus,Argos">Argos</name> and came to <name type="place" key="perseus,Aulis">Aulis</name>. </p>
             </div>
-            <div n="19" subtype="section" type="textpart">
+            <div n="19" type="section">
                <p>
                   <milestone unit="para"/>Having again assembled at <name type="place" key="perseus,Aulis">Aulis</name> after the aforesaid interval of eight
                         years, they were in great perplexity about the voyage, because they had no
                         leader who could show them the way to <name type="place" key="perseus,Troy">Troy</name>. </p>
             </div>
-            <div n="20" subtype="section" type="textpart">
+            <div n="20" type="section">
                <p>But Telephus, because his wound was unhealed, and Apollo had told him that he
                         would be cured when the one who wounded him should turn physician, came from
                             <name type="place" key="tgn,7016748">Mysia</name> to <name type="place" key="perseus,Argos">Argos</name>, clad in rags, and begged the help of
@@ -1797,7 +1807,7 @@
                                     Scotland</title> (London, 1881), p. 127</bibl>.</note> and <pb n="191"/>the accuracy of his information was confirmed by Calchas by
                         means of his own art of divination. </p>
             </div>
-            <div n="21" subtype="section" type="textpart">
+            <div n="21" type="section">
                <p>
                   <milestone unit="para"/>But when they had put to sea from <name type="place" key="perseus,Argos">Argos</name> and arrived for the second time at
                             <name type="place" key="perseus,Aulis">Aulis</name>, the fleet was
@@ -1812,7 +1822,7 @@
                             Note.</note> and because Atreus had not sacrificed to her the golden
                         lamb. </p>
             </div>
-            <div n="22" subtype="section" type="textpart">
+            <div n="22" type="section">
                <p>On receipt of this oracle, Agamemnon sent Ulysses and Talthybius to
                         Clytaemnestra and asked for Iphigenia, alleging a promise of his to give her
                         to Achilles to wife in reward for his military service. So Clytaemnestra
@@ -1838,7 +1848,7 @@
                             king.</note>
                </p>
             </div>
-            <div n="23" subtype="section" type="textpart">
+            <div n="23" type="section">
                <p>
                   <milestone unit="para"/>After putting to sea from <name type="place" key="perseus,Aulis">Aulis</name> they touched at <name type="place" key="perseus,Tenedos">Tenedos</name>. It was ruled by Tenes, son of
                         Cycnus and Proclia, but according to some, he was a son of Apollo. He dwelt
@@ -1862,21 +1872,21 @@
                                 <bibl>Plut. Quaest. Graec. 28</bibl>.</note>
                </p>
             </div>
-            <div n="24" subtype="section" type="textpart">
+            <div n="24" type="section">
                <p>For Cycnus had a son Tenes and a daughter Hemithea by Proclia, daughter of
                         Laomedon, but he afterwards married Philonome, daughter of Tragasus; and she
                         fell in love with Tenes, and, failing to seduce him, falsely accused him to
                         Cycnus of attempting to debauch her, and in witness of it she produced a
                         flute-player, by name Eumolpus. </p>
             </div>
-            <div n="25" subtype="section" type="textpart">
+            <div n="25" type="section">
                <p>Cycnus believed her, and putting him and his sister in a chest he set them
                         adrift on the sea. The chest was washed <pb n="195"/>up on the island of
                         Leucophrys, and Tenes landed and settled in the island, and called it <name type="place" key="perseus,Tenedos">Tenedos</name> after himself. But
                         Cycnus afterwards learning the truth, stoned the flute-player to death and
                         buried his wife alive in the earth. </p>
             </div>
-            <div n="26" subtype="section" type="textpart">
+            <div n="26" type="section">
                <p>
                   <milestone unit="para"/>So when the Greeks were standing in for <name type="place" key="perseus,Tenedos">Tenedos</name>, Tenes saw them and
                         tried to keep them off by throwing stones, but was killed by Achilles with a
@@ -1895,7 +1905,7 @@
                             clearly differs from the one followed by Apollodorus.</note>
                </p>
             </div>
-            <div n="27" subtype="section" type="textpart">
+            <div n="27" type="section">
                <p>and as they were offering a sacrifice to Apollo, a water-snake approached
                         from the altar and bit Philoctetes; and as the sore did not heal and grew
                         noisome, the army could not endure the stench, and Ulysses, by the orders of
@@ -1967,14 +1977,14 @@
                   <pb n="197"/>
                </p>
             </div>
-            <div n="28" subtype="section" type="textpart">
+            <div n="28" type="section">
                <p>
                   <milestone unit="para"/>Putting to sea from <name type="place" key="perseus,Tenedos">Tenedos</name> they made sail for <name type="place" key="perseus,Troy">Troy</name>, and sent Ulysses and
                         Menelaus to demand the restoration of Helen and the property. But the
                         Trojans, having summoned an assembly, not only refused to restore Helen, but
                         threatened to kill the envoys. </p>
             </div>
-            <div n="29" subtype="section" type="textpart">
+            <div n="29" type="section">
                <p>These were, however, saved by Antenor;<note anchored="true" resp="ed" place="unspecified">As to the embassy of Ulysses and Menelaus to <name type="place" key="perseus,Troy">Troy</name> to demand the surrender
                             of Helen, see <bibl n="Hom. Il. 3.205">Hom. Il. 3.205ff.</bibl>; <bibl n="Hom. Il. 11.138">Hom. Il. 11.138ff.</bibl>; <bibl>Proclus in
                                 Epicorum Graecorum Fragmenta, ed. G. Kinkel, p. 19</bibl>; <bibl n="Bacchyl. Dith. 15.1">Bacch. 14(15), ed. Jebb</bibl>; <bibl n="Hdt. 2.118">Hdt. 2.118</bibl>; <bibl>Tzetzes, Antehomerica
@@ -2003,7 +2013,7 @@
                         barbarians marched in arms to the sea, and endeavored by throwing stones to
                         prevent the landing. </p>
             </div>
-            <div n="30" subtype="section" type="textpart">
+            <div n="30" type="section">
                <p>Of the Greeks the first to land from his ship was Protesilaus, and having
                         slain not a few of the barbarians, he fell by the hand of Hector.<note anchored="true" resp="ed" place="unspecified">Compare <bibl n="Hom. Il. 2.698">Hom. Il. 2.698-702</bibl>; <bibl>Proclus in
                                 Epicorum Graecorum Fragmenta, ed. G. Kinkel, p. 19</bibl>;
@@ -2069,7 +2079,7 @@
                             (Laodameia).</note>
                </p>
             </div>
-            <div n="31" subtype="section" type="textpart">
+            <div n="31" type="section">
                <p>
                   <milestone unit="para"/>On the death of Protesilaus, Achilles landed with
                         the Myrmidons, and throwing a stone at the head of Cycnus, killed him.<note anchored="true" resp="ed" place="unspecified">Compare <bibl>Proclus in
@@ -2088,7 +2098,7 @@
                         ships, filled the plain with bodies. and having shut up the Trojans, they
                         besieged them; and they drew up the ships. </p>
             </div>
-            <div n="32" subtype="section" type="textpart">
+            <div n="32" type="section">
                <p>The barbarians showing no courage, Achilles waylaid Troilus and slaughtered
                         him in the sanctuary of Thymbraean Apollo,<note anchored="true" resp="ed" place="unspecified">Compare <bibl>Proclus in Epicorum Graecorum
                                 Fragmenta, ed. G. Kinkel, p. 20</bibl>; <bibl>Scholiast on Hom. Il.
@@ -2130,7 +2140,7 @@
                                 Kinkel, p. 20</bibl>.</note>
                </p>
             </div>
-            <div n="33" subtype="section" type="textpart">
+            <div n="33" type="section">
                <p>He also took <name type="place" key="tgn,7002672">Lesbos</name>
                   <note anchored="true" resp="ed" place="unspecified">Compare <bibl n="Hom. Il. 9.129">Hom. Il. 9.129</bibl>; <bibl>Dictys Cretensis
                                 ii.16</bibl>.</note> and <name type="place" key="tgn,7018000">Phocaea</name>, then <name type="place" key="perseus,Colophon">Colophon</name>, and <name type="place" key="perseus,Smyrna">Smyrna</name>, and Clazomenae, and Cyme; and afterwards Aegialus and
@@ -2146,7 +2156,7 @@
                                 ii.17</bibl>.</note> and further Antandrus, and many other cities.
                     </p>
             </div>
-            <div n="34" subtype="section" type="textpart">
+            <div n="34" type="section">
                <p>
                   <milestone unit="para"/>A period of nine years having elapsed, allies came
                         to join the Trojans:<note anchored="true" resp="ed" place="unspecified">With
@@ -2157,7 +2167,7 @@
                         Euphemus, son of Troezenus; of the Paeonians, Pyraechmes; of the
                         Paphlagonians, Pylaemenes, son of Bilsates; </p>
             </div>
-            <div n="35" subtype="section" type="textpart">
+            <div n="35" type="section">
                <p>from Zelia, Pandarus, son of Lycaon; from Adrastia, Adrastus and Amphius,
                         sons of Merops; from Arisbe, Asius, son of Hyrtacus; from Larissa,
                         Hippothous, son of Pelasgus;<note anchored="true" resp="ed" place="unspecified">Compare <bibl n="Hom. Il. 2.842">Hom. Il.
@@ -2173,8 +2183,8 @@
                         Glaucus, son of Hippolochus. </p>
             </div>
          </div>
-         <div n="4" subtype="chapter" type="textpart">
-            <div n="1" subtype="section" type="textpart">
+         <div n="4" type="chapter">
+            <div n="1" type="section">
                <p>
                   <milestone unit="para"/>Achilles did not go forth to the war, because he was
                         angry on account of Briseis,<gap reason="lost"/>the daughter of Chryses the priest.<note anchored="true" resp="ed" place="unspecified">Compare <bibl n="Hom. Il. 1.1">Hom. Il. 1.1ff.</bibl> From this point Apollodorus
@@ -2187,7 +2197,7 @@
                   </note>
                </p>
             </div>
-            <div n="2" subtype="section" type="textpart">
+            <div n="2" type="section">
                <p>
                   <milestone unit="para"/>Diomedes, doing doughty deeds, wounded Aphrodite
                         when she came to the help of Aeneas;<note anchored="true" resp="ed" place="unspecified">Compare <bibl n="Hom. Il. 5.1">Hom. Il.
@@ -2198,7 +2208,7 @@
                         doughty deeds; but night coming on, the heralds parted them.<note anchored="true" resp="ed" place="unspecified">Compare <bibl n="Hom. Il. 7.66">Hom. Il. 7.66-312</bibl>.</note>
                </p>
             </div>
-            <div n="3" subtype="section" type="textpart">
+            <div n="3" type="section">
                <p>
                   <milestone unit="para"/>The Greeks made a wall and a ditch to protect the
                             roadstead,<note anchored="true" resp="ed" place="unspecified">Compare
@@ -2213,7 +2223,7 @@
                                 Declam. v., vol. v. pp. 303-360, ed. R. Foerster</bibl>).</note>
                </p>
             </div>
-            <div n="4" subtype="section" type="textpart">
+            <div n="4" type="section">
                <p>And night coming on, they sent Ulysses and Diomedes as spies; and these
                         killed Dolon, son of Eumelus, and Rhesus, the Thracian ( who had arrived the
                         day before as an ally of the Trojans, and having not yet engaged in the
@@ -2226,7 +2236,7 @@
                             is derived from the action of the <title> Iliad </title>.</note>
                </p>
             </div>
-            <div n="5" subtype="section" type="textpart">
+            <div n="5" type="section">
                <p>But by day a fierce fight took place; Agamemnon and Diomedes, Ulysses,
                         Eurypylus, and Machaon were wounded, the Greeks were put to flight<note anchored="true" resp="ed" place="unspecified">These events are told in
                             the eleventh book of the <title> Iliad </title>, (<bibl n="Hom. Il. 11">Hom. Il. 11</bibl>).</note> Hector made a breach in the wall and
@@ -2235,7 +2245,7 @@
                   </note>
                </p>
             </div>
-            <div n="6" subtype="section" type="textpart">
+            <div n="6" type="section">
                <p>
                   <milestone unit="para"/>But when Achilles saw the ship of Protesilaus
                         burning, he sent out Patroclus with the Myrmidons, after arming him with his
@@ -2247,7 +2257,7 @@
                                 16</bibl>).</note>
                </p>
             </div>
-            <div n="7" subtype="section" type="textpart">
+            <div n="7" type="section">
                <p>And a fierce fight taking place for the corpse, Ajax with difficulty, by
                         performing feats of valor, rescued the body.<note anchored="true" resp="ed" place="unspecified">These events are the subject of the seventeenth book
                             of the <title> Iliad </title>, (<bibl n="Hom. Il. 17">Hom. Il.
@@ -2287,8 +2297,8 @@
                </p>
             </div>
          </div>
-         <div n="5" subtype="chapter" type="textpart">
-            <div n="1" subtype="section" type="textpart">
+         <div n="5" type="chapter">
+            <div n="1" type="section">
                <p>
                   <milestone unit="para"/>Penthesilia, daughter of Otrere and Ares,
                         accidentally killed Hippolyte and was purified by Priam. In battle she slew
@@ -2326,7 +2336,7 @@
                   <pb n="213"/>
                </p>
             </div>
-            <div n="2" subtype="section" type="textpart">
+            <div n="2" type="section">
                <p>
                   <milestone unit="para"/>Hippolyte was the mother of Hippolytus; she also
                         goes by the names of Glauce and Melanippe. For when the marriage of Phaedra
@@ -2341,7 +2351,7 @@
                             the other in the history of <name type="place" key="perseus,Troy">Troy</name>.</note>
                </p>
             </div>
-            <div n="3" subtype="section" type="textpart">
+            <div n="3" type="section">
                <p>
                   <milestone unit="para"/>Memnon, the son of Tithonus and the Dawn, came with
                         a great force of Ethiopians to <name type="place" key="perseus,Troy">Troy</name> against the Greeks, and having slain many of the Greeks,
@@ -2371,7 +2381,7 @@
                   </note> Having chased the Trojans also, Achilles <pb n="215"/>was shot with
                         an arrow in the ankle by Alexander and Apollo at the Scaean gate. </p>
             </div>
-            <div n="4" subtype="section" type="textpart">
+            <div n="4" type="section">
                <p>A fight taking place for the corpse, Ajax killed Glaucus, and gave the arms
                         to be conveyed to the ships, but the body he carried, in a shower of darts,
                         through the midst of the enemy, while Ulysses fought his assailants.<note anchored="true" resp="ed" place="unspecified">The death of Achilles was
@@ -2433,7 +2443,7 @@
                                 Mythographi Graeci, Appendix Narrationum 62, p. 382</bibl>.</note>
                </p>
             </div>
-            <div n="5" subtype="section" type="textpart">
+            <div n="5" type="section">
                <p>The death <pb n="217"/>of Achilles filled the army with dismay, and they
                         buried him with Patroclus in the White Isle, mixing the bones of the two
                             together.<note anchored="true" resp="ed" place="unspecified">According to
@@ -2496,7 +2506,7 @@
                             gap in the text.</note>
                </p>
             </div>
-            <div n="6" subtype="section" type="textpart">
+            <div n="6" type="section">
                <p>Also his arms were offered <pb n="219"/>as a prize to the bravest, and Ajax
                         and Ulysses came forward as competitors. The judges were the Trojans or,
                         according to some, the allies, and Ulysses was preferred. Disordered by
@@ -2504,7 +2514,7 @@
                         mad, and turned him, sword in hand, among the cattle, and in his frenzy he
                         slaughtered the cattle with the herdsmen, taking them for the Achaeans. </p>
             </div>
-            <div n="7" subtype="section" type="textpart">
+            <div n="7" type="section">
                <p>But afterwards he came to his senses and slew also himself.<note anchored="true" resp="ed" place="unspecified">These events were narrated
                             in the <title>Little Iliad</title> of Lesches. See <bibl>Proclus in
                                 Epicorum Graecorum Fragmenta, ed. G. Kinkel, p. 36</bibl>; compare
@@ -2613,7 +2623,7 @@
                             and there sacrifice to Ajax.</note> His grave is at Rhoeteum. <pb n="221"/>
                </p>
             </div>
-            <div n="8" subtype="section" type="textpart">
+            <div n="8" type="section">
                <p>
                   <milestone unit="para"/>When the war had already lasted ten years, and the
                         Greeks were despondent, Calchas prophesied to them that <name type="place" key="perseus,Troy">Troy</name> could not be taken unless they had the
@@ -2660,7 +2670,7 @@
                                 110ff., ed. L. Dindorf</bibl>.</note>
                </p>
             </div>
-            <div n="9" subtype="section" type="textpart">
+            <div n="9" type="section">
                <p>After the death of Alexander, Helenus and Deiphobus quarrelled as to which of
                         them should marry Helen; and as Deiphobus was preferred, Helenus left <name type="place" key="perseus,Troy">Troy</name> and abode in Ida.<note anchored="true" resp="ed" place="unspecified">Compare <bibl>Conon
                                 34</bibl>; <bibl n="Serv. A. 2.166">Serv. Verg. A. 2.166</bibl>. The
@@ -2675,7 +2685,7 @@
                         Chalcas said that Helenus knew the oracles that protected the city, Ulysses
                         waylaid and captured him and brought him to the camp; </p>
             </div>
-            <div n="10" subtype="section" type="textpart">
+            <div n="10" type="section">
                <p>and Helenus was forced to tell how <name type="place" key="perseus,Troy">Ilium</name> could be <pb n="225"/>taken,<note anchored="true" resp="ed" place="unspecified">As to the capture of Helenus and his prophecy, see
                                 <bibl n="Soph. Phil. 604">Soph. Phil. 604ff.</bibl>; <bibl n="Soph. Phil. 1337">Soph. Phil. 1337ff.</bibl>; <bibl> Conon
                                 34</bibl>; <bibl>Tzetzes, Posthomerica 571-579</bibl>;
@@ -2696,7 +2706,7 @@
                             <name type="place" key="perseus,Troy">Troy</name>, for while it was
                         within the walls the city could not be taken. </p>
             </div>
-            <div n="11" subtype="section" type="textpart">
+            <div n="11" type="section">
                <p>
                   <milestone unit="para"/>On hearing these things the Greeks caused the bones
                         of Pelops to be fetched, and they sent Ulysses and Phoenix to Lycomedes at
@@ -2738,7 +2748,7 @@
                         willingly resigned them, Neoptolemus slew many <pb n="227"/>of the Trojans.
                     </p>
             </div>
-            <div n="12" subtype="section" type="textpart">
+            <div n="12" type="section">
                <p>Afterwards, Eurypylus, son of Telephus, arrived to fight for the Trojans,
                         bringing a great force of Mysians. He performed doughty deeds, but was slain
                         by Neoptolemus.<note anchored="true" resp="ed" place="unspecified">As to the
@@ -2762,7 +2772,7 @@
                                 pagination)</bibl>.</note>
                </p>
             </div>
-            <div n="13" subtype="section" type="textpart">
+            <div n="13" type="section">
                <p>And Ulysses went with Diomedes by night to the city, and there he let
                         Diomedes wait, and after disfiguring himself and putting on mean attire he
                         entered unknown into the city as a beggar. And being recognized by Helen, he
@@ -2846,7 +2856,7 @@
                   <pb n="229"/>
                </p>
             </div>
-            <div n="14" subtype="section" type="textpart">
+            <div n="14" type="section">
                <p>
                   <milestone unit="para"/>But afterwards he invented the construction of the
                         Wooden Horse and suggested it to Epeus, who was an architect.<note anchored="true" resp="ed" place="unspecified">As to the stratagem of the
@@ -2931,21 +2941,21 @@
                         their tents, and, putting to sea, to lie to off <name type="place" key="perseus,Tenedos">Tenedos</name>, but to sail back to land after the
                         ensuing night. </p>
             </div>
-            <div n="15" subtype="section" type="textpart">
+            <div n="15" type="section">
                <p>They followed the advice of Ulysses and introduced the doughtiest into the
                         horse, after appointing Ulysses their leader and engraving on <pb n="233"/>the horse an inscription which signified, “ For their return home, the
                         Greeks dedicate this thank—offering to Athena.” But they themselves burned
                         their tents, and leaving Sinon, who was to light a beacon as a signal to
                         them, they put to sea by night, and lay to off <name type="place" key="perseus,Tenedos">Tenedos</name>. </p>
             </div>
-            <div n="16" subtype="section" type="textpart">
+            <div n="16" type="section">
                <p>
                   <milestone unit="para"/>And at break of day, when the Trojans beheld the
                         camp of the Greeks deserted and believed that they had fled, they with great
                         joy dragged the horse, and stationing it beside the palace of Priam
                         deliberated what they should do. </p>
             </div>
-            <div n="17" subtype="section" type="textpart">
+            <div n="17" type="section">
                <p>As Cassandra said that there was an armed force in it, and she was further
                         confirmed by Laocoon, the seer, some were for burning it, and others for
                         throwing it down a precipice; but as most were in favour of sparing it as a
@@ -2956,7 +2966,7 @@
                                 250ff.</bibl>
                   </note> they betook them to sacrifice and feasting. </p>
             </div>
-            <div n="18" subtype="section" type="textpart">
+            <div n="18" type="section">
                <p>However, Apollo sent them a sign; for two serpents swam through the sea from
                         the neighboring islands and devoured the sons of Laocoon.<note anchored="true" resp="ed" place="unspecified">Compare <bibl>Arctinus,
                                 Ilii Persis, summarized by Proclus, in Epicorum Graecorum Fragmenta,
@@ -3002,7 +3012,7 @@
                             limitations of poetry and art.</note>
                </p>
             </div>
-            <div n="19" subtype="section" type="textpart">
+            <div n="19" type="section">
                <p>And when night fell, and all were <pb n="235"/>plunged in sleep, the Greeks
                         drew near by sea from <name type="place" key="perseus,Tenedos">Tenedos</name>, and Sinon kindled the beacon on the grave of Achilles
                         to guide them.<note anchored="true" resp="ed" place="unspecified">The
@@ -3033,7 +3043,7 @@
                                 463-490</bibl>).</note>
                </p>
             </div>
-            <div n="20" subtype="section" type="textpart">
+            <div n="20" type="section">
                <p>and when they thought that their foes were asleep, they opened the horse and
                         came forth with their arms. The first, Echion, son of Portheus, was killed
                         by leaping from it; but the rest let themselves down by a rope, and lighted
@@ -3041,7 +3051,7 @@
                         had landed from <name type="place" key="perseus,Tenedos">Tenedos</name>.
                     </p>
             </div>
-            <div n="21" subtype="section" type="textpart">
+            <div n="21" type="section">
                <p>And marching, arms in hand, into <pb n="237"/>the city, they entered the
                         houses and slew the sleepers. Neoptolemus slew Priam, who had taken refuge
                         at the altar of Zeus of the Courtyard.<note anchored="true" resp="ed" place="unspecified">As to the death of Priam at the altar, compare
@@ -3088,7 +3098,7 @@
                   </note>
                </p>
             </div>
-            <div n="22" subtype="section" type="textpart">
+            <div n="22" type="section">
                <p>But Menelaus slew Deiphobus and led away Helen to the ships<note anchored="true" resp="ed" place="unspecified">Compare <bibl>Arctinus,
                                 Ilii Persis, summarized by Proclus, in Epicorum Graecorum Fragmenta,
                                 ed. G. Kinkel, p. 49</bibl>; <bibl>Quintus Smyrnaeus, Posthomerica
@@ -3138,7 +3148,7 @@
                             horror at the violence offered to the suppliant.</note>
                </p>
             </div>
-            <div n="23" subtype="section" type="textpart">
+            <div n="23" type="section">
                <p>
                   <milestone unit="para"/>And having slain the Trojans, they set fire to the
                         city and divided the spoil among them. And having sacrificed to all the
@@ -3243,8 +3253,8 @@
                </p>
             </div>
          </div>
-         <div n="6" subtype="chapter" type="textpart">
-            <div n="1" subtype="section" type="textpart">
+         <div n="6" type="chapter">
+            <div n="1" type="section">
                <p>
                   <milestone unit="para"/>After these things they met in assembly, and
                         Agamemnon and Menelaus quarrelled, Menelaus advising that they should sail
@@ -3257,7 +3267,7 @@
                                 Fragmenta, ed. G. Kinkel, p. 53</bibl>.</note>
                </p>
             </div>
-            <div n="2" subtype="section" type="textpart">
+            <div n="2" type="section">
                <p>
                   <milestone unit="para"/>But Amphilochus, and Calchas, and Leonteus, and
                         Podalirius, and Polypoetes left their ships in <name type="place" key="perseus,Troy">Ilium</name> and journeyed by land to <name type="place" key="perseus,Colophon">Colophon</name>, and there buried
@@ -3266,14 +3276,14 @@
                                 on Lycophron 427-430, 980</bibl>.</note>; for it was foretold him
                         that he would die if he met with a wiser diviner than himself. </p>
             </div>
-            <div n="3" subtype="section" type="textpart">
+            <div n="3" type="section">
                <p>Well, they were lodged by the diviner Mopsus, who was a son of Apollo and
                         Manto, and he wrangled with Calchas about the art of divination. A wild
                         fig-tree grew on the spot, <pb n="245"/>and when Calchas asked, “ How many
                         figs does it bear?” Mopsus answered, “ Ten thousand, and a bushel, and one
                         fig over,” and they were found to be so. </p>
             </div>
-            <div n="4" subtype="section" type="textpart">
+            <div n="4" type="section">
                <p>And when Mopsus asked Calchas concerning a pregnant sow, “ How many pigs has
                         she in her womb, and when will she farrow?” Calchas answered, “ Eight.” But
                         Mopsus smiled and said,“ The divination of Calchas is the reverse of exact;
@@ -3300,7 +3310,7 @@
                   <pb n="247"/>
                </p>
             </div>
-            <div n="5" subtype="section" type="textpart">
+            <div n="5" type="section">
                <p>
                   <milestone unit="para"/>After sacrificing, Agamemnon put to sea and touched
                         at <name type="place" key="perseus,Tenedos">Tenedos</name>. But Thetis came
@@ -3308,7 +3318,7 @@
                         waited. But the others put to sea and encountered a storm at <name type="place" key="perseus,Tenos City">Tenos</name>; for Athena entreated
                         Zeus to send a tempest against the Greeks; and many ships foundered. </p>
             </div>
-            <div n="6" subtype="section" type="textpart">
+            <div n="6" type="section">
                <p>
                   <milestone unit="para"/>And Athena threw a thunderbolt at the ship of Ajax;
                         and when the ship went to pieces he made his way safe to a rock, and
@@ -3343,7 +3353,7 @@
                   </note>
                </p>
             </div>
-            <div n="7" subtype="section" type="textpart">
+            <div n="7" type="section">
                <p>
                   <milestone unit="para"/>The others being driven to <name type="place" key="tgn,7002677">Euboea</name> by night, Nauplius kindled a beacon on
                         Mount Caphareus; and they, thinking it was some of those who were saved,
@@ -3371,7 +3381,7 @@
                   <pb n="249"/>
                </p>
             </div>
-            <div n="8" subtype="section" type="textpart">
+            <div n="8" type="section">
                <p>For Palamedes, the son of Nauplius and Clymene daughter of Catreus, had been
                         stoned to death through the machinations of Ulysses.<note anchored="true" resp="ed" place="unspecified">As to the death of Palamedes, see above,
                                 <bibl n="Apollod. Epit. E.3.8">Apollod. E.3.8</bibl>.</note> And
@@ -3381,21 +3391,21 @@
                             compare <bibl>Tzetzes, Scholiast on Lycophron 1093</bibl>.</note> he
                         sailed to the Greeks and claimed satisfaction for the death of his son; </p>
             </div>
-            <div n="9" subtype="section" type="textpart">
+            <div n="9" type="section">
                <p>but when he returned unsuccessful ( for they all favoured King Agamemnon, who
                         had been the accomplice of Ulysses in the murder of Palamedes), he coasted
                         along the Grecian lands and contrived that the wives of the Greeks should
                         play their husbands false, Clytaemnestra with Aegisthus, Aegialia with
                         Cometes, son of Sthenelus, and Meda, wife of Idomeneus, with Leucus. </p>
             </div>
-            <div n="10" subtype="section" type="textpart">
+            <div n="10" type="section">
                <p>But Leucus killed her, together with her daughter Clisithyra, who had taken
                         refuge in the temple; and having detached ten cities from <name type="place" key="tgn,7012056">Crete</name> he made himself tyrant of them; and when
                         after the Trojan war Idomeneus landed in <name type="place" key="tgn,7012056">Crete</name>, Leucus drove him out.<note anchored="true" resp="ed" place="unspecified">See Frazer's Appendix to
                             Apollodorus, “The vow of Idomeneus.”</note>
                </p>
             </div>
-            <div n="11" subtype="section" type="textpart">
+            <div n="11" type="section">
                <p>These were the earlier contrivances of Nauplius; but afterwards, when he
                         learned that the Greeks were on their way home to their native countries, he
                         kindled the beacon fire on Mount Caphereus, which is now called Xylophagus;
@@ -3403,7 +3413,7 @@
                         were cast away. <pb n="251"/>
                </p>
             </div>
-            <div n="12" subtype="section" type="textpart">
+            <div n="12" type="section">
                <p>
                   <milestone unit="para"/>After remaining in <name type="place" key="perseus,Tenedos">Tenedos</name> two days at the advice of Thetis,
                         Neoptolemus set out for the country of the Molossians by land with Helenus,
@@ -3436,7 +3446,7 @@
                         vanquished the Molossians in battle he reigned as king and begat Molossus on
                         Andromache. And </p>
             </div>
-            <div n="13" subtype="section" type="textpart">
+            <div n="13" type="section">
                <p>Helenus founded a city in Molossia and inhabited it, and Neoptolemus gave him
                         his mother Deidamia to wife.<note anchored="true" resp="ed" place="unspecified">As to Deidamia, mother of Neoptolemus, see above,
                                 <bibl n="Apollod. 3.13.8">Apollod. 3.13.8</bibl>. The marriage of
@@ -3492,7 +3502,7 @@
                             Peleus.</note> and died, Neoptolemus <pb n="253"/>succeeded to his
                         father's kingdom. </p>
             </div>
-            <div n="14" subtype="section" type="textpart">
+            <div n="14" type="section">
                <p>And when Orestes went mad, Neoptolemus carried off his wife Hermione, who had
                         previously been betrothed to him in <name type="place" key="perseus,Troy">Troy</name>
                   <note anchored="true" resp="ed" place="unspecified">In this passage
@@ -3641,7 +3651,7 @@
                   <pb n="257"/>
                </p>
             </div>
-            <div n="15" subtype="section" type="textpart">
+            <div n="15" type="section">
                <p>
                   <milestone unit="para"/>After their wanderings the Greeks landed and settled
                         in various countries, some in <name type="place" key="tgn,1000172">Libya</name>, some in <name type="place" key="tgn,1000080">Italy</name>, others in <name type="place" key="tgn,7003122">Sicily</name>,
@@ -3663,7 +3673,7 @@
                                 30(16), in Bergk's <title>Poetae Lyrici Graeci</title>,
                                 ii.654</bibl>.</note> and others elsewhere. </p>
             </div>
-            <div n="15a" subtype="section" type="textpart">
+            <div n="15a" type="section">
                <p>
                   <cit>
                      <quote>
@@ -3688,7 +3698,7 @@
                   </cit>
                </p>
             </div>
-            <div n="15b" subtype="section" type="textpart">
+            <div n="15b" type="section">
                <p>
                   <cit>
                      <quote>
@@ -3767,7 +3777,7 @@
                   </cit>
                </p>
             </div>
-            <div n="15c" subtype="section" type="textpart">
+            <div n="15c" type="section">
                <p>
                   <cit>
                      <quote>
@@ -3793,7 +3803,7 @@
                   </cit>
                </p>
             </div>
-            <div n="16" subtype="section" type="textpart">
+            <div n="16" type="section">
                <p>
                   <milestone unit="para"/>Demophon with a few ships put in to the land of the
                         Thracian Bisaltians,<note anchored="true" resp="ed" place="unspecified">Demophon and his brother Acamas, the sons of Theseus, had gone to <name type="place" key="perseus,Troy">Troy</name> to rescue their
@@ -3823,7 +3833,7 @@
                         Nine Roads, and she gave him a casket, telling him that it contained a
                         sacrament of Mother Rhea, and that he was not to open it until he <pb n="265"/>should have abandoned all hope of returning to her. </p>
             </div>
-            <div n="17" subtype="section" type="textpart">
+            <div n="17" type="section">
                <p>And Demophon went to <name type="place" key="tgn,1000112">Cyprus</name> and
                         dwelt there. And when the appointed time was past, Phyllis called down
                         curses on Demophon and killed herself; and Demophon opened the casket, and,
@@ -3831,7 +3841,7 @@
                         end; for, the horse stumbling, he was thrown and fell on his sword. But his
                         people settled in <name type="place" key="tgn,1000112">Cyprus</name>. </p>
             </div>
-            <div n="18" subtype="section" type="textpart">
+            <div n="18" type="section">
                <p>
                   <milestone unit="para"/>Podalirius went to <name type="place" key="perseus,Delphi">Delphi</name> and inquired of the oracle where he
                         should settle; and on receiving an oracle that he should settle in the city
@@ -3852,7 +3862,7 @@
                             lying (<bibl>Scholiast on Lycophron 1047</bibl>).</note>
                </p>
             </div>
-            <div n="19" subtype="section" type="textpart">
+            <div n="19" type="section">
                <p>
                   <milestone unit="para"/>Amphilochus son of Alcmaeon, who, according to some,
                         arrived later at <name type="place" key="perseus,Troy">Troy</name>, was
@@ -3913,21 +3923,21 @@
                   <pb n="267"/>
                </p>
             </div>
-            <div n="20" subtype="section" type="textpart">
+            <div n="20" type="section">
                <p>
                   <milestone unit="para"/>The Locrians regained their own country with
                         difficulty, and three years afterwards, when <name type="place" key="tgn,7010899">Locris</name> was visited by a plague, they received
                         an oracle bidding them to propitiate Athena at <name type="place" key="perseus,Troy">Ilium</name> and to send two maidens as suppliants
                         for a thousand years. The lot first fell on Periboea and Cleopatra. </p>
             </div>
-            <div n="21" subtype="section" type="textpart">
+            <div n="21" type="section">
                <p>And when they came to <name type="place" key="perseus,Troy">Troy</name> they
                         were chased by the natives and took refuge in the sanctuary. And they did
                         not approach the goddess, but swept and sprinkled the sanctuary; and they
                         did not go out of the temple, and their hair was cropped, and they wore
                         single garments <pb n="269"/>and no shoes. </p>
             </div>
-            <div n="22" subtype="section" type="textpart">
+            <div n="22" type="section">
                <p>And when the first maidens died, they sent others; and they entered into the
                         city by night, lest, being seen outside the precinct, they should be put to
                         the sword; but afterwards they sent babes with their nurses. And when the
@@ -3969,7 +3979,7 @@
                                 B.C.(<bibl>Fasti Hellenici, i.134ff.</bibl>).</note>
                </p>
             </div>
-            <div n="23" subtype="section" type="textpart">
+            <div n="23" type="section">
                <p>
                   <milestone unit="para"/>After Agamemnon had returned to <name type="place" key="perseus,Mycenae">Mycenae</name> with Cassandra, he was murdered by
                         Aegisthus and Clytaemnestra; for she gave him a shirt without sleeves and
@@ -4005,7 +4015,7 @@
                             alone.</note>
                </p>
             </div>
-            <div n="24" subtype="section" type="textpart">
+            <div n="24" type="section">
                <p>But Electra, one of Agamemnon's daughters, smuggled away her brother Orestes
                         and gave him to Strophius, the Phocian, to bring up; and he brought him up
                         with Pylades, his own son.<note anchored="true" resp="ed" place="unspecified">Compare <bibl n="Pind. P. 11">Pind. P. 11.34(52)ff.</bibl>; <bibl n="Soph. El. 11">Soph. Elec. 11ff.</bibl>; <bibl n="Eur. El. 14">Eur. El. 14ff.</bibl>; <bibl>Hyginus, Fab. 117</bibl>. Pindar tells
@@ -4021,7 +4031,7 @@
                         asked the god whether he should take vengeance on his father's murderers.
                     </p>
             </div>
-            <div n="25" subtype="section" type="textpart">
+            <div n="25" type="section">
                <p>The god gave him leave, so he departed secretly to <name type="place" key="perseus,Mycenae">Mycenae</name> in company with Pylades, and killed
                         both his mother and Aegisthus.<note anchored="true" resp="ed" place="unspecified">This vengeance for the murder of Agamemnon is the
                             theme of three extant Greek tragedies, the <title>Choephori</title> of
@@ -4075,7 +4085,7 @@
                   <pb n="273"/>
                </p>
             </div>
-            <div n="26" subtype="section" type="textpart">
+            <div n="26" type="section">
                <p>
                   <milestone unit="para"/>When he inquired how he should be rid of his
                         disorder, the god answered that he would be rid of it if he should fetch the
@@ -4121,7 +4131,7 @@
                             the disposal of the bodies. See the preceding note.</note>
                </p>
             </div>
-            <div n="27" subtype="section" type="textpart">
+            <div n="27" type="section">
                <p>So when Orestes was come with <pb n="275"/>Pylades to the land of the
                         Taurians, he was detected, caught, and carried in bonds before Thoas the
                         king, who sent them both to the priestess. But being recognized by his
@@ -4210,7 +4220,7 @@
                             privative). Such is a sample of Byzantine etymology.</note>
                </p>
             </div>
-            <div n="28" subtype="section" type="textpart">
+            <div n="28" type="section">
                <p>and having come to <name type="place" key="perseus,Mycenae">Mycenae</name>,
                         he united his sister Electra in marriage to Pylades,<note anchored="true" resp="ed" place="unspecified">As to the marriage of Electra to Pylades,
                             see <bibl n="Eur. El. 1249">Eur. El. 1249</bibl>; <bibl n="Eur. Orest. 1658">Eur. Or. 1658ff.</bibl>; <bibl>Hyginus, Fab.
@@ -4247,7 +4257,7 @@
                   <pb n="279"/>
                </p>
             </div>
-            <div n="29" subtype="section" type="textpart">
+            <div n="29" type="section">
                <p>
                   <milestone unit="para"/>Menelaus, with five ships in all under his command,
                         put in at Sunium, a headland of <name type="place" key="tgn,7002681">Attica</name>; and being again driven thence by winds to <name type="place" key="tgn,7012056">Crete</name> he drifted far away, and
@@ -4275,13 +4285,13 @@
                </p>
             </div>
          </div>
-         <div n="7" subtype="chapter" type="textpart">
-            <div n="1" subtype="section" type="textpart">
+         <div n="7" type="chapter">
+            <div n="1" type="section">
                <p>
                   <milestone unit="para"/>Ulysses, as some say, wandered about <name type="place" key="tgn,1000172">Libya</name>, or, as some say, about
                             <name type="place" key="tgn,7003122">Sicily</name>, or, as others <pb n="281"/>say, about the ocean or about the <name type="place" key="tgn,1112319">Tyrrhenian Sea</name>. </p>
             </div>
-            <div n="2" subtype="section" type="textpart">
+            <div n="2" type="section">
                <p>
                   <milestone unit="para"/>And putting to sea from <name type="place" key="perseus,Troy">Ilium</name>, he touched at Ismarus, a city of the
                         Cicones, and captured it in war, and pillaged it, sparing Maro alone, who
@@ -4296,7 +4306,7 @@
                         withstand him, and having lost six men from each ship he put to sea and
                         fled. </p>
             </div>
-            <div n="3" subtype="section" type="textpart">
+            <div n="3" type="section">
                <p>And he landed in the country of the Lotus-eaters,<note anchored="true" resp="ed" place="unspecified">As to the adventures of Ulysses with the
                             Lotus-eaters, see <bibl n="Hom. Od. 9.82">Hom. Od. 9.82-104</bibl>;
                                 <bibl>Hyginus, Fab. 125</bibl>. The Lotus-eaters were a tribe of
@@ -4321,7 +4331,7 @@
                         by force to the ships. And having sailed to the land of the Cyclopes, he
                         stood in for the shore. </p>
             </div>
-            <div n="4" subtype="section" type="textpart">
+            <div n="4" type="section">
                <p>
                   <milestone unit="para"/>And having left the rest of the ships in the
                         neighboring island, he stood in for the land of the Cyclopes with a single
@@ -4335,12 +4345,12 @@
                         and the nymph Thoosa, a huge, wild, cannibal man, with one eye on his
                         forehead. </p>
             </div>
-            <div n="5" subtype="section" type="textpart">
+            <div n="5" type="section">
                <p>And having lit a fire and sacrificed some of the kids, they feasted. But the
                         Cyclops came, and when he had driven in his flocks, he put a huge stone to
                         the door, and perceiving the men he ate some of them. </p>
             </div>
-            <div n="6" subtype="section" type="textpart">
+            <div n="6" type="section">
                <p>But Ulysses gave him of Maro's wine to drink, and when he had drunk, he asked
                         for another draught, and when he had drunk the second, he inquired his name;
                         and when Ulysses said that he was called Nobody, he threatened to devour
@@ -4348,14 +4358,14 @@
                         he promised to give him in return. And being overcome by wine, he fell
                         asleep. </p>
             </div>
-            <div n="7" subtype="section" type="textpart">
+            <div n="7" type="section">
                <p>But Ulysses found a club lying there, and with the help of four comrades he
                         sharpened it, and, having heated it in the fire, he blinded him. And when
                         Polyphemus cried to the Cyclopes round about for help, they came and asked
                         who was hurting him, and when he said, “ Nobody,” they thought he meant that
                         he was being hurt by nobody, and so they retired. </p>
             </div>
-            <div n="8" subtype="section" type="textpart">
+            <div n="8" type="section">
                <p>And when the flocks sought their usual pasture, he opened the cave, and
                         standing at the doorway spread out his hands and felt the sheep. But Ulysses
                         tied three rams together,<gap reason="lost"/>and himself getting under the bigger, and
@@ -4363,13 +4373,13 @@
                         his comrades from the sheep, he drove the animals to the ships, and sailing
                         away shouted to the Cyclops that he was Ulysses and that he had escaped <pb n="285"/>out of his hands. </p>
             </div>
-            <div n="9" subtype="section" type="textpart">
+            <div n="9" type="section">
                <p>Now the Cyclops had been forewarned by a soothsayer that he should be blinded
                         by Ulysses; and when he learned the name, he tore away rocks and hurled them
                         into the sea, and hardly did the ship evade the rocks. From that time
                         Poseidon was wroth with Ulysses. </p>
             </div>
-            <div n="10" subtype="section" type="textpart">
+            <div n="10" type="section">
                <p>
                   <milestone unit="para"/>Having put to sea with all his ships, he came to the
                         island of <name type="place" key="tgn,5004216">Aeolia</name>, of which the
@@ -4389,14 +4399,14 @@
                             watchfires of shepherds tending their flocks on the hills, does not
                             appear.</note> he fell asleep. </p>
             </div>
-            <div n="11" subtype="section" type="textpart">
+            <div n="11" type="section">
                <p>But his comrades, thinking he carried gold in the bag, loosed it and let the
                         winds go free, and being swept away by the blasts they were driven back
                         again. And having come to Aeolus, Ulysses begged that he might be granted a
                         fair wind; but Aeolus drove him from the island, saying that he could not
                         save him when the gods opposed. </p>
             </div>
-            <div n="12" subtype="section" type="textpart">
+            <div n="12" type="section">
                <p>
                   <milestone unit="para"/>So sailing on he came to the land of the
                             Laestrygones,<note anchored="true" resp="ed" place="unspecified">As to
@@ -4409,14 +4419,14 @@
                         men to inquire. But the king's daughter met them and led them to her father.
                     </p>
             </div>
-            <div n="13" subtype="section" type="textpart">
+            <div n="13" type="section">
                <p>And he snatched up one of them and devoured him; but the rest fled, and he
                         pursued them, shouting and calling together the rest of the Laestrygones.
                         They came to the sea, and by throwing stones they broke the vessels and ate
                         the men. Ulysses cut the cable of his ship and put to sea; but the rest of
                         the ships perished with their crews. </p>
             </div>
-            <div n="14" subtype="section" type="textpart">
+            <div n="14" type="section">
                <p>
                   <milestone unit="para"/>With one ship he put in to the Aeaean isle. It was
                         inhabited by Circe, a daughter of the Sun and of Perse, and a sister of
@@ -4435,7 +4445,7 @@
                         accordance with the lot, but Eurylochus with two and twenty comrades
                         repaired to Circe. </p>
             </div>
-            <div n="15" subtype="section" type="textpart">
+            <div n="15" type="section">
                <p>At her call they all entered except Eurylochus; and to each she gave a
                         tankard she had filled with cheese and honey and barley meal and wine, and
                         mixed with an enchantment. And when they had drunk, she touched them with a
@@ -4448,7 +4458,7 @@
                             and fawned upon them, because they were men enchanted (<bibl n="Hom. Od. 10.210">Hom. Od. 10.210-219</bibl>).</note>
                </p>
             </div>
-            <div n="16" subtype="section" type="textpart">
+            <div n="16" type="section">
                <p>But Eurylochus saw these things and <pb n="289"/>reported them to Ulysses.
                         And Ulysses went to Circe with moly,<note anchored="true" resp="ed" place="unspecified">As to moly, see <bibl n="Hom. Od. 10.302">Hom. Od.
                                 10.302-306</bibl>. Homer says that it was a plant dug up from the
@@ -4479,7 +4489,7 @@
                   </note>
                </p>
             </div>
-            <div n="17" subtype="section" type="textpart">
+            <div n="17" type="section">
                <p>Having tarried a year there, he sailed the ocean, and offered sacrifices to
                         the souls,<note anchored="true" resp="ed" place="unspecified">The visit of
                             Ulysses to the land of the dead is the theme of the eleventh book of the
@@ -4503,7 +4513,7 @@
                                 11.51-83</bibl>.</note>
                </p>
             </div>
-            <div n="18" subtype="section" type="textpart">
+            <div n="18" type="section">
                <p>
                   <milestone unit="para"/>And having come to Circe he was sent on his way by
                         her, and put to sea, and sailed past the isle of the <pb n="291"/>Sirens.<note anchored="true" resp="ed" place="unspecified">As to the
@@ -4539,7 +4549,7 @@
                         played the flute, and by these means they were fain to persuade passing
                         mariners to linger; </p>
             </div>
-            <div n="19" subtype="section" type="textpart">
+            <div n="19" type="section">
                <p>and from the thighs they had the forms of birds.<note anchored="true" resp="ed" place="unspecified">Similarly Apollonius Rhodius (<bibl>Ap.
                                 Rhod., Argon. iv.898ff.</bibl>) describes the Sirens as partly
                             virgins and partly birds. Aelian tells us (<bibl>Ael., Nat. Anim.
@@ -4578,7 +4588,7 @@
                             compare <bibl n="Strab. 6.1.1">Strab. 6.1.1</bibl>.</note>
                </p>
             </div>
-            <div n="20" subtype="section" type="textpart">
+            <div n="20" type="section">
                <p>
                   <milestone unit="para"/>And after that he came to two ways. On the one side
                         were the Wandering Rocks,<note anchored="true" resp="ed" place="unspecified">As to Ulysses and the Wandering Rocks, see <bibl n="Hom. Od. 12.52">Hom. Od. 12.52-72</bibl>; <bibl n="Hom. Od. 12.201">Hom. Od.
@@ -4614,14 +4624,14 @@
                             See the Critical Note.</note> with the face and breast of a woman, but
                         from the flanks she had six heads and twelve feet of dogs. </p>
             </div>
-            <div n="21" subtype="section" type="textpart">
+            <div n="21" type="section">
                <p>And in the other cliff was Charybdis, who thrice a day drew up the water and
                         spouted it again. By the advice of Circe he shunned the passage by the
                         Wandering Rocks, and in sailing past the cliff of Scylla he stood fully
                         armed on the poop. But Scylla appeared, snatched <pb n="295"/>six of his
                         comrades, and gobbled them up. </p>
             </div>
-            <div n="22" subtype="section" type="textpart">
+            <div n="22" type="section">
                <p>And thence he came to Thrinacia, an island of the Sun, where kine were
                         grazing, and being windbound, he tarried there.<note anchored="true" resp="ed" place="unspecified">As to the adventures of Ulysses in
                             Thrinacia, the island of the Sun, see <bibl n="Hom. Od. 12.127">Hom. Od.
@@ -4632,7 +4642,7 @@
                             thunderbolt.<note anchored="true" resp="ed" place="unspecified">See <bibl n="Hom. Od. 12.403">Hom. Od. 12.403-425</bibl>.</note>
                </p>
             </div>
-            <div n="23" subtype="section" type="textpart">
+            <div n="23" type="section">
                <p>And when the ship broke up, Ulysses clung to the mast and drifted to
                         Charybdis. And when Charybdis sucked down the mast, he clutched an
                         overhanging wild fig-tree and waited, and when he saw the mast shot up
@@ -4640,7 +4650,7 @@
                             Ogygia.<note anchored="true" resp="ed" place="unspecified">See <bibl n="Hom. Od. 12.426">Hom. Od. 12.426-450</bibl>, compare <bibl n="Hom. Od. 5.128">Hom. Od. 5.128-135</bibl>.</note>
                </p>
             </div>
-            <div n="24" subtype="section" type="textpart">
+            <div n="24" type="section">
                <p>
                   <milestone unit="para"/>There Calypso, daughter of Atlas, received him, and
                         bedding with him bore a son Latinus. He stayed with her five years, and then
@@ -4664,7 +4674,7 @@
                                 125</bibl>.</note>
                </p>
             </div>
-            <div n="25" subtype="section" type="textpart">
+            <div n="25" type="section">
                <p>Now Nausicaa, the daughter of king Alcinous, was washing the clothes, and
                         when Ulysses implored her protection, she brought him to Alcinous, who
                         entertained him, and after bestowing gifts on him <pb n="297"/>sent him away
@@ -4678,7 +4688,7 @@
                             great mountain mass” (<bibl>Merry on Hom. Od. 12.152</bibl>).</note>
                </p>
             </div>
-            <div n="26" subtype="section" type="textpart">
+            <div n="26" type="section">
                <p>
                   <milestone unit="para"/>And on arriving in his native land Ulysses found his
                         substance wasted; for, believing that he was dead, suitors were wooing
@@ -4691,7 +4701,7 @@
                             not give a regular list of the names, but mentions some of them
                             incidentally.</note> From Dulichium came fifty-seven: </p>
             </div>
-            <div n="27" subtype="section" type="textpart">
+            <div n="27" type="section">
                <p>Amphinomus, Thoas, Demoptolemus, Amphimachus, Euryalus, Paralus, Evenorides,
                         Clytius, Agenor, Eurypylus, Pylaemenes, Acamas, Thersilochus, Hagius,
                         Clymenus, Philodemus, Meneptolemus, Damastor, Bias, Telmius, Polyidus,
@@ -4701,13 +4711,13 @@
                         Thrasymedes, Ormenius, Diopithes, Mecisteus, Antimachus, Ptolemaeus,
                         Lestorides, Nicomachus, Polypoetes, and Ceraus. </p>
             </div>
-            <div n="28" subtype="section" type="textpart">
+            <div n="28" type="section">
                <p>And from Samethere came twenty—three:— Agelaus, Pisander, Elatus, Ctesippus,
                         Hippodochus, Eurystratus, Archemolus, Ithacus, Pisenor, Hyperenor,
                         Pheroetes, Antisthenes, Cerberus, Perimedes, Cynnus, Thriasus, Eteoneus,
                         Clytius, Prothous, Lycaethus, Eumelus, Itanus, Lyammus. </p>
             </div>
-            <div n="29" subtype="section" type="textpart">
+            <div n="29" type="section">
                <p>And from Zacynthos came forty—four: <pb n="299"/>Eurylochus, Laomedes,
                         Molebus, Phrenius, Indius, Minis, Liocritus, Pronomus, Nisas, Daemon,
                         Archestratus, Hippomachus, Euryalus, Periallus, Evenorides, Clytius, Agenor,
@@ -4716,13 +4726,13 @@
                         Nissaeus, Alcarops, Periclymenus, Antenor, Pellas, Celtus, Periphus,
                         Ormenus, Polybus and Andromedes. </p>
             </div>
-            <div n="30" subtype="section" type="textpart">
+            <div n="30" type="section">
                <p>And from <name type="place" key="tgn,1007519">Ithaca</name> itself the
                         suitors were twelve, to wit:— Antinous, Pronous, Liodes, Eurynomus,
                         Amphimachus, Amphialus, Promachus, Amphimedon, Aristratus, Helenus,
                         Dulicheus, and Ctesippus. </p>
             </div>
-            <div n="31" subtype="section" type="textpart">
+            <div n="31" type="section">
                <p>
                   <milestone unit="para"/>These, journeying to the palace, consumed the herds
                         of Ulysses at their feasts.<note anchored="true" resp="ed" place="unspecified">As to the reckless waste of the suitors, see <bibl n="Hom. Od. 14.80">Hom. Od. 14.80-109</bibl>.</note> And Penelope
@@ -4734,7 +4744,7 @@
                             19.136-158</bibl>; <bibl>Hyginus, Fab. 126</bibl>.</note>
                </p>
             </div>
-            <div n="32" subtype="section" type="textpart">
+            <div n="32" type="section">
                <p>And Ulysses, being apprized of the state of things at home, came to his
                         servant Eumaeus in the guise of a beggar,<note anchored="true" resp="ed" place="unspecified">As to the meeting of Ulysses and Eumaeus, see <bibl n="Hom. Od. 14.1">Hom. Od. 14.1-492</bibl>; <bibl>Hyginus, Fab.
                                 126</bibl>.</note> and made himself known to Telemachus,<note anchored="true" resp="ed" place="unspecified">As to the meeting and
@@ -4751,7 +4761,7 @@
                         for the suitors.<note anchored="true" resp="ed" place="unspecified">See <bibl n="Hom. Od. 21.188">Hom. Od. 21.188-244</bibl>.</note>
                </p>
             </div>
-            <div n="33" subtype="section" type="textpart">
+            <div n="33" type="section">
                <p>Now Penelope delivered to the suitors the bow of Ulysses, which he had once
                         received from Iphitus; and she said that she would marry him who bent the
                             bow.<note anchored="true" resp="ed" place="unspecified">See <bibl n="Hom. Od. 21.1">Hom. Od. 21.1-82</bibl>; <bibl>Hyginus, Fab.
@@ -4765,7 +4775,7 @@
                                 24.205-348</bibl>.</note>
                </p>
             </div>
-            <div n="34" subtype="section" type="textpart">
+            <div n="34" type="section">
                <p>
                   <milestone unit="para"/>And after sacrificing to Hades, and Persephone, and
                         Tiresias, he journeyed on foot through <name type="place" key="tgn,7002705">Epirus</name>, and came to the Thesprotians, and having offered
@@ -4817,7 +4827,7 @@
                             Circe.</note> But Callidice, <pb n="303"/>who was then queen of the
                         Thesprotians, urged him to stay and offered him the kingdom; </p>
             </div>
-            <div n="35" subtype="section" type="textpart">
+            <div n="35" type="section">
                <p>and she had by him a son Polypoetes. And having married Callidice, he reigned
                         over the Thesprotians, and defeated in battle the neighboring peoples who
                         attacked him. But when Callidice died he handed over the kingdom to his son
@@ -4827,7 +4837,7 @@
                             was mentioned in the epic poem <title>Thesprotis</title>.</note>
                </p>
             </div>
-            <div n="36" subtype="section" type="textpart">
+            <div n="36" type="section">
                <p>When Telegonus learned from Circe that he was a son of Ulysses, he sailed in
                         search of him. And having come to the island of <name type="place" key="tgn,1007519">Ithaca</name>, he drove away some of the cattle, and
                         when Ulysses defended them, Telegonus wounded him with the spear he had in
@@ -4870,12 +4880,12 @@
                   </note>
                </p>
             </div>
-            <div n="37" subtype="section" type="textpart">
+            <div n="37" type="section">
                <p>But when <pb n="305"/>Telegonus recognized him, he bitterly lamented, and
                         conveyed the corpse and Penelope to Circe, and there he married Penelope.
                         And Circe sent them both away to the Islands of the Blest. </p>
             </div>
-            <div n="38" subtype="section" type="textpart">
+            <div n="38" type="section">
                <p>
                   <milestone unit="para"/>But some say that Penelope was seduced by Antinous
                         and sent away by Ulysses to her father Icarius, and that when she came to
@@ -4896,7 +4906,7 @@
                             wanderings.</note>
                </p>
             </div>
-            <div n="39" subtype="section" type="textpart">
+            <div n="39" type="section">
                <p>However others say that she met her end at the hands of Ulysses himself on
                         account of Amphinomus,<note anchored="true" resp="ed" place="unspecified">Amphinomus was one of the suitors of Penelope; his words pleased her
                             more than those of the other suitors, because he had a good
@@ -4906,7 +4916,7 @@
                             her husband has no support in Homer.</note> for they allege that she was
                         seduced by him. </p>
             </div>
-            <div n="40" subtype="section" type="textpart">
+            <div n="40" type="section">
                <p>And there are some who say that Ulysses, being accused by the kinsfolk of the
                         slain, submitted the case to the judgment of <pb n="307"/>Neoptolemus, king
                         of the islands off <name type="place" key="tgn,7002705">Epirus</name>; that
@@ -4930,7 +4940,6 @@
                             writer.</note> died in old age. </p>
             </div>
          </div>
-          </div>
       </body>
    </text>
 </TEI>
