@@ -1,54 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?> 
-<TEI xmlns="http://www.tei-c.org/ns/1.0">     
-    
-    <teiHeader xml:lang="eng">
-        <fileDesc>
-            <titleStmt>
-                <title xml:lang="grc">Κολασσαείς</title>                
-               <author role="textgroup">New Testament</author>
-                <editor>Brooke Foss Westcott</editor>
-                <editor>Fenton John Anthony Hort</editor>
-                <sponsor>Perseus Project, Tufts University</sponsor>
-                <principal>Gregory Crane</principal>
-                <respStmt>
-                    <resp>Prepared under the supervision of</resp>
-                    <name>Lisa Cerrato</name>
-                    <name>William Merrill</name>
-                    <name>Elli Mylonas</name>
-                    <name>David Smith</name>
-                </respStmt>
-                <funder n="org:Tufts">Tufts University</funder>
-            </titleStmt>
-            
-            <publicationStmt>
-                <publisher>Trustees of Tufts University</publisher>
-                <pubPlace>Medford, MA</pubPlace>
-                <authority>Perseus Project</authority>
-                <date type="release" notBefore="1999-10">Perseus 3.0</date>
-                <idno type="filename">tlg0031.tlg012.perseus-grc2.xml</idno><availability>
-                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence></availability>
-            </publicationStmt>
-            <sourceDesc>
-                <biblStruct>
-                    <monogr>
-                        <title>The New Testament</title>
-                        <title type="sub">in the original Greek</title>
-                        <author role="textgroup">New Testament</author>
-                        <editor>Brooke Foss Westcott</editor>
-                        <editor>Fenton John Anthony Hort</editor>                        
-                        <imprint>
-                            <pubPlace>New York</pubPlace>
-                            <publisher>Harper and Brothers</publisher>
-                            <date>1882-1892</date>
-                        </imprint>
-                    </monogr>
-                    <ref target="https://archive.org/details/newtestamentinor00west_0/page/444/mode/2up" n="1892">Internet Archive</ref>
-                    <ref target="https://archive.org/details/newtestamentino00west" n="1882">Internet Archive</ref>                    
-                </biblStruct>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="grc">Κολασσαείς</title>
+            <author role="textgroup">New Testament</author>
+            <editor>Brooke Foss Westcott</editor>
+            <editor>Fenton John Anthony Hort</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <funder n="org:Tufts">Tufts University</funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" notBefore="1999-10">Perseus 3.0</date>
+            <idno type="filename">tlg0031.tlg012.perseus-grc2.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0031.tlg012.perseus-grc2</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <title>The New Testament</title>
+                  <title type="sub">in the original Greek</title>
+                  <author role="textgroup">New Testament</author>
+                  <editor>Brooke Foss Westcott</editor>
+                  <editor>Fenton John Anthony Hort</editor>
+                  <imprint>
+                     <pubPlace>New York</pubPlace>
+                     <publisher>Harper and Brothers</publisher>
+                     <date>1882-1892</date>
+                  </imprint>
+               </monogr>
+               <ref target="https://archive.org/details/newtestamentinor00west_0/page/444/mode/2up"
+                    n="1892">Internet Archive</ref>
+               <ref target="https://archive.org/details/newtestamentino00west" n="1882">Internet Archive</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
             <!--<tagsDecl>
                 <rendition id="large"> </rendition>
                 <rendition id="blockquote"> </rendition>
@@ -57,100 +59,106 @@
                 <tagUsage render="blockquote" gi="q"> Marks poetical language. within the running text. </tagUsage>
                 <tagUsage render="large" gi="quote"> Marks material quoted from other biblical texts. </tagUsage>
             </tagsDecl>-->
-            
-            <refsDecl n="CTS">
-                <cRefPattern n="verse" matchPattern="(\w+).(\w+)"
-                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
-                    <p>This pointer pattern extracts chapter and verse</p>
-                </cRefPattern>
-                <cRefPattern n="chapter" matchPattern="(\w+)"
-                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-                    <p>This pointer pattern extracts chapter</p>
-                </cRefPattern>
-            </refsDecl>
-            
-            <refsDecl>
+         <refsDecl n="CTS">
+            <cRefPattern n="verse"
+                         matchPattern="(\w+).(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+               <p>This pointer pattern extracts chapter and verse</p>
+            </cRefPattern>
+            <cRefPattern n="chapter"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts chapter</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl>
                 <!--<state delim=" " unit="book"/>-->
-                <refState delim=":" unit="chapter"/>
-                <refState unit="verse"/>
-            </refsDecl>
-
-        </encodingDesc>
-        
-        <profileDesc>
-            <langUsage>
-                <language ident="grc">Greek</language>
-                <language ident="eng">English</language>
-            </langUsage>
-        </profileDesc>
-        
-        <revisionDesc>
-            <change when="2025-03-15" who="Alison Babeu">Minor header changes and updating</change>
-            <change when="2016-10-11" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
-            <change when="2014-08-01" who="Stella Dee">edited markup</change>
-            <change who="Lisa Cerrato" when="2013-03-04">added mh in Matthew 5 34</change>
-            <change who="Lisa Cerrato" when="2013-01-22">oeou to qeou in Romans 2.2</change>
-            <change who="Lisa Cerrato" when="2012-02-22">fixed typo</change>
-            <change who="Lisa Cerrato" when="2011-11-07">changed teta/paktai to teta/raktai on John
+            <refState delim=":" unit="chapter"/>
+            <refState unit="verse"/>
+         </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="chapter" delim="." match="div[@type='chapter']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-chapter"/>
+         </textClass>
+         <langUsage>
+            <language ident="grc">Greek</language>
+            <language ident="eng">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change when="2025-03-15" who="Alison Babeu">Minor header changes and updating</change>
+         <change when="2016-10-11" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+         <change when="2014-08-01" who="Stella Dee">edited markup</change>
+         <change who="Lisa Cerrato" when="2013-03-04">added mh in Matthew 5 34</change>
+         <change who="Lisa Cerrato" when="2013-01-22">oeou to qeou in Romans 2.2</change>
+         <change who="Lisa Cerrato" when="2012-02-22">fixed typo</change>
+         <change who="Lisa Cerrato" when="2011-11-07">changed teta/paktai to teta/raktai on John
                 12.27 per report </change>
-            <change who="rsingh04" when="2009-10-08">began reorganizing texts module by collection.
+         <change who="rsingh04" when="2009-10-08">began reorganizing texts module by collection.
                 created separate work directory in texts module to keep hopper files separate from
                 in progress files</change>
-            <change who="Lisa Cerrato" when="2009-09-08">fixed typo</change>
-            <change who="student" when="2009-06-17"/>
-            <change who="rsingh04" when="2009-05-27">added/fixed cvs log keyword</change>
-            <change who="RS" when="2009-05-27"/>
-        </revisionDesc>
-    </teiHeader>
-    
-    <text xml:lang="grc">
-        <body>
-            <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0031.tlg012.perseus-grc2">
-                <pb n="445"/>
-                <head>ΠΡΟΣ ΚΟΛΑΣΣΑΕΙΣ</head>
-                
-                    <div type="textpart" subtype="chapter" n="1">
-
-
-<div type="textpart" subtype="verse" n="1"><p>
-                    <milestone unit="para"/>
+         <change who="Lisa Cerrato" when="2009-09-08">fixed typo</change>
+         <change who="student" when="2009-06-17"/>
+         <change who="rsingh04" when="2009-05-27">added/fixed cvs log keyword</change>
+         <change who="RS" when="2009-05-27"/>
+      </revisionDesc>
+   </teiHeader>
+   <text xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0031.tlg012.perseus-grc2">
+         <pb n="445"/>
+         <head>ΠΡΟΣ ΚΟΛΑΣΣΑΕΙΣ</head>
+         <div n="1" type="chapter">
+            <div n="1" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     ΠΑΥΛΟΣ ἀπόστολος Χριστοῦ Ἰησοῦ διὰ θελήματος
 
 θεοῦ καὶ Τιμόθεος ὁ ἀδελφὸς
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="2"><p>
+                    </p>
+            </div>
+            <div n="2" type="verse">
+               <p>
                     τοῖς ἐν Κολοσσαῖς ἁγίοις
 
 καὶ πιστοῖς ἀδελφοῖς ἐν Χριστῷ· χάρις ὑμῖν καὶ εἰρήνη
 
 ἀπὸ θεοῦ πατρὸς ἡμῶν.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="3"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="3" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Εὐχαριστοῦμεν τῷ θεῷ πατρὶ τοῦ κυρίου ἡμῶν Ἰησοῦ
 
 [Χριστοῦ] πάντοτε περὶ ὑμῶν προσευχόμενοι,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="4"><p>
+                    </p>
+            </div>
+            <div n="4" type="verse">
+               <p>
                     ἀκούσαντες 
 
 τὴν πίστιν ὑμῶν ἐν Χριστῷ Ἰησοῦ καὶ τὴν ἀγάπην [ἣν
 
 ἔχετε] εἰς πάντας τοὺς ἁγίους
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="5"><p>
+                    </p>
+            </div>
+            <div n="5" type="verse">
+               <p>
                     διὰ τὴν ἐλπίδα τὴν ἀποκειμένην 
 
 ὑμῖν ἐν τοῖς οὐρανοῖς, ἣν προηκούσατε ἐν τῷ λόγῳ
 
 τῆς ἀληθείας τοῦ εὐαγγελίου τοῦ παρόντος εἰς ὑμᾶς,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="6"><p>
+                    </p>
+            </div>
+            <div n="6" type="verse">
+               <p>
                     καθὼς
 
 καὶ ἐν παντὶ τῷ κόσμῳ ἐστὶν καρποφορούμενον καὶ αὐξανόμενον 
@@ -158,23 +166,26 @@
 καθὼς καὶ ἐν ὑμῖν, ἀφʼ ἧς ἡμέρας ἠκούσατε καὶ
 
 ἐπέγνωτε τὴν χάριν τοῦ θεοῦ ἐν ἀληθείᾳ·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="7"><p>
+                    </p>
+            </div>
+            <div n="7" type="verse">
+               <p>
                     καθὼς ἐμάθετε 
 
 ἀπὸ Ἐπαφρᾶ τοῦ ἀγαπητοῦ συνδούλου ἡμῶν, ὅς
 
 ἐστιν πιστὸς ὑπὲρ ἡμῶν διάκονος τοῦ χριστοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="8"><p>
+                    </p>
+            </div>
+            <div n="8" type="verse">
+               <p>
                     ὁ καὶ 
 
 δηλώσας ἡμῖν τὴν ὑμῶν ἀγάπην ἐν πνεύματι.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="9"><p>
+                    </p>
+            </div>
+            <div n="9" type="verse">
+               <p>
                     Διὰ
 
 τοῦτο καὶ ἡμεῖς, ἀφʼ ἧς ἡμέρας ἠκούσαμεν, οὐ παυόμεθα
@@ -184,31 +195,35 @@
 τὴν ἐπίγνωσιν τοῦ θελήματος αὐτοῦ ἐν πάσῃ σοφίᾳ
 
 καὶ συνέσει πνευματικῇ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="10"><p>
+                    </p>
+            </div>
+            <div n="10" type="verse">
+               <p>
                     περιπατῆσαι ἀξίως τοῦ κυρίου
 
 εἰς πᾶσαν ἀρεσκίαν ἐν παντὶ ἔργῳ ἀγαθῷ καρποφοροῦντες 
 
 καὶ αὐξανόμενοι τῇ ἐπιγνώσει τοῦ θεοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="11"><p>
+                    </p>
+            </div>
+            <div n="11" type="verse">
+               <p>
                     ἐν
 
 πάσῃ δυνάμει δυναμούμενοι κατὰ τὸ κράτος τῆς δόξης
 
 αὐτοῦ εἰς πᾶσαν ὑπομονὴν καὶ μακροθυμίαν μετὰ χαρᾶς,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="12"><p>
+                    </p>
+            </div>
+            <div n="12" type="verse">
+               <p>
                     εὐχαριστοῦντες τῷ  πατρὶ τῷ ἱκανώσαντι ὑμᾶς εἰς τὴν
                     <pb n="446"/>
                     μερίδα τοῦ κλήρου τῶν ἁγίων ἐν τῷ φωτί,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="13"><p>
+                    </p>
+            </div>
+            <div n="13" type="verse">
+               <p>
                     ὃς ἐρύσατο
 
 ἡμᾶς ἐκ τῆς ἐξουσίας τοῦ σκότους καὶ μετέστησεν εἰς
@@ -216,21 +231,24 @@
 
 
  τὴν βασιλείαν τοῦ υἱοῦ τῆς ἀγάπης αὐτοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="14"><p>
+                    </p>
+            </div>
+            <div n="14" type="verse">
+               <p>
                     ἐν ᾧ ἔχομεν
 
 τὴν ἀπολύτρωσιν, τὴν ἄφεσιν τῶν ἁμαρτιῶν·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="15"><p>
+                    </p>
+            </div>
+            <div n="15" type="verse">
+               <p>
                     ὅς ἐστιν
 
 εἰκὼν τοῦ θεοῦ τοῦ ἀοράτου, πρωτότοκος πάσης κτίσεως,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="16"><p>
+                    </p>
+            </div>
+            <div n="16" type="verse">
+               <p>
                     ὅτι ἐν αὐτῷ ἐκτίσθη τὰ πάντα ἐν τοῖς οὐρανοῖς καὶ ἐπὶ
 
 τῆς γῆς, τὰ ὁρατὰ καὶ τὰ ἀόρατα, εἴτε θρόνοι εἴτε
@@ -238,15 +256,17 @@
 κυριότητες εἴτε ἀρχαὶ εἴτε ἐξουσίαι· τὰ πάντα διʼ αὐτοῦ
 
 καὶ εἰς αὐτὸν ἔκτισται·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="17"><p>
+                    </p>
+            </div>
+            <div n="17" type="verse">
+               <p>
                     καὶ αὐτὸς ἔστιν πρὸ πάντων
 
 καὶ τὰ πάντα ἐν αὐτῷ συνέστηκεν,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="18"><p>
+                    </p>
+            </div>
+            <div n="18" type="verse">
+               <p>
                     καὶ αὐτός ἐστιν
 
 ἡ κεφαλὴ τοῦ σώματος, τῆς ἐκκλησίας· ὅς ἐστιν [ἡ]
@@ -254,15 +274,17 @@
 ἀρχή, πρωτότοκος ἐκ τῶν νεκρῶν, ἵνα γένηται ἐν πᾶσιν
 
 αὐτὸς πρωτεύων,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="19"><p>
+                    </p>
+            </div>
+            <div n="19" type="verse">
+               <p>
                     ὅτι ἐν αὐτῷ εὐδόκησεν πᾶν τὸ πλήρωμα
 
 κατοικῆσαι
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="20"><p>
+                    </p>
+            </div>
+            <div n="20" type="verse">
+               <p>
                     καὶ διʼ αὐτοῦ ἀποκαταλλάξαι τὰ πάντα
 
 εἰς αὐτόν, εἰρηνοποιήσας διὰ τοῦ αἵματος τοῦ σταυροῦ
@@ -270,13 +292,15 @@
 αὐτοῦ, [διʼ αὐτοῦ] εἴτε τὰ ἐπὶ τῆς γῆς εἴτε τὰ ἐν τοῖς
 
 οὐρανοῖς·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="21"><p>
+                    </p>
+            </div>
+            <div n="21" type="verse">
+               <p>
                     καὶ ὑμᾶς ποτὲ ὄντας ἀπηλλοτριωμένους καὶ ἐχθροὺς τῇ διανοίᾳ ἐν τοῖς ἔργοις τοῖς πονηροῖς, —
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="22"><p>
+                    </p>
+            </div>
+            <div n="22" type="verse">
+               <p>
                     νυνὶ
 
 
@@ -286,9 +310,10 @@
 τοῦ θανάτου, — παραστῆσαι ὑμᾶς ἁγίους καὶ ἀμώμους
 
 καὶ ἀνεγκλήτους κατενώπιον αὐτοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="23"><p>
+                    </p>
+            </div>
+            <div n="23" type="verse">
+               <p>
                     εἴ γε ἐπιμένετε τῇ
 
 πίστει τεθεμελιωμένοι καὶ ἑδραῖοι καὶ μὴ μετακινούμενοι
@@ -298,34 +323,38 @@
 ἐν πάσῃ κτίσει τῇ ὑπὸ τὸν οὐρανόν, οὗ
 
 ἐγενόμην ἐγὼ Παῦλος διάκονος.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="24"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="24" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Νῦν χαίρω ἐν τοῖς παθήμασιν ὑπὲρ ὑμῶν, καὶ ἀνταναπληρῶ
 
 τὰ ὑστερήματα τῶν θλίψεων τοῦ χριστοῦ ἐν
 
 τῇ σαρκί μου ὑπὲρ τοῦ σώματος αὐτοῦ, ὅ ἐστιν ἡ ἐκκλησία,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="25"><p>
+                    </p>
+            </div>
+            <div n="25" type="verse">
+               <p>
                     ἧς ἐγενόμην ἐγὼ διάκονος κατὰ τὴν οἰκονομίαν
 
 τοῦ θεοῦ τὴν δοθεῖσάν μοι εἰς ὑμᾶς πληρῶσαι τὸν
 
 λόγον τοῦ θεοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="26"><p>
+                    </p>
+            </div>
+            <div n="26" type="verse">
+               <p>
                     τὸ μυστήριον τὸ ἀποκεκρυμμένον ἀπὸ
 
 τῶν αἰώνων καὶ ἀπὸ τῶν γενεῶν, — νῦν δὲ ἐφανερώθη
 
 τοῖς ἁγίοις αὐτοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="27"><p>
+                    </p>
+            </div>
+            <div n="27" type="verse">
+               <p>
                     οἷς ἠθέλησεν ὁ θεὸς γνωρίσαι τί τὸ
                     <pb n="447"/>
                     πλοῦτος τῆς δόξης τοῦ μυστηρίου τούτου ἐν τοῖς ἔθνεσιν,
@@ -333,9 +362,10 @@
  ὅ ἐστιν Χριστὸς ἐν ὑμῖν, 
 
 ἡ ἐλπὶς τῆς δόξης·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="28"><p>
+                    </p>
+            </div>
+            <div n="28" type="verse">
+               <p>
                     ὃν ἡμεῖς 
 
 καταγγέλλομεν νουθετοῦντες πάντα ἄνθρωπον καὶ διδάσκοντες 
@@ -343,18 +373,20 @@
 πάντα ἄνθρωπον ἐν πάσῃ σοφίᾳ, ἵνα παραστήσωμεν 
 
 πάντα ἄνθρωπον τέλειον ἐν Χριστῷ·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="29"><p>
+                    </p>
+            </div>
+            <div n="29" type="verse">
+               <p>
                     εἰς ὃ καὶ
 
 κοπιῶ ἀγωνιζόμενος κατὰ τὴν ἐνέργειαν αὐτοῦ τὴν ἐνεργουμένην 
 
-ἐν ἐμοὶ ἐν δυνάμει.</p></div></div>
-            
-                    <div type="textpart" subtype="chapter" n="2">
-                    
-<div type="textpart" subtype="verse" n="1"><p>
+ἐν ἐμοὶ ἐν δυνάμει.</p>
+            </div>
+         </div>
+         <div n="2" type="chapter">
+            <div n="1" type="verse">
+               <p>
                     Θέλω γὰρ ὑμᾶς
 
 εἰδέναι ἡλίκον ἀγῶνα ἔχω ὑπὲρ ὐμῶν καὶ τῶν ἐν
@@ -362,9 +394,10 @@
 Λαοδικίᾳ καὶ ὅσοι οὐχ ἑόρακαν τὸ πρόσωπόν μου ἐν
 
 σαρκί,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="2"><p>
+                    </p>
+            </div>
+            <div n="2" type="verse">
+               <p>
                     ἵνα παρακληθῶσιν αἱ καρδίαι αὐτῶν, συνβιβασθέντες 
 
 ἐν ἀγάπῃ καὶ εἰς πᾶν πλοῦτος τῆς πληροφορίας
@@ -372,22 +405,25 @@
 τῆς συνέσεως, εἰς ἐπίγνωσιν τοῦ μυστηρίου τοῦ θεοῦ, 
 
 Χριστοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="3"><p>
+                    </p>
+            </div>
+            <div n="3" type="verse">
+               <p>
                     ἐν ᾧ εἰσὶν πάντες
                     <quote>οἱ θησαυροὶ τῆς σοφίας</quote>
                     καὶ γνώσεως
                     <quote>ἀπόκρυφοι.</quote>
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="4"><p>
+               </p>
+            </div>
+            <div n="4" type="verse">
+               <p>
                     Τοῦτο λέγω ἵνα μηδεὶς ὑμᾶς
 
 παραλογίζηται ἐν πιθανολογίᾳ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="5"><p>
+                    </p>
+            </div>
+            <div n="5" type="verse">
+               <p>
                     εἰ γὰρ καὶ τῇ σαρκὶ
 
 ἄπειμι, ἀλλὰ τῷ πνεύματι σὺν ὑμῖν εἰμί, χαίρων καὶ
@@ -395,24 +431,27 @@
 βλέπων ὑμῶν τὴν τάξιν καὶ τὸ στερέωμα τῆς εἰς Χριστὸν
 
 πίστεως ὑμῶν.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="6"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="6" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Ὡς οὖν παρελάβετε τὸν χριστὸν Ἰησοῦν τὸν κύριον,
 
 ἐν αὐτῷ περιπατεῖτε,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="7"><p>
+                    </p>
+            </div>
+            <div n="7" type="verse">
+               <p>
                     ἐρριζωμένοι καὶ ἐποικοδομούμενοι
 
 ἐν αὐτῷ καὶ βεβαιούμενοι τῇ πίστει καθὼς ἐδιδάχθητε, περισσεύοντες 
 
 [ἐν αὐτῇ] ἐν εὐχαριστίᾳ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="8"><p>
+                    </p>
+            </div>
+            <div n="8" type="verse">
+               <p>
                     Βλέπετε 
 
 μή τις ὑμᾶς ἔσται ὁ συλαγωγῶν διὰ τῆς φιλοσοφίας 
@@ -420,29 +459,33 @@
 καὶ κενῆς ἀπάτης κατὰ τὴν παράδοσιν τῶν ἀνθρώπων, 
 
 κατὰ τὰ στοιχεῖα τοῦ κόσμου καὶ οὐ κατὰ Χριστόν·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="9"><p>
+                    </p>
+            </div>
+            <div n="9" type="verse">
+               <p>
                     ὅτι ἐν αὐτῷ κατοικεῖ πᾶν τὸ πλήρωμα τῆς θεότητος
 
 σωματικῶς,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="10"><p>
+                    </p>
+            </div>
+            <div n="10" type="verse">
+               <p>
                     καὶ ἐστὲ ἐν αὐτῷ πεπληρωμένοι, ὅς ἐστιν
 
 ἡ κεφαλὴ πάσης ἀρχῆς καὶ ἐξουσίας,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="11"><p>
+                    </p>
+            </div>
+            <div n="11" type="verse">
+               <p>
                     ἐν ᾧ καὶ περιετμήθητε 
 
 περιτομῇ ἀχειροποιήτῳ ἐν τῇ ἀπεκδύσει τοῦ
 
 σώματος τῆς σαρκός, ἐν τῇ περιτομῇ τοῦ χριστοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="12"><p>
+                    </p>
+            </div>
+            <div n="12" type="verse">
+               <p>
                     συνταφέντες αὐτῷ ἐν τῷ βαπτίσματι, 
 
 ἐν ᾧ καὶ συνηγέρθητε 
@@ -450,9 +493,10 @@
 διὰ τῆς πίστεως τῆς ἐνεργείας τοῦ θεοῦ τοῦ
 
 ἐγείραντος αὐτὸν ἐκ νεκρῶν·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="13"><p>
+                    </p>
+            </div>
+            <div n="13" type="verse">
+               <p>
                     καὶ ὑμᾶς νεκροὺς ὄντας
                     <pb n="448"/>
                     τοῖς παραπτώμασιν καὶ τῇ ἀκροβυστίᾳ τῆς σαρκὸς
@@ -462,23 +506,26 @@
  ὑμῶν, συνεζωοποίησεν ὑμᾶς σὺν αὐτῷ· χαρισάμενος
 
 ἡμῖν πάντα τὰ παραπτώματα,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="14"><p>
+                    </p>
+            </div>
+            <div n="14" type="verse">
+               <p>
                     ἐξαλείψας τὸ καθʼ ἡμῶν
 
 χειρόγραφον τοῖς δόγμασιν ὃ ἦν ὑπεναντίον ἡμῖν, καὶ
 
 αὐτὸ ἦρκεν ἐκ τοῦ μέσου προσηλώσας αὐτὸ τῷ σταυρῷ·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="15"><p>
+                    </p>
+            </div>
+            <div n="15" type="verse">
+               <p>
                     ἀπεκδυσάμενος τὰς ἀρχὰς καὶ τὰς ἐξουσίας ἐδειγμάτισεν
 
 ἐν παρρησίᾳ θριαμβεύσας αὐτοὺς ἐν αὐτῷ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="16"><p>
+                    </p>
+            </div>
+            <div n="16" type="verse">
+               <p>
                     Μὴ
 
 
@@ -488,15 +535,17 @@
 
 
  μέρει ἑορτῆς ἢ νεομηνίας ἢ σαββάτων,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="17"><p>
+                    </p>
+            </div>
+            <div n="17" type="verse">
+               <p>
                     ἅ ἐστιν σκιὰ
 
 τῶν μελλόντων, τὸ δὲ σῶμα τοῦ χριστοῦ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="18"><p>
+                    </p>
+            </div>
+            <div n="18" type="verse">
+               <p>
                     μηδεὶς
 
 
@@ -506,9 +555,10 @@
 τῶν ἀγγέλων, ἃ ἑόρακεν ἐμβατεύων, εἰκῇ φυσιούμενος 
 
 ὑπὸ τοῦ νοὸς τῆς σαρκὸς αὐτοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="19"><p>
+                    </p>
+            </div>
+            <div n="19" type="verse">
+               <p>
                     καὶ οὐ κρατῶν
 
 τὴν κεφαλήν, ἐξ οὗ πᾶν τὸ σῶμα διὰ τῶν ἁφῶν καὶ συνδέσμων 
@@ -516,65 +566,73 @@
 ἐπιχορηγούμενον καὶ συνβιβαζόμενον αὔξει τὴν
 
 αὔξησιν τοῦ θεοῦ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="20"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="20" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Εἰ ἀπεθάνετε σὺν Χριστῷ ἀπὸ τῶν στοιχείεν τοῦ
 
 κόσμου, 
 
 τί ὡς ζῶντες ἐν κόσμῳ δογματίζεσθε
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="21"><p>
+                    </p>
+            </div>
+            <div n="21" type="verse">
+               <p>
                     Μὴ ἅψῃ
 
 μηδὲ γεύσῃ μηδὲ θίγῃς,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="22"><p>
+                    </p>
+            </div>
+            <div n="22" type="verse">
+               <p>
                     ἅ ἐστιν πάντα εἰς φθορὰν
 
 τῇ ἀποχρήσει, κατὰ τὰ
                     <quote>ἐντάλματα καὶ διδασκαλίας τῶν ἀνθρώπων;</quote>
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="23"><p>
+               </p>
+            </div>
+            <div n="23" type="verse">
+               <p>
                     ἅτινά ἐστιν λόγον μὲν ἔχοντα σο
 
 φίας ἐν ἐθελοθρησκίᾳ καὶ ταπεινοφροσύνῃ [καὶ] ἀφειδίᾳ 
 
 σώματος, οὐκ ἐν τιμῇ τινὶ πρὸς πλησμονὴν τῆς
 
-σαρκός.</p></div></div>
-                    <div type="textpart" subtype="chapter" n="3">
-                   
-
-<div type="textpart" subtype="verse" n="1"><p>
+σαρκός.</p>
+            </div>
+         </div>
+         <div n="3" type="chapter">
+            <div n="1" type="verse">
+               <p>
                     Εἰ οὖν συνηγέρθητε τῷ χριστῷ, 
 
 τὰ
 
 ἄνω ζητεῖτε, οὗ ὁ χριστός ἐστιν
                     <quote>ἐν δεξιᾷ τοῦ θεοῦ καθήμενος·</quote>
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="2"><p>
+               </p>
+            </div>
+            <div n="2" type="verse">
+               <p>
                     τὰ ἄνω φρονεῖτε, 
 
 μὴ τὰ ἐπὶ τῆς γῆς,
 
 ἀπεθάνετε γάρ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="3"><p>
+                    </p>
+            </div>
+            <div n="3" type="verse">
+               <p>
                     καὶ ἡ ζωὴ ὑμῶν κέκρυπται σὺν τῷ
 
 χριστῷ ἐν τῷ θεῷ·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="4"><p>
+                    </p>
+            </div>
+            <div n="4" type="verse">
+               <p>
                     ὅταν ὁ χριστὸς φανερωθῇ, 
 
 ἡ ζωὴ
@@ -584,29 +642,33 @@
  ἡμῶν, τότε καὶ ὑμεῖς σὺν αὐτῷ φανερωθήσεσθε ἐν
 
 δόξῃ·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="5"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="5" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Νεκρώσατε οὖν τὰ μέλη τὰ ἐπὶ τῆς γῆς, πορνείαν,
 
 ἀκαθαρσίαν, πάθος, ἐπιθυμίαν κακήν, καὶ τὴν πλεονεξίαν
 
 ἥτις ἐστὶν εἰδωλολατρία,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="6"><p>
+                    </p>
+            </div>
+            <div n="6" type="verse">
+               <p>
                     διʼ ἃ ἔρχεται ἡ ὀργὴ τοῦ θεοῦ·
                     <pb n="449"/>
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="7"><p>
+               </p>
+            </div>
+            <div n="7" type="verse">
+               <p>
                     ἐν οἷς καὶ ὑμεῖς περιεπατήσατέ ποτε ὅτε ἐζῆτε ἐν
 
 τούτοις·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="8"><p>
+                    </p>
+            </div>
+            <div n="8" type="verse">
+               <p>
                     νυνὶ δὲ ἀπόθεσθε καὶ ὑμεῖς τὰ πάντα, 
 
 ὀργήν,
@@ -614,25 +676,28 @@
 θυμόν, κακίαν, βλασφημίαν, αἰσχρολογίαν ἐκ τοῦ
 
 στόματος ὑμῶν·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="9"><p>
+                    </p>
+            </div>
+            <div n="9" type="verse">
+               <p>
                     μὴ ψεύδεσθε εἰς ἀλλήλους· ἀπεκδυσάμενοι 
 
 τὸν παλαιὸν ἄνθρωπον σὺν ταῖς πράξεσιν
 
 αὐτοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="10"><p>
+                    </p>
+            </div>
+            <div n="10" type="verse">
+               <p>
                     καὶ ἐνδυσάμενοι τὸν ϝέον τὸν ἀνακαινούμενον εἰς
 
 ἐπίγνωσιν
                     <quote>κατʼ εἰκόνα τοῦ κτίσαντος</quote>
                     αὐτόν,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="11"><p>
+                    </p>
+            </div>
+            <div n="11" type="verse">
+               <p>
                     ὅπου
 
 οὐκ ἔνι Ἕλλην καὶ Ἰουδαῖος, περιτομὴ καὶ ἀκροβυστία,
@@ -640,31 +705,35 @@
 βάρβαρος, Σκύθης, δοῦλος, ἐλεύθερος, ἀλλὰ πάντα καὶ
 
 ἐν πᾶσιν Χριστός.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="12"><p>
+                    </p>
+            </div>
+            <div n="12" type="verse">
+               <p>
                     Ἐνδύσασθε οὖν ὡς ἐκλεκτοὶ 
 
 τοῦ θεοῦ, ἅγιοι καὶ ἠγαπημένοι, σπλάγχνα οἰκτιρμοῦ, 
 
 χρηστότητα, ταπεινοφροσύνην, πραΰτητα, μακροθυμίαν,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="13"><p>
+                    </p>
+            </div>
+            <div n="13" type="verse">
+               <p>
                     ἀνεχόμενοι ἀλλήλων καὶ χαριζόμενοι ἑαυτοῖς
 
 ἐάν τις πρός τινα ἔχῃ μομφήν· καθὼς καὶ ὁ κύριος 
 
 ἐχαρίσατο ὑμῖν οὕτως καὶ ὑμεῖς·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="14"><p>
+                    </p>
+            </div>
+            <div n="14" type="verse">
+               <p>
                     ἐπὶ πᾶσι δὲ τούτοις
 
 τὴν ἀγάπην, ὅ ἐστιν σύνδεσμος τῆς τελειότητος.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="15"><p>
+                    </p>
+            </div>
+            <div n="15" type="verse">
+               <p>
                     καὶ ἡ
 
 εἰρήνη τοῦ χριστοῦ βραβευέτω ἐν ταῖς καρδίαις ὑμῶν,
@@ -672,9 +741,10 @@
 εἰς ἣν καὶ ἐκλήθητε ἐν [ἑνὶ] σώματι· καὶ εὐχάριστοι
 
 γίνεσθε.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="16"><p>
+                    </p>
+            </div>
+            <div n="16" type="verse">
+               <p>
                     ὁ λόγος τοῦ χριστοῦ ἐνοικείτω ἐν ὑμῖν 
 
 πλουσίως ἐν πάσῃ σοφίᾳ· διδάσκοντες καὶ νουθετοῦντες
@@ -682,44 +752,50 @@
 ἑαυτοὺς ψαλμοῖς, ὕμνοις, ᾠδαῖς πνευματικαῖς ἐν  χάριτι, 
 
 ᾁδοντες ἐν ταῖς καρδίαις ὑμῶν τῷ θεῷ·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="17"><p>
+                    </p>
+            </div>
+            <div n="17" type="verse">
+               <p>
                     καὶ πᾶν ὅτι
 
 ἐὰν ποιῆτε ἐν λόγῳ ἢ ἐν ἔργῳ, πάντα ἐν ὀνόματι κυρίου
 
 Ἰησοῦ, εὐχαριστοῦντες τῷ θεῷ πατρὶ διʼ αὐτοῦ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="18"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="18" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Αἱ γυναῖκες, ὑποτάσσεσθε τοῖς ἀνδράσιν, ὡς ἀνῆκεν
 
 ἐν κυρίῳ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="19"><p>
+                    </p>
+            </div>
+            <div n="19" type="verse">
+               <p>
                     Οἱ ἄνδρες, ἀγαπᾶτε τὰς γυναῖκας καὶ μὴ
 
 πικραίνεσθε πρὸς αὐτάς.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="20"><p>
+                    </p>
+            </div>
+            <div n="20" type="verse">
+               <p>
                     Τὰ τέκνα, ὑπακούετε
 
 τοῖς γονεῦσιν κατὰ πάντα, τοῦτο γὰρ εὐάρεστόν ἐστιν
 
 ἐν κυρίῳ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="21"><p>
+                    </p>
+            </div>
+            <div n="21" type="verse">
+               <p>
                     Οἱ πατέρες, μὴ ἐρεθίζετε τὰ τέκνα ὑμῶν,
 
 ἵνα μὴ ἀθυμῶσιν.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="22"><p>
+                    </p>
+            </div>
+            <div n="22" type="verse">
+               <p>
                     Οἱ δοῦλοι, ὑπακούετε κατὰ
 
 πάντα τοῖς κατὰ σάρκα κυρίοις, μὴ ἐν ὀφθαλμοδουλίαις, 
@@ -727,103 +803,116 @@
 ὡς ἀνθρωπάρεσκοι, ἀλλʼ ἐν ἁπλότητι καρδίας,
 
 φοβούμενοι τὸν κύριον.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="23"><p>
+                    </p>
+            </div>
+            <div n="23" type="verse">
+               <p>
                     ὃ ἐὰν ποιῆτε, ἐκ ψυχῆς ἐργάζεσθε,
                     <pb n="450"/>
                     ὡς τῷ κυρίῳ καὶ οὐκ ἀνθρώποις,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="24"><p>
+                    </p>
+            </div>
+            <div n="24" type="verse">
+               <p>
                     εἰδότες ὅτι ἀπὸ
 
 κυρίου ἀπολήμψεσθε τὴν ἀνταπόδοσιν τῆς κληρονομίας·
 
 τῷ κυρίῳ Χριστῷ δουλεύετε·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="25"><p>
+                    </p>
+            </div>
+            <div n="25" type="verse">
+               <p>
                     ὁ γὰρ ἀδικῶν κομίσεται
 
-ὃ ἠδίκησεν, καὶ οὐκ ἔστιν προσωπολημψία.</p></div></div>
-                    
-            <div type="textpart" subtype="chapter" n="4">
-                   
-
-<div type="textpart" subtype="verse" n="1"><p>
+ὃ ἠδίκησεν, καὶ οὐκ ἔστιν προσωπολημψία.</p>
+            </div>
+         </div>
+         <div n="4" type="chapter">
+            <div n="1" type="verse">
+               <p>
                     Οἱ κύριοι,
 
 τὸ δίκαιον καὶ τὴν ἰσότητα τοῖς δούλοις παρέχεσθε,
 
 εἰδότες ὅτι καὶ ὑμεῖς ἔχετε κύριον ἐν οὐρανῷ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="2"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="2" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Τῇ προσευχῇ προσκαρτερεῖτε, γρηγοροῦντες ἐν αὐτῇ
 
 ἐν εὐχαριστίᾳ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="3"><p>
+                    </p>
+            </div>
+            <div n="3" type="verse">
+               <p>
                     προσευχόμενοι ἅμα καὶ περὶ ἡμῶν, ἵνα
 
 ὁ θεὸς ἀνοίξῃ ἡμῖν θύραν τοῦ λόγου, λαλῆσαι τὸ μυστήριον 
 
 τοῦ χριστοῦ, διʼ ὃ καὶ δέδεμαι,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="4"><p>
+                    </p>
+            </div>
+            <div n="4" type="verse">
+               <p>
                     ἵνα φανεράσω αὐτὸ
 
 ὡς δεῖ με λαλῆσαι.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="5"><p>
+                    </p>
+            </div>
+            <div n="5" type="verse">
+               <p>
                     Ἐν σοφίᾳ περιπατεῖτε πρὸς τοὺς
 
 ἔξω, τὸν καιρὸν ἐξαγοραζόμενοι.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="6"><p>
+                    </p>
+            </div>
+            <div n="6" type="verse">
+               <p>
                     ὁ λόγος ὑμῶν πάντοτε
 
 ἐν χάριτι, ἅλατι ἠρτυμένος, εἰδέναι πῶς δεῖ ὑμᾶς ἑνὶ
 
 ἑκάστῳ ἀποκρίνεσθαι.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="7"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="7" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Τὰ κατʼ ἐμὲ πάντα γνωρίσει ὑμῖν Τύχικος ὁ ἀγαπητὸς
 
 ἀδελφὸς καὶ πιστὸς διάκονος καὶ σύνδουλος ἐν κυρίῳ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="8"><p>
+                    </p>
+            </div>
+            <div n="8" type="verse">
+               <p>
                     ὃν ἔπεμψα πρὸς ὑμᾶς εἰς αὐτὸ τοῦτο ἵνα γνῶτε τὰ
 
 περὶ ἡμῶν καὶ παρακαλέσῃ τὰς καρδίας ὑμῶν,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="9"><p>
+                    </p>
+            </div>
+            <div n="9" type="verse">
+               <p>
                     σὺν
 
 Ὀνησίμῳ τῷ πιστῷ καὶ ἀγαπητῷ ἀδελφῷ, ὅς ἐστιν
 
 ἐξ ὑμῶν· πάντα ὑμῖν γνωρίσουσιν τὰ ὧδε.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="10"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="10" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Ἀσπάζεται ὑμᾶς Ἀρίσταρχος ὁ συναιχμάλωτός μου,
 
 καὶ Μάρκος ὁ ἀνεψιὸς Βαρνάβα, (περὶ οὗ ἐλάβετε ἐντολάς, 
 
-ἐὰν ἔλθῃ πρὸς ὑμᾶς δέξασθε αὐτόν),</p></div>
-
-<div type="textpart" subtype="verse" n="11"><p>
+ἐὰν ἔλθῃ πρὸς ὑμᾶς δέξασθε αὐτόν),</p>
+            </div>
+            <div n="11" type="verse">
+               <p>
                     καὶ Ἰησοῦς
 
 ὁ λεγόμενος Ἰοῦστος, οἱ ὄντες ἐκ περιτομῆς, οὗτοι
@@ -831,9 +920,10 @@
 μόνοι συνεργοὶ εἰς τὴν βασιλείαν τοῦ θεοῦ, οἵτινες
 
 ἐγενήθησάν μοι παρηγορία.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="12"><p>
+                    </p>
+            </div>
+            <div n="12" type="verse">
+               <p>
                     ἀσπάζεται ὑμᾶς Ἐπαφρᾶς
 
 ὁ ἐξ ὑμῶν, δοῦλος Χριστοῦ Ἰησοῦ, πάντοτε ἀγωνιζόμενος
@@ -841,31 +931,35 @@
 ὑπὲρ ὑμῶν ἐν ταῖς προσευχαῖς, ἵνα σταθῆτε τέλειοι καὶ
 
 πεπληροφορημένοι ἐν παντὶ θελήματι τοῦ θεοῦ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="13"><p>
+                    </p>
+            </div>
+            <div n="13" type="verse">
+               <p>
                     μαρτυρῶ
 
 γὰρ αὐτῷ ὅτι ἔχει πολὺν πόνον ὑπὲρ ὑμῶν καὶ τῶν
 
 ἐν Λαοδικίᾳ καὶ τῶν ἐν Ἱερᾷ Πόλει.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="14"><p>
+                    </p>
+            </div>
+            <div n="14" type="verse">
+               <p>
                     ἀσπάζεται ὑμᾶς
 
 Λουκᾶς ὁ ἰατρὸς ὁ ἀγαπητὸς καὶ Δημᾶς.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="15"><p>
+                    </p>
+            </div>
+            <div n="15" type="verse">
+               <p>
                     Ἀσπάσασθε
 
 τοὺς ἐν Λαοδικίᾳ ἀδελφοὺς καὶ Νύμφαν καὶ
                     <pb n="451"/>
                     τὴν κατʼ οἶκον αὐτῆς ἐκκλησίαν.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="16"><p>
+                    </p>
+            </div>
+            <div n="16" type="verse">
+               <p>
                     καὶ ὅταν ἀναγνωσθῇ
 
 παρʼ ὑμῖν ἡ ἐπιστολή, ποιήσατε ἵνα καὶ ἐν τῇ Λαοδικέων 
@@ -873,21 +967,23 @@
 ἐκκλησίᾳ ἀναγνωσθῇ, καὶ τὴν ἐκ Λαοδικίας ἵνα
 
 καὶ ὑμεῖς ἀναγνῶτε.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="17"><p>
+                    </p>
+            </div>
+            <div n="17" type="verse">
+               <p>
                     καὶ εἴπατε Ἀρχίππῳ Βλέπε τὴν
 
 διακονίαν ἣν παρέλαβες ἐν κυρίῳ, ἵνα αὐτὴν πληροῖς.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="18"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="18" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Ὁ ἀσπασμὸς τῇ ἐμῇ χειρὶ Παύλου. μνημονεύετέ
 
-μου τῶν δεσμῶν. ἡ χάρις μεθʼ ὑμῶν.</p></div></div>
-                
+μου τῶν δεσμῶν. ἡ χάρις μεθʼ ὑμῶν.</p>
             </div>
-        </body>
-    </text>
+         </div>
+      </body>
+   </text>
 </TEI>

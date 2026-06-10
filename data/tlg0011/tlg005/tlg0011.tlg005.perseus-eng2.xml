@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_drama.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader xml:lang="eng">
       <fileDesc>
          <titleStmt>
-            <title>Electra</title>            
+            <title>Electra</title>
             <title type="sub">Modernized by Perseus</title>
             <author>Sophocles</author>
             <editor role="translator">Richard Jebb</editor>
             <sponsor>Perseus Project, Tufts University</sponsor>
-		          <principal>Gregory Crane</principal>
-		          <respStmt>
-		             <resp>Prepared under the supervision of</resp>
-		             <name>Lisa Cerrato</name>
-		             <name>William Merrill</name>
-		             <name>Elli Mylonas</name>
-		             <name>David Smith</name>
-		          </respStmt>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
             <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
          </titleStmt>
          <extent>About 90Kb</extent>
          <publicationStmt>
-		          <publisher>Trustees of Tufts University</publisher>
-		          <pubPlace>Medford, MA</pubPlace>
-		          <authority>Perseus Project</authority>
-		       </publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <idno type="CTS">urn:cts:greekLit:tlg0011.tlg005.perseus-eng2</idno>
+         </publicationStmt>
          <sourceDesc>
             <biblStruct>
                <monogr>
@@ -43,15 +44,17 @@
             </biblStruct>
          </sourceDesc>
       </fileDesc>
-
       <encodingDesc>
-         <editorialDecl><quotation marks="none"/></editorialDecl>
+         <editorialDecl>
+            <quotation marks="none"/>
+         </editorialDecl>
          <refsDecl n="CTS">
-            <cRefPattern n="line" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+            <cRefPattern n="line"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
                <p>This pointer pattern extracts line</p>
             </cRefPattern>
          </refsDecl>
-         
          <!--<refsDecl n="CTS">
             
             <cRefPattern n="card" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
@@ -59,9 +62,16 @@
             </cRefPattern>
             
          </refsDecl>-->
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="line" delim="." match=".//l" use="@n"/>
+            </citeStructure>
+         </refsDecl>
       </encodingDesc>
-
       <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#drama-line"/>
+         </textClass>
          <langUsage>
             <language ident="eng">English</language>
             <language ident="grc">Greek</language>
@@ -91,59 +101,53 @@
          <change when="1990-07-01" who="Jane Chaplin">Proofread text</change>
          <change when="1988" who="Pierre Habel, John Gilbert">This text was modernized by Pierre Habel, so as to remove archaisms. It was reviewed by John Gibert, and revisions were made accordingly.</change>
          <change when="1987" who="EM, Scott Ettinger and Roger Travis">Text scanned at U. Chicago in 1987. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</change>
-          </revisionDesc>
+      </revisionDesc>
    </teiHeader>
-
    <text xml:lang="eng">
-      <body>
-         <div type="translation" n="urn:cts:greekLit:tlg0011.tlg005.perseus-eng2" xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0011.tlg005.perseus-eng2">
          <milestone unit="card" n="1"/>
-            <div type="textpart" subtype="episode">
+         <div type="episode">
             <sp>
                <speaker>Paedagogus</speaker>
                <l n="1">Son of him who once commanded our forces at <placeName key="tgn,7002329">Troy</placeName>, son of Agamemnon!—now you may survey all that your heart has desired for so long.  There is the ancient <placeName key="perseus,Argos">Argos</placeName> of your yearning,</l>
-<l n="5">that consecrated land from which the gad-fly drove the daughter of Inachus; there, Orestes,
+               <l n="5">that consecrated land from which the gad-fly drove the daughter of Inachus; there, Orestes,
                      is the Lycean market place, named from the wolf-slaying god; there on the left
                      is Hera’s famous temple; and in this place to which we have come, know that you
                      see <placeName key="perseus,Mycenae">Mycenae</placeName>, the rich in gold,</l>
-<l n="10">and here the house of Pelops’ heirs, so often stained with bloodshed. Long ago from here,
+               <l n="10">and here the house of Pelops’ heirs, so often stained with bloodshed. Long ago from here,
                      away from the murder of your father, I carried you for her whose blood is
                      yours, your sister, and saved you and reared you up to manhood to be the
                      avenger of your murdered father.<milestone unit="para"/>
-                  </l>
-<l n="15">Now, therefore, Orestes, and you, best of allies, Pylades, our plan of action must be
+               </l>
+               <l n="15">Now, therefore, Orestes, and you, best of allies, Pylades, our plan of action must be
                      quickly laid; for look, already the sun’s bright ray is stirring the birds’
                      songs into clarity, and the kindly darkness of the stars is spent.</l>
-<l n="20">Before, then, anyone comes out from the house, we must make our plans, since we are at the point where it is no longer opportune to hesitate, but it is the moment for action.</l>
+               <l n="20">Before, then, anyone comes out from the house, we must make our plans, since we are at the point where it is no longer opportune to hesitate, but it is the moment for action.</l>
             </sp>
-         
-
-         <milestone unit="card" n="23"/>
+            <milestone unit="card" n="23"/>
             <sp>
                <speaker>Orestes</speaker>
                <l n="23">True friend and follower, how well you prove your loyalty to our house!</l>
-<l n="25">Just as a thoroughbred mount, even if advanced in years, does not lose courage in danger, but pricks up his ears, so you speed us forward and follow in the first ranks.  I will tell you, then, what I have determined.</l>
-<l n="30">Listen closely to my words and correct me, if I miss the mark in any way.<milestone unit="para"/>When I went to the Pythian oracle to learn how I might avenge my father on his murderers,</l>
-<l n="35">Phoebus gave me the commandment which you will now hear: that alone, and by stealth,
+               <l n="25">Just as a thoroughbred mount, even if advanced in years, does not lose courage in danger, but pricks up his ears, so you speed us forward and follow in the first ranks.  I will tell you, then, what I have determined.</l>
+               <l n="30">Listen closely to my words and correct me, if I miss the mark in any way.<milestone unit="para"/>When I went to the Pythian oracle to learn how I might avenge my father on his murderers,</l>
+               <l n="35">Phoebus gave me the commandment which you will now hear: that alone, and by stealth,
                      without the aid of arms or large numbers, I should carry off my right hand’s
                      just slaughters. Accordingly, since I received this divine declaration, you
                      must go into that house there</l>
-<l n="40">when opportunity gives you entrance, and learn all that is happening, so that you may report to us out of sure knowledge.  Your age and the lapse of time will prevent them from recognizing you;  they will never suspect who you are with that silvered hair.  Let your story be that you are a Phocian stranger</l>
-<l n="45">sent by Phanoteus, since he is the greatest of their allies.  Tell them, and affirm it with your oath, that Orestes has perished by a fatal chance, hurled at the Pythian games</l>
-<l n="50">from his speeding chariot. Let that be the substance of your message. Meanwhile, we will
+               <l n="40">when opportunity gives you entrance, and learn all that is happening, so that you may report to us out of sure knowledge.  Your age and the lapse of time will prevent them from recognizing you;  they will never suspect who you are with that silvered hair.  Let your story be that you are a Phocian stranger</l>
+               <l n="45">sent by Phanoteus, since he is the greatest of their allies.  Tell them, and affirm it with your oath, that Orestes has perished by a fatal chance, hurled at the Pythian games</l>
+               <l n="50">from his speeding chariot. Let that be the substance of your message. Meanwhile, we will
                      first crown my father’s tomb as the god ordered with libations and the
                      luxuriant tribute of a severed lock; then we will return here, bearing in our
                      hands an urn of hammered bronze</l>
-<l n="55">—now hidden, as you no doubt know, in the brushwood—so that we may gladden them with the false tidings that this body of mine exists no more, but has been consumed with fire and reduced to ashes.  How does it hurt me, when by feigned death</l>
-<l n="60">I find true life and win renown?  No word is ill-omened, I trust, if it yields gain.  For often before now I have seen clever men die in false report;  then, when they return home, they are held in greater honor.</l>
-<l n="65">And so for myself I trust that as a result of this rumor I, too, shall live, shining down like a star upon my enemies.<milestone unit="para"/>But you, O my fatherland and native gods of my soil, receive me with good fortune in this journey, and you also, house of my ancestors,</l>
-<l n="70">since I come by divine mandate to cleanse you as justice demands.  Do not dismiss me from this land in dishonor, but grant that I may rule over my possessions and restore my house!<milestone unit="para"/>I have said enough.  Go now, old one, and take care to watch over your task.</l>
-<l n="75">The two of us will depart;  for so opportunity bids, chief ruler of every enterprise for men.</l>
+               <l n="55">—now hidden, as you no doubt know, in the brushwood—so that we may gladden them with the false tidings that this body of mine exists no more, but has been consumed with fire and reduced to ashes.  How does it hurt me, when by feigned death</l>
+               <l n="60">I find true life and win renown?  No word is ill-omened, I trust, if it yields gain.  For often before now I have seen clever men die in false report;  then, when they return home, they are held in greater honor.</l>
+               <l n="65">And so for myself I trust that as a result of this rumor I, too, shall live, shining down like a star upon my enemies.<milestone unit="para"/>But you, O my fatherland and native gods of my soil, receive me with good fortune in this journey, and you also, house of my ancestors,</l>
+               <l n="70">since I come by divine mandate to cleanse you as justice demands.  Do not dismiss me from this land in dishonor, but grant that I may rule over my possessions and restore my house!<milestone unit="para"/>I have said enough.  Go now, old one, and take care to watch over your task.</l>
+               <l n="75">The two of us will depart;  for so opportunity bids, chief ruler of every enterprise for men.</l>
             </sp>
-         
-
-         <milestone unit="card" n="77"/>
-             <stage rend="italic">Within.</stage> 
+            <milestone unit="card" n="77"/>
+            <stage rend="italic">Within.</stage>
             <sp>
                <speaker>Electra</speaker>
                <l n="77">ah, me, ah, joyless me!</l>
@@ -154,227 +158,191 @@
             </sp>
             <sp>
                <speaker>Orestes</speaker>
-               
-<l n="80">Can it be my joyless Electra?  Shall we remain here and listen to her cries?</l>
+               <l n="80">Can it be my joyless Electra?  Shall we remain here and listen to her cries?</l>
             </sp>
             <sp>
                <speaker>Paedagogus</speaker>
                <l n="82">No, no;  before all else, let us strive to obey the commands of Loxias and from them make a fair beginning by pouring libations to your father.  For such actions bring</l>
-<l n="85">victory within our grasp and give us mastery in all our doings.  <stage rend="italic">Exeunt Paedagogus on the spectators left, Orestes and Pylades on the  right.</stage> 
+               <l n="85">victory within our grasp and give us mastery in all our doings.  <stage rend="italic">Exeunt Paedagogus on the spectators left, Orestes and Pylades on the  right.</stage>
                </l>
             </sp>
-         
-
-         <milestone unit="card" n="86"/>
-             <stage rend="italic">Enter Electra, from the house.</stage> 
+            <milestone unit="card" n="86"/>
+            <stage rend="italic">Enter Electra, from the house.</stage>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="86">O you pure sunlight, and you air, light’s equal partner over earth, how often have you
+               <l n="86">O you pure sunlight, and you air, light’s equal partner over earth, how often have you
                      heard the chords of my laments</l>
-<l n="90">and the thudding blows against this bloodied breast at the time of gloomy night’s leaving
+               <l n="90">and the thudding blows against this bloodied breast at the time of gloomy night’s leaving
                      off! My accursed bed in that house of suffering there knows well already how I
                      observe my night-long rites—how often I bewail my miserable</l>
-<l n="95">father, whom bloody Ares did not welcome with deadly gifts in a foreign land, but my mother and her bedfellow Aegisthus split his head with murderous axe, just as woodmen chop an oak.</l>
-<l n="100">And for this crime no pitying cry bursts from any lips but mine, when you, Father, have died a death so cruel and so deserving of pity!</l>
+               <l n="95">father, whom bloody Ares did not welcome with deadly gifts in a foreign land, but my mother and her bedfellow Aegisthus split his head with murderous axe, just as woodmen chop an oak.</l>
+               <l n="100">And for this crime no pitying cry bursts from any lips but mine, when you, Father, have died a death so cruel and so deserving of pity!</l>
             </sp>
-         
-
-         <milestone unit="card" n="103"/>
+            <milestone unit="card" n="103"/>
             <sp>
                <l n="103">But never will I end from cries and bitter lamentation,</l>
-<l n="105">while I look on the stars’ glistening flashes or on this light of day. No, like the
+               <l n="105">while I look on the stars’ glistening flashes or on this light of day. No, like the
                      nightingale, slayer of her offspring, I will wail without ceasing, and cry
                      aloud to all here at the doors of my father.<milestone unit="para"/>
-                  </l>
-<l n="110">O House of Hades and Persephone!  O Hermes of the shades!  O potent Curse, and you fearsome daughters of the gods, the Erinyes, who take note when a life is unjustly taken, when a marriage-bed is thievishly dishonored,</l>
-<l n="115">come, help me, bring vengeance for the murder of my father and send me my brother.  I no longer have the strength to hold up alone against</l>
-<l n="120">the load of grief that crushes me.
+               </l>
+               <l n="110">O House of Hades and Persephone!  O Hermes of the shades!  O potent Curse, and you fearsome daughters of the gods, the Erinyes, who take note when a life is unjustly taken, when a marriage-bed is thievishly dishonored,</l>
+               <l n="115">come, help me, bring vengeance for the murder of my father and send me my brother.  I no longer have the strength to hold up alone against</l>
+               <l n="120">the load of grief that crushes me.
 </l>
             </sp>
-            </div>
-         
-
+         </div>
          <milestone unit="card" n="121"/>
-            <div type="textpart" subtype="choral">
-            <div type="textpart" subtype="strophe" n="1">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="121">Ah, Electra, child of a most wretched mother, why are you always wasting away in this unsated mourning for Agamemnon, who long ago was godlessly</l>
-<l n="125">ensnared in your false mother’s wiles and betrayed by her corrupt hand? May the one who
+         <div type="choral">
+            <div n="1" type="strophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="121">Ah, Electra, child of a most wretched mother, why are you always wasting away in this unsated mourning for Agamemnon, who long ago was godlessly</l>
+                  <l n="125">ensnared in your false mother’s wiles and betrayed by her corrupt hand? May the one who
                         did that perish, if I may speak such a curse without breaking the gods’
                         laws.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="129">Ah, noble-hearted girls,</l>
-<l n="130">you have come to relieve me in my troubles.  I know and feel it: it does not escape me.  Still I cannot leave this task undone, nor abandon this mourning for my poor father.  Ah, friends whose love responds to mine in every mood,</l>
-<l n="135">allow me to rave as I am, oh, please, I beg you!</l>
-            </sp>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="129">Ah, noble-hearted girls,</l>
+                  <l n="130">you have come to relieve me in my troubles.  I know and feel it: it does not escape me.  Still I cannot leave this task undone, nor abandon this mourning for my poor father.  Ah, friends whose love responds to mine in every mood,</l>
+                  <l n="135">allow me to rave as I am, oh, please, I beg you!</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="137"/>
-            <div type="textpart" subtype="antistrophe" n="1">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="137">But never by weeping nor by prayer will you resurrect your father from the pool of Hades which receives all men.</l>
-<l n="140">No, by grieving without end and beyond due limits you will find cureless misery and your own ruin;  in these actions there is no deliverance from evils.  Tell us, why do you pursue such suffering?</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="145">Foolish is the child who forgets a parent’s piteous death. No, closer to my heart is the
+            <milestone unit="card" n="137"/>
+            <div n="1" type="antistrophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="137">But never by weeping nor by prayer will you resurrect your father from the pool of Hades which receives all men.</l>
+                  <l n="140">No, by grieving without end and beyond due limits you will find cureless misery and your own ruin;  in these actions there is no deliverance from evils.  Tell us, why do you pursue such suffering?</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="145">Foolish is the child who forgets a parent’s piteous death. No, closer to my heart is the
                         mourner who eternally wails, <q type="spoken">Itys, Itys,</q> that bird mad
                         with grief, the messenger of Zeus.</l>
-<l n="150">Ah, all-suffering Niobe, you I count divine, since you weep forever in your rocky tomb!</l>
-            </sp>
+                  <l n="150">Ah, all-suffering Niobe, you I count divine, since you weep forever in your rocky tomb!</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="154"/>
-            <div type="textpart" subtype="strophe" n="2">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="154">Not to you alone of mortals, my daughter, has sorrow come,</l>
-<l n="155">though you face it with less restraint than those girls inside, Chrysothemis and Iphianassa, whose parents and blood you share.  They still live, as he, too, lives, sorrowing in his secluded youth,</l>
-<l n="160">yet happy in that this famous realm of the Mycenaeans shall one day receive him as a
+            <milestone unit="card" n="154"/>
+            <div n="2" type="strophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="154">Not to you alone of mortals, my daughter, has sorrow come,</l>
+                  <l n="155">though you face it with less restraint than those girls inside, Chrysothemis and Iphianassa, whose parents and blood you share.  They still live, as he, too, lives, sorrowing in his secluded youth,</l>
+                  <l n="160">yet happy in that this famous realm of the Mycenaeans shall one day receive him as a
                         noble lord, if with the blessing of Zeus’s escort he, Orestes, returns to
                         this land.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="164">Yes, I await him with unwearied longing,</l>
-<l n="165">as I walk my sad path from day to day childless and unwed, bathed in tears, bearing that endless doom of evils.  But he forgets all that he has suffered and learned.</l>
-<l n="170">What message comes to me that is not proven false?  He constantly desires to be with us, but though he desires it, he does not choose to appear.</l>
-            </sp>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="164">Yes, I await him with unwearied longing,</l>
+                  <l n="165">as I walk my sad path from day to day childless and unwed, bathed in tears, bearing that endless doom of evils.  But he forgets all that he has suffered and learned.</l>
+                  <l n="170">What message comes to me that is not proven false?  He constantly desires to be with us, but though he desires it, he does not choose to appear.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="174"/>
-            <div type="textpart" subtype="antistrophe" n="2">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="174">Courage, my daughter, courage;  Zeus in the sky</l>
-<l n="175">is still mighty, and he sees and rules all.  Leave your oversharp anger to him;  be neither excessively hostile to those you hate, nor forgetful of them, since Time is a god who brings ease.</l>
-<l n="180">Neither the son of Agamemnon, who dwells by <placeName key="tgn,7018211"
-                           >Crisa</placeName>’s cattle-feeding shore nor the god who reigns beside
+            <milestone unit="card" n="174"/>
+            <div n="2" type="antistrophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="174">Courage, my daughter, courage;  Zeus in the sky</l>
+                  <l n="175">is still mighty, and he sees and rules all.  Leave your oversharp anger to him;  be neither excessively hostile to those you hate, nor forgetful of them, since Time is a god who brings ease.</l>
+                  <l n="180">Neither the son of Agamemnon, who dwells by <placeName key="tgn,7018211">Crisa</placeName>’s cattle-feeding shore nor the god who reigns beside
                            <placeName key="tgn,1120946">Acheron</placeName> is unmindful of you.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="185">But the best part of life has passed away leaving me in hopelessness, and I have no strength left.  I waste away without children and have no loving husband to champion me, but like some despised foreign slave,</l>
-<l n="190">I serve in the halls of my father, wrapped in shabby garments and standing to eat scanty meals.</l>
-            </sp>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="185">But the best part of life has passed away leaving me in hopelessness, and I have no strength left.  I waste away without children and have no loving husband to champion me, but like some despised foreign slave,</l>
+                  <l n="190">I serve in the halls of my father, wrapped in shabby garments and standing to eat scanty meals.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="193"/>
-            <div type="textpart" subtype="strophe" n="3">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="193">Mournful was the voice heard at his return, and mournful the voice amidst your father’s
+            <milestone unit="card" n="193"/>
+            <div n="3" type="strophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="193">Mournful was the voice heard at his return, and mournful the voice amidst your father’s
                         reclining banquet</l>
-<l n="195">when the straight, swift blow of the bronze-jawed axe was sped against him.  Deceit was the plotter, Lust the slayer, two dread parents of a dreadful</l>
-<l n="200">phantom, whether it was god or mortal that did this deed.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="201">O that hated day, hated beyond all that have come to me;  O that night, the terrible grief of that unutterable feast, the shameless death-strokes</l>
-<l n="205">my father saw from their twin hands, hands which took my life captive by treachery, which cast me to ruin!  May the great god of <placeName key="tgn,7011019">Olympus</placeName>
+                  <l n="195">when the straight, swift blow of the bronze-jawed axe was sped against him.  Deceit was the plotter, Lust the slayer, two dread parents of a dreadful</l>
+                  <l n="200">phantom, whether it was god or mortal that did this deed.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="201">O that hated day, hated beyond all that have come to me;  O that night, the terrible grief of that unutterable feast, the shameless death-strokes</l>
+                  <l n="205">my father saw from their twin hands, hands which took my life captive by treachery, which cast me to ruin!  May the great god of <placeName key="tgn,7011019">Olympus</placeName>
                   </l>
-<l n="210">create for them sufferings in penalty, and may they never have enjoyment of their splendor since they have committed such crimes!</l>
-            </sp>
+                  <l n="210">create for them sufferings in penalty, and may they never have enjoyment of their splendor since they have committed such crimes!</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="213"/>
-            <div type="textpart" subtype="antistrophe" n="3">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="213">Be advised to say no more;  do you not see by what actions</l>
-<l n="215">under the present circumstances you plunge so shamefully into self-made miseries?  You have far excelled in achieving misfortune, ever breeding wars in your hardhearted soul.  But such strife</l>
-<l n="220">should not be pushed into a conflict with the powerful.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="221">I have been forced to it, forced by a terrible compulsion.  I know my own passion; it does not escape me;  but, under such terrible compulsion, I will not restrain these disastrous cries of frenzy,</l>
-<l n="225">so long as life is in me.  Who indeed, my noble friends, who that keeps what is appropriate in mind, would think any word of comfort right for my ears?  Let me be, let me be, my comforters!</l>
-<l n="230">For these ills will be reckoned with those which have no cure;  I will never know a respite from my pains, or the sum of this wailing.</l>
-            </sp>
+            <milestone unit="card" n="213"/>
+            <div n="3" type="antistrophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="213">Be advised to say no more;  do you not see by what actions</l>
+                  <l n="215">under the present circumstances you plunge so shamefully into self-made miseries?  You have far excelled in achieving misfortune, ever breeding wars in your hardhearted soul.  But such strife</l>
+                  <l n="220">should not be pushed into a conflict with the powerful.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="221">I have been forced to it, forced by a terrible compulsion.  I know my own passion; it does not escape me;  but, under such terrible compulsion, I will not restrain these disastrous cries of frenzy,</l>
+                  <l n="225">so long as life is in me.  Who indeed, my noble friends, who that keeps what is appropriate in mind, would think any word of comfort right for my ears?  Let me be, let me be, my comforters!</l>
+                  <l n="230">For these ills will be reckoned with those which have no cure;  I will never know a respite from my pains, or the sum of this wailing.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="233"/>
-            <div type="textpart" subtype="epode">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="233">It is nevertheless with goodwill, like a true-hearted mother,</l>
-<l n="235">that I dissuade you from begetting misery upon miseries.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="236">But what limit has nature begot for my affliction? Tell me, how can it be right to
+            <milestone unit="card" n="233"/>
+            <div type="epode">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="233">It is nevertheless with goodwill, like a true-hearted mother,</l>
+                  <l n="235">that I dissuade you from begetting misery upon miseries.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="236">But what limit has nature begot for my affliction? Tell me, how can it be right to
                         neglect the dead? Has such a seed been sown in any mortal? May I never have
                         such men’s esteem;</l>
-<l n="240">never, when I am close to prosperity, may I dwell in ease, hindering the wings of shrill lamentation so as to deprive my begetter of his honors!<milestone unit="para"/>For if the dead is to lie a wretch, merely dust and nothingness,</l>
-<l n="245">while his slayers do not pay back to him blood for blood in penalty,</l>
-<l n="250">then shame and reverence will vanish from all humanity.</l>
-            </sp>
-            </div></div>
-
+                  <l n="240">never, when I am close to prosperity, may I dwell in ease, hindering the wings of shrill lamentation so as to deprive my begetter of his honors!<milestone unit="para"/>For if the dead is to lie a wretch, merely dust and nothingness,</l>
+                  <l n="245">while his slayers do not pay back to him blood for blood in penalty,</l>
+                  <l n="250">then shame and reverence will vanish from all humanity.</l>
+               </sp>
+            </div>
+         </div>
          <milestone unit="card" n="251"/>
-
-            <div type="textpart" subtype="episode">
+         <div type="episode">
             <sp>
                <speaker>Chorus</speaker>
-               
-<l n="251">I came, my child, mindful of your interests no less than my own.  But if what I say is wrong, let your way prevail;  for united we will follow you.</l>
+               <l n="251">I came, my child, mindful of your interests no less than my own.  But if what I say is wrong, let your way prevail;  for united we will follow you.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
                <l n="254">I am ashamed, my friends, if you judge me</l>
-<l n="255">too intolerant with my many laments; but, since rough compulsion forces me to act this
+               <l n="255">too intolerant with my many laments; but, since rough compulsion forces me to act this
                      way, forgive me. How indeed could any woman of noble nature not act, when she
                      sees her father’s sufferings as I see them day and night continually,</l>
-<l n="260">and flourishing rather than fading? First, everything to do with the mother who bore me
+               <l n="260">and flourishing rather than fading? First, everything to do with the mother who bore me
                      has become most hateful towards me; next, in my own home I live with my
                      father’s murderers; they rule over me and from them</l>
-<l n="265">equally I either have or do without.<milestone unit="para"/>And then think what manner of
+               <l n="265">equally I either have or do without.<milestone unit="para"/>And then think what manner of
                      days I pass, when I see Aegisthus sitting on my father’s throne; when I look on
                      him wearing the very robes which my father wore and</l>
-<l n="270">pouring libations at the hearth where he killed him; and when I see the chief outrage of
+               <l n="270">pouring libations at the hearth where he killed him; and when I see the chief outrage of
                      them all, the murderer in my father’s bed at my wretched mother’s side, if I
                      must call her mother, even though she shares her bed with that man.</l>
-<l n="275">So hardened is she that she joins with this polluter, fearing no Erinys.  No, as if laughing at her deeds, having found the day on which in the past she treacherously killed my father,</l>
-<l n="280">she celebrates it with dance and song, and in monthly rites she sacrifices sheep to the gods who worked her deliverance.</l>
+               <l n="275">So hardened is she that she joins with this polluter, fearing no Erinys.  No, as if laughing at her deeds, having found the day on which in the past she treacherously killed my father,</l>
+               <l n="280">she celebrates it with dance and song, and in monthly rites she sacrifices sheep to the gods who worked her deliverance.</l>
             </sp>
-         
-
-         <milestone unit="card" n="282"/>
+            <milestone unit="card" n="282"/>
             <sp>
                <l n="282">But I, as I joylessly witness it, cry out, waste away in the house and bewail the unholy feast named after my father,</l>
-<l n="285">in solitary weeping.  For I cannot even grieve to the full extent which would please my heart, since this lady, who is in fact no lady, loudly reproaches me with such shameless taunts as these:  <q type="spoken">Wicked and hateful girl, have you alone lost your father,and is no one else in the world grieving?  May your death be harsh, and may the gods below never free you from your current mourning.</q>  Just so she abuses me, except when she gets word that Orestes is coming.  Then, infuriated,</l>
-<l n="295">she comes up to me and cries;—<q type="spoken">Have you not brought this upon me?  Is this not your doing, since you stole Orestes from my hands and secretly sent him away?  Yes—but rest assured that you will be justly punished.</q>  Like this she barks, and in agreement</l>
-<l n="300">her glorious bridegroom by her side urges her on—that total impotent, that utter plague who fights his battles with the help of women.  But my heart is broken by my suffering as I constantly wait for Orestes to come and end these troubles.<milestone unit="para"/>
-                  </l>
-<l n="305">For the perpetual imminence of his actions has eradicated every hope that I could conceive.  In such a state of affairs, then, friends, there is no room for self-restraint or for reverence.  Rather, in these dire straits there is much need to pursue a dire course.
+               <l n="285">in solitary weeping.  For I cannot even grieve to the full extent which would please my heart, since this lady, who is in fact no lady, loudly reproaches me with such shameless taunts as these:  <q type="spoken">Wicked and hateful girl, have you alone lost your father,and is no one else in the world grieving?  May your death be harsh, and may the gods below never free you from your current mourning.</q>  Just so she abuses me, except when she gets word that Orestes is coming.  Then, infuriated,</l>
+               <l n="295">she comes up to me and cries;—<q type="spoken">Have you not brought this upon me?  Is this not your doing, since you stole Orestes from my hands and secretly sent him away?  Yes—but rest assured that you will be justly punished.</q>  Like this she barks, and in agreement</l>
+               <l n="300">her glorious bridegroom by her side urges her on—that total impotent, that utter plague who fights his battles with the help of women.  But my heart is broken by my suffering as I constantly wait for Orestes to come and end these troubles.<milestone unit="para"/>
+               </l>
+               <l n="305">For the perpetual imminence of his actions has eradicated every hope that I could conceive.  In such a state of affairs, then, friends, there is no room for self-restraint or for reverence.  Rather, in these dire straits there is much need to pursue a dire course.
 </l>
             </sp>
-         
-
-         <milestone unit="card" n="310"/>
+            <milestone unit="card" n="310"/>
             <sp>
                <speaker>Chorus</speaker>
-               
-<l n="310">Tell me, is Aegisthus nearby as you speak these words to us, or has he left the house?</l>
+               <l n="310">Tell me, is Aegisthus nearby as you speak these words to us, or has he left the house?</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -383,7 +351,7 @@
             <sp>
                <speaker>Chorus</speaker>
                <l n="314">Might I converse with you</l>
-<l n="315">more boldly, if this is so?</l>
+               <l n="315">more boldly, if this is so?</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -399,8 +367,7 @@
             </sp>
             <sp>
                <speaker>Chorus</speaker>
-               
-<l n="320">True, a man will hesitate on the verge of a great undertaking.</l>
+               <l n="320">True, a man will hesitate on the verge of a great undertaking.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -417,43 +384,39 @@
             <sp>
                <speaker>Chorus</speaker>
                <l n="324">Say no more now, since I see your sister</l>
-<l n="325">coming from the house, Chrysothemis, offspring of the same father and mother.  In her hands are sepulchral offerings, such as are customary for those in the world below.</l>
+               <l n="325">coming from the house, Chrysothemis, offspring of the same father and mother.  In her hands are sepulchral offerings, such as are customary for those in the world below.</l>
             </sp>
-             <stage rend="italic">Enter Chrysothemis, from the house.</stage> 
+            <stage rend="italic">Enter Chrysothemis, from the house.</stage>
             <sp>
                <speaker>Chrysothemis</speaker>
                <l n="328">What is this speech of yours, sister, which you have come forth yet again to speak at the public doors?</l>
-<l n="330">Will you not learn with any lapse of time to end your vain indulgence in futile anger?  Yet this much I know—that I myself am saddened by our present circumstances;  indeed so much so that, could I find the strength, I would bare my feelings towards them.</l>
-<l n="335">But now, in these evil times I think it best to navigate with shortened sail so that I may not seem to be on the attack, when I am unable to cause harm.  I wish that your own conduct were the same!  Nevertheless, right is on the side which you favor, not on that which I advise.  But if I am to live the life of the freeborn,</l>
-<l n="340">those in power must be obeyed in all things.</l>
+               <l n="330">Will you not learn with any lapse of time to end your vain indulgence in futile anger?  Yet this much I know—that I myself am saddened by our present circumstances;  indeed so much so that, could I find the strength, I would bare my feelings towards them.</l>
+               <l n="335">But now, in these evil times I think it best to navigate with shortened sail so that I may not seem to be on the attack, when I am unable to cause harm.  I wish that your own conduct were the same!  Nevertheless, right is on the side which you favor, not on that which I advise.  But if I am to live the life of the freeborn,</l>
+               <l n="340">those in power must be obeyed in all things.</l>
             </sp>
-         
-
-         <milestone unit="card" n="341"/>
+            <milestone unit="card" n="341"/>
             <sp>
                <speaker>Electra</speaker>
                <l n="341">It is strange, indeed, that you, the daughter of our father from whom you grew, should forget him and instead show concern for your mother!  All your admonitions to me have been taught by her;  you speak no word of your own.</l>
-<l n="345">So now take your choice:  be imprudent, or be prudent, but forgetful of your friends.  You have just said that if could you find the strength, you would show your hatred of them;  yet, when I am doing my utmost to avenge our father,</l>
-<l n="350">you do not work with me, but seek to deflect your sister from her deed.<milestone unit="para"/>Does this not add cowardice to our miseries?  Therefore instruct me, or rather learn from me what gain there might be for me if I ended my lamentation.  Am I not now alive?  Miserably so, I know, but well enough for me.</l>
-<l n="355">And I hurt them, and thereby affix an honorable tribute to the dead, in case those in that world can enjoy it and feel gratitude.  But you, who tell me of your hatred, hate in word alone, while by your behavior you unite with the murderers of our father.  I, however, would never yield to them, not even if</l>
-<l n="360">one of them were to bring to me the gifts in which you now glory.  Let yours be the richly-spread table and superabundant lifestyle.  As for me, let my sustenance be only that I do not wound my own conscience—I do not covet such privilege as yours and</l>
-<l n="365">neither would you, if you had self-control. But now, when you could be called the child
+               <l n="345">So now take your choice:  be imprudent, or be prudent, but forgetful of your friends.  You have just said that if could you find the strength, you would show your hatred of them;  yet, when I am doing my utmost to avenge our father,</l>
+               <l n="350">you do not work with me, but seek to deflect your sister from her deed.<milestone unit="para"/>Does this not add cowardice to our miseries?  Therefore instruct me, or rather learn from me what gain there might be for me if I ended my lamentation.  Am I not now alive?  Miserably so, I know, but well enough for me.</l>
+               <l n="355">And I hurt them, and thereby affix an honorable tribute to the dead, in case those in that world can enjoy it and feel gratitude.  But you, who tell me of your hatred, hate in word alone, while by your behavior you unite with the murderers of our father.  I, however, would never yield to them, not even if</l>
+               <l n="360">one of them were to bring to me the gifts in which you now glory.  Let yours be the richly-spread table and superabundant lifestyle.  As for me, let my sustenance be only that I do not wound my own conscience—I do not covet such privilege as yours and</l>
+               <l n="365">neither would you, if you had self-control. But now, when you could be called the child
                      of the noblest father among men, be called instead your mother’s daughter, for
                      in this way your corruptness will be evident to the greatest number as you
                      betray your dead father and your true friends.</l>
             </sp>
-         
-
-         <milestone unit="card" n="369"/>
+            <milestone unit="card" n="369"/>
             <sp>
                <speaker>Chorus</speaker>
                <l n="369">Away with anger, for the gods’ sake! There is</l>
-<l n="370">advantage for both of you in what is urged, if you, Electra, would learn to implement her advice, and she, again, yours.</l>
+               <l n="370">advantage for both of you in what is urged, if you, Electra, would learn to implement her advice, and she, again, yours.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
                <l n="372">For my part, friends, I am not at all unaccustomed to her insults, nor would I have mentioned this, if I had not heard that the greatest disaster is now rushing down on her,</l>
-<l n="375">one which will restrain her from her long mourning.</l>
+               <l n="375">one which will restrain her from her long mourning.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -462,18 +425,15 @@
             <sp>
                <speaker>Chrysothemis</speaker>
                <l n="378">I will tell you all that I know.  If you will not cease from your mourning, they intend</l>
-<l n="380">to send you where you will never look upon the sun’s brilliance, but passing your life in
+               <l n="380">to send you where you will never look upon the sun’s brilliance, but passing your life in
                      a covered chamber beyond this land’s borders you will make hymns of your
                      calamity. Think on this, and do not blame me later, when you suffer. Now is the
                      time to think wisely.</l>
             </sp>
-         
-
-         <milestone unit="card" n="385"/>
+            <milestone unit="card" n="385"/>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="385">Have they in fact decided to do this to me?</l>
+               <l n="385">Have they in fact decided to do this to me?</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -493,8 +453,7 @@
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="390">So that you may suffer?  In what way?  Where are your wits?</l>
+               <l n="390">So that you may suffer?  In what way?  Where are your wits?</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -514,8 +473,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="395">Do not teach me to betray my friends.</l>
+               <l n="395">Do not teach me to betray my friends.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -535,8 +493,7 @@
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="400">But our father, I know, pardons me for this.</l>
+               <l n="400">But our father, I know, pardons me for this.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -556,8 +513,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="405">And where is it that you go?  For whom do you take these offerings to be burned?</l>
+               <l n="405">And where is it that you go?  For whom do you take these offerings to be burned?</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -569,7 +525,8 @@
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
-               <l n="408"><q type="emph">Whom she herself killed,</q> no doubt you wanted to say this as well.</l>
+               <l n="408">
+                  <q type="emph">Whom she herself killed,</q> no doubt you wanted to say this as well.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -577,8 +534,7 @@
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="410">The cause, I think, was fear induced by some vision in the night.</l>
+               <l n="410">The cause, I think, was fear induced by some vision in the night.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -596,172 +552,149 @@
                <speaker>Chrysothemis</speaker>
                <l n="414">I know no more than a small part of the story.</l>
             </sp>
-         
-
-         <milestone unit="card" n="415"/>
+            <milestone unit="card" n="415"/>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="415">Tell me that, anyway;  a small tale has often before now tripped men up, or set them upright.</l>
+               <l n="415">Tell me that, anyway;  a small tale has often before now tripped men up, or set them upright.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
                <l n="417">It is said that she saw the father of you and of me restored to the sunlight and to her company once more.  Then he took the scepter—</l>
-<l n="420">once his own, but now carried by Aegisthus—and planted it at the hearth.  From it branched upward a flourishing limb, by which the whole land of the Mycenaeans was overshadowed.  Such was the tale that I heard told by one who was present</l>
-<l n="425">when she revealed her dream to the Sun-god.  More than this I do not know, except that she sent me by reason of this fear of hers.  Now, I beg you by our ancestral gods, obey me, and do not fall in your senselessness!</l>
-<l n="430">If you reject me now, it is in misery that you will next seek me out.</l>
+               <l n="420">once his own, but now carried by Aegisthus—and planted it at the hearth.  From it branched upward a flourishing limb, by which the whole land of the Mycenaeans was overshadowed.  Such was the tale that I heard told by one who was present</l>
+               <l n="425">when she revealed her dream to the Sun-god.  More than this I do not know, except that she sent me by reason of this fear of hers.  Now, I beg you by our ancestral gods, obey me, and do not fall in your senselessness!</l>
+               <l n="430">If you reject me now, it is in misery that you will next seek me out.</l>
             </sp>
-         
-
-         <milestone unit="card" n="431"/>
+            <milestone unit="card" n="431"/>
             <sp>
                <speaker>Electra</speaker>
                <l n="431">Dear sister, let none of these offerings in your hands touch the tomb.  For neither divine law nor piety allows you to dedicate funeral gifts or bring libations to our father from his hateful wife.</l>
-<l n="435">No! To the winds with them! Or cover them in a deep, dusty hole, where not one of them
+               <l n="435">No! To the winds with them! Or cover them in a deep, dusty hole, where not one of them
                      will ever come near our father’s resting place. Rather let these treasures be
                      preserved for her below when she dies. Were she not by nature the most
                      audacious</l>
-<l n="440">of all women, she would never at all have tried to pour these ill-willed offerings to the man she killed.  Consider whether you believe that the dead in his tomb will welcome this tribute with affection towards her, by whose hand he died dishonored and was mutilated</l>
-<l n="445">like an enemy? She, who, as if to wash herself clean, wiped off the bloodstains on his
+               <l n="440">of all women, she would never at all have tried to pour these ill-willed offerings to the man she killed.  Consider whether you believe that the dead in his tomb will welcome this tribute with affection towards her, by whose hand he died dishonored and was mutilated</l>
+               <l n="445">like an enemy? She, who, as if to wash herself clean, wiped off the bloodstains on his
                      head? Surely you do not believe that your bringing these things will absolve
                      her of the murder?<milestone unit="para"/>It is not possible. No, be rid of
                      them. Give him instead a lock of your hair’s ends, cut from your own head,</l>
-<l n="450">and from wretched me, too, give these gifts, poor as they are, though all I have.  Take this hair, not glossy with unguents, and this girdle, decked with no rich ornament.  Then fall down and pray that he himself may come in kindness to us from the world below, a helper against our enemies;</l>
-<l n="455">and that young Orestes may live to set his foot upon our enemies in superior might, so
+               <l n="450">and from wretched me, too, give these gifts, poor as they are, though all I have.  Take this hair, not glossy with unguents, and this girdle, decked with no rich ornament.  Then fall down and pray that he himself may come in kindness to us from the world below, a helper against our enemies;</l>
+               <l n="455">and that young Orestes may live to set his foot upon our enemies in superior might, so
                      that hereafter we may crown our father’s tomb with wealthier hands than those
                      with which we honor him now.<milestone unit="para"/>I think, yes, I think that
                      he too had some part</l>
-<l n="460">in sending her these appalling dreams. Still, sister, do yourself this service and help
+               <l n="460">in sending her these appalling dreams. Still, sister, do yourself this service and help
                      me, and him, too, that most beloved of all men, who rests in Hades’ domain, our
                      shared father.</l>
             </sp>
-         
-
-         <milestone unit="card" n="464"/>
+            <milestone unit="card" n="464"/>
             <sp>
                <speaker>Chorus</speaker>
                <l n="464">The girl’s advice is pious; you,</l>
-<l n="465">dear friend, will do what she says, if you are wise.</l>
+               <l n="465">dear friend, will do what she says, if you are wise.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
                <l n="466">I will.  In regard to a just deed, it is unreasonable for two people to argue, but reasonable to jump to action.  But, by the gods, my friends, when I attempt this task, let me have your silence,</l>
-<l n="470">since if my mother hears of it, I believe that this attempt which I will dare shall in
+               <l n="470">since if my mother hears of it, I believe that this attempt which I will dare shall in
                      the end cause me bitterness.  <stage rend="italic">Exit Chrysothemis on the spectators’
-                        right.</stage> 
-                  </l>
+                        right.</stage>
+               </l>
             </sp>
-            </div>
-
+         </div>
          <milestone unit="card" n="472"/>
-
-            <div type="textpart" subtype="choral">
-            <div type="textpart" subtype="strophe" n="1">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="472">If I am not a deranged prophet and one who lacks wise judgments,</l>
-<l n="475">Justice, the sender of the omen, will come, winning the just victory of her hands’ might.
+         <div type="choral">
+            <div n="1" type="strophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="472">If I am not a deranged prophet and one who lacks wise judgments,</l>
+                  <l n="475">Justice, the sender of the omen, will come, winning the just victory of her hands’ might.
                         She will come in pursuit before long, my child. Courage is mine,</l>
-<l n="480">since I heard just now of this sweet-blowing dream.  Never does the lord of the Hellenes, your producer forget,</l>
-<l n="485">nor does the axe of long ago forget, striking with bronze on its jaws, which in most shameless disgrace annihilated him.</l>
-            </sp>
+                  <l n="480">since I heard just now of this sweet-blowing dream.  Never does the lord of the Hellenes, your producer forget,</l>
+                  <l n="485">nor does the axe of long ago forget, striking with bronze on its jaws, which in most shameless disgrace annihilated him.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="488"/>
-            <div type="textpart" subtype="antistrophe" n="1">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="488">She, too, will come, she of many hands and many feet who lurks in her terrible ambush,</l>
-<l n="490">the bronze-shod Erinys.  For an unwed, unbetrothed passion for a marriage polluted by murder seized the pair, though divine law forbade it to them.</l>
-<l n="495">Therefore I am confident that the portent—a wonder which I will never blame—will draw near to the criminals and conspirators.  To be sure, mortal prophecy</l>
-<l n="500">from fearful dreams or divine signs exists no more, if this vision of the night does not find due fulfillment.</l>
-            </sp>
+            <milestone unit="card" n="488"/>
+            <div n="1" type="antistrophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="488">She, too, will come, she of many hands and many feet who lurks in her terrible ambush,</l>
+                  <l n="490">the bronze-shod Erinys.  For an unwed, unbetrothed passion for a marriage polluted by murder seized the pair, though divine law forbade it to them.</l>
+                  <l n="495">Therefore I am confident that the portent—a wonder which I will never blame—will draw near to the criminals and conspirators.  To be sure, mortal prophecy</l>
+                  <l n="500">from fearful dreams or divine signs exists no more, if this vision of the night does not find due fulfillment.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="504"/>
-            <div type="textpart" subtype="epode">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="504">O chariot-race of Pelops long ago, source of many a sorrow,</l>
-<l n="505">what disaster you have brought upon this land!  For ever since Myrtilus sank to rest beneath the waves,</l>
-<l n="510">hurled to utter destruction from his golden chariot in disgraceful outrage, from that time to this, outrage and its many sorrows</l>
-<l n="515">were never yet gone from this house.</l>
-            </sp>
-            </div></div>
-
+            <milestone unit="card" n="504"/>
+            <div type="epode">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="504">O chariot-race of Pelops long ago, source of many a sorrow,</l>
+                  <l n="505">what disaster you have brought upon this land!  For ever since Myrtilus sank to rest beneath the waves,</l>
+                  <l n="510">hurled to utter destruction from his golden chariot in disgraceful outrage, from that time to this, outrage and its many sorrows</l>
+                  <l n="515">were never yet gone from this house.</l>
+               </sp>
+            </div>
+         </div>
          <milestone unit="card" n="516"/>
-
-            <div type="textpart" subtype="episode">
-             <stage rend="italic">Enter Clytaemnestra, with attendants, from the house.</stage> 
+         <div type="episode">
+            <stage rend="italic">Enter Clytaemnestra, with attendants, from the house.</stage>
             <sp>
                <speaker>Clytaemnestra</speaker>
-               
-<l n="516">You run loose again, it seems, since Aegisthus is not here, who used always to keep you at least from coming out to the gates and shaming your family.  But now, since he is absent, you pay</l>
-<l n="520">me no mind.  And yet you have said of me often and to many listeners that I am a rash and unjust tyrant, who violently abuse you and yours.  But it is not I who do violence;  I only return the insults that I so often hear from you.<milestone unit="para"/>
-                  </l>
-<l n="525">Your father—this and nothing else is your constant pretext—was slain by me.  Yes, by me.  I know it well.   I make no denial.  Justice took hold of him, not I alone—Justice, whom you ought to have supported, if you had been in your right mind.</l>
-<l n="530">For this father of yours whom you constantly bewail alone of all the Greeks had the heart to sacrifice your own blood, your sister, to the gods—he, who, when sowing his seed, felt none of the pains I did when I gave birth.<milestone unit="para"/>Come, tell me now, why, or to please whom,</l>
-<l n="535">did he sacrifice her?  To please the Argives, you will say?  No, they had no right to kill my daughter.  Or, if indeed it was for the sake of his brother Menelaus that he killed my child, was he not to pay me the penalty for that?  Did Menelaus not have two children,</l>
-<l n="540">who should in fairness have died instead of my daughter, since the father and mother from whom they were sprung had caused that voyage?  Did Hades have some greater desire to feast on my offspring than on hers?  Or had all love of the children of my womb been</l>
-<l n="545">abandoned by their accursed father, while love for the children of Menelaus filled him? Were these not the marks of a thoughtless and malicious parent?  I think so, even if I differ from your judgment.  So, too, would the dead girl speak, if she could find a voice.  For myself, then, I view the past without</l>
-<l n="550">dismay;  but if you think my attitude criminal, see that your own judgment is just before you blame your neighbor.</l>
+               <l n="516">You run loose again, it seems, since Aegisthus is not here, who used always to keep you at least from coming out to the gates and shaming your family.  But now, since he is absent, you pay</l>
+               <l n="520">me no mind.  And yet you have said of me often and to many listeners that I am a rash and unjust tyrant, who violently abuse you and yours.  But it is not I who do violence;  I only return the insults that I so often hear from you.<milestone unit="para"/>
+               </l>
+               <l n="525">Your father—this and nothing else is your constant pretext—was slain by me.  Yes, by me.  I know it well.   I make no denial.  Justice took hold of him, not I alone—Justice, whom you ought to have supported, if you had been in your right mind.</l>
+               <l n="530">For this father of yours whom you constantly bewail alone of all the Greeks had the heart to sacrifice your own blood, your sister, to the gods—he, who, when sowing his seed, felt none of the pains I did when I gave birth.<milestone unit="para"/>Come, tell me now, why, or to please whom,</l>
+               <l n="535">did he sacrifice her?  To please the Argives, you will say?  No, they had no right to kill my daughter.  Or, if indeed it was for the sake of his brother Menelaus that he killed my child, was he not to pay me the penalty for that?  Did Menelaus not have two children,</l>
+               <l n="540">who should in fairness have died instead of my daughter, since the father and mother from whom they were sprung had caused that voyage?  Did Hades have some greater desire to feast on my offspring than on hers?  Or had all love of the children of my womb been</l>
+               <l n="545">abandoned by their accursed father, while love for the children of Menelaus filled him? Were these not the marks of a thoughtless and malicious parent?  I think so, even if I differ from your judgment.  So, too, would the dead girl speak, if she could find a voice.  For myself, then, I view the past without</l>
+               <l n="550">dismay;  but if you think my attitude criminal, see that your own judgment is just before you blame your neighbor.</l>
             </sp>
-         
-
-         <milestone unit="card" n="552"/>
+            <milestone unit="card" n="552"/>
             <sp>
                <speaker>Electra</speaker>
                <l n="552">This time, at least, you cannot say that I first gave you cause for upset and thereby provoked such words from you.  But, if you will permit me,</l>
-<l n="555">I would gladly declare the truth, on behalf of my dead father and my sister alike.</l>
+               <l n="555">I would gladly declare the truth, on behalf of my dead father and my sister alike.</l>
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
                <l n="556">Certainly I permit you;  and if you always addressed me in such a tone, you would not be difficult to listen to.</l>
             </sp>
-         
-
-         <milestone unit="card" n="558"/>
+            <milestone unit="card" n="558"/>
             <sp>
                <speaker>Electra</speaker>
                <l n="558">Then I will speak.  You admit that you killed my father.  What statement could be more shameful still than that,</l>
-<l n="560">whether you did it justly or not?  But I will demonstrate to you that you did not justly kill him.  No, the persuasion of that wicked man with whom you now sleep dragged you to it.<milestone unit="para"/>Ask the huntress Artemis what wrong she punished when she stayed the frequent winds at Aulis;</l>
-<l n="565">or I will tell you, since we may not learn from her.  My father, as I have heard, was once hunting in the grove of the goddess, when his footfall flushed a dappled and antlered stag;  he shot it, and chanced to make a certain boast concerning its slaughter.</l>
-<l n="570">Angered by this, Leto’s daughter detained the Greeks so that in requital for the beast’s
+               <l n="560">whether you did it justly or not?  But I will demonstrate to you that you did not justly kill him.  No, the persuasion of that wicked man with whom you now sleep dragged you to it.<milestone unit="para"/>Ask the huntress Artemis what wrong she punished when she stayed the frequent winds at Aulis;</l>
+               <l n="565">or I will tell you, since we may not learn from her.  My father, as I have heard, was once hunting in the grove of the goddess, when his footfall flushed a dappled and antlered stag;  he shot it, and chanced to make a certain boast concerning its slaughter.</l>
+               <l n="570">Angered by this, Leto’s daughter detained the Greeks so that in requital for the beast’s
                      life my father should sacrifice his own daughter. So it was that she was
                      sacrificed, since the fleet had no other release, neither homeward nor to
                         <placeName key="tgn,7002329">Troy</placeName>.</l>
-<l n="575">For that reason, under fierce constraint and with much resistance, at last he sacrificed her—but it was not for the sake of Menelaus.<milestone unit="para"/>But suppose—for I will make your own plea—suppose that the motive of his deed was to benefit his brother.  Should you have killed him because of that?  Under what sort of law?</l>
-<l n="580">See that by laying down such a law for men, you do not lay down trouble and remorse for yourself.  For, if we are to take blood for blood, you surely would be the first to die, if you were to meet with justice.<milestone unit="para"/>But consider whether this pretext is any excuse at all.</l>
-<l n="585">For tell me, if you please, what crime it is that you requite by doing the most shameless deeds of all:  sharing your bed with that blood-guilty one, with whom you first destroyed my father and now bear his children</l>
-<l n="590">while you have cast out the earlier born, the pious offspring of a pious marriage? How
+               <l n="575">For that reason, under fierce constraint and with much resistance, at last he sacrificed her—but it was not for the sake of Menelaus.<milestone unit="para"/>But suppose—for I will make your own plea—suppose that the motive of his deed was to benefit his brother.  Should you have killed him because of that?  Under what sort of law?</l>
+               <l n="580">See that by laying down such a law for men, you do not lay down trouble and remorse for yourself.  For, if we are to take blood for blood, you surely would be the first to die, if you were to meet with justice.<milestone unit="para"/>But consider whether this pretext is any excuse at all.</l>
+               <l n="585">For tell me, if you please, what crime it is that you requite by doing the most shameless deeds of all:  sharing your bed with that blood-guilty one, with whom you first destroyed my father and now bear his children</l>
+               <l n="590">while you have cast out the earlier born, the pious offspring of a pious marriage? How
                      can I commend these deeds? Or will you claim that this, too, is recompense for
                      your daughter? No, it is a shameful plea, if you so plead, for there is nothing
                      noble in marrying an enemy for a daughter’s sake.<milestone unit="para"/>
-                  </l>
-<l n="595">But no, I can hardly even admonish you, when your every cry is that I slander my mother.  I think, rather, that you are no less a mistress to me than a mother;  so lowly is the life that I live,</l>
-<l n="600">ever beset with miseries come from you and your consort.  And your other child, the exile who scarcely escaped your hand, poor Orestes, wastes away his unhappy life.  You have often accused me of rearing him to punish your crime,</l>
-<l n="605">and I would have done so, if I could, you may be sure.  As far as he is concerned, you can denounce me to all as disloyal, if you like, or loud-mouthed, or impudent.  For if my nature is familiar with such wrongdoings, I hardly bring disgrace upon your nature.</l>
+               </l>
+               <l n="595">But no, I can hardly even admonish you, when your every cry is that I slander my mother.  I think, rather, that you are no less a mistress to me than a mother;  so lowly is the life that I live,</l>
+               <l n="600">ever beset with miseries come from you and your consort.  And your other child, the exile who scarcely escaped your hand, poor Orestes, wastes away his unhappy life.  You have often accused me of rearing him to punish your crime,</l>
+               <l n="605">and I would have done so, if I could, you may be sure.  As far as he is concerned, you can denounce me to all as disloyal, if you like, or loud-mouthed, or impudent.  For if my nature is familiar with such wrongdoings, I hardly bring disgrace upon your nature.</l>
             </sp>
-         
-
-         <milestone unit="card" n="610"/>
+            <milestone unit="card" n="610"/>
             <sp>
                <speaker>Chorus</speaker>
-               
-<l n="610">I see her breathing fury;  but whether justice is with her, her concern for this I see no longer.</l>
+               <l n="610">I see her breathing fury;  but whether justice is with her, her concern for this I see no longer.</l>
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
                <l n="612">And what manner of concern should I use against her, who has abused her mother like this at her mature age?  Do you not think</l>
-<l n="615">that she would go forward to any deed without shame?</l>
+               <l n="615">that she would go forward to any deed without shame?</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
                <l n="616">Now be assured that I do feel shame for it, though I seem not to you.  I know that my behavior is unsuited to my age and inappropriate.  But then the enmity I get from you and your</l>
-<l n="620">behavior compel me with harsh necessity to do this;  for reprehensible deeds are learned from reprehensible examples.</l>
+               <l n="620">behavior compel me with harsh necessity to do this;  for reprehensible deeds are learned from reprehensible examples.</l>
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
@@ -770,7 +703,7 @@
             <sp>
                <speaker>Electra</speaker>
                <l n="624">The words are yours, not mine; for yours</l>
-<l n="625">are the deeds, and they find their own expression.</l>
+               <l n="625">are the deeds, and they find their own expression.</l>
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
@@ -782,35 +715,29 @@
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
-               
-<l n="630">Will you not allow me to sacrifice without ominous shouting, when I have permitted you to say anything and everything you wished?</l>
+               <l n="630">Will you not allow me to sacrifice without ominous shouting, when I have permitted you to say anything and everything you wished?</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
                <l n="632">I allow it;  I exhort you to it:  sacrifice!  But do not blame my voice, for I would not say another word.</l>
             </sp>
-         
-
-         <milestone unit="card" n="634"/>
+            <milestone unit="card" n="634"/>
             <sp>
                <speaker>Clytaemnestra</speaker>
                <l n="634">Raise then, my attendant, the offerings</l>
-<l n="635">of many fruits, so that I may uplift my prayers for release from my present fears to this image of our King.  Please, O Phoebus our defender, may you now listen to my prayer, though it is muffled;  for I do not make my plea among friends, nor does it suit me to unfold it all</l>
-<l n="640">to the light while she stands near me, lest by her malice and a cry of her clamorous tongue she sow reckless rumors through the whole city.  Nevertheless, hear me thus, since in this way I will speak.  That vision which I saw last night</l>
-<l n="645">in ambiguous dreams—if its appearance was to my good, grant, Lycean king, that it be fulfilled;  but if to my harm, then hurl it back upon those who would harm me.  And if any are plotting to eject me by treachery from my present prosperity, do not permit them.</l>
-<l n="650">Rather grant that living forever unharmed as I am I may govern the house of the sons of Atreus and their throne, sharing prosperous days with the friends who share them now, and with those of my children who feel no enmity or bitterness towards me.</l>
-<l n="655">O Lycean Apollo, hear these prayers with favor, and grant them to us all just as we ask!
+               <l n="635">of many fruits, so that I may uplift my prayers for release from my present fears to this image of our King.  Please, O Phoebus our defender, may you now listen to my prayer, though it is muffled;  for I do not make my plea among friends, nor does it suit me to unfold it all</l>
+               <l n="640">to the light while she stands near me, lest by her malice and a cry of her clamorous tongue she sow reckless rumors through the whole city.  Nevertheless, hear me thus, since in this way I will speak.  That vision which I saw last night</l>
+               <l n="645">in ambiguous dreams—if its appearance was to my good, grant, Lycean king, that it be fulfilled;  but if to my harm, then hurl it back upon those who would harm me.  And if any are plotting to eject me by treachery from my present prosperity, do not permit them.</l>
+               <l n="650">Rather grant that living forever unharmed as I am I may govern the house of the sons of Atreus and their throne, sharing prosperous days with the friends who share them now, and with those of my children who feel no enmity or bitterness towards me.</l>
+               <l n="655">O Lycean Apollo, hear these prayers with favor, and grant them to us all just as we ask!
                      As for all my other prayers, though I am silent, I judge that you, a god, must
                      know them, since it is appropriate that Zeus’s children see all.</l>
             </sp>
-         
-
-         <milestone unit="card" n="660"/>
-             <stage rend="italic">Enter the Paedagogus from the left.</stage> 
+            <milestone unit="card" n="660"/>
+            <stage rend="italic">Enter the Paedagogus from the left.</stage>
             <sp>
                <speaker>Paedagogus</speaker>
-               
-<l n="660">Foreign ladies, how might I know for certain if this be the palace of the king Aegisthus?</l>
+               <l n="660">Foreign ladies, how might I know for certain if this be the palace of the king Aegisthus?</l>
             </sp>
             <sp>
                <speaker>Chorus</speaker>
@@ -822,8 +749,7 @@
             </sp>
             <sp>
                <speaker>Chorus</speaker>
-               
-<l n="665">Exactly right;  this is she before you.</l>
+               <l n="665">Exactly right;  this is she before you.</l>
             </sp>
             <sp>
                <speaker>Paedagogus</speaker>
@@ -835,8 +761,7 @@
             </sp>
             <sp>
                <speaker>Paedagogus</speaker>
-               
-<l n="670">Phanoteus the Phocian provided me the weighty task.</l>
+               <l n="670">Phanoteus the Phocian provided me the weighty task.</l>
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
@@ -852,12 +777,12 @@
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
-               
-<l n="675">What, friend?  What did you say?  Do not listen to her!</l>
+               <l n="675">What, friend?  What did you say?  Do not listen to her!</l>
             </sp>
             <sp>
                <speaker>Paedagogus</speaker>
-               <l n="676">I said, and say again, <q type="emph">Orestes is dead.</q></l>
+               <l n="676">I said, and say again, <q type="emph">Orestes is dead.</q>
+               </l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -865,63 +790,56 @@
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
-                <stage rend="italic">To Electra.</stage> 
+               <stage rend="italic">To Electra.</stage>
                <l n="678">You, go about your business!  But you, sir, tell me exactly in what manner he was destroyed.</l>
             </sp>
-         
-
-         <milestone unit="card" n="680"/>
+            <milestone unit="card" n="680"/>
             <sp n="Paedagogus">
                <speaker>Paedagogus</speaker>
-               
-<l n="680">I was sent for that purpose, and will tell you all. Having gone to the shrine which is
+               <l n="680">I was sent for that purpose, and will tell you all. Having gone to the shrine which is
                         <placeName key="tgn,1000074">Greece</placeName>’s common glory in order to
                      compete for <placeName key="perseus,Delphi">Delphi</placeName>’s prizes and
                      having heard the herald’s loud summons to the foot-race, the first contest,</l>
-<l n="685">he entered the lists, a brilliant form, a wonder in the eyes of all there.  When he had finished the race at the point where it began, he went out with the glorious honor of victory.  To say the most with the least words, I do not know the man whose deeds and triumphs have matched his.</l>
-<l n="690">But this one thing you must know:  in all the contests that the judges announced, he carried away the prize, and men deemed him happy as often as the herald proclaimed him an <placeName key="tgn,5001993">Argive</placeName>, by name Orestes, son of</l>
-<l n="695">Agamemnon, who once marshalled <placeName key="tgn,1000074">Greece</placeName>’s famous
+               <l n="685">he entered the lists, a brilliant form, a wonder in the eyes of all there.  When he had finished the race at the point where it began, he went out with the glorious honor of victory.  To say the most with the least words, I do not know the man whose deeds and triumphs have matched his.</l>
+               <l n="690">But this one thing you must know:  in all the contests that the judges announced, he carried away the prize, and men deemed him happy as often as the herald proclaimed him an <placeName key="tgn,5001993">Argive</placeName>, by name Orestes, son of</l>
+               <l n="695">Agamemnon, who once marshalled <placeName key="tgn,1000074">Greece</placeName>’s famous
                         expedition.<milestone unit="para"/>So far Orestes fared as I described. But
                      when a god sends harm, not even the strong man can escape. For on another day,
                      when with the rising sun there was held the race of the swift-footed
                      horses,</l>
-<l n="700">he entered it along with many charioteers.  One was an Achaean, one from <placeName key="perseus,Sparta">Sparta</placeName>;  two masters of yoked cars were Libyans;  Orestes, driving Thessalian mares, came fifth among them;  the sixth was from <placeName key="tgn,7002678">Aetolia</placeName>,</l>
-<l n="705">with chestnut colts;  a Magnesian was the seventh;  the eighth, with white horses, was of Aenian stock;  the ninth hailed from <placeName key="perseus,Athens">Athens</placeName>, built of gods;  there was a Boeotian too, making the tenth chariot.  They took their stations where the appointed umpires</l>
-<l n="710">placed them by lot and ranged the cars.  Then at the sound of the bronze trumpet, they started.  All shouted to their horses, and shook the reins in their hands;  the whole course was filled with the clatter of rattling chariots;  and the dust flew upward.</l>
-<l n="715">All of them in a confused throng kept plying their goads unsparingly, so that one of them might pass the wheel-hubs and the snorting steeds of his rivals;  for both at their backs and at their rolling wheels the breath of the horses foamed and smattered.</l>
-<l n="720">Orestes, driving close to the near edge of the turning-post, almost grazed it with his
+               <l n="700">he entered it along with many charioteers.  One was an Achaean, one from <placeName key="perseus,Sparta">Sparta</placeName>;  two masters of yoked cars were Libyans;  Orestes, driving Thessalian mares, came fifth among them;  the sixth was from <placeName key="tgn,7002678">Aetolia</placeName>,</l>
+               <l n="705">with chestnut colts;  a Magnesian was the seventh;  the eighth, with white horses, was of Aenian stock;  the ninth hailed from <placeName key="perseus,Athens">Athens</placeName>, built of gods;  there was a Boeotian too, making the tenth chariot.  They took their stations where the appointed umpires</l>
+               <l n="710">placed them by lot and ranged the cars.  Then at the sound of the bronze trumpet, they started.  All shouted to their horses, and shook the reins in their hands;  the whole course was filled with the clatter of rattling chariots;  and the dust flew upward.</l>
+               <l n="715">All of them in a confused throng kept plying their goads unsparingly, so that one of them might pass the wheel-hubs and the snorting steeds of his rivals;  for both at their backs and at their rolling wheels the breath of the horses foamed and smattered.</l>
+               <l n="720">Orestes, driving close to the near edge of the turning-post, almost grazed it with his
                      wheel each time and, giving rein to the trace-horse on the right, he checked
                      the horse on the inner side. To this point, all the chariots still stood
                      upright. But then the Aenian’s</l>
-<l n="725">hard-mouthed colts carried him out of control as they passed out of the turn from the sixth into the seventh lap and dashed their foreheads against the rig of the Barcaean.  Next, as a result of this one mishap, the cars kept smashing and colliding with each other, and the whole</l>
-<l n="730">race-ground of <placeName key="tgn,7018211">Crisa</placeName> swelled with shipwrecked chariots.</l>
+               <l n="725">hard-mouthed colts carried him out of control as they passed out of the turn from the sixth into the seventh lap and dashed their foreheads against the rig of the Barcaean.  Next, as a result of this one mishap, the cars kept smashing and colliding with each other, and the whole</l>
+               <l n="730">race-ground of <placeName key="tgn,7018211">Crisa</placeName> swelled with shipwrecked chariots.</l>
             </sp>
-         
-
-         <milestone unit="card" n="731"/>
+            <milestone unit="card" n="731"/>
             <sp>
                <l n="731">Seeing this, the clever charioteer from <placeName key="perseus,Athens">Athens</placeName> drew aside and paused, allowing the equestrian flood to pass in mid-crest.  Orestes was driving last, keeping his horses</l>
-<l n="735">behind, as his trust was in the race’s end. But when he sees that the Athenian is alone
+               <l n="735">behind, as his trust was in the race’s end. But when he sees that the Athenian is alone
                      left in, he sends a shrill cry ringing through the ears of his swift colts, and
                      gives chase. Bringing yoke level with yoke the two of them raced, first one
                      man, then the other,</l>
-<l n="740">showing his head in front of the other’s chariot. Up to now the ill-fated Orestes had
+               <l n="740">showing his head in front of the other’s chariot. Up to now the ill-fated Orestes had
                      driven upright safely through every circuit, upright in his upright car. But
                      then he slackened his left rein while the horse was turning and unwittingly
                      struck the edge of the pillar,</l>
-<l n="745">breaking the axle-box in two.  He spilled forward over the chariot-rail and was caught in the trim reins, and as he fell to the ground, his colts were scattered into the middle of the course.<milestone unit="para"/>But when the crowd saw that he had fallen</l>
-<l n="750">from the chariot, a cry of pity went up for the young man who had done such deeds and was allotted such bad fortune—now dashed against the earth, now tossed with his feet to the sky until the charioteers with difficulty reigned in the gallop of his horses and</l>
-<l n="755">freed him, so covered with blood that no friend who saw it would have known the pitiful corpse.  Immediately they burned him on a pyre, and chosen men of <placeName key="tgn,4003963">Phocis</placeName> now bring the sad dust of that mighty form in a small urn of bronze,</l>
-<l n="760">so that he may find due burial in his fatherland.<milestone unit="para"/>Such is my story—it is grievous even to hear, but for us witnesses who looked on, it was the greatest of sorrows that these eyes have seen.
+               <l n="745">breaking the axle-box in two.  He spilled forward over the chariot-rail and was caught in the trim reins, and as he fell to the ground, his colts were scattered into the middle of the course.<milestone unit="para"/>But when the crowd saw that he had fallen</l>
+               <l n="750">from the chariot, a cry of pity went up for the young man who had done such deeds and was allotted such bad fortune—now dashed against the earth, now tossed with his feet to the sky until the charioteers with difficulty reigned in the gallop of his horses and</l>
+               <l n="755">freed him, so covered with blood that no friend who saw it would have known the pitiful corpse.  Immediately they burned him on a pyre, and chosen men of <placeName key="tgn,4003963">Phocis</placeName> now bring the sad dust of that mighty form in a small urn of bronze,</l>
+               <l n="760">so that he may find due burial in his fatherland.<milestone unit="para"/>Such is my story—it is grievous even to hear, but for us witnesses who looked on, it was the greatest of sorrows that these eyes have seen.
 </l>
             </sp>
-         
-
-         <milestone unit="card" n="764"/>
+            <milestone unit="card" n="764"/>
             <sp>
                <speaker>Chorus</speaker>
                <l n="764">Oh, sorrow!  It seems now that all the stock of our ancient masters</l>
-<l n="765">has been leveled clean down to the roots.</l>
+               <l n="765">has been leveled clean down to the roots.</l>
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
@@ -933,8 +851,7 @@
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
-               
-<l n="770">There is a terrible power in motherhood;  a mother may be wronged, but she can feel no hate for those whom she bore.</l>
+               <l n="770">There is a terrible power in motherhood;  a mother may be wronged, but she can feel no hate for those whom she bore.</l>
             </sp>
             <sp>
                <speaker>Paedagogus</speaker>
@@ -943,17 +860,15 @@
             <sp>
                <speaker>Clytaemnestra</speaker>
                <l n="773">No, not in vain;  how can you say <q type="emph">in vain</q> when you have brought me sure proofs of his death?</l>
-<l n="775">He sprang from my own life, yet deserting my breast and my nurture he became a fugitive, completely alien from me.  And me, once he left this land, he saw no more;  but, charging me with the murder of his father, he made terrible threats,</l>
-<l n="780">so that neither by night nor by day could sweet sleep cover me, but the imminent moment made me live always as if I were about to die.  Now, however, since today I am rid of terror of him and of this girl—that greater plague</l>
-<l n="785">who shared my home while consuming undiluted my life-blood—now, I think, for all her threats, I shall pass my days in peace.</l>
+               <l n="775">He sprang from my own life, yet deserting my breast and my nurture he became a fugitive, completely alien from me.  And me, once he left this land, he saw no more;  but, charging me with the murder of his father, he made terrible threats,</l>
+               <l n="780">so that neither by night nor by day could sweet sleep cover me, but the imminent moment made me live always as if I were about to die.  Now, however, since today I am rid of terror of him and of this girl—that greater plague</l>
+               <l n="785">who shared my home while consuming undiluted my life-blood—now, I think, for all her threats, I shall pass my days in peace.</l>
             </sp>
-         
-
-         <milestone unit="card" n="788"/>
+            <milestone unit="card" n="788"/>
             <sp>
                <speaker>Electra</speaker>
                <l n="788">Ah, what misery!  Now, indeed, Orestes, I must mourn your misfortune, since even dead as you are</l>
-<l n="790">you are abused by this woman, your mother!  Is it not just fine?</l>
+               <l n="790">you are abused by this woman, your mother!  Is it not just fine?</l>
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
@@ -973,8 +888,7 @@
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
-               
-<l n="795">You and Orestes will not stop me, then, will you?</l>
+               <l n="795">You and Orestes will not stop me, then, will you?</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -990,182 +904,161 @@
             </sp>
             <sp>
                <speaker>Clytaemnestra</speaker>
-               
-<l n="800">Not so;  your welcome would then be unworthy of me, and of my ally who sent you.  No, come in.  Leave her out here to shout out loud her misfortunes and those of her friends.  <stage rend="italic">Clytaemnestra and the Paedagogus enter the house.</stage> 
+               <l n="800">Not so;  your welcome would then be unworthy of me, and of my ally who sent you.  No, come in.  Leave her out here to shout out loud her misfortunes and those of her friends.  <stage rend="italic">Clytaemnestra and the Paedagogus enter the house.</stage>
                </l>
             </sp>
-         
-
-         <milestone unit="card" n="804"/>
+            <milestone unit="card" n="804"/>
             <sp>
                <speaker>Electra</speaker>
                <l n="804">What do you think?  Does it seem to you that she, poor woman, wept and wailed terribly,</l>
-<l n="805">like a grieving, anguished woman, over her son thus destroyed?  No, she left us with a laugh!  Ah, miserable me!  Dearest Orestes, how your death has destroyed me!  For your passing has torn from my heart</l>
-<l n="810">the only hopes which still were mine:  that you would live to return some day as the avenger of our father, and also of me in my misery.  But now, where shall I turn?  I am alone, cheated of you, as of my father.  Hereafter I must be a slave again</l>
-<l n="815">among those I most hate, my father’s murderers. Am I not in a fine way? But at least in
+               <l n="805">like a grieving, anguished woman, over her son thus destroyed?  No, she left us with a laugh!  Ah, miserable me!  Dearest Orestes, how your death has destroyed me!  For your passing has torn from my heart</l>
+               <l n="810">the only hopes which still were mine:  that you would live to return some day as the avenger of our father, and also of me in my misery.  But now, where shall I turn?  I am alone, cheated of you, as of my father.  Hereafter I must be a slave again</l>
+               <l n="815">among those I most hate, my father’s murderers. Am I not in a fine way? But at least in
                      the time remaining me I will never enter the house to dwell with them. No,
                      lying down at these gates, without a friend, I shall wither away my days.</l>
-<l n="820">Therefore, if anyone in the house be angry, let him kill me.  It is a favor, if I die, but a pain, if I live.  I desire life no more.</l>
+               <l n="820">Therefore, if anyone in the house be angry, let him kill me.  It is a favor, if I die, but a pain, if I live.  I desire life no more.</l>
             </sp>
-            </div>
-
+         </div>
          <milestone unit="card" n="823"/>
-
-            <div type="textpart" subtype="choral">
-            <div type="textpart" subtype="strophe" n="1">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="823">Where are the thunderbolts of Zeus, or where the</l>
-<l n="825">shining Sun, if they look upon these things and quietly cover them over?</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="827">Ah, me, ah, me!</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="828">My child, why do you weep?</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="829">Oh!</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="830" part="I">Give no cry of bad omen!</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="830a" part="F">You will break my heart!</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="831">How do you mean?</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="832">If you suggest that I keep hope for those who have surely passed to Hades,</l>
-<l n="835">you will trample even harder upon me as I waste away.</l>
-            </sp>
+         <div type="choral">
+            <div n="1" type="strophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="823">Where are the thunderbolts of Zeus, or where the</l>
+                  <l n="825">shining Sun, if they look upon these things and quietly cover them over?</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="827">Ah, me, ah, me!</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="828">My child, why do you weep?</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="829">Oh!</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="830" part="I">Give no cry of bad omen!</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="830a" part="F">You will break my heart!</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="831">How do you mean?</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="832">If you suggest that I keep hope for those who have surely passed to Hades,</l>
+                  <l n="835">you will trample even harder upon me as I waste away.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="836"/>
-            <div type="textpart" subtype="antistrophe" n="1">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="836">No, for I know that the prince Amphiaraus was ensnared by a woman’s chain of gold and
+            <milestone unit="card" n="836"/>
+            <div n="1" type="antistrophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="836">No, for I know that the prince Amphiaraus was ensnared by a woman’s chain of gold and
                         swallowed up. And now beneath the earth—</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="840">ah, me, ah, me!</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="841">—He reigns supreme with the wits of the living.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="842">ah, me!</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="843">ah, me, indeed!  For the murderess—</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="844">Was slain.</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="845">Yes.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="846">I know it; I know it.  For a champion arose to avenge the grieving dead.  But for me no champion remains:  he who yet remained has been snatched clean away.</l>
-            </sp>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="840">ah, me, ah, me!</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="841">—He reigns supreme with the wits of the living.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="842">ah, me!</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="843">ah, me, indeed!  For the murderess—</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="844">Was slain.</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="845">Yes.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="846">I know it; I know it.  For a champion arose to avenge the grieving dead.  But for me no champion remains:  he who yet remained has been snatched clean away.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="849"/>
-            <div type="textpart" subtype="strophe" n="2">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="849">Unhappy are you, unhappy your destiny!</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="850">How well I know that, all too well, with my life swept through all the months by abundant terrors and horrors!</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="853">We have witnessed the events for which you mourn.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="855">Cease, then, to divert me from it, since no longer—</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="856a">What do you say?</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="857">—Since I no longer have hope in my brother, the seed of our shared noble line, to aid me.</l>
-            </sp>
+            <milestone unit="card" n="849"/>
+            <div n="2" type="strophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="849">Unhappy are you, unhappy your destiny!</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="850">How well I know that, all too well, with my life swept through all the months by abundant terrors and horrors!</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="853">We have witnessed the events for which you mourn.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="855">Cease, then, to divert me from it, since no longer—</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="856a">What do you say?</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="857">—Since I no longer have hope in my brother, the seed of our shared noble line, to aid me.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="860"/>
-            <div type="textpart" subtype="antistrophe" n="2">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="860">Nature ordains death as the destiny of all mortals.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="861">What, a death like the one which that ill-fated one died beneath a race of swift hooves, entangled in the cutting, dragging reins?</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="864">The mutilation is beyond thought!</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="865">Yes, so it is, when in foreign soil, without being tended by my hands—</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="867">Ah, no!</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="868">—he has been buried not receiving from me either burial</l>
-<l n="870">or lamentation.</l>
-            </sp>
-            </div></div>
-
+            <milestone unit="card" n="860"/>
+            <div n="2" type="antistrophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="860">Nature ordains death as the destiny of all mortals.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="861">What, a death like the one which that ill-fated one died beneath a race of swift hooves, entangled in the cutting, dragging reins?</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="864">The mutilation is beyond thought!</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="865">Yes, so it is, when in foreign soil, without being tended by my hands—</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="867">Ah, no!</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="868">—he has been buried not receiving from me either burial</l>
+                  <l n="870">or lamentation.</l>
+               </sp>
+            </div>
+         </div>
          <milestone unit="card" n="871"/>
-
-            <div type="textpart" subtype="episode">
-             <stage rend="italic">Enter Chrysothemis, from the right.</stage> 
+         <div type="episode">
+            <stage rend="italic">Enter Chrysothemis, from the right.</stage>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="871">I am pursued by joy, dear sister, and I disregard seemliness in order to come with speed.  I bring joyful news to relieve your former troubles and grief.</l>
+               <l n="871">I am pursued by joy, dear sister, and I disregard seemliness in order to come with speed.  I bring joyful news to relieve your former troubles and grief.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="875">And from where could you find help for my sufferings, when no cure for them can be imagined?</l>
+               <l n="875">And from where could you find help for my sufferings, when no cure for them can be imagined?</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -1174,7 +1067,7 @@
             <sp>
                <speaker>Electra</speaker>
                <l n="879">What, are you insane, poor girl?</l>
-<l n="880">Do you laugh at my sorrows and your own?</l>
+               <l n="880">Do you laugh at my sorrows and your own?</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -1187,8 +1080,7 @@
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="885">I have it on my own knowledge, no one else’s; I have seen clear proofs.</l>
+               <l n="885">I have it on my own knowledge, no one else’s; I have seen clear proofs.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1197,40 +1089,35 @@
             <sp>
                <speaker>Chrysothemis</speaker>
                <l n="889">Now, for the gods’ love, listen, so that you may know</l>
-<l n="890">the rest from me before deciding whether I am sane or foolish.</l>
+               <l n="890">the rest from me before deciding whether I am sane or foolish.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
                <l n="891">Speak on, then, if you find pleasure in speaking.</l>
             </sp>
-         
-
-         <milestone unit="card" n="892"/>
+            <milestone unit="card" n="892"/>
             <sp>
                <speaker>Chrysothemis</speaker>
                <l n="892">Well, I will tell you all that I have seen. When I came to Father’s
                      ancestral tomb, I saw that streams of milk had recently flowed from the top of
                      the mound</l>
-<l n="895">and that his sepulchre was encircled with garlands of all flowers that grow.  I was astonished at the sight, and peered about lest somehow someone should approach close to me.  But when I perceived that all the place was in stillness,</l>
-<l n="900">I crept nearer to the tomb, and on the mound’s edge I saw a lock of hair, freshly
+               <l n="895">and that his sepulchre was encircled with garlands of all flowers that grow.  I was astonished at the sight, and peered about lest somehow someone should approach close to me.  But when I perceived that all the place was in stillness,</l>
+               <l n="900">I crept nearer to the tomb, and on the mound’s edge I saw a lock of hair, freshly
                         severed.<milestone unit="para"/>And the very moment I see it—ah me!—a
                      familiar image rushes into my mind, and I feel that I am looking at a token of
                      him whom I most love, Orestes.</l>
-<l n="905">Then I lift it in my hands and make no sound of bad omen, but the tears of joy straightaway fill my eyes.  Even now I know well, just as I knew then, that this fair tribute has come from no one but him.  Whom else does that tomb concern, save me and you?</l>
-<l n="910">And I did not make those offerings, I know, nor did you. How could you, when you cannot
+               <l n="905">Then I lift it in my hands and make no sound of bad omen, but the tears of joy straightaway fill my eyes.  Even now I know well, just as I knew then, that this fair tribute has come from no one but him.  Whom else does that tomb concern, save me and you?</l>
+               <l n="910">And I did not make those offerings, I know, nor did you. How could you, when you cannot
                      leave this house even to worship the gods without later regretting it? Nor,
                      again, does our mother’s heart incline to do such deeds, nor could she have
                      done so without our knowledge.<milestone unit="para"/>
-                  </l>
-<l n="915">No, these offerings are from Orestes!  Come, dear sister, have courage!  Not always does the same fortune, it is true, attend the same individuals.  Ours was once to be despised, but today, perhaps, will seal the promise of much good.</l>
+               </l>
+               <l n="915">No, these offerings are from Orestes!  Come, dear sister, have courage!  Not always does the same fortune, it is true, attend the same individuals.  Ours was once to be despised, but today, perhaps, will seal the promise of much good.</l>
             </sp>
-         
-
-         <milestone unit="card" n="920"/>
+            <milestone unit="card" n="920"/>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="920">Oh, what foolishness!  How I have been pitying you!</l>
+               <l n="920">Oh, what foolishness!  How I have been pitying you!</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -1247,7 +1134,7 @@
             <sp>
                <speaker>Electra</speaker>
                <l n="924">He is dead, poor girl, and your</l>
-<l n="925">salvation by him is gone.  Do not look to him.</l>
+               <l n="925">salvation by him is gone.  Do not look to him.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -1267,8 +1154,7 @@
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="930">Ah, misery! Who, then, can have made those ample offerings to my father’s tomb?</l>
+               <l n="930">Ah, misery! Who, then, can have made those ample offerings to my father’s tomb?</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1277,7 +1163,7 @@
             <sp>
                <speaker>Chrysothemis</speaker>
                <l n="934">Oh, my misfortune!  And I was hurrying here</l>
-<l n="935">with such joyous nows, ignorant after all of our downfall.  But now that I have arrived, I find fresh sorrows added to the old!</l>
+               <l n="935">with such joyous nows, ignorant after all of our downfall.  But now that I have arrived, I find fresh sorrows added to the old!</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1285,8 +1171,7 @@
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="940">How can I ever raise the dead back to life?</l>
+               <l n="940">How can I ever raise the dead back to life?</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1306,71 +1191,60 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="945">Remember, nothing succeeds without toil.</l>
+               <l n="945">Remember, nothing succeeds without toil.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
                <l n="946">I know it, and I will share your burden with all my power.</l>
             </sp>
-         
-
-         <milestone unit="card" n="947"/>
+            <milestone unit="card" n="947"/>
             <sp>
                <speaker>Electra</speaker>
                <l n="947">Hear, then, in what way I have decided to take action.  As for the support of friends, you yourself doubtless know that we have none.  Hades has taken our friends away,</l>
-<l n="950">and we two are left alone.  I, so long as I heard that my brother still lived and prospered, had hopes that he would yet come to avenge the murder of our father.  But now that he is no more, I look next to you</l>
-<l n="955">and ask that you not flinch from aiding me, your sister, to slay our father’s murderer,
-                     Aegisthus. There—I can have no secrets from you anymore.<milestone unit="para"
-                     />How long will you wait in indifference? What hope is left standing, to which
+               <l n="950">and we two are left alone.  I, so long as I heard that my brother still lived and prospered, had hopes that he would yet come to avenge the murder of our father.  But now that he is no more, I look next to you</l>
+               <l n="955">and ask that you not flinch from aiding me, your sister, to slay our father’s murderer,
+                     Aegisthus. There—I can have no secrets from you anymore.<milestone unit="para"/>How long will you wait in indifference? What hope is left standing, to which
                      your eyes can turn? Now you are right to complain</l>
-<l n="960">that you are robbed of possession of your father’s estate; now you may mourn that you
+               <l n="960">that you are robbed of possession of your father’s estate; now you may mourn that you
                      have advanced this far in years without wedded love or bridal song. And do not
                      cling to hopes that you will ever meet with such joys. The man, Aegisthus, is
                      not so unthinking</l>
-<l n="965">as ever to permit that offspring should shoot up from you or from me either to be a certain bane for himself.  But if you will follow my plans, first you will win praise for piety from our dead father below, and from our brother, too;</l>
-<l n="970">next, you shall be called hereafter free, just as you were born, and shall find a worthy marriage.  For noble natures draw the gaze of all.<milestone unit="para"/>Then do you not see what fair fame you will procure for yourself and for me, by obeying me?</l>
-<l n="975">What citizen or stranger when he sees us will not greet us with praises such as these: <q
-                        type="spoken">Behold these two sisters, my friends! They saved their
+               <l n="965">as ever to permit that offspring should shoot up from you or from me either to be a certain bane for himself.  But if you will follow my plans, first you will win praise for piety from our dead father below, and from our brother, too;</l>
+               <l n="970">next, you shall be called hereafter free, just as you were born, and shall find a worthy marriage.  For noble natures draw the gaze of all.<milestone unit="para"/>Then do you not see what fair fame you will procure for yourself and for me, by obeying me?</l>
+               <l n="975">What citizen or stranger when he sees us will not greet us with praises such as these: <q type="spoken">Behold these two sisters, my friends! They saved their
                         father’s house, and at a time when their foes were firmly established, they
                         took their lives in their hands and administered bloodshed! Worthy of love
                         is this pair, worthy of reverence from all. At festivals, and wherever the
                         citizenry is assembled, let these two be honored by all men for their manly
                         courage.</q> Thus will every one speak of us,</l>
-<l n="985">so that in life and in death our glory shall not fail.<milestone unit="para"/>Come, dear sister, be persuaded!  Toil with our father, share the burden of your brother, put an end to my troubles and an end to yours, keeping in mind that a shameful life brings shame upon the noble-born.</l>
+               <l n="985">so that in life and in death our glory shall not fail.<milestone unit="para"/>Come, dear sister, be persuaded!  Toil with our father, share the burden of your brother, put an end to my troubles and an end to yours, keeping in mind that a shameful life brings shame upon the noble-born.</l>
             </sp>
-         
-
-         <milestone unit="card" n="990"/>
+            <milestone unit="card" n="990"/>
             <sp>
                <speaker>Chorus</speaker>
-               
-<l n="990">In a crisis such as this, forethought is an ally both to those who speak and those who listen.</l>
+               <l n="990">In a crisis such as this, forethought is an ally both to those who speak and those who listen.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
                <l n="992">Yes, I agree.  And before she spoke, my friends, if she were blessed with a sound mind, she would have remembered caution, even as she does not now.<milestone unit="para"/>
-                  </l>
-<l n="995">Where can you have turned your eyes, that you arm yourself with such rashness and call me
+               </l>
+               <l n="995">Where can you have turned your eyes, that you arm yourself with such rashness and call me
                      to serve beneath you? Do you not see? Your nature is a woman’s, not a man’s,
                      and the strength of your hand is less than that of your adversaries. And their
                      fortune prospers day by day,</l>
-<l n="1000">while ours ebbs and comes to nothing.  Who, then, plotting to subdue such a man, would escape destruction unharmed?  See to it that, badly as we fare now, we do not acquire greater evil, if any one hears this talk of yours.</l>
-<l n="1005">It brings us no relief or benefit, if after winning fair fame we die an ignominious death.  For death is not the most odious thing;  it is rather craving death, but lacking the means to die.  No, I plead with you, before we are utterly, totally destroyed</l>
-<l n="1010">and before we leave our house desolate, restrain your rage!  I will take care that your words remain secret and harmless for you.  You in turn must get hold of good sense at long last and yield to the powerful since you have no strength.</l>
+               <l n="1000">while ours ebbs and comes to nothing.  Who, then, plotting to subdue such a man, would escape destruction unharmed?  See to it that, badly as we fare now, we do not acquire greater evil, if any one hears this talk of yours.</l>
+               <l n="1005">It brings us no relief or benefit, if after winning fair fame we die an ignominious death.  For death is not the most odious thing;  it is rather craving death, but lacking the means to die.  No, I plead with you, before we are utterly, totally destroyed</l>
+               <l n="1010">and before we leave our house desolate, restrain your rage!  I will take care that your words remain secret and harmless for you.  You in turn must get hold of good sense at long last and yield to the powerful since you have no strength.</l>
             </sp>
-         
-
-         <milestone unit="card" n="1015"/>
+            <milestone unit="card" n="1015"/>
             <sp>
                <speaker>Chorus</speaker>
-               
-<l n="1015">Listen to her.  There is no better gain for mortals to win than foresight and a prudent mind.</l>
+               <l n="1015">Listen to her.  There is no better gain for mortals to win than foresight and a prudent mind.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
                <l n="1017">You have said nothing unexpected.  Well I knew that you would reject what I proposed.  But the deed must be done with my own hand, by me and me alone.</l>
-<l n="1020">I certainly will not leave it unaccomplished.</l>
+               <l n="1020">I certainly will not leave it unaccomplished.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -1387,8 +1261,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="1025">You make these admonitions like one who will not assist me.</l>
+               <l n="1025">You make these admonitions like one who will not assist me.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -1408,8 +1281,7 @@
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="1030">There is time enough in the future to decide that.</l>
+               <l n="1030">There is time enough in the future to decide that.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1429,8 +1301,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="1035">Yet know at least to what dishonor you drive me.</l>
+               <l n="1035">Yet know at least to what dishonor you drive me.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -1450,8 +1321,7 @@
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="1040">You have well described the fault to which you devotedly cling.</l>
+               <l n="1040">You have well described the fault to which you devotedly cling.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1471,8 +1341,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="1045">And do it I will, not a bit disturbed by you.</l>
+               <l n="1045">And do it I will, not a bit disturbed by you.</l>
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
@@ -1490,13 +1359,10 @@
                <speaker>Electra</speaker>
                <l n="1049">My resolve is not new, but long since fixed.</l>
             </sp>
-         
-
-         <milestone unit="card" n="1050"/>
+            <milestone unit="card" n="1050"/>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="1050">Then I will go.  You cannot be brought to approve my words, nor I your conduct.</l>
+               <l n="1050">Then I will go.  You cannot be brought to approve my words, nor I your conduct.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1504,72 +1370,59 @@
             </sp>
             <sp>
                <speaker>Chrysothemis</speaker>
-               
-<l n="1055">Well, if you seem to think straight in your own eyes, may you go on thinking so.  Eventually, when you have fallen into trouble, you will approve my advice.  <stage rend="italic">Exit Chrysothemis into the house.</stage> 
+               <l n="1055">Well, if you seem to think straight in your own eyes, may you go on thinking so.  Eventually, when you have fallen into trouble, you will approve my advice.  <stage rend="italic">Exit Chrysothemis into the house.</stage>
                </l>
             </sp>
-            </div>
-
+         </div>
          <milestone unit="card" n="1058"/>
-
-            <div type="textpart" subtype="choral">
-            <div type="textpart" subtype="strophe" n="1">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="1058">Why, though we see the birds above, most thoughtful creatures, taking care for the sustenance</l>
-<l n="1060">of those from whom they derived life and enjoyment, why do we not pay these debts in like measure?  No, by the lightning-flash of Zeus, by Themis throned in the sky,</l>
-<l n="1065">we are not long unpunished.  O Voice of the underworld that reaches to mortals, shout for me a piteous cry to the sons of Atreus below.  Carry the reproaches not appropriate to my dancing!</l>
-            </sp>
+         <div type="choral">
+            <div n="1" type="strophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1058">Why, though we see the birds above, most thoughtful creatures, taking care for the sustenance</l>
+                  <l n="1060">of those from whom they derived life and enjoyment, why do we not pay these debts in like measure?  No, by the lightning-flash of Zeus, by Themis throned in the sky,</l>
+                  <l n="1065">we are not long unpunished.  O Voice of the underworld that reaches to mortals, shout for me a piteous cry to the sons of Atreus below.  Carry the reproaches not appropriate to my dancing!</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="1070"/>
-            <div type="textpart" subtype="antistrophe" n="1">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="1070">Tell them the affairs of their house, how it is now diseased;  how among his children, double-sided strife has overwhelmed their loving manner.</l>
-<l n="1075">Electra, betrayed, braves the storm alone. In misery she bewails her father’s fate
+            <milestone unit="card" n="1070"/>
+            <div n="1" type="antistrophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1070">Tell them the affairs of their house, how it is now diseased;  how among his children, double-sided strife has overwhelmed their loving manner.</l>
+                  <l n="1075">Electra, betrayed, braves the storm alone. In misery she bewails her father’s fate
                         without pause, like the all-grieving nightingale. She cares not at all about
                         death, but is ready for that eternal blindness,</l>
-<l n="1080">could she but subdue the double Erinys of her house.  Who could grow to be so noble a daughter of so noble a father?</l>
-            </sp>
+                  <l n="1080">could she but subdue the double Erinys of her house.  Who could grow to be so noble a daughter of so noble a father?</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="1082"/>
-            <div type="textpart" subtype="strophe" n="2">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="1082">None of the good willingly clouds his fair repute and becomes nameless by leading a corrupt life, my child.</l>
-<l n="1085">Similarly, you, too, have chosen a lifetime of shared mourning and have armed against dishonor, so that you might win in one breath a twofold praise as wise, and as the best of daughters.</l>
-            </sp>
+            <milestone unit="card" n="1082"/>
+            <div n="2" type="strophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1082">None of the good willingly clouds his fair repute and becomes nameless by leading a corrupt life, my child.</l>
+                  <l n="1085">Similarly, you, too, have chosen a lifetime of shared mourning and have armed against dishonor, so that you might win in one breath a twofold praise as wise, and as the best of daughters.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="1090"/>
-            <div type="textpart" subtype="antistrophe" n="2">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="1090">May I yet see you live exalted in might and wealth above your enemies by as much as you now dwell beneath their hand!  For I have found you enjoying no prosperous estate, yet</l>
-<l n="1095">for observance of nature’s highest laws you win the noblest prize by your reverence
+            <milestone unit="card" n="1090"/>
+            <div n="2" type="antistrophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1090">May I yet see you live exalted in might and wealth above your enemies by as much as you now dwell beneath their hand!  For I have found you enjoying no prosperous estate, yet</l>
+                  <l n="1095">for observance of nature’s highest laws you win the noblest prize by your reverence
                         toward Zeus.</l>
-            </sp>
-            </div></div>
-
+               </sp>
+            </div>
+         </div>
          <milestone unit="card" n="1098"/>
-
-            <div type="textpart" subtype="episode">
-             <stage rend="italic">Enter Orestes, with Pylades and two attendants.</stage> 
+         <div type="episode">
+            <stage rend="italic">Enter Orestes, with Pylades and two attendants.</stage>
             <sp>
                <speaker>Orestes</speaker>
-               
-<l n="1098">Ladies, have we been directed aright, and are we on the right path to our goal?</l>
+               <l n="1098">Ladies, have we been directed aright, and are we on the right path to our goal?</l>
             </sp>
             <sp>
                <speaker>Chorus</speaker>
-               
-<l n="1100">What do you seek?  What desire brings you here?</l>
+               <l n="1100">What do you seek?  What desire brings you here?</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -1585,8 +1438,7 @@
             </sp>
             <sp>
                <speaker>Chorus</speaker>
-               
-<l n="1105">She will, if the nearest in kin should announce it.</l>
+               <l n="1105">She will, if the nearest in kin should announce it.</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -1598,8 +1450,7 @@
             </sp>
             <sp>
                <speaker>Orestes</speaker>
-               
-<l n="1110">I know nothing of your <q type="soCalled">rumor</q>;  but the aged Strophius ordered me to give report of Orestes.</l>
+               <l n="1110">I know nothing of your <q type="soCalled">rumor</q>;  but the aged Strophius ordered me to give report of Orestes.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1611,8 +1462,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="1115">Oh, the misery!  Here, at last, my eyes look for certain, it seems, upon that grievous burden in your hand.</l>
+               <l n="1115">Oh, the misery!  Here, at last, my eyes look for certain, it seems, upon that grievous burden in your hand.</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -1622,46 +1472,38 @@
             <sp>
                <speaker>Electra</speaker>
                <l n="1119">Ah, sir, if this urn indeed contains him, then allow me,</l>
-<l n="1120">by the gods, to take it in my hands, so that I may weep and wail, not for these ashes alone, but for myself and for all our house with them!</l>
+               <l n="1120">by the gods, to take it in my hands, so that I may weep and wail, not for these ashes alone, but for myself and for all our house with them!</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
-                <stage rend="italic">To the attendants.</stage> 
+               <stage rend="italic">To the attendants.</stage>
                <l n="1123">Take it and give it to her, whoever she may be.  For she asks this for herself not as if with hostile intent,</l>
-<l n="1125">but like one who is his friend, or a kinswoman by blood.  <stage rend="italic">The urn is placed in
-                        Electra’s hands.</stage> 
-                  </l>
+               <l n="1125">but like one who is his friend, or a kinswoman by blood.  <stage rend="italic">The urn is placed in
+                        Electra’s hands.</stage>
+               </l>
             </sp>
-         
-
-         <milestone unit="card" n="1126"/>
+            <milestone unit="card" n="1126"/>
             <sp n="Electra">
                <speaker>Electra</speaker>
                <l n="1126">Memorial of him whom I loved best on earth, sole remnant of Orestes’
                      vitality! How contrary to the hopes with which I sent you away do I receive you
                      back! Now I raise your nothingness in my hands;</l>
-<l n="1130">but then, my child, you were radiant, when I sent you away from home!  Would that I had first abandoned life, before, stealing you away with these hands, I sent you to a strange land and rescued you from death, in order that you might have lain dead on that same day</l>
-<l n="1135">and had your share in the tomb of our father!<milestone unit="para"/>But now, an exile from home and fatherland, you have perished miserably, far from your sister.  Ah, me, these loving hands have not washed or decked your corpse, nor taken up</l>
-<l n="1140">their sad burden from the all-consuming pyre, as was proper.  No!  At the hands of strangers, poor Orestes, you have been tended, and so have come to us, a small bulk in a small urn.<milestone unit="para"/>Ah, I grieve at the uselessness of my nursing long ago, the service that I often bestowed</l>
-<l n="1145">on you in sweet labor! For you were never your mother’s darling so much as mine, nor was
-                     any in the house your nurse but I, and by you I was ever called <q type="emph"
-                        >sister.</q> But now all this has vanished in a day</l>
-<l n="1150">with your death.  Like a whirlwind you have swept everything away with you.  Our father is gone;  I am dead because of you;  you yourself are dead and gone;  our enemies laugh at us;  and our mother, who is no mother, raves with joy. Unknown to her, you often</l>
-<l n="1155">sent me messages about her, saying that you yourself would appear for vengeance.  But our evil fortune, yours and mine, has torn all that away, and has sent you back to me in this state, ash and a useless shade in place of your beloved form.</l>
+               <l n="1130">but then, my child, you were radiant, when I sent you away from home!  Would that I had first abandoned life, before, stealing you away with these hands, I sent you to a strange land and rescued you from death, in order that you might have lain dead on that same day</l>
+               <l n="1135">and had your share in the tomb of our father!<milestone unit="para"/>But now, an exile from home and fatherland, you have perished miserably, far from your sister.  Ah, me, these loving hands have not washed or decked your corpse, nor taken up</l>
+               <l n="1140">their sad burden from the all-consuming pyre, as was proper.  No!  At the hands of strangers, poor Orestes, you have been tended, and so have come to us, a small bulk in a small urn.<milestone unit="para"/>Ah, I grieve at the uselessness of my nursing long ago, the service that I often bestowed</l>
+               <l n="1145">on you in sweet labor! For you were never your mother’s darling so much as mine, nor was
+                     any in the house your nurse but I, and by you I was ever called <q type="emph">sister.</q> But now all this has vanished in a day</l>
+               <l n="1150">with your death.  Like a whirlwind you have swept everything away with you.  Our father is gone;  I am dead because of you;  you yourself are dead and gone;  our enemies laugh at us;  and our mother, who is no mother, raves with joy. Unknown to her, you often</l>
+               <l n="1155">sent me messages about her, saying that you yourself would appear for vengeance.  But our evil fortune, yours and mine, has torn all that away, and has sent you back to me in this state, ash and a useless shade in place of your beloved form.</l>
             </sp>
-         
-
-         <milestone unit="card" n="1160"/>
+            <milestone unit="card" n="1160"/>
             <sp>
-               
-<l n="1160">ah, me, ah, me!  O pitiable body!  Alas, dear one sent on a most dire journey, how you have destroyed me, destroyed me indeed, my brother!</l>
-<l n="1165">Therefore accept me into this abode of yours—me, a nothing, into your nothingness,—so that I  may dwell with you hereafter below.  For when you were on earth, we shared equally, and now I wish to die and not to be left out of your grave,</l>
-<l n="1170">since I see that the dead are relieved of pain.
+               <l n="1160">ah, me, ah, me!  O pitiable body!  Alas, dear one sent on a most dire journey, how you have destroyed me, destroyed me indeed, my brother!</l>
+               <l n="1165">Therefore accept me into this abode of yours—me, a nothing, into your nothingness,—so that I  may dwell with you hereafter below.  For when you were on earth, we shared equally, and now I wish to die and not to be left out of your grave,</l>
+               <l n="1170">since I see that the dead are relieved of pain.
 </l>
             </sp>
-         
-
-         <milestone unit="card" n="1171"/>
+            <milestone unit="card" n="1171"/>
             <sp>
                <speaker>Chorus</speaker>
                <l n="1171">Remember, Electra, you are the child of a mortal father, and Orestes was mortal.  Therefore do not grieve too much.  Death is a debt which all of us must pay.</l>
@@ -1669,7 +1511,7 @@
             <sp>
                <speaker>Orestes</speaker>
                <l n="1174">Ah, what shall I say?  I am at a loss.  To what words</l>
-<l n="1175">can I turn?  I no longer have the strength to master my tongue!</l>
+               <l n="1175">can I turn?  I no longer have the strength to master my tongue!</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1689,8 +1531,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="1180">Surely, stranger, you are not saddened like this on my account?</l>
+               <l n="1180">Surely, stranger, you are not saddened like this on my account?</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -1710,8 +1551,7 @@
             </sp>
             <sp>
                <speaker>Orestes</speaker>
-               
-<l n="1185">How I knew nothing, it seems, of my own sorrows!</l>
+               <l n="1185">How I knew nothing, it seems, of my own sorrows!</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1731,8 +1571,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="1190">Because I share house and table with the murderers.</l>
+               <l n="1190">Because I share house and table with the murderers.</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -1752,8 +1591,7 @@
             </sp>
             <sp>
                <speaker>Orestes</speaker>
-               
-<l n="1195">How does she do it?  By violence or by inflicting hardship?</l>
+               <l n="1195">How does she do it?  By violence or by inflicting hardship?</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1771,13 +1609,10 @@
                <speaker>Orestes</speaker>
                <l n="1199">Unfortunate girl, how seeing you stirs my pity!</l>
             </sp>
-         
-
-         <milestone unit="card" n="1200"/>
+            <milestone unit="card" n="1200"/>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="1200">Then know that you are the first who ever pitied me.</l>
+               <l n="1200">Then know that you are the first who ever pitied me.</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -1797,8 +1632,7 @@
             </sp>
             <sp>
                <speaker>Orestes</speaker>
-               
-<l n="1205">Give up this urn, then, and you shall know everything.</l>
+               <l n="1205">Give up this urn, then, and you shall know everything.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1819,7 +1653,7 @@
             <sp>
                <speaker>Electra</speaker>
                <l n="1209a" part="F">Ah, what misery I will have because of you,</l>
-<l n="1210">Orestes, if I am robbed of your burial!</l>
+               <l n="1210">Orestes, if I am robbed of your burial!</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -1839,8 +1673,7 @@
             </sp>
             <sp>
                <speaker>Orestes</speaker>
-               
-<l n="1215">You are without rights in nothing;  but this burial is not your concern.</l>
+               <l n="1215">You are without rights in nothing;  but this burial is not your concern.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -1848,7 +1681,7 @@
             </sp>
             <sp>
                <speaker>Orestes</speaker>
-               <l n="1217">They are not his, except inasmuch as fiction alone contrives to make them so.  <stage rend="italic">He gently takes the urn from her.</stage> 
+               <l n="1217">They are not his, except inasmuch as fiction alone contrives to make them so.  <stage rend="italic">He gently takes the urn from her.</stage>
                </l>
             </sp>
             <sp>
@@ -1861,8 +1694,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="1220">What are you saying, boy?</l>
+               <l n="1220">What are you saying, boy?</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -1894,8 +1726,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="1225">Is this your voice?</l>
+               <l n="1225">Is this your voice?</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -1915,189 +1746,172 @@
             </sp>
             <sp>
                <speaker>Chorus</speaker>
-               
-<l n="1230">We see him, daughter, and for this happy turn of fortune a tear of joy trickles from our eyes.</l>
+               <l n="1230">We see him, daughter, and for this happy turn of fortune a tear of joy trickles from our eyes.</l>
             </sp>
-            </div>
-
+         </div>
          <milestone unit="card" n="1232"/>
-
-            <div type="textpart" subtype="choral">
-            <div type="textpart" subtype="strophe" n="1">
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="1232">O seed, seed of the person to me most dear, you have just now come,</l>
-<l n="1235">you have come, and have found and seen her whom your heart desired!</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1236">I am with you;  but keep silence and wait.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1237">What do you mean?</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1238">It is better to be silent so that no one inside may hear.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1239">No, by ever-virgin Artemis,</l>
-<l n="1240">I will never think it right to tremble before eternally house-bound women, that useless burden on the ground!</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1243">Yes, but remember that Ares dwells in women, too.  You know this well by experience, I believe.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="1245">oh, no!  ah, me!  You have reminded me of my sorrow, one which by its nature cannot be veiled,</l>
-<l n="1250">cannot be done away with, cannot be forgotten!</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1251">I know this, too;  but when occasion prompts, we must recall those crimes.</l>
-            </sp>
+         <div type="choral">
+            <div n="1" type="strophe">
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1232">O seed, seed of the person to me most dear, you have just now come,</l>
+                  <l n="1235">you have come, and have found and seen her whom your heart desired!</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1236">I am with you;  but keep silence and wait.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1237">What do you mean?</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1238">It is better to be silent so that no one inside may hear.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1239">No, by ever-virgin Artemis,</l>
+                  <l n="1240">I will never think it right to tremble before eternally house-bound women, that useless burden on the ground!</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1243">Yes, but remember that Ares dwells in women, too.  You know this well by experience, I believe.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1245">oh, no!  ah, me!  You have reminded me of my sorrow, one which by its nature cannot be veiled,</l>
+                  <l n="1250">cannot be done away with, cannot be forgotten!</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1251">I know this, too;  but when occasion prompts, we must recall those crimes.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="1253"/>
-            <div type="textpart" subtype="antistrophe" n="1">
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="1253">Each moment of all time, as it comes, would be a proper occasion</l>
-<l n="1255">for me to make these just complaints.  Scarcely now have I had my lips set free.</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1257">Yes, I agree;  therefore guard your freedom.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1258">What must I do?</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1259">When it is inopportune, do not want to speak too much.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="1260">No, who could exchange due silence for speech, when you have appeared?  For now my eyes have seen you, beyond all thought and hope!</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1264">You saw me when the gods moved me to come.
-<gap reason="lost"/></l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="1265">You have told me of a grace higher still than the first, if a god brought you to our house;</l>
-<l n="1270">I acknowledge in it the work of the divine.</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1271">On the one hand I hesitate to curb your gladness, but on the other I fear that you may be overwhelmed by too much joy.</l>
-            </sp>
-            </div>
-
-         <milestone unit="card" n="1273"/>
-            <div type="textpart" subtype="epode">
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="1273">O you who, after such a long time, saw fit to make your most happy journey and appear to me,</l>
-<l n="1275">do not, now that you have seen me in all my misery—</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1276">What should I not do?—</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1277">—Do not rob me of the comfort of your face;  do not force me to forego it!</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1278">I would be angry, indeed, if I saw another attempt it.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1279">You give your consent?</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               
-<l n="1280">Why would I not?</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1281">My friends, I heard a voice that I could never have hoped to hear;  nor could I have restrained my emotion in silence and without a cry, when I heard it.<milestone unit="para"/>
+            <milestone unit="card" n="1253"/>
+            <div n="1" type="antistrophe">
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1253">Each moment of all time, as it comes, would be a proper occasion</l>
+                  <l n="1255">for me to make these just complaints.  Scarcely now have I had my lips set free.</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1257">Yes, I agree;  therefore guard your freedom.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1258">What must I do?</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1259">When it is inopportune, do not want to speak too much.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1260">No, who could exchange due silence for speech, when you have appeared?  For now my eyes have seen you, beyond all thought and hope!</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1264">You saw me when the gods moved me to come.
+<gap reason="lost"/>
                   </l>
-<l n="1285">ah, me!  But now I have you.  You have appeared with that dear face, which I could never, even in misery, forget.</l>
-            </sp>
-            </div></div>
-
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1265">You have told me of a grace higher still than the first, if a god brought you to our house;</l>
+                  <l n="1270">I acknowledge in it the work of the divine.</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1271">On the one hand I hesitate to curb your gladness, but on the other I fear that you may be overwhelmed by too much joy.</l>
+               </sp>
+            </div>
+            <milestone unit="card" n="1273"/>
+            <div type="epode">
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1273">O you who, after such a long time, saw fit to make your most happy journey and appear to me,</l>
+                  <l n="1275">do not, now that you have seen me in all my misery—</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1276">What should I not do?—</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1277">—Do not rob me of the comfort of your face;  do not force me to forego it!</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1278">I would be angry, indeed, if I saw another attempt it.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1279">You give your consent?</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1280">Why would I not?</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1281">My friends, I heard a voice that I could never have hoped to hear;  nor could I have restrained my emotion in silence and without a cry, when I heard it.<milestone unit="para"/>
+                  </l>
+                  <l n="1285">ah, me!  But now I have you.  You have appeared with that dear face, which I could never, even in misery, forget.</l>
+               </sp>
+            </div>
+         </div>
          <milestone unit="card" n="1288"/>
-
-            <div type="textpart" subtype="episode">
+         <div type="episode">
             <sp>
                <speaker>Orestes</speaker>
                <l n="1288">Spare all superfluous words, and inform me neither of our mother’s
                      wickedness,</l>
-<l n="1290">nor how Aegisthus drains the wealth of our father’s house—what part he pours on the
+               <l n="1290">nor how Aegisthus drains the wealth of our father’s house—what part he pours on the
                      ground and what he squanders at random. For the story would preclude you from
                      the opportunity afforded by the moment. Instead tell me that which will suit
                      our present circumstances: where, either openly or in ambush,</l>
-<l n="1295">we may put an end to our enemies’ laughter by means of my coming. Make sure that our
+               <l n="1295">we may put an end to our enemies’ laughter by means of my coming. Make sure that our
                      mother does not discover you by your radiant face, when we two have gone into
                      the house. Rather, make lament, as if for the feigned disaster. For when we
                      succeed, then</l>
-<l n="1300">there will be opportunity to rejoice and exult in freedom.</l>
+               <l n="1300">there will be opportunity to rejoice and exult in freedom.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
                <l n="1301">Brother, be assured that my conduct will be as pleases you, since all my joy derives from you, and is not my own.  Nor would I consent</l>
-<l n="1305">to win a great good for myself at the cost of the slightest pain to you.  For in doing so I would not honorably support the divine power that attends us now.<milestone unit="para"/>But you know how matters stand here.  I do not doubt it.  You must have heard that Aegisthus is away from home, but that our mother is inside.  And never fear that she</l>
-<l n="1310">will ever see my face lit up with smiles.  My old hatred of her has been welded to my heart, and since I have seen you, for very joy I will never cease to weep.  How indeed could I stop when I have seen you come home on this one day  first as dead,</l>
-<l n="1315">and then in life?  What you have done to me is inconceivable—so much so that, if my father were to return to me alive, I would no longer think it a portent, but would believe that I truly saw him.  Therefore now that you have come to me by such a path, command me as your spirit bids you.  For had I been alone,</l>
-<l n="1320">I would not have failed in one of two things:  a noble salvation, or a noble destruction.</l>
+               <l n="1305">to win a great good for myself at the cost of the slightest pain to you.  For in doing so I would not honorably support the divine power that attends us now.<milestone unit="para"/>But you know how matters stand here.  I do not doubt it.  You must have heard that Aegisthus is away from home, but that our mother is inside.  And never fear that she</l>
+               <l n="1310">will ever see my face lit up with smiles.  My old hatred of her has been welded to my heart, and since I have seen you, for very joy I will never cease to weep.  How indeed could I stop when I have seen you come home on this one day  first as dead,</l>
+               <l n="1315">and then in life?  What you have done to me is inconceivable—so much so that, if my father were to return to me alive, I would no longer think it a portent, but would believe that I truly saw him.  Therefore now that you have come to me by such a path, command me as your spirit bids you.  For had I been alone,</l>
+               <l n="1320">I would not have failed in one of two things:  a noble salvation, or a noble destruction.</l>
             </sp>
-         
-
-         <milestone unit="card" n="1322"/>
+            <milestone unit="card" n="1322"/>
             <sp>
                <speaker>Orestes</speaker>
                <l n="1322">Silence!  I hear someone walking inside as if to come out.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
-                <stage rend="italic">To Orestes and Pylades.</stage> 
+               <stage rend="italic">To Orestes and Pylades.</stage>
                <l n="1323a" part="F">Go in, strangers, especially since you bring a thing which no one</l>
-<l n="1325">could either turn away from these doors, or rejoice at receiving.</l>
+               <l n="1325">could either turn away from these doors, or rejoice at receiving.</l>
             </sp>
-             <stage rend="italic">Enter the Paedagogus.</stage> 
+            <stage rend="italic">Enter the Paedagogus.</stage>
             <sp>
                <speaker>Paedagogus</speaker>
                <l n="1326">Utterly foolish and senseless children!  Are you weary of your lives, or is there no wit inborn in you, that you do not see how you stand not on the brink, but in the very midst</l>
-<l n="1330">of immense danger?  Had I not long kept watch at these doors, your doings would have been in the house before your bodies.  But as it was, I put myself the task of averting that.</l>
-<l n="1335">Be done now with your long speeches and this insatiable shouting for joy, and go inside.  In dealings of this sort delay is harmful, but the time is ripe for being done.</l>
+               <l n="1330">of immense danger?  Had I not long kept watch at these doors, your doings would have been in the house before your bodies.  But as it was, I put myself the task of averting that.</l>
+               <l n="1335">Be done now with your long speeches and this insatiable shouting for joy, and go inside.  In dealings of this sort delay is harmful, but the time is ripe for being done.</l>
             </sp>
-         
-
-         <milestone unit="card" n="1339"/>
+            <milestone unit="card" n="1339"/>
             <sp>
                <speaker>Orestes</speaker>
                <l n="1339">Then how will things inside stand when I enter?</l>
             </sp>
             <sp>
                <speaker>Paedagogus</speaker>
-               
-<l n="1340">All is well.  The fact is that no one will know you.</l>
+               <l n="1340">All is well.  The fact is that no one will know you.</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -2114,7 +1928,7 @@
             <sp>
                <speaker>Paedagogus</speaker>
                <l n="1344">I will tell when all is completed.  Meanwhile,</l>
-<l n="1345">all is favorable for us on their part, even that which is not favorable.</l>
+               <l n="1345">all is favorable for us on their part, even that which is not favorable.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -2139,7 +1953,7 @@
             <sp>
                <speaker>Orestes</speaker>
                <l n="1349a" part="F">I mean him, by whose hands and through your forethought</l>
-<l n="1350">I was secretly conveyed away to Phocian soil.</l>
+               <l n="1350">I was secretly conveyed away to Phocian soil.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -2150,239 +1964,218 @@
                <speaker>Orestes</speaker>
                <l n="1353">This is he;  question me no further.</l>
             </sp>
-         
-
-         <milestone unit="card" n="1354"/>
+            <milestone unit="card" n="1354"/>
             <sp>
                <speaker>Electra</speaker>
                <l n="1354">O joyous day! O sole preserver of Agamemnon’s house,</l>
-<l n="1355">how did you come here?  Are you indeed the man who saved my brother and myself from many sorrows?  O dearest hands, O messenger whose feet were kindly servants!  How could you be with me so long and remain unknown, without giving a ray of illumination,</l>
-<l n="1360">but instead afflicting me with stories, while possessed of sweetest reality?  Welcome, Father, for it is a father that I seem to behold!  Welcome, and know that in one day I have hated you and loved you as no man ever before!</l>
+               <l n="1355">how did you come here?  Are you indeed the man who saved my brother and myself from many sorrows?  O dearest hands, O messenger whose feet were kindly servants!  How could you be with me so long and remain unknown, without giving a ray of illumination,</l>
+               <l n="1360">but instead afflicting me with stories, while possessed of sweetest reality?  Welcome, Father, for it is a father that I seem to behold!  Welcome, and know that in one day I have hated you and loved you as no man ever before!</l>
             </sp>
             <sp>
                <speaker>Paedagogus</speaker>
                <l n="1364">That is enough, I think.  As for the recounting of intervening events,</l>
-<l n="1365">many are the circling nights and an equal number of days which will reveal them to you clearly, Electra.</l>
+               <l n="1365">many are the circling nights and an equal number of days which will reveal them to you clearly, Electra.</l>
             </sp>
             <sp>
-                <stage rend="italic">To Orestes and Pylades.</stage> 
+               <stage rend="italic">To Orestes and Pylades.</stage>
                <l n="1367">And this is my advice to you two, since you stand there:  now is your opportunity to act, now Clytaemnestra is alone, now no man is inside.  But if you pause,</l>
-<l n="1370">consider that you will have to fight both those inside and others mightier and better skilled.</l>
+               <l n="1370">consider that you will have to fight both those inside and others mightier and better skilled.</l>
             </sp>
-         
-
-         <milestone unit="card" n="1372"/>
+            <milestone unit="card" n="1372"/>
             <sp>
                <speaker>Orestes</speaker>
                <l n="1372">Pylades, in no way does our task call any longer for many words, but
                      rather demands that we enter the house immediately, after first adoring the
                      shrines of my father’s</l>
-<l n="1375">gods, the keepers of these gates.  <stage rend="italic">Orestes and Pylades enter the house, followed by the Paedagogus.  Electra remains outside.</stage> 
+               <l n="1375">gods, the keepers of these gates.  <stage rend="italic">Orestes and Pylades enter the house, followed by the Paedagogus.  Electra remains outside.</stage>
                </l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
                <l n="1376">King Apollo!  Hear them with favor, and hear me besides, who so often have come before your altar with hands rich in such gifts as I could obtain!  And now, O Lycean Apollo, with what means I have</l>
-<l n="1380">I pray to you, I supplicate you, I implore you, be our ready champion in these designs, and show what rewards the gods bestow on humans in return for their impiety!  <stage rend="italic">Exit Electra, into the house.</stage> 
+               <l n="1380">I pray to you, I supplicate you, I implore you, be our ready champion in these designs, and show what rewards the gods bestow on humans in return for their impiety!  <stage rend="italic">Exit Electra, into the house.</stage>
                </l>
             </sp>
-            </div>
-
+         </div>
          <milestone unit="card" n="1384"/>
-
-            <div type="textpart" subtype="choral">
-            <div type="textpart" subtype="strophe" n="1">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="1384">Behold how Ares stalks onward,</l>
-<l n="1385">breathing bloody vengeance that is hard to oppose.  Just now have the hunters of wicked crimes passed beneath that roof there, the hounds which none may flee.  And so not long shall</l>
-<l n="1390">the vision of my soul hang in suspense.</l>
-            </sp>
+         <div type="choral">
+            <div n="1" type="strophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1384">Behold how Ares stalks onward,</l>
+                  <l n="1385">breathing bloody vengeance that is hard to oppose.  Just now have the hunters of wicked crimes passed beneath that roof there, the hounds which none may flee.  And so not long shall</l>
+                  <l n="1390">the vision of my soul hang in suspense.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="1391"/>
-            <div type="textpart" subtype="antistrophe" n="1">
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="1391">The champion of the spirits infernal is ushered on guileful feet into the house, the rich, ancestral palace of his father, and he bears keen-edged death in his hands.</l>
-<l n="1395">
-                        <placeName key="tgn,1049816">Maia</placeName>’s son Hermes, who has shrouded
+            <milestone unit="card" n="1391"/>
+            <div n="1" type="antistrophe">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1391">The champion of the spirits infernal is ushered on guileful feet into the house, the rich, ancestral palace of his father, and he bears keen-edged death in his hands.</l>
+                  <l n="1395">
+                     <placeName key="tgn,1049816">Maia</placeName>’s son Hermes, who has shrouded
                         the guile in darkness, leads him right to his goal and delays no longer.</l>
-            </sp>
+               </sp>
             </div>
-
-         <milestone unit="card" n="1398"/>
-            <div type="textpart" subtype="strophe" n="2">
-             <stage rend="italic">Enter Electra from the house.</stage> 
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="1398">My dearest friends, in a moment the men will do the deed.  But wait in silence.</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="1400">How do they fare?  What are they doing now?</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1401">She is decking the urn for burial;  the two of them stand close to her.</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="1402" part="I">And why have you hurried out?</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1402a" part="F">To guard against Aegisthus entering before we are aware.</l>
-            </sp>
-            <sp>
-               <speaker>Clytaemnestra</speaker>
-                <stage rend="italic">Within.</stage> 
-               <l n="1404">Oh! Oh!  Our house</l>
-<l n="1405">is empty of friends and filled with murderers!</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1406">Someone shouts inside.  Do you not hear, friends?</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="1407">I heard, ah, me, sounds unfit to be heard, and I shudder!</l>
-            </sp>
-            <sp>
-               <speaker>Clytaemnestra</speaker>
-                <stage rend="italic">Within.</stage> 
-               <l n="1408">Ah, misery!  Aegisthus, where, where are you?</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="1409">Look, once more someone cries out!</l>
-            </sp>
-            <sp>
-               <speaker>Clytaemnestra</speaker>
-                <stage rend="italic">Within.</stage> 
-               <l n="1410">My son, my son, have pity on your mother!</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1411a" part="F">Why?  You had none for him, nor for the father that begot him.</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="1413">Wretched city, wretched race, now the fate that has held you day by day perishes—it perishes!</l>
-            </sp>
-            <sp>
-               <speaker>Clytaemnestra</speaker>
-                <stage rend="italic">Within.</stage> 
-               
-<l n="1415" part="I">Oh, I am wounded!</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1415a" part="F">Stab her doubly, if you can!</l>
-            </sp>
-            <sp>
-               <speaker>Clytaemnestra</speaker>
-                <stage rend="italic">Within.</stage> 
-               <l n="1416">Ah, wounded again!</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1417">Would that Aegisthus, too, were wounded!</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="1418">The curses bring fulfillment:  those who are buried live.</l>
-<l n="1420">For men long dead are draining their killers’ blood in a stream of requital.</l>
-            </sp>
+            <milestone unit="card" n="1398"/>
+            <div n="2" type="strophe">
+               <stage rend="italic">Enter Electra from the house.</stage>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1398">My dearest friends, in a moment the men will do the deed.  But wait in silence.</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1400">How do they fare?  What are they doing now?</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1401">She is decking the urn for burial;  the two of them stand close to her.</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1402" part="I">And why have you hurried out?</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1402a" part="F">To guard against Aegisthus entering before we are aware.</l>
+               </sp>
+               <sp>
+                  <speaker>Clytaemnestra</speaker>
+                  <stage rend="italic">Within.</stage>
+                  <l n="1404">Oh! Oh!  Our house</l>
+                  <l n="1405">is empty of friends and filled with murderers!</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1406">Someone shouts inside.  Do you not hear, friends?</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1407">I heard, ah, me, sounds unfit to be heard, and I shudder!</l>
+               </sp>
+               <sp>
+                  <speaker>Clytaemnestra</speaker>
+                  <stage rend="italic">Within.</stage>
+                  <l n="1408">Ah, misery!  Aegisthus, where, where are you?</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1409">Look, once more someone cries out!</l>
+               </sp>
+               <sp>
+                  <speaker>Clytaemnestra</speaker>
+                  <stage rend="italic">Within.</stage>
+                  <l n="1410">My son, my son, have pity on your mother!</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1411a" part="F">Why?  You had none for him, nor for the father that begot him.</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1413">Wretched city, wretched race, now the fate that has held you day by day perishes—it perishes!</l>
+               </sp>
+               <sp>
+                  <speaker>Clytaemnestra</speaker>
+                  <stage rend="italic">Within.</stage>
+                  <l n="1415" part="I">Oh, I am wounded!</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1415a" part="F">Stab her doubly, if you can!</l>
+               </sp>
+               <sp>
+                  <speaker>Clytaemnestra</speaker>
+                  <stage rend="italic">Within.</stage>
+                  <l n="1416">Ah, wounded again!</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1417">Would that Aegisthus, too, were wounded!</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1418">The curses bring fulfillment:  those who are buried live.</l>
+                  <l n="1420">For men long dead are draining their killers’ blood in a stream of requital.</l>
+               </sp>
             </div>
-
-         <milestone unit="card" n="1422"/>
-            <div type="textpart" subtype="antistrophe" n="2">
-             <stage rend="italic">Enter Orestes and Pylades from the house.</stage> 
-            <sp>
-               <speaker>Chorus</speaker>
-               
-<l n="1422">And now they are here!  The red hand drips with sacrifice to Ares, and I cannot blame the deed.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1424" part="I">Orestes, what happened?</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1424a" part="F">All is well within the house,</l>
-<l n="1425">if Apollo’s oracle spoke well.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1426">The miserable woman is dead?</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1427">Have no more fear that your haughty mother will ever again trample on your rights.</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="1429">Quiet!  For I see Aegisthus in plain sight.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               
-<l n="1430" part="I">You, young men, get back inside!</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1430a" part="F">Where do you see the man?</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1431">He is at our mercy walking from the suburb, full of joy.</l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="1433">Go with all speed to the vestibule, so that, just as your first task prospered, so this one again may prosper now.</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               
-<l n="1435">Have courage.  We will accomplish it.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1436">Hurry, then, to wherever you wish.</l>
-            </sp>
-            <sp>
-               <speaker>Orestes</speaker>
-               <l n="1437">See, I am gone.</l>
-            </sp>
-            <sp>
-               <speaker>Electra</speaker>
-               <l n="1438">Things here will be my concern.  <stage rend="italic">Exeunt Orestes and Pylades, into the house.</stage> 
-               </l>
-            </sp>
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="1439">It would be well to whisper into this man’s ear some few words of seeming
+            <milestone unit="card" n="1422"/>
+            <div n="2" type="antistrophe">
+               <stage rend="italic">Enter Orestes and Pylades from the house.</stage>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1422">And now they are here!  The red hand drips with sacrifice to Ares, and I cannot blame the deed.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1424" part="I">Orestes, what happened?</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1424a" part="F">All is well within the house,</l>
+                  <l n="1425">if Apollo’s oracle spoke well.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1426">The miserable woman is dead?</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1427">Have no more fear that your haughty mother will ever again trample on your rights.</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1429">Quiet!  For I see Aegisthus in plain sight.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1430" part="I">You, young men, get back inside!</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1430a" part="F">Where do you see the man?</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1431">He is at our mercy walking from the suburb, full of joy.</l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1433">Go with all speed to the vestibule, so that, just as your first task prospered, so this one again may prosper now.</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1435">Have courage.  We will accomplish it.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1436">Hurry, then, to wherever you wish.</l>
+               </sp>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="1437">See, I am gone.</l>
+               </sp>
+               <sp>
+                  <speaker>Electra</speaker>
+                  <l n="1438">Things here will be my concern.  <stage rend="italic">Exeunt Orestes and Pylades, into the house.</stage>
+                  </l>
+               </sp>
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1439">It would be well to whisper into this man’s ear some few words of seeming
                         gentleness,</l>
-<l n="1440">so that he may rush blindly upon his trial before Justice.</l>
-            </sp>
+                  <l n="1440">so that he may rush blindly upon his trial before Justice.</l>
+               </sp>
             </div>
-            </div>
-               
+         </div>
          <milestone unit="card" n="1442"/>
-
-            <div type="textpart" subtype="episode">
-             <stage rend="italic">Enter Aegisthus.</stage> 
+         <div type="episode">
+            <stage rend="italic">Enter Aegisthus.</stage>
             <sp>
                <speaker>Aegisthus</speaker>
-               
-<l n="1442">Which of you can tell me where those Phocian strangers are, who are said to have brought report for us that Orestes passed away amidst the shipwrecked chariots?</l>
-<l n="1445">You, you I ask, yes, you, who were in former days so bold.  It seems to me that this concerns you most, so you must know best, and can best tell me.</l>
+               <l n="1442">Which of you can tell me where those Phocian strangers are, who are said to have brought report for us that Orestes passed away amidst the shipwrecked chariots?</l>
+               <l n="1445">You, you I ask, yes, you, who were in former days so bold.  It seems to me that this concerns you most, so you must know best, and can best tell me.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -2390,8 +2183,7 @@
             </sp>
             <sp>
                <speaker>Aegisthus</speaker>
-               
-<l n="1450">Where, then, may the strangers be?  Tell me.</l>
+               <l n="1450">Where, then, may the strangers be?  Tell me.</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
@@ -2411,8 +2203,7 @@
             </sp>
             <sp>
                <speaker>Electra</speaker>
-               
-<l n="1455">You can, indeed, though it is no enviable sight.</l>
+               <l n="1455">You can, indeed, though it is no enviable sight.</l>
             </sp>
             <sp>
                <speaker>Aegisthus</speaker>
@@ -2425,25 +2216,22 @@
             <sp>
                <speaker>Aegisthus</speaker>
                <l n="1458">Silence, I say, and throw wide the gates for all Mycenaeans and Argives to see,</l>
-<l n="1460">so that, if any one of them were once buoyed by empty hopes in this man, now by seeing his corpse, he may welcome my bit in his mouth, instead of waiting until my punishment makes him grow wits by force!</l>
+               <l n="1460">so that, if any one of them were once buoyed by empty hopes in this man, now by seeing his corpse, he may welcome my bit in his mouth, instead of waiting until my punishment makes him grow wits by force!</l>
             </sp>
             <sp>
                <speaker>Electra</speaker>
                <l n="1464">All will be done on my part.  Time</l>
-<l n="1465">has given me the sense to comply with the stronger.</l>
+               <l n="1465">has given me the sense to comply with the stronger.</l>
             </sp>
-         
-
-         <milestone unit="card" n="1466"/>
-             <stage rend="italic">A shrouded corpse is disclosed.Orestes and Pylades stand near it.</stage> 
+            <milestone unit="card" n="1466"/>
+            <stage rend="italic">A shrouded corpse is disclosed.Orestes and Pylades stand near it.</stage>
             <sp>
                <speaker>Aegisthus</speaker>
                <l n="1466">O Zeus, I see an image which could not have fallen without divine spite—but, if Nemesis attend what I say, let it be unsaid!  <stage rend="italic">To Orestes.</stage>  Undo the coverings from his eyes, so that our kinship, at least, may receive due mourning from me also.</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
-               
-<l n="1470">Lift the veil yourself.  It is not for me, but for you to look upon these remains and greet them kindly.</l>
+               <l n="1470">Lift the veil yourself.  It is not for me, but for you to look upon these remains and greet them kindly.</l>
             </sp>
             <sp>
                <speaker>Aegisthus</speaker>
@@ -2455,9 +2243,8 @@
             </sp>
             <sp>
                <speaker>Aegisthus</speaker>
-                <stage rend="italic">Aegisthus removes the cloth from the face of the corpse.</stage> 
-               
-<l n="1475" part="I">O, what sight is this!</l>
+               <stage rend="italic">Aegisthus removes the cloth from the face of the corpse.</stage>
+               <l n="1475" part="I">O, what sight is this!</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -2474,7 +2261,7 @@
             <sp>
                <speaker>Aegisthus</speaker>
                <l n="1479">Ah, I read the riddle!  It cannot be that</l>
-<l n="1480">this is not Orestes who speaks to me!</l>
+               <l n="1480">this is not Orestes who speaks to me!</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -2487,16 +2274,14 @@
             <sp>
                <speaker>Electra</speaker>
                <l n="1483a" part="F">By the gods, brother, do not allow him to speak any more or to plead at length!</l>
-<l n="1485">When mortals are embroiled in misfortunes, how can one who is to die benefit from lapse of time?  No, kill him as quickly as you can, and throw his corpse to the creatures from whom his kind should have burial, throw it far from our sight!  For in my eyes this</l>
-<l n="1490">alone can bring us release from the misery of the past.</l>
+               <l n="1485">When mortals are embroiled in misfortunes, how can one who is to die benefit from lapse of time?  No, kill him as quickly as you can, and throw his corpse to the creatures from whom his kind should have burial, throw it far from our sight!  For in my eyes this</l>
+               <l n="1490">alone can bring us release from the misery of the past.</l>
             </sp>
-         
-
-         <milestone unit="card" n="1491"/>
+            <milestone unit="card" n="1491"/>
             <sp>
                <speaker>Orestes</speaker>
                <l n="1491">
-                   <stage rend="italic">To Aegisthus.</stage>  Go in, and quickly.  Words are not at stake here, but your life.</l>
+                  <stage rend="italic">To Aegisthus.</stage>  Go in, and quickly.  Words are not at stake here, but your life.</l>
             </sp>
             <sp>
                <speaker>Aegisthus</speaker>
@@ -2504,8 +2289,7 @@
             </sp>
             <sp>
                <speaker>Orestes</speaker>
-               
-<l n="1495">Do not give orders, but go to where you struck down my father, so that in that very place you may die.</l>
+               <l n="1495">Do not give orders, but go to where you struck down my father, so that in that very place you may die.</l>
             </sp>
             <sp>
                <speaker>Aegisthus</speaker>
@@ -2517,8 +2301,7 @@
             </sp>
             <sp>
                <speaker>Aegisthus</speaker>
-               
-<l n="1500">The skill you boast about did not belong to your father.</l>
+               <l n="1500">The skill you boast about did not belong to your father.</l>
             </sp>
             <sp>
                <speaker>Orestes</speaker>
@@ -2539,20 +2322,16 @@
             <sp>
                <speaker>Orestes</speaker>
                <l n="1503a" part="F">No, lest you die in a manner which pleases you.  I must be sure that your death is bitter for you.</l>
-<l n="1505">This just penalty ought to come straightaway upon all who would break the laws:  the penalty of death.  Then wrongdoing would not abound.</l>
+               <l n="1505">This just penalty ought to come straightaway upon all who would break the laws:  the penalty of death.  Then wrongdoing would not abound.</l>
             </sp>
-         
-
-         <milestone unit="card" n="1508"/>
-            <div type="textpart" subtype="anapests">
-            <sp>
-               <speaker>Chorus</speaker>
-               <l n="1508">O seed of Atreus, through how many sufferings have you sprouted up at last in freedom,</l>
-<l n="1510">fulfilled by this day’s enterprise!</l>
-            </sp>
+            <milestone unit="card" n="1508"/>
+            <div type="anapests">
+               <sp>
+                  <speaker>Chorus</speaker>
+                  <l n="1508">O seed of Atreus, through how many sufferings have you sprouted up at last in freedom,</l>
+                  <l n="1510">fulfilled by this day’s enterprise!</l>
+               </sp>
             </div>
-            </div>
-         
          </div>
       </body>
    </text>

@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?> 
-<TEI xmlns="http://www.tei-c.org/ns/1.0">     
-    
-    <teiHeader xml:lang="eng">
-        <fileDesc>
-            <titleStmt>
-                <title xml:lang="grc">Φιλήμονα</title>                
-               <author role="textgroup">New Testament</author>
-                <editor>Brooke Foss Westcott</editor>
-                <editor>Fenton John Anthony Hort</editor>
-                <sponsor>Perseus Project, Tufts University</sponsor>
-                <principal>Gregory Crane</principal>
-                <respStmt>
-                    <resp>Prepared under the supervision of</resp>
-                    <name>Lisa Cerrato</name>
-                    <name>William Merrill</name>
-                    <name>Elli Mylonas</name>
-                    <name>David Smith</name>
-                </respStmt>
-                <funder n="org:Tufts">Tufts University</funder>
-            </titleStmt>
-            
-            <publicationStmt>
-                <publisher>Trustees of Tufts University</publisher>
-                <pubPlace>Medford, MA</pubPlace>
-                <authority>Perseus Project</authority>
-                <date type="release" notBefore="1999-10">Perseus 3.0</date>
-                <idno type="filename">tlg0031.tlg018.perseus-grc2.xml</idno><availability>
-                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence></availability>
-            </publicationStmt>
-            
-            <sourceDesc>
-                <biblStruct>
-                    <monogr>
-                        <title>The New Testament</title>
-                        <title type="sub">in the original Greek</title>
-                        <author role="textgroup">New Testament</author>
-                        <editor>Brooke Foss Westcott</editor>
-                        <editor>Fenton John Anthony Hort</editor>                        
-                        <imprint>
-                            <pubPlace>New York</pubPlace>
-                            <publisher>Harper and Brothers</publisher>
-                            <date>1882-1892</date>
-                        </imprint>
-                    </monogr>
-                    <ref target="https://archive.org/details/newtestamentinor00west_0/page/498/mode/2up" n="1892">Internet Archive</ref>
-                    <ref target="https://archive.org/details/newtestamentino00west" n="1882">Internet Archive</ref>                    
-                </biblStruct>
-            </sourceDesc>
-        </fileDesc>
-        
-        <encodingDesc>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="grc">Φιλήμονα</title>
+            <author role="textgroup">New Testament</author>
+            <editor>Brooke Foss Westcott</editor>
+            <editor>Fenton John Anthony Hort</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <funder n="org:Tufts">Tufts University</funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" notBefore="1999-10">Perseus 3.0</date>
+            <idno type="filename">tlg0031.tlg018.perseus-grc2.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0031.tlg018.perseus-grc2</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <title>The New Testament</title>
+                  <title type="sub">in the original Greek</title>
+                  <author role="textgroup">New Testament</author>
+                  <editor>Brooke Foss Westcott</editor>
+                  <editor>Fenton John Anthony Hort</editor>
+                  <imprint>
+                     <pubPlace>New York</pubPlace>
+                     <publisher>Harper and Brothers</publisher>
+                     <date>1882-1892</date>
+                  </imprint>
+               </monogr>
+               <ref target="https://archive.org/details/newtestamentinor00west_0/page/498/mode/2up"
+                    n="1892">Internet Archive</ref>
+               <ref target="https://archive.org/details/newtestamentino00west" n="1882">Internet Archive</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
             <!--<tagsDecl>
                 <rendition id="large"> </rendition>
                 <rendition id="blockquote"> </rendition>
@@ -59,239 +59,264 @@
                 <tagUsage render="blockquote" gi="q"> Marks poetical language. within the running text. </tagUsage>
                 <tagUsage render="large" gi="quote"> Marks material quoted from other biblical texts. </tagUsage>
             </tagsDecl>-->
-
-            <refsDecl n="CTS">
-                <cRefPattern n="verse" matchPattern="(\w+).(\w+)"
-                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
-                    <p>This pointer pattern extracts chapter and verse</p>
-                </cRefPattern>
-                <cRefPattern n="chapter" matchPattern="(\w+)"
-                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-                    <p>This pointer pattern extracts chapter</p>
-                </cRefPattern>
-            </refsDecl>
-            
-            <refsDecl>
+         <refsDecl n="CTS">
+            <cRefPattern n="verse"
+                         matchPattern="(\w+).(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+               <p>This pointer pattern extracts chapter and verse</p>
+            </cRefPattern>
+            <cRefPattern n="chapter"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts chapter</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl>
                 <!--<state delim=" " unit="book"/>-->
-                <refState delim=":" unit="chapter"/>
-                <refState unit="verse"/>
-            </refsDecl>
-        </encodingDesc>
-        
-        <profileDesc>
-            <langUsage>
-                <language ident="grc">Greek</language>
-                <language ident="eng">English</language>
-            </langUsage>
-        </profileDesc>
-
-        <revisionDesc>
-            <change when="2025-03-15" who="Alison Babeu">Minor header changes and updating</change>
-            <change when="2016-10-14" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
-            <change when="2014-08-01" who="Stella Dee">edited markup</change>
-            <change who="Lisa Cerrato" when="2013-03-04">added mh in Matthew 5 34</change>
-            <change who="Lisa Cerrato" when="2013-01-22">oeou to qeou in Romans 2.2</change>
-            <change who="Lisa Cerrato" when="2012-02-22">fixed typo</change>
-            <change who="Lisa Cerrato" when="2011-11-07">changed teta/paktai to teta/raktai on John
+            <refState delim=":" unit="chapter"/>
+            <refState unit="verse"/>
+         </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="chapter" delim="." match="div[@type='chapter']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-chapter"/>
+         </textClass>
+         <langUsage>
+            <language ident="grc">Greek</language>
+            <language ident="eng">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change when="2025-03-15" who="Alison Babeu">Minor header changes and updating</change>
+         <change when="2016-10-14" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+         <change when="2014-08-01" who="Stella Dee">edited markup</change>
+         <change who="Lisa Cerrato" when="2013-03-04">added mh in Matthew 5 34</change>
+         <change who="Lisa Cerrato" when="2013-01-22">oeou to qeou in Romans 2.2</change>
+         <change who="Lisa Cerrato" when="2012-02-22">fixed typo</change>
+         <change who="Lisa Cerrato" when="2011-11-07">changed teta/paktai to teta/raktai on John
                 12.27 per report </change>
-            <change who="rsingh04" when="2009-10-08">began reorganizing texts module by collection.
+         <change who="rsingh04" when="2009-10-08">began reorganizing texts module by collection.
                 created separate work directory in texts module to keep hopper files separate from
                 in progress files</change>
-            <change who="Lisa Cerrato" when="2009-09-08">fixed typo</change>
-            <change who="student" when="2009-06-17"/>
-            <change who="rsingh04" when="2009-05-27">added/fixed cvs log keyword</change>
-            <change who="RS" when="2009-05-27"/>
-        </revisionDesc>
-    </teiHeader>
-    
-    <text xml:lang="grc">
-        <body>
-            <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0031.tlg018.perseus-grc2">
-                <pb n="499"></pb>
-                <head>ΠΡΟΣ ΦΙΛΗΜΟΝΑ</head>
-                
-                    <div type="textpart" subtype="chapter" n="1">
-                 
-
-<div type="textpart" subtype="verse" n="1"><p>
-                    <milestone unit="para"/>
+         <change who="Lisa Cerrato" when="2009-09-08">fixed typo</change>
+         <change who="student" when="2009-06-17"/>
+         <change who="rsingh04" when="2009-05-27">added/fixed cvs log keyword</change>
+         <change who="RS" when="2009-05-27"/>
+      </revisionDesc>
+   </teiHeader>
+   <text xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0031.tlg018.perseus-grc2">
+         <pb n="499"/>
+         <head>ΠΡΟΣ ΦΙΛΗΜΟΝΑ</head>
+         <div n="1" type="chapter">
+            <div n="1" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     ΠΑΥΛΟΣ δέσμιος Χριστοῦ Ἰησοῦ καὶ Τιμόθεος ὁ
 
 ἀδελφὸς Φιλήμονι τῷ ἀγαπητῷ καὶ συνεργῷ ἡμῶν
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="2"><p>
+                    </p>
+            </div>
+            <div n="2" type="verse">
+               <p>
                     καὶ
 
 Ἀπφίᾳ τῇ ἀδελφῇ καὶ Ἀρχίππῳ τῷ συνστρατιώτῃ ἡμῶν
 
 καὶ τῇ κατʼ οἶκόν σου ἐκκλησίᾳ·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="3"><p>
+                    </p>
+            </div>
+            <div n="3" type="verse">
+               <p>
                     χάρις ὑμῖν καὶ εἰρήνη
 
 ἀπὸ θεοῦ πατρὸς ἡμῶν καὶ κυρίου Ἰησοῦ Χριστοῦ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="4"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="4" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Εὐχαριστῶ τῷ θεῷ μου πάντοτε μνείαν σου ποιούμενος
 
 ἐπὶ τῶν προσευχῶν μου,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="5"><p>
+                    </p>
+            </div>
+            <div n="5" type="verse">
+               <p>
                     ἀκούων σου τὴν ἀγάπην καὶ τὴν
 
 πίστιν ἣν ἔχεις εἰς τὸν κύριον Ἰησοῦν καὶ εἰς πάντας τοὺς 
 
 ἁγίους,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="6"><p>
+                    </p>
+            </div>
+            <div n="6" type="verse">
+               <p>
                     ὅπως ἡ κοινωνία τῆς πίστεώς σου ἐνεργὴς γένηται
 
 ἐν ἐπιγνώσει παντὸς ἀγαθοῦ [τοῦ] ἐν ἡμῖν εἰς Χριστόν·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="7"><p>
+                    </p>
+            </div>
+            <div n="7" type="verse">
+               <p>
                     χαρὰν γὰρ πολλὴν ἔσχον καὶ παράκλησιν ἐπὶ τῇ ἀγάπῃ
 
 σου, ὅτι τὰ σπλάγχνα τῶν ἁγίων ἀναπέπαυται διὰ σοῦ,
 
 ἀδελφέ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="8"><p>
+                    </p>
+            </div>
+            <div n="8" type="verse">
+               <p>
                     Διό, πολλὴν ἐν Χριστῷ παρρησίαν
 
 ἔχων ἐπιτάσσειν σοι τὸ ἀνῆκον,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="9"><p>
+                    </p>
+            </div>
+            <div n="9" type="verse">
+               <p>
                     διὰ τὴν ἀγάπην μᾶλλον
 
 παρακαλῶ, τοιοῦτος ὢν ὡς Παῦλος πρεσβύτης νυνὶ δὲ 
 
 καὶ δέσμιος Χριστοῦ Ἰησοῦ,—
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="10"><p>
+                    </p>
+            </div>
+            <div n="10" type="verse">
+               <p>
                     παρακαλῶ σε περὶ τοῦ
 
 ἐμοῦ τέκνου,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="11"><p>
+                    </p>
+            </div>
+            <div n="11" type="verse">
+               <p>
                     ὃν ἐγέννησα ἐν τοῖς δεσμοῖς Ὀνήσιμον, τόν
 
 ποτέ σοι ἄχρηστον νυνὶ δὲ  σοὶ καὶ ἐμοὶ εὔχρηστον,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="12"><p>
+                    </p>
+            </div>
+            <div n="12" type="verse">
+               <p>
                     ὃν 
 
 ἀνέπεμψά σοι αὐτόν, 
 
 τοῦτʼ ἔστιν τὰ ἐμὰ σπλάγχνα·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="13"><p>
+                    </p>
+            </div>
+            <div n="13" type="verse">
+               <p>
                     ὃν
 
 ἐγὼ ἐβουλόμην πρὸς ἐμαυτὸν κατέχειν, ἵνα ὑπὲρ σοῦ μοι
 
 διακονῇ ἐν τοῖς δεσμοῖς τοῦ εὐαγγελίου,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="14"><p>
+                    </p>
+            </div>
+            <div n="14" type="verse">
+               <p>
                     χωρὶς δὲ τῆς
 
 σῆς γνώμης οὐδὲν ἠθέλησα ποιῆσαι, ἵνα μὴ ὡς κατὰ
 
 ἀνάγκην τὸ ἀγαθόν σου ᾖ ἀλλὰ κατὰ ἑκούσιον.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="15"><p>
+                    </p>
+            </div>
+            <div n="15" type="verse">
+               <p>
                     τάχα
 
 γὰρ διὰ τοῦτο ἐχωρίσθη πρὸς ὥραν ἵνα αἰώνιον αὐτὸν
 
 ἀπέχῃς,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="16"><p>
+                    </p>
+            </div>
+            <div n="16" type="verse">
+               <p>
                     οὐκέτι ὡς δοῦλον ἀλλὰ ὑπὲρ δοῦλον, ἀδελφὸν
-                    <pb n="500"></pb>
+                    <pb n="500"/>
                     ἀγαπητόν, μάλιστα ἐμοί, πόσῳ δὲ μᾶλλον σοὶ καὶ ἐν
 
 σαρκὶ καὶ ἐν κυρίῳ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="17"><p>
+                    </p>
+            </div>
+            <div n="17" type="verse">
+               <p>
                     εἰ οὖν με ἔχεις κοινωνόν, προσλαβοῦ
 
 αὐτὸν ὡς ἐμέ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="18"><p>
+                    </p>
+            </div>
+            <div n="18" type="verse">
+               <p>
                     εἰ δέ τι ἠδίκησέν σε ἢ ὀφείλει,
 
 τοῦτο ἐμοὶ ἐλλόγα·
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="19"><p>
+                    </p>
+            </div>
+            <div n="19" type="verse">
+               <p>
                     ἐγὼ Παῦλος ἔγραψα τῇ ἐμῇ χειρί,
 
 ἐγὼ ἀποτίσω· ἵνα μὴ λέγω σοι ὅτι καὶ σεαυτόν μοι προσοφείλεις.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="20"><p>
+                    </p>
+            </div>
+            <div n="20" type="verse">
+               <p>
                     ναί, 
 
 ἀδελφέ, ἐγώ σου ὀναίμην ἐν κυρίῳ· ἀνάπαυσόν
 
 μου τὰ σπλάγχνα ἐν Χριστῷ.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="21"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="21" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Πεποιθὼς τῇ ὑπακοῇ σου ἔγραψά σοι, εἰδὼς ὅτι καὶ
 
 ὑπὲρ ἃ λέγω ποιήσεις.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="22"><p>
+                    </p>
+            </div>
+            <div n="22" type="verse">
+               <p>
                     ἅμα δὲ καὶ ἑτοίμαζέ μοι ξενίαν,
 
 ἐλπίζω γὰρ ὅτι διὰ τῶν προσευχῶν ἱμῶν χαρισθήσομαι
 
 ὑμῖν.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="23"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="23" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Ἀσπάζεταί σε Ἐπαφρᾶς ὁ συναιχμάλωτός μου ἐν
 
 Χριστῷ Ἰησοῦ,
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="24"><p>
+                    </p>
+            </div>
+            <div n="24" type="verse">
+               <p>
                     Μάρκος, Ἀρίσταρχος, Δημᾶς, Λουκᾶς,
 
 οἱ συνεργοί μου.
-                    </p></div>
-
-<div type="textpart" subtype="verse" n="25"><p>
-                    <milestone unit="para"/>
+                    </p>
+            </div>
+            <div n="25" type="verse">
+               <p>
+                  <milestone unit="para"/>
                     Ἡ χάρις τοῦ κυρίου  Ἰησοῦ Χριστοῦ μετὰ τοῦ πνεύματος
 
 ὑμῶν.
                 </p>
             </div>
-                    </div>
-            </div>
-        </body>
-    </text>
+         </div>
+      </body>
+   </text>
 </TEI>

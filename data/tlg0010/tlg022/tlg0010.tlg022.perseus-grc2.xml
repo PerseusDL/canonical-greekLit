@@ -1,121 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader xml:lang="eng">
       <fileDesc>
-        <titleStmt>
-            <title xml:lang="grc">Ἐπιστολαὶ αʹ Διονύσιῳ</title>            
+         <titleStmt>
+            <title xml:lang="grc">Ἐπιστολαὶ αʹ Διονύσιῳ</title>
             <author>Isocrates</author>
             <editor>Larue Van Hook</editor>
             <sponsor>Perseus Project, Tufts University</sponsor>
             <principal>Gregory Crane</principal>
             <respStmt>
-                <resp>Prepared under the supervision of</resp>
-                <name>Lisa Cerrato</name>
-                <name>William Merrill</name>
-                <name>Elli Mylonas</name>
-                <name>David Smith</name>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
             </respStmt>
             <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
-        </titleStmt>
-          
-          <publicationStmt>
-              <publisher>Trustees of Tufts University</publisher>
-              <pubPlace>Medford, MA</pubPlace>
-              <authority>Perseus Project</authority>
-              <date type="release" when="1996">Perseus 2.0</date>
-              <idno type="filename">tlg0010.tlg022.perseus-grc2.xml</idno>
-              <availability>
-                  <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
-              </availability>
-          </publicationStmt>
-        <sourceDesc>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" when="1996">Perseus 2.0</date>
+            <idno type="filename">tlg0010.tlg022.perseus-grc2.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0010.tlg022.perseus-grc2</idno>
+         </publicationStmt>
+         <sourceDesc>
             <biblStruct>
-                <monogr>
-                    <author>Isocrates</author>
-                    <title>Isocrates</title>
-                    <editor>Larue Van Hook</editor>
-                    <imprint>             
-                        <pubPlace>Cambridge, MA</pubPlace>
-                        <pubPlace>London, UK</pubPlace>
-                        <publisher>Harvard University Press</publisher>
-                        <publisher>William Heinemann Ltd.</publisher>
-                        <biblScope unit="volume">3</biblScope>
-                        <date type="printing">1945</date>
-                    </imprint>
-                </monogr><series><title>Loeb Classical Library</title></series>  
-                <ref target="https://archive.org/details/isocrateswitheng03isocuoft/page/372/mode/2up">Internet Archive</ref>
+               <monogr>
+                  <author>Isocrates</author>
+                  <title>Isocrates</title>
+                  <editor>Larue Van Hook</editor>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <pubPlace>London, UK</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <biblScope unit="volume">3</biblScope>
+                     <date type="printing">1945</date>
+                  </imprint>
+               </monogr>
+               <series>
+                  <title>Loeb Classical Library</title>
+               </series>
+               <ref target="https://archive.org/details/isocrateswitheng03isocuoft/page/372/mode/2up">Internet Archive</ref>
             </biblStruct>
-        </sourceDesc>
+         </sourceDesc>
       </fileDesc>
-    
       <encodingDesc>
          <refsDecl n="CTS">
-             <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+            <cRefPattern n="section"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
                <p>This pointer pattern extracts section.</p>
             </cRefPattern>
          </refsDecl>
-              </encodingDesc>
-    
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
       <profileDesc>
-          <langUsage>
-              <language ident="eng">English </language>
-              <language ident="grc">Greek </language>
-          </langUsage>
-          
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-section"/>
+         </textClass>
+         <langUsage>
+            <language ident="eng">English </language>
+            <language ident="grc">Greek </language>
+         </langUsage>
       </profileDesc>
-    
-       <revisionDesc>
-           <change when="2025-10-15" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes. Changed structure from flat text to sections.</change>
-           <change when="2016-01-29" who="TDBuck">split the file based on urns, epidoc and cts update, betacode to unicode</change>
-           <change when="2014-07" who="Stella Dee">split speeches and converted to unicode</change>  
-           <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
-           <change when="2009-06-24" who="lcerrato">fixed bad bibls</change>
-           <change when="2009-06-11" who="student">fixed bibl errors - zr</change>
-           <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
-           <change when="2005-08-01" who="packel">split up letters and speeches</change>
-           <change when="2005-07-25" who="packel">Converted to XML</change> 
-           <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.) </change>
-           <change when="2000-10-24" who="lcerrato">repetition of end of word in 7.38 eliminated </change>
-           <change when="2000-03-22" who="dasmith">Corrected title of fifth letter.</change> 
-           <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change> 
-           <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change> 
-           <change when="2000-03-01" who="dasmith">Can't have tags in change log.</change>
-           <change when="2000-03-01" who="dasmith">Erroneously copied "text xml:lang=eng" from English file.</change> 
-           <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.</change>
-           <change when="2000-03" who="David Smith"/>
-           <change when="1995-06" who="Lisa Cerrato">made section after 11.21 11.22. It was 11.37.</change>
-           <change when="1992-06" who="W. Merrill">put speeches in numerical order. Consolidated files.</change>
-           <change when="1992-04" who="W. Merrill">Threw out isoc.gk.sgml because first letter of each line was missing. Started from scratch again from isoc.gk.raw. Change markup in accordance with orator dtd</change> 
+      <revisionDesc>
+         <change when="2025-10-15" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes. Changed structure from flat text to sections.</change>
+         <change when="2016-01-29" who="TDBuck">split the file based on urns, epidoc and cts update, betacode to unicode</change>
+         <change when="2014-07" who="Stella Dee">split speeches and converted to unicode</change>
+         <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
+         <change when="2009-06-24" who="lcerrato">fixed bad bibls</change>
+         <change when="2009-06-11" who="student">fixed bibl errors - zr</change>
+         <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
+         <change when="2005-08-01" who="packel">split up letters and speeches</change>
+         <change when="2005-07-25" who="packel">Converted to XML</change>
+         <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.) </change>
+         <change when="2000-10-24" who="lcerrato">repetition of end of word in 7.38 eliminated </change>
+         <change when="2000-03-22" who="dasmith">Corrected title of fifth letter.</change>
+         <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+         <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change>
+         <change when="2000-03-01" who="dasmith">Can't have tags in change log.</change>
+         <change when="2000-03-01" who="dasmith">Erroneously copied "text xml:lang=eng" from English file.</change>
+         <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.</change>
+         <change when="2000-03" who="David Smith"/>
+         <change when="1995-06" who="Lisa Cerrato">made section after 11.21 11.22. It was 11.37.</change>
+         <change when="1992-06" who="W. Merrill">put speeches in numerical order. Consolidated files.</change>
+         <change when="1992-04" who="W. Merrill">Threw out isoc.gk.sgml because first letter of each line was missing. Started from scratch again from isoc.gk.raw. Change markup in accordance with orator dtd</change>
       </revisionDesc>
    </teiHeader>
-    
-    <text>
-        <body>
-           <div xml:lang="grc" type="edition" n="urn:cts:greekLit:tlg0010.tlg022.perseus-grc2">
-             <head>Ἰσοκράτης Διονυσίῳ χαιρεῖν</head>
-               <div type="textpart" subtype="section" n="1">
-                    <p rend="align(indent)">εἰ μὲν νεώτερος ἦν, οὐκ ἂν ἐπιστολὴν ἔπεμπον, ἀλλ’ αὐτὸς ἄν σοι πλεύσας ἐνταῦθα διελέχθην·  ἐπειδὴ δ’ οὐ κατὰ τοὺς αὐτοὺς χρόνους ὅ τε τῆς ἡλικίας τῆς ἐμῆς καιρὸς καὶ τῶν σῶν πραγμάτων συμβέβηκεν, ἀλλ’ ἐγὼ μὲν προαπείρηκα, τὰ δὲ πράττεσθαι νῦν ἀκμὴν εἴληφεν, ὡς οἷόν τ’ ἐστὶν ἐκ τῶν παρόντων, οὕτω σοι πειράσομαι δηλῶσαι περὶ αὐτῶν.</p></div>
-                   <div type="textpart" subtype="section" n="2">
-                       <p rend="align(indent)">οἶδα μὲν οὖν ὅτι τοῖς συμβουλεύειν ἐπιχειροῦσι πολὺ διαφέρει μὴ διὰ γραμμάτων ποιεῖσθαι τὴν συνουσίαν ἀλλ’ αὐτοὺς πλησιάσαντας, οὐ μόνον ὅτι περὶ τῶν αὐτῶν πραγμάτων ῥᾷον ἄν τις παρὼν πρὸς παρόντα φράσειν ἢ δι’  ἐπιστολῆς δηλώσειεν, οὐδ’ ὅτι πάντες τοῖς λεγομένοις μᾶλλον ἢ τοῖς γεγραμμένοις πιστεύουσι, καὶ τῶν μὲν ὡς εἰσηγημάτων, τῶν δ’ ὡς ποιημάτων ποιοῦνται τὴν ἀκρόασιν·</p></div> 
-                       <div type="textpart" subtype="section" n="3">
-                           <p>ἔτι δὲ πρὸς τούτοις ἐν μὲν ταῖς συνουσίαις ἢν ἀγνοηθῇ τι τῶν λεγομένων ἢ μὴ πιστευθῇ, παρὼν ὁ τὸν λόγον διεξιὼν ἀμφοτέροις τούτοις ἐπήμυνεν, ἐν δὲ τοῖς ἐπιστελλομένοις καὶ γεγραμμένοις ἤν τι συμβῇ τοιοῦτον, οὐκ ἔστιν ὁ διορθώσων·  ἀπόντος γὰρ τοῦ γράψαντος ἔρημα τοῦ βοηθήσοντός ἐστιν. οὐ μὴν ἀλλ’ ἐπειδὴ σὺ μέλλεις αὐτῶν ἔσεσθαι κριτής, πολλὰς ἐλπίδας ἔχω φανήσεσθαι λέγοντας ἡμᾶς τι τῶν δεόντων·  ἡγοῦμαι γὰρ ἁπάσας ἀφέντα σε τὰς δυσχερείας τὰς προειρημένας αὐταῖς ταῖς πράξεσι προσέξειν τὸν νοῦν.</p></div>
-                           <div type="textpart" subtype="section" n="4">
-                               <p rend="align(indent)">καίτοι τινὲς ἤδη με τῶν σοὶ πλησιασάντων ἐκφοβεῖν ἐπεχείρησαν, λέγοντες ὡς σὺ τοὺς μὲν κολακεύοντας τιμᾶς, τῶν δὲ συμβουλευόντων καταφρονεῖς. ἐγὼ δ’ εἰ μὲν ἀπεδεχόμην τοὺς λόγους τούτους ἐκείνων, πολλὴν ἂν ἡσυχίαν εἶχον·  νῦν δ’ οὐδεὶς ἄν με πείσειεν, ὡς οἷόν τ’ ἐστὶ τοσοῦτον καὶ τῇ γνώμῃ καὶ ταῖς πράξεσι διενεγκεῖν, ἂν μή τις τῶν μὲν μαθητής, τῶν δ’ ἀκροατής, τῶν δ’ εὑρετὴς γένηται, καὶ πανταχόθεν προσαγάγηται καὶ συλλέξηται, δι’  ὧν οἷόν τ’ ἐστὶν ἀσκῆσαι τὴν αὑτοῦ διάνοιαν.</p></div>
-                         <div type="textpart" subtype="section" n="5">
-                             <p rend="align(indent)">ἐπήρθην μὲν οὖν ἐπιστέλλειν σοι διὰ ταῦτα.  λέγειν δὲ μέλλω περὶ μεγάλων πραγμάτων καὶ περὶ ὧν οὐδενὶ τῶν ζώντων ἀκοῦσαι μᾶλλον ἢ σοὶ προσήκει. καὶ μὴ νόμιζέ με προθύμως οὕτω σε παρακαλεῖν, ἵνα γένῃ συγγράμματος ἀκροατής·  οὐ γὰρ οὔτ’ ἐγὼ τυγχάνω φιλοτίμως διακείμενος πρὸς τὰς ἐπιδείξεις οὔτε σὺ λανθάνεις ἡμᾶς ἤδη πλήρης ὢν τῶν τοιούτων.</p></div>
-                     <div type="textpart" subtype="section" n="6">
-                      <p>πρὸς δὲ τούτοις κἀκεῖνο πᾶσι φανερόν, ὅτι τοῖς μὲν ἐπιδείξεως δεομένοις αἱ πανηγύρεις ἁρμόττουσιν, ἐκεῖ γὰρ ἄν τις ἐν πλείστοις τὴν αὑτοῦ δύναμιν διασπείρειεν, τοῖς δὲ διαπράξασθαί τι βουλομένοις πρὸς τοῦτον διαλεκτέον, ὅστις τάχιστα μέλλει τὰς πράξεις ἐπιτελεῖν τὰς ὑπὸ τοῦ λόγου δηλωθείσας.</p></div>
-                  <div type="textpart" subtype="section" n="7">
-                   <p>εἰ μὲν οὖν μιᾷ τινι τῶν πόλεων εἰσηγούμην, πρὸς τοὺς ἐκείνης προεστῶτας τοὺς λόγους ἂν ἐποιούμην·  ἐπειδὴ δ’ ὑπὲρ τῆς τῶν Ἑλλήνων σωτηρίας παρεσκεύασμαι συμβουλεύειν, πρὸς τίν’ ἂν δικαιότερον διαλεχθείην ἢ πρὸς τὸν πρωτεύοντα τοῦ γένους καὶ μεγίστην ἔχοντα δύναμιν;</p></div>
-                    <div type="textpart" subtype="section" n="8">
-                        <p rend="align(indent)">καὶ μὴν οὐδ’ ἀκαίρως φανησόμεθα μεμνημένοι περὶ τούτων. ὅτε μὲν γὰρ Λακεδαιμόνιοι τὴν ἀρχὴν εἶχον, οὐ ῥᾴδιον ἦν ἐπιμεληθῆναί σοι τῶν περὶ τὸν τόπον τὸν ἡμέτερον, οὐδὲ τούτοις ἐναντία πράττειν ἄμα καὶ Καρχηδονίοις πολεμεῖν·  ἐπειδὴ δὲ Λακεδαιμόνιοι μὲν οὕτω πράττουσιν ὥστ’ ἀγαπᾶν, ἢν τὴν χώραν τὴν αὑτῶν ἔχωσιν, ἡ δ’ ἡμετέρα πόλις ἡδέως ἂν αὑτήν σοι παράσχοι συναγωνιζομένην, εἴ τι πράττοις ὑπὲρ τῆς Ἑλλάδος ἀγαθόν, πῶς ἂν παραπέσοι καλλίων καιρὸς τοῦ νῦν σοι παρόντος;</p></div>
-               <div type="textpart" subtype="section" n="9"> 
-                   <p rend="align(indent)">καὶ μὴ θαυμάσῃς,  εἰ μήτε δημηγορῶν μήτε στρατηγῶν μήτ’ ἄλλως δυνάσης ὢν οὕτως ἐμβριθὲς  αἴρομαι πρᾶγμα καὶ δυοῖν ἐπιχειρῶ τοῖν μεγίστοιν, ὑπέρ τε τῆς Ἑλλάδος λέγειν καὶ σοὶ συμβουλεύειν. ἐγὼ γὰρ τοῦ μὲν πράττειν τι τῶν κοινῶν εὐθὺς ἐξέστην, δι’  ἃς δὲ προφάσεις πολὺ ἂν ἔργον εἴη μοι λέγειν, τῆς δὲ παιδεύσεως τῆς τῶν μὲν μικρῶν καταφρονούσης, τῶν δὲ μεγάλωι ἐφικνεῖσθαι πειρωμένης οὐκ ἂν φανείην ἄμοιρος γεγενημένος.</p></div>
-                 <div type="textpart" subtype="section" n="10"> 
-                 <p>ὥστ’ οὐδὲν ἄτοπον, εἴ τι τῶν συμφερόντων ἰδεῖν ἂν μᾶλλον δυνηθείην τῶν εἰκῇ μὲν πολιτευομένων, μεγάλην δὲ δόξαν εἰληφότων δηλώσομεν δ’ οὐκ εἰς ἀναβολάς, εἴ τινος ἄξιοι τυγχάνομεν ὄντες, ἀλλ’ ἐκ τῶν ῥηθήσεσθαι μελλόντων<gap reason="lost" rend=" . . . "/>
-                    </p>
-            </div></div>
-        </body>
-    </text>
+   <text>
+      <body xml:base="urn:cts:greekLit:tlg0010.tlg022.perseus-grc2">
+         <head>Ἰσοκράτης Διονυσίῳ χαιρεῖν</head>
+         <div n="1" type="section">
+            <p rend="align(indent)">εἰ μὲν νεώτερος ἦν, οὐκ ἂν ἐπιστολὴν ἔπεμπον, ἀλλ’ αὐτὸς ἄν σοι πλεύσας ἐνταῦθα διελέχθην·  ἐπειδὴ δ’ οὐ κατὰ τοὺς αὐτοὺς χρόνους ὅ τε τῆς ἡλικίας τῆς ἐμῆς καιρὸς καὶ τῶν σῶν πραγμάτων συμβέβηκεν, ἀλλ’ ἐγὼ μὲν προαπείρηκα, τὰ δὲ πράττεσθαι νῦν ἀκμὴν εἴληφεν, ὡς οἷόν τ’ ἐστὶν ἐκ τῶν παρόντων, οὕτω σοι πειράσομαι δηλῶσαι περὶ αὐτῶν.</p>
+         </div>
+         <div n="2" type="section">
+            <p rend="align(indent)">οἶδα μὲν οὖν ὅτι τοῖς συμβουλεύειν ἐπιχειροῦσι πολὺ διαφέρει μὴ διὰ γραμμάτων ποιεῖσθαι τὴν συνουσίαν ἀλλ’ αὐτοὺς πλησιάσαντας, οὐ μόνον ὅτι περὶ τῶν αὐτῶν πραγμάτων ῥᾷον ἄν τις παρὼν πρὸς παρόντα φράσειν ἢ δι’  ἐπιστολῆς δηλώσειεν, οὐδ’ ὅτι πάντες τοῖς λεγομένοις μᾶλλον ἢ τοῖς γεγραμμένοις πιστεύουσι, καὶ τῶν μὲν ὡς εἰσηγημάτων, τῶν δ’ ὡς ποιημάτων ποιοῦνται τὴν ἀκρόασιν·</p>
+         </div>
+         <div n="3" type="section">
+            <p>ἔτι δὲ πρὸς τούτοις ἐν μὲν ταῖς συνουσίαις ἢν ἀγνοηθῇ τι τῶν λεγομένων ἢ μὴ πιστευθῇ, παρὼν ὁ τὸν λόγον διεξιὼν ἀμφοτέροις τούτοις ἐπήμυνεν, ἐν δὲ τοῖς ἐπιστελλομένοις καὶ γεγραμμένοις ἤν τι συμβῇ τοιοῦτον, οὐκ ἔστιν ὁ διορθώσων·  ἀπόντος γὰρ τοῦ γράψαντος ἔρημα τοῦ βοηθήσοντός ἐστιν. οὐ μὴν ἀλλ’ ἐπειδὴ σὺ μέλλεις αὐτῶν ἔσεσθαι κριτής, πολλὰς ἐλπίδας ἔχω φανήσεσθαι λέγοντας ἡμᾶς τι τῶν δεόντων·  ἡγοῦμαι γὰρ ἁπάσας ἀφέντα σε τὰς δυσχερείας τὰς προειρημένας αὐταῖς ταῖς πράξεσι προσέξειν τὸν νοῦν.</p>
+         </div>
+         <div n="4" type="section">
+            <p rend="align(indent)">καίτοι τινὲς ἤδη με τῶν σοὶ πλησιασάντων ἐκφοβεῖν ἐπεχείρησαν, λέγοντες ὡς σὺ τοὺς μὲν κολακεύοντας τιμᾶς, τῶν δὲ συμβουλευόντων καταφρονεῖς. ἐγὼ δ’ εἰ μὲν ἀπεδεχόμην τοὺς λόγους τούτους ἐκείνων, πολλὴν ἂν ἡσυχίαν εἶχον·  νῦν δ’ οὐδεὶς ἄν με πείσειεν, ὡς οἷόν τ’ ἐστὶ τοσοῦτον καὶ τῇ γνώμῃ καὶ ταῖς πράξεσι διενεγκεῖν, ἂν μή τις τῶν μὲν μαθητής, τῶν δ’ ἀκροατής, τῶν δ’ εὑρετὴς γένηται, καὶ πανταχόθεν προσαγάγηται καὶ συλλέξηται, δι’  ὧν οἷόν τ’ ἐστὶν ἀσκῆσαι τὴν αὑτοῦ διάνοιαν.</p>
+         </div>
+         <div n="5" type="section">
+            <p rend="align(indent)">ἐπήρθην μὲν οὖν ἐπιστέλλειν σοι διὰ ταῦτα.  λέγειν δὲ μέλλω περὶ μεγάλων πραγμάτων καὶ περὶ ὧν οὐδενὶ τῶν ζώντων ἀκοῦσαι μᾶλλον ἢ σοὶ προσήκει. καὶ μὴ νόμιζέ με προθύμως οὕτω σε παρακαλεῖν, ἵνα γένῃ συγγράμματος ἀκροατής·  οὐ γὰρ οὔτ’ ἐγὼ τυγχάνω φιλοτίμως διακείμενος πρὸς τὰς ἐπιδείξεις οὔτε σὺ λανθάνεις ἡμᾶς ἤδη πλήρης ὢν τῶν τοιούτων.</p>
+         </div>
+         <div n="6" type="section">
+            <p>πρὸς δὲ τούτοις κἀκεῖνο πᾶσι φανερόν, ὅτι τοῖς μὲν ἐπιδείξεως δεομένοις αἱ πανηγύρεις ἁρμόττουσιν, ἐκεῖ γὰρ ἄν τις ἐν πλείστοις τὴν αὑτοῦ δύναμιν διασπείρειεν, τοῖς δὲ διαπράξασθαί τι βουλομένοις πρὸς τοῦτον διαλεκτέον, ὅστις τάχιστα μέλλει τὰς πράξεις ἐπιτελεῖν τὰς ὑπὸ τοῦ λόγου δηλωθείσας.</p>
+         </div>
+         <div n="7" type="section">
+            <p>εἰ μὲν οὖν μιᾷ τινι τῶν πόλεων εἰσηγούμην, πρὸς τοὺς ἐκείνης προεστῶτας τοὺς λόγους ἂν ἐποιούμην·  ἐπειδὴ δ’ ὑπὲρ τῆς τῶν Ἑλλήνων σωτηρίας παρεσκεύασμαι συμβουλεύειν, πρὸς τίν’ ἂν δικαιότερον διαλεχθείην ἢ πρὸς τὸν πρωτεύοντα τοῦ γένους καὶ μεγίστην ἔχοντα δύναμιν;</p>
+         </div>
+         <div n="8" type="section">
+            <p rend="align(indent)">καὶ μὴν οὐδ’ ἀκαίρως φανησόμεθα μεμνημένοι περὶ τούτων. ὅτε μὲν γὰρ Λακεδαιμόνιοι τὴν ἀρχὴν εἶχον, οὐ ῥᾴδιον ἦν ἐπιμεληθῆναί σοι τῶν περὶ τὸν τόπον τὸν ἡμέτερον, οὐδὲ τούτοις ἐναντία πράττειν ἄμα καὶ Καρχηδονίοις πολεμεῖν·  ἐπειδὴ δὲ Λακεδαιμόνιοι μὲν οὕτω πράττουσιν ὥστ’ ἀγαπᾶν, ἢν τὴν χώραν τὴν αὑτῶν ἔχωσιν, ἡ δ’ ἡμετέρα πόλις ἡδέως ἂν αὑτήν σοι παράσχοι συναγωνιζομένην, εἴ τι πράττοις ὑπὲρ τῆς Ἑλλάδος ἀγαθόν, πῶς ἂν παραπέσοι καλλίων καιρὸς τοῦ νῦν σοι παρόντος;</p>
+         </div>
+         <div n="9" type="section">
+            <p rend="align(indent)">καὶ μὴ θαυμάσῃς,  εἰ μήτε δημηγορῶν μήτε στρατηγῶν μήτ’ ἄλλως δυνάσης ὢν οὕτως ἐμβριθὲς  αἴρομαι πρᾶγμα καὶ δυοῖν ἐπιχειρῶ τοῖν μεγίστοιν, ὑπέρ τε τῆς Ἑλλάδος λέγειν καὶ σοὶ συμβουλεύειν. ἐγὼ γὰρ τοῦ μὲν πράττειν τι τῶν κοινῶν εὐθὺς ἐξέστην, δι’  ἃς δὲ προφάσεις πολὺ ἂν ἔργον εἴη μοι λέγειν, τῆς δὲ παιδεύσεως τῆς τῶν μὲν μικρῶν καταφρονούσης, τῶν δὲ μεγάλωι ἐφικνεῖσθαι πειρωμένης οὐκ ἂν φανείην ἄμοιρος γεγενημένος.</p>
+         </div>
+         <div n="10" type="section">
+            <p>ὥστ’ οὐδὲν ἄτοπον, εἴ τι τῶν συμφερόντων ἰδεῖν ἂν μᾶλλον δυνηθείην τῶν εἰκῇ μὲν πολιτευομένων, μεγάλην δὲ δόξαν εἰληφότων δηλώσομεν δ’ οὐκ εἰς ἀναβολάς, εἴ τινος ἄξιοι τυγχάνομεν ὄντες, ἀλλ’ ἐκ τῶν ῥηθήσεσθαι μελλόντων<gap reason="lost" rend=" . . . "/>
+            </p>
+         </div>
+      </body>
+   </text>
 </TEI>

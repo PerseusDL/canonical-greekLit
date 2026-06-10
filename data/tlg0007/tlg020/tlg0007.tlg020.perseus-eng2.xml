@@ -1,9 +1,9 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader xml:lang="eng">
       <fileDesc>
-         <titleStmt>         
+         <titleStmt>
             <title>Comparison of Timoleon and Aemilius</title>
             <author>Plutarch</author>
             <editor role="translator">Bernadotte Perrin</editor>
@@ -16,16 +16,16 @@
                <name>Elli Mylonas</name>
                <name>David Smith</name>
             </respStmt>
-         <funder n="org:Tufts">Tufts University</funder></titleStmt>
+            <funder n="org:Tufts">Tufts University</funder>
+         </titleStmt>
          <publicationStmt>
             <publisher>Trustees of Tufts University</publisher>
             <pubPlace>Medford, MA</pubPlace>
             <authority>Perseus Project</authority>
+            <idno type="CTS">urn:cts:greekLit:tlg0007.tlg020.perseus-eng2</idno>
          </publicationStmt>
          <sourceDesc>
-            
             <biblStruct>
-               
                <monogr>
                   <author>Plutarch</author>
                   <title>Plutarch's Lives</title>
@@ -40,9 +40,9 @@
                   <biblScope unit="volume">6</biblScope>
                </monogr>
                <series>
-            		<title>Loeb Classical Library</title>
-            	</series>
-            	<ref target="https://archive.org/details/plutarchslives06plut/page/458/mode/2up">Internet Archive</ref>
+                  <title>Loeb Classical Library</title>
+               </series>
+               <ref target="https://archive.org/details/plutarchslives06plut/page/458/mode/2up">Internet Archive</ref>
             </biblStruct>
          </sourceDesc>
       </fileDesc>
@@ -55,13 +55,13 @@
          </editorialDecl>
          <refsDecl n="CTS">
             <cRefPattern n="section"
-               matchPattern="(\w+).(\w+)"
-               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                         matchPattern="(\w+).(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
                <p>This pointer pattern extracts chapter and section</p>
             </cRefPattern>
             <cRefPattern n="chapter"
-               matchPattern="(\w+)"
-               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
                <p>This pointer pattern extracts chapter</p>
             </cRefPattern>
          </refsDecl>
@@ -69,8 +69,18 @@
             <refState unit="chapter" delim="."/>
             <refState unit="section"/>
          </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="chapter" delim=":" match="div[@type='chapter']" use="@n">
+                  <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+               </citeStructure>
+            </citeStructure>
+         </refsDecl>
       </encodingDesc>
       <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-chapter-section"/>
+         </textClass>
          <langUsage>
             <language ident="eng">English</language>
             <language ident="lat">Latin</language>
@@ -82,28 +92,72 @@
          <change when="1999-07-01" who="LMC">tagged and parsed</change>
       </revisionDesc>
    </teiHeader>
-   <text xml:lang="eng"> <body> 
-      
-<div type="translation" n="urn:cts:greekLit:tlg0007.tlg020.perseus-eng2" xml:lang="eng"> 
-         <head>COMPARISON OF TIMOLEON AND AEMILIUS</head> 
-         
-<div type="textpart" subtype="chapter" n="1"> 
-   <div type="textpart" subtype="section" n="1"><p>SUCH being the history of these men, it is clear that our comparison of them will have few points of difference or dissimilarity to show. </p></div> 
-   <div type="textpart" subtype="section" n="2"><p>For the wars which both conducted were against notable antagonists; in the one case against the Macedonians, in the other against the Carthaginians. Their victories, too, were far-famed: the one took Macedonia and brought the royal line of Antigonus to an end in its seventh king; the other abolished all the tyrannies in Sicily and set the island free. </p></div> 
-   <div type="textpart" subtype="section" n="3"><p>One might, indeed, argue otherwise, and say that Perseus was strong and victorious over the Romans when Aemilius engaged him, while Dionysius, when Timoleon engaged him, was altogether crushed and desperate. </p></div> 
-   <div type="textpart" subtype="section" n="4"><p>And, again, it might be said in favour of Timoleon that he conquered many tyrants and the force of the Carthaginians, large as it was, with what soldiers he could get, not having at his service, as Aemilius had, men who were experienced in war and taught to obey orders, but men who were hirelings and disorderly soldiers, accustomed to consult their own pleasure in their campaigns. </p></div> 
-   <div type="textpart" subtype="section" n="5"><p>For when equal successes follow an unequal equipment, the greater credit accrues to the commander.</p></div> </div> 
-<div type="textpart" subtype="chapter" n="2"> 
-   <div type="textpart" subtype="section" n="1"><p>Further, in their administration of affairs both were just and incorruptible; but Aemilius, it would seem, was made so from the outset of his career by the laws and customs of his country, while Timoleon’s great probity was due to himself. </p></div> 
-   <div type="textpart" subtype="section" n="2"><p>There is proof of this in the fact that the Romans in the time of Aemilius were, all alike, orderly in their lives, observant of usage, and wholesomely fearful of the laws and of their fellow citizens; whereas, of the Greek leaders and generals who took part in Sicilian affairs during the time of Timoleon, not one was free from corruption except Dion.</p></div> 
-   <div type="textpart" subtype="section" n="3"><p>And Dion was suspected by many of being ambitious for a monarchy and dreaming of a kingdom like that in Sparta. </p></div> 
-   <div type="textpart" subtype="section" n="4"><p>Furthermore, Timaeus says that even Gylippus was sent away in ignominy and dishonour by the Syracusans, because they found him guilty of avarice and greed while he was their general.<note resp="editor" place="unspecified" anchored="true">See the <bibl n="Plut. Nic. 28.2"> <title>Nicias</title>, xxviii. 2 f.</bibl> </note> </p></div> 
-   <div type="textpart" subtype="section" n="5"><p>And how Pharax the Spartan and Callippus the Athenian violated laws and treaties in their hopes of ruling Sicily, has been told by many writers.<note resp="editor" place="unspecified" anchored="true">See the <bibl n="Plut. Tim. 11.4"> <title>Timoleon</title>, xi. 4.</bibl> </note></p></div> 
-   <div type="textpart" subtype="section" n="6"><p>And yet who were these men, or of how large resources were they masters, that they entertained such hopes? One of them was a servile follower of Dionysius after he had been driven out of Syracuse, and Callippus was one of Dion’s captains of mercenaries. </p></div> 
-   <div type="textpart" subtype="section" n="7"><p>But Timoleon, at the earnest request of the Syracusans, was sent to be their general, and needed not to seek power from them, but only to hold that which they had given him of their own free will, and yet he laid down his office and command when he had overthrown their unlawful rulers.</p></div> 
-   <div type="textpart" subtype="section" n="8"><p><milestone unit="para" resp="editor"/>It is, however, worthy of admiration in Aemilius that, although he had subdued so great a kingdom, he did not add one drachma to his substance, nor would he touch or even look upon the conquered treasure; and yet he made many liberal gifts to others. </p></div> 
-   <div type="textpart" subtype="section" n="9"><p>Now, I do not say that Timoleon is to be blamed for accepting a fine house and country estate, for acceptance under such circumstances is not disgraceful; but not to accept is better, and that is a surpassing virtue which shows that it does not want what it might lawfully have.</p></div> 
-   <div type="textpart" subtype="section" n="10"><p><milestone unit="para" resp="editor"/>Furthermore, a body that can endure only heat or cold is less powerful than one that is well adapted by nature to withstand both extremes alike. In like manner a spirit is absolutely vigorous and strong if it is neither spoiled and elated by the insolence which prosperity brings, nor humbled by adversity. The character of Aemilius, therefore, was manifestly more perfect, since in the grievous misfortune and great sorrow brought upon him by the death of his sons he was seen to have no less greatness and no less dignity than in the midst of his successes;</p></div> 
-   <div type="textpart" subtype="section" n="11"><p>whereas Timoleon, although he had acted in a noble way with regard to his brother, could not reason down his sorrow, but was prostrated with grief and repentance, and for twenty years could not endure the sight of bema or market-place. </p></div> 
-   <div type="textpart" subtype="section" n="12"><p>One should scrupulously shun disgraceful deeds; but the anxious fear of every kind of ill report among men argues a nature which is indeed kindly and sensitive, but has not greatness.</p></div> </div> </div> </body> </text>
-</TEI> 
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg020.perseus-eng2">
+         <head>COMPARISON OF TIMOLEON AND AEMILIUS</head>
+         <div n="1" type="chapter">
+            <div n="1" type="section">
+               <p>SUCH being the history of these men, it is clear that our comparison of them will have few points of difference or dissimilarity to show. </p>
+            </div>
+            <div n="2" type="section">
+               <p>For the wars which both conducted were against notable antagonists; in the one case against the Macedonians, in the other against the Carthaginians. Their victories, too, were far-famed: the one took Macedonia and brought the royal line of Antigonus to an end in its seventh king; the other abolished all the tyrannies in Sicily and set the island free. </p>
+            </div>
+            <div n="3" type="section">
+               <p>One might, indeed, argue otherwise, and say that Perseus was strong and victorious over the Romans when Aemilius engaged him, while Dionysius, when Timoleon engaged him, was altogether crushed and desperate. </p>
+            </div>
+            <div n="4" type="section">
+               <p>And, again, it might be said in favour of Timoleon that he conquered many tyrants and the force of the Carthaginians, large as it was, with what soldiers he could get, not having at his service, as Aemilius had, men who were experienced in war and taught to obey orders, but men who were hirelings and disorderly soldiers, accustomed to consult their own pleasure in their campaigns. </p>
+            </div>
+            <div n="5" type="section">
+               <p>For when equal successes follow an unequal equipment, the greater credit accrues to the commander.</p>
+            </div>
+         </div>
+         <div n="2" type="chapter">
+            <div n="1" type="section">
+               <p>Further, in their administration of affairs both were just and incorruptible; but Aemilius, it would seem, was made so from the outset of his career by the laws and customs of his country, while Timoleon’s great probity was due to himself. </p>
+            </div>
+            <div n="2" type="section">
+               <p>There is proof of this in the fact that the Romans in the time of Aemilius were, all alike, orderly in their lives, observant of usage, and wholesomely fearful of the laws and of their fellow citizens; whereas, of the Greek leaders and generals who took part in Sicilian affairs during the time of Timoleon, not one was free from corruption except Dion.</p>
+            </div>
+            <div n="3" type="section">
+               <p>And Dion was suspected by many of being ambitious for a monarchy and dreaming of a kingdom like that in Sparta. </p>
+            </div>
+            <div n="4" type="section">
+               <p>Furthermore, Timaeus says that even Gylippus was sent away in ignominy and dishonour by the Syracusans, because they found him guilty of avarice and greed while he was their general.<note resp="editor" place="unspecified" anchored="true">See the <bibl n="Plut. Nic. 28.2">
+                        <title>Nicias</title>, xxviii. 2 f.</bibl>
+                  </note>
+               </p>
+            </div>
+            <div n="5" type="section">
+               <p>And how Pharax the Spartan and Callippus the Athenian violated laws and treaties in their hopes of ruling Sicily, has been told by many writers.<note resp="editor" place="unspecified" anchored="true">See the <bibl n="Plut. Tim. 11.4">
+                        <title>Timoleon</title>, xi. 4.</bibl>
+                  </note>
+               </p>
+            </div>
+            <div n="6" type="section">
+               <p>And yet who were these men, or of how large resources were they masters, that they entertained such hopes? One of them was a servile follower of Dionysius after he had been driven out of Syracuse, and Callippus was one of Dion’s captains of mercenaries. </p>
+            </div>
+            <div n="7" type="section">
+               <p>But Timoleon, at the earnest request of the Syracusans, was sent to be their general, and needed not to seek power from them, but only to hold that which they had given him of their own free will, and yet he laid down his office and command when he had overthrown their unlawful rulers.</p>
+            </div>
+            <div n="8" type="section">
+               <p>
+                  <milestone unit="para" resp="editor"/>It is, however, worthy of admiration in Aemilius that, although he had subdued so great a kingdom, he did not add one drachma to his substance, nor would he touch or even look upon the conquered treasure; and yet he made many liberal gifts to others. </p>
+            </div>
+            <div n="9" type="section">
+               <p>Now, I do not say that Timoleon is to be blamed for accepting a fine house and country estate, for acceptance under such circumstances is not disgraceful; but not to accept is better, and that is a surpassing virtue which shows that it does not want what it might lawfully have.</p>
+            </div>
+            <div n="10" type="section">
+               <p>
+                  <milestone unit="para" resp="editor"/>Furthermore, a body that can endure only heat or cold is less powerful than one that is well adapted by nature to withstand both extremes alike. In like manner a spirit is absolutely vigorous and strong if it is neither spoiled and elated by the insolence which prosperity brings, nor humbled by adversity. The character of Aemilius, therefore, was manifestly more perfect, since in the grievous misfortune and great sorrow brought upon him by the death of his sons he was seen to have no less greatness and no less dignity than in the midst of his successes;</p>
+            </div>
+            <div n="11" type="section">
+               <p>whereas Timoleon, although he had acted in a noble way with regard to his brother, could not reason down his sorrow, but was prostrated with grief and repentance, and for twenty years could not endure the sight of bema or market-place. </p>
+            </div>
+            <div n="12" type="section">
+               <p>One should scrupulously shun disgraceful deeds; but the anxious fear of every kind of ill report among men argues a nature which is indeed kindly and sensitive, but has not greatness.</p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

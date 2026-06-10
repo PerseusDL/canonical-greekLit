@@ -1,69 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader xml:lang="eng">
-        <fileDesc>
-            <titleStmt>
-                <title>Letter 5. To Alexander</title>                
-                <author>Isocrates</author>
-                <editor role="translator">Larue Van Hook</editor>
-                <sponsor>Perseus Project, Tufts University</sponsor>
-                <principal>Gregory Crane</principal>
-                <respStmt>
-                    <resp>Prepared under the supervision of</resp>
-                    <name>Lisa Cerrato</name>
-                    <name>William Merrill</name>
-                    <name>Elli Mylonas</name>
-                    <name>David Smith</name>
-                </respStmt>
-                <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
-            </titleStmt>
-            <publicationStmt>
-                <publisher>Trustees of Tufts University</publisher>
-                <pubPlace>Medford, MA</pubPlace>
-                <authority>Perseus Project</authority>
-                <date type="release" when="1996">Perseus 2.0</date>
-                <idno type="filename">tlg0010.tlg028.perseus-eng2.xml</idno>
-                <availability>
-                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
-                </availability>
-            </publicationStmt>
-            <sourceDesc>
-                <biblStruct>
-                    <monogr>
-                        <author>Isocrates</author>
-                        <title>Isocrates</title>
-                        <editor>Larue Van Hook</editor>
-                        <imprint>             
-                            <pubPlace>Cambridge, MA</pubPlace>
-                            <pubPlace>London</pubPlace>
-                            <publisher>Harvard University Press</publisher>
-                            <publisher>William Heinemann Ltd.</publisher>
-                            <biblScope unit="volume">3</biblScope>
-                            <date type="printing">1945</date>
-                        </imprint>
-                    </monogr><series><title>Loeb Classical Library</title></series>  
-                    <ref target="https://archive.org/details/isocrateswitheng03isocuoft/page/426/mode/2up">Internet Archive</ref>
-                </biblStruct>
-            </sourceDesc>
-        </fileDesc>
-        
-        <encodingDesc>
-            <refsDecl n="CTS">
-                <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-                    <p>This pointer pattern extracts section.</p>
-                </cRefPattern>
-            </refsDecl>
-        </encodingDesc>
-        
-        <profileDesc>
-            <langUsage>
-                <language ident="eng">English </language>
-                <language ident="grc">Greek </language>
-            </langUsage>
-        </profileDesc>
-        
-        <!-- 
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title>Letter 5. To Alexander</title>
+            <author>Isocrates</author>
+            <editor role="translator">Larue Van Hook</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" when="1996">Perseus 2.0</date>
+            <idno type="filename">tlg0010.tlg028.perseus-eng2.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0010.tlg028.perseus-eng2</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <author>Isocrates</author>
+                  <title>Isocrates</title>
+                  <editor>Larue Van Hook</editor>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <pubPlace>London</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <biblScope unit="volume">3</biblScope>
+                     <date type="printing">1945</date>
+                  </imprint>
+               </monogr>
+               <series>
+                  <title>Loeb Classical Library</title>
+               </series>
+               <ref target="https://archive.org/details/isocrateswitheng03isocuoft/page/426/mode/2up">Internet Archive</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts section.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-section"/>
+         </textClass>
+         <langUsage>
+            <language ident="eng">English </language>
+            <language ident="grc">Greek </language>
+         </langUsage>
+      </profileDesc>
+      <!-- 
         <textClass id="gen.epideictic">
             <keywords><term>Epideictic</term></keywords>
         </textClass>
@@ -76,36 +87,46 @@
         <textClass id="gen.estate.claim">
             <keywords><term>Claim against an Estate</term></keywords>
         </textClass>-->
-        
-        
-        <revisionDesc>
-            <change when="2025-10-20" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes. Changed structure from flat text to sections.</change>
-            <change when="2016-01-29" who="TDB"> CTS and Epidoc update</change>
-            <change when="2013-09-13" who="balmas01">reverting texts back to pre_cts_reorg tagged version</change>
-            <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
-            <change when="2009-06-12" who="student">fixed bibl errors - zr</change>
-            <change when="2009-02-05" who="lcerrato">fixed bad bibls</change>
-            <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
-            <change when="2005-08-01" who="packel">split up letters and speeches</change>
-            <change when="2005-07-25" who="packel">Converted to XML</change> 
-            <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.) </change>
-            <change when="2001-10-09" who="dasmith">Fixed instances of zero for capital O.</change>
-            <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change> 
-            <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change> 
-            <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.</change>
-            <change when="2000-03" who="David Smith"/>
-            <change when="1992-10" who="David Smith">Fixed the notes, mostly citations</change>
-            <change when="1992-06" who="W. Merrill">put speechs in numerical order and consolidated files</change>
-            <change when="1992-04" who="W. Merrill">Put bios and intros to speeches into separate files. Change markup in accordance with orator dtd</change> </revisionDesc>
-</teiHeader>
-    
-    <text>
-        <body>
-            <div type="translation" n="urn:cts:greekLit:tlg0010.tlg028.perseus-eng2" xml:lang="eng">
-    <head>To Alexander</head>
-    <div type="textpart" subtype="section" n="1"><p rend="align(indent)">Since I am writing to your father I thought I should be acting in a strange manner if, when you are in the same region as he, I should fail either to address you or to send you a greeting, or to write you something calculated to convince any reader that I am now not out of my mind through old age<note resp="editor">In his later years Isocrates frequently refers to his advanced age.  At this time (<date when="-0342">342 B.C.</date>) he was perhaps 94 years of age.</note> and that I do not babble like a fool, but that, on the contrary, the share of intelligence that still is left to me is not unworthy of the ability which as a younger man I possessed.</p></div>
-        <div type="textpart" subtype="section" n="2"><p rend="align(indent)">I hear everyone say of you that you are a friend of mankind, a friend of Athens, and a friend of learning, not foolishly, but in sensible fashion.  For they say that the Athenians whom you admit to your presence are not those men who have neglected their higher interests<note resp="editor">i.e., philosophical studies, in the broad sense.</note> and have a lust for base things, but those rather whose constant companionship would not cause you regret and with whom association and partnership would not result in harm or injury to you—just such men, indeed, as should be chosen as associates by the wise.</p></div>  
-            <div type="textpart" subtype="section" n="3"><p>As regards systems of philosophy, they say that while you do not indeed reject eristic,<note resp="editor">For eristic, "disputation tor its own sake," see <bibl n="Isoc. 10.6">Isoc. 10.6</bibl>, with note.</note> but hold that it is valuable in private discussions, you regard it nevertheless as unsuitable for either those who are leaders of the people or for monarchs; for it is not expedient or becoming that those who regard themselves as superior to all others should themselves dispute with their fellow-citizens or suffer anyone else to contradict them.</p></div>
-            <div type="textpart" subtype="section" n="4"><p rend="align(indent)">But this branch of learning, I am told, you are not content with, but you choose rather the training which rhetoric gives, which is of use in the practical affairs of everyday life and aids us when we deliberate concerning public affairs.  By means of this study you will come to know how at the present time to form reasonably sound opinions about the future, how not ineptly to instruct your subject peoples what each should do, how to form correct judgements about the right and the just and their opposites and, besides, to reward and chastise each class as it deserves.</p></div>
-                <div type="textpart" subtype="section" n="5"><p>You act wisely, therefore, in devoting yourself to these studies; for you give hope to your father and to all the world that if, as you grow older, you hold fast to this course, you will as far surpass your fellow-men in wisdom as your father has surpassed all mankind.<note resp="editor">For Isocrates’ views on Education, with numerous references to his writings, see Norlin’s General Introd. (Isocrates, Vol. I, pp. xxiii ff., L.C.L.).</note></p></div>
-</div></body></text></TEI>
+      <revisionDesc>
+         <change when="2025-10-20" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes. Changed structure from flat text to sections.</change>
+         <change when="2016-01-29" who="TDB"> CTS and Epidoc update</change>
+         <change when="2013-09-13" who="balmas01">reverting texts back to pre_cts_reorg tagged version</change>
+         <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
+         <change when="2009-06-12" who="student">fixed bibl errors - zr</change>
+         <change when="2009-02-05" who="lcerrato">fixed bad bibls</change>
+         <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
+         <change when="2005-08-01" who="packel">split up letters and speeches</change>
+         <change when="2005-07-25" who="packel">Converted to XML</change>
+         <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.) </change>
+         <change when="2001-10-09" who="dasmith">Fixed instances of zero for capital O.</change>
+         <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+         <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change>
+         <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.</change>
+         <change when="2000-03" who="David Smith"/>
+         <change when="1992-10" who="David Smith">Fixed the notes, mostly citations</change>
+         <change when="1992-06" who="W. Merrill">put speechs in numerical order and consolidated files</change>
+         <change when="1992-04" who="W. Merrill">Put bios and intros to speeches into separate files. Change markup in accordance with orator dtd</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body xml:base="urn:cts:greekLit:tlg0010.tlg028.perseus-eng2">
+         <head>To Alexander</head>
+         <div n="1" type="section">
+            <p rend="align(indent)">Since I am writing to your father I thought I should be acting in a strange manner if, when you are in the same region as he, I should fail either to address you or to send you a greeting, or to write you something calculated to convince any reader that I am now not out of my mind through old age<note resp="editor">In his later years Isocrates frequently refers to his advanced age.  At this time (<date when="-0342">342 B.C.</date>) he was perhaps 94 years of age.</note> and that I do not babble like a fool, but that, on the contrary, the share of intelligence that still is left to me is not unworthy of the ability which as a younger man I possessed.</p>
+         </div>
+         <div n="2" type="section">
+            <p rend="align(indent)">I hear everyone say of you that you are a friend of mankind, a friend of Athens, and a friend of learning, not foolishly, but in sensible fashion.  For they say that the Athenians whom you admit to your presence are not those men who have neglected their higher interests<note resp="editor">i.e., philosophical studies, in the broad sense.</note> and have a lust for base things, but those rather whose constant companionship would not cause you regret and with whom association and partnership would not result in harm or injury to you—just such men, indeed, as should be chosen as associates by the wise.</p>
+         </div>
+         <div n="3" type="section">
+            <p>As regards systems of philosophy, they say that while you do not indeed reject eristic,<note resp="editor">For eristic, "disputation tor its own sake," see <bibl n="Isoc. 10.6">Isoc. 10.6</bibl>, with note.</note> but hold that it is valuable in private discussions, you regard it nevertheless as unsuitable for either those who are leaders of the people or for monarchs; for it is not expedient or becoming that those who regard themselves as superior to all others should themselves dispute with their fellow-citizens or suffer anyone else to contradict them.</p>
+         </div>
+         <div n="4" type="section">
+            <p rend="align(indent)">But this branch of learning, I am told, you are not content with, but you choose rather the training which rhetoric gives, which is of use in the practical affairs of everyday life and aids us when we deliberate concerning public affairs.  By means of this study you will come to know how at the present time to form reasonably sound opinions about the future, how not ineptly to instruct your subject peoples what each should do, how to form correct judgements about the right and the just and their opposites and, besides, to reward and chastise each class as it deserves.</p>
+         </div>
+         <div n="5" type="section">
+            <p>You act wisely, therefore, in devoting yourself to these studies; for you give hope to your father and to all the world that if, as you grow older, you hold fast to this course, you will as far surpass your fellow-men in wisdom as your father has surpassed all mankind.<note resp="editor">For Isocrates’ views on Education, with numerous references to his writings, see Norlin’s General Introd. (Isocrates, Vol. I, pp. xxiii ff., L.C.L.).</note>
+            </p>
+         </div>
+      </body>
+   </text>
+</TEI>

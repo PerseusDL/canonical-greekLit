@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_drama.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader xml:lang="eng">
       <fileDesc>
          <titleStmt>
@@ -21,6 +23,7 @@
             <publisher>Trustees of Tufts University</publisher>
             <pubPlace>Medford, MA</pubPlace>
             <authority>Perseus Project</authority>
+            <idno type="CTS">urn:cts:greekLit:tlg0011.tlg008.perseus-grc2</idno>
          </publicationStmt>
          <sourceDesc>
             <biblStruct>
@@ -42,7 +45,9 @@
       </fileDesc>
       <encodingDesc>
          <refsDecl n="CTS">
-            <cRefPattern n="line" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+            <cRefPattern n="line"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
                <p>This pointer pattern extracts line</p>
             </cRefPattern>
          </refsDecl>
@@ -51,8 +56,16 @@
              <p>This pointer pattern extracts cards</p>
             </cRefPattern>
          </refsDecl>-->
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="line" delim="." match=".//l" use="@n"/>
+            </citeStructure>
+         </refsDecl>
       </encodingDesc>
       <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#drama-line"/>
+         </textClass>
          <langUsage>
             <language ident="grc">Greek</language>
             <language ident="eng">English</language>
@@ -61,36 +74,24 @@
       <revisionDesc>
          <change when="2017-02-16" who="Lisa Cerrato">review of EpiDoc and CTS compliance; removed English from notes; entities, etc.</change>
          <change when="2016-01-15" who="TDBuck">p4 to p5</change>
-      
-<change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
-
-<change when="2013-06-13" who="gcrane">tagging now should be compatible with CTS</change>
-
-<change when="2010-12-24" who="gcrane">base files for SDL</change>
-
-<change when="2009-12-08" who="rsingh04">moved more xml files around based on copyright status</change>
-
-<change when="2005-07-25" who="packel">Converted to XML</change>
-
-<change when="2004-04-21" who="mimno">added card 1s</change>
-
-<change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
-
-<change when="2001-03-19" who="amahoney">mark one supplement as "unclear" to demonstrate the new rule in the spec;
+         <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+         <change when="2013-06-13" who="gcrane">tagging now should be compatible with CTS</change>
+         <change when="2010-12-24" who="gcrane">base files for SDL</change>
+         <change when="2009-12-08" who="rsingh04">moved more xml files around based on copyright status</change>
+         <change when="2005-07-25" who="packel">Converted to XML</change>
+         <change when="2004-04-21" who="mimno">added card 1s</change>
+         <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
+         <change when="2001-03-19" who="amahoney">mark one supplement as "unclear" to demonstrate the new rule in the spec;
 I think this particular one is a true supplement rather than an unclear letter, but it really doesn't matter a whole lot for this purpose or in this text</change>
-
-<change when="2001-01-02" who="amahoney">move credits for editors to filedesc proper so they'll show in pulldown
+         <change when="2001-01-02" who="amahoney">move credits for editors to filedesc proper so they'll show in pulldown
 </change>
-<change when="2000-12-29" who="amahoney">the translation is ready to go</change>
-
-<change when="2000-12-04" who="amahoney">new text</change>
-<change when="2000-10-29" who="AEM">Initial text, based roughly on Oxyrhynchus Papyri IX</change>
+         <change when="2000-12-29" who="amahoney">the translation is ready to go</change>
+         <change when="2000-12-04" who="amahoney">new text</change>
+         <change when="2000-10-29" who="AEM">Initial text, based roughly on Oxyrhynchus Papyri IX</change>
       </revisionDesc>
    </teiHeader>
-   
    <text xml:lang="grc">
-      <body>
-         <div type="edition" n="urn:cts:greekLit:tlg0011.tlg008.perseus-grc2" xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0011.tlg008.perseus-grc2">
          <milestone unit="card" n="1"/>
          <milestone n="1" unit="column"/>
          <sp>
@@ -204,7 +205,8 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="63">ἐλεύθερος σὺ [πᾶν τε γένος ἔσται τέκν]ων.
 
             </l>
-         </sp><milestone unit="card" n="64"/>
+         </sp>
+         <milestone unit="card" n="64"/>
          <sp>
             <speaker>Χορὸς Σατύρων</speaker>
             <l n="64">ἴθʼ ἄγε δ[<gap reason="lost"/>
@@ -233,7 +235,8 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="78">χρυσοῦ παραδείγματα.
 
             </l>
-         </sp><milestone unit="card" n="79"/>
+         </sp>
+         <milestone unit="card" n="79"/>
          <sp>
             <speaker>Σιληνός</speaker>
             <l n="79">θεὸς Τύχη [κ]αὶ δαῖμον ἰθυντήριε,</l>
@@ -269,7 +272,8 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="99">ἅπαντα χρηστὰ κα[ὶ <gap reason="lost"/>τε]λεῖν.
 
             </l>
-         </sp><milestone unit="card" n="100"/>
+         </sp>
+         <milestone unit="card" n="100"/>
          <sp>
             <speaker>Ἡμιχορός α</speaker>
             <l n="100">θεὸς θεὸς θεὸς θεός· ἔα [ἔα·</l>
@@ -332,7 +336,8 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="123">δεινὸς κυκησμὸς εἶχ[ε τὸν βοη]λάτην.
 
             </l>
-         </sp><milestone unit="card" n="124"/>
+         </sp>
+         <milestone unit="card" n="124"/>
          <sp>
             <speaker>Σιληνός</speaker>
             <l n="124">τίνʼ αὖ τέχνην σὺ τήν[δʼ ἄρʼ ἐξ]ῆυρες, τίνʼ αὖ,</l>
@@ -387,7 +392,8 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="144">ψόφῳ, τὸν οὐδε[ὶ]ς π[ώπο]τʼ ἤκουσεν βροτῶν.
 
             </l>
-         </sp><milestone unit="card" n="145"/>
+         </sp>
+         <milestone unit="card" n="145"/>
          <sp>
             <speaker>Σιληνός</speaker>
             <l n="145">τί μοι ψ[ό]φον; φοβ[εῖσθε] κα[ὶ] δειμαίνετε,</l>
@@ -431,7 +437,8 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="175">ἐγὼ δʼ ἐν [ἔ]ργοις παρμένων σʼ ἀπευθυνῶ.
 
             </l>
-         </sp><milestone unit="card" n="176"/>
+         </sp>
+         <milestone unit="card" n="176"/>
          <sp>
             <speaker>Χορός</speaker>
             <l n="176">ὗ ὗ ὗ, ψ ψ, ἆ ἆ. λέγʼ ὅ τι πονεῖς.</l>
@@ -468,9 +475,10 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="201">ἔπ[ι]θʼ [ἔ]πεχʼ εἴσιθʼ ἴθι[</l>
             <l n="202">τ[ὸ] δὲ πλάγιον ἔχομ[εν
 
-            </l></sp>
+            </l>
+         </sp>
          <milestone unit="card" n="203"/>
-               <sp>
+         <sp>
             <l n="203">πάτερ, τί σιγᾷς; μῶν ἀληθ[ὲς εἴπομεν;</l>
             <l n="204">οὐ[κ ε]ἰσακο[ύε]ις; ἦ κεκώφη[σαι, ψόφον;</l>
          </sp>
@@ -484,7 +492,8 @@ I think this particular one is a true supplement rather than an unclear letter, 
          </sp>
          <sp>
             <speaker>Σιληνός</speaker>
-            <l n="205c" part="F">μένʼ, ε[ἰ] <add>δύνᾳ.</add></l>
+            <l n="205c" part="F">μένʼ, ε[ἰ] <add>δύνᾳ.</add>
+            </l>
          </sp>
          <sp>
             <speaker>Χορός</speaker>
@@ -512,8 +521,8 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="219">π[η]δήμασιν κραιπνοῖσι καὶ λακτίσμασιν</l>
             <l n="220">ὥ[ς]τʼ εἰσακοῦσαι κεἰ λίαν κωφός τις ᾖ.
             </l>
-         </sp><milestone unit="card" n="221"/>
-
+         </sp>
+         <milestone unit="card" n="221"/>
          <sp>
             <speaker>Κυλλήνη</speaker>
             <l n="221">θῆρες, τί [τό]νδε χλοερὸν ὑλώδη πάγον</l>
@@ -541,7 +550,6 @@ I think this particular one is a true supplement rather than an unclear letter, 
                <gap reason="lost"/>φ[<gap reason="lost"/>]η[<gap reason="lost"/>] νων ὑμᾶς νοσεῖν</l>
             <l n="242">νο[ς <gap reason="lost"/>τί νύμφη]ν ἔτι ποε͂ιτʼ ἀναιτίαν;
 <milestone n="10" unit="column"/>
-               
             </l>
          </sp>
          <milestone unit="card" n="243"/>
@@ -626,8 +634,8 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="297">τος πορίζειν τοιάνδε γῆρυν.
 
             </l>
-         </sp> 
-            <milestone unit="card" n="298"/>
+         </sp>
+         <milestone unit="card" n="298"/>
          <sp>
             <speaker>Κυλλήνη</speaker>
             <l n="298">μὴ νῦν ἀπίστει· πιστὰ γάρ σε προσγελᾷ θεᾶς ἔπη.</l>
@@ -778,10 +786,9 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="349">
                <note anchored="true" place="inline" xml:lang="eng" resp="ed">2 or 3 lines lost</note>
                <milestone n="14" unit="column"/>
-               
             </l>
          </sp>
-            <milestone unit="card" n="352"/>
+         <milestone unit="card" n="352"/>
          <sp>
             <speaker>κυλλήνη</speaker>
             <l n="352">[<gap reason="lost"/>
@@ -808,24 +815,26 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <l n="370">[χ]ανόντα κλαίειν ὕστερʼ;  ὡς ἐγὼ <add>λ</add>έ<add>γ</add>ω.
 
             </l>
-         </sp><milestone unit="card" n="371"/>
+         </sp>
+         <milestone unit="card" n="371"/>
          <sp>
             <speaker>Χορός</speaker>
             <l n="371">στρέφου λυγίζου τε μύθοις, ὁποι-  <note anchored="true" type="meter" place="inline">ἀντ.</note>
             </l>
             <l n="372">´άν θέλεις βάξιν εὕρισκʼ ἀπό-</l>
             <l n="373">ψηκτον· οὐ γάρ με ταῦτα πείσεις,</l>
-            <l n="374"><add>ὅ</add>πως τὸ χρῆμʼ οὗτος εἰργασμένος</l>
+            <l n="374">
+               <add>ὅ</add>πως τὸ χρῆμʼ οὗτος εἰργασμένος</l>
             <l n="375">ῥινοκόλλητον ἄλλων ἔκλεψεν βοῶν </l>
             <l n="376">που δοράς [ ἢ] ʼπὸ τῶν Λοξίου.</l>
             <l n="377">[μ]ή με τᾶ[σδʼ ἐ]ξ ὁδοῦ βίβαζε.
 <milestone n="15" unit="column"/>
-               
             </l>
             <l n="378">
                <note anchored="true" place="inline" xml:lang="eng" resp="ed.">one or more lines missing</note>
             </l>
-         </sp><milestone unit="card" n="379"/>
+         </sp>
+         <milestone unit="card" n="379"/>
          <sp>
             <speaker>Χορός</speaker>
             <l n="379">[ὁ Ζ]εὺς γὰρ ]</l>
@@ -922,8 +931,6 @@ I think this particular one is a true supplement rather than an unclear letter, 
             <speaker>Σιληνός</speaker>
             <l n="419">τὸν ἐγ[</l>
          </sp>
-         </div>
-         
       </body>
    </text>
 </TEI>

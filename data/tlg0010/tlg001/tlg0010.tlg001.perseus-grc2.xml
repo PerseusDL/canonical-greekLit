@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader xml:lang="eng">
+   <teiHeader xml:lang="eng">
       <fileDesc>
          <titleStmt>
-            <title xml:lang="grc">Πρὸς Εὐθύνους ἀμάρτυρος</title>            
+            <title xml:lang="grc">Πρὸς Εὐθύνους ἀμάρτυρος</title>
             <author>Isocrates</author>
             <editor>Larue Van Hook</editor>
             <sponsor>Perseus Project, Tufts University</sponsor>
@@ -18,7 +18,6 @@
             </respStmt>
             <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
          </titleStmt>
-         
          <publicationStmt>
             <publisher>Trustees of Tufts University</publisher>
             <pubPlace>Medford, MA</pubPlace>
@@ -28,15 +27,15 @@
             <availability>
                <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
             </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0010.tlg001.perseus-grc2</idno>
          </publicationStmt>
-
          <sourceDesc>
             <biblStruct>
                <monogr>
                   <author>Isocrates</author>
                   <title>Isocrates</title>
                   <editor>Larue Van Hook</editor>
-                  <imprint>             
+                  <imprint>
                      <pubPlace>Cambridge, MA</pubPlace>
                      <pubPlace>London, UK</pubPlace>
                      <publisher>Harvard University Press</publisher>
@@ -44,146 +43,132 @@
                      <biblScope unit="volume">3</biblScope>
                      <date type="printing">1945</date>
                   </imprint>
-               </monogr><series><title>Loeb Classical Library</title></series>  
+               </monogr>
+               <series>
+                  <title>Loeb Classical Library</title>
+               </series>
                <ref target="https://archive.org/details/isocrateswitheng03isocuoft/page/352/mode/2up">Internet Archive</ref>
             </biblStruct>
          </sourceDesc>
       </fileDesc>
-
-     <encodingDesc>
-        <refsDecl n="CTS">
-          <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-              <p>This pointer pattern extracts section.</p>
-           </cRefPattern>
-        </refsDecl>
-        <refsDecl>
-           <refState n="chunk context" unit="section"/>
-        </refsDecl>
-     </encodingDesc>
-     
-     <profileDesc>
-        <langUsage>
-           <language ident="eng">English</language>
-           <language ident="grc">Greek</language>
-        </langUsage>
-
-      
-         <textClass xml:id="gen.epideictic">
-            <keywords>
-               <term>Epideictic</term>
-            </keywords>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts section.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl>
+            <refState n="chunk context" unit="section"/>
+         </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-section"/>
          </textClass>
-         <textClass xml:id="gen.forensic.prosecution">
-            <keywords>
-               <term>Forensic Prosecution</term>
-            </keywords>
-         </textClass>
-         <textClass xml:id="gen.forensic.defense">
-            <keywords>
-               <term>Forensic Defense</term>
-            </keywords>
-         </textClass>
-         <textClass xml:id="gen.estate.claim">
-            <keywords>
-               <term>Claim against an Estate</term>
-            </keywords>
-         </textClass>
+         <langUsage>
+            <language ident="eng">English</language>
+            <language ident="grc">Greek</language>
+         </langUsage>
       </profileDesc>
-
       <revisionDesc>
          <change when="2025-10-14" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes</change>
          <change when="2024-07-25" who="Alison Babeu">Updated header and bibliographic info</change>
          <change when="2016-01-26" who="TDBuck">epidoc and CTS</change>
          <change when="2014-10-01" who="Stella Dee">edited markup</change>
-         <change when="2014-07" who="Stella Dee">split speeches and converted to unicode</change>  
+         <change when="2014-07" who="Stella Dee">split speeches and converted to unicode</change>
          <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
          <change when="2009-06-24" who="lcerrato">fixed bad bibls</change>
          <change when="2009-06-11" who="student">fixed bibl errors - zr</change>
          <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
          <change when="2005-08-01" who="packel">split up letters and speeches</change>
-         <change when="2005-07-25" who="packel">Converted to XML</change> 
+         <change when="2005-07-25" who="packel">Converted to XML</change>
          <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.) </change>
          <change when="2000-10-24" who="lcerrato">repetition of end of word in 7.38 eliminated </change>
-         <change when="2000-03-22" who="dasmith">Corrected title of fifth letter.</change> 
-         <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change> 
-         <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change> 
+         <change when="2000-03-22" who="dasmith">Corrected title of fifth letter.</change>
+         <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+         <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change>
          <change when="2000-03-01" who="dasmith">Can't have tags in change log.</change>
-         <change when="2000-03-01" who="dasmith">Erroneously copied "text xml:lang=eng" from English file.</change> 
+         <change when="2000-03-01" who="dasmith">Erroneously copied "text xml:lang=eng" from English file.</change>
          <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.</change>
          <change when="2000-03" who="David Smith"/>
          <change when="1995-06" who="Lisa Cerrato">made section after 11.21 11.22. It was 11.37.</change>
          <change when="1992-06" who="W. Merrill">put speeches in numerical order. Consolidated files.</change>
          <change when="1992-04" who="W. Merrill">Threw out isoc.gk.sgml because first letter of each line was missing. Started from scratch again from isoc.gk.raw. Change markup in accordance with orator dtd</change>
-          </revisionDesc>
-  </teiHeader>
-   
-  <text>
-      <body>
-         <div type="edition" n="urn:cts:greekLit:tlg0010.tlg001.perseus-grc2" xml:lang="grc">
-         <div subtype="section" type="textpart" n="1">
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body xml:base="urn:cts:greekLit:tlg0010.tlg001.perseus-grc2">
+         <div n="1" type="section">
             <p> οὐ προφάσεως ἀπορῶ, διʼ ἥντινα λέγω ὑπὲρ Νικίου τουτουί· καὶ γὰρ φίλος ὤν μοι τυγχάνει καὶ δεόμενος καὶ ἀδικούμενος καὶ ἀδύνατος εἰπεῖν, ὥστε διὰ ταῦτα πάντα ὑπὲρ αὐτοῦ λέγειν ἀναγκάζομαι. </p>
          </div>
-         <div subtype="section" type="textpart" n="2">
+         <div n="2" type="section">
             <p>ὅθεν οὖν τὸ συμβόλαιον αὐτῷ πρὸς Εὐθύνουν γεγένηται, διηγήσομαι ὑμῖν ὡς ἂν δύνωμαι διὰ βραχυτάτων. Νικίας γὰρ οὑτοσί, ἐπειδὴ οἱ τριάκοντα κατέστησαν καὶ αὐτὸν οἱ ἐχθροὶ ἐκ μὲν τῶν μετεχόντων τῆς πολιτείας ἐξήλειφον, εἰς δὲ τὸν μετὰ Λυσάνδρου κατάλογον ἐνέγραφον, δεδιὼς τὰ παρόντα πράγματα τὴν μὲν οἰκίαν ὑπέθηκε, τοὺς δʼ οἰκέτας ἔξω τῆς γῆς ἐξέπεμψε, τὰ δʼ ἔπιπλα ὡς ἐμὲ ἐκόμισε, τρία δὲ τάλαντα ἀργυρίου Εὐθύνῳ φυλάττειν ἔδωκεν, αὐτὸς δʼ εἰς ἀγρὸν ἐλθὼν διῃτᾶτο. </p>
          </div>
-         <div subtype="section" type="textpart" n="3">
+         <div n="3" type="section">
             <p>οὐ πολλῷ δὲ χρόνῳ ὕστερον βουλόμενος ἐκπλεῖν ἀπῄτησε τἀργύριον· Εὐθύνους δὲ τὰ μὲν δύο τάλαντα ἀποδίδωσι, τοῦ δὲ τρίτου ἔξαρνος γίγνεται. ἄλλο μὲν οὖν οὐδὲν εἶχε Νικίας ἐν τῷ τότε χρόνῳ ποιῆσαι, προσιὼν δὲ πρὸς τοὺς ἐπιτηδείους ἐνεκάλει καὶ ἐμέμφετο καὶ ἔλεγεν ἃ πεπονθὼς εἴη. καίτοι οὕτω τοῦτόν τε περὶ πολλοῦ ἐποιεῖτο καὶ τὰ καθεστῶτα ἐφοβεῖτο, ὥστε πολὺ ἂν θᾶττον ὀλίγων στερηθεὶς ἐσιώπησεν ἢ μηδὲν ἀπολέσας ἐνεκάλεσεν. </p>
          </div>
-         <div subtype="section" type="textpart" n="4">
+         <div n="4" type="section">
             <p>τὰ μὲν οὖν γεγενημένα ταῦτʼ ἐστίν. ἀπόρως δʼ ἡμῖν ἔχει τὸ πρᾶγμα. Νικίᾳ γὰρ οὔτε παρακατατιθεμένῳ τὰ χρήματα οὔτε κομιζομένῳ οὐδεὶς οὔτʼ ἐλεύθερος οὔτε δοῦλος παρεγένετο, ὥστε μήτʼ ἐκ βασάνων μήτʼ ἐκ μαρτύρων οἷόν τʼ εἶναι γνῶναι περὶ αὐτῶν, ἀλλʼ ἀνάγκη ἐκ τεκμηρίων καὶ ἡμᾶς διδάσκειν καὶ ὑμᾶς δικάζειν, ὁπότεροι τἀληθῆ λέγουσιν. </p>
          </div>
-         <div subtype="section" type="textpart" n="5">
+         <div n="5" type="section">
             <p>οἶμαι δὴ πάντας εἰδέναι ὅτι μάλιστα συκοφαντεῖν ἐπιχειροῦσιν οἱ λέγειν μὲν δεινοί, ἔχοντες δὲ μηδέν, τοὺς ἀδυνάτους μὲν εἰπεῖν, ἱκανοὺς δὲ χρήματα τελεῖν. Νικίας τοίνυν Εὐθύνου πλείω μὲν ἔχει, ἧττον δὲ δύναται λέγειν· ὥστε οὐκ ἔστι διʼ ὅτι ἂν ἐπήρθη ἀδίκως ἐπʼ Εὐθύνουν ἐλθεῖν. </p>
          </div>
-         <div subtype="section" type="textpart" n="6">
+         <div n="6" type="section">
             <p>ἀλλὰ μὴν καὶ ἐξ αὐτοῦ ἄν τις τοῦ πράγματος γνοίη, ὅτι πολὺ μᾶλλον εἰκὸς ἦν Εὐθύνουν λαβόντα ἐξαρνεῖσθαι ἢ Νικίαν μὴ δόντα αἰτιᾶσθαι. δῆλον γὰρ ὅτι πάντες κέρδους ἕνεκʼ ἀδικοῦσιν. οἱ μὲν οὖν ἀποστεροῦντες ὧνπερ ἕνεκʼ ἀδικοῦσιν ἔχουσιν, οἱ δʼ ἐγκαλοῦντες οὐδʼ εἰ λήψεσθαι μέλλουσιν ἴσασιν. </p>
          </div>
-         <div subtype="section" type="textpart" n="7">
+         <div n="7" type="section">
             <p>πρὸς δὲ τούτοις, ἀκαταστάτως ἐχόντων τῶν ἐν τῇ πόλει καὶ δικῶν οὐκ οὐσῶν τῷ μὲν οὐδὲν ἦν πλέον ἐγκαλοῦντι, τῷ δὲ οὐδὲν ἦν δέος ἀποστεροῦντι. ὥστε τὸν μὲν οὐδὲν ἦν θαυμαστόν, ὅτε καὶ οἱ μετὰ μαρτύρων δανεισάμενοι ἐξηρνοῦντο, τότε ἃ μόνος παρὰ μόνου ἔλαβεν ἀποστερῆσαι· τὸν δʼ οὐκ εἰκός, ὅτε οὐδʼ οἷς δικαίως ὠφείλετο οἷόν τʼ ἦν πράττεσθαι, τότε ἀδίκως ἐγκαλοῦντα οἴεσθαί τι λήψεσθαι. </p>
          </div>
-         <div subtype="section" type="textpart" n="8">
+         <div n="8" type="section">
             <p>ἔτι δʼ εἰ καὶ μηδὲν αὐτὸν ἐκώλυεν, ἀλλὰ καὶ ἐξῆν καὶ ἐβούλετο συκοφαντεῖν, ὡς οὐκ ἂν ἐπʼ Εὐθύνουν ἦλθε ῥᾴδιον γνῶναι. οἱ γὰρ τοιαῦτα πράττειν ἐπιθυμοῦντες οὐκ ἀπὸ τῶν φίλων ἄρχονται ἀλλὰ μετὰ τούτων ἐπὶ τοὺς ἄλλους ἔρχονται, καὶ τούτοις ἐγκαλοῦσιν, οὓς ἂν μήτʼ αἰσχύνωνται μήτε δεδίωσι, καὶ οὓς ἂν ὁρῶσι πλουσίους μέν, ἐρήμους δὲ καὶ ἀδυνάτους πράττειν. </p>
          </div>
-         <div subtype="section" type="textpart" n="9">
+         <div n="9" type="section">
             <p>εὐθύνῳ τοίνυν τἀναντία τούτων ὑπάρχει· ἀνεψιὸς γὰρ ὢν Νικίου τυγχάνει, λέγειν δὲ καὶ πράττειν μᾶλλον δύναται τούτου, ἔτι δὲ χρήματα μὲν ὀλίγα, φίλους δὲ πολλοὺς κέκτηται. ὥστʼ οὐκ ἔστιν ἐφʼ ὅντινα ἂν ἧττον ἢ ἐπὶ τοῦτον ἦλθεν· ἐπεὶ ἔμοιγε δοκεῖ, εἰδότι τὴν τούτων οἰκειότητα, οὐδʼ ἂν Εὐθύνους Νικίαν ἀδικῆσαι, εἰ ἐξῆν ἄλλον τινὰ τοσαῦτα χρήματα ἀποστερῆσαι. </p>
          </div>
-         <div subtype="section" type="textpart" n="10">
-            <p>νῦν δʼ ἀρχαιότερον<note resp="editor" xml:lang="eng"> <foreign xml:lang="grc">ἀρχαιότερον</foreign> MSS.: <foreign xml:lang="grc">ἦν</foreign> omitted in all but <foreign xml:lang="grc">Λ</foreign> and Lang’s cod. Generally considered corrupt: <foreign xml:lang="grc">ἀπ’ ἀρχῆς ἕτερον</foreign> Strange: <foreign xml:lang="grc">ἄρ’ ἦν ἕτερον</foreign> Sauppe: <foreign xml:lang="grc">ἄρα διάφορον ἦν</foreign> or <foreign xml:lang="grc">ἄρα διέφερεν</foreign> Blass: <foreign xml:lang="grc">δ’ ἄρα τυχαιότερον</foreign> suggested by Capps: <foreign xml:lang="grc">ἀναγκαιότερον,</foreign> i.e., “rather inevitable,” proposed by Post.</note> ἦν αὐτοῖς τὸ πρᾶγμα. ἐγκαλεῖν μὲν γὰρ ἔξεστιν ἐξ ἁπάντων ἐκλεξάμενον, ἀποστερεῖν δʼ οὐχ οἷόν ἄλλον ἢ τὸν παρακαταθέμενον. ὥστε Νικίας μὲν συκοφαντεῖν ἐπιθυμῶν οὐκ ἂν ἐπὶ τοῦτον ἦλθεν, Εὐθύνους δʼ ἀποστερεῖν ἐπιχειρῶν οὐκ ἄλλον εἶχεν. </p>
+         <div n="10" type="section">
+            <p>νῦν δʼ ἀρχαιότερον<note resp="editor" xml:lang="eng">
+                  <foreign xml:lang="grc">ἀρχαιότερον</foreign> MSS.: <foreign xml:lang="grc">ἦν</foreign> omitted in all but <foreign xml:lang="grc">Λ</foreign> and Lang’s cod. Generally considered corrupt: <foreign xml:lang="grc">ἀπ’ ἀρχῆς ἕτερον</foreign> Strange: <foreign xml:lang="grc">ἄρ’ ἦν ἕτερον</foreign> Sauppe: <foreign xml:lang="grc">ἄρα διάφορον ἦν</foreign> or <foreign xml:lang="grc">ἄρα διέφερεν</foreign> Blass: <foreign xml:lang="grc">δ’ ἄρα τυχαιότερον</foreign> suggested by Capps: <foreign xml:lang="grc">ἀναγκαιότερον,</foreign> i.e., “rather inevitable,” proposed by Post.</note> ἦν αὐτοῖς τὸ πρᾶγμα. ἐγκαλεῖν μὲν γὰρ ἔξεστιν ἐξ ἁπάντων ἐκλεξάμενον, ἀποστερεῖν δʼ οὐχ οἷόν ἄλλον ἢ τὸν παρακαταθέμενον. ὥστε Νικίας μὲν συκοφαντεῖν ἐπιθυμῶν οὐκ ἂν ἐπὶ τοῦτον ἦλθεν, Εὐθύνους δʼ ἀποστερεῖν ἐπιχειρῶν οὐκ ἄλλον εἶχεν. </p>
          </div>
-         <div subtype="section" type="textpart" n="11">
+         <div n="11" type="section">
             <p>ὃ δὲ μέγιστον τεκμήριον καὶ πρὸς ἅπαντα ἱκανόν· ὅτε γὰρ τὸ ἔγκλημα ἐγένετο, ὀλιγαρχία καθειστήκει, ἐν ᾗ οὕτως ἑκάτερος αὐτῶν διέκειτο, ὥστε Νικίας μέν, εἰ καὶ τὸν ἄλλον χρόνον εἴθιστο συκοφαντεῖν, τότʼ ἂν ἐπαύσατο, Εὐθύνους δέ, καὶ εἰ μηδὲ πώποτε διενοήθη ἀδικεῖν, </p>
          </div>
-         <div subtype="section" type="textpart" n="12">
+         <div n="12" type="section">
             <p>τότʼ ἂν ἐπήρθη. ὁ μὲν γὰρ διὰ τὰ ἁμαρτήματα ἐτιμᾶτο, ὁ δὲ διὰ τὰ χρήματα ἐπεβουλεύετο. πάντες γὰρ ἐπίστασθε, ὅτι ἐν ἐκείνῳ τῷ χρόνῳ δεινότερον ἦν πλουτεῖν ἢ ἀδικεῖν· οἱ μὲν γὰρ τὰ ἀλλότρια ἐλάμβανον, οἱ δὲ τὰ σφέτερʼ αὐτῶν ἀπώλλυον. ἐφʼ οἷς γὰρ ἦν ἡ πόλις, οὐ τοὺς ἁμαρτάνοντας ἐτιμωροῦντο, ἀλλὰ τοὺς ἔχοντας ἀφῃροῦντο, καὶ ἡγοῦντο τοὺς μὲν ἀδικοῦντας πιστούς, τοὺς δὲ πλουτοῦντας ἐχθρούς. </p>
          </div>
-         <div subtype="section" type="textpart" n="13">
+         <div n="13" type="section">
             <p>ὥστε μὴ περὶ τοῦτʼ εἶναι Νικίᾳ ὅπως συκοφαντῶν τἀλλότρια λήψοιτο, ἀλλʼ ὅπως μὴ οὐδὲν ἀδικῶν κακόν τι πείσοιτο. τῷ μὲν γὰρ ὅσον Εὐθύνους δυναμένῳ ἐξῆν ἅ τʼ ἔλαβεν ἀποστερεῖν καὶ οἷς μὴ συνέβαλεν ἐγκαλεῖν· οἱ δʼ ὥσπερ Νικίας διακείμενοι ἠναγκάζοντο τοῖς τʼ ὀφείλουσι τὰ χρέα ἀφιέναι καὶ τοῖς συκοφαντοῦσι τὰ αὑτῶν διδόναι. </p>
          </div>
-         <div subtype="section" type="textpart" n="14">
+         <div n="14" type="section">
             <p>καὶ ταῦθʼ ὅτι ἀληθῆ λέγω αὐτὸς ἂν ὑμῖν Εὐθύνους μαρτυρήσειεν· ἐπίσταται γὰρ ὅτι Τιμόδημος τουτονὶ τριάκοντα μνᾶς ἐπράξατο, οὐ χρέος ἐγκαλῶν ἀλλʼ ἀπάξειν ἀπειλῶν. καίτοι πῶς εἰκὸς Νικίαν εἰς τοῦτʼ ἀνοίας ἐλθεῖν, ὥστʼ αὐτὸν περὶ τοῦ σώματος κινδυνεύοντα ἑτέρους συκοφαντεῖν, </p>
          </div>
-         <div subtype="section" type="textpart" n="15">
+         <div n="15" type="section">
             <p>καὶ μὴ δυνάμενον τὰ αὑτοῦ σῴζειν τοῖς ἀλλοτρίοις ἐπιβουλεύειν, καὶ πρὸς τοῖς ὑπάρχουσιν ἐχθροῖς ἑτέρους διαφόρους ποιεῖσθαι, καὶ τούτοις ἀδίκως ἐγκαλεῖν παρʼ ὧν οὐδʼ ὁμολογούντων ἀποστερεῖν οἷός τʼ ἂν ἦν δίκην λαβεῖν, καὶ τότε πλέον ἔχειν ζητεῖν, ὅτε οὐδὲ ἴσον ἐξῆν αὐτῷ, καὶ ὅτε ἃ οὐκ ἔλαβεν ἀποτίνειν ἠναγκάζετο, τότε καὶ ἃ μὴ συνέβαλεν ἐλπίζειν πράξασθαι; </p>
          </div>
-         <div subtype="section" type="textpart" n="16">
+         <div n="16" type="section">
             <p>περὶ μὲν οὖν τούτων ἱκανὰ τὰ εἰρημένα. ἴσως δʼ Εὐθύνους ἐρεῖ, ἃ καὶ πρότερον ἤδη, ὅτι οὐκ ἄν ποτʼ ἀδικεῖν ἐπιχειρῶν τὰ μὲν δύο μέρη τῆς παρακαταθήκης ἀπέδωκε, τὸ δὲ τρίτον μέρος ἀπεστέρησεν, ἀλλʼ εἴτε ἀδικεῖν ἐπεθύμει εἴτε δίκαιος ἐβούλετο εἶναι, περὶ ἁπάντων ἂν τὴν αὐτὴν γνώμην ἔσχεν. </p>
          </div>
-         <div subtype="section" type="textpart" n="17">
+         <div n="17" type="section">
             <p>ἐγὼ δʼ ἡγοῦμαι πάντας ὑμᾶς εἰδέναι ὅτι πάντες ἄνθρωποι, ὅταν περ ἀδικεῖν ἐπιχειρῶσιν, ἅμα καὶ τὴν ἀπολογίαν σκοποῦνται· ὥστʼ οὐκ ἄξιον θαυμάζειν, εἰ τούτων ἕνεκα τῶν λόγων οὕτως Εὐθύνους ἠδίκησεν. ἔτι δʼ ἔχοιμʼ ἂν ἐπιδεῖξαι καὶ ἑτέρους, οἳ χρήματα λαβόντες τὰ μὲν πλεῖστʼ ἀπέδοσαν, ὀλίγα δʼ ἀπεστέρησαν, καὶ ἐν μικροῖς μὲν συμβολαίοις ἀδικήσαντας, ἐν μεγάλοις δὲ δικαίους γενομένους· </p>
          </div>
-         <div subtype="section" type="textpart" n="18">
+         <div n="18" type="section">
             <p> ὥστʼ οὐ μόνος οὐδὲ πρῶτος Εὐθύνους τοιαῦτα πεποίηκεν. ἐνθυμεῖσθαι δὲ χρή, εἰ ἀποδέξεσθε τῶν τὰ τοιαῦτα λεγόντων, ὅτι νόμον θήσετε, πῶς χρὴ ἀδικεῖν· ὥστε τοῦ λοιποῦ χρόνου τὰ μὲν ἀποδώσουσι, τὰ δʼ ὑπολείψονται. λυσιτελήσει γὰρ αὐτοῖς, εἰ μέλλουσιν, οἷς ἂν ἀποδῶσι τεκμηρίοις χρώμενοι, ὧν ἂν ἀποστερῶσι μὴ δώσειν δίκην. </p>
          </div>
-         <div subtype="section" type="textpart" n="19">
+         <div n="19" type="section">
             <p>σκέψασθε δὲ καί, ὡς ὑπὲρ Νικίου ῥᾴδιον εἰπεῖν ὅμοια τῇ Εὐθύνου ἀπολογίᾳ. ὅτε γὰρ ἀπελάμβανε τὰ δύο τάλαντα, οὐδεὶς αὐτῷ παρεγένετο· ὥστʼ εἴπερ καὶ ἐβούλετο καὶ ἐδόκει αὐτῷ συκοφαντεῖν, δῆλον ὅτι οὐδʼ ἂν ταῦτα ὡμολόγει κεκομίσθαι, ἀλλὰ περὶ ἁπάντων ἂν τοὺς αὐτοὺς λόγους ἐποιεῖτο, καὶ περὶ πλειόνων τε χρημάτων Εὐθύνους ἂν ἐκινδύνευεν, καὶ ἅμα οὐκ ἂν εἶχεν οἷσπερ νυνὶ τεκμηρίοις χρῆσθαι. </p>
          </div>
-         <div subtype="section" type="textpart" n="20">
+         <div n="20" type="section">
             <p>καὶ μὲν δὴ καὶ Νικίαν μὲν οὐδʼ ἂν εἷς δύναιτο ἀποδεῖξαι, διʼ ἥντινά διʼ ἥντινά ποτε αἰτίαν ἐνεκάλεσεν, Εὐθύνουν δὲ ῥᾴδιον γνῶναι, ὧν ἕνεκα τοῦτον τὸν τρόπον ἠδίκησεν. ὅτε γὰρ Νικίας ἦν ἐν ταῖς συμφοραῖς, πάντες οἱ συγγενεῖς καὶ οἱ ἐπιτήδειοι ἀκηκοότες ἦσαν ὅτι τὸ ἀργύριον, ὃ ἦν αὐτῷ, τούτῳ παρακατέθετο. </p>
          </div>
-         <div subtype="section" type="textpart" n="21">
+         <div n="21" type="section">
             <p>ἐγίγνωσκεν οὖν Εὐθύνους, ὅτι μὲν ἔκειτο τὰ χρήματα παρʼ αὐτῷ, πολλοὺς ᾐσθημένους, ὁπόσα δὲ οὐδένα πεπυσμένον. ὥσθʼ ἡγεῖτο ἀπὸ μὲν τοῦ ἀριθμοῦ ἀφαιρῶν οὐ γνωσθήσεσθαι, πάντα δʼ ἀποστερῶν καταφανὴς γενήσεσθαι. ἐβούλετο οὖν ἱκανὰ λαβὼν ἀπολογίαν ὑπολείπεσθαι μᾶλλον ἢ μηδὲν ἀποδοὺς μηδʼ ἀρνηθῆναι δύνασθαι. </p>
-        </div>
          </div>
       </body>
-  </text>
+   </text>
 </TEI>

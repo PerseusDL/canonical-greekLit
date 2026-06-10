@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader xml:lang="eng">
+   <teiHeader xml:lang="eng">
       <fileDesc>
          <titleStmt>
             <title xml:lang="lat">Ars Poetica</title>
@@ -9,21 +9,20 @@
             <editor role="translator">ʿAbd al-Raḥmān Badawī</editor>
             <funder>Andrew W. Mellon Foundation</funder>
          </titleStmt>
-        
-        <publicationStmt>
-          <publisher>Trustees of Tufts University</publisher>
-          <pubPlace>Medford, MA</pubPlace>
-          <authority>Perseus Digital Library Project</authority>
-          <publisher>Harvard University</publisher>
-          <pubPlace>Cambridge, MA</pubPlace>
-          <authority>Digital Corpus for Graeco-Arabic Studies</authority>
-          <date type="release" when="2015" cert="low">Digital Corpus for Graeco-Arabic Studies</date>
-          <idno type="filename">tlg0086.tlg034.digicorpus-ara1.xml</idno>
-          <availability>
-            <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
-          </availability>
-        </publicationStmt>
-        
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Digital Library Project</authority>
+            <publisher>Harvard University</publisher>
+            <pubPlace>Cambridge, MA</pubPlace>
+            <authority>Digital Corpus for Graeco-Arabic Studies</authority>
+            <date type="release" when="2015" cert="low">Digital Corpus for Graeco-Arabic Studies</date>
+            <idno type="filename">tlg0086.tlg034.digicorpus-ara1.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0086.tlg034.digicorpus-ara1</idno>
+         </publicationStmt>
          <sourceDesc>
             <biblStruct>
                <monogr>
@@ -41,21 +40,20 @@
             </biblStruct>
          </sourceDesc>
       </fileDesc>
-    
       <encodingDesc>
-        
-        <refsDecl n="CTS">
+         <refsDecl n="CTS">
           <!--<cRefPattern n="section" matchPattern="(\w+).(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])">
             <p>This pointer pattern extracts book and chapter and section.</p>
           </cRefPattern>  
           <cRefPattern n="subchapter" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
             <p>This pointer pattern extracts chapter and subchapter.</p>
           </cRefPattern>-->
-          <cRefPattern n="chapter" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-            <p>This pointer pattern extracts chapter.</p>
-          </cRefPattern>
-        </refsDecl>
-       
+            <cRefPattern n="chapter"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts chapter.</p>
+            </cRefPattern>
+         </refsDecl>
          <editorialDecl default="true">
             <correction status="high" default="true" method="silent">
                <p>Data Entry</p>
@@ -65,32 +63,37 @@
             <refState unit="text"/>
             <refState unit="chapter" n="chunk"/>
          </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="chapter" delim="." match="div[@type='chapter']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
       </encodingDesc>
       <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-chapter"/>
+         </textClass>
          <langUsage default="true">
             <language ident="ara">Arabic</language>
          </langUsage>
       </profileDesc>
-    <revisionDesc>
-      <change when="2024-09-18" who="Lisa Cerrato">Minor revisions to header.</change></revisionDesc>
-  </teiHeader>
-
-  <text>
-    
-      <body>
-        <div type="translation" xml:lang="ara" n="urn:cts:greekLit:tlg0086.tlg034.digicorpus-ara1">
+      <revisionDesc>
+         <change when="2024-09-18" who="Lisa Cerrato">Minor revisions to header.</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body xml:base="urn:cts:greekLit:tlg0086.tlg034.digicorpus-ara1">
          <pb n="85"/>
-         <div type="textpart" subtype="chapter" n="1">
+         <div n="1" type="chapter">
             <p> بسم الله الرحمن الرحيم </p>
             <milestone unit="head"/>
             <p>كتاب أرسطوطالس فى الشعراء نقل أبى بشر متى بن يونس القنائى من السريانى إلى العربى</p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> قال أرسطوطالس: </p>
-
+            <p> قال أرسطوطالس: </p>
             <milestone unit="head"/>
             <p> 〈موضوع صناعة الشعر؛ الشعر والمحاكاة ووسائل المحاكاة〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> إنا متكلمون الآن فى صناعة الشعراء وأنواعها، ومخبرون أى قوة لكل واحد منها، وعلى أى سبيل
+            <p> إنا متكلمون الآن فى صناعة الشعراء وأنواعها، ومخبرون أى قوة لكل واحد منها، وعلى أى سبيل
           ينبغى أن تتقوم الأسمار والأشعار، إن كانت الفواسيس مزمعة بأن يجرى أمرها مجرى الجودة؛ وأيضاً
           من كم جزء هى، وأيما هى أجزاؤها؛ وكذلك نتكلم من أجل كم التى هى موجودة التى هى لها بعينها.
           و[نتكلم و]نحن متكلمون فى هذا كله من حيث نبتدئ أولا من الأشياء الأوائل. </p>
@@ -124,12 +127,11 @@
           أيضاً والهجاء. وتختلف بأن بعضها مع الكل معاً، وبعضها بالجزء. </p>
             <p> فهذه أقول إنها أصناف الصنائع التى بها يعملون الحكاية والتشبيه. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="2">
+         <div n="2" type="chapter">
             <milestone unit="head"/>
             <p> 〈اختلاف ضروب الشعر باختلاف موضوعاته〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> ولما كان الذين يحاكون ويشبهون قد يأتون بذلك بأن يعملوا العمل الارادى، فقد يجب ضرورةً أن
+            <p> ولما كان الذين يحاكون ويشبهون قد يأتون بذلك بأن يعملوا العمل الارادى، فقد يجب ضرورةً أن
           يكون هؤلاء إما أفاضل، وإما أراذل (وذلك أن العادات والأخلاق مثلا هى تابعة لهذين فقط) وذلك
           أن عاداتهم وأخلاقهم بأجمعهم إنما الخلاف بينها بالرذيلة والفضيلة ونأتى بالحكاية والتشبيه
           إما الأفاضل وإ[لا] ما [و] الأر〈ا〉ذل، وإما من كانت 〈له〉 حال فى ذلك 〈كحالنا〉 كما يشبه
@@ -146,14 +148,12 @@
             <p> وبهذا الفصل بعينه الخلاف الذى للمديح عند الهجاء: وهو أنه أما تلك فبالأراذل، وأما هذه
           فكانت تشبه بالأخيار وإياهم كانت تحاكى. </p>
          </div>
-
          <pb n="90"/>
-
-         <div type="textpart" subtype="chapter" n="3">
+         <div n="3" type="chapter">
             <milestone unit="head"/>
             <p> 〈اختلاف ضروب الشعر باختلاف طريقة المحاكاة〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وأيضاً الثالث لهذه الفصول ومنها هو أن نشبه بكل واحد واحد من هذه. وذلك أن فى هذه أيضاً
+            <p> وأيضاً الثالث لهذه الفصول ومنها هو أن نشبه بكل واحد واحد من هذه. وذلك أن فى هذه أيضاً
           التشبيهات والحكايات هى هى بأعيانها: أما أحياناً فمن حيث يوعدون التشبيه إما بشىء آخر يكون،
           كما كان يفعل أوميروس، أو إن كان مثله الذى لا خلاف فيه أيضاً. </p>
             <p> وجميع الذين يعملون ويفعلون الذين يشبهون ويحاكون يأتون بتشبيههم وحكايتهم كما قلنا منذ
@@ -169,12 +169,11 @@
           المهجوين من قبل أنهم كانوا ممتهنين مستخفـ〈ـاً〉 بهم من أهل القرى. </p>
             <p> أما أصناف التشبيه والحكاية وفصولها وكميتها وأيما هى، فهى هذه التى قيلت. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="4">
+         <div n="4" type="chapter">
             <milestone unit="head"/>
             <p> 〈نشأة الشعر وأجناسه〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> ويشبه أن تكون العلل المولدة لصناعة الشعر التى هى بالطبع: علتان. والتشبيه والمحاكاة مما
+            <p> ويشبه أن تكون العلل المولدة لصناعة الشعر التى هى بالطبع: علتان. والتشبيه والمحاكاة مما
           ينشأ مع الناس منذ أول الأمر وهم أطفال. وهذا مما يخالف به الناس الحيوانات الأخر، من قبل أن
           الانسان يشبه ويستعمل المحاكاة أكثر ويتتلمذ ويجعل التلمذات بالتشبيه والمحاكاة للأشياء
           المتقدمة والأوائل، وذلك أن جميعهم يسر ويفرح بالتشبيه والمحاكاة. </p>
@@ -213,9 +212,7 @@
           المدائن إلى الآن) أحدث النمو والتربية قليلا قليلا من حيث قد كانت قديمة، كما أنه ظهرت أيضاً
           هذه التى هى الآن وعندما غيرت من تغايير كثيرة وتناهبت عند ذلك صناعة المديح من قبل أنه قد
           كانت الطبيعة التى تخصها. وأما تلك فلأكثر المنافقين والمرائين فمن واحد للاثنين. </p>
-
             <pb n="94"/>
-
             <p> و〈إسخيلوس كان〉 أول من أدخل هذه المذاهب التى للصفوف وللدستبند. وهو أيضاً أول من أعد مذاهب
           الجهادات. وأيضاً أول من أظهر هذه الأصناف من اللهو واللعب كان سوفوقلس. وأيضاً هو أول من
           أظهر من النشائد الصغار عظم الكلام الضجيج والرهج فى الكلام والمقولات الداخلة فى باب
@@ -228,14 +225,12 @@
           وعندما ينحرف عن التأليف الجدلى؛ وأيضاً أكثر الكلام والمخاطبة الرافع. </p>
             <p> وهذه الوحيدات الأخر إنما تقال نحو التخييل والحسن فى الاقتصاص لكل واحدة واحدة. </p>
          </div>
-
          <pb n="95"/>
-
-         <div type="textpart" subtype="chapter" n="5">
+         <div n="5" type="chapter">
             <milestone unit="head"/>
             <p> 〈الكوميديا والهزلى ومراحل الكوميديا الأولى؛ المقارنة بين المأساة والملحمة〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> ومذهب الهجاء هو كما قلنا: [هى] تشبيه ومحاكاة الذين دنوا وتزيفوا وليس فى كل شر ورذيلة،
+            <p> ومذهب الهجاء هو كما قلنا: [هى] تشبيه ومحاكاة الذين دنوا وتزيفوا وليس فى كل شر ورذيلة،
           لكن إنما هى شىء مستهزأ فى باب ما هو قبيح، وهى جزء مستهزئة. وذلك أن الاستهزاء هو زلل ما
           وبشاعة غير ذات صعوبة ولا فاسدة، مثال ذلك وجه المستهزئ هو من ساعته بشع قبيح، وهو منكر بلا
           ضغينة. </p>
@@ -257,12 +252,11 @@
           المديح تلك التى هى حريصة، وتلك التى هى مزيفة، فانه يكون عارفاً بجميع هذه الصغار: أيما منها
           يصلح لعمل الأفى فى صناعة المديح، وأما التى تصلح لهذه فليس جميعها يصلح لعمل الأفى. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="6">
+         <div n="6" type="chapter">
             <milestone unit="head"/>
             <p> 〈تعريف المأساة وعناصرها〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وأما التشبيه والمحاكاة الكائنة بالأوزان السداسية، فنحن قائلون 〈فيها〉 بالأخرة، وكذلك فى
+            <p> وأما التشبيه والمحاكاة الكائنة بالأوزان السداسية، فنحن قائلون 〈فيها〉 بالأخرة، وكذلك فى
           صناعة الهجاء بعقب لذلك 〈ولنتكلم عن المأساة مبتدئين〉 مما قيل الحد الدال على الجهة. </p>
             <p> فصناعة المديح هى تشبيه ومحاكاة للعمل الإرادى الحريص والكامل التى لها عظم ومدار فى القول
           النافع ما خلا كل واحد واحد من الأنواع التى هى فاعلة فى الأجزاء لا بالمواعيد. وتعد ل
@@ -317,21 +311,18 @@
           الجهاد وهى من المنافقين. وأيضاً بما فى عمل صناعة الأوثان هى أولى بالتحقيق عند البصر من
           صناعة الشعراء. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="7">
+         <div n="7" type="chapter">
             <milestone unit="head"/>
             <p> 〈مدى الفعل〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> فاذ قد 〈حددت〉 هذه الأشياء، فلنتكلم بعدها مثل أى شىء هو قوام الأمور، من قبل أن هذا مقدم
+            <p> فاذ قد 〈حددت〉 هذه الأشياء، فلنتكلم بعدها مثل أى شىء هو قوام الأمور، من قبل أن هذا مقدم
           وهو أعظم من صناعة المديح. </p>
             <p> وقد وصفنا صناعة المديح أنها استتمام وغاية جميع العمل والتشبيه والمحاكاة، وأن لها عظماً
           ما وهى كلها وأن ليس لها شىء من العظم. والكل هو [إ] ما له ابتداء ووسط وآخر؛ والمبدأ هو ما
           كان إما هو فليس من الضرورة مع الآخر. وأما مع الآخر فمن شأنه أن يكون ليكون مع هذا. وأما
           الآخر فبالعكس، أعنى أما هو فمن شأنه أن يكون مع آخر من الاضطرار أو على أكثر الأمر؛ وأما
           بعده فليس شىء آخر. وأما الوسط فهو مع آخر، ويتبعها آخر أيضاً. </p>
-
             <pb n="101"/>
-
             <p> ومن الآن الذين هم يقومون هم إيجاد من حيث يبتدئ به توجد، ولا أين يجعل آخر الأمر يجد، بل
           إنهم يستعملون الصور والخلق التى قيلت. </p>
             <p> وأيضاً على الحيوان الخير وكل أمر لا يتركب شىء. وليس إنما ينبغى أن تكون هذه فقط منتظمة
@@ -348,14 +339,12 @@
           تدعو الضرورة عندما تكون فى هذه التى تكون على الاضطرار واحداً فى إثر الآخر تنوب عند النجاح
           الكائن بعد رداءة البخت أو تغير رداءة البخت إلى الصلاح يكون للعظم حد كاف. </p>
          </div>
-
          <pb n="102"/>
-
-         <div type="textpart" subtype="chapter" n="8">
+         <div n="8" type="chapter">
             <milestone unit="head"/>
             <p> 〈وحدة الفعل؛ مثل هوميروس〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> والخرافة وحكاية الحديث فليست كما ظن قوم أنها إن كانت إلى الواحد 〈فهى واحدة〉 وذلك أن
+            <p> والخرافة وحكاية الحديث فليست كما ظن قوم أنها إن كانت إلى الواحد 〈فهى واحدة〉 وذلك أن
           أشياء كثيرة بلا نهاية تعرض لواحد، وهذه للبعض والأفراد، وليس شىء واحد، و〈كذلك قد〉 تكون
           أعمال كثيرة هى لواحد، وهذه لا يكون ولا واحد منها عمل واحد. ولذلك قد يشبه أن يكون أن جميع
           الشعراء 〈الذين ألفوا قصائد مثل〉 الايرقليدا والمعروفين بـ〈ـانشاء أمثال قصائد〉 ثيسيدا والذين
@@ -372,12 +361,11 @@
           هكذا، حتى إذا نقل الانسان جزءاً ما أو رفع، يفسد ويتشوش ويضطرب كله بأسره؛ وذلك أن ما هو
           قريب إن لم يقرب لم يفعل شيئاً ويبلغ أن يكون كله كولا شىء هو جزء للكل نفسه. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="9">
+         <div n="9" type="chapter">
             <milestone unit="head"/>
             <p> 〈الشعر أكبر فلسفة من التاريخ وتطبيق ذلك على الملهاة والمأساة〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وظاهر مما قيل أن التى كانت مثلاً ليست من فعل الشاعر، لكن ذلك إنما فى مثل أى شىء يكون إما
+            <p> وظاهر مما قيل أن التى كانت مثلاً ليست من فعل الشاعر، لكن ذلك إنما فى مثل أى شىء يكون إما
           ما هو الممكن من ذلك على الحقيقة، وإما التى تدعو الضرورة إليه: وذلك أن الذى يثبت الأحاديث
           والقصص والشاعر أيضاً، وإن كانا يتكلمان هكذا — بالوزن وبغير وزن هما مختلفان (وذلك أن
           لايرودوطس أن يكون بالوزن، وليس لما يدون ويكتب أن يكون مع الوزن أو بغير وزن بأقل) لكن هذا
@@ -417,24 +405,22 @@
           أنها ليس تكون باطلا ولا جزافاً حتى يلزم ضرورةً أن تكون هذه التى هى على هذا النحو خرافات
           جيدة. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="10">
+         <div n="10" type="chapter">
             <milestone unit="head"/>
             <p> 〈الفعل البسيط والفعل المركب〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وقد توجد مركبة. وذلك أن الأعمال هى تشبيه ومحاكاة للأعمال بتوسط الخرافات؛ وأعنى بالعمل
+            <p> وقد توجد مركبة. وذلك أن الأعمال هى تشبيه ومحاكاة للأعمال بتوسط الخرافات؛ وأعنى بالعمل
           البسيط لذاك الذى عندما تكون هى كما حدث هى واحدة متصلة يكون الا〈نتقال〉 بلا التزوير أو
           الاستدلال؛ والمركبات تعد تلك التى يكون الانتقال فيها مع الاستدلال أو الإدارة أو مع كليهما. </p>
             <p> ونقول إن هذه تكون من قوام الخرافة نفسها، حتى إنها من الأشياء التى تقدم كونها: وذلك إما
           من الضرورة، وإما على طريق الحقيقة؛ وبين أن تكون هذه من أجل هذه، وبين أن تكون بعد هذه — فرق
           كبير. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="11">
+         <div n="11" type="chapter">
             <milestone unit="head"/>
             <p> 〈الإدارة والاستدلال〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> والإدارة هى التغير إلى مضادة الأعمال التى يعملون كما قلنا؛ وعلى طريق الحق وبطريق
+            <p> والإدارة هى التغير إلى مضادة الأعمال التى يعملون كما قلنا؛ وعلى طريق الحق وبطريق
           الضرورة، مثل ما أنه لما جاء إلى أديفوس على أنه يفرح بأديفوس وينقذه من خوف وفزع أمه، فانه
           أتى بالشعر على <pb n="107"/> ضد ما عمل، وهو أنه غير ما كان يجابه فى محنه من قبل أنه كان
           مزمعاً أن يموت، فان 〈د〉اناوس لما جاء خلفه ليقتله أما هذا — على ما ذكر فيما كتب به من ذلك —
@@ -451,19 +437,16 @@
           عندما يعرف ذاك الأمر هو فقط؛ وأما كان يجب أن يكون كلاهما يستدلان ويتعرفان، مثلما استدلت
           ووقفت المرأة المسماة أفاغانيا على أورسطس من إنفاذ رسالته، أما ذاك فكان يحتاج إلى الاستدلال
           وتعرف آخر، أعنى فى أمر إفاغانيا. </p>
-
             <pb n="108"/>
-
             <p> فهاتان اللتان خبرنا بهما هما جزءا الخرافة وحكاية الحديث، أعنى الاستدلال والادارة والجزء
           〈الثالث هو〉 انفعال الألم والتأثير. والألم والتأثير هو عمل مفسد أو موجع بمنزلة الذين
           〈تصيبهم المصا〉ئب من الصوت والعذاب والشقاء وأشباه هذه. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="12">
+         <div n="12" type="chapter">
             <milestone unit="head"/>
             <p> 〈أقسام المأساة بحسب الكمية〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وأما أجزاء صناعة المديح فينبغى أن يستعمل بعضها فكما يستعمل الأنواع؛ وأما كيف ذلك فقد
+            <p> وأما أجزاء صناعة المديح فينبغى أن يستعمل بعضها فكما يستعمل الأنواع؛ وأما كيف ذلك فقد
           خبرنا فيما تقدم؛ وأما بحسب الكمية فأى الأشياء تنقسم فنحن مخبرون الآن، وهذه الأجزاء هى:
           تقدمة الخطب، والمدخل، ومخرج الرقص الذى للصفوف، ولهذا نفسه هو مجاز وعبور، وأيضاً المقام؛
           وهذه كلها هى عامية للمديح، فالتى من المسكن وأصناف ومجاز الصفوف. </p>
@@ -475,12 +458,11 @@
           المقدار وأنه إلى كم جزء يجب أن ينقسم التلخيص — فهى هذه، وهى التى نظن فى بعضها ظناً، وبعضها
           التى نحترس بها عند تركيب الخرافات. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="13">
+         <div n="13" type="chapter">
             <milestone unit="head"/>
             <p> 〈تصاريف الدهر؛ البطل؛ المأساة المزدوجة الخاتمة〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> فأما من أى موضع يؤخذ عمل صناعة المديح فنحن مخبرون فيما بعد، ونضيف ذلك إلى ما تقدم فقيل. </p>
+            <p> فأما من أى موضع يؤخذ عمل صناعة المديح فنحن مخبرون فيما بعد، ونضيف ذلك إلى ما تقدم فقيل. </p>
             <p> ومن قبل أن تركيب المديح ينبغى أن يكون غير بسيط، بل مزوج، وأن يكون هذا من أ شياء مخوفة
           محزنة [حرقة مملوءة حزناً]، وأن يكون محاكى لهذه (إذ كان هذا هو خاصة المحاكاة لمثل هذه)، فهو
           ظاهر أولا أنه ليس يسهل ولا على الرجال الأخيار أن ترى دائماً فى التغير من الفلاح إلى لا
@@ -515,12 +497,11 @@
           عندما صارا أصدقاء فى آخر الأمر قد تبديا، ويقال فيهما فى القمسة: أمر الميتة لا واحد من
           رفيقه وقرينه. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="14">
+         <div n="14" type="chapter">
             <milestone unit="head"/>
             <p> 〈الخوف والإشفاق؛ تصادق الشخصيات؛ التزام عمود الشعر〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> فأما كون الذى للخوف والحزن فانما يحصل من البصر، وقد يوجد شىء ما من قوام الأمور ما هو منذ
+            <p> فأما كون الذى للخوف والحزن فانما يحصل من البصر، وقد يوجد شىء ما من قوام الأمور ما هو منذ
           قديم الدهر وهو لشاعر حاذق. وقد ينبغى أن تقوم الخرافة على هذا النحو من غير إبصار حتى يكون
           السامع للأمور يفزع وينتهى ويناله حزن عندما يسمع خرافة أوريفيدس من النوائب التى ينفعل بها
           الإنسان، وإن كان ذلك الشاعر إنما أصلح هذا بالبصر، وعلى أنه بلا صناعة وما هو محتاج إلى
@@ -546,9 +527,7 @@
           يفعلوا من حيث لا يعرفون، ثم يعرفون المحبة والصادقة خيراً فهو حال رديئة، وهذا كحال سوفقلس
           وأوديفس. فهذه هى خارجة عن القينة نفسها، وأما ما هو فى المديح فبمنزلة القاماون واسطودامنطس،
           أو حيث يقول على نحو الضربة لأودوسيس. </p>
-
             <pb n="114"/>
-
             <p> وأيضاً التى هى ثالثة نحو هذه؛ فهى أمر ذلك الذى كان مزمعاً أن يفعل شيئاً من هذه التى لا
           برء لها، فانه يدل قبل أن يفعل بسبب فقد الدربة والمعرفة ولأشياء خارجاً عن هذه تجرى على جهة
           أخرى. وذلك أنه قد يجب ضرورةً إما أن يفعل، وإما ألا يفعل. وإذا فعل فاما أن يفعل وهو عارف،
@@ -563,20 +542,17 @@
           المسماة ميروفا، فيما كانت مستعدة لقتل أحد بنيها، إلا أنها لم تقتله، لكن تعرفت فى الموضع
           المعروف «بايفيغانيا» 〈أنها〉 أخت لأخيها؛ وتعرف، فى الموضع المسمى «ايلى»، الابن أمه، وتعرفها
           عندما كان يريد إنشاداً ورواية. </p>
-
             <pb n="115"/>
-
             <p> فلهذا السبب عندما تفوهت وتكلم بها، أعنى بالمدائح، منذ قديم الدهر ليست عند أجناس كثيرة
           ويباحث عنها، لا من الصناعة، لكن من أى حال كانت مما وجدوا وأعدوها بالخرافات، فقد يضطرون أن
           ينقلوا هذه فى مثل هذه التأثيرات والآلام التى تعرض لها بحسب الخواص. </p>
             <p> وأما فى قوام الأمور، وكيف ينبغى أن يكون الذين يركبون الخرافات، فقد قيل قولا كافياً. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="15">
+         <div n="15" type="chapter">
             <milestone unit="head"/>
             <p> 〈الأخلاق؛ الاحتمال والضرورة؛ «الإله بالآلة»〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> فأما فى العادات فلنتكلم الآن فنقول: إن العادات التى منها نتعرف الحق ونستدل عليه — أربع:
+            <p> فأما فى العادات فلنتكلم الآن فنقول: إن العادات التى منها نتعرف الحق ونستدل عليه — أربع:
           الأول منها هو أن تكون العادات جياداً، ويكون كل واحد منها — إن كان قول الأمر الذى هو أعرف
           قد يؤثر بالفعل الإرادى فى الاعتقاد شيئاً — أن تكون حال كل واحدة من العادات هذه الحال.
           والخير والجيد إن كان موجوداً فهو موجود خيراً فى كل جنس. وذاك أنه قد توجد مرأة جيدة وفعل
@@ -610,12 +586,11 @@
           أن كثيراً ما قد يكون فى هذه زلل وخطأ. وقد تكلم فيها كلاماً كافياً فى الأقاويل التى أتى
           بها. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="16">
+         <div n="16" type="chapter">
             <milestone unit="head"/>
             <p> 〈فى الاستدلالات〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وقد تكلم أيضاً فى الاستدلال. وأما أنواع الاستدلالات فمنها أولاً ذلك الذى هو بلا صناعة،
+            <p> وقد تكلم أيضاً فى الاستدلال. وأما أنواع الاستدلالات فمنها أولاً ذلك الذى هو بلا صناعة،
           وهو الذى يستعمله كثيرون بسبب الشك، 〈وهو الذى يكون〉 بتوسط العلامات. 〈أ〉ما كان منها متهيئة،
           فبمنزلة «الحربة التى كان يتمسك بها المعروفون بغاغانس» أو الكواكب بمنزلة التى <pb n="118"/>
           «بثواسطس» الشبيهة بالسرطان ومنها ما هى مقتناة بمنزلة التى تمسك باليد وتوضع على الجسم
@@ -631,9 +606,7 @@
             <p> والثالث هو أن يكون ينال الانسان أن يحس عندما يرى، كالحال فيما كان بأهل ديقوغانس فى قبرس،
           فانه قال إنه لما رأى الكتابات بكى؛ وكذلك أمر أهل ألقينس من القول، فانه لما سمع العواد
           وتذكر، دمع؛ ومن هناك عرف بعضهم بعضا. </p>
-
             <pb n=" 119"/>
-
             <p> وأما الرابع فما يخطر بالفكر بمنزلة أنه أتى من هو شبيه بالمكفنين لانسان، ولم يأت أحد يشبه
           إلا أرسطس. فهذا إذاً هو الذى أتى. وأما السوفسطائى فعندما نظر فى الأمور نظراً كثيراً قبل
           إيباغانيا على الحقيقة ظن بأرسطس أنه هو نفسه فكر أن أخته ذبحت، وأنه عرض أنها إنما كانت تضحى
@@ -648,12 +621,11 @@
           كلام. وذلك أن هذه الأمور هى وحدها فقط بلا أشياء معمولة، وبلا أشياء فى العنق. والثانى من
           القياس. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="17">
+         <div n="17" type="chapter">
             <milestone unit="head"/>
             <p> 〈إرشادات لشعراء المآسى〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وقد ينبغى أن تقوم الخرافات وتتمم بالمقولة، من قبل أن الأمور توضع أمام العينين جداً (وذلك
+            <p> وقد ينبغى أن تقوم الخرافات وتتمم بالمقولة، من قبل أن الأمور توضع أمام العينين جداً (وذلك
           أنه على هذه الجهة عندما يرى الشاعر على ما عند الأمور <pb n="120"/> المعمولة أنفسها، وعندما
           يصير هناك بحد الشىء الأولى والأحرى والأجمل، ولا يذهب عليه ألبتة المضاد لهذه. ودليل هذا هو
           ما يبكت به لقارقينس؛ وذلك أن ذاك صعد فيما يقال إلى ذاك كأنه صاعد من إيار، أى من الهيكل من
@@ -680,14 +652,12 @@
           فسقا سقياً عظيما ونجا وتخلص، وأما أعداؤه فأبادهم. </p>
             <p> فهذه هى خاصة هذا؛ وأما الأشياء الأخر فهى دخيلة. </p>
          </div>
-
          <pb n="122"/>
-
-         <div type="textpart" subtype="chapter" n="18">
+         <div n="18" type="chapter">
             <milestone unit="head"/>
             <p> 〈العقدة والحل؛ أنواع المأساة؛ مدى الخرافة والمأساة〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وكل مديح فشىء منها حل، وشىء ما رباط؛ أما أشياء التى من خارج والأفراد من داخل فى بعض
+            <p> وكل مديح فشىء منها حل، وشىء ما رباط؛ أما أشياء التى من خارج والأفراد من داخل فى بعض
           الأوقات فالرباطات التى من الابتداء إلى هذا الجزء، وهى تلك التى هى أقلية، ومنها يكون العبور
           إما 〈إلى〉 النجاح والفلاح، وإما إلى لا نجاح ولا فلاح. وأما الانحلال فهو كان من أول العبور
           إلى آخره، كحال رباط ثاوداقطس فى لونقى. أما الارتباط فالتى تقدمت فكتبت وأخذ الطفل وأيضاً
@@ -708,9 +678,7 @@
           خارجاً عن الشىء كثيراً. والدليل هو هذا وهو أن بمبلغ الزيادة التى لا يليون عملوها بجملتها
           لا بالأجزاء، كما عمل أوريفيدس بناوبى وليس كما عمل اسكيولوس من أنهم إما أن يقعون وإما أن
           يجاهدون جهاداً رديئاً، من قبل أن هذا من الخيرات وقع. </p>
-
             <pb n="124"/>
-
             <p> فى الإدارات وفى الأمور البسيطة يستدلون ويتعرفون حقيقة هذه التى يريدون ويحبون على طريق
           الزهو، من قبل أن هذا هو مديحى ومن شأن محبة الانسان. وهذا موجود متى انخدع حكيم، بمنزلة
           سيوسيفوس مع الرذيلة وغلب الشجاع من الجائر. وهذه هى بالحقيقة أيضاً كما يقول فى الخير أيضاً
@@ -720,12 +688,11 @@
           أو من المدح؛ ولذلك إنما تتغنى الدخيلة، وأول من بدأ ذلك أغاثن الشاعر. على 〈أنه〉 لا فرق بين
           أن يتغنى بالدخيلات، وبين أن يؤلف قول من أخرى إلى أخرى. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="19">
+         <div n="19" type="chapter">
             <milestone unit="head"/>
             <p> 〈الفكرة والمقولة〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> أما فى الأنواع الأخر فقد قلنا. فينبغى الآن أن نتكلم فى المقولة وفى الضمير والذهن. </p>
+            <p> أما فى الأنواع الأخر فقد قلنا. فينبغى الآن أن نتكلم فى المقولة وفى الضمير والذهن. </p>
             <p> وقد وضعت الأشياء التى هى نحو الذهن والضمير فى كتاب «البلاغة» <pb n="125"/> وذلك أن هذا
           هو من شأن تلك الصناعة ومما يخصها. والأشياء التى فى الذهن قد يجب أن ترتب وتعد تحت القول.
           وأجزاء هذه هى أن يبين، 〈وأن يفند〉 وأن يستثير الألم بمنزلة الحزن أو الخوف أوالحرد أو أشباه
@@ -743,14 +710,12 @@
           أنه أمر بأن يفعل شىء أو لا يفعل هو: أمر، ولذلك يتخلى ذلك لصناعة 〈أخرى〉 لا على أنه من شأن
           صناعة الشعراء، ويترك. </p>
          </div>
-
          <pb n="126"/>
-
-         <div type="textpart" subtype="chapter" n="20">
+         <div n="20" type="chapter">
             <milestone unit="head"/>
             <p> 〈أجزاء المقولة〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> عماد المقولة بأسرها وأجزاء الاسطقسات هى هذه: الاقتضاب، الرباط، الفاصلة، الاسم، الكلمة،
+            <p> عماد المقولة بأسرها وأجزاء الاسطقسات هى هذه: الاقتضاب، الرباط، الفاصلة، الاسم، الكلمة،
           التصريف، القول. </p>
             <p> فأما الاسطقس فهو غير مقسوم، وليس كله لكن ما كان منه من شأن الصوت المركب أن يتركب ويكون
           منه؛ وذلك أن أصوات البهائم هى غير مفصلة، وليس ولا واحد منها صوت مركب، وليس ولا واحد من
@@ -760,9 +725,7 @@
           يكون مع القرع فليس له على انفراده صوت مسموع إذا ما حرك السين والراء. وأما لا مصوت فهو الذى
           مع القرع؛ أما على انفراده فليس له ولا صوت واحد مركب مسموع؛ وأما مع التى لها صوت مركب
           〈فـ〉ـقد يكون مسموعاً بمنزلة الجيم والدال. </p>
-
             <pb n="127"/>
-
             <p> وهو بعينه مختلف بشكل الأفواه والمواضع، وبالاتصال والمرسل، وبالطول والانقباض، وأيضاً
           بالحدة والصلابة، وبالتى هى موضوعة فى وسط كل واحد واحد فى جميع الأوزان، وينبغى أن ندانيها. </p>
             <p> وأما الاقتضاب 〈فهو〉 صوت [مركب] 〈غير〉 مدلول، مركب من اسطقس مصوت ولا مصوت؛ وذلك أن الجيم
@@ -790,14 +753,12 @@
           برباطات كثيرة، بمنزلة قولنا 〈إن〉 شعر [أو] أوميروس 〈و〉هو المعروف «بايلياس» هو واحد، وذلك أن
           هذا هو واحد برباط، وأما قولنا: «إنسان يمشى» فهو واحد من قبل أنه يدل على واحد. </p>
          </div>
-
          <pb n="129"/>
-
-         <div type="textpart" subtype="chapter" n="21">
+         <div n="21" type="chapter">
             <milestone unit="head"/>
             <p> 〈أنواع الاسم〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وأنواع الاسم هما نوعان: أحدهما الاسم البسيط (وأعنى بالبسيط ما ليس هو مركب من أجزاء تدل،
+            <p> وأنواع الاسم هما نوعان: أحدهما الاسم البسيط (وأعنى بالبسيط ما ليس هو مركب من أجزاء تدل،
           بمنزلة قولنا: الأرض، والآخر المضاعف؛ وهذا منه ما هو مركب من الدالة وغير دالة [عند] غير أنه
           ليس من حيث هو دال بالاسم. ومنه ما هو مركب من الدالة، من قبل أن الاسم قد يكون ذا ثلاثة
           الأضعاف، وكثير الأضعاف، بمنزلة كثير من ماساليوطا: أرماقايقونكسانثوس المتضرع إلى رب
@@ -837,12 +798,11 @@
           برايو. وأما الأسماء التى فى الوسط فتتم بنو والوضع بمنزلة ما أرديرون بالسو وأما فانوس
           بسيغما. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="22">
+         <div n="22" type="chapter">
             <milestone unit="head"/>
             <p> 〈فى المقولة وخصائصها〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وأما فصلة المقولة فهى أن تكون مشهورة 〈غير〉 ناقصة. إلا أن [أن] المشهورة فهى التى تستعد
+            <p> وأما فصلة المقولة فهى أن تكون مشهورة 〈غير〉 ناقصة. إلا أن [أن] المشهورة فهى التى تستعد
           وتهيأ من أسماء حقيقة ونخبر بها من هذه. والمثال على ذلك بمنزلة شعر قلاوفون وشعر اسثانلس.
           وأما العفيفة والمختلفة فمن قبل أن يقال المسكين هى مختلفة وتستعمل أشياء غريبة وعظيمة، وأعنى
           بالغرابة اللسان، والنقلة، والتأدى من خير إلى خير، والامتداد من الصغائر إلى العظائم، وكل ما
@@ -865,9 +825,7 @@
             <p> أما أن يرى كيف كان يستعمل هذا الضرب، فهو مما يضحك منه؛ وأما المقدار والوزن فهما أمر عام
           لجميع الأجزاء. وذلك أنه عندما كان يستعمل التأديات والانتقال والألسن وأنواعاً 〈أخر〉 على
           مايليق وفى باب التعرف فى الأشياء هى ضحكة قد كان يفعل هذا الفعل بعينه. </p>
-
             <pb n="134"/>
-
             <p> وأما ما هو موافق لمقدار كل ما كانت تكون مختلفة فهذه ترى أفى من حيث توضع الأسماء بالوزن
           والمقدار والتأديات وبأنواع أخر. فانه إن غير الأسماء الحقيقية وقف على أن ما قلناه من ذلك
           حق، مثل أن أوريفيدس واسخولس عندما عملا الشعر المسمى ايانبوس فعلا هذا الفعل نفسه، إلا أنه
@@ -898,14 +856,12 @@
           الحقيقى المتأدى [والمسمى بالسريانية صفتانيا، مأخوذ من الإتمام والعناية] إلى ما فى صناعة
           المديح والتشبيه وحكاية الحديث. — ففيما قلناه من ذلك كفاية. </p>
          </div>
-
          <pb n="136"/>
-
-         <div type="textpart" subtype="chapter" n="23">
+         <div n="23" type="chapter">
             <milestone unit="head"/>
             <p> 〈وحدة الفعل: فى الملحمة، وعند هوميروس〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وأما الاقتصاصى والوزن المحاكى فقد 〈ينبغى〉 أن نخبرعنها بالخرافات وحكاية الحديث على ما فى
+            <p> وأما الاقتصاصى والوزن المحاكى فقد 〈ينبغى〉 أن نخبرعنها بالخرافات وحكاية الحديث على ما فى
           المديحات وأن يقوم المتقينين والقينات نحو العمل الواحد متكامل بأسره، وهو الذى له أول ووسط
           وآخر، وهو الذى كما الحيوان العـ〈ـامـ〉ـل للذة خاصية؛ ومن حيث لا يدخل فى هذه التركيبات
           اقتصاصات تشبه، وهى التى قد ينظر فيها أن الاستدلال ليس إنما هو لعمل واحد، لكن لزمان واحد،
@@ -926,12 +882,11 @@
           فكثيرة، وإلى الإلياذا الصغيرة فثمانية، وأكثر التى تقال بالسلاح منها المعروفة بنا أوفطلامس
           وفيلوقطيطس 〈و〉المعروف بأفطوخيا و〈لاقـ〉ـينس، إلياس، ورجوع المراكب، واينن وطرواس. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="24">
+         <div n="24" type="chapter">
             <milestone unit="head"/>
             <p> 〈الملحمة: أنواعها وأوزانها〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وأيضاً هذه الألهة صنعت الأفى فى المديح دائماً؛ و〈هى〉 إما بسيطة، وإما مركبة وإما
+            <p> وأيضاً هذه الألهة صنعت الأفى فى المديح دائماً؛ و〈هى〉 إما بسيطة، وإما مركبة وإما
           انفـ〈عا〉لية بالأجزاء وهذه هى خارجة عن نغمة الصوت والبصر، وذلك أنه قد تدعو الحاجة إلى
           الفراس والعناية <pb n="138"/> والانفعالات من حيث تكون [لا] للآراء والمقولات قوام؛ وبالجملة
           هذه التى كان يستعملها أوميروس أول الشعراء وعلى الكفاية. وذلك أن شعر كلتيهما هو مركب، وأما
@@ -966,20 +921,17 @@
           الأمر العجيب فهو من هواا ومى أو أمر... ... ... ... ... ... ... ... ... ... ... ... ... ...
           ... ... ... </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="25">
+         <div n="25" type="chapter">
             <milestone unit="head"/>
             <p> 〈مشاكل وحلول〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ...بشىء ما بمنزلة الخير
+            <p> ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ...بشىء ما بمنزلة الخير
           أنه فاضل، حتى يكون للشىء معنى الشر، كالذى لم يكن. وأما الذى يريدون نحو المقولة فقد ينبغى
           أن يحل بمنزلة «الكياف ما بلاورياس أولا»، ولعل أن يكون ليس يعنى بذلك «البغال»، لكن يعنى
           «الحفظة»، من قبل أن «أورياس» فى لغة اليونانى تدل على البغال وعلى الحفظة. وأيضاً إدا ما قال
           «إنه قبيح المنظر»، ليس إنما يعنى بذلك قبيح الوجه، لكن عنى لا اعتدال البدن؛ غير أن أهل
           إقريطش يسمون الحسن المنظر للحسن الوجه، ويسمون السكران المتقبل الوجه. </p>
-
             <pb n="141"/>
-
             <p> وأما الأسماء التى ضر〈بت〉 من التأدية، وهى من التأدية هى أيضاً كما يقول أوميروس «الرجال
           الأخر و〈الآلهة〉 متسلحة على الخيل كانوا رقادين الليل كله» وقال مع ذلك «من حيث كانوا
           اليونانيون مجتمعين فى صحراء طرواس واجتمع بينهم نيات وشرونشونيات وصفرات الزمر». وذلك أن هذه
@@ -1007,19 +959,16 @@
           بعينه ونحوه يقولون عـ〈... ...〉 وضع أى داهية كان. والانتهار الذى هو لانطق هو أيضاً مستقيم
           متى تكون 〈لا〉 ضـ〈ـرورة〉 إما إلى استعمال المناوشة أو إلى استعمال 〈ضد〉 القول، كما استعمل
           أوريفيدس الأ〈يغيا〉 وكاورسطس فى تلك التى لمنالاوس. </p>
-
             <pb n=" 143"/>
-
             <p> والأنواع التى يأتون بها للتوبيخ والانتهار خمسة 〈فاما〉 أن يأتوا بها كالغير ممكنة، وإما
           كالتى هى دون الاستقامة، أو كالضارة أو كالأ 〈ضداد〉 للصناعة، أو كالتى هى غير ناطقة؛ والحلات
           فمن الأعداد التى قيلت ينبغى أن تتفقد، وهى اثنا عشر. </p>
          </div>
-
-         <div type="textpart" subtype="chapter" n="26">
+         <div n="26" type="chapter">
             <milestone unit="head"/>
             <p> 〈دعوى فضل الملحمة على المأساة، وفضل المأساة الحقيقى على الملحمة〉 </p>
             <!-- <meta name="_alpheios-installed-version" content="{7dd2b42f-3db8-4833-88c4-5a9e3788017b}:1.0beta2.4097.20110813"/><meta name="_alpheios-installed-version" content="{4816253c-3208-49d8-9557-0745a5508299}:1.0beta2.4231.20130301"/><meta name="_alpheios-installed-version" content="{0f1d7e06-6ce8-40b0-83f0-9783ee65ab9b}:1.0beta2.4278.20140427"/><meta name="_alpheios-installed-version" content="arabic@alpheios.net:1.0alpha1.4082.20110724"/>-->
-        <p> وأى اثنتيهما ترى أفضل، ليت شعرى: التشبيه وحكاية صنعة أفى، أو تلك الاطراغوديا؟؛ وقد يتشكك
+            <p> وأى اثنتيهما ترى أفضل، ليت شعرى: التشبيه وحكاية صنعة أفى، أو تلك الاطراغوديا؟؛ وقد يتشكك
           الإنسان هل كان شىء من هذه التى فى فروطيقى هى أخير، أو لا؟ ومثل هذا الذى هو عند الناظرين
           الأفاضل وتلك هى التى تخبر فى السنة والحكاية فى فوريطيقى فى الكل. وذلك أنه من قبل أنهم لا
           يحسون لا تزيدهم الحركة الكبيرة، وذلك أن الذين يتحركون فمثل الذين يزمرون فى النايات
@@ -1046,7 +995,7 @@
           أوديفوس الذى وضعه سوفاقلس فى الأفى التى له فى هذه التى إيلياذا هى فيها، فى التشبيه
           والمحاكاة التى للذين يصنعون الأفى. والعلامة هى هذه: وهى أن الواحدة من صنعة أفى أنها كانت
           قد تحدث مديحات كثيرة... </p>
-         </div></div>
+         </div>
       </body>
-  </text>
+   </text>
 </TEI>

@@ -1,78 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-<teiHeader xml:lang="eng">
-<fileDesc>
-<titleStmt>
-<title>The Dream</title>
- <author>Lucian of Samosata</author>
-<editor role="translator">Emily James Smith</editor>
- <funder>National Endowment for the Humanities</funder>
- <principal>Gregory Crane</principal>
- <respStmt>
-  <persName>Gregory Crane</persName>
-<resp>Digital conversion and editing</resp>
- </respStmt>
- </titleStmt>
-<publicationStmt>
-<publisher>Trustees of Tufts University</publisher>
-<pubPlace>Medford, MA</pubPlace>
-<authority>Perseus Project</authority>
- <date type="release" when="2023-08-11">Perseus 5.0</date>
- <idno type="filename">tlg0062.tlg012.perseus-eng5.xml</idno>
- <availability>
- <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
- </availability>
-</publicationStmt><sourceDesc>
-<listBibl>
- <biblStruct>
- <monogr>
-<title>Selections from Lucian</title>
-  <editor role="translator">Emily James Smith</editor>
-  <author ref="urn:cts:greekLit:tlg0062">Lucian of Samosata</author>
-  <imprint>
-   <publisher>Harper and Brothers</publisher>
-	<pubPlace>New York</pubPlace>
-	<date>1892</date>
-  </imprint>
- </monogr>
-  <ref target="https://hdl.handle.net/2027/hvd.hw3j0n?urlappend=%3Bseq=19">The Hathi Trust</ref>
- </biblStruct>
-</listBibl>
-</sourceDesc>
-</fileDesc>
-<encodingDesc>
- <p>Text encoded in accordance with the latest EpiDoc standards</p>
- <refsDecl n="CTS">
-  <cRefPattern n="section" matchPattern="(\w+)"
-   replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-   <p>This pointer pattern extracts section.</p>
-  </cRefPattern>
- </refsDecl>
-</encodingDesc>
-<profileDesc>
-<langUsage>
-<language ident="eng">English</language>
-</langUsage>
-</profileDesc>
-<revisionDesc>
-<change who="Gregory Crane" when="2023-08-11">Created initial file in repository. The major task was adding section breaks. There are missing sections because the translator silently skipped passages that did not conform with contemporary standards of propiety.</change>
-</revisionDesc>
-</teiHeader>
-<text>
-<body>
-<div type="translation" n="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5" xml:lang="eng">
-<head>THE DREAM.</head>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="1"><p>
-
-
-<pb n="p.2"/>
-
-
-
-
-
-<pb n="p.3"/>
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title>The Dream</title>
+            <author>Lucian of Samosata</author>
+            <editor role="translator">Emily James Smith</editor>
+            <funder>National Endowment for the Humanities</funder>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <persName>Gregory Crane</persName>
+               <resp>Digital conversion and editing</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" when="2023-08-11">Perseus 5.0</date>
+            <idno type="filename">tlg0062.tlg012.perseus-eng5.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0062.tlg029.perseus-eng5</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <biblStruct>
+                  <monogr>
+                     <title>Selections from Lucian</title>
+                     <editor role="translator">Emily James Smith</editor>
+                     <author ref="urn:cts:greekLit:tlg0062">Lucian of Samosata</author>
+                     <imprint>
+                        <publisher>Harper and Brothers</publisher>
+                        <pubPlace>New York</pubPlace>
+                        <date>1892</date>
+                     </imprint>
+                  </monogr>
+                  <ref target="https://hdl.handle.net/2027/hvd.hw3j0n?urlappend=%3Bseq=19">The Hathi Trust</ref>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <p>Text encoded in accordance with the latest EpiDoc standards</p>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts section.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-section"/>
+         </textClass>
+         <langUsage>
+            <language ident="eng">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change who="Gregory Crane" when="2023-08-11">Created initial file in repository. The major task was adding section breaks. There are missing sections because the translator silently skipped passages that did not conform with contemporary standards of propiety.</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5">
+         <head>THE DREAM.</head>
+         <div n="1" type="section">
+            <p>
+               <pb n="p.2"/>
+               <pb n="p.3"/>
 
 
 When I had just left school, and was
@@ -88,9 +92,9 @@ I could gladden his heart by bringing home my
 earnings every day.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="2">
-<p>
+         </div>
+         <div n="2" type="section">
+            <p>
 Accordingly, this question was made the theme
 of a second deliberation: What trade is the best
 and the easiest to learn, is becoming to a free citizen, and calls for least expense in tools while it
@@ -122,9 +126,9 @@ for my talents, and great hopes that I would
 speedily master my trade were based on my prowess in modelling.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="3">
-<p>
+         </div>
+         <div n="3" type="section">
+            <p>
 
 As soon as a propitious day was
 settled on for beginning my trade, I was handed
@@ -149,9 +153,9 @@ that lay to his hand and struck at my devoted
 head in no gentle or persuasive fashion, so that
 tears were my introduction to art.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="4">
-<p>
+         </div>
+         <div n="4" type="section">
+            <p>
 
 I ran away from him and came home, bawling
 all the way with streaming eyes, and I related the
@@ -164,9 +168,9 @@ when night came I fell asleep, still in tears, and
 my mind was busy all night long.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="5">
-<p>
+         </div>
+         <div n="5" type="section">
+            <p>
 
 Now, up to this point all that I have told is
 the laughable history of a hobbledehoy; but listen, my friends, to a sequel no longer contemptible, but calling for close attention. For, to quote
@@ -182,9 +186,9 @@ my eyes and the sounds I heard ring in my ears,
 and this shows how distinct it all was.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="6">
-<p>
+         </div>
+         <div n="6" type="section">
+            <p>
 
 Two
 women laid hold of me, each taking a hand and
@@ -211,9 +215,9 @@ to me to decide which of them I would fain join.
 And first the harsh, man-like one spoke:
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="7">
-<p>
+         </div>
+         <div n="7" type="section">
+            <p>
 "My child," she said, "I am the Art of Stonecutting, which you began yesterday to learn,
 friendly to you and a relative by blood, inasmuch
 as your grandfather"—naming my mother's father-" was a stone-cutter, and your two uncles,
@@ -231,9 +235,9 @@ and it is not for mere words that you will win praise
 
 from every one.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="8">
-<p>
+         </div>
+         <div n="8" type="section">
+            <p>
 
 Do not be repelled by my shabby exterior and my soiled garments, for it was
 after beginning thus that the great Pheidias, too,
@@ -250,9 +254,9 @@ my memory. When she now had made an end,
 the other began, somewhat in this way:
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="9">
-<p>
+         </div>
+         <div n="9" type="section">
+            <p>
 
 "I, my child, am Culture, an acquaintance and
 familiar of yours already, although you have not
@@ -285,9 +289,9 @@ will deem you just what you are, a mechanic, an
 artisan, living by the sweat of your brow.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="10">
-<p>
+         </div>
+         <div n="10" type="section">
+            <p>
 But if you will hearken to me, I will display
 before you, to begin with, many works and wondrous doings of men of old, and I will report
 their sayings to you and make you master, so to
@@ -304,9 +308,9 @@ and I will teach you erelong the nature of the
 whole universe, the divine as well as the human.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="11">
-<p>
+         </div>
+         <div n="11" type="section">
+            <p>
 
 You who are now poor, the son of a nobody,
 
@@ -327,9 +331,9 @@ his neighbor and point you out with his finger,
 saying, 'That is he.'
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="12">
-<p>
+         </div>
+         <div n="12" type="section">
+            <p>
 
 "If any serious thing befall your friends, or
 even the state at large, all will look to you.
@@ -356,9 +360,9 @@ better part and ran away from her and deserted
 to me.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="13">
-<p>
+         </div>
+         <div n="13" type="section">
+            <p>
 
 But if you reject such men as these, and
 brilliant achievements and ennobling words and
@@ -374,9 +378,9 @@ you will ponder how to make your works symmetrical and well-shaped, but for your
 making yourself of less worth than your stones."
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="14">
-<p>
+         </div>
+         <div n="14" type="section">
+            <p>
 
 While she was still speaking thus, and without
 waiting to hear her to the end, I seemed to spring
@@ -393,11 +397,10 @@ disbelieve it, for dreams work wonders.
 
 
 <pb n="p.11"/>
-
-</p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="15">
-<p>
+            </p>
+         </div>
+         <div n="15" type="section">
+            <p>
 The other woman looked at me and said, "Now
 I will repay you for the justice of your judgment.
 Come forthwith and mount this car "-pointing to
@@ -414,9 +417,9 @@ However, what it was that I sowed I do not now remember, but only this, that the
 at me from beneath and praised me, and sped me
 on my way wherever I passed in my flight.
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="16">
-<p>
+         </div>
+         <div n="16" type="section">
+            <p>
 When she had shown these things to me, and
 me to these admiring people, she brought me
 down again, no longer dressed as I was when I
@@ -430,9 +433,9 @@ when hardly more than a boy, I think, and still
 terrified at the thought of a flogging.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="17">
-<p>
+         </div>
+         <div n="17" type="section">
+            <p>
 
 But in the midst of my narrative some one says,
 "Dear me, how tedious and long-winded his
@@ -457,9 +460,9 @@ was afire and the rest of it—you know his dream
 warfare and distress and surrounded by enemies.
 
 </p>
-</div>
-<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-eng5:" n="18">
-<p>
+         </div>
+         <div n="18" type="section">
+            <p>
 No, his narrative had a useful purpose, and so I,
 too, have related this dream to you to the end
 that young men may turn to the better part and
@@ -477,7 +480,8 @@ least of it, not less famous than any of the statuaries.
 
 
 <pb n="p.13"/>
-</p></div>
-</div>
-</body></text></TEI>
-
+            </p>
+         </div>
+      </body>
+   </text>
+</TEI>

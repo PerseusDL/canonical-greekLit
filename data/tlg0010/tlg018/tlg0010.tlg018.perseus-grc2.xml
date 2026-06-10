@@ -1,685 +1,671 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader xml:lang="eng">
-    <fileDesc>
-      <titleStmt>
-        <title xml:lang="grc">Ἀρεοπαγιτικός</title>        
-        <author>Isocrates</author>
-        <editor>George Norlin</editor>
-        <sponsor>Perseus Project, Tufts University</sponsor>
-        <principal>Gregory Crane</principal>
-        <respStmt>
-          <resp>Prepared under the supervision of</resp>
-          <name>Lisa Cerrato</name>
-          <name>William Merrill</name>
-          <name>Elli Mylonas</name>
-          <name>David Smith</name>
-        </respStmt>
-        <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
-
-      </titleStmt>
-      <publicationStmt>
-        <publisher>Trustees of Tufts University</publisher>
-        <pubPlace>Medford, MA</pubPlace>
-        <authority>Perseus Project</authority>
-        <date type="release" when="1996">Perseus 2.0</date>
-        <idno type="filename">tlg0010.tlg018.perseus-grc2.xml</idno>
-        <availability>
-          <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
-        </availability>
-      </publicationStmt>
-
-      <sourceDesc>
-        <biblStruct>
-          <monogr>
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="grc">Ἀρεοπαγιτικός</title>
             <author>Isocrates</author>
-            <title>Isocrates</title>
-            <editor role="translator">George Norlin</editor>
-            <imprint>             
-              <pubPlace>Cambridge, MA</pubPlace>
-              <pubPlace>London, UK</pubPlace>
-              <publisher>Harvard University Press</publisher>
-              <publisher>William Heinemann Ltd.</publisher>
-              <biblScope unit="volume">2</biblScope>
-              <date type="printing">1928</date>
-            </imprint>
-          </monogr><series><title>Loeb Classical Library</title></series>  
-          <ref target="https://archive.org/details/in.ernet.dli.2015.185377/page/104/mode/2up">Internet Archive</ref>
-        </biblStruct>
-      </sourceDesc>
-    </fileDesc>
-
-    <encodingDesc>
-      <refsDecl n="CTS">
-      <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-          <p>This pointer pattern extracts section.</p>
-        </cRefPattern>
-      </refsDecl>
-      <refsDecl>
-        <refState n="chunk context" unit="section"/>
-      </refsDecl>
-    </encodingDesc>
-    
-    <profileDesc>
-      <langUsage>
-        <language ident="eng">English </language>
-        <language ident="grc">Greek </language>
-      </langUsage>
-
-      <textClass xml:id="gen.epideictic">
-        <keywords>
-          <term>Epideictic</term>
-        </keywords>
-      </textClass>
-      <textClass xml:id="gen.forensic.prosecution">
-        <keywords>
-          <term>Forensic Prosecution</term>
-        </keywords>
-      </textClass>
-      <textClass xml:id="gen.forensic.defense">
-        <keywords>
-          <term>Forensic Defense</term>
-        </keywords>
-      </textClass>
-      <textClass xml:id="gen.estate.claim">
-        <keywords>
-          <term>Claim against an Estate</term>
-        </keywords>
-      </textClass>
-    </profileDesc>
-
-    <revisionDesc>
-      <change when="2025-10-15" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes</change>
-      <change when="2014-10-01" who="Stella Dee">edited markup</change>
-      <change when="2014-07" who="Stella Dee">split speeches and converted to unicode</change>  
-      <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
-      <change when="2009-06-24" who="lcerrato">fixed bad bibls</change>
-      <change when="2009-06-11" who="student">fixed bibl errors - zr</change>
-      <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
-      <change when="2005-08-01" who="packel">split up letters and speeches</change>
-      <change when="2005-07-25" who="packel">Converted to XML</change> 
-      <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.) </change>
-      <change when="2000-10-24" who="lcerrato">repetition of end of word in 7.38 eliminated </change>
-      <change when="2000-03-22" who="dasmith">Corrected title of fifth letter.</change> 
-      <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change> 
-      <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change> 
-      <change when="2000-03-01" who="dasmith">Can't have tags in change log.</change>
-      <change when="2000-03-01" who="dasmith">Erroneously copied "text xml:lang=eng" from English file.</change> 
-      <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.</change>
-      <change when="2000-03" who="David Smith"/>
-      <change when="1995-06" who="Lisa Cerrato">made section after 11.21 11.22. It was 11.37.</change>
-      <change when="1992-06" who="W. Merrill">put speeches in numerical order. Consolidated files.</change>
-      <change when="1992-04" who="W. Merrill">Threw out isoc.gk.sgml because first letter of each line was missing. Started from scratch again from isoc.gk.raw. Change markup in accordance with orator dtd</change>
-    </revisionDesc>
-  </teiHeader>
-  
-  <text>
-    <body>
-      <div type="edition" n="urn:cts:greekLit:tlg0010.tlg018.perseus-grc2" xml:lang="grc">
-      <div subtype="section" type="textpart" n="1">
-        <p> πολλοὺς ὑμῶν οἶμαι θαυμάζειν ἥντινά ποτε γνώμην ἔχων περὶ σωτηρίας τὴν πρόσοδον
+            <editor>George Norlin</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" when="1996">Perseus 2.0</date>
+            <idno type="filename">tlg0010.tlg018.perseus-grc2.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0010.tlg018.perseus-grc2</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <author>Isocrates</author>
+                  <title>Isocrates</title>
+                  <editor role="translator">George Norlin</editor>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <pubPlace>London, UK</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <biblScope unit="volume">2</biblScope>
+                     <date type="printing">1928</date>
+                  </imprint>
+               </monogr>
+               <series>
+                  <title>Loeb Classical Library</title>
+               </series>
+               <ref target="https://archive.org/details/in.ernet.dli.2015.185377/page/104/mode/2up">Internet Archive</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts section.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl>
+            <refState n="chunk context" unit="section"/>
+         </refsDecl>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-section"/>
+         </textClass>
+         <langUsage>
+            <language ident="eng">English </language>
+            <language ident="grc">Greek </language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change when="2025-10-15" who="Lisa Cerrato">fixes to header such as titles, pub statement, refs decl and change log; fixes to lang attributes and notes</change>
+         <change when="2014-10-01" who="Stella Dee">edited markup</change>
+         <change when="2014-07" who="Stella Dee">split speeches and converted to unicode</change>
+         <change when="2009-11-24" who="rsingh04">moved more xml files around based on copyright status</change>
+         <change when="2009-06-24" who="lcerrato">fixed bad bibls</change>
+         <change when="2009-06-11" who="student">fixed bibl errors - zr</change>
+         <change when="2006-02-10" who="packel">places/dates now actually tagged</change>
+         <change when="2005-08-01" who="packel">split up letters and speeches</change>
+         <change when="2005-07-25" who="packel">Converted to XML</change>
+         <change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.) </change>
+         <change when="2000-10-24" who="lcerrato">repetition of end of word in 7.38 eliminated </change>
+         <change when="2000-03-22" who="dasmith">Corrected title of fifth letter.</change>
+         <change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+         <change when="2000-03-01" who="dasmith">Only look up speeches in the orat. subdoc.</change>
+         <change when="2000-03-01" who="dasmith">Can't have tags in change log.</change>
+         <change when="2000-03-01" who="dasmith">Erroneously copied "text xml:lang=eng" from English file.</change>
+         <change when="2000-03-01" who="dasmith">Converted to TEI P3. Wrap letters in DIV1 so we can cite them as "L. 4.3" within doc.</change>
+         <change when="2000-03" who="David Smith"/>
+         <change when="1995-06" who="Lisa Cerrato">made section after 11.21 11.22. It was 11.37.</change>
+         <change when="1992-06" who="W. Merrill">put speeches in numerical order. Consolidated files.</change>
+         <change when="1992-04" who="W. Merrill">Threw out isoc.gk.sgml because first letter of each line was missing. Started from scratch again from isoc.gk.raw. Change markup in accordance with orator dtd</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body xml:base="urn:cts:greekLit:tlg0010.tlg018.perseus-grc2">
+         <div n="1" type="section">
+            <p> πολλοὺς ὑμῶν οἶμαι θαυμάζειν ἥντινά ποτε γνώμην ἔχων περὶ σωτηρίας τὴν πρόσοδον
           ἐποιησάμην, ὥσπερ τῆς πόλεως ἐν κινδύνοις οὔσης ἢ σφαλερῶς αὐτῇ τῶν πραγμάτων
           καθεστηκότων, ἀλλʼ οὐ πλείους μὲν τριήρεις ἢ διακοσίας κεκτημένης, εἰρήνην δὲ καὶ τὰ περὶ
           τὴν χώραν ἀγούσης, καὶ τῶν κατὰ θάλατταν ἀρχούσης, </p>
-      </div>
-      <div subtype="section" type="textpart" n="2">
-        <p>ἔτι δὲ συμμάχους ἐχούσης πολλοὺς μὲν τοὺς ἑτοίμως ἡμῖν, ἤν τι δέῃ, βοηθήσοντας, πολὺ δὲ
+         </div>
+         <div n="2" type="section">
+            <p>ἔτι δὲ συμμάχους ἐχούσης πολλοὺς μὲν τοὺς ἑτοίμως ἡμῖν, ἤν τι δέῃ, βοηθήσοντας, πολὺ δὲ
           πλείους τοὺς τὰς συντάξεις ὑποτελοῦντας καὶ τὸ προσταττόμενον ποιοῦντας· ὧν ὑπαρχόντων
           ἡμᾶς μὲν ἄν τις φήσειεν ἐικὸς εἶναι θαρρεῖν ὡς πόρρω τῶν κινδύνων ὄντας, τοῖς δʼ ἐχθροῖς
           τοῖς ἡμετέροις προσήκειν δεδιέναι καὶ βουλεύεσθαι περὶ τῆς αὑτῶν σωτηρίας. </p>
-      </div>
-      <div subtype="section" type="textpart" n="3">
-        <p>ὑμεῖς μὲν οὖν οἶδʼ ὅτι τούτῳ χρώμενοι τῷ λογισμῷ καὶ τῆς ἐμῆς προσόδου καταφθονεῖτε, καὶ
+         </div>
+         <div n="3" type="section">
+            <p>ὑμεῖς μὲν οὖν οἶδʼ ὅτι τούτῳ χρώμενοι τῷ λογισμῷ καὶ τῆς ἐμῆς προσόδου καταφθονεῖτε, καὶ
           πᾶσαν ἐλπίζετε τὴν Ἑλλάδα ταύτῃ τῇ δυνάμει κατασχήσειν· ἐγὼ δὲ διʼ αὐτὰ ταῦτα τυγχάνω
           δεδιώς. ὁρῶ γὰρ τῶν πόλεων τὰς ἄριστα πράττειν οἰομένας κάκιστα βουλευομένας καὶ τὰς
           μάλιστα θαρρούσας εἰς πλείστους κινδύνους καθισταμένας. αἴτιον δὲ τούτων ἐστίν, </p>
-      </div>
-      <div subtype="section" type="textpart" n="4">
-        <p>ὅτι τῶν ἀγαθῶν καὶ τῶν κακῶν οὐδὲν αὐτὸ καθʼ αὑτὸ παραγίγνεται τοῖς ἀνθρώποις, ἀλλὰ
+         </div>
+         <div n="4" type="section">
+            <p>ὅτι τῶν ἀγαθῶν καὶ τῶν κακῶν οὐδὲν αὐτὸ καθʼ αὑτὸ παραγίγνεται τοῖς ἀνθρώποις, ἀλλὰ
           συντέτακται καὶ συνακολουθεῖ τοῖς μὲν πλούτοις καὶ ταῖς δυναστείαις ἄνοια καὶ μετὰ ταύτης
           ἀκολασία, ταῖς δʼ ἐνδείαις καὶ ταῖς ταπεινότησι σωφροσύνη καὶ πολλὴ μετριότης, </p>
-      </div>
-      <div subtype="section" type="textpart" n="5">
-        <p>ὥστε χαλεπὸν εἶναι διαγνῶναι ποτέραν ἄν τις δέξαιτο τῶν μερίδων τούτων τοῖς παισὶ τοῖς
+         </div>
+         <div n="5" type="section">
+            <p>ὥστε χαλεπὸν εἶναι διαγνῶναι ποτέραν ἄν τις δέξαιτο τῶν μερίδων τούτων τοῖς παισὶ τοῖς
           αὑτοῦ καταλιπεῖν. ἴδοιμεν γὰρ ἂν ἐκ μὲν τῆς φαυλοτέρας εἶναι δοκούσης ἐπὶ τὸ βέλτιον ὡς
           ἐπὶ τὸ πολὺ τὰς πράξεις ἐπιδιδούσας, ἐκ δὲ τῆς κρείττονος φαινομένης ἐπὶ τὸ χεῖρον
           εἰθισμένας μεταπίπτειν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="6">
-        <p>καὶ τούτων ἐνεγκεῖν ἔχω παραδείγματα πλεῖστα μὲν ἐκ τῶν ἰδιωτικῶν πραγμάτων, πυκνοτάτας
+         </div>
+         <div n="6" type="section">
+            <p>καὶ τούτων ἐνεγκεῖν ἔχω παραδείγματα πλεῖστα μὲν ἐκ τῶν ἰδιωτικῶν πραγμάτων, πυκνοτάτας
           γὰρ ταῦτα λαμβάνει τὰς μεταβολάς, οὐ μὴν ἀλλὰ μείζω γε καὶ φανερώτερα τοῖς ἀκούουσιν ἐκ
           τῶν ἡμῖν καὶ Λακεδαιμονίοις συμβάντων. ἡμεῖς τε γὰρ ἀναστάτου μὲν τῆς πόλεως ὑπὸ τῶν
           βαρβάρων γεγενημένης διὰ τὸ δεδιέναι καὶ προσέχειν τὸν νοῦν τοῖς πράγμασιν ἐπρωτεύσαμεν
           τῶν Ἑλλήνων, ἐπειδὴ δʼ ἀνυπέρβλητον ᾠήθημεν τὴν δύναμιν ἔχειν, παρὰ μικρὸν ἤλθομεν
           ἐξανδραποδισθῆναι· </p>
-      </div>
-      <div subtype="section" type="textpart" n="7">
-        <p>Λακεδαιμόνιοί τε τὸ μὲν παλαιὸν ἐκ φαύλων καὶ ταπεινῶν πόλεων ὁρμηθέντες διὰ τὸ σωφρόνως
+         </div>
+         <div n="7" type="section">
+            <p>Λακεδαιμόνιοί τε τὸ μὲν παλαιὸν ἐκ φαύλων καὶ ταπεινῶν πόλεων ὁρμηθέντες διὰ τὸ σωφρόνως
           ζῆν καὶ στρατιωτικῶς κατέσχον Πελοπόννησον, μετὰ δὲ ταῦτα μεῖζον φρονήσαντες τοῦ δέοντος,
           καὶ λαβόντες καὶ τὴν κατὰ γῆν καὶ τὴν κατὰ θάλατταν ἀρχήν, εἰς τοὺς αὐτοὺς κινδύνους
           κατέστησαν ἡμῖν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="8">
-        <p>ὅστις οὖν εἰδὼς τοσαύτας μεταβολὰς γεγενημένας καὶ τηλικαύτας δυνάμεις οὕτω ταχέως
+         </div>
+         <div n="8" type="section">
+            <p>ὅστις οὖν εἰδὼς τοσαύτας μεταβολὰς γεγενημένας καὶ τηλικαύτας δυνάμεις οὕτω ταχέως
           ἀναιρεθείσας πιστεύει τοῖς παροῦσι, λίαν ἀνόητός ἐστιν, ἄλλως τε καὶ τῆς μὲν πόλεως ἡμῶν
           πολὺ καταδεέστερον νῦν πραττούσης ἢ κατʼ ἐκεῖνον τὸν χρόνον, τοῦ δὲ μίσους τοῦ τῶν Ἑλλήνων
           καὶ τῆς ἔχθρας τῆς πρὸς βασιλέα πάλιν ἀνακεκαινισμένης, ἃ τότε κατεπολέμησεν ἡμᾶς. </p>
-      </div>
-      <div subtype="section" type="textpart" n="9">
-        <p>ἀπορῶ δὲ πότερον ὑπολάβω μηδὲν μέλειν ὑμῖν τῶν κοινῶν πραγμάτων ἢ φροντίζειν μὲν αὐτῶν,
+         </div>
+         <div n="9" type="section">
+            <p>ἀπορῶ δὲ πότερον ὑπολάβω μηδὲν μέλειν ὑμῖν τῶν κοινῶν πραγμάτων ἢ φροντίζειν μὲν αὐτῶν,
           εἰς τοῦτο δʼ ἀναισθησίας ἥκειν ὥστε λανθάνειν ὑμᾶς εἰς ὅσην ταραχὴν ἡ πόλις καθέστηκεν.
           ἐοίκατε γὰρ οὕτω διακειμένοις ἀνθρώποις, οἵτινες ἁπάσας μὲν τὰς πόλεις τὰς ἐπὶ Θρᾴκης
           ἀπολωλεκότες, πλείω δʼ ἢ χίλια τάλαντα μάτην εἰς τοὺς ξένους ἀνηλωκότες, </p>
-      </div>
-      <div subtype="section" type="textpart" n="10">
-        <p>πρὸς δὲ τοὺς Ἕλληνας διαβεβλημένοι καὶ τῷ βαρβάρῳ πολέμιοι γεγονότες, ἔτι δὲ τοὺς μὲν
+         </div>
+         <div n="10" type="section">
+            <p>πρὸς δὲ τοὺς Ἕλληνας διαβεβλημένοι καὶ τῷ βαρβάρῳ πολέμιοι γεγονότες, ἔτι δὲ τοὺς μὲν
           Θηβαίων φίλους σώζειν ἠναγκασμένοι, τοὺς δʼ ἡμετέρους αὐτῶν συμμάχους ἀπολωλεκότες, ἐπὶ
           τοιαύταις πράξεσιν εὐαγγέλια μὲν δὶς ἤδη τεθύκαμεν, ῥᾳθυμότερον δὲ περὶ αὐτῶν
           ἐκκλησιάζομεν τῶν πάντα τὰ δέοντα πραττόντων. </p>
-      </div>
-      <div subtype="section" type="textpart" n="11">
-        <p>καὶ ταῦτʼ εἰκότως καὶ ποιοῦμεν καὶ πάσχομεν· οὐδὲν γὰρ οἷόν τε γίγνεσθαι κατὰ τρόπον τοῖς
+         </div>
+         <div n="11" type="section">
+            <p>καὶ ταῦτʼ εἰκότως καὶ ποιοῦμεν καὶ πάσχομεν· οὐδὲν γὰρ οἷόν τε γίγνεσθαι κατὰ τρόπον τοῖς
           μὴ καλῶς περὶ ὅλης τῆς διοικήσεως βεβουλευμένοις, ἀλλʼ ἐὰν καὶ κατορθώσωσι περί τινας τῶν
           πράξεων ἢ διὰ τύχην ἢ διʼ ἀνδρὸς ἀρετήν, μικρὸν διαλιπόντες πάλιν εἰς τὰς αὐτὰς ἀπορίας
           κατέστησαν. καὶ ταῦτα γνοίη τις ἂν ἐκ τῶν περὶ ἡμᾶς γεγενημένων· </p>
-      </div>
-      <div subtype="section" type="textpart" n="12">
-        <p>ἁπάσης γὰρ τῆς Ἑλλάδος ὑπὸ τὴν πόλιν ἡμῶν ὑποπεσούσης καὶ μετὰ τὴν Κόνωνος ναυμαχίαν καὶ
+         </div>
+         <div n="12" type="section">
+            <p>ἁπάσης γὰρ τῆς Ἑλλάδος ὑπὸ τὴν πόλιν ἡμῶν ὑποπεσούσης καὶ μετὰ τὴν Κόνωνος ναυμαχίαν καὶ
           μετὰ τὴν Τιμοθέου στρατηγίαν, οὐδένα χρόνον τὰς εὐτυχίας κατασχεῖν ἠδυνήθημεν, ἀλλὰ ταχέως
           διεσκαριφησάμεθα καὶ διελύσαμεν αὐτάς. πολιτείαν γὰρ τὴν ὀρθῶς ἂν τοῖς πράγμασι χρησαμένην
           οὔτʼ ἔχομεν οὔτε καλῶς ζητοῦμεν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="13">
-        <p>καίτοι τὰς εὐπραγίας ἅπαντες ἴσμεν καὶ παραγιγνομένας καὶ παραμενούσας οὐ τοῖς τὰ τείχη
+         </div>
+         <div n="13" type="section">
+            <p>καίτοι τὰς εὐπραγίας ἅπαντες ἴσμεν καὶ παραγιγνομένας καὶ παραμενούσας οὐ τοῖς τὰ τείχη
           κάλλιστα καὶ μέγιστα περιβεβλημένοις, οὐδὲ τοῖς μετὰ πλείστων ἀνθρώπων εἰς τὸν αὐτὸν τόπον
           συνηθροισμένοις, ἀλλὰ τοῖς ἄριστα καὶ σωφρονέστατα τὴν αὑτῶν πόλιν διοικοῦσιν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="14">
-        <p>ἔστι γὰρ ψυχὴ πόλεως οὐδὲν ἔτερον ἢ πολιτεία, τοσαύτην ἔχουσα δύναμιν ὅσην περ ἐν σώματι
+         </div>
+         <div n="14" type="section">
+            <p>ἔστι γὰρ ψυχὴ πόλεως οὐδὲν ἔτερον ἢ πολιτεία, τοσαύτην ἔχουσα δύναμιν ὅσην περ ἐν σώματι
           φρόνησις. αὕτη γάρ ἐστιν ἡ βουλευομένη περὶ ἁπάντων, καὶ τὰ μὲν ἀγαθὰ διαφυλάττουσα, τὰς
           δὲ συμφορὰς διαφεύγουσα. ταύτῃ καὶ τοὺς νόμους καὶ τοὺς ῥήτορας καὶ τοὺς ἰδιώτας ἀναγκαῖόν
           ἐστιν ὁμοιοῦσθαι, καὶ πράττειν οὕτως ἑκάστους οἵαν περ ἂν ταύτην ἔχωσιν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="15">
-        <p>ἧς ἡμεῖς διεφθαρμένης οὐδὲν φροντίζομεν, οὐδὲ σκοποῦμεν ὅπως ἐπανορθώσομεν αὐτήν· ἀλλʼ
+         </div>
+         <div n="15" type="section">
+            <p>ἧς ἡμεῖς διεφθαρμένης οὐδὲν φροντίζομεν, οὐδὲ σκοποῦμεν ὅπως ἐπανορθώσομεν αὐτήν· ἀλλʼ
           ἐπὶ μὲν τῶν ἐργαστηρίων καθίζοντες κατηγοροῦμεν τῶν καθεστώτων, καὶ λέγομεν ὡς οὐδέποτʼ ἐν
           δημοκρατίᾳ κάκιον ἐπολιτεύθημεν, ἐν δὲ τοῖς πράγμασι καὶ ταῖς διανοίαις αἷς ἔχομεν μᾶλλον
           αὐτὴν ἀγαπῶμεν τῆς ὑπὸ τῶν προγόνων καταλειφθείσης. ὑπὲρ ἧς ἐγὼ καὶ τοὺς λόγους μέλλω
           ποιεῖσθαι καὶ τὴν πρόσοδον ἀπεγραψάμην. </p>
-      </div>
-      <div subtype="section" type="textpart" n="16">
-        <p>εὑρίσκω γὰρ ταύτην μόνην ἂν γενομένην καὶ τῶν μελλόντων κινδύνων ἀποτροπὴν καὶ τῶν
+         </div>
+         <div n="16" type="section">
+            <p>εὑρίσκω γὰρ ταύτην μόνην ἂν γενομένην καὶ τῶν μελλόντων κινδύνων ἀποτροπὴν καὶ τῶν
           παρόντων κακῶν ἀπαλλαγήν, ἢν ἐθελήσωμεν ἐκείνην τὴν δημοκρατίαν ἀναλαβεῖν, ἢν Σόλων μὲν ὁ
           δημοτικώτατος γενόμενος ἐνομοθέτησε, Κλεισθένης δὲ ὁ τοὺς τυράννους ἐκβαλὼν καὶ τὸν δῆμον
           καταγαγὼν πάλιν ἐξ ἀρχῆς κατέστησεν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="17">
-        <p>ἧς οὐκ ἂν εὕροιμεν οὔτε δημοτικωτέραν οὔτε τῇ πόλει μᾶλλον συμφέρουσαν. τεκμήριον δὲ
+         </div>
+         <div n="17" type="section">
+            <p>ἧς οὐκ ἂν εὕροιμεν οὔτε δημοτικωτέραν οὔτε τῇ πόλει μᾶλλον συμφέρουσαν. τεκμήριον δὲ
           μέγιστον· οἱ μὲν γὰρ ἐκείνῃ χρώμενοι, πολλὰ καὶ καλὰ διαπραξάμενοι καὶ παρὰ πᾶσιν
           ἀνθρώποις εὐδοκιμήσαντες, παρʼ ἑκόντων τῶν Ἑλλήνων τὴν ἡγεμονίαν ἔλαβον, οἱ δὲ τῆς νῦν
           παρούσης ἐπιθυμήσαντες, ὑπὸ πάντων μισηθέντες καὶ πολλὰ καὶ δεινὰ παθόντες, μικρὸν
           ἀπέλιπον τοῦ μὴ ταῖς ἐσχάταις συμφοραῖς περιπεσεῖν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="18">
-        <p>καίτοι πῶς χρὴ ταύτην τὴν πολιτείαν ἐπαινεῖν ἢ στέργειν τὴν τοσούτων μὲν κακῶν αἰτίαν
+         </div>
+         <div n="18" type="section">
+            <p>καίτοι πῶς χρὴ ταύτην τὴν πολιτείαν ἐπαινεῖν ἢ στέργειν τὴν τοσούτων μὲν κακῶν αἰτίαν
           πρότερον γενομένην, νῦν δὲ καθʼ ἕκαστον τὸν ἐνιαυτὸν ἐπὶ τὸ χεῖρον φερομένην; πῶς δʼ οὐ
           χρὴ δεδιέναι μὴ τοιαύτης ἐπιδόσεως γιγνομένης τελευτῶντες εἰς τραχύτερα πράγματα τῶν τότε
           γενομένων ἐξοκείλωμεν; </p>
-      </div>
-      <div subtype="section" type="textpart" n="19">
-        <p>ἵνα δὲ μὴ συλλήβδην μόνον ἀκηκοότες, ἀλλʼ ἀκριβῶς εἰδότες ποιῆσθε καὶ τὴν αἵρεσιν καὶ τὴν
+         </div>
+         <div n="19" type="section">
+            <p>ἵνα δὲ μὴ συλλήβδην μόνον ἀκηκοότες, ἀλλʼ ἀκριβῶς εἰδότες ποιῆσθε καὶ τὴν αἵρεσιν καὶ τὴν
           κρίσιν αὐτῶν, ὑμέτερον μὲν ἔργον ἐστὶ παρασχεῖν ὑμᾶς αὐτοὺς προσέχοντας τὸν νοῦν τοῖς ὑπʼ
           ἐμοῦ λεγομένοις, ἐγὼ δʼ ὡς ἂν δύνωμαι συντομώτατα περὶ ἀμφοτέρων τούτων πειράσομαι
           διελθεῖν πρὸς ὑμᾶς. </p>
-      </div>
-      <div subtype="section" type="textpart" n="20">
-        <p>οἱ γὰρ κατʼ ἐκεῖνον τὸν χρόνον τὴν πόλιν διοικοῦντες κατεστήσαντο πολιτείαν οὐκ ὀνόματι
+         </div>
+         <div n="20" type="section">
+            <p>οἱ γὰρ κατʼ ἐκεῖνον τὸν χρόνον τὴν πόλιν διοικοῦντες κατεστήσαντο πολιτείαν οὐκ ὀνόματι
           μὲν τῷ κοινοτάτῳ καὶ πραοτάτῳ προσαγορευομένην, ἐπὶ δὲ τῶν πράξεων οὐ τοιαύτην τοῖς
           ἐντυγχάνουσι φαινομένην, οὐδʼ ἣ τοῦτον τὸν τρόπον ἐπαίδευε τοὺς πολίτας ὥσθʼ ἡγεῖσθαι τὴν
           μὲν ἀκολασίαν δημοκρατίαν, τὴν δὲ παρανομίαν ἐλευθερίαν, τὴν δὲ παρρησίαν ἰσονομίαν, τὴν
-          δʼ ἐξουσίαν τοῦ πάντα<note resp="editor" xml:lang="eng"><foreign
-              xml:lang="grc">πάντα</foreign> Coray (cf. Panath. 131): <foreign xml:lang="grc"
-              >ταῦτα</foreign> MSS.</note> ποιεῖν εὐδαιμονίαν, ἀλλὰ μισοῦσα καὶ κολάζουσα τοὺς
+          δʼ ἐξουσίαν τοῦ πάντα<note resp="editor" xml:lang="eng">
+                  <foreign xml:lang="grc">πάντα</foreign> Coray (cf. Panath. 131): <foreign xml:lang="grc">ταῦτα</foreign> MSS.</note> ποιεῖν εὐδαιμονίαν, ἀλλὰ μισοῦσα καὶ κολάζουσα τοὺς
           τοιούτους βελτίους καὶ σωφρονεστέρους ἅπαντας τοὺς πολίτας ἐποίησεν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="21">
-        <p>μέγιστον δʼ αὐτοῖς συνεβάλετο πρὸς τὸ καλῶς οἰκεῖν τὴν πόλιν, ὅτι δυοῖν ἰσοτήτοιν
+         </div>
+         <div n="21" type="section">
+            <p>μέγιστον δʼ αὐτοῖς συνεβάλετο πρὸς τὸ καλῶς οἰκεῖν τὴν πόλιν, ὅτι δυοῖν ἰσοτήτοιν
           νομιζομέναιν εἶναι, καὶ τῆς μὲν ταὐτὸν ἅπασιν ἀπονεμούσης τῆς δὲ τὸ προσῆκον ἑκάστοις, οὐκ
           ἠγνόουν τὴν χρησιμωτέραν, ἀλλὰ τὴν μὲν τῶν αὐτῶν ἀξιοῦσαν τοὺς χρηστοὺς καὶ τοὺς πονηροὺς
           ἀπεδοκίμαζον ὡς οὐ δικαίαν οὖσαν, </p>
-      </div>
-      <div subtype="section" type="textpart" n="22">
-        <p>τὴν δὲ κατὰ τὴν ἀξίαν ἕκαστον τιμῶσαν καὶ κολάζουσαν προῃροῦντο, καὶ διὰ ταύτης ᾤκουν τὴν
+         </div>
+         <div n="22" type="section">
+            <p>τὴν δὲ κατὰ τὴν ἀξίαν ἕκαστον τιμῶσαν καὶ κολάζουσαν προῃροῦντο, καὶ διὰ ταύτης ᾤκουν τὴν
           πόλιν, οὐκ ἐξ ἁπάντων τὰς ἀρχὰς κληροῦντες, ἀλλὰ τοὺς βελτίστους καὶ τοὺς ἱκανωτάτους ἐφʼ
           ἕκαστον τῶν ἔργων προκρίνοντες. τοιούτους γὰρ ἤλπιζον ἔσεσθαι καὶ τοὺς ἄλλους, οἷοί περ ἂν
           ὦσιν οἱ τῶν πραγμάτων ἐπιστατοῦντες. </p>
-      </div>
-      <div subtype="section" type="textpart" n="23">
-        <p>ἔπειτα καὶ δημοτικωτέραν ἐνόμιζον εἶναι ταύτην τὴν κατάστασιν ἢ τὴν διὰ τοῦ λαγχάνειν
+         </div>
+         <div n="23" type="section">
+            <p>ἔπειτα καὶ δημοτικωτέραν ἐνόμιζον εἶναι ταύτην τὴν κατάστασιν ἢ τὴν διὰ τοῦ λαγχάνειν
           γιγνομένην ἐν μὲν γὰρ τῇ κληρώσει τὴν τύχην βραβεύσειν, καὶ πολλάκις λήψεσθαι τὰς ἀρχὰς
           τοὺς ὀλιγαρχίας ἐπιθυμοῦντας, ἐν δὲ τῷ προκρίνειν τοὺς ἐπιεικεστάτους τὸν δῆμον ἔσεσθαι
           κύριον ἑλέσθαι τοὺς ἀγαπῶντας μάλιστα τὴν καθεστῶσαν πολιτείαν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="24">
-      <milestone unit="para" ed="perseus"/>
-        <p>αἴτιον δʼ ἦν τοῦ ταῦτα τοῖς πολλοῖς ἀρέσκειν καὶ μὴ περιμαχήτους εἶναι τὰς ἀρχάς, ὅτι
+         </div>
+         <div n="24" type="section">
+            <milestone unit="para" ed="perseus"/>
+            <p>αἴτιον δʼ ἦν τοῦ ταῦτα τοῖς πολλοῖς ἀρέσκειν καὶ μὴ περιμαχήτους εἶναι τὰς ἀρχάς, ὅτι
           μεμαθηκότες ἦσαν ἐργάζεσθαι καὶ φείδεσθαι, καὶ μὴ τῶν μὲν οἰκείων ἀμελεῖν τοῖς δʼ
           ἀλλοτρίοις ἐπιβουλεύειν, μηδʼ ἐκ τῶν δημοσίων τὰ σφέτερʼ αὐτῶν διοικεῖν, ἀλλʼ ἐκ τῶν
           ἑκάστοις ὑπαρχόντων, εἴ ποτε δεήσειε, τοῖς κοινοῖς ἐπαρκεῖν, μηδʼ ἀκριβέστερον εἰδέναι τὰς
           ἐκ τῶν ἀρχείων προσόδους ἢ τὰς ἐκ τῶν ἰδίων γιγνομένας αὑτοῖς. οὕτω δʼ ἀπείχοντο σφόδρα
           τῶν τῆς πόλεως, </p>
-      </div>
-      <div subtype="section" type="textpart" n="25">
-        <p>ὥστε χαλεπώτερον ἦν ἐν ἐκείνοις τοῖς χρόνοις εὑρεῖν τοὺς βουλομένους ἄρχειν ἢ νῦν τοὺς
+         </div>
+         <div n="25" type="section">
+            <p>ὥστε χαλεπώτερον ἦν ἐν ἐκείνοις τοῖς χρόνοις εὑρεῖν τοὺς βουλομένους ἄρχειν ἢ νῦν τοὺς
           μηδὲν δεομένους· οὐ γὰρ ἐμπορίαν ἀλλὰ λειτουργίαν ἐνόμιζον εἶναι τὴν τῶν κοινῶν
           ἐπιμέλειαν, οὐδʼ ἀπὸ τῆς πρώτης ἡμέρας ἐσκόπουν ἐλθόντες εἴ τι λῆμμα παραλελοίπασιν οἱ
           πρότερον ἄρχοντες, ἀλλὰ πολὺ μᾶλλον εἴ τινος πράγματος κατημελήκασι τῶν τέλος ἔχειν
           κατεπειγόντων. </p>
-      </div>
-      <div subtype="section" type="textpart" n="26">
-        <p>ὡς δὲ συντόμως εἰπεῖν, ἐκεῖνοι διεγνωκότες ἦσαν ὅτι δεῖ τὸν μὲν δῆμον ὥσπερ τύραννον
+         </div>
+         <div n="26" type="section">
+            <p>ὡς δὲ συντόμως εἰπεῖν, ἐκεῖνοι διεγνωκότες ἦσαν ὅτι δεῖ τὸν μὲν δῆμον ὥσπερ τύραννον
           καθιστάναι τὰς ἀρχὰς καὶ κολάζειν τοὺς ἐξαμαρτάνοντας καὶ κρίνειν περὶ τῶν
           ἀμφισβητουμένων, τοὺς δὲ σχολὴν ἄγειν δυναμένους καὶ βίον ἱκανὸν κεκτημένους ἐπιμελεῖσθαι
           τῶν κοινῶν ὥσπερ οἰκέτας, </p>
-      </div>
-      <div subtype="section" type="textpart" n="27">
-        <p>καὶ δικαίους μὲν γενομένους ἐπαινεῖσθαι καὶ στέργειν ταύτῃ τῇ τιμῇ, κακῶς δὲ διοικήσαντας
+         </div>
+         <div n="27" type="section">
+            <p>καὶ δικαίους μὲν γενομένους ἐπαινεῖσθαι καὶ στέργειν ταύτῃ τῇ τιμῇ, κακῶς δὲ διοικήσαντας
           μηδεμιᾶς συγγνώμης τυγχάνειν ἀλλὰ ταῖς μεγίσταις ζημίαις περιπίπτειν. καίτοι πῶς ἄν τις
           εὕροι ταύτης βεβαιοτέραν ἢ δικαιοτέραν δημοκρατίαν, τῆς τοὺς μὲν δυνατωτάτους ἐπὶ τὰς
           πράξεις καθιστάσης, αὐτῶν δὲ τούτων τὸν δῆμον κύριον ποιούσης; </p>
-      </div>
-      <div subtype="section" type="textpart" n="28">
-        <p>τὸ μὲν οὖν σύνταγμα τῆς πολιτείας τοιοῦτον ἦν αὐτοῖς· ῥᾴδιον δʼ ἐκ τούτων καταμαθεῖν ὡς
+         </div>
+         <div n="28" type="section">
+            <p>τὸ μὲν οὖν σύνταγμα τῆς πολιτείας τοιοῦτον ἦν αὐτοῖς· ῥᾴδιον δʼ ἐκ τούτων καταμαθεῖν ὡς
           καὶ τὰ καθʼ ἡμέραν ἑκάστην ὀρθῶς καὶ νομίμως πράττοντες διετέλεσαν. ἀνάγκη γὰρ τοῖς περὶ
           ὅλων τῶν πραγμάτων καλὰς τὰς ὑποθέσεις πεποιημένοις καὶ τὰ μέρη τὸν αὐτὸν τρόπον ἔχειν
           ἐκείνοις. </p>
-      </div>
-      <div subtype="section" type="textpart" n="29">
-        <p>καὶ πρῶτον μὲν τὰ περὶ τοὺς θεούς, ἐντεῦθεν γὰρ ἄρχεσθαι δίκαιον, οὐκ ἀνωμάλως οὐδʼ
+         </div>
+         <div n="29" type="section">
+            <p>καὶ πρῶτον μὲν τὰ περὶ τοὺς θεούς, ἐντεῦθεν γὰρ ἄρχεσθαι δίκαιον, οὐκ ἀνωμάλως οὐδʼ
           ἀτάκτως οὔτʼ ἐθεράπευον οὔτʼ ὠργίαζον· οὐδʼ ὁπότε μὲν δόξειεν αὐτοῖς, τριακοσίους βοῦς
           ἔπεμπον, ὁπότε δὲ τύχοιεν, τὰς πατρίους θυσίας ἐξέλειπον· οὐδὲ τὰς μὲν ἐπιθέτους ἑορτάς,
           αἷς ἑστίασίς τις προσείη, μεγαλοπρεπῶς ἦγον, ἐν δὲ τοῖς ἁγιωτάτοις τῶν ἱερῶν ἀπὸ
           μισθωμάτων ἔθυον· </p>
-      </div>
-      <div subtype="section" type="textpart" n="30">
-        <p>ἀλλʼ ἐκεῖνο μόνον ἐτήρουν, ὅπως μηδὲν μήτε τῶν πατρίων καταλύσουσι μήτʼ ἔξω τῶν
+         </div>
+         <div n="30" type="section">
+            <p>ἀλλʼ ἐκεῖνο μόνον ἐτήρουν, ὅπως μηδὲν μήτε τῶν πατρίων καταλύσουσι μήτʼ ἔξω τῶν
           νομιζομένων προσθήσουσιν· οὐ γὰρ ἐν ταῖς πολυτελείαις ἐνόμιζον εἶναι τὴν εὐσέβειαν, ἀλλʼ
           ἐν τῷ μηδὲν κινεῖν ὧν αὐτοῖς οἱ πρόγονοι παρέδοσαν. καὶ γάρ τοι καὶ τὰ παρὰ τῶν θεῶν οὐκ
           ἐμπλήκτως οὐδὲ ταραχωδῶς αὐτοῖς συνέβαινεν, ἀλλʼ εὐκαίρως καὶ πρὸς τὴν ἐργασίαν τῆς χώρας
           καὶ πρὸς τὴν συγκομιδὴν τῶν καρπῶν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="31"><milestone unit="para" ed="perseus"/>
-        <p>παραπλησίως δὲ τοῖς εἰρημένοις καὶ τὰ πρὸς σφᾶς αὐτοὺς διῴκουν. οὐ γὰρ μόνον μερὶ τῶν
+         </div>
+         <div n="31" type="section">
+            <milestone unit="para" ed="perseus"/>
+            <p>παραπλησίως δὲ τοῖς εἰρημένοις καὶ τὰ πρὸς σφᾶς αὐτοὺς διῴκουν. οὐ γὰρ μόνον μερὶ τῶν
           κοινῶν ὡμονόουν, ἀλλὰ καὶ περὶ τὸν ἴδιον βίον τοσαύτην ἐποιοῦντο πρόνοιαν ἀλλήλων, ὅσην
           περ χρὴ τοὺς εὖ φρονοῦντας καὶ πατρίδος κοινωνοῦντας. οἵ τε γὰρ πενέστεροι τῶν πολιτῶν
           τοσοῦτον ἀπεῖχον τοῦ φθονεῖν τοῖς πλείω κεκτημένοις, </p>
-      </div>
-      <div subtype="section" type="textpart" n="32">
-        <p>ὥσθʼ ὁμοίως ἐκήδοντο τῶν οἴκων τῶν μεγάλων ὥσπερ τῶν σφετέρων αὐτῶν, ἡγούμενοι τὴν
+         </div>
+         <div n="32" type="section">
+            <p>ὥσθʼ ὁμοίως ἐκήδοντο τῶν οἴκων τῶν μεγάλων ὥσπερ τῶν σφετέρων αὐτῶν, ἡγούμενοι τὴν
           ἐκείνων εὐδαιμονίαν αὑτοῖς εὐπορίαν ὑπάρχειν· οἵ τε τὰς οὐσίας ἔχοντες οὐχ ὅπως ὑπερεώρων
           τοὺς καταδεέστερον πράττοντας, ἀλλʼ ὑπολαμβάνοντες αἰσχύνην αὑτοῖς εἶναι τὴν τῶν πολιτῶν
           ἀπορίαν ἐπήμυνον ταῖς ἐνδείαις, τοῖς μὲν γεωργίας ἐπὶ μετρίαις μισθώσεσι παραδιδόντες,
           τοὺς δὲ κατʼ ἐμπορίαν ἐκπέμποντες, τοῖς δʼ εἰς τὰς ἄλλας ἐργασίας ἀφορμὴν παρέχοντες. </p>
-      </div>
-      <div subtype="section" type="textpart" n="33">
-        <p>οὐ γὰρ ἐδεδίεσαν μὴ δυοῖν θάτερον πάθοιεν, ἢ πάντων στερηθεῖεν, ἢ πολλὰ πράγματα σχόντες
+         </div>
+         <div n="33" type="section">
+            <p>οὐ γὰρ ἐδεδίεσαν μὴ δυοῖν θάτερον πάθοιεν, ἢ πάντων στερηθεῖεν, ἢ πολλὰ πράγματα σχόντες
           μέρος τι κομίσαιντο τῶν προεθέντων· ἀλλʼ ὁμοίως ἐθάρρουν περὶ τῶν ἔξω δεδομένων ὥσπερ περὶ
           τῶν ἔνδον κειμένων. ἑώρων γὰρ τοὺς περὶ τῶν συμβολαίων κρίνοντας οὐ ταῖς ἐπιεικείαις
           χρωμένους, ἀλλὰ τοῖς νόμοις πειθομένους, </p>
-      </div>
-      <div subtype="section" type="textpart" n="34">
-        <p>οὐδʼ ἐν τοῖς τῶν ἄλλων ἀγῶσιν αὑτοῖς ἀδικεῖν ἐξουσίαν παρασκευάζοντας, ἀλλὰ μᾶλλον
+         </div>
+         <div n="34" type="section">
+            <p>οὐδʼ ἐν τοῖς τῶν ἄλλων ἀγῶσιν αὑτοῖς ἀδικεῖν ἐξουσίαν παρασκευάζοντας, ἀλλὰ μᾶλλον
           ὀργιζομένους τοῖς ἀποστεροῦσιν αὐτῶν τῶν ἀδικουμένων, καὶ νομίζοντας διὰ τοὺς ἄπιστα τὰ
           συμβόλαια ποιοῦντας μείζω βλάπτεσθαι τοὺς πένητας τῶν πολλὰ κεκτημένων· τοὺς μὲν γάρ, ἢν
           παύσωνται προϊέμενοι, μικρῶν προσόδων ἀποστερηθήσεσθαι, τοὺς δʼ, ἢν ἀπορήσωσι τῶν
           ἐπαρκούντων, εἰς τὴν ἐσχάτην ἔνδειαν καταστήσεσθαι. </p>
-      </div>
-      <div subtype="section" type="textpart" n="35">
-        <p>καὶ γάρ τοι διὰ τὴν γνώμην ταύτην οὐδεὶς οὔτʼ ἀπεκρύπτετο τὴν οὐσίαν οὔτʼ ὤκνει
+         </div>
+         <div n="35" type="section">
+            <p>καὶ γάρ τοι διὰ τὴν γνώμην ταύτην οὐδεὶς οὔτʼ ἀπεκρύπτετο τὴν οὐσίαν οὔτʼ ὤκνει
           συμβάλλειν, ἀλλʼ ἥδιον ἑώρων τοὺς δανειζομένους ἢ τοὺς ἀποδιδόντας. ἀμφότερα γὰρ αὐτοῖς
           συνέβαινεν, ἅπερ ἂν βουληθεῖεν ἄνθρωποι νοῦν ἔχοντες· ἅμα γὰρ τούς τε πολίτας ὠφέλουν καὶ
           τὰ σφέτερʼ αὐτῶν ἐνεργὰ καθίστασαν. κεφάλαιον δὲ τοῦ καλῶς ἀλλήλοις ὁμιλεῖν· αἱ μὲν γὰρ
           κτήσεις ἀσφαλεῖς ἦσαν, οἷσπερ κατὰ τὸ δίκαιον ὑπῆρχον, αἱ δὲ χρήσεις κοιναὶ πᾶσι τοῖς
           δεομένοις τῶν πολιτῶν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="36">
-        <p>ἴσως ἂν οὖν τις ἐπιτιμήσειε τοῖς εἰρημένοις, ὅτι τὰς μὲν πράξεις ἐπαινῶ τὰς ἐν ἐκείνοις
+         </div>
+         <div n="36" type="section">
+            <p>ἴσως ἂν οὖν τις ἐπιτιμήσειε τοῖς εἰρημένοις, ὅτι τὰς μὲν πράξεις ἐπαινῶ τὰς ἐν ἐκείνοις
           τοῖς χρόνοις γεγενημένας, τὰς δʼ αἰτίας οὐ φράζω, διʼ ἃς οὕτω καλῶς καὶ τὰ πρὸς σφᾶς
           αὐτοὺς εἶχον καὶ τὴν πόλιν διῴκουν. ἐγὼ δʼ οἶμαι μὲν εἰρηκέναι τι καὶ τοιοῦτον, οὐ μὴν
           ἀλλʼ ἔτι πλείω καὶ σαφέστερον πειράσομαι διαλεχθῆναι περὶ αὐτῶν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="37"><milestone unit="para" ed="perseus"/>
-        <p>ἐκεῖνοι γὰρ οὐκ ἐν μὲν ταῖς παιδείαις πολλοὺς τοὺς ἐπιστατοῦντας εἶχον, ἐπειδὴ δʼ εἰς
+         </div>
+         <div n="37" type="section">
+            <milestone unit="para" ed="perseus"/>
+            <p>ἐκεῖνοι γὰρ οὐκ ἐν μὲν ταῖς παιδείαις πολλοὺς τοὺς ἐπιστατοῦντας εἶχον, ἐπειδὴ δʼ εἰς
           ἄνδρας δοκιμασθεῖεν, ἐξῆν αὐτοῖς ποιεῖν ὅ τι βουληθεῖεν, ἀλλʼ ἐν αὐταῖς ταῖς ἀκμαῖς
           πλέονος ἐπιμελείας ἐτύγχανον ἢ παῖδες ὄντες. οὕτω γὰρ ἡμῶν οἱ πρόγονοι σφόδρα περὶ τὴν
           σωφροσύνην ἐσπούδαζον, ὥστε τὴν ἐξ Ἀρείου πάγου βουλὴν ἐπέστησαν ἐπιμελεῖσθαι τῆς
           εὐκοσμίας, ἧς οὐχ οἷόν τʼ ἦν μετασχεῖν πλὴν τοῖς καλῶς γεγονόσι καὶ πολλὴν ἀρετὴν ἐν τῷ
           βίω καὶ σωφροσύνην ἐνδεδειγμένοις, ὥστʼ εἰκότως αὐτὴν διενεγκεῖν τῶν ἐν τοῖς Ἕλλησι
           συνεδρίων. </p>
-      </div>
-      <div subtype="section" type="textpart" n="38">
-        <p>σημείοις δʼ ἄν τις χρήσαιτο περὶ τῶν τότε καθεστώτων καὶ τοῖς ἐν τῷ παρόντι γιγνομένοις·
+         </div>
+         <div n="38" type="section">
+            <p>σημείοις δʼ ἄν τις χρήσαιτο περὶ τῶν τότε καθεστώτων καὶ τοῖς ἐν τῷ παρόντι γιγνομένοις·
           ἔτι γὰρ καὶ νῦν ἁπάντων τῶν περὶ τὴν αἵρεσιν καὶ τὴν δοκιμασίαν κατημελημένων ἴδοιμεν ἂν
           τοὺς ἐν τοῖς ἄλλοις πράγμασιν οὐκ ἀνεκτοὺς ὄντας, ἐπειδὰν εἰς Ἄρειον πάγον ἀναβῶσιν,
           ὀκνοῦντας τῇ φύσει χρῆσθαι καὶ μᾶλλον τοῖς ἐκεῖ νομίμοις ἢ ταῖς αὑτῶν κακίαις ἐμμένοντας.
           τοσοῦτον φόβον ἐκεῖνοι τοῖς πονηροῖς ἐνειργάσαντο, καὶ τοιοῦτο μνημεῖον ἐν τῷ τόπῳ τῆς
           αὑτῶν ἀρετῆς καὶ σωφροσύνης ἐγκατέλιπον. </p>
-      </div>
-      <div subtype="section" type="textpart" n="39">
-        <p>τὴν δὴ τοιαύτην, ὥσπερ εἶπον, κυρίαν ἐποίησαν τῆς εὐταξίας ἐπιμελεῖσθαι, ἣ τοὺς μὲν
+         </div>
+         <div n="39" type="section">
+            <p>τὴν δὴ τοιαύτην, ὥσπερ εἶπον, κυρίαν ἐποίησαν τῆς εὐταξίας ἐπιμελεῖσθαι, ἣ τοὺς μὲν
           οἰομένους ἐνταῦθα βελτίστους ἄνδρας γίγνεσθαι, παρʼ οἷς οἱ νόμοι μετὰ πλείστης ἀκριβείας
           κείμενοι τυγχάνουσιν, ἀγνοεῖν ἐνόμιζεν· οὐδὲν γὰρ ἂν κωλύειν ὁμοίους ἅπαντας εἶναι τοὺς
           Ἕλληνας ἕνεκά γε τοῦ ῥᾴδιον εἶναι τὰ γράμματα λαβεῖν παρʼ ἀλλήλων. </p>
-      </div>
-      <div subtype="section" type="textpart" n="40">
-        <p>ἀλλὰ γὰρ οὐκ ἐκ τούτων τὴν ἐπίδοσιν εἶναι τῆς ἀρετῆς, ἀλλʼ ἐκ τῶν καθʼ ἑκάστην τὴν ἡμέραν
+         </div>
+         <div n="40" type="section">
+            <p>ἀλλὰ γὰρ οὐκ ἐκ τούτων τὴν ἐπίδοσιν εἶναι τῆς ἀρετῆς, ἀλλʼ ἐκ τῶν καθʼ ἑκάστην τὴν ἡμέραν
           ἐπιτηδευμάτων· τοὺς γὰρ πολλοὺς ὁμοίους τοῖς ἤθεσιν ἀποβαίνειν, ἐν οἷς ἂν ἕκαστοι
-          παιδευθῶσιν. ἔπειτα τά γε<note resp="editor" xml:lang="eng"><foreign
-              xml:lang="grc">ἔπειτα τά γε</foreign> Schneider: <foreign xml:lang="grc">ἐπεὶ τά
+          παιδευθῶσιν. ἔπειτα τά γε<note resp="editor" xml:lang="eng">
+                  <foreign xml:lang="grc">ἔπειτα τά γε</foreign> Schneider: <foreign xml:lang="grc">ἐπεὶ τά
               γε</foreign> MSS. </note> πλήθη καὶ τὰς ἀκριβείας τῶν νόμων σημεῖον εἶναι τοῦ κακῶς
           οἰκεῖσθαι τὴν πόλιν ταύτην· ἐμφράγματα γὰρ αὐτοὺς ποιουμένους τῶν ἁμαρτημάτων πολλοὺς
           τίθεσθαι τοὺς νόμους ἀναγκάζεσθαι. </p>
-      </div>
-      <div subtype="section" type="textpart" n="41">
-        <p>δεῖν δὲ τοὺς ὀρθῶς πολιτευομένους οὐ τὰς στοὰς ἐμπιπλάναι γραμμάτων, ἀλλʼ ἐν ταῖς ψυχαῖς
+         </div>
+         <div n="41" type="section">
+            <p>δεῖν δὲ τοὺς ὀρθῶς πολιτευομένους οὐ τὰς στοὰς ἐμπιπλάναι γραμμάτων, ἀλλʼ ἐν ταῖς ψυχαῖς
           ἔχειν τὸ δίκαιον· οὐ γὰρ τοῖς ψηφίσμασιν ἀλλὰ τοῖς ἤθεσι καλῶς οἰκεῖσθαι τὰς πόλεις, καὶ
           τοὺς μὲν κακῶς τεθραμμένους καὶ τοὺς ἀκριβῶς τῶν νόμων ἀναγεγραμμένους τολμήσειν
           παραβαίνειν, τοὺς δὲ καλῶς πεπαιδευμένους καὶ τοῖς ἁπλῶς κειμένοις ἐθελήσειν ἐμμένειν.
         </p>
-      </div>
-      <div subtype="section" type="textpart" n="42">
-        <p>ταῦτα διανοηθέντες οὐ τοῦτο πρῶτον ἐσκόπουν, διʼ ὧν κολάσουσι τοὺς ἀκοσμοῦντας, ἀλλʼ ἐξ
+         </div>
+         <div n="42" type="section">
+            <p>ταῦτα διανοηθέντες οὐ τοῦτο πρῶτον ἐσκόπουν, διʼ ὧν κολάσουσι τοὺς ἀκοσμοῦντας, ἀλλʼ ἐξ
           ὧν παρασκευάσουσι μηδὲν αὐτοὺς ἄξιον ζημίας ἐξαμαρτάνειν· ἡγοῦντο γὰρ τοῦτο μὲν αὑτῶν
           ἔργον εἶναι, τὸ δὲ περὶ τὰς τιμωρίας σπουδάζειν τοῖς ἐχθροῖς προσήκειν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="43">
-        <p>ἁπάντων μὲν οὖν ἐφρόντιζον τῶν πολιτῶν, μάλιστα δὲ τῶν νεωτέρων. ἑώρων γὰρ τοὺς
+         </div>
+         <div n="43" type="section">
+            <p>ἁπάντων μὲν οὖν ἐφρόντιζον τῶν πολιτῶν, μάλιστα δὲ τῶν νεωτέρων. ἑώρων γὰρ τοὺς
           τηλικούτους ταραχωδέστατα διακειμένους καὶ πλείστων γέμοντας ἐπιθυμιῶν, καὶ τὰς ψυχὰς
           αὐτῶν μάλιστα δαμασθῆναι δεομένας ἐπιμελείαις καλῶν ἐπιτηδευμάτων καὶ πόνοις ἡδονὰς
           ἔχουσιν· ἐν μόνοις γὰρ ἂν τούτοις ἐμμεῖναι τοὺς ἐλευθέρως τεθραμμένους καὶ μεγαλοφρονεῖν
           εἰθισμένους. </p>
-      </div>
-      <div subtype="section" type="textpart" n="44">
-        <p>ἅπαντας μὲν οὖν ἐπὶ τὰς αὐτὰς ἄγειν διατριβὰς οὐχ οἷόν τʼ ἦν, ἀνωμάλως τὰ περὶ τὸν βίον
+         </div>
+         <div n="44" type="section">
+            <p>ἅπαντας μὲν οὖν ἐπὶ τὰς αὐτὰς ἄγειν διατριβὰς οὐχ οἷόν τʼ ἦν, ἀνωμάλως τὰ περὶ τὸν βίον
           ἔχοντας· ὡς δὲ πρὸς τὴν οὐσίαν ἥρμοττεν, οὕτως ἑκάστοις προσέταττον. τοὺς μὲν γὰρ
           ὑποδεέστερον πράττοντας ἐπὶ τὰς γεωργίας καὶ τὰς ἐμπορίας ἔτρεπον, εἰδότες τὰς ἀπορίας μὲν
           διὰ τὰς ἀργίας γιγνομένας, </p>
-      </div>
-      <div subtype="section" type="textpart" n="45">
-        <p>τὰς δὲ κακουργίας διὰ τὰς ἀπορίας· ἀπορίας· ἀναιροῦντες οὖν τὴν ἀρχὴν τῶν κακῶν
+         </div>
+         <div n="45" type="section">
+            <p>τὰς δὲ κακουργίας διὰ τὰς ἀπορίας· ἀπορίας· ἀναιροῦντες οὖν τὴν ἀρχὴν τῶν κακῶν
           ἀπαλλάξειν ᾤοντο καὶ τῶν ἄλλων ἁμαρτημάτων τῶν μετʼ ἐκείνην γιγνομένων. τοὺς δὲ βίον
           ἱκανὸν κεκτημένους περὶ τὴν ἱππικὴν καὶ τὰ γυμνάσια καὶ τὰ κυνηγέσια καὶ τὴν φιλοσοφίαν
           ἠνάγκασαν διατρίβειν, ὁρῶντες ἐκ τούτων τοὺς μὲν διαφέροντας γιγνομένους, τοὺς δὲ τῶν
           πλείστων κακῶν ἀπεχομένους. </p>
-      </div>
-      <div subtype="section" type="textpart" n="46">
-        <p>καὶ ταῦτα νομοθετήσαντες οὐδὲ τὸν λοιπὸν χρόνον ὠλιγώρουν, ἀλλὰ διελόμενοι τὴν μὲν πόλιν
+         </div>
+         <div n="46" type="section">
+            <p>καὶ ταῦτα νομοθετήσαντες οὐδὲ τὸν λοιπὸν χρόνον ὠλιγώρουν, ἀλλὰ διελόμενοι τὴν μὲν πόλιν
           κατὰ κώμας τὴν δὲ χώραν κατὰ δήμους ἐθεώρουν τὸν βίον τὸν ἑκάστου, καὶ τοὺς ἀκοσμοῦντας
           ἀνῆγον εἰς τὴν βουλήν. ἡ δὲ τοὺς μὲν ἐνουθέτει, τοῖς δʼ ἠπείλει, τοὺς δʼ ὡς προσῆκεν
           ἐκόλαζεν. ἠπίσταντο γὰρ ὅτι δύο τρόποι τυγχάνουσιν ὄντες οἱ καὶ προτρέποντες ἐπὶ τὰς
           ἀδικίας καὶ παύοντες τῶν πονηριῶν· </p>
-      </div>
-      <div subtype="section" type="textpart" n="47">
-        <p>παρʼ οἷς μὲν γὰρ μήτε φυλακὴ μηδεμία τῶν τοιούτων καθέστηκε μήθʼ αἱ κρίσεις ἀκριβεῖς
+         </div>
+         <div n="47" type="section">
+            <p>παρʼ οἷς μὲν γὰρ μήτε φυλακὴ μηδεμία τῶν τοιούτων καθέστηκε μήθʼ αἱ κρίσεις ἀκριβεῖς
           εἰσι, παρὰ τούτοις μὲν διαφθείρεσθαι καὶ τὰς ἐπιεικεῖς τῶν φύσεων, ὅπου δὲ μήτε λαθεῖν
           τοῖς ἀδικοῦσι ῥᾴδιόν ἐστι μήτε φανεροῖς γενομένοις συγγνώμης τυχεῖν, ἐνταῦθα δʼ ἐξιτήλους
           γίγνεσθαι τὰς κακοηθείας. ἅπερ ἐκεῖνοι γιγνώσκοντες ἀμφοτέροις κατεῖχον τοὺς πολίτας, καὶ
           ταῖς τιμωρίαις καὶ ταῖς ἐπιμελείαις· τοσούτου γὰρ ἔδεον αὐτοὺς λανθάνειν οἱ κακόν τι
           δεδρακότες, ὥστε καὶ τοὺς ἐπιδόξους ἁμαρτήσεσθαί τι προῃσθάνοντο. </p>
-      </div>
-      <div subtype="section" type="textpart" n="48">
-        <p>τοιγαροῦν οὐκ ἐν τοῖς σκιραφείοις οἱ νεώτεροι διέτριβον, οὐδʼ ἐν ταῖς αὐλητρίσιν, οὐδʼ ἐν
+         </div>
+         <div n="48" type="section">
+            <p>τοιγαροῦν οὐκ ἐν τοῖς σκιραφείοις οἱ νεώτεροι διέτριβον, οὐδʼ ἐν ταῖς αὐλητρίσιν, οὐδʼ ἐν
           τοῖς τοιούτοις συλλόγοις ἐν οἷς νῦν διημερεύουσιν· ἀλλʼ ἐν τοῖς ἐπιτηδεύμασιν ἔμενον ἐν
           οἷς ἐτάχθησαν, θαυμάζοντες καὶ ζηλοῦντες τοὺς ἐν τούτοις πρωτεύοντας. οὕτω δʼ ἔφευγον τὴν
           ἀγοράν, ὥστʼ εἰ καί ποτε διελθεῖν ἀναγκασθεῖεν, μετὰ πολλῆς αἰδοῦς καὶ σωφροσύνης
           ἐφαίνοντο τοῦτο ποιοῦντες. </p>
-      </div>
-      <div subtype="section" type="textpart" n="49">
-        <p>ἀντειπεῖν δὲ τοῖς πρεσβυτέροις ἢ λοιδορήσασθαι δεινότερον ἐνόμιζον ἢ νῦν περὶ τοὺς γονέας
+         </div>
+         <div n="49" type="section">
+            <p>ἀντειπεῖν δὲ τοῖς πρεσβυτέροις ἢ λοιδορήσασθαι δεινότερον ἐνόμιζον ἢ νῦν περὶ τοὺς γονέας
           ἐξαμαρτεῖν. ἐν καπηλείῳ δὲ φαγεῖν ἢ πιεῖν οὐδεὶς οὐδʼ ἂν οἰκέτης ἐπιεικὴς ἐτόλμησεν·
           σεμνύνεσθαι γὰρ ἐμελέτων, ἀλλʼ οὐ βωμολοχεύεσθαι. καὶ τοὺς εὐτραπέλους δὲ καὶ τοὺς
           σκώπτειν δυναμένους, οὓς νῦν εὐφυεῖς προσαγορεύουσιν, ἐκεῖνοι δυστυχεῖς ἐνόμιζον. </p>
-      </div>
-      <div subtype="section" type="textpart" n="50">
-        <p>καὶ μηδεὶς οἰέσθω με δυσκόλως διακεῖσθαι πρὸς τοὺς ταύτην ἔχοντας τὴν ἡλικίαν. οὔτε γὰρ
+         </div>
+         <div n="50" type="section">
+            <p>καὶ μηδεὶς οἰέσθω με δυσκόλως διακεῖσθαι πρὸς τοὺς ταύτην ἔχοντας τὴν ἡλικίαν. οὔτε γὰρ
           ἡγοῦμαι τούτους αἰτίους εἶναι τῶν γιγνομένων, σύνοιδά τε τοῖς πλείστοις αὐτῶν ἥκιστα
           χαίρουσι ταύτῃ τῇ καταστάσει, διʼ ἣν ἔξεστιν αὐτοῖς ἐν ταῖς ἀκολασίαις ταύταις διατρίβειν·
           ὥστʼ οὐκ ἂν εἰκότως τούτοις ἐπιτιμῴην, ἀλλὰ πολὺ δικαιότερον τοῖς ὀλίγῳ πρὸ ἡμῶν τὴν πόλιν
           διοικήσασιν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="51">
-        <p>ἐκεῖνοι γὰρ ἦσαν οἱ προτρέψαντες ἐπὶ ταύτας τὰς ὀλιγωρίας καὶ καταλύσαντες τῆς βουλῆς
+         </div>
+         <div n="51" type="section">
+            <p>ἐκεῖνοι γὰρ ἦσαν οἱ προτρέψαντες ἐπὶ ταύτας τὰς ὀλιγωρίας καὶ καταλύσαντες τῆς βουλῆς
           δύναμιν. ἧς ἐπιστατούσης οὐ δικῶν οὐδʼ ἐγκλημάτων οὐδʼ εἰσφορῶν οὐδὲ πενίας οὐδὲ πολέμων ἡ
           πόλις ἔγεμεν, ἀλλὰ καὶ πρὸς ἀλλήλους ἡσυχίαν εἶχον καὶ πρὸς τοὺς ἄλλους ἅπαντας εἰρήνην
           ἦγον. παρεῖχον γὰρ σφᾶς αὐτοὺς τοῖς μὲν Ἕλλησι πιστούς, </p>
-      </div>
-      <div subtype="section" type="textpart" n="52">
-        <p>τοῖς δὲ βαρβάροις φοβερούς· τοὺς μὲν γὰρ σεσωκότες ἦσαν, παρὰ δὲ τῶν δίκην τηλικαύτην
+         </div>
+         <div n="52" type="section">
+            <p>τοῖς δὲ βαρβάροις φοβερούς· τοὺς μὲν γὰρ σεσωκότες ἦσαν, παρὰ δὲ τῶν δίκην τηλικαύτην
           εἰληφότες, ὥστʼ ἀγαπᾶν ἐκείνους εἰ μηδὲν ἔτι κακὸν πάσχοιεν. τοιγάρτοι διὰ ταῦτα μετὰ
           τοσαύτης ἀσφαλείας διῆγον, ὥστε καλλίους εἶναι καὶ πολυτελεστέρας τὰς οἰκήσεις καὶ τὰς
           κατασκευὰς τὰς ἐπὶ τῶν ἀγρῶν ἢ τὰς ἐντὸς τείχους, καὶ πολλοὺς τῶν πολιτῶν μηδʼ εἰς τὰς
           ἑορτὰς εἰς ἄστυ καταβαίνειν, ἀλλʼ αἱρεῖσθαι μένειν ἐπὶ τοῖς ἰδίοις ἀγαθοῖς μᾶλλον ἢ τῶν
           κοινῶν ἀπολαύειν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="53">
-        <p>οὐδὲ γὰρ τὰ περὶ τὰς θεωρίας, ὧν ἕνεκʼ ἄν τις ἦλθεν, ἀσελγῶς οὐδʼ ὑπερηφάνως ἀλλὰ νοῦν
+         </div>
+         <div n="53" type="section">
+            <p>οὐδὲ γὰρ τὰ περὶ τὰς θεωρίας, ὧν ἕνεκʼ ἄν τις ἦλθεν, ἀσελγῶς οὐδʼ ὑπερηφάνως ἀλλὰ νοῦν
           ἐχόντως ἐποίουν. οὐ γὰρ ἐκ τῶν πομπῶν οὐδʼ ἐκ τῶν περὶ τὰς χορηγίας φιλονεικιῶν οὐδʼ ἐκ
           τῶν τοιούτων ἀλαζονειῶν τὴν εὐδαιμονίαν ἐδοκίμαζον, ἀλλʼ ἐκ τοῦ σωφρόνως οἰκεῖν καὶ τοῦ
           βίου τοῦ καθʼ ἡμέραν καὶ τοῦ μηδένα τῶν πολιτῶν ἀπορεῖν τῶν ἐπιτηδείων. ἐξ ὧνπερ χρὴ
           κρίνειν τοὺς ὡς ἀληθῶς εὖ πράττοντας καὶ μὴ φορτικῶς πολιτευομένους· </p>
-      </div>
-      <div subtype="section" type="textpart" n="54">
-        <p>ἐπεὶ νῦν γε τίς οὐκ ἂν ἐπὶ τοῖς γιγνομένοις τῶν εὖ φρονούντων ἀλγήσειεν, ὅταν ἴδῃ πολλοὺς
+         </div>
+         <div n="54" type="section">
+            <p>ἐπεὶ νῦν γε τίς οὐκ ἂν ἐπὶ τοῖς γιγνομένοις τῶν εὖ φρονούντων ἀλγήσειεν, ὅταν ἴδῃ πολλοὺς
           τῶν πολιτῶν αὐτοὺς μὲν περὶ τῶν ἀναγκαίων, εἴθʼ ἕξουσιν εἴτε μή, πρὸ τῶν δικαστηρίων
           κληρουμένους, τῶν δʼ Ἑλλήνων τοὺς ἐλαύνειν τὰς ναῦς βουλομένους τρέφειν ἀξιοῦντας, καὶ
           χορεύοντας μὲν ἐν χρυσοῖς ἱματίοις, χειμάζοντας δʼ ἐν τοιούτοις ἐν οἷς οὐ βούλομαι λέγειν,
           καὶ τοιαύτας ἄλλας ἐναντιώσεις περὶ τὴν διοίκησιν γιγνομένας, αἳ μεγάλην αἰσχύνην τῇ πόλει
           ποιοῦσιν; </p>
-      </div>
-      <div subtype="section" type="textpart" n="55">
-        <p>ὧν οὐδὲν ἦν ἐπʼ ἐκείνης τῆς βουλῆς· ἀπήλλαξε γὰρ τοὺς μὲν πένητας τῶν ἀποριῶν ταῖς
+         </div>
+         <div n="55" type="section">
+            <p>ὧν οὐδὲν ἦν ἐπʼ ἐκείνης τῆς βουλῆς· ἀπήλλαξε γὰρ τοὺς μὲν πένητας τῶν ἀποριῶν ταῖς
           ἐργασίαις καὶ ταῖς παρὰ τῶν ἐχόντων ὠφελίαις, τοὺς δὲ νεωτέρους τῶν ἀκολασιῶν τοῖς
           ἐπιτηδεύμασι καὶ ταῖς αὐτῶν ἐπιμελείαις, τοὺς δὲ πολιτευομένους τῶν πλεονεξιῶν ταῖς
           τιμωρίαις καὶ τῷ μὴ λανθάνειν τοὺς ἀδικοῦντας, τοὺς δὲ πρεσβυτέρους τῶν ἀθυμιῶν ταῖς
           τιμαῖς ταῖς πολιτικαῖς καὶ ταῖς παρὰ τῶν νεωτέρων θεραπείαις. καίτοι πῶς ἂν γένοιτο ταύτης
           πλείονος ἀξία πολιτεία, τῆς οὕτω καλῶς ἁπάντων τῶν πραγμάτων ἐπιμεληθείσης; </p>
-      </div>
-      <div subtype="section" type="textpart" n="56">
-        <p>περὶ μὲν οὖν τῶν ποτὲ καθεστώτων τὰ μὲν πλεῖστα διεληλύθαμεν· ὅσα δὲ παραλελοίπαμεν, ἐκ
+         </div>
+         <div n="56" type="section">
+            <p>περὶ μὲν οὖν τῶν ποτὲ καθεστώτων τὰ μὲν πλεῖστα διεληλύθαμεν· ὅσα δὲ παραλελοίπαμεν, ἐκ
           τῶν εἰρημένων, ὅτι κἀκεῖνα τὸν αὐτὸν τρόπον εἶχε τούτοις, ῥᾴδιόν ἐστι καταμαθεῖν. ἤδη δέ
           τινες ἀκούσαντές μου ταῦτα διεξιόντος ἐπῄνεσαν μὲν ὡς οἷόν τε μάλιστα, καὶ τοὺς προγόνους
           ἐμακάρισαν ὅτι τὸν τρόπον τοῦτον τὴν πόλιν διῴκουν, </p>
-      </div>
-      <div subtype="section" type="textpart" n="57">
-        <p>οὐ μὴν ὑμᾶς γε ᾤοντο πεισθήσεσθαι χρῆσθαι τούτοις, ἀλλʼ αἱρήσεσθαι διὰ τὴν συνήθειαν ἐν
+         </div>
+         <div n="57" type="section">
+            <p>οὐ μὴν ὑμᾶς γε ᾤοντο πεισθήσεσθαι χρῆσθαι τούτοις, ἀλλʼ αἱρήσεσθαι διὰ τὴν συνήθειαν ἐν
           τοῖς καθεστηκόσι πράγμασι κακοπαθεῖν μᾶλλον ἢ μετὰ πολιτείας ἀκριβεστέρας ἄμεινον τὸν βίον
           διάγειν. εἶναι δʼ ἔφασαν ἐμοὶ καὶ κίνδυνον, μὴ τὰ βέλτιστα συμβουλεύων μισόδημος εἶναι
           δόξω καὶ τὴν πόλιν ζητεῖν εἰς ὀλιγαρχίαν ἐμβαλεῖν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="58">
-        <p>ἐγὼ δʼ εἰ μὲν περὶ πραγμάτων ἀγνοουμένων καὶ μὴ κοινῶν τοὺς λόγους ἐποιούμην, καὶ περὶ
+         </div>
+         <div n="58" type="section">
+            <p>ἐγὼ δʼ εἰ μὲν περὶ πραγμάτων ἀγνοουμένων καὶ μὴ κοινῶν τοὺς λόγους ἐποιούμην, καὶ περὶ
           τούτων ἐκέλευον ὑμᾶς ἑλέσθαι συνέδρους ἢ συγγραφέας, διʼ ὧν ὁ δῆμος κατελύθη τὸ πρότερον,
           εἰκότως ἂν εἶχον ταύτην τὴν αἰτίαν· νῦν δʼ οὐδὲν εἴρηκα τοιοῦτον, ἀλλὰ διείλεγμαι περὶ
           διοικήσεως οὐκ ἀποκεκρυμμένης ἀλλὰ πᾶσι φανερᾶς, </p>
-      </div>
-      <div subtype="section" type="textpart" n="59">
-        <p>ἣν πάντες ἴστε καὶ πατρίαν ἡμῖν οὖσαν καὶ πλείστων ἀγαθῶν καὶ τῇ πόλει καὶ τοῖς ἄλλοις
+         </div>
+         <div n="59" type="section">
+            <p>ἣν πάντες ἴστε καὶ πατρίαν ἡμῖν οὖσαν καὶ πλείστων ἀγαθῶν καὶ τῇ πόλει καὶ τοῖς ἄλλοις
           Ἕλλησιν αἰτίαν γεγενημένην, πρὸς δὲ τούτοις ὑπὸ τοιούτων ἀνδρῶν νομοθετηθεῖσαν καὶ
           κατασταθεῖσαν, οὓς οὐδεὶς ὅστις οὐκ ἂν ὁμολογήσειε δημοτικωτάτους γεγενῆσθαι τῶν πολιτῶν.
           ὥστε πάντων ἄν μοι συμβαίη δεινότατον, εἰ τοιαύτην πολιτείαν εἰσηγούμενος νεωτέρων δόξαιμι
           πραγμάτων ἐπιθυμεῖν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="60">
-        <p>ἔπειτα κἀκεῖθεν ῥᾴδιον γνῶναι τὴν ἐμὴν διάνοιαν· ἐν γὰρ τοῖς πλείστοις τῶν λόγων τῶν
+         </div>
+         <div n="60" type="section">
+            <p>ἔπειτα κἀκεῖθεν ῥᾴδιον γνῶναι τὴν ἐμὴν διάνοιαν· ἐν γὰρ τοῖς πλείστοις τῶν λόγων τῶν
           εἰρημένων ὑπʼ ἐμοῦ φανήσομαι ταῖς μὲν ὀλιγαρχίαις καὶ ταῖς πλεονεξίαις ἐπιτιμῶν, τὰς δʼ
           ἰσότητας καὶ τὰς δημοκρατίας ἐπαινῶν, οὐ πάσας, ἀλλὰ τὰς καλῶς καθεστηκυίας, οὐδʼ ὡς
           ἔτυχον, ἀλλὰ δικαίως καὶ λόγον ἐχόντως. </p>
-      </div>
-      <div subtype="section" type="textpart" n="61">
-        <p>οἶδα γὰρ τούς τε προγόνους τοὺς ἡμετέρους ἐν ταύτῃ τῇ καταστάσει πολὺ τῶν ἄλλων
+         </div>
+         <div n="61" type="section">
+            <p>οἶδα γὰρ τούς τε προγόνους τοὺς ἡμετέρους ἐν ταύτῃ τῇ καταστάσει πολὺ τῶν ἄλλων
           διενεγκόντας, καὶ Λακεδαιμονίους διὰ τοῦτο κάλλιστα πολιτευομένους, ὅτι μάλιστα
           δημοκρατούμενοι τυγχάνουσιν. ἐν γὰρ τῇ τῶν ἀρχῶν αἱρέσει καὶ τῷ βίῳ τῷ καθʼ ἡμέραν καὶ
           τοῖς ἄλλοις ἐπιτηδεύμασιν ἴδοιμεν ἂν παρʼ αὐτοῖς τὰς ἰσότητας καὶ τὰς ὁμοιότητας μᾶλλον ἢ
           παρὰ τοῖς ἄλλοις ἰσχυούσας· οἷς αἱ μὲν ὀλιγαρχίαι πολεμοῦσιν, οἱ δὲ καλῶς δημοκρατούμενοι
           χρώμενοι διατελοῦσιν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="62">
-        <p>τῶν τοίνυν ἄλλων πόλεων ταῖς ἐπιφανεστάταις καὶ μεγίσταις, ἢν ἐξετάζειν βουληθῶμεν,
+         </div>
+         <div n="62" type="section">
+            <p>τῶν τοίνυν ἄλλων πόλεων ταῖς ἐπιφανεστάταις καὶ μεγίσταις, ἢν ἐξετάζειν βουληθῶμεν,
           εὑρήσομεν τὰς δημοκρατίας μᾶλλον ἢ τὰς ὀλιγαρχίας συμφερούσας· ἐπεὶ καὶ τὴν ἡμετέραν
           πολιτείαν, ᾗ πάντες ἐπιτιμῶσιν, ἢν παραβάλωμεν αὐτὴν μὴ πρὸς τὴν ὑπʼ ἐμοῦ ῥηθεῖσαν ἀλλὰ
           πρὸς τὴν ὑπὸ τῶν τριάκοντα καταστᾶσαν, οὐδεὶς ὅστις οὐκ ἂν θεοποίητον εἶναι νομίσειεν.
         </p>
-      </div>
-      <div subtype="section" type="textpart" n="63">
-        <p>βούλομαι δʼ, εἰ καί τινές με φήσουσιν ἔξω τῆς ὑποθέσεως λέγειν, δηλῶσαι καὶ διελθεῖν ὅσον
+         </div>
+         <div n="63" type="section">
+            <p>βούλομαι δʼ, εἰ καί τινές με φήσουσιν ἔξω τῆς ὑποθέσεως λέγειν, δηλῶσαι καὶ διελθεῖν ὅσον
           αὕτη τῆς τότε διήνεγκεν, ἵνα μηδεὶς οἴηταί με τὰ μὲν ἁμαρτήματα τοῦ δήμου λίαν ἀκριβῶς
           ἐξετάζειν, εἰ δέ τι καλὸν ἢ σεμνὸν διαπέπρακται, ταῦτα δὲ παραλείπειν. ἔσται δʼ ὁ λόγος
           οὔτε μακρὸς οὔτʼ ἀνωφελὴς τοῖς ἀκούουσιν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="64">
-        <p>ἐπειδὴ γὰρ τὰς ναῦς τὰς περὶ Ἑλλήσποντον ἀπωλέσαμεν καὶ ταῖς συμφοραῖς ἐκείναις ἡ πόλις
+         </div>
+         <div n="64" type="section">
+            <p>ἐπειδὴ γὰρ τὰς ναῦς τὰς περὶ Ἑλλήσποντον ἀπωλέσαμεν καὶ ταῖς συμφοραῖς ἐκείναις ἡ πόλις
           περιέπεσε, τίς οὐκ οἶδε τῶν πρεσβυτέρων τοὺς μὲν δημοτικοὺς καλουμένους ἑτοίμους ὄντας
           ὁτιοῦν πάσχειν ὑπὲρ τοῦ μὴ ποιεῖν τὸ προσταττόμενον, καὶ δεινὸν ἡγουμένους εἴ τις ὄψεται
           τὴν πόλιν τὴν τῶν Ἑλλήνων ἄρξασαν, ταύτην ὑφʼ ἑτέροις οὖσαν, τοὺς δὲ τῆς ὀλιγαρχίας
           ἐπιθυμήσαντας ἑτοίμως καὶ τὰ τείχη καθαιροῦντας καὶ τὴν δουλείαν ὑπομένοντας; </p>
-      </div>
-      <div subtype="section" type="textpart" n="65">
-        <p>καὶ τότε μέν, ὅτε τὸ πλῆθος ἦν κύριον τῶν πραγμάτων, ἡμᾶς τὰς τῶν ἄλλων ἀκροπόλεις
+         </div>
+         <div n="65" type="section">
+            <p>καὶ τότε μέν, ὅτε τὸ πλῆθος ἦν κύριον τῶν πραγμάτων, ἡμᾶς τὰς τῶν ἄλλων ἀκροπόλεις
           φρουροῦντας, ἐπειδὴ δʼ οἱ τριάκοντα παρέλαβον τὴν πολιτείαν, τοὺς πολεμίους τὴν ἡμετέραν
           ἔχοντας; καὶ κατὰ μὲν ἐκεῖνον τὸν χρόνον δεσπότας ἡμῶν ὄντας Λακεδαιμονίους, ἐπειδὴ δʼ οἱ
           φεύγοντες κατελθόντες πολεμεῖν ὑπὲρ τῆς ἐλευθερίας ἐτόλμησαν καὶ Κόνων ναυμαχῶν ἐνίκησε,
           πρέσβεις ἐλθόντας παρʼ αὐτῶν καὶ διδόντας τῇ πόλει τὴν ἀρχὴν τὴν τῆς θαλάττης; </p>
-      </div>
-      <div subtype="section" type="textpart" n="66">
-        <p>καὶ μὲν δὴ καὶ τάδε τίς οὐ μνημονεύει τῶν ἡλικιωτῶν τῶν ἐμῶν, τὴν μὲν δημοκρατίαν οὕτω
+         </div>
+         <div n="66" type="section">
+            <p>καὶ μὲν δὴ καὶ τάδε τίς οὐ μνημονεύει τῶν ἡλικιωτῶν τῶν ἐμῶν, τὴν μὲν δημοκρατίαν οὕτω
           κοσμήσασαν τὴν πόλιν καὶ τοῖς ἱεροῖς καὶ τοῖς ὁσίοις, ὥστʼ ἔτι καὶ νῦν τοὺς ἀφικνουμένους
           νομίζειν αὐτὴν ἀξίαν εἶναι μὴ μόνον τῶν Ἑλλήνων ἄρχειν ἀλλὰ καὶ τῶν ἄλλων ἁπάντων, τοὺς δὲ
           τριάκοντα τῶν μὲν ἀμελήσαντας, τὰ δὲ συλήσαντας, τοὺς δὲ νεωσοίκους ἐπὶ καθαιρέσει τριῶν
           ταλάντων ἀποδομένους, εἰς οὓς ἡ πόλις ἀνήλωσεν οὐκ ἐλάττω χιλίων ταλάντων; </p>
-      </div>
-      <div subtype="section" type="textpart" n="67">
-        <p>ἀλλὰ μὴν οὐδὲ τὴν πραότητα δικαίως ἄν τις ἐπαινέσειε τὴν ἐκείνων μᾶλλον ἢ τὴν τοῦ δήμου.
+         </div>
+         <div n="67" type="section">
+            <p>ἀλλὰ μὴν οὐδὲ τὴν πραότητα δικαίως ἄν τις ἐπαινέσειε τὴν ἐκείνων μᾶλλον ἢ τὴν τοῦ δήμου.
           οἱ μὲν γὰρ ψηφίσματι παραλαβόντες τὴν πόλιν πεντακοσίους μὲν καὶ χιλίους τῶν πολιτῶν
           ἀκρίτους ἀπέκτειναν, εἰς δὲ τὸν Πειραιᾶ φυγεῖν πλείους ἢ πεντακισχιλίους ἠνάγκασαν· οἱ δὲ
           κρατήσαντες καὶ μεθʼ ὅπλων κατιόντες, αὐτοὺς τοὺς αἰτιωτάτους τῶν κακῶν ἀνελόντες, οὕτω τὰ
           πρὸς τοὺς ἄλλους καλῶς καὶ νομίμως διῴκησαν, ὥστε μηδὲν ἔλαττον ἔχειν τοὺς ἐκβαλόντας τῶν
           κατελθόντων. </p>
-      </div>
-      <div subtype="section" type="textpart" n="68">
-        <p>ὃ δὲ πάντων κάλλιστον καὶ μέγιστον τεκμήριον τῆς ἐπιεικείας τοῦ δήμου· δανεισαμένων γὰρ
+         </div>
+         <div n="68" type="section">
+            <p>ὃ δὲ πάντων κάλλιστον καὶ μέγιστον τεκμήριον τῆς ἐπιεικείας τοῦ δήμου· δανεισαμένων γὰρ
           τῶν ἐν ἄστει μεινάντων ἑκατὸν τάλαντα παρὰ Λακεδαιμονίων εἰς τὴν πολιορκίαν τῶν τὸν
           Πειραιᾶ κατασχόντων, ἐκκλησίας γενομένης περὶ ἀποδόσεως τῶν χρημάτων, καὶ λεγόντων πολλῶν
           ὡς δίκαιόν ἐστι διαλύειν τὰ πρὸς Λακεδαιμονίους μὴ τοὺς πολιορκουμένους ἀλλὰ τοὺς
           δανεισαμένους, ἔδοξε τῷ δήμῳ κοινὴν ποιήσασθαι τὴν ἀπόδοσιν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="69">
-        <p>καὶ γάρ τοι διὰ ταύτην τὴν γνώμην εἰς τοιαύτην ἡμᾶς ὁμόνοιαν κατέστησαν καὶ τοσοῦτον
+         </div>
+         <div n="69" type="section">
+            <p>καὶ γάρ τοι διὰ ταύτην τὴν γνώμην εἰς τοιαύτην ἡμᾶς ὁμόνοιαν κατέστησαν καὶ τοσοῦτον
           ἐπιδοῦναι τὴν πόλιν ἐποίησαν, ὥστε Λακεδαιμονίους, τοὺς ἐπὶ τῆς ὀλιγαρχίας ὀλίγου δεῖν
           καθʼ ἑκάστην τὴν ἡμέραν προστάττοντας ἡμῖν, ἐλθεῖν ἐπὶ τῆς δημοκρατίας ἱκετεύσοντας καὶ
           δεησομένους μὴ περιιδεῖν αὐτοὺς ἀναστάτους γενομένους. τὸ δʼ οὖν κεφάλαιον τῆς ἑκατέρων
           διανοίας τοιοῦτον ἦν· οἱ μὲν γὰρ ἠξίουν τῶν μὲν πολιτῶν ἄρχειν, τοῖς δὲ πολεμίοις
           δουλεύειν, οἱ δὲ τῶν μὲν ἄλλων ἄρχειν, τοῖς δὲ πολίταις ἴσον ἔχειν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="70">
-        <p>ταῦτα δὲ διῆλθον δυοῖν ἕνεκα, πρῶτον μὲν ἐμαυτὸν ἐπιδεῖξαι βουλόμενος οὐκ ὀλιγαρχιῶν οὐδὲ
+         </div>
+         <div n="70" type="section">
+            <p>ταῦτα δὲ διῆλθον δυοῖν ἕνεκα, πρῶτον μὲν ἐμαυτὸν ἐπιδεῖξαι βουλόμενος οὐκ ὀλιγαρχιῶν οὐδὲ
           πλεονεξιῶν ἀλλὰ δικαίας καὶ κοσμίας ἐπιθυμοῦντα πολιτείας, ἔπειτα τὰς δημοκρατίας τάς τε
           κακῶς καθεστηκυίας ἐλαττόνων συμφορῶν αἰτίας γιγνομένας, τὰς τε καλῶς πολιτευομένας
           προεχούσας τῷ δικαιοτέρας εἶναι καὶ κοινοτέρας καὶ τοῖς χρωμένοις ἡδίους. </p>
-      </div>
-      <div subtype="section" type="textpart" n="71">
-        <p>τάχʼ οὖν ἄν τις θαυμάσειε, τί βουλόμενος ἀντὶ τῆς πολιτείας τῆς οὕτω πολλὰ καὶ καλὰ
+         </div>
+         <div n="71" type="section">
+            <p>τάχʼ οὖν ἄν τις θαυμάσειε, τί βουλόμενος ἀντὶ τῆς πολιτείας τῆς οὕτω πολλὰ καὶ καλὰ
           διαπεπραγμένης ἑτέραν ὑμᾶς πείθω μεταλαβεῖν, καὶ τίνος ἕνεκα νῦν μὲν οὕτω καλῶς
           ἐγκεκωμίακα τὴν δημοκρατίαν, ὅταν δὲ τύχω, πάλιν μεταβαλὼν ἐπιτιμῶ καὶ κατηγορῶ τῶν
           καθεστώτων. </p>
-      </div>
-      <div subtype="section" type="textpart" n="72">
-        <p>ἐγὼ δὲ καὶ τῶν ἰδιωτῶν τοὺς ὀλίγα μὲν κατορθοῦντας πολλὰ δʼ ἐξαμαρτάνοντας μέμφομαι καὶ
+         </div>
+         <div n="72" type="section">
+            <p>ἐγὼ δὲ καὶ τῶν ἰδιωτῶν τοὺς ὀλίγα μὲν κατορθοῦντας πολλὰ δʼ ἐξαμαρτάνοντας μέμφομαι καὶ
           νομίζω φαυλοτέρους εἶναι τοῦ δέοντος, καὶ πρός γε τούτοις τοὺς γεγονότας ἐκ καλῶν κἀγαθῶν
           ἀνδρῶν, καὶ μικρῷ μὲν ὄντας ἐπιεικεστέρους τῶν ὑπερβαλλόντων ταῖς πονηρίαις, πολὺ δὲ
           χείρους τῶν πατέρων, λοιδορῶ, καὶ συμβουλεύσαιμʼ ἂν αὐτοῖς παύσασθαι τοιούτοις οὖσιν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="73">
-        <p>τὴν αὐτὴν οὖν γνώμην ἔχω καὶ περὶ τῶν κοινῶν· ἡγοῦμαι γὰρ δεῖν ἡμᾶς οὐ μέγα φρονεῖν οὐδʼ
+         </div>
+         <div n="73" type="section">
+            <p>τὴν αὐτὴν οὖν γνώμην ἔχω καὶ περὶ τῶν κοινῶν· ἡγοῦμαι γὰρ δεῖν ἡμᾶς οὐ μέγα φρονεῖν οὐδʼ
           ἀγαπᾶν, εἰ κακοδαιμονησάντων καὶ μανέντων ἀνθρώπων νομιμώτεροι γεγόναμεν, ἀλλὰ πολὺ μᾶλλον
           ἀγανακτεῖν καὶ βαρέως φέρειν, εἰ χείρους τῶν προγόνων τυγχάνοιμεν ὄντες· πρὸς γὰρ τὴν
           ἐκείνων ἀρετὴν ἀλλʼ οὐ πρὸς τὴν τῶν τριάκοντα πονηρίαν ἁμιλλητέον ἡμῖν ἐστιν, ἄλλως τε καὶ
           προσῆκον ἡμῖν βελτίστοις ἁπάντων ἀνθρώπων εἶναι. </p>
-      </div>
-      <div subtype="section" type="textpart" n="74">
-        <p>καὶ τοῦτον εἴρηκα τὸν λόγον οὐ νῦν πρῶτον, ἀλλὰ πολλάκις ἤδη καὶ πρὸς πολλούς. ἐπίσταμαι
+         </div>
+         <div n="74" type="section">
+            <p>καὶ τοῦτον εἴρηκα τὸν λόγον οὐ νῦν πρῶτον, ἀλλὰ πολλάκις ἤδη καὶ πρὸς πολλούς. ἐπίσταμαι
           γὰρ ἐν μὲν τοῖς ἄλλοις τόποις φύσεις ἐγγιγνομένας καρπῶν καὶ δένδρων καὶ ζώων ἰδίας ἐν
           ἑκάστοις καὶ πολὺ τῶν ἄλλων διαφερούσας, τὴν δʼ ἡμετέραν χώραν ἄνδρας φέρειν καὶ τρέφειν
           δυναμένην οὐ μόνον πρὸς τὰς τέχνας καὶ τὰς πράξεις καὶ τοὺς λόγους εὐφυεστάτους, ἀλλὰ καὶ
           πρὸς ἀνδρίαν καὶ πρὸς ἀρετὴν πολὺ διαφέροντας. </p>
-      </div>
-      <div subtype="section" type="textpart" n="75">
-        <p> τεκμαίρεσθαι δὲ δίκαιόν ἐστι τοῖς τε παλαιοῖς ἀγῶσιν, οὓς ἐποιήσαντο πρὸς Ἀμαζόνας καὶ
+         </div>
+         <div n="75" type="section">
+            <p> τεκμαίρεσθαι δὲ δίκαιόν ἐστι τοῖς τε παλαιοῖς ἀγῶσιν, οὓς ἐποιήσαντο πρὸς Ἀμαζόνας καὶ
           Θρᾷκας καὶ Πελοποννησίους ἅπαντας, καὶ τοῖς κινδύνοις τοῖς περὶ τὰ Περσικὰ γενομένοις, ἐν
           οἷς καὶ μόνοι καὶ μετὰ Πελοποννησίων, καὶ πεζομαχοῦντες καὶ ναυμαχοῦντες, νικήσαντες τοὺς
           βαρβάρους ἀριστείων ἠξιώθησαν· ὧν οὐδὲν ἂν ἔπραξαν, εἰ μὴ πολὺ τὴν φύσιν διήνεγκαν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="76">
-        <p>καὶ μηδεὶς οἰέσθω ταύτην τὴν εὐλογίαν ἡμῖν προσήκειν τοῖς νῦν πολιτευομένοις, ἀλλὰ πολὺ
+         </div>
+         <div n="76" type="section">
+            <p>καὶ μηδεὶς οἰέσθω ταύτην τὴν εὐλογίαν ἡμῖν προσήκειν τοῖς νῦν πολιτευομένοις, ἀλλὰ πολὺ
           τοὐναντίον. εἰσὶ γὰρ οἱ τοιοῦτοι τῶν λόγων ἔπαινος μὲν τῶν ἀξίους σφᾶς αὐτοὺς τῆς τῶν
           προγόνων ἀρετῆς παρεχόντων, κατηγορία δὲ τῶν τὰς εὐγενείας ταῖς αὑτῶν ῥᾳθυμίαις καὶ
           κακίαις καταισχυνόντων. ὅπερ ἡμεῖς ποιοῦμεν· εἰρήσεται γὰρ τἀληθές. τοιαύτης γὰρ ἡμῖν τῆς
           φύσεως ὑπαρχούσης, οὐ διεφυλάξαμεν αὐτήν, ἀλλʼ ἐμπεπτώκαμεν εἰς ἄνοιαν καὶ ταραχὴν καὶ
           πονηρῶν πραγμάτων ἐπιθυμίαν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="77">
-        <p>ἀλλὰ γὰρ ἢν ἐπακολουθῶ τοῖς ἐνοῦσιν ἐπιτιμῆσαι καὶ κατηγορῆσαι τῶν ἐνεστώτων πραγμάτων,
+         </div>
+         <div n="77" type="section">
+            <p>ἀλλὰ γὰρ ἢν ἐπακολουθῶ τοῖς ἐνοῦσιν ἐπιτιμῆσαι καὶ κατηγορῆσαι τῶν ἐνεστώτων πραγμάτων,
           δέδοικα μὴ πόρρω λίαν τῆς ὑποθέσεως ἀποπλανηθῶ. περὶ μὲν οὖν τούτων καὶ πρότερον
           εἰρήκαμεν, καὶ πάλιν ἐροῦμεν, ἢν μὴ πείσωμεν ὑμᾶς παύσασθαι τοιαῦτʼ ἐξαμαρτάνοντας· περὶ
           δʼ ὧν ἐξ ἀρχῆς τὸν λόγον κατεστησάμην, βραχέα διαλεχθεὶς παραχωρῶ τοῖς βουλομένοις ἔτι
           συμβουλεύειν περὶ τούτων. </p>
-      </div>
-      <div subtype="section" type="textpart" n="78">
-        <p>ἡμεῖς γὰρ ἢν μὲν οὕτως οἰκῶμεν τὴν πόλιν ὥσπερ νῦν, οὐκ ἔστιν ὅπως οὐ καὶ βουλευσόμεθα
+         </div>
+         <div n="78" type="section">
+            <p>ἡμεῖς γὰρ ἢν μὲν οὕτως οἰκῶμεν τὴν πόλιν ὥσπερ νῦν, οὐκ ἔστιν ὅπως οὐ καὶ βουλευσόμεθα
           καὶ πολεμήσομεν καὶ βιωσόμεθα καὶ σχεδὸν ἅπαντα καὶ πεισόμεθα καὶ πράξομεν, ἅπερ ἐν τῷ
           παρόντι καιρῷ καὶ τοῖς παρελθοῦσι χρόνοις· ἢν δὲ μεταβάλωμεν τὴν πολιτείαν, δῆλον ὅτι κατὰ
           τὸν αὐτὸν λόγον, οἷά περ ἦν τοῖς προγόνοις τὰ πράγματα, τοιαῦτʼ ἔσται καὶ περὶ ἡμᾶς·
           ἀνάγκη γὰρ ἐκ τῶν αὐτῶν πολιτευμάτων καὶ τὰς πράξεις ὁμοίας ἀεὶ καὶ παραπλησίας
           ἀποβαίνειν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="79">
-        <p>δεῖ δὲ τὰς μεγίστας αὐτῶν παρʼ ἀλλήλας θέντας βουλεύσασθαι, ποτέρας ἡμῖν αἱρετέον ἐστίν.
+         </div>
+         <div n="79" type="section">
+            <p>δεῖ δὲ τὰς μεγίστας αὐτῶν παρʼ ἀλλήλας θέντας βουλεύσασθαι, ποτέρας ἡμῖν αἱρετέον ἐστίν.
           καὶ πρῶτον μὲν σκεψώμεθα τοὺς Ἕλληνας καὶ τοὺς βαρβάρους, πῶς πρὸς ἐκείνην τὴν πολιτείαν
           διέκειντο καὶ πῶς νῦν ἔχουσι πρὸς ἡμᾶς. οὐ γὰρ ἐλάχιστον μέρος τὰ γένη ταῦτα συμβάλλεται
           πρὸς εὐδαιμονίαν, </p>
-      </div>
-      <div subtype="section" type="textpart" n="80">
-        <p>ὅταν ἔχῃ κατὰ τρόπον ἡμῖν. οἱ μὲν τοίνυν Ἕλληνες οὕτως ἐπίστευον τοῖς κατʼ ἐκεῖνον τὸν
+         </div>
+         <div n="80" type="section">
+            <p>ὅταν ἔχῃ κατὰ τρόπον ἡμῖν. οἱ μὲν τοίνυν Ἕλληνες οὕτως ἐπίστευον τοῖς κατʼ ἐκεῖνον τὸν
           χρόνον πολιτευομένοις, ὥστε τοὺς πλείστους αὐτῶν ἑκόντας ἐγχειρίσαι τῇ πόλει σφᾶς αὐτούς·
           οἱ δὲ βάρβαροι τοσοῦτον ἀπεῖχον τοῦ πολυπραγμονεῖν περὶ τῶν Ἑλληνικῶν πραγμάτων, ὥστε οὔτε
           μακροῖς πλοίοις ἐπὶ τάδε Φασήλιδος ἔπλεον οὔτε στρατοπέδοις ἐντὸς Ἅλυος ποταμοῦ
           κατέβαινον, </p>
-      </div>
-      <div subtype="section" type="textpart" n="81">
-        <p>ἀλλὰ πολλὴν ἡσυχίαν ἦγον. νῦν δʼ εἰς τοῦτο τὰ πράγματα περιέστηκεν, ὥσθʼ οἱ μὲν μισοῦσι
+         </div>
+         <div n="81" type="section">
+            <p>ἀλλὰ πολλὴν ἡσυχίαν ἦγον. νῦν δʼ εἰς τοῦτο τὰ πράγματα περιέστηκεν, ὥσθʼ οἱ μὲν μισοῦσι
           τὴν πόλιν, οἱ δὲ καταφρονοῦσιν ἡμῶν· καὶ περὶ μὲν τοῦ μίσους τῶν Ἑλλήνων αὐτῶν ἀκηκόατε
           τῶν στρατηγῶν· ὡς δὲ βασιλεὺς ἔχει πρὸς ἡμᾶς, ἐκ τῶν ἐπιστολῶν ὧν ἔπεμψεν ἐδήλωσεν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="82">
-        <p>ἔτι πρὸς τούτοις ὑπὸ μὲν ἐκείνης τῆς εὐταξίας οὕτως ἐπαιδεύθησαν οἱ πολῖται πρὸς ἀρετήν,
+         </div>
+         <div n="82" type="section">
+            <p>ἔτι πρὸς τούτοις ὑπὸ μὲν ἐκείνης τῆς εὐταξίας οὕτως ἐπαιδεύθησαν οἱ πολῖται πρὸς ἀρετήν,
           ὥστε σφᾶς μὲν αὐτοὺς μὴ λυπεῖν, τοὺς δʼ εἰς τὴν χώραν εἰσβάλλοντας ἅπαντας μαχόμενοι
           νικᾶν. ἡμεῖς δὲ τοὐναντίον· ἀλλήλοις μὲν γὰρ κακὰ παρέχοντες οὐδεμίαν ἡμέραν διαλείπομεν,
           τῶν δὲ περὶ τὸν πόλεμον οὕτω κατημελήκαμεν, ὥστʼ οὐδʼ εἰς ἐξετάσεις ἰέναι τολμῶμεν ἢν μὴ
           λαμβάνωμεν ἀργύριον. </p>
-      </div>
-      <div subtype="section" type="textpart" n="83">
-        <p>τὸ δὲ μέγιστον· τότε μὲν οὐδεὶς ἦν τῶν πολιτῶν ἐνδεὴς τῶν ἀναγκαίων, οὐδὲ προσαιτῶν τοὺς
+         </div>
+         <div n="83" type="section">
+            <p>τὸ δὲ μέγιστον· τότε μὲν οὐδεὶς ἦν τῶν πολιτῶν ἐνδεὴς τῶν ἀναγκαίων, οὐδὲ προσαιτῶν τοὺς
           ἐντυγχάνοντας τὴν πόλιν κατῄσχυνε, νῦν δὲ πλείους εἰσὶν οἱ σπανίζοντες τῶν ἐχόντων· οἷς
           ἄξιόν ἐστι πολλὴν συγγνώμην ἔχειν, εἰ μηδὲν τῶν κοινῶν φροντίζουσιν, ἀλλὰ τοῦτο σκοποῦσιν
           ὁπόθεν τὴν ἀεὶ παροῦσαν ἡμέραν διάξουσιν. </p>
-      </div>
-      <div subtype="section" type="textpart" n="84">
-        <p>ἐγὼ μὲν οὖν ἡγούμενος, ἢν μιμησώμεθα τοὺς προγόνους, καὶ τῶν κακῶν ἡμᾶς τούτων
+         </div>
+         <div n="84" type="section">
+            <p>ἐγὼ μὲν οὖν ἡγούμενος, ἢν μιμησώμεθα τοὺς προγόνους, καὶ τῶν κακῶν ἡμᾶς τούτων
           ἀπαλλαγήσεσθαι καὶ σωτῆρας οὐ μόνον τῆς πόλεως ἀλλὰ καὶ τῶν Ἐλλήνων ἁπάντων γενήσεσθαι,
           τήν τε πρόσοδον ἐποιησάμην καὶ τοὺς λόγους εἴρηκα τούτους· ὑμεῖς δὲ πάντα λογισάμενοι
           ταῦτα χειροτονεῖθʼ ὅ τι ἂν ὑμῖν δοκῇ μάλιστα συμφέρειν τῇ πόλει.</p>
-      </div>
-      </div>
-    </body>
-  </text>
+         </div>
+      </body>
+   </text>
 </TEI>

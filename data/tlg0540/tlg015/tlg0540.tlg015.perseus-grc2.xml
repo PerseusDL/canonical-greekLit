@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?> 
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
       <fileDesc>
@@ -17,9 +17,7 @@
                <name>David Smith</name>
             </respStmt>
             <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
-
          </titleStmt>
-         
          <publicationStmt>
             <publisher>Trustees of Tufts University</publisher>
             <pubPlace>Medford, MA</pubPlace>
@@ -29,9 +27,8 @@
             <availability>
                <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
             </availability>
-         </publicationStmt>	
-         
-
+            <idno type="CTS">urn:cts:greekLit:tlg0540.tlg015.perseus-grc2</idno>
+         </publicationStmt>
          <sourceDesc>
             <biblStruct>
                <monogr>
@@ -49,11 +46,12 @@
                <ref target="https://archive.org/details/lysiaslamb00lysiuoft/page/364/mode/2up">Internet Archive</ref>
             </biblStruct>
          </sourceDesc>
-
       </fileDesc>
       <encodingDesc>
          <refsDecl n="CTS">
-            <cRefPattern replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])" matchPattern="(\w+)" n="section">
+            <cRefPattern replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
+                         matchPattern="(\w+)"
+                         n="section">
                <p>This pointer pattern extracts section</p>
             </cRefPattern>
          </refsDecl>
@@ -61,8 +59,16 @@
             <state unit="speech"/>
             <state unit="section"/>
          </refsDecl>-->
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="section" delim="." match="div[@type='section']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
       </encodingDesc>
       <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-section"/>
+         </textClass>
          <langUsage>
             <language ident="grc">Greek</language>
             <language ident="lat">Latin</language>
@@ -76,108 +82,105 @@
          <change when="1992-10-01" who="das">changed the TITLE to HEAD tags; combined the two Lysias files</change>
          <change when="1992-07-01" who="das">fixed typos and incorrect section breaks</change>
          <change when="1992-06-01" who="wmerrill">checkmark</change>
-         <change when="1992-02-01" who="wmerrill">revise markup</change>      
+         <change when="1992-02-01" who="wmerrill">revise markup</change>
       </revisionDesc>
    </teiHeader>
-   
    <text xml:lang="grc">
-      <body>
-         <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2">
-            <milestone unit="part" n="Intro"/>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="1">
-               <p rend="align(indent)">ἐγὼ μέν, ὦ ἄνδρες δικασταί, καὶ ὑμᾶς αἰτοῦμαι τὰ
+      <body xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2">
+         <milestone unit="part" n="Intro"/>
+         <div n="1" type="section">
+            <p rend="align(indent)">ἐγὼ μέν, ὦ ἄνδρες δικασταί, καὶ ὑμᾶς αἰτοῦμαι τὰ
                   δίκαια ψηφίσασθαι, καὶ τῶν στρατηγῶν δέομαι, ἐπεὶ καὶ ἐν τῇ ἄλλῃ ἀρχῇ πολλοῦ ἄξιοι
                   τῇ πόλει γεγόνασι, καὶ τῶν τῆς ἀστρατείας γραφῶν κοινοὺς εἶναι τῷ τε διώκοντι καὶ
                   τῷ φεύγοντι, καὶ μὴ βοηθοῦντας ᾧ ἂν βούλωνται πᾶσαν προθυμίαν ἔχειν παρὰ τὸ
                   δίκαιον ὑμᾶς ψηφίσασθαι, <milestone unit="part" n="Narr"/>
-                  <milestone unit="part" n="Proof"/>
-               </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="2">
-               <p>ἐνθυμουμένους ὅτι σφόδρʼ ἂν ἠγανακτεῖτε, εἰ <add>ἐν</add>
-                  <note resp="Loeb" anchored="true" xml:lang="lat">
-                     <foreign xml:lang="grc">ἐν</foreign> add. Reiske</note> τῇ ὑμετέρᾳ δοκιμασίᾳ οἱ
+               <milestone unit="part" n="Proof"/>
+            </p>
+         </div>
+         <div n="2" type="section">
+            <p>ἐνθυμουμένους ὅτι σφόδρʼ ἂν ἠγανακτεῖτε, εἰ <add>ἐν</add>
+               <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">ἐν</foreign> add. Reiske</note> τῇ ὑμετέρᾳ δοκιμασίᾳ οἱ
                   θεσμοθέται ἀναβάντες ὑμῶν ἐδέοντο καταψηφίσασθαι, ἡγούμενοι δεινὸν εἶναι εἰ οἱ
                   τιθέντες τὸν ἀγῶνα καὶ τὴν ψῆφον διδόντες<note resp="Loeb" anchored="true" xml:lang="lat">
-                     <foreign xml:lang="grc">διδόντες</foreign> Taylor: <foreign xml:lang="grc">διαδιδόντες</foreign> MSS.</note> παρακελεύσονται τῶν μὲν μὴ
+                  <foreign xml:lang="grc">διδόντες</foreign> Taylor: <foreign xml:lang="grc">διαδιδόντες</foreign> MSS.</note> παρακελεύσονται τῶν μὲν μὴ
                      <add>καταψηφίζεσθαι τῶν δὲ</add>
-                  <note resp="Loeb" anchored="true" xml:lang="lat">
-                     <foreign xml:lang="grc">καταψηφίζεσθαι τῶν δὲ</foreign> add. Baiter et
+               <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">καταψηφίζεσθαι τῶν δὲ</foreign> add. Baiter et
                      Sauppe</note> καταψηφίζεσθαι. </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="3">
-               <p>τί δʼ ἂν αἴσχιον ἔθος ἢ δεινότερον πρᾶγμα τούτου <add>ἐν</add>
-                  <note resp="Loeb" anchored="true" xml:lang="lat">
-                     <foreign xml:lang="grc">ἐν</foreign> add. Frohberger</note> τῇ πόλει γένοιτο, εἰ
+         </div>
+         <div n="3" type="section">
+            <p>τί δʼ ἂν αἴσχιον ἔθος ἢ δεινότερον πρᾶγμα τούτου <add>ἐν</add>
+               <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">ἐν</foreign> add. Frohberger</note> τῇ πόλει γένοιτο, εἰ
                   τολμήσει ὁ μὲν ἄρχων ἐν ταῖς<note resp="Loeb" anchored="true" xml:lang="lat">
-                     <foreign xml:lang="grc">ἐν ταῖς</foreign> Reiske: <foreign xml:lang="grc">ἐμβὰς</foreign> MSS.</note> τῶν ἐπικλήρων δίκαις ἀντιβολεῖν καὶ ἱκετεύειν
+                  <foreign xml:lang="grc">ἐν ταῖς</foreign> Reiske: <foreign xml:lang="grc">ἐμβὰς</foreign> MSS.</note> τῶν ἐπικλήρων δίκαις ἀντιβολεῖν καὶ ἱκετεύειν
                   τοὺς δικαστὰς ὅ τι ἂν βούληται πραχθῆναι, ὁ δὲ πολέμαρχος καὶ οἱ ἕνδεκα δεήσονται
                   ἐν ταῖς δίκαις ταῖς ὑφʼ ἑαυτῶν εἰσαγομέναις, </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="4">
-               <p>ὥσπερ καὶ νῦν; χρὴ τοίνυν καὶ ὑπὲρ ὑμῶν αὐτῶν τὴν γνώμην ἔχειν, ἐνθυμουμένους ὅτι
+         </div>
+         <div n="4" type="section">
+            <p>ὥσπερ καὶ νῦν; χρὴ τοίνυν καὶ ὑπὲρ ὑμῶν αὐτῶν τὴν γνώμην ἔχειν, ἐνθυμουμένους ὅτι
                   οὐδὲν διοίσει<note resp="Loeb" anchored="true" xml:lang="lat">
-                     <foreign xml:lang="grc">διοίσει</foreign> Bekker: <foreign xml:lang="grc">δεήσει</foreign> MSS.</note> ὑμᾶς ἰδίᾳ περὶ τῆς ἀστρατείας βοηθεῖν, ἢ
+                  <foreign xml:lang="grc">διοίσει</foreign> Bekker: <foreign xml:lang="grc">δεήσει</foreign> MSS.</note> ὑμᾶς ἰδίᾳ περὶ τῆς ἀστρατείας βοηθεῖν, ἢ
                   τούτων τινὰς δεῖσθαι αὐτοὺς τὴν ψῆφον διδόντας. </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="5">
-               <p>σκέψασθε δέ, ὦ ἄνδρες δικασταί, ἐὰν ἱκανὸν γένηται τεκμήριον ὅτι οὐδείς πω τῶν
+         </div>
+         <div n="5" type="section">
+            <p>σκέψασθε δέ, ὦ ἄνδρες δικασταί, ἐὰν ἱκανὸν γένηται τεκμήριον ὅτι οὐδείς πω τῶν
                   ἀρχόντων ἐν τῷ στρατοπέδῳ Ἀλκιβιάδῃ ἦν παρεσκευασμένος. ἐχρῆν γὰρ αὐτούς, εἴπερ
                   ἀληθῆ λέγουσιν, ἀνακαλεῖν μὲν Πάμφιλον, ὅτι ἀφαιρῶν τὸν ἵππον ἱππέως ἀπεστέρει τὴν
                   πόλιν, ἐπιβάλλειν δὲ τῷ φυλάρχῳ, ὅτι ἐξελαύνων Ἀλκιβιάδην ἐκ τῆς φυλῆς ἄκυρον
                   ἐποίει τὴν τούτων τάξιν, κελεύειν δὲ τὸν ταξίαρχον ἐξαλείφειν αὐτὸν ἐκ τοῦ τῶν
                   ὁπλιτῶν καταλόγου. </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="6">
-               <p>νῦν δὲ τούτων οὐδὲν ἐποίησαν, ἀλλʼ ἐν μὲν τῷ στρατοπέδῳ περιεώρων αὐτὸν ὑπὸ πάντων
+         </div>
+         <div n="6" type="section">
+            <p>νῦν δὲ τούτων οὐδὲν ἐποίησαν, ἀλλʼ ἐν μὲν τῷ στρατοπέδῳ περιεώρων αὐτὸν ὑπὸ πάντων
                   προπηλακιζόμενον κἀν τοῖς ἱπποτοξόταις ἱππεύοντα, ἐπειδὴ δὲ ὑμᾶς δεῖ παρὰ τῶν
                   ἀδικούντων δίκην λαμβάνειν, χαριζόμενοι μαρτυροῦσιν ὑφʼ ἑαυτῶν αὐτὸν τετάχθαι.
                   καίτοι δεινόν, ὦ ἄνδρες δικασταί, αὐτοὺς μὲν τοὺς στρατηγοὺς ὑπὸ τοῦ δήμου
                   χειροτονηθέντας μὴ ἂν τολμῆσαι πρότερον ἡμῶν ἡγήσασθαι, ἕως <del>ἂν</del>
-                  <note resp="Loeb" anchored="true" xml:lang="lat">
-                     <foreign xml:lang="grc">ἂν</foreign> del. Dobree</note> ἐδοκιμάσθησαν κατὰ τοὺς
+               <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">ἂν</foreign> del. Dobree</note> ἐδοκιμάσθησαν κατὰ τοὺς
                   νόμους, Ἀλκιβιάδην δὲ τολμᾶν παρὰ τοὺς τῆς πόλεως νόμους ὑπʼ αὐτῶν ταχθῆναι. </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="7">
-               <p>δεινὸν δέ μοι δοκεῖ εἶναι, ὦ ἄνδρες δικασταί, εἰ τῶν μὲν δεδοκιμασμένων ἱππέων οὐκ
+         </div>
+         <div n="7" type="section">
+            <p>δεινὸν δέ μοι δοκεῖ εἶναι, ὦ ἄνδρες δικασταί, εἰ τῶν μὲν δεδοκιμασμένων ἱππέων οὐκ
                   ἐπὶ τούτοις ἐστὶν ὅντινα βούλονται αὐτοὶ εἰς τοὺς ὁπλίτας καταλέξαι, τῶν δὲ
                   ὁπλιτῶν ἀδοκιμάστων ὄντων ἐπὶ τούτοις ἔσται ὅντινʼ ἂν βούλωνται ἱππεύειν. </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="8">
-               <p>εἰ μὲν τοίνυν, ὦ ἄνδρες δικασταί, ὄντες κύριοι πολλῶν βουλομένων μηδένα τῶν ἄλλων
+         </div>
+         <div n="8" type="section">
+            <p>εἰ μὲν τοίνυν, ὦ ἄνδρες δικασταί, ὄντες κύριοι πολλῶν βουλομένων μηδένα τῶν ἄλλων
                   ἱππεύειν εἴασαν, οὐκ ἂν δικαίως χαρίζοισθε αὐτοῖς· εἰ δʼ ἄκυροι ὄντες ὁμολογήσουσι
                   τάξαι, ἐνθυμεῖσθαι χρὴ ὅτι ὀμωμόκατε τὰ δίκαια γνώσεσθαι, ἀλλʼ οὐχ ὅ τι ἂν οὗτοι
                   κελεύωσι ψηφιεῖσθαι, ὥστε οὐδένα χρὴ τῶν δεομένων περὶ πλείονος ὑμῶν αὐτῶν καὶ τῶν
                   ὅρκων ποιεῖσθαι. </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="9">
-               <p>καὶ μὲν δή, ὦ ἄνδρες δικασταί, εἴ τῳ δοκεῖ μεγάλη ἡ ζημία<note resp="Loeb" anchored="true" xml:lang="lat">
-                     <foreign xml:lang="grc">μεγάλη ἡ ζημία</foreign> Reiske: <foreign xml:lang="grc">μεγάλης ζημίας</foreign>.</note> εἶναι καὶ λίαν ἰσχυρὸς ὁ νόμος, μεμνῆσθαι
+         </div>
+         <div n="9" type="section">
+            <p>καὶ μὲν δή, ὦ ἄνδρες δικασταί, εἴ τῳ δοκεῖ μεγάλη ἡ ζημία<note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">μεγάλη ἡ ζημία</foreign> Reiske: <foreign xml:lang="grc">μεγάλης ζημίας</foreign>.</note> εἶναι καὶ λίαν ἰσχυρὸς ὁ νόμος, μεμνῆσθαι
                   χρὴ ὅτι οὐ νομοθετήσοντες περὶ αὐτῶν ἥκετε, ἀλλὰ κατὰ τοὺς κειμένους νόμους
                   ψηφιούμενοι, οὐδὲ τοὺς ἀδικοῦντας ἐλεήσοντες, ἀλλὰ πολὺ μᾶλλον αὐτοῖς ὀργιούμενοι
                   καὶ ὅλῃ τῇ πόλει βοηθήσοντες, εὖ εἰδότες ὅτι ὑπὲρ τῶν παρεληλυθότων ὀλίγους
                   τιμωρησάμενοι πολλοὺς ποιήσετε κοσμιωτέρους ἐν τοῖς μέλλουσι κινδυνεύειν. </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="10">
-               <p>χρὴ δέ, ὦ ἄνδρες δικασταί, ὥσπερ οὗτος ἀμελήσας τῆς πόλεως τὴν αὑτοῦ σωτηρίαν
+         </div>
+         <div n="10" type="section">
+            <p>χρὴ δέ, ὦ ἄνδρες δικασταί, ὥσπερ οὗτος ἀμελήσας τῆς πόλεως τὴν αὑτοῦ σωτηρίαν
                   ἐσκέψατο, οὕτως ὑμᾶς ἀμελήσαντας τούτου τῇ πόλει τὰ βέλτιστα ψηφίσασθαι, ἄλλως τε
                   καὶ ὅρκους ὀμωμοκότας καὶ περὶ Ἀλκιβιάδου μέλλοντας ψηφίσασθαι, ὃς ἐὰν ὑμᾶς
                   ἐξαπατήσῃ, καταγελῶν τῆς πόλεως ἄπεισιν· οὐ γὰρ δὴ χάριν γε ὑμῖν ἀποδώσει τῇ ψήφῳ
                   κρύβδην εὖ παθών, ὃς τῶν φίλων τοὺς φανερῶς αὐτὸν εὖ ποιήσαντας κακῶς ποιεῖ. </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="11">
-               <p>ὑμεῖς οὖν, ὦ ἄνδρες δικασταί, τὰς τούτων δεήσεις περὶ ἐλάττονος<note resp="Loeb" anchored="true" xml:lang="lat">
-                     <foreign xml:lang="grc">ἐλάττονος</foreign> Markland: <foreign xml:lang="grc">ἐλαττόνων</foreign> MSS. <add>τῶν νόμων</add> add. P. Mueller</note>
+         </div>
+         <div n="11" type="section">
+            <p>ὑμεῖς οὖν, ὦ ἄνδρες δικασταί, τὰς τούτων δεήσεις περὶ ἐλάττονος<note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">ἐλάττονος</foreign> Markland: <foreign xml:lang="grc">ἐλαττόνων</foreign> MSS. <add>τῶν νόμων</add> add. P. Mueller</note>
                   ποιησάμενοι τὰ δίκαια ψηφίσασθε. ἀποδέδεικται δὲ καταλεγεὶς εἰς τοὺς ὁπλίτας καὶ
                   λιπὼν τὴν τάξιν καὶ τῶν νόμων κωλυόντων ἀδοκίμαστος ἱππεύσας, καὶ περὶ ὧν οἱ νόμοι
                   διαρρήδην οὔτε στρατηγὸν οὔτε ἵππαρχον οὔτε ἄλλον οὐδένα κυριώτερον ἐκείνων
                   ἀποδεικνύουσι, περὶ τούτων ἰδιώτης ὢν τὴν ἐξουσίαν αὑτῷ δεδωκώς. </p>
-            </div>
-            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg015.perseus-grc2" n="12">
-               <p>ἐγὼ μὲν οὖν καὶ φίλῳ ὄντι Ἀρχεστρατίδῃ βοηθῶν, καὶ Ἀλκιβιάδην ἐχθρὸν ὄντα ἐμαυτοῦ
+         </div>
+         <div n="12" type="section">
+            <p>ἐγὼ μὲν οὖν καὶ φίλῳ ὄντι Ἀρχεστρατίδῃ βοηθῶν, καὶ Ἀλκιβιάδην ἐχθρὸν ὄντα ἐμαυτοῦ
                   τιμωρούμενος, δέομαι τὰ δίκαια ψηφίσασθαι· ὑμᾶς δὲ χρὴ τὴν αὐτὴν γνώμην ἔχοντας
                   τὴν ψῆφον φέρειν, ἥνπερ ὅτε ᾤεσθε πρὸς τοὺς πολεμίους διακινδυνεύσειν.</p>
-            </div>
          </div>
       </body>
    </text>

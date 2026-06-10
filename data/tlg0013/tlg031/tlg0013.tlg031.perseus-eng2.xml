@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
-schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="http://www.stoa.org/epidoc/schema/8.19/tei-epidoc.rng"
-schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_verse.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_verse.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader xml:lang="eng">
       <fileDesc>
          <titleStmt>
             <title>Hymn 31 To Helios</title>
             <author>Anonymous</author>
-	           <editor role="translator">Hugh G. Evelyn-White</editor>
-	           <sponsor>Perseus Project, Tufts University</sponsor>
-		          <principal>Gregory Crane</principal>
-		          <respStmt>
-		             <resp>Prepared under the supervision of</resp>
-		             <name>Lisa Cerrato</name>
-		             <name>William Merrill</name>
-		             <name>Elli Mylonas</name>
-		             <name>David Smith</name>
-		          </respStmt>
-	           <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+            <editor role="translator">Hugh G. Evelyn-White</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
          </titleStmt>
-
          <extent>about 159Kb</extent>
-
          <publicationStmt>
-		          <publisher>Trustees of Tufts University</publisher>
-		          <pubPlace>Medford, MA</pubPlace>
-		          <authority>Perseus Project</authority>
-		       </publicationStmt>
-
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <idno type="CTS">urn:cts:greekLit:tlg0013.tlg031.perseus-eng2</idno>
+         </publicationStmt>
          <sourceDesc>
             <biblStruct>
                <monogr>
@@ -50,14 +46,12 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>
                <ref target="https://archive.org/details/hesiodhomerichym00hesiuoft/hesiodhomerichym00hesiuoft/page/458/mode/2up?">Internet Archive</ref>
             </biblStruct>
          </sourceDesc>
-
       </fileDesc>
-
       <encodingDesc>
          <refsDecl n="CTS">
             <cRefPattern n="line"
-               matchPattern="(\\w+)"
-               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body//tei:l[@n=\'$1\'])">
+                         matchPattern="(\\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body//tei:l[@n=\'$1\'])">
                <p>This pointer pattern extracts line</p>
             </cRefPattern>
          </refsDecl>
@@ -67,16 +61,22 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>
          <!--<refsDecl>
 	<refState n="chunk" unit="card"/>
       </refsDecl>-->
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="line" delim="." match="l" use="@n"/>
+            </citeStructure>
+         </refsDecl>
       </encodingDesc>
-
       <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#verse-stichic"/>
+         </textClass>
          <langUsage>
-	           <language ident="eng">English</language>
-	           <language ident="grc">Greek</language>
-	          <!--  <language id="xgreek">Transliterated Greek</language> -->
+            <language ident="eng">English</language>
+            <language ident="grc">Greek</language>
+            <!--  <language id="xgreek">Transliterated Greek</language> -->
          </langUsage>
       </profileDesc>
-      
       <revisionDesc>
          <change when="1988-01-01" who="Bill Merrill">Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</change>
          <change when="1993-08-01" who="EM">Go over text, check cardbreaks, and change tags to be more TEI conformant.</change>
@@ -84,22 +84,18 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>
          <change when="2015-12-14" who="Lisa Cerrato">added missing lines at end</change>
          <change when="2016-01-15" who="Lisa Cerrato">EpiDoc conversion and CTS related changes</change>
       </revisionDesc>
-
-  </teiHeader>
-	  <text xml:lang="eng">
-      <body>
-         <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0013.tlg031.perseus-eng2">
-		       <head>To Helios</head>
-		       <milestone ed="P" n="1" unit="card"/>
-
-            <l n="1"><milestone unit="Para" ed="P"/>And now, O Muse Calliope, daughter of Zeus, begin to sing of glowing Helios whom mild-eyed Euryphaessa, the far-shining one, bare to the Son of Earth and starry Heaven. For Hyperion wedded glorious Euryphaessa, </l>
-            <l n="5">his own sister, who bare him lovely children, rosy-armed Eos and rich-tressed Selene and tireless Helios who is like the deathless gods. As he rides in his chariot, he shines upon men and deathless gods, and piercingly he gazes with his eyes </l>
-            <l n="10">from his golden helmet. Bright rays beam dazzlingly from him, and his bright locks streaming from the temples of his head gracefully enclose his far-seen face: a rich, fine-spun garment glows upon his body and flutters in the wind: and stallions carry him. </l>
-            <l n="15">Then, when he has stayed his golden-yoked chariot and horses, </l>
-            <l n="15a">he rests there upon the highest point of heaven, until he marvelously drives them down again through heaven to Ocean.
+   </teiHeader>
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0013.tlg031.perseus-eng2">
+         <head>To Helios</head>
+         <milestone ed="P" n="1" unit="card"/>
+         <l n="1">
+            <milestone unit="Para" ed="P"/>And now, O Muse Calliope, daughter of Zeus, begin to sing of glowing Helios whom mild-eyed Euryphaessa, the far-shining one, bare to the Son of Earth and starry Heaven. For Hyperion wedded glorious Euryphaessa, </l>
+         <l n="5">his own sister, who bare him lovely children, rosy-armed Eos and rich-tressed Selene and tireless Helios who is like the deathless gods. As he rides in his chariot, he shines upon men and deathless gods, and piercingly he gazes with his eyes </l>
+         <l n="10">from his golden helmet. Bright rays beam dazzlingly from him, and his bright locks streaming from the temples of his head gracefully enclose his far-seen face: a rich, fine-spun garment glows upon his body and flutters in the wind: and stallions carry him. </l>
+         <l n="15">Then, when he has stayed his golden-yoked chariot and horses, </l>
+         <l n="15a">he rests there upon the highest point of heaven, until he marvelously drives them down again through heaven to Ocean.
                <milestone unit="Para" ed="P"/>Hail to you, lord! Freely bestow on me substance that cheers the heart. And now that I have begun with you, I will celebrate the race of mortal men half-divine whose deeds the Muses have showed to mankind.</l>
-            </div>
-         
       </body>
    </text>
 </TEI>

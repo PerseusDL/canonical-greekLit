@@ -1,194 +1,248 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?> 
-<TEI xmlns="http://www.tei-c.org/ns/1.0">     
-    
-    <teiHeader xml:lang="eng">
-        <fileDesc>
-            <titleStmt>
-                <title>Jude</title>                
-                <author role="textgroup">New Testament</author>
-                <editor role="translator">Rainbow Missions, Inc.</editor>
-                <sponsor>Perseus Project, Tufts University</sponsor>
-                <principal>Gregory Crane</principal>
-                <respStmt>
-                    <resp>Prepared under the supervision of</resp>
-                    <name>Lisa Cerrato</name>
-                    <name>William Merrill</name>
-                    <name>Elli Mylonas</name>
-                    <name>David Smith</name>
-                </respStmt>
-                <funder n="org:FIPSE">Fund for the Improvement of Postsecondary Education</funder>
-            </titleStmt>
-            
-            <publicationStmt>
-                <publisher>Trustees of Tufts University</publisher>
-                <pubPlace>Medford, MA</pubPlace>
-                <authority>Perseus Project</authority>
-                <date type="release" notBefore="1999-10">Perseus 3.0</date>
-                <idno type="filename">tlg0031.tlg026.perseus-eng2.xml</idno><availability>
-                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence></availability>
-            </publicationStmt>
-            <sourceDesc>
-                <biblStruct>
-                    <monogr>
-                        <title>World English Bible</title>
-                        <editor>Michael Paul Johnson</editor>
-                        <edition>Revision of the American Standard Version of 1901</edition>
-                        <imprint>
-                            <publisher>Rainbow Missions, Inc.</publisher>
-                            <date>2000-2024</date>
-                        </imprint>
-                    </monogr>
-                    <ref target="http://ebible.org/bible/web">The World English Bible</ref>
-                </biblStruct>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
-            <refsDecl n="CTS">
-                <cRefPattern n="verse"
-                    matchPattern="(\w+).(\w+)"
-                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
-                    <p>This pointer pattern extracts chapter and verse</p>
-                </cRefPattern>
-                <cRefPattern n="chapter"
-                    matchPattern="(\w+)"
-                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
-                    <p>This pointer pattern extracts chapter</p>
-                </cRefPattern>
-            </refsDecl>
-            
-            <refsDecl>
+<?xml-model href="https://raw.githubusercontent.com/PerseusDLCode/perseus-schemas/main/perseus_prose.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title>Jude</title>
+            <author role="textgroup">New Testament</author>
+            <editor role="translator">Rainbow Missions, Inc.</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <funder n="org:FIPSE">Fund for the Improvement of Postsecondary Education</funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" notBefore="1999-10">Perseus 3.0</date>
+            <idno type="filename">tlg0031.tlg026.perseus-eng2.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+            </availability>
+            <idno type="CTS">urn:cts:greekLit:tlg0031.tlg026.perseus-eng2</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <title>World English Bible</title>
+                  <editor>Michael Paul Johnson</editor>
+                  <edition>Revision of the American Standard Version of 1901</edition>
+                  <imprint>
+                     <publisher>Rainbow Missions, Inc.</publisher>
+                     <date>2000-2024</date>
+                  </imprint>
+               </monogr>
+               <ref target="http://ebible.org/bible/web">The World English Bible</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="verse"
+                         matchPattern="(\w+).(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+               <p>This pointer pattern extracts chapter and verse</p>
+            </cRefPattern>
+            <cRefPattern n="chapter"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts chapter</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl>
                 <!--<refState delim=" " unit="book"/>-->
-                <refState delim=":" unit="chapter"/>
-                <refState unit="verse"/>
-            </refsDecl>
-            
-            <!--<refsDecl>
+            <refState delim=":" unit="chapter"/>
+            <refState unit="verse"/>
+         </refsDecl>
+         <!--<refsDecl>
                 <step to="DITTO" from="DESCENDANT (1 DIV1 N %1)" refunit="book" delim=" "/>
                 <step to="DITTO" from="DESCENDANT (1 DIV2 N %2)" refunit="chapter" delim="."/>
                 <step to="DITTO" from="DESCENDANT (1 MILESTONE N %3)" refunit="verse"/>
             </refsDecl>-->
-        </encodingDesc>
-        
-        <profileDesc>
-            <langUsage>
-                <language ident="eng">English</language>
-            </langUsage>
-        </profileDesc>
-        <revisionDesc>
-            <change when="2025-03-21" who="Alison Babeu">Metadata and header updates</change>
-            <change when="2016-10-30" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
-            <change when="2014-08-01" who="Stella Dee">edited markup</change>
-            <change when="2010-06-29" who="student">fixing place tags AD</change>
-            <change when="2009-10-08" who="rsingh04">began reorganizing texts module by collection.created separate work directory in texts module to keep hopper files separate from in progress files</change>
-            <change when="2009-05-27" who="rsingh04">added/fixed cvs log keyword</change>
-            <change when="1999-10-14" who="Anne Mahoney">Initial markup from flat ASCII text</change>
-        </revisionDesc>
-    </teiHeader>
-    <text xml:lang="eng">
-        <body>
-            <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0031.tlg026.perseus-eng2">
-                <head>The Letter from Jude</head>
-                <div type="textpart" subtype="chapter" n="1">
-                    <div type="textpart" subtype="verse" n="1"><p>
+         <refsDecl n="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+               <citeStructure unit="chapter" delim="." match="div[@type='chapter']" use="@n"/>
+            </citeStructure>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="#perseus-genre" target="#prose-chapter"/>
+         </textClass>
+         <langUsage>
+            <language ident="eng">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change when="2025-03-21" who="Alison Babeu">Metadata and header updates</change>
+         <change when="2016-10-30" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+         <change when="2014-08-01" who="Stella Dee">edited markup</change>
+         <change when="2010-06-29" who="student">fixing place tags AD</change>
+         <change when="2009-10-08" who="rsingh04">began reorganizing texts module by collection.created separate work directory in texts module to keep hopper files separate from in progress files</change>
+         <change when="2009-05-27" who="rsingh04">added/fixed cvs log keyword</change>
+         <change when="1999-10-14" who="Anne Mahoney">Initial markup from flat ASCII text</change>
+      </revisionDesc>
+   </teiHeader>
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0031.tlg026.perseus-eng2">
+         <head>The Letter from Jude</head>
+         <div n="1" type="chapter">
+            <div n="1" type="verse">
+               <p>
                         Jude, a servant of Jesus Christ, and brother of James, to
 those who are called, sanctified by God the Father, and kept for Jesus
-Christ: </p></div>
-                        <div type="textpart" subtype="verse" n="2"><p>
-                            Mercy to you and peace and love be multiplied. </p></div>
-                        <div type="textpart" subtype="verse" n="3"><p>
+Christ: </p>
+            </div>
+            <div n="2" type="verse">
+               <p>
+                            Mercy to you and peace and love be multiplied. </p>
+            </div>
+            <div n="3" type="verse">
+               <p>
                         Beloved, while I was very eager to write to you about our
 common salvation, I was constrained to write to you exhorting you to
 contend earnestly for the faith which was once for all delivered to the
-saints. </p></div>
-                        <div type="textpart" subtype="verse" n="4"><p>
+saints. </p>
+            </div>
+            <div n="4" type="verse">
+               <p>
                         For there are certain men who crept in secretly, even
 those who were long ago written about for this condemnation: ungodly
 men, turning the grace of our God into lasciviousness, and denying our
-only Master, God, and Lord, Jesus Christ.</p></div>
-                        <div type="textpart" subtype="verse" n="5"><p>
+only Master, God, and Lord, Jesus Christ.</p>
+            </div>
+            <div n="5" type="verse">
+               <p>
                         Now I desire to remind you, though you already know this, that
 the Lord, having saved a people out of the land of Egypt, afterward
-destroyed those who didn't believe.</p></div>
-                        <div type="textpart" subtype="verse" n="6"><p>
+destroyed those who didn't believe.</p>
+            </div>
+            <div n="6" type="verse">
+               <p>
                         Angels who didn't keep their
 first domain, but deserted their own dwelling place, he has kept in
-everlasting bonds under darkness for the judgment of the great day.</p></div>
-                        <div type="textpart" subtype="verse" n="7"><p>
+everlasting bonds under darkness for the judgment of the great day.</p>
+            </div>
+            <div n="7" type="verse">
+               <p>
                         Even as Sodom and Gomorrah, and the cities around them, having,
 in the same way as these, given themselves over to sexual immorality
 and gone after strange flesh, are set forth as an example, suffering
-the punishment of eternal fire.</p></div>
-                        <div type="textpart" subtype="verse" n="8"><p>
+the punishment of eternal fire.</p>
+            </div>
+            <div n="8" type="verse">
+               <p>
                         Yet in like manner these also in
 their dreaming defile the flesh, despise authority, and slander
-celestial beings.</p></div>
-                        <div type="textpart" subtype="verse" n="9"><p>
+celestial beings.</p>
+            </div>
+            <div n="9" type="verse">
+               <p>
                         But Michael, the archangel, when contending
 with the devil and arguing about the body of Moses, dared not bring
 against him an abusive condemnation, but said, "May the Lord rebuke
-you!"</p></div>
-                        <div type="textpart" subtype="verse" n="10"><p>
+you!"</p>
+            </div>
+            <div n="10" type="verse">
+               <p>
                         But these speak evil of whatever things they don't know.
 What they understand naturally, like the creatures without reason, in
-these things are they destroyed.</p></div>
-                        <div type="textpart" subtype="verse" n="11"><p>
+these things are they destroyed.</p>
+            </div>
+            <div n="11" type="verse">
+               <p>
                         Woe to them! For they went in
 the way of Cain, and ran riotously in the error of Balaam for hire, and
-perished in Korah's rebellion.</p></div>
-                        <div type="textpart" subtype="verse" n="12"><p>
+perished in Korah's rebellion.</p>
+            </div>
+            <div n="12" type="verse">
+               <p>
                         These are hidden rocky reefs in
 your love feasts when they feast with you, shepherds who without fear
 feed themselves; clouds without water, carried along by winds; autumn
-leaves without fruit, twice dead, plucked up by the roots;</p></div>
-                        <div type="textpart" subtype="verse" n="13"><p>
+leaves without fruit, twice dead, plucked up by the roots;</p>
+            </div>
+            <div n="13" type="verse">
+               <p>
                         wild
 waves of the sea, foaming out their own shame; wandering stars, for
-whom the blackness of darkness has been reserved forever.</p></div>
-                        <div type="textpart" subtype="verse" n="14"><p>
+whom the blackness of darkness has been reserved forever.</p>
+            </div>
+            <div n="14" type="verse">
+               <p>
                         About
 these also Enoch, the seventh from Adam, prophesied, saying, "Behold,
-the Lord came with ten thousands of his holy ones,</p></div>
-                        <div type="textpart" subtype="verse" n="15"><p>
+the Lord came with ten thousands of his holy ones,</p>
+            </div>
+            <div n="15" type="verse">
+               <p>
                         to execute
 judgment on all, and to convict all the ungodly of all their works of
 ungodliness which they have done in an ungodly way, and of all the hard
-things which ungodly sinners have spoken against him."</p></div>
-                        <div type="textpart" subtype="verse" n="16"><p>
+things which ungodly sinners have spoken against him."</p>
+            </div>
+            <div n="16" type="verse">
+               <p>
                         These are
 murmurers and complainers, walking after their lusts (and their mouth
-speaks proud things), showing respect of persons to gain advantage.</p></div>
-                        <div type="textpart" subtype="verse" n="17"><p>
+speaks proud things), showing respect of persons to gain advantage.</p>
+            </div>
+            <div n="17" type="verse">
+               <p>
                         But you, beloved, remember the words which have been spoken
-                        before by the apostles of our Lord Jesus Christ.</p></div>
-                        <div type="textpart" subtype="verse" n="18"><p>
+                        before by the apostles of our Lord Jesus Christ.</p>
+            </div>
+            <div n="18" type="verse">
+               <p>
                         They said to
 you that "In the last time there will be mockers, walking after their
-own ungodly lusts."</p></div>
-                        <div type="textpart" subtype="verse" n="19"><p>
+own ungodly lusts."</p>
+            </div>
+            <div n="19" type="verse">
+               <p>
                         These are they who cause divisions, and are
-                        sensual, not having the Spirit.</p></div>
-                        <div type="textpart" subtype="verse" n="20"><p>
+                        sensual, not having the Spirit.</p>
+            </div>
+            <div n="20" type="verse">
+               <p>
                         But you, beloved, keep building
-                        up yourselves on your most holy faith, praying in the Holy Spirit.</p></div>
-                        <div type="textpart" subtype="verse" n="21"><p>
+                        up yourselves on your most holy faith, praying in the Holy Spirit.</p>
+            </div>
+            <div n="21" type="verse">
+               <p>
                         Keep yourselves in the love of God, looking for the mercy of our
-                        Lord Jesus Christ to eternal life.</p></div>
-                        <div type="textpart" subtype="verse" n="22"><p>
+                        Lord Jesus Christ to eternal life.</p>
+            </div>
+            <div n="22" type="verse">
+               <p>
                         On some have compassion,
-                        making a distinction, </p></div>
-                        <div type="textpart" subtype="verse" n="23"><p>
+                        making a distinction, </p>
+            </div>
+            <div n="23" type="verse">
+               <p>
                         and some save, snatching them out of the
-                        fire with fear, hating even the clothing stained by the flesh.</p></div>
-                        <div type="textpart" subtype="verse" n="24"><p>
+                        fire with fear, hating even the clothing stained by the flesh.</p>
+            </div>
+            <div n="24" type="verse">
+               <p>
                         Now to him who is able to keep them from stumbling, and to
-present you faultless before the presence of his glory in great joy,</p></div>
-                        <div type="textpart" subtype="verse" n="25"><p>
+present you faultless before the presence of his glory in great joy,</p>
+            </div>
+            <div n="25" type="verse">
+               <p>
                         to God our Savior, who alone is wise, be glory and majesty,
 dominion and power, both now and forever. Amen.
                     </p>
-                </div></div>
             </div>
-        </body>
-    </text>
+         </div>
+      </body>
+   </text>
 </TEI>
