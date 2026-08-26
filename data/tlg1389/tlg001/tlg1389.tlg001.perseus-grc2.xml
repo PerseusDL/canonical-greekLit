@@ -65,7 +65,14 @@
             <refState unit="letter" delim="."/>
             <refState unit="entry"/>
          </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="letter" delim=":" match="div[@type='edition']/div[@subtype='letter']" use="@n">
+            <citeStructure unit="entry" delim="." match="div[@subtype='entry']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage default="false">
             <language ident="lat">Latin</language>
@@ -73,6 +80,7 @@
          </langUsage>
       </profileDesc>
      <revisionDesc>
+       <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
        <change when="2024-07-08" who="Alison Babeu">Standarized header and metadata</change>
        <change when="2016-02-11" who="Tim Buckingham">Converted file to Epidoc and small fixes</change>
        <change when="2015-06-11" who="Stella Dee">Edited markup and initial text conversion work</change>
@@ -80,8 +88,8 @@
      </revisionDesc>
    </teiHeader>
    <text xml:lang="grc">
-      <body>
-        <div type="edition" n="urn:cts:greekLit:tlg1389.tlg001.perseus-grc2" xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg1389.tlg001.perseus-grc2">
+        <div type="edition" xml:lang="grc">
          <div type="textpart"
               subtype="letter"
               n="a"

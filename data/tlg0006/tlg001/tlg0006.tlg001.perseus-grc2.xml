@@ -53,7 +53,12 @@
                     <p>This pointer pattern extracts lines</p>
                 </cRefPattern>
         </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
 
         <profileDesc>
             <langUsage>
@@ -61,13 +66,14 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="2020-09-20" who="Lisa Cerrato">Created file from OCR and added markup.</change>
         </revisionDesc>
     </teiHeader>
 
     <text xml:lang="grc">
-        <body>
-            <div type="edition" n="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" xml:lang="grc">
+        <body xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2">
+            <div type="edition" xml:lang="grc">
               
                 <milestone unit="card" n="1" resp="perseus"/>
                   <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" resp="perseus" style="hidden" n="0"/>

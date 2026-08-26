@@ -63,6 +63,15 @@
 				<cRefPattern matchPattern="(\w+)" n="book" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
 					<p>This pointer pattern extracts book.</p></cRefPattern>
 			</refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+        <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+      </citeStructure>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 
 		<profileDesc>
@@ -74,6 +83,7 @@
 			</langUsage>
 		</profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change when="2022-08-10" who="Lisa Cerrato">EpiDoc and CTS conversion and general header review.</change>
 <change who="balmas01" when="2013-09-13">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory </change> 
 <change who="gcrane" when="2013-06-30">file tagging modified to bring it into easier conformance with CTS</change> 
@@ -91,10 +101,10 @@
 	</revisionDesc>
 	</teiHeader>
 	
-<text>
-<body>
+<text xml:lang="eng">
+<body xml:base="urn:cts:greekLit:tlg0004.tlg001.perseus-eng2">
 
-<div type="translation" n="urn:cts:greekLit:tlg0004.tlg001.perseus-eng2" xml:lang="eng">
+<div type="translation" xml:lang="eng">
 <pb n="V1_3"/>
 
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0004.tlg001.perseus-eng2" n="1"> 

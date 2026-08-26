@@ -62,7 +62,14 @@
 				        <refState unit="book"/>
 				        <refState unit="line"/>
 			      </refsDecl>
-		    </encodingDesc>
+		    		    <refsDecl xml:id="CTS">
+		      <citeStructure match="/TEI/text/body" use="@xml:base">
+		        <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+		          <citeStructure match=".//milestone[@unit='card']" unit="card" delim="." use="@n" n="chunk"/>
+		        </citeStructure>
+		      </citeStructure>
+		    </refsDecl>
+</encodingDesc>
 		    <profileDesc>
 			      <langUsage>
 				        <language ident="grc">Greek</language>
@@ -70,6 +77,7 @@
 		    </profileDesc>
 	    
 		    <revisionDesc>
+		      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 		   <change when="2026-07" who="Hypotactic">corrections to text</change>
             <change when="2017-03-24" who="Lisa Cerrato">fixed missing line numbers and reordered milestones as appropriate</change>	
 			<change when="2015-04-17" who="Stella Dee">converted to CTS EpiDoc</change>
@@ -86,8 +94,8 @@
 	  </teiHeader>
 
 <text xml:lang="grc">
-<body>
-<div type="edition" n="urn:cts:greekLit:tlg0001.tlg001.perseus-grc2" xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0001.tlg001.perseus-grc2">
+<div type="edition" xml:lang="grc">
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0001.tlg001.perseus-grc2" n="1">
 <milestone unit="card" n="1"/>
 <l xml:base="urn:cts:greekLit:tlg0001.tlg001.perseus-grc2:1" n="1">ἀρχόμενος σέο, Φοῖβε, παλαιγενέων κλέα φωτῶν</l>

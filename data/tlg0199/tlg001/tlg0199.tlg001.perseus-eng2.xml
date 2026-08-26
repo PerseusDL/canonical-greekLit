@@ -64,7 +64,14 @@
                 <refState unit="book"/>
                 <refState unit="poem"/>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure match="div/div[@subtype='poem']" use="@n" unit="poem" delim=":">
+              <citeStructure unit="line" delim="." match="l" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         
         <profileDesc>
             <langUsage>
@@ -73,6 +80,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="2024-09-25" who="Lisa Cerrato" >EpiDoc and CTS Conversion</change>
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
             <change when="2013-09-13" who="balmas01">reverting texts back to pre_cts_reorg tagged version</change>
@@ -84,9 +92,9 @@
             <change when="1992-07-12" who="EM">Did initial tagging, added header.</change>
             <change when="1991" who="DS">Created translation.</change></revisionDesc></teiHeader>
     
-    <text>
-        <body>
-            <div type="translation" n="urn:cts:greekLit:tlg0199.tlg001.perseus-eng2" xml:lang="eng">
+    <text xml:lang="eng">
+        <body xml:base="urn:cts:greekLit:tlg0199.tlg001.perseus-eng2">
+            <div type="translation" xml:lang="eng">
                 <head>Epinicians</head>
                 <div type="textpart" subtype="poem" sample="complete" xml:base="urn:cts:greekLit:tlg0199.tlg001.perseus-eng2" n="1">
                     <head> <title>Ode 1</title> <persName type="winner">For Argeius of Ceos</persName> <seg part="N" type="race">Boys' Boxing Match (?) at the Isthmus</seg> <date>Date unknown</date> </head>

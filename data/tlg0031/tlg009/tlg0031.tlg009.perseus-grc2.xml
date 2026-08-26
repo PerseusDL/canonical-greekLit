@@ -74,7 +74,12 @@
                 <refState delim=":" unit="chapter"/>
                 <refState unit="verse"/>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         
         <profileDesc>
             <langUsage>
@@ -84,6 +89,7 @@
         </profileDesc>
 
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="2025-03-15" who="Alison Babeu">Minor header changes and updating</change>
             <change when="2016-10-11" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
@@ -103,8 +109,8 @@
     </teiHeader>
     
     <text xml:lang="grc">
-        <body>
-            <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0031.tlg009.perseus-grc2">
+        <body xml:base="urn:cts:greekLit:tlg0031.tlg009.perseus-grc2">
+            <div type="edition" xml:lang="grc">
                 <pb n="420"/>
                 <head>ΠΡΟΣ ΓΑΛΑΤΑΣ</head>
               

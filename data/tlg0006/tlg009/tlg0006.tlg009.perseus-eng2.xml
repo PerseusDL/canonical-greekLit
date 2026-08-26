@@ -53,7 +53,12 @@
                     <p>This pointer pattern extracts line</p>
                 </cRefPattern>
             </refsDecl> 
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="eng">English</language>
@@ -61,6 +66,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="2020-02-19" who="Lisa Cerrato">EpiDoc and CTS conversion; restructuring the text</change>
             <change when="2016-06-05" who="Bridget Almas">changed card to line and bumped cts version</change>
             <change when="2015-04-15" who="Stella Dee">converted to CTS EpiDoc</change>
@@ -80,8 +86,8 @@
     </teiHeader>
 
     <text xml:lang="eng">
-        <body>
-            <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0006.tlg009.perseus-eng2">
+        <body xml:base="urn:cts:greekLit:tlg0006.tlg009.perseus-eng2">
+            <div type="translation" xml:lang="eng">
                 <l xml:base="urn:cts:greekLit:tlg0006.tlg009.perseus-eng2" resp="perseus" style="hidden" n="0"/>
                 <note resp="editor" place="inline">
                     <p xml:lang="lat">Dramatis Personae</p>

@@ -68,7 +68,14 @@
       			<p>This pointer pattern extracts chapter.</p>
       		</cRefPattern>
       	</refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
 <langUsage>
    <language ident="eng">English</language>
@@ -76,6 +83,7 @@
 </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       	<change when="2016-12-15" who="Lisa Cerrato">review of EpiDoc and CTS compliance; minor cleanup; bumped URN</change>
       	<change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
       	<change when="2013-06-30" who="gcrane">file tagging modified to bring it into easier conformance with CTS</change> 
@@ -99,9 +107,9 @@
       	<change when="1990-08-01" who="EM">Proofread by Ted Armstrong.</change> 
 </revisionDesc>
    </teiHeader>
-   <text>
-      <body>
-      	<div type="translation" n="urn:cts:greekLit:tlg0007.tlg010.perseus-eng2" xml:lang="eng">
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg010.perseus-eng2">
+      	<div type="translation" xml:lang="eng">
 <head>THEMISTOCLES</head>
 
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg010.perseus-eng2" n="1"> 

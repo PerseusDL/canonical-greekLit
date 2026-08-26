@@ -60,7 +60,14 @@
 	<state delim="." n="chunk" unit="Whiston_chapter"/>
 	<state unit="Whiston_section"/>
 </refsDecl>
-	</encodingDesc>-->
+		<refsDecl xml:id="CTS">
+	  <citeStructure match="/TEI/text/body" use="@xml:base">
+	    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+	      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+	    </citeStructure>
+	  </citeStructure>
+	</refsDecl>
+</encodingDesc>-->
 	
 	<refsDecl n="CTS">
 <cRefPattern matchPattern="(\w+).(\w+)"
@@ -82,6 +89,7 @@
 </profileDesc>
 
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 	<change when="2023-11-02" who="Lisa Cerrato">EpiDoc and CTS Conversion</change>
 	<change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
 	<change when="2013-06-13" who="gcrane">tagging now should be compatible with CTS</change>
@@ -106,9 +114,9 @@
 </revisionDesc>
 </teiHeader>
 	
-<text>
-<body>
-<div type="edition" n="urn:cts:greekLit:tlg0526.tlg001.perseus-grc2" xml:lang="grc">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0526.tlg001.perseus-grc2">
+<div type="edition" xml:lang="grc">
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0526.tlg001.perseus-grc2" n="1"> 
 <head>Τάδε ἔνεστιν ἐν τῇ πρώτῃ τῶν Ἰωσήπου ἱστοριῶν τῆς Ἰουδαϊκῆς ἀρχαιολογίας.</head> 
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0526.tlg001.perseus-grc2:1" n="arg"> 

@@ -71,7 +71,14 @@
 				<refState unit="chapter"/>
 				<refState unit="section"/>
 			</refsDecl>-->
-		</encodingDesc>
+				<refsDecl xml:id="CTS">
+		  <citeStructure match="/TEI/text/body" use="@xml:base">
+		    <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+		      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+		    </citeStructure>
+		  </citeStructure>
+		</refsDecl>
+</encodingDesc>
 		<profileDesc>
 			<langUsage>
 				<language ident="grc">Greek</language>
@@ -79,6 +86,7 @@
 			</langUsage>
 		</profileDesc>
 		<revisionDesc>
+		  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 			<change when="2016-12-02" who="Lisa Cerrato">CTS and EpiDoc conversion</change>
 			<change when="2014-08-01" who="Stella Dee">edited markup</change>
 			<change when="2014-07-01" who="Stella Dee">split speeches and converted to unicode</change>
@@ -88,9 +96,9 @@
 			<change when="1992-06-01" who="em and wpm">chopped into files</change>
 </revisionDesc>
 	</teiHeader>
-	<text>
-		<body>
-			<div type="edition" n="urn:cts:greekLit:tlg0032.tlg009.perseus-grc2" xml:lang="grc">
+	<text xml:lang="grc">
+		<body xml:base="urn:cts:greekLit:tlg0032.tlg009.perseus-grc2">
+			<div type="edition" xml:lang="grc">
 			<div type="textpart" subtype="chapter" n="1">
 				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>οἶδα μὲν ὅτι τῆς Ἀγησιλάου ἀρετῆς τε καὶ δόξης

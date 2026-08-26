@@ -63,7 +63,14 @@
                <p>This pointer pattern extracts book</p>
             </cRefPattern>
          </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="book" delim=":" match="div[@subtype='book']" use="@n">
+            <citeStructure unit="card" delim="." match="div[@subtype='card']" use="@n" n="chunk"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
 
       <profileDesc>
          <langUsage>
@@ -71,11 +78,14 @@
             <language ident="grc">Transliterated Greek </language>
          </langUsage>
       </profileDesc>
-   </teiHeader>
+      <revisionDesc>
+     <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+   </revisionDesc>
+</teiHeader>
 
-   <text>
-      <body>
-         <div xml:lang="eng" type="translation" n="urn:cts:greekLit:tlg0012.tlg001.perseus-eng4">
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0012.tlg001.perseus-eng4">
+         <div xml:lang="eng" type="translation">
             <div type="textpart" n="1" subtype="book">
                <head>Scroll 1</head>
                <div type="textpart" n="1" subtype="card">

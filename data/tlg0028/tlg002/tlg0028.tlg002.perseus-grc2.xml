@@ -63,7 +63,14 @@
 			<refState unit="speech" delim="."/>
 			<refState unit="section"/>
 		</refsDecl>
-	</encodingDesc>
+		<refsDecl xml:id="CTS">
+	  <citeStructure match="/TEI/text/body" use="@xml:base">
+	    <citeStructure match="div/div[@subtype='tetralogy']" use="@n" unit="tetralogy" delim=":">
+	      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+	    </citeStructure>
+	  </citeStructure>
+	</refsDecl>
+</encodingDesc>
 	
 	<profileDesc>
 		<langUsage>
@@ -90,6 +97,7 @@
 </profileDesc>
 
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 	<change when="2023-03-27" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
 	<change when="2014-08" who="Bridget Almas">converted section milestones to divs and replaces lsqb and rsqb entities with unicode</change>
 	<change when="2014-08-01" who="Stella Dee">edited markup</change>
@@ -104,8 +112,8 @@
 </teiHeader>
 	
 <text xml:lang="grc">
-<body>
-<div type="edition" n="urn:cts:greekLit:tlg0028.tlg002.perseus-grc2" xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0028.tlg002.perseus-grc2">
+<div type="edition" xml:lang="grc">
 <div type="textpart" subtype="tetralogy" xml:base="urn:cts:greekLit:tlg0028.tlg002.perseus-grc2" n="1">
 <head rend="align(center)">Κατηγορία φόνου ἀπαράσημος</head>
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0028.tlg002.perseus-grc2:1" n="1">

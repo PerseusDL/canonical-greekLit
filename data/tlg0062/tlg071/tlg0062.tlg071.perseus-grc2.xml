@@ -65,7 +65,13 @@
 <state unit="chapter" n="chunk"/>
 <state unit="altsection"/>
 </refsDecl>-->
-  </encodingDesc>
+    <refsDecl xml:id="CTS">
+    <citeStructure match="/TEI/text/body" use="@xml:base">
+      <citeStructure use="@n" match="./div[@type='work']" delim=":" n="chunk" unit="work"/>
+      <citeStructure unit="line" delim=":" match=".//l" use="@n"/>
+    </citeStructure>
+  </refsDecl>
+</encodingDesc>
   
   <profileDesc>
    <langUsage>
@@ -73,13 +79,14 @@
    </langUsage>
   </profileDesc>
   <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
    <change who="Lisa Cerrato" when="2023-05-06">EpiDoc and CTS conversion and other cleanup; added missing text</change>
   </revisionDesc>
  </teiHeader>
  
-<text>
-<body>
-<div type="edition" n="urn:cts:greekLit:tlg0062.tlg071.perseus-grc2" xml:lang="grc">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg071.perseus-grc2">
+<div type="edition" xml:lang="grc">
 <pb n="p.443"/>
 <head type="cast">Πόδαγρος, Χόρος, Ποδάγρα, Ἄγγελος, Ἰατροὶ, Βάσανοι</head>
 <sp>

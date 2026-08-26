@@ -50,7 +50,14 @@
           <p>This pointer pattern extracts chapter.</p>
         </cRefPattern>
       </refsDecl>
-    </encodingDesc>
+        <refsDecl xml:id="CTS">
+      <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+          <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+        </citeStructure>
+      </citeStructure>
+    </refsDecl>
+</encodingDesc>
     <profileDesc>
       <langUsage>
         <language ident="grc">Greek</language>
@@ -60,6 +67,7 @@
     </profileDesc>
 
     <revisionDesc>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       <change when="2025-11-20" who="Lisa Cerrato">header review and regularization; updates to encoding and structure to align with current best practices</change>
       <change when="2016-01-04" who="TDBuck">p4 to p5</change>
       <change when="2014-08-01" who="Stella Dee">edited markup</change>
@@ -77,9 +85,9 @@
   </revisionDesc>
   </teiHeader>
   
-  <text>
-    <body>
-      <div n="urn:cts:greekLit:tlg0551.tlg009.perseus-grc2" type="edition" xml:lang="grc">
+  <text xml:lang="grc">
+    <body xml:base="urn:cts:greekLit:tlg0551.tlg009.perseus-grc2">
+      <div type="edition" xml:lang="grc">
         <head>Λιβυκή</head>
       <div n="1" type="textpart" subtype="chapter">
         <div n="1" type="textpart" subtype="section">

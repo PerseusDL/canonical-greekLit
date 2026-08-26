@@ -73,7 +73,14 @@
       		<refState unit="chapter" delim="."/>
       		<refState unit="section"/>
       	</refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="eng">English</language>
@@ -81,13 +88,14 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       	<change when="2018-02-27" who="Lisa Cerrato">EpiDoc and CTS compliance; minor cleanup; bumped URN</change>
       	<change when="1999-04-01" who="Lisa Cerrato">tagged and parsed</change>
       </revisionDesc>
    </teiHeader>
-   <text>
-      <body> 
-<div type="translation" n="urn:cts:greekLit:tlg0007.tlg060.perseus-eng2" xml:lang="eng">
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg060.perseus-eng2"> 
+<div type="translation" xml:lang="eng">
       		<head>DION</head>
 	<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg060.perseus-eng2" n="1">
 		<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0007.tlg060.perseus-eng2:1" n="1"><p>If it be true, then, O Sossius Senecio,<note resp="editor" place="inline" anchored="true">One of the many friends whom Plutarch made during his residence at Rome. See on <bibl n="Plut. Thes. 1.1"> <title>Theseus</title>, i. 1.</bibl> </note> as Simonides says,<note resp="editor" place="inline" anchored="true">Fragment 50; <title>Bergk, Poet. Lyr. Graeci</title>, iii. 4 p. 412.</note> that Ilium <quote>is not wroth with the Corinthians</quote> for coming up against her with the Achaeans, because the Trojans also had Glaucus, who sprang from Corinth, as a zealous ally, so it is likely that neither Romans nor Greeks will quarrel with the Academy, since they fare alike in this treatise containing the lives of Dion and Brutus, </p></div>

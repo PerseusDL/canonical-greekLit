@@ -71,7 +71,14 @@
         </cRefPattern>
       </refsDecl>
 
-    </encodingDesc>
+        <refsDecl xml:id="CTS">
+      <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+          <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+        </citeStructure>
+      </citeStructure>
+    </refsDecl>
+</encodingDesc>
 
     <profileDesc>
       <langUsage>
@@ -80,15 +87,16 @@
     </profileDesc>
 
     <revisionDesc>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       <change when="2020-08-18" who="Michael Konieczny">EpiDoc and CTS conversion; manually
         transcribed p. 160 of original printed edition, missing from electronic versino</change>
     </revisionDesc>
 
   </teiHeader>
 
-  <text>
-    <body>
-      <div type="edition" n="urn:cts:greekLit:tlg0560.tlg001.perseus-grc2" xml:lang="grc">
+  <text xml:lang="grc">
+    <body xml:base="urn:cts:greekLit:tlg0560.tlg001.perseus-grc2">
+      <div type="edition" xml:lang="grc">
         <div type="textpart" subtype="chapter" n="1">
           <div type="textpart" subtype="section" n="1">
             <p rend="indent"><pb n="orgpage.178v"/>Τὸ μὲν τοῦ Κεκιλίου συγγραμμάτιον, ὃ περὶ ὕψους

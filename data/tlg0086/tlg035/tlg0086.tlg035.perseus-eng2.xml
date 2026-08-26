@@ -66,6 +66,15 @@
       <p>This pointer pattern extracts book.</p>
     </cRefPattern>
   </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="translation" delim=":" match="div[@type='translation']" use="@n">
+      <citeStructure unit="book" delim="." match="div[@subtype='book']" use="@n">
+        <citeStructure unit="bekker_page" delim="." match="div[@subtype='bekker_page']" use="@n"/>
+      </citeStructure>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 
 <profileDesc>
@@ -76,6 +85,7 @@
 </profileDesc>
 
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change when="2024-05-13" who="Lisa Cerrato">EpiDoc and CTS conversion and general header review.</change>
 <change when="2011-12-16" who="lcerrato">fixed Aristotle bibls</change>
 <change when="2010-11-09" who="lcerrato">fixed repeated words (typo) 1254a</change> 
@@ -97,9 +107,9 @@
 </revisionDesc>
 </teiHeader>
   
-<text>
-<body>
-	<div type="translation" n="urn:cts:greekLit:tlg0086.tlg035.perseus-eng2" xml:lang="eng">
+<text xml:lang="eng">
+<body xml:base="urn:cts:greekLit:tlg0086.tlg035.perseus-eng2">
+	<div type="translation" xml:lang="eng">
     	<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0086.tlg035.perseus-eng2" n="1">
     	  <div type="textpart" subtype="bekker_page" resp="perseus" xml:base="urn:cts:greekLit:tlg0086.tlg035.perseus-eng2:1" n="1252a">
     	    <p rend="align(indent)"><milestone unit="page" resp="Bekker" n="1252a"/><milestone n="1" ed="Bekker" unit="line"/>

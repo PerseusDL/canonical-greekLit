@@ -59,7 +59,12 @@
             </cRefPattern>
             
          </refsDecl>-->
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" unit="scene" n="chunk"/>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
 
       <profileDesc>
          <langUsage>
@@ -68,6 +73,7 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2017-01-25" who="Lisa Cerrato">improvements to markup; change log, etc.</change>
          <change when="2016-01-14" who="TDBuck">Hookified</change>
          <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory  </change>
@@ -93,8 +99,8 @@
    </teiHeader>
 
    <text xml:lang="eng">
-      <body>
-         <div type="translation" n="urn:cts:greekLit:tlg0011.tlg001.perseus-eng3" xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0011.tlg001.perseus-eng3">
+         <div type="translation" xml:lang="eng">
          <milestone unit="card" resp="p" n="1"/>
          <div type="textpart" subtype="episode">
          

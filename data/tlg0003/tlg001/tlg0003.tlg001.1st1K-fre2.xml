@@ -72,6 +72,13 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='translation
 </refsDecl>
 <p>The following text is encoded in accordance with EpiDoc standards and with the
 CTS/CITE Architecture.</p>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n" n="chunk"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 
 <profileDesc>
@@ -80,14 +87,15 @@ CTS/CITE Architecture.</p>
 </langUsage>    
 </profileDesc>
     <revisionDesc>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
         <change when="2023-09-11" who="Alison Babeu">Updated URN and other metadata.</change>
         <change when="2023-08-07" who="Alison Babeu">Edited metadata and fixed language of notes</change>
     </revisionDesc>
 
 </teiHeader>
-<text>
-<body>
-<div type="translation" xml:lang="fre" n="urn:cts:greekLit:tlg0003.tlg001.1st1K-fre2">
+<text xml:lang="fre">
+<body xml:base="urn:cts:greekLit:tlg0003.tlg001.1st1K-fre2">
+<div type="translation" xml:lang="fre">
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0003.tlg001.1st1K-fre2" n="front">
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0003.tlg001.1st1K-fre2:front" n="1">
 <pb/>

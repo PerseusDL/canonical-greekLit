@@ -53,6 +53,13 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n=\'$1\']
 </refsDecl>
 <p>This text is quickly corrected OCR output. The following text is encoded in accordance with EpiDoc standards and with the
 CTS/CITE Architecture.</p>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n" n="chunk"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 <profileDesc>
 <langUsage>
@@ -62,13 +69,14 @@ CTS/CITE Architecture.</p>
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
     <change when="2023-08-01" who="Gregory Crane">Digital editing</change>
     </revisionDesc>
 </teiHeader>
-<text>
-<body>
+<text xml:lang="fre">
+<body xml:base="urn:cts:greekLit:tlg0003.tlg001.1st1K-fre1">
 <pb n="III"/>
-<div type="translation" xml:lang="fre" n="urn:cts:greekLit:tlg0003.tlg001.1st1K-fre1">
+<div type="translation" xml:lang="fre">
 
     <div type="textpart" subtype="introduction" xml:base="urn:cts:greekLit:tlg0003.tlg001.1st1K-fre1" n="introduction"><head>notice biographique.</head>
 <p>Les seuls renseignements certains que nous possédions sur la personne de Thucydide se tirent de quelques passages de son livre. Les autres données qui se rencontrent çà et là, notamment dans les deux biographies, dont Tune est attribuée à Marcellinus et l’autre est anonyme , sont d’une date trop récente pour avoir beaucoup d’autorité. Aussi, sans entrer dans des détails d’un intérêt secondaire, nous bornerons-nous à rapporter les circonstances les plus essentielles de la vie de Thucydide, celles qui ont eu quelque influence sur sa carrière d’historien.

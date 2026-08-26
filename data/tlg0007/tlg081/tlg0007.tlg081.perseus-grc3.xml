@@ -79,6 +79,13 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
 <refsDecl doctype="TEI.2">
  -->
 </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 <profileDesc>
 <langUsage>
@@ -88,13 +95,14 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change who="RS" when="2010-05">tagged and parsed</change>
 <change who="Lucy Parr" when="2019-06-27">EpiDoc and CTS Conversion</change>
 </revisionDesc>
 </teiHeader>
 <text xml:lang="grc">
-<body>
-<div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0007.tlg081.perseus-grc3">
+<body xml:base="urn:cts:greekLit:tlg0007.tlg081.perseus-grc3">
+<div type="edition" xml:lang="grc">
 <pb xml:id="v.3.p.8"/>
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg081.perseus-grc3" n="1">
 <head>

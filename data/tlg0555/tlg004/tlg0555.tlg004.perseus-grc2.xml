@@ -64,6 +64,15 @@
       <p>This pointer pattern extracts book.</p>
     </cRefPattern>
   </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+        <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+      </citeStructure>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 
     <profileDesc>
@@ -74,13 +83,14 @@
     </profileDesc>
     
     <revisionDesc>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       <change when="2024-11-07" who="Lisa Cerrato">EpiDoc and CTS conversion; merged perseus Greek (books 1-6) with OGL Greek (books 7-8)</change>
     </revisionDesc>
   </teiHeader>
 
- <text>
- <body>
-   <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0555.tlg004.perseus-grc2">
+ <text xml:lang="grc">
+ <body xml:base="urn:cts:greekLit:tlg0555.tlg004.perseus-grc2">
+   <div type="edition" xml:lang="grc">
 <pb n="p.V2_4"/>
 <div type="textpart" subtype="book" n="1">
 <div type="textpart" subtype="chapter" n="1">

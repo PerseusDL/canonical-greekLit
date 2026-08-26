@@ -66,7 +66,14 @@
       <editorialDecl>
         <quotation marks="none"/>
       </editorialDecl>
-    </encodingDesc>
+        <refsDecl xml:id="CTS">
+      <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure match="div/div[@subtype='letter']" use="@n" unit="letter" delim=":">
+          <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+        </citeStructure>
+      </citeStructure>
+    </refsDecl>
+</encodingDesc>
 		<profileDesc>
 			<langUsage>
 			  <language ident="eng">English</language>
@@ -75,6 +82,7 @@
 			</langUsage>
 		</profileDesc>
 	  <revisionDesc>
+	    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 	    <change when="2013-09-13" who="balmas01">copyrighted CTS texts from sdl and classics in new canonical structure per github repo</change>
 	    <change when="2010-08-31" who="rsingh04">cleaned up log keyword</change>
 	    <change when="2009-11-16" who="rsingh04">moved more texts around based on copyright status</change>
@@ -99,8 +107,8 @@
 </teiHeader>
 
 	<text xml:lang="eng">
-		<body>
-		  <div type="translation" n="urn:cts:greekLit:tlg0014.tlg063.perseus-eng2" xml:lang="eng">
+		<body xml:base="urn:cts:greekLit:tlg0014.tlg063.perseus-eng2">
+		  <div type="translation" xml:lang="eng">
 		  <head>Letters</head>
 <div type="textpart" subtype="letter" n="1">
   <head>On Political Harmony</head> 

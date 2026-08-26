@@ -57,7 +57,14 @@
     <state unit="book" delim="."/>
     <state unit="chapter" n="chunk"/>
    </refsDecl>-->
-  </encodingDesc>
+    <refsDecl xml:id="CTS">
+    <citeStructure match="/TEI/text/body" use="@xml:base">
+      <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+        <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n"/>
+      </citeStructure>
+    </citeStructure>
+  </refsDecl>
+</encodingDesc>
   <profileDesc>
    
    <langUsage>
@@ -67,14 +74,15 @@
   </profileDesc>
   
   <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
    <change when="2016-03-02" who="Lisa Cerrato">EpiDoc conversion and CTS related changes</change>
   </revisionDesc>
  </teiHeader>
  
  <text xml:lang="grc">
-  <body>
+  <body xml:base="urn:cts:greekLit:tlg1600.tlg001.perseus-grc2">
    
-   <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg1600.tlg001.perseus-grc2">
+   <div type="edition" xml:lang="grc">
    <div type="textpart" subtype="book" n="1">
     <div type="textpart" subtype="chapter" n="praef">
      <milestone unit="olpage" n="762"/>

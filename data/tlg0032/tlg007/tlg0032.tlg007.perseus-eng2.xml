@@ -79,6 +79,15 @@
 <state unit="chapter"/>
 <state unit="section"/>
 </refsDecl>-->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+        <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+      </citeStructure>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 		
 <profileDesc>
@@ -89,6 +98,7 @@
 </profileDesc>
 		
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 	<change when="2026-07-27" who="Alison Babeu">Updated header and other metadata</change>
 	<change when="2016-11-29" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
 	<change when="1992-08-11" who="das">changed chapters to div2's</change>
@@ -98,8 +108,8 @@
 </teiHeader>
 
 	<text xml:lang="eng">
-	<body>
-		<div type="translation" n="urn:cts:greekLit:tlg0032.tlg007.perseus-eng2" xml:lang="eng">
+	<body xml:base="urn:cts:greekLit:tlg0032.tlg007.perseus-eng2">
+		<div type="translation" xml:lang="eng">
 
 			<div type="textpart" subtype="book" n="1">
 	<div type="textpart" subtype="chapter" n="1">

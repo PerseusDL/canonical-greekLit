@@ -50,19 +50,27 @@
 <cRefPattern n="book" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
      <p>This pointer pattern extracts book</p>
     </cRefPattern>
-   </refsDecl></encodingDesc>
+   </refsDecl><refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
 <profileDesc>
 <langUsage>
  <language ident="eng">English</language>
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change who="Gregory Crane" when="2023-08-11">Created initial file in repository. The major task was adding section breaks. There are missing sections because the translator silently skipped passages that did not conform with contemporary standards of propiety.</change>
 </revisionDesc>
 </teiHeader>
-<text>
-<body>
-<div type="translation" n="urn:cts:greekLit:tlg0062.tlg012.perseus-eng5" xml:lang="eng">
+<text xml:lang="eng">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg012.perseus-eng5">
+<div type="translation" xml:lang="eng">
 <head>A TRUE HISTORY.</head>
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg012.perseus-eng5" n="1">
 <head>Book 1.</head>

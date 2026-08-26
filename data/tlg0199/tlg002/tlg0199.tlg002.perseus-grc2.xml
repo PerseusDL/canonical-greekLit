@@ -63,7 +63,14 @@
                 <refState unit="book"/>
                 <refState unit="poem"/>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure match="div/div[@subtype='poem']" use="@n" unit="poem" delim=":">
+              <citeStructure unit="line" delim="." match="l" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         
         <profileDesc>
             <langUsage>
@@ -73,6 +80,7 @@
         </profileDesc>
         
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="2023-05-30" who="Lisa Cerrato" >EpiDoc and CTS Conversion</change>
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
             <change when="2011-01-15" who="gcrane">base SDL file</change>
@@ -85,8 +93,8 @@
     </teiHeader>
        
     <text xml:lang="grc">
-        <body>
-            <div type="edition" n="urn:cts:greekLit:tlg0199.tlg002.perseus-grc2" xml:lang="grc">
+        <body xml:base="urn:cts:greekLit:tlg0199.tlg002.perseus-grc2">
+            <div type="edition" xml:lang="grc">
                 <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0199.tlg002.perseus-grc2" n="15" sample="complete">
                     <head rend="align(center)">
                         <title xml:lang="eng">Ode 15</title>

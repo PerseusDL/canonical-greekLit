@@ -64,7 +64,14 @@
         <!--<refsDecl>
 	<refState n="chunk" unit="card"/>
       </refsDecl>-->
-    </encodingDesc>
+        <refsDecl xml:id="CTS">
+      <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure match="div/div[@type='textpart']" use="@n" unit="textpart" delim=":">
+          <citeStructure unit="line" delim="." match="l" use="@n"/>
+        </citeStructure>
+      </citeStructure>
+    </refsDecl>
+</encodingDesc>
 
       <profileDesc>
          <langUsage>
@@ -75,6 +82,7 @@
       </profileDesc>
 
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
         <change when="1988-01-01" who="Bill Merrill">Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</change>
         <change when="1993-08-01" who="EM">Go over text, check cardbreaks, and change tags to be more TEI conformant.</change>
         <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
@@ -92,8 +100,8 @@
 
   </teiHeader>
   <text xml:lang="eng">
-      <body>
-        <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0013.tlg003.perseus-eng2">
+      <body xml:base="urn:cts:greekLit:tlg0013.tlg003.perseus-eng2">
+        <div type="translation" xml:lang="eng">
            <div type="textpart"><head>To Delian Apollo</head>
            <milestone n="1" unit="card"/><l n="1"><milestone unit="Para" ed="P"/>I will remember and not be unmindful of Apollo who shoots afar. As he goes through
           the house of Zeus, the gods tremble before him and all spring up from their seats when he

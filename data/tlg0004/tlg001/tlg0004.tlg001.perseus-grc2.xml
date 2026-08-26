@@ -64,7 +64,16 @@
                 <cRefPattern matchPattern="(\w+)" n="book" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
                     <p>This pointer pattern extracts book.</p></cRefPattern>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+              <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+                <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+              </citeStructure>
+            </citeStructure>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         
         <profileDesc>
             <langUsage>
@@ -76,6 +85,7 @@
         </profileDesc>
  
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="2022-08-10" who="Lisa Cerrato">EpiDoc and CTS conversion and general header review.</change>
             <change when="2016-10-03" who="Lisa Cerrato">removed superfluous note empty tags that actually represented sections; fixed Roman numerals in 10.139ff</change>
             <change when="2010-06-24" who="gcrane">edits to improve named entities</change>
@@ -93,9 +103,9 @@
         </revisionDesc>
     </teiHeader>
     
-<text>
-<body>
-<div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0004.tlg001.perseus-grc2">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0004.tlg001.perseus-grc2">
+<div type="edition" xml:lang="grc">
 <pb n="V1_2"/>
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0004.tlg001.perseus-grc2" n="1"> 
 <head rend="align(center)">ΒΙΩΝ ΚΑΙ ΓΝΩΜΩΝ ΤΩΝ ΕΝ ΦΙΛΟΣΟΦΙΑΙ ΕΥΔΟΚΙΜΗΣΑΝΤΩΝ ΤΩΝ ΕΙΣ ΔΕΚΑ ΤΟ ΠΡΩΤΟΝ</head>

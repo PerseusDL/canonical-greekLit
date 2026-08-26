@@ -156,7 +156,16 @@
                </bibl>
             </taxonomy>
          </classDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="book" delim=":" match="div/div[@subtype='Book']" use="@n">
+            <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n" n="chunk">
+              <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
 
       <profileDesc>
          <creation>
@@ -174,6 +183,7 @@
       </profileDesc>
 
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="19900801" who="Jane Chaplin">Proofread.</change>
          <change when="19910801" who="EM">Revise DTDs and recheck texts.</change>
          <change when="19911001" who="WPM">Spellchecked English books 1-9, revised translation books
@@ -185,9 +195,9 @@
       </revisionDesc>
    </teiHeader>
 
-   <text>
-      <body>
-         <div xml:lang="eng" type="translation" n="urn:cts:greekLit:tlg0016.tlg001.perseus-eng2">
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0016.tlg001.perseus-eng2">
+         <div xml:lang="eng" type="translation">
             <div type="textpart" n="1" subtype="Book">
                <div type="textpart" n="1" subtype="chapter">
                   <div type="textpart" n="pr" subtype="section">

@@ -64,7 +64,14 @@
                 <refState unit="section"/>
             </refsDecl>
 
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+              <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n" n="chunk"/>
+            </citeStructure>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="grc">Greek</language>
@@ -75,6 +82,7 @@
             </particDesc>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="2017-09-26" who="Lisa Cerrato">improvements to CTS conversion work; various header updates</change>
             <change when="2015-04-15" who="Stella Dee">converted to CTS EpiDoc</change>
             <change when="1992-07-01" who="DAS">Tagged in conformance with Prose.e dtd</change>
@@ -83,8 +91,8 @@
     
     <text xml:lang="grc">
        
-        <body>
-            <div type="edition" n="urn:cts:greekLit:tlg0059.tlg030.perseus-grc2" xml:lang="grc">
+        <body xml:base="urn:cts:greekLit:tlg0059.tlg030.perseus-grc2">
+            <div type="edition" xml:lang="grc">
             
 
 <div type="textpart" subtype="book" n="1"> 

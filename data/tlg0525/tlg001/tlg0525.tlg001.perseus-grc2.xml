@@ -68,6 +68,15 @@
     <refState unit="section"/>
 </refsDecl>
     
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+        <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+      </citeStructure>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 
         <profileDesc>
@@ -78,6 +87,7 @@
 </profileDesc>
         
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
     <change when="2016-10-27" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
     <change when="1992-08-01" who="DAS">Changed chapters to DIV2's and BETKEYW to TERM, numbered DIV1's, and eliminated italics.</change>
     <change when="1991-08-01" who="EM">Revise DTDs and recheck texts.</change>
@@ -85,8 +95,8 @@
 </teiHeader>
     
 <text xml:lang="grc">
-<body>
-    <div type="edition" n="urn:cts:greekLit:tlg0525.tlg001.perseus-grc2" xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0525.tlg001.perseus-grc2">
+    <div type="edition" xml:lang="grc">
 <div type="textpart" subtype="book" n="1">
 <head>Ἀττικά</head>
 <div type="textpart" subtype="chapter" n="1">

@@ -73,7 +73,14 @@
                 <quotation marks="none"/>
             </editorialDecl>
             
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="book" delim=":" match="div/div[@subtype='Book']" use="@n">
+              <citeStructure unit="card" delim="." match=".//milestone[@unit='card']" use="@n" n="chunk"/>
+            </citeStructure>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="grc">Greek</language>
@@ -81,6 +88,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change who="Lisa Cerrato" when="2016-09-20">added missing info in header; reviewed quotes</change>
             <change who="Gregory Crane" when="2016-09-19">reviewed and fixed quote tags</change>
             <change who="Bridget Almas" when="2014-07-18T00:00:00Z">Derived EpiDoc version from
@@ -91,8 +99,8 @@
         </revisionDesc>
     </teiHeader>
     <text xml:lang="grc">
-        <body>
-            <div type="edition" n="urn:cts:greekLit:tlg0012.tlg001.perseus-grc2" xml:lang="grc">
+        <body xml:base="urn:cts:greekLit:tlg0012.tlg001.perseus-grc2">
+            <div type="edition" xml:lang="grc">
                 <div type="textpart" subtype="Book" n="1">
                     <milestone ed="p" n="1" unit="card"/>
                     <l n="1">

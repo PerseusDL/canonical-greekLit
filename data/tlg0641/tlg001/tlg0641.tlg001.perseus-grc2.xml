@@ -80,7 +80,16 @@
        <p>This pointer pattern extracts book</p>
       </cRefPattern>
      </refsDecl>
-  </encodingDesc>
+    <refsDecl xml:id="CTS">
+    <citeStructure match="/TEI/text/body" use="@xml:base">
+      <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+        <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+          <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+        </citeStructure>
+      </citeStructure>
+    </citeStructure>
+  </refsDecl>
+</encodingDesc>
 
     <profileDesc>
       <langUsage>	
@@ -90,13 +99,14 @@
     </profileDesc>
   
   <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
    <change when="2021-09-14" who="Lisa Cerrato">EpiDoc, CTS, and Unicode conversion.</change>
   <change when="2021-09-16" who="Helma Dik">Distinguishing text-critical notes: Changed editorial insertions in print copy to add from del where needed. One missing word inserted.</change></revisionDesc>
   </teiHeader>
   
-<text>
-<body>
- <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0641.tlg001.perseus-grc2">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0641.tlg001.perseus-grc2">
+ <div type="edition" xml:lang="grc">
  <pb xml:id="v1.p329"/> 
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0641.tlg001.perseus-grc2" n="1"> 
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0641.tlg001.perseus-grc2:1" n="1"> 

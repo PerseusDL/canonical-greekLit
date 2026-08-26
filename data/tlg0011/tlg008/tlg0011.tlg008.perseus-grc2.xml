@@ -51,7 +51,12 @@
              <p>This pointer pattern extracts cards</p>
             </cRefPattern>
          </refsDecl>-->
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="scene" delim=":" match="div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="grc">Greek</language>
@@ -59,6 +64,7 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2017-02-16" who="Lisa Cerrato">review of EpiDoc and CTS compliance; removed English from notes; entities, etc.</change>
          <change when="2016-01-15" who="TDBuck">p4 to p5</change>
       
@@ -89,8 +95,8 @@ I think this particular one is a true supplement rather than an unclear letter, 
    </teiHeader>
    
    <text xml:lang="grc">
-      <body>
-         <div type="edition" n="urn:cts:greekLit:tlg0011.tlg008.perseus-grc2" xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0011.tlg008.perseus-grc2">
+         <div type="edition" xml:lang="grc">
          <milestone unit="card" n="1"/>
          <milestone n="1" unit="column"/>
          <sp>

@@ -77,6 +77,15 @@
 		<refState unit="chapter"></refState>
 		<refState unit="section"></refState>
 	</refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+        <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+      </citeStructure>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 
 <profileDesc>
@@ -87,6 +96,7 @@
 </profileDesc>
 		
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 	<change who="Lisa Cerrato" when="2016-10-27">EpiDoc and CTS conversion</change>
 	<change who="DAS" when="1992-08-01">Changed chapters to DIV2's, purged HIGHLIGHTED, fixed notes, and numbered DIV1's.</change>
 	<change who="EM" when="1991-08-01">Revise DTDs and recheck texts.</change>
@@ -96,8 +106,8 @@
 </teiHeader>
 	
 <text xml:lang="eng">
-	<body>
-		<div xml:lang="eng" n="urn:cts:greekLit:tlg0525.tlg001.perseus-eng2" type="translation">
+	<body xml:base="urn:cts:greekLit:tlg0525.tlg001.perseus-eng2">
+		<div xml:lang="eng" type="translation">
 <div n="1" subtype="book" type="textpart">
 	<head><placeName key="tgn,7002681">Attica</placeName></head>
 	<div n="1" subtype="chapter" type="textpart">

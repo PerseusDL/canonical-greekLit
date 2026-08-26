@@ -63,7 +63,13 @@
       <!--<refsDecl>
 	<refState n="chunk" unit="card"/>
       </refsDecl>-->
-    </encodingDesc>
+        <refsDecl xml:id="CTS">
+      <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure use="@n" match="./div[@type='work']" delim=":" n="chunk"/>
+        <citeStructure unit="line" delim=":" match=".//l" use="@n"/>
+      </citeStructure>
+    </refsDecl>
+</encodingDesc>
 
 
 
@@ -77,6 +83,7 @@
     </profileDesc>
 
     <revisionDesc>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       <change when="1988-01-01" who="Bill Merrill">Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</change>
       <change when="1993-08-01" who="EM">Go over text, check cardbreaks, and change tags to be more TEI conformant.</change>
       <change when="2014-07-01" who="Stella Dee">split speeches and converted to unicode</change>
@@ -87,8 +94,8 @@
 
   </teiHeader>
   <text xml:lang="eng">
-    <body>
-      <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0013.tlg001.perseus-eng2">
+    <body xml:base="urn:cts:greekLit:tlg0013.tlg001.perseus-eng2">
+      <div type="translation" xml:lang="eng">
       <head>To Dionysus</head>
       <l n="1"><gap reason="lost"/><milestone unit="Para" ed="P"/>For some say, at Dracanum; and some, on windy Icarus; and some, in <placeName
           key="tgn,7012053">Naxos</placeName>, O Heaven-born, Insewn<note anchored="true" resp="ed"

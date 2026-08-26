@@ -65,7 +65,14 @@
 				        <state delim="." unit="volume"/>
 				        <state unit="page"/>
 			      </refsDecl>-->
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="eng">English </language>
@@ -87,6 +94,7 @@
       </profileDesc>
        
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
           <change when="2026-07-15">Updated header and other info</change>          
           <change when="2016-02-11" who="TDBuck">epidoc and cts update</change>
           <change when="2013-10-04" who="Bridget Almas">Split from Epitome and CTS-ized chunks</change>
@@ -121,8 +129,8 @@
       </revisionDesc>
    </teiHeader>
    <text  xml:lang="eng">
-      <body>
-          <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0548.tlg002.perseus-eng2">
+      <body xml:base="urn:cts:greekLit:tlg0548.tlg002.perseus-eng2">
+          <div type="translation" xml:lang="eng">
          <div n="1" subtype="chapter" type="textpart">
             <div n="1" subtype="section" type="textpart">
                <p>

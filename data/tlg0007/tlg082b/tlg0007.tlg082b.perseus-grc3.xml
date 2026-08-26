@@ -76,6 +76,13 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
 <p>This pointer pattern extracts chapter.</p>
 </cRefPattern>
 </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 <profileDesc>
 <langUsage>
@@ -85,14 +92,15 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change who="RS" when="2010-05">tagged and parsed</change>
 <change who="Sophia Elzie" when="2019-07-01">Epidoc and CTS Compliance</change>
 </revisionDesc>
 </teiHeader>
 <text xml:lang="grc">
-<body>
+<body xml:base="urn:cts:greekLit:tlg0007.tlg082b.perseus-grc3">
 <pb xml:id="v.3.p.454" />
-<div n="urn:cts:greekLit:tlg0007.tlg082b.perseus-grc3" type="edition" xml:lang="grc">
+<div type="edition" xml:lang="grc">
     <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg082b.perseus-grc3" n="1">
 <head>Ἀργιλεωνίδος<note resp="editor" place="inline" anchored="true">The title, <foreign xml:lang="grc">λακαινων αποφθεγματα</foreign>, and the headings, <foreign xml:lang="grc">αργιλεωνιδος</foreign>, etc., are almost always omitted in the mss.</note>
 </head>

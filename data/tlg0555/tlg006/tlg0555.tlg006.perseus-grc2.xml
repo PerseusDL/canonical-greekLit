@@ -61,7 +61,12 @@
     <cRefPattern n="chapter" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
      <p>This pointer pattern extracts chapter.</p>
     </cRefPattern>   </refsDecl>
-  </encodingDesc>
+    <refsDecl xml:id="CTS">
+    <citeStructure match="/TEI/text/body" use="@xml:base">
+      <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n"/>
+    </citeStructure>
+  </refsDecl>
+</encodingDesc>
   
   <profileDesc>
    <langUsage>
@@ -71,14 +76,15 @@
    </langUsage>
   </profileDesc>
   <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
    <change who="Lisa Cerrato" when="2023-12-01">EpiDoc and CTS conversion</change>
   </revisionDesc>
  </teiHeader>
 
  
-<text>
-<body>
- <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0555.tlg006.perseus-grc2">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0555.tlg006.perseus-grc2">
+ <div type="edition" xml:lang="grc">
 <pb xml:id="p.270"/>
 <pb xml:id="pg.935_alt" type="margin"/>
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0555.tlg006.perseus-grc2" n="1">

@@ -64,7 +64,13 @@
          <refsDecl>
             <refState unit="line"/>
          </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure use="@n" match=".//milestone[@unit='card']" delim=":" unit="card" n="chunk"/>
+          <citeStructure unit="line" delim=":" match=".//l" use="@n"/>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="grc">Greek</language>
@@ -72,6 +78,7 @@
       </profileDesc>
       
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2023-03-09" who="Lisa Cerrato">EpiDoc and CTS updates: header compliance and line numbering verification; header fixes; restore change log; deal with broken lines; said to speaker</change>
          <change who="Aurélien Berra" when="2018-05-12">Test full compliance with CapiTainS CTS via HookTest and revise file: harmonise language @ident to grc and lat, de-duplicate lines where needed adding letters to numbers in @n, fix Latin content in some bibl tags erroneously in Greek, update EpiDoc schema metadata.</change>
          <change who="Bridget Almas" when="2014-06-09">Converted from TEI edition at https://github.com/PerseusDL/canonical/blob/master/CTS_XML_TEI/perseus/greekLit/tlg0019/tlg006/tlg0019.tlg007.perseus-grc1.xml Conversion involved: converting speaker tags to said tags, adding line numbers, converting div1 and div2 to divs.</change>
@@ -103,8 +110,8 @@
    </teiHeader>
    
 <text xml:lang="grc">
-<body>
-<div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0019.tlg007.perseus-grc2"> 
+<body xml:base="urn:cts:greekLit:tlg0019.tlg007.perseus-grc2">
+<div type="edition" xml:lang="grc"> 
 
 <div type="textpart" subtype="Prologue"> 
    <l xml:base="urn:cts:greekLit:tlg0019.tlg007.perseus-grc2" resp="perseus" style="hidden" n="0"/>

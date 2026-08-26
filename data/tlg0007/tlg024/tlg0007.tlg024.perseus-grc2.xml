@@ -69,6 +69,13 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
 <refState unit="chapter" delim="."/>
 <refState unit="section"/>
 </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 <profileDesc>
 <langUsage>
@@ -77,6 +84,7 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change who="Lisa Cerrato" when="2018-02-01">converted to EpiDoc and CTS</change>
 <change who="Lisa Cerrato" when="2018-01-31">bumped URN</change>
 <change who="Lisa Cerrato" when="2016-09-30">added notes; temp fixed some attributes that were making file invalid</change>
@@ -88,8 +96,8 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
 </teiHeader>
 
 <text xml:lang="grc">
-<body>
-<div type="edition" n="urn:cts:greekLit:tlg0007.tlg024.perseus-grc2" xml:lang="grc"> 
+<body xml:base="urn:cts:greekLit:tlg0007.tlg024.perseus-grc2">
+<div type="edition" xml:lang="grc"> 
 <head>Ἀριστείδης</head> 
 
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg024.perseus-grc2" n="1"> 

@@ -66,7 +66,14 @@
           <p>This pointer pattern extracts book</p>
         </cRefPattern>
       </refsDecl>
-    </encodingDesc>
+        <refsDecl xml:id="CTS">
+      <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+          <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n"/>
+        </citeStructure>
+      </citeStructure>
+    </refsDecl>
+</encodingDesc>
 
    <!--<encodingDesc>
       <editorialDecl>
@@ -97,6 +104,7 @@
     </profileDesc>
 
     <revisionDesc>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       <change when="2020-01-30" who="Lisa Cerrato">conversion of quotes and apostrophes; work on conversion to EpiDoc and CTS</change>
       <change when="2020-01-21" who="Lisa Cerrato">minor revisions to header</change>
       <change when="2020-01-18" who="Gregory Crane">initial EpiDoc and CTS conversion</change>
@@ -107,8 +115,8 @@
 
   </teiHeader>
   <text xml:lang="eng">
-    <body> 
-<div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0557.tlg001.perseus-eng4"> <pb n="p.1001"/> <head>The Discourses of Epictetus</head> 
+    <body xml:base="urn:cts:greekLit:tlg0557.tlg001.perseus-eng4"> 
+<div type="translation" xml:lang="eng"> <pb n="p.1001"/> <head>The Discourses of Epictetus</head> 
 <div type="textpart" subtype="book" n="0"> 
 <div type="textpart" subtype="chapter" n="0"> <head>Arrian to Lucius Gellius</head> 
 <head type="subhead">Wisheth all happiness.</head> 

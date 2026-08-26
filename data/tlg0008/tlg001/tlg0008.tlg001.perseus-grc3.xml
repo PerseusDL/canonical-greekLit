@@ -67,7 +67,14 @@
             <refState unit="book" delim="."/>
             <refState unit="chapter"/>
          </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+            <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
 
       <profileDesc>
          <langUsage>
@@ -77,6 +84,7 @@
       </profileDesc>
 
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2019-07-22" who="Aurélien Berra">Added Greek title in `head` tag.</change>
          <change when="2019-07-20" who="Aurélien Berra">Corrected remaining Betacode symbols (adding opening/closing quotes, stigma symbol, partially preserved letters, Greek numeral sign, uncertain letters with combining dot below). Encoded deletions with `del` tag. Removed spaces after opening tags and before closing tags.</change>
          <change when="2019-04-06" who="Aurélien Berra">Corrected many OCR errors – mostly missing spaces after parentheses and semi-colons, parentheses replaced by combining or non-combining symbols, and erroneous symbols after parentheses.</change>
@@ -88,11 +96,11 @@
       </revisionDesc>
    </teiHeader>
 
-   <text>
-      <body>
+   <text xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0008.tlg001.perseus-grc3">
          <pb n="1"/>
          <head xml:lang="grc">Δειπνοσοφισταί</head>
-         <div type="edition" n="urn:cts:greekLit:tlg0008.tlg001.perseus-grc3" xml:lang="grc">
+         <div type="edition" xml:lang="grc">
             <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0008.tlg001.perseus-grc3" n="1">
                <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0008.tlg001.perseus-grc3:1" n="1">
                   <p>Ἀθήναιος μὲν ὁ τῆς βίβλου πατήρ· ποιεῖται δὲ τὸν λόγον πρὸς

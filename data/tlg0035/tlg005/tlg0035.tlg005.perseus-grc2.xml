@@ -59,7 +59,14 @@
             <cRefPattern matchPattern="(\w+)" n="tetralogy" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
                 <p>This pointer pattern extracts poem.</p></cRefPattern>
         </refsDecl>
-    </encodingDesc>
+        <refsDecl xml:id="CTS">
+      <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure match="div/div[@subtype='poem']" use="@n" unit="poem" delim=":">
+          <citeStructure unit="line" delim="." match="l" use="@n"/>
+        </citeStructure>
+      </citeStructure>
+    </refsDecl>
+</encodingDesc>
     
     <profileDesc>
         <langUsage>
@@ -67,13 +74,14 @@
         </langUsage>
     </profileDesc>
     <revisionDesc>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
         <change who="Lisa Cerrato" when="2023-04-03">EpiDoc and CTS conversion</change>
     </revisionDesc>
 </teiHeader>
 
-<text>
-<body>
- <div type="edition" n="urn:cts:greekLit:tlg0035.tlg005.perseus-grc2" xml:lang="grc">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0035.tlg005.perseus-grc2">
+ <div type="edition" xml:lang="grc">
 <pb xml:id="p.422"/>
      <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0035.tlg005.perseus-grc2" n="4">
 <l xml:base="urn:cts:greekLit:tlg0035.tlg005.perseus-grc2:4" n="1">Τὰν ἅλα τὰν γλαυκὰν ὅταν ὥνεμος ἀτρέμα βάλλῃ,</l>

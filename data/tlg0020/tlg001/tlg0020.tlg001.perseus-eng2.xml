@@ -59,7 +59,13 @@
          <refsDecl>
             <refState unit="card"/>
          </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure use="@n" match="./milestone[@unit='card']" delim=":" unit="card" n="chunk"/>
+          <citeStructure unit="line" delim=":" match="l" use="@n"/>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="eng">English</language>
@@ -67,6 +73,7 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change><!--
 <date>7/29/91</date><respStmt><name>Bill Merrill</name><resp>(n/a)</resp></respStmt>
 <item>Changes to English text. Basically, an entry for any occasion when I changed a letter in the Loeb, except for typos. Britishisms (labour ==&gt; labor, an hundred==&gt; a hundred) and changes in punctuation (commas needed in a series, between clauses of a coordinate sentence, etc.; hyphen in a compound adjective in the attributive position but not in the predicate position) are not logged.
@@ -112,9 +119,9 @@ Milestone     Original             Change
          <change when="2015-04-14" who="Stella Dee">converted to CTS EpiDoc</change>
       </revisionDesc>
    </teiHeader>
-   <text>
-      <body>
-         <div type="translation" n="urn:cts:greekLit:tlg0020.tlg001.perseus-eng2" xml:lang="eng">
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0020.tlg001.perseus-eng2">
+         <div type="translation" xml:lang="eng">
             <l n="1">
                <milestone unit="card" n="1"/>
                           From the Heliconian Muses let us begin to sing, who hold the great and

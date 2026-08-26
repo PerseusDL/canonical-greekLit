@@ -66,7 +66,13 @@
       <!--<refsDecl>
 	<refState n="chunk" unit="card"/>
       </refsDecl>-->
-    </encodingDesc>
+        <refsDecl xml:id="CTS">
+      <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure use="@n" match="./milestone[@unit='card']" delim=":" unit="card" n="chunk"/>
+        <citeStructure unit="line" delim=":" match="l" use="@n"/>
+      </citeStructure>
+    </refsDecl>
+</encodingDesc>
 
     <profileDesc>
       <langUsage>
@@ -75,6 +81,7 @@
     </profileDesc>
 
     <revisionDesc>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       <change when="1988-01-01" who="Bill Merrill">Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</change>
       <change when="1993-08-01" who="EM">Go over text, check cardbreaks, and change tags to be more TEI conformant.</change>
       <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
@@ -86,8 +93,8 @@
   </teiHeader>
   
   <text xml:lang="grc">
-    <body>
-      <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0013.tlg013.perseus-grc2">
+    <body xml:base="urn:cts:greekLit:tlg0013.tlg013.perseus-grc2">
+      <div type="edition" xml:lang="grc">
     
         <milestone unit="card" n="1" ed="P"/>
         <l n="1"><milestone unit="Para" ed="P"/>Δημήτηρ’ ἠύκομον, σεμνὴν θεάν, ἄρχομ’ ἀείδειν, </l>

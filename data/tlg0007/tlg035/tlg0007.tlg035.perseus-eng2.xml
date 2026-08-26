@@ -76,7 +76,14 @@
       		<refState unit="chapter" delim="."/>
       		<refState unit="section"/>
       	</refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="eng">English</language>
@@ -84,6 +91,7 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2018-02-02" who="Lisa Cerrato">file conversion to EpiDoc and CTS</change>
 <change when="2018-02-01" who="Lisa Cerrato">bumped URN</change>
 <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
@@ -109,9 +117,9 @@
 </revisionDesc>
    </teiHeader>
 	
-   <text>
-      <body>
-      	<div type="translation" n="urn:cts:greekLit:tlg0007.tlg035.perseus-eng2" xml:lang="eng"> 
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg035.perseus-eng2">
+      	<div type="translation" xml:lang="eng"> 
       		<head>CIMON</head> 
       		<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg035.perseus-eng2" n="1">
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0007.tlg035.perseus-eng2:1" n="1"><p>Peripoltas the seer, who conducted King Opheltas with his subjects from Thessaly into Boeotia, left a posterity there which was in high repute for many generations. The greater part of them settled in Chaeroneia, which was the first city they won from the Barbarians. Now the most of this posterity were naturally men of war and courage, and so were consumed away in the Persian invasions and the contests with the Gauls, because they did not spare themselves.</p></div>
