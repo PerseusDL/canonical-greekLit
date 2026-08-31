@@ -60,6 +60,13 @@
 <cRefPattern n="chapter" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
  <p>This pointer pattern extracts chapter</p></cRefPattern>
 </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
   
 <profileDesc>
@@ -69,13 +76,14 @@
 </profileDesc>
   
   <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
    <change when="2023-05-11" who="Lisa Cerrato" >EpiDoc and CTS conversion and other cleanup</change>
    <change when="2015-08-07" who="Ariane Pinche, Aaron Plasek, Mark Moll, Ana Migowski">Corrected markup automatically and checked for TEI validation</change>
   </revisionDesc>
 </teiHeader>
  
-<text>
-<body>
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0074.tlg005.perseus-grc2">
 
 <div n="urn:cts:greekLit:tlg0074.tlg005.perseus-grc2" type="edition" xml:lang="grc">
  <pb n="p.104"/> 

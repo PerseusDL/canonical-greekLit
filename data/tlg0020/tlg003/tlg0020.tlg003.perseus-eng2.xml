@@ -62,7 +62,20 @@
 		       <refsDecl>
 			         <refState unit="card"/>
 		       </refsDecl>
-	     </encodingDesc>
+	     	     <refsDecl xml:id="CTS">
+	       <citeStructure match="/TEI/text/body" use="@xml:base">
+	         <citeStructure use="@n" match="./milestone[@unit='card']" delim=":" unit="card" n="chunk"/>
+	         <citeStructure unit="line" delim=":" match="l" use="@n"/>
+	       </citeStructure>
+	     </refsDecl>
+
+	     	     <refsDecl xml:id="CTS-card">
+	     	         <citeStructure match="/TEI/text/body" use="@xml:base">
+	     	             <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+	     	                 use="@n" n="chunk" />
+	     	         </citeStructure>
+	     	     </refsDecl>
+</encodingDesc>
 	
 	     <profileDesc>
 		       <langUsage>
@@ -71,6 +84,8 @@
 		       </langUsage>
 	     </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <!--<change>
 <date>7/91</date><respStmt><name>Bill Merrill</name><resp>(n/a)</resp></respStmt>
 <item>Changes to English text. Basically, an entry for any occasion when I changed a letter in the Loeb, except for typos. Britishisms (labour ==&gt; labor, an hundred ==&gt; a hundred) and changes in punctuation (commas needed in a series, between clauses of a coordinate sentence, etc.; hyphen in a compound adjective in the attributive position but not in the predicate position) are not logged.
@@ -100,8 +115,8 @@
       </revisionDesc>
 
    </teiHeader>
-   <text>
-      <body>
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0020.tlg003.perseus-eng2">
 	        <div n="urn:cts:greekLit:tlg0020.tlg003.perseus-eng2"
               type="translation"
               xml:lang="eng">

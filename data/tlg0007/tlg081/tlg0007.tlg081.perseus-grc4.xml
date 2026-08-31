@@ -72,6 +72,13 @@ Architecture</p>
 <!-- <refsDecl doctype="TEI.2">
 <state n="chunk" unit="stephpage"/>
 </refsDecl> -->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 <profileDesc>
 <langUsage>
@@ -81,13 +88,14 @@ Architecture</p>
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change who="RS" when="2010-05">tagged and parsed</change>
 <change who="Lucy Parr" when="2019-06-27">EpiDoc and CTS Conversion</change>
 </revisionDesc>
 </teiHeader>
 <text xml:lang="grc">
-<body>
-<div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0007.tlg081.perseus-grc4">
+<body xml:base="urn:cts:greekLit:tlg0007.tlg081.perseus-grc4">
+<div n="urn:cts:greekLit:tlg0007.tlg081.perseus-grc4" type="edition" xml:lang="grc">
 <pb xml:id="v.2.p.1"/>
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg081.perseus-grc4" n="1">
 <head xml:lang="grc">Ἀποφθέγματα βασιλέων καὶ στρατηγῶν</head>

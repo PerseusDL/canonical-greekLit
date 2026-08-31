@@ -72,7 +72,14 @@
       		<refState unit="chapter" delim="."/>
       		<refState unit="section"/>
       	</refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="eng">English</language>
@@ -81,14 +88,15 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2018-02-05" who="Lisa Cerrato">file conversion to EpiDoc and CTS</change>
       	<change when="2018-02-01" who="Lisa Cerrato">bumped URN</change>
         <change when="1999-03-01" who="LMC">tagged and parsed</change>
       </revisionDesc>
    </teiHeader>
-   <text>
-      <body> 
-      	<div type="translation" n="urn:cts:greekLit:tlg0007.tlg036.perseus-eng2" xml:lang="eng"> 
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg036.perseus-eng2"> 
+      	<div n="urn:cts:greekLit:tlg0007.tlg036.perseus-eng2" type="translation" xml:lang="eng"> 
       		<head>LUCULLUS</head> 
       		<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg036.perseus-eng2" n="1"> 
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0007.tlg036.perseus-eng2:1" n="1"><p>In the case of Lucullus, his grandfather was a man of consular rank, and his uncle on his mother’s side was Metellus, surnamed Numidicus. But as for his parents, his father was convicted of peculation, and his mother, Caecilia, had the bad name of a dissolute woman. Lucullus himself, while he was still a mere youth, before he had entered public life or stood for any office, made it his first business to impeach his father’s accuser, Servilius the Augur, whom he found wronging the commonwealth.</p></div>

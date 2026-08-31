@@ -78,7 +78,16 @@
             <state unit="chapter"/>
             <state unit="section"/>
          </refsDecl>-->
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+            <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+              <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
      
       <profileDesc>
          <langUsage>
@@ -87,6 +96,7 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2016-03-08" who="Lisa Cerrato">bumped urn; CTS work</change>
          <change when="2015-06-01" who="Thibault Clérice">initial CTS work</change>
          <change when="1998-12-03" who="Lisa Cerrato">fixed pare/ras at 1.2.49 to pate/ras</change>
@@ -98,8 +108,8 @@
    
    
    <text xml:lang="grc">
-      <body>
-         <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0032.tlg002.perseus-grc2">
+      <body xml:base="urn:cts:greekLit:tlg0032.tlg002.perseus-grc2">
+         <div n="urn:cts:greekLit:tlg0032.tlg002.perseus-grc2" type="edition" xml:lang="grc">
          <div type="textpart" subtype="book" n="1">
             <head>Ἀπομνημονευμάτων Α</head>
             <div type="textpart" subtype="chapter" n="1">

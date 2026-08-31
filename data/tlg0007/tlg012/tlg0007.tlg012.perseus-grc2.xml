@@ -73,7 +73,14 @@
 				        <refState delim="." unit="chapter"/>
 				        <refState unit="section"/>
 			      </refsDecl>
-		    </encodingDesc>
+		    		    <refsDecl xml:id="CTS">
+		      <citeStructure match="/TEI/text/body" use="@xml:base">
+		        <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+		          <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+		        </citeStructure>
+		      </citeStructure>
+		    </refsDecl>
+</encodingDesc>
 		    <profileDesc>
 			      <langUsage>
 				        <language ident="grc">Greek</language>
@@ -81,6 +88,7 @@
 			      </langUsage>
 		    </profileDesc>
 		    <revisionDesc>
+		      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 		    	<change who="Lisa Cerrato" when="2017-01-04">review of EpiDoc and CTS compliance; minor cleanup; bumped URN</change>
 			<change who="Bridget Almas">Converted tlg0007.tlg0012.perseus-grc1 to Epidoc</change>
 		    	<change who="EM" when="1992-10-22">Glued all Plutarch files together, put in HEAD tags to title them.</change>
@@ -91,8 +99,8 @@
 	  </teiHeader>
     
 	  <text xml:lang="grc">
-		    <body> 
-		        <div type="edition" n="urn:cts:greekLit:tlg0007.tlg012.perseus-grc2" xml:lang="grc"> 
+		    <body xml:base="urn:cts:greekLit:tlg0007.tlg012.perseus-grc2"> 
+		        <div n="urn:cts:greekLit:tlg0007.tlg012.perseus-grc2" type="edition" xml:lang="grc"> 
 		        <head>Περικλῆς</head> 
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg012.perseus-grc2" n="1"> 
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0007.tlg012.perseus-grc2:1" n="1"> <p> ξένους τινὰς ἐν Ῥώμῃ πλουσίους κυνῶν τέκνα καὶ πιθήκων ἐν τοῖς κόλποις περιφέροντας καὶ ἀγαπῶντας ἰδὼν ὁ Καῖσαρ, ὡς ἔοικεν, ἠρώτησεν εἰ παιδία παρʼ αὐτοῖς οὐ τίκτουσιν αἱ γυναῖκες, ἡγεμονικῶς σφόδρα νουθετήσας τοὺς τὸ φύσει φιλητικὸν ἐν ἡμῖν καὶ φιλόστοργον εἰς θηρία καταναλίσκοντας ἀνθρώποις ὀφειλόμενον.</p></div> 

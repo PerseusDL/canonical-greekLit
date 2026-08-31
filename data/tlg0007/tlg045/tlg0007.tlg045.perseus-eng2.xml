@@ -72,7 +72,14 @@
       		<refState unit="chapter" delim="."/>
       		<refState unit="section"/>
       	</refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="eng">English</language>
@@ -81,14 +88,15 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       	<change when="2018-02-21" who="Lisa Cerrato">EpiDoc and CTS file conversion work</change>
          <change when="1999-12-01" who="LMC">tagged and parsed</change>
       </revisionDesc>
    </teiHeader>
 	
-   <text>
-      <body>
-      	<div type="translation" n="urn:cts:greekLit:tlg0007.tlg045.perseus-eng2" xml:lang="eng">
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg045.perseus-eng2">
+      	<div n="urn:cts:greekLit:tlg0007.tlg045.perseus-eng2" type="translation" xml:lang="eng">
          <head>POMPEY</head>
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg045.perseus-eng2" n="1">
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0007.tlg045.perseus-eng2:1" n="1"><p>Towards Pompey the Roman people must have had, from the very beginning, the feeling which the Prometheus of Aeschylus has towards Heracles, when, having been saved by him, he says:— <quote rend="blockquote"> <l>I hate the sire, but dearly love this child of his.</l> </quote><note resp="editor" place="inline" anchored="true">A fragment of the <title>Prometheus Loosed</title> (Nauck, <title>Trag. Graec. Frag.</title>2 p. 68). Prometheus was fastened to a cliff in Scythia by Zeus, whose eagle preyed upon the prisoner. Heracles slew the eagle and released the sufferer.</note> For never have the Romans manifested so strong and fierce a hatred towards a general as they did towards Strabo, the father of Pompey; while he lived, indeed, they feared his talent as a soldier, for he was a very warlike man, </p></div>

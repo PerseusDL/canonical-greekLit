@@ -51,7 +51,19 @@
          </cRefPattern>
             
          </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+        </citeStructure>
+      </refsDecl>
+
+            <refsDecl xml:id="CTS-card">
+                <citeStructure match="/TEI/text/body" use="@xml:base">
+                    <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                        use="@n" n="chunk" />
+                </citeStructure>
+            </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="grc">Greek</language>
@@ -60,6 +72,8 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+        <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
          <change when="2017-02-22" who="Lisa Cerrato">review of EpiDoc and CTS markup; adding line numbers, fixing change log, etc.</change>
          <change who="TDBuck" when="2016-01-11">p4 to p5</change>
          <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
@@ -93,8 +107,8 @@
    
    
    <text xml:lang="grc">
-      <body>
-         <div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0085.tlg001.perseus-grc2">
+      <body xml:base="urn:cts:greekLit:tlg0085.tlg001.perseus-grc2">
+         <div n="urn:cts:greekLit:tlg0085.tlg001.perseus-grc2" type="edition" xml:lang="grc">
          <div type="textpart" subtype="episode">
             
                 <milestone unit="card" n="1"/>

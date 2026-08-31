@@ -57,7 +57,19 @@
                 <p>This pointer pattern extracts lines</p>
             </cRefPattern>
         </refsDecl>
-    </encodingDesc>
+        <refsDecl xml:id="CTS">
+      <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+      </citeStructure>
+    </refsDecl>
+
+        <refsDecl xml:id="CTS-card">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+                <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                    use="@n" n="chunk" />
+            </citeStructure>
+        </refsDecl>
+</encodingDesc>
     
 <!--<encodingDesc>
 <refsDecl doctype="TEI.2">
@@ -71,6 +83,8 @@
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+  <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
     <change when="2019-12-10" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
     <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
     <change when="2013-06-13" who="gcrane">tagging now should be compatible with CTS</change>
@@ -94,9 +108,9 @@
 </teiHeader>
     
 <text xml:lang="grc">
-<body>
+<body xml:base="urn:cts:greekLit:tlg0006.tlg018.perseus-grc2">
     
-<div type="edition" n="urn:cts:greekLit:tlg0006.tlg018.perseus-grc2" xml:lang="grc">
+<div n="urn:cts:greekLit:tlg0006.tlg018.perseus-grc2" type="edition" xml:lang="grc">
     <milestone resp="perseus" unit="card" n="0"/>
     <l xml:base="urn:cts:greekLit:tlg0006.tlg018.perseus-grc2" resp="perseus" style="hidden" n="0"/>
     <note resp="editor" place="inline">

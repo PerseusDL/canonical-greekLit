@@ -54,20 +54,34 @@
                     <p>This pointer pattern extracts lines</p>
                 </cRefPattern>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+          </citeStructure>
+        </refsDecl>
+
+                <refsDecl xml:id="CTS-card">
+                    <citeStructure match="/TEI/text/body" use="@xml:base">
+                        <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                            use="@n" n="chunk" />
+                    </citeStructure>
+                </refsDecl>
+</encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="eng">English</language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+          <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
             <change when="2020-02-14" who="Lisa Cerrato">Text scanned; EpiDoc and CTS conversion</change>
         </revisionDesc>
     </teiHeader>
     
     <text xml:lang="eng">
-        <body>
-            <div type="translation" n="urn:cts:greekLit:tlg0006.tlg010.perseus-eng2" xml:lang="eng">
+        <body xml:base="urn:cts:greekLit:tlg0006.tlg010.perseus-eng2">
+            <div n="urn:cts:greekLit:tlg0006.tlg010.perseus-eng2" type="translation" xml:lang="eng">
                 <l xml:base="urn:cts:greekLit:tlg0006.tlg010.perseus-eng2" resp="perseus" style="hidden" n="0"/><pb xml:id="p264"/>
                 <note resp="editor" place="inline">
                     <p xml:lang="lat">Dramatis Personae</p>

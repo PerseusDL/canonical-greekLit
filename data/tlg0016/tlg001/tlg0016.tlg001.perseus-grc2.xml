@@ -66,7 +66,16 @@
                 <p>This pointer pattern extracts Book</p>
             </cRefPattern>
         </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+            <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n" n="chunk">
+              <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <creation>
             <date from="-0450" to="-0425">5 c. B.C.</date>
@@ -80,6 +89,7 @@
          <textClass/>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="19910801" who="EM">Revise DTDs and recheck texts.</change>
          <change when="19920501" who="David Smith">Fixed capitalized words that had no accents and/or breathings. See the text log for an itemized list</change>
          <change when="20151222" who="Bridget Almas">Converted to EpiDoc</change>
@@ -88,8 +98,8 @@
          <change when="20220228" who="Alison Babeu">Updated bibliographic metadata</change>
       </revisionDesc>
    </teiHeader>
-   <text>
-      <body>
+   <text xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0016.tlg001.perseus-grc2">
          <div n="urn:cts:greekLit:tlg0016.tlg001.perseus-grc2" type="edition" xml:lang="grc">
          <div type="textpart" subtype="book" n="1">
             <div type="textpart" subtype="chapter" n="1">

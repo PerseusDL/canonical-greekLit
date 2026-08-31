@@ -73,7 +73,14 @@
       		<refState unit="chapter" delim="."/>
       		<refState unit="section"/>
       	</refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="eng">English</language>
@@ -81,14 +88,15 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       	<change when="2018-03-07" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
          <change when="2000-04-01" who="LMC">tagged and parsed</change>
       </revisionDesc>
    </teiHeader>
 	
-   <text>
-      <body>
-      	<div type="translation" n="urn:cts:greekLit:tlg0007.tlg048.perseus-eng2" xml:lang="eng">
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg048.perseus-eng2">
+      	<div n="urn:cts:greekLit:tlg0007.tlg048.perseus-eng2" type="translation" xml:lang="eng">
          <head>CAESAR</head>
          <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg048.perseus-eng2" n="1">
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0007.tlg048.perseus-eng2:1" n="1"><p>The wife of Caesar<note resp="editor" place="inline" anchored="true">Many think that opening paragraphs of this <title>Life</title>, describing the birth and boyhood of Caesar, have been lost.</note> was Cornelia, the daughter of the Cinna who had once held the sole power at Rome,<note resp="editor" place="inline" anchored="true">In 86 B.C., after the death of his colleague, Valerius Flaccus.</note> and when Sulla became master of affairs,<note resp="editor" place="inline" anchored="true">In 82 B.C. Cf. the <bibl n="Plut. Pomp. 9.1"> <title>Pompey</title>, ix. 1</bibl> f.</note> he could not, either by promises or threats, induce Caesar to put her away, and therefore confiscated her dowry. Now, the reason for Caesar’s hatred of Sulla was Caesar’s relationship to Marius. For Julia, a sister of Caesar’s father, was the wife of Marius the Elder, and the mother of Marius the Younger, who was therefore Caesar’s cousin. </p></div>

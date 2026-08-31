@@ -71,7 +71,14 @@
       		<refState unit="chapter" delim="."/>
       		<refState unit="section"/>
       	</refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="eng">English</language>
@@ -80,13 +87,14 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       	<change when="2018-04-18" who="Lisa Cerrato">EpiDoc and CTS compliance; minor cleanup; bumped URN</change>
       	<change when="1999-08-01" who="LMC">tagged and parsed</change>
        </revisionDesc>
    </teiHeader>
-   <text>
-      <body> 
-<div type="translation" n="urn:cts:greekLit:tlg0007.tlg066.perseus-eng2" xml:lang="eng"> 
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg066.perseus-eng2"> 
+<div n="urn:cts:greekLit:tlg0007.tlg066.perseus-eng2" type="translation" xml:lang="eng"> 
       	<head>OTHO</head> 
       	<note resp="editor" place="inline" anchored="true">With Plutarch’s <title>Otho</title> may be compared <bibl n="Suet. Otho 1.1">Suetonius, <title>Otho</title> </bibl>; <bibl n="D.C. 64.10">Dion Cassius, lxiv. 10-15</bibl>; <bibl n="Tac. Hist. 1.46">Tacitus, <title>Hist.</title> i. 46-ii. 49</bibl>.</note> 
       	

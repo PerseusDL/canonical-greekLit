@@ -65,7 +65,12 @@
                 <refState unit="speech"/>
                 <refState unit="fragment"/>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="grc">Greek</language>
@@ -74,6 +79,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="2023-03-29" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
             <change when="2014-07" who="Stella Dee">split composite text and converted to unicode </change>
@@ -84,9 +90,9 @@
         </revisionDesc>
     </teiHeader>
     
-    <text>
-        <body>
-            <div type="edition" n="urn:cts:greekLit:tlg0030.tlg003.perseus-grc2" xml:lang="grc">
+    <text xml:lang="grc">
+        <body xml:base="urn:cts:greekLit:tlg0030.tlg003.perseus-grc2">
+            <div n="urn:cts:greekLit:tlg0030.tlg003.perseus-grc2" type="edition" xml:lang="grc">
             <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg003.perseus-grc2" n="1">
                 <p><note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 1</note> <gap reason="lost" rend=" . . . . . . . . . . . . . . . "/><add>αὐτ</add>ήν.<note resp="editor" xml:lang="lat">Primae litterae dubiae sunt.  <foreign xml:lang="grc">αὐτήν</foreign>  Jensen: om. Kenyon.</note> εἰπόντος δέ μου πρὸς αὐτὴν τά τε <add>πραχθέ</add>ντα,<note resp="Loeb">  <foreign xml:lang="grc">πραχθέντα</foreign>  Revillout:  <foreign xml:lang="grc">πεπραγμένα</foreign>  Diels.</note> καὶ ὅτι μοι Ἀθηνογένης χαλε<add>πὸς</add> εἴη καὶ οὐδὲν ἐθέλοι τῶν μετρίων <add>συγ</add>χωρεῖν, τοῦτον μὲν ἔφη ἀεὶ τοιοῦτον <add>εἶν</add>αι, ἐμὲ δʼ ἐκέλευε θαρρεῖν· αὐτὴ γάρ μοι <add>πά</add>ντα συναγωνιεῖσθαι. </p>
             </div>

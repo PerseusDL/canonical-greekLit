@@ -63,6 +63,15 @@
 <cRefPattern n="book" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
 <p>This pointer pattern extracts book.</p>
 </cRefPattern></refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+        <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+      </citeStructure>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 
 <profileDesc>
@@ -74,6 +83,7 @@
 </profileDesc>
 
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change when="2024-04-01" who="Lisa Cerrato">EpiDoc and CTS conversion and general header review.</change>
 <change when="2011-03-30" who="gcrane">small fixes</change>   
 <change when="2011-01-13" who="gcrane">more refinements making these files SDL compatible</change>
@@ -90,9 +100,9 @@
 </revisionDesc>
 </teiHeader>
 
-<text>
-<body>
-<div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0086.tlg038.perseus-grc2">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0086.tlg038.perseus-grc2">
+<div n="urn:cts:greekLit:tlg0086.tlg038.perseus-grc2" type="edition" xml:lang="grc">
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0086.tlg038.perseus-grc2" n="1">
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg038.perseus-grc2:1" n="1">
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0086.tlg038.perseus-grc2:1.1" n="1" resp="Perseus">

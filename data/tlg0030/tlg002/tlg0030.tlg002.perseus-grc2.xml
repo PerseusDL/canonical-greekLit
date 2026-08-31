@@ -65,7 +65,12 @@
                 <refState unit="speech"/>
                 <refState unit="fragment"/>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="grc">Greek</language>
@@ -74,6 +79,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="2023-03-29" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
             <change when="2014-07" who="Stella Dee">split composite text and converted to unicode </change>
@@ -84,9 +90,9 @@
         </revisionDesc>
     </teiHeader>
     
-    <text>
-        <body>
-            <div type="edition" n="urn:cts:greekLit:tlg0030.tlg002.perseus-grc2" xml:lang="grc">
+    <text xml:lang="grc">
+        <body xml:base="urn:cts:greekLit:tlg0030.tlg002.perseus-grc2">
+            <div n="urn:cts:greekLit:tlg0030.tlg002.perseus-grc2" type="edition" xml:lang="grc">
             <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg002.perseus-grc2" n="frag_1">
                 <head rend="align(center)" xml:lang="lat">Frag. I<note resp="editor" xml:lang="lat">Frag. I restituit Sudhaus.</note></head>
                 <p rend="align(indent)"><bibl xml:lang="eng">unknown</bibl> <gap reason="lost" rend=" . . . . "/><add>ἐν</add> ἐλευθέρᾳ πό<add>λει τὰ τ</add>οῖς τυράννοις <add>συμφέρο</add>ντα <seg type="noparse">πραττον<add>τ</add></seg><gap reason="lost" rend=" . . . . . . . . . "/><seg type="noparse" >ν</seg> εἰς δουλεία<add>ν</add><gap reason="lost" rend=" . . . "/> </p>

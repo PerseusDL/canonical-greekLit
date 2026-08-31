@@ -80,14 +80,22 @@
       		<refState unit="chapter" delim="."/>
       		<refState unit="section"/>
       	</refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
 <langUsage>
    <language ident="eng">English</language>
    <language ident="grc">Greek</language>
 </langUsage>
       </profileDesc>
-      <revisionDesc> 
+      <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change> 
       	<change when="2018-02-16" who="Lisa Cerrato">EpiDoc and CTS file conversion</change>
 <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change> <change when="2013-06-29" who="gcrane">chapters are now divs</change> 
       	<change when="2010-11-30" who="balmas01">getting rid of angle brackets in commit comments</change> 
@@ -113,9 +121,9 @@
 	</revisionDesc> 	
       	
    </teiHeader>
-   <text>
-      <body>
-      	<div type="translation" n="urn:cts:greekLit:tlg0007.tlg032.perseus-eng2" xml:lang="eng"> 
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg032.perseus-eng2">
+      	<div n="urn:cts:greekLit:tlg0007.tlg032.perseus-eng2" type="translation" xml:lang="eng"> 
       		<head>LYSANDER</head> 
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg032.perseus-eng2" n="1">
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0007.tlg032.perseus-eng2:1" n="1"><p>The treasury of the Acanthians at Delphi bears this inscription: <q type="written">Brasidas and the Acanthians, with spoil from the Athenians.</q><note resp="editor" place="inline" anchored="true">In B.C. 424, Brasidas won Acanthus, a town on the Chalcidic peninsula, away from its alliance with Athens (<bibl n="Thuc. 4.84">Thuc. 4.84-88</bibl>).</note> For this reason many think that the marble figure standing within the edifice, by the door, is a statue of Brasidas. But it really represents Lysander, with his hair very long, after the ancient custom, and growing a generous beard. </p></div>
