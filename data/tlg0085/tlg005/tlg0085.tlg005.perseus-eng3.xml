@@ -55,7 +55,19 @@
             </cRefPattern>
             
          </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="scene" delim=":" match="div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+        </citeStructure>
+      </refsDecl>
+
+            <refsDecl xml:id="CTS-card">
+                <citeStructure match="/TEI/text/body" use="@xml:base">
+                    <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                        use="@n" n="chunk" />
+                </citeStructure>
+            </refsDecl>
+</encodingDesc>
 
       <profileDesc>
          <langUsage>
@@ -65,6 +77,8 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+        <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
          <change when="2017-01-17" who="Lisa Cerrato">fixed change log and other minor inconsitencies; fixed line numbering for display functions; beta code; quotes</change>
          <change when="2016-01-12" who="TDBuck">epidoc to cts</change>
          <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
@@ -95,8 +109,8 @@
    </teiHeader>
 
    <text xml:lang="eng">
-      <body>
-      <div type="translation" n="urn:cts:greekLit:tlg0085.tlg005.perseus-eng3" xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0085.tlg005.perseus-eng3">
+      <div n="urn:cts:greekLit:tlg0085.tlg005.perseus-eng3" type="translation" xml:lang="eng">
          <milestone unit="episode"/>
            <stage rend="italic">Upon the roof of the palace of Agamemnon at <placeName key="tgn,7010720">Argos</placeName>
          </stage>  

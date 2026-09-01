@@ -72,7 +72,14 @@
             <refState unit="chapter" delim="."/>
             <refState unit="section"/>
          </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="eng">English</language>
@@ -80,13 +87,14 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2018-03-07" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
          <change when="2000-07-01" who="LMC">tagged and parsed</change>
       </revisionDesc>
    </teiHeader>
-   <text>
-      <body>
-         <div type="translation" n="urn:cts:greekLit:tlg0007.tlg056.perseus-eng2" xml:lang="eng">
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0007.tlg056.perseus-eng2">
+         <div n="urn:cts:greekLit:tlg0007.tlg056.perseus-eng2" type="translation" xml:lang="eng">
          <head>COMPARISON OF DEMOSTHENES AND CICERO</head>
          <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0007.tlg056.perseus-eng2" n="1">
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0007.tlg056.perseus-eng2:1" n="1"><p> These, then, are the memorable incidents in the recorded careers of Demosthenes and Cicero which have come to our knowledge. And though I have renounced the comparison of their oratorical styles,<note anchored="true" place="inline" resp="editor">See the <bibl n="Plut. Dem. 3.1"> <title>Demosthenes</title>, iii. 1.</bibl> </note> yet this, I think, ought not to be left unsaid, namely, that Demosthenes devoted to the rhetorical art all the powers of speech which he possessed by nature or acquired by practice, surpassing in force and effectiveness his rivals in forensic and judicial pleading, in pomp and majesty of utterance the professional declaimers, and in precision and skill the sophists; </p></div>

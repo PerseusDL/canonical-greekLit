@@ -62,7 +62,20 @@
          <refsDecl>
 	           <refState unit="line"/>
          </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure use="@n" match=".//milestone[@unit='card']" delim=":" unit="card" n="chunk"/>
+          <citeStructure unit="line" delim=":" match=".//l" use="@n"/>
+        </citeStructure>
+      </refsDecl>
+
+            <refsDecl xml:id="CTS-card">
+                <citeStructure match="/TEI/text/body" use="@xml:base">
+                    <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                        use="@n" n="chunk" />
+                </citeStructure>
+            </refsDecl>
+</encodingDesc>
 
       <profileDesc>
          <langUsage>
@@ -73,6 +86,8 @@
       </profileDesc>
 	
  <revisionDesc>
+   <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+   <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
 <change when="2024-06-10" who="Lisa Cerrato">EpiDoc and CTS updates: header compliance and line numbering verification</change>
 <change when="2014-07-01" who="Simona Stoyanova">converted to EpiDoc</change>
 <change when="2009-10-08" who="rsingh04">began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files</change>
@@ -81,9 +96,9 @@
 </revisionDesc>
 </teiHeader>
    
-   <text>
-      <body>
-         <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0019.tlg003.perseus-eng2"> 
+   <text xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0019.tlg003.perseus-eng2">
+         <div n="urn:cts:greekLit:tlg0019.tlg003.perseus-eng2" type="translation" xml:lang="eng"> 
          <!-- <div type="textpart" subtype="front" n="cast_list">  
            <l xml:base="urn:cts:greekLit:tlg0019.tlg003.perseus-eng2" resp="perseus" style="hidden" n="00">
              <list>

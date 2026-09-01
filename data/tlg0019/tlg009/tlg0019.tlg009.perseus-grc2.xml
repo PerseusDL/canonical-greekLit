@@ -57,7 +57,20 @@
 <p>This pointer pattern extracts line.</p>
                 </cRefPattern>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure use="@n" match=".//milestone[@unit='card']" delim=":" unit="card" n="chunk"/>
+            <citeStructure unit="line" delim=":" match=".//l" use="@n"/>
+          </citeStructure>
+        </refsDecl>
+
+                <refsDecl xml:id="CTS-card">
+                    <citeStructure match="/TEI/text/body" use="@xml:base">
+                        <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                            use="@n" n="chunk" />
+                    </citeStructure>
+                </refsDecl>
+</encodingDesc>
         
         <profileDesc>
             <langUsage>
@@ -67,6 +80,8 @@
 
 
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+          <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
             <change when="2023-02-27" who="Lisa Cerrato">EpiDoc and CTS updates: header compliance and said to speaker changes as well as line numbering verification</change>
             <change when="2017-02-03" who="TDBuck">CTS and epidoc updates part of reading list updates</change>
             <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
@@ -91,8 +106,8 @@
 
     </teiHeader>
     <text xml:lang="grc">
-        <body>
-            <div type="edition" n="urn:cts:greekLit:tlg0019.tlg009.perseus-grc2" xml:lang="grc">
+        <body xml:base="urn:cts:greekLit:tlg0019.tlg009.perseus-grc2">
+            <div n="urn:cts:greekLit:tlg0019.tlg009.perseus-grc2" type="edition" xml:lang="grc">
                 
                 <div type="textpart" subtype="Cast_List">
                 <milestone n="0" unit="card"/>

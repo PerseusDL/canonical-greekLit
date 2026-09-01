@@ -61,21 +61,30 @@
          <refsDecl n="TEI.2">
             <refState unit="card"/>
          </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+            <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+              <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="grc">Greek</language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
       	<change when="2015-12-09" who="Thibault Clérice">CTS and Epidoc</change>
       </revisionDesc>
    </teiHeader>
-   <text>
-      <body>
-         <div xml:lang="grc"
-              type="edition"
-              n="urn:cts:greekLit:tlg0554.tlg001.perseus-grc1">
+   <text xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0554.tlg001.perseus-grc1">
+         <div n="urn:cts:greekLit:tlg0554.tlg001.perseus-grc1" xml:lang="grc"
+              type="edition">
             <pb n="p.3"/>
             <div type="textpart" n="1" subtype="book">
                <div type="textpart" n="1" subtype="chapter">

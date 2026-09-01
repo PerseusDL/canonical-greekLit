@@ -57,13 +57,27 @@
             <refsDecl>
                 <refState unit="line"/>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+          </citeStructure>
+        </refsDecl>
+
+                <refsDecl xml:id="CTS-card">
+                    <citeStructure match="/TEI/text/body" use="@xml:base">
+                        <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                            use="@n" n="chunk" />
+                    </citeStructure>
+                </refsDecl>
+</encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="grc">Greek</language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+          <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
            <change when="2020-02-10" who="Lisa Cerrato">converted said to speaker and fixed minor encoding issues</change>
            <change when="2016-06-10" who="Lisa Cerrato">fixed change log; reviewed line breaks. Note some missing line numbers arbitrarily chosen; various problems with line breaks across source texts. Note section 735-755, 905-912, 1015-1020, 1045-1077, 1200-1210 in particular.</change>
            <change when="2016-06-10" who="Bridget Almas">Converted all speaker tags to said</change>
@@ -92,8 +106,8 @@
         </revisionDesc>
     </teiHeader>
     <text xml:lang="grc">
-        <body>
-            <div type="edition" n="urn:cts:greekLit:tlg0006.tlg009.perseus-grc2" xml:lang="grc">
+        <body xml:base="urn:cts:greekLit:tlg0006.tlg009.perseus-grc2">
+            <div n="urn:cts:greekLit:tlg0006.tlg009.perseus-grc2" type="edition" xml:lang="grc">
                
                 <milestone resp="perseus" unit="card" n="1"/>
                 

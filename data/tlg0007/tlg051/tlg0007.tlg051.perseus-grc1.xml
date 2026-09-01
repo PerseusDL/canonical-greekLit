@@ -78,6 +78,15 @@
         <refState unit="chapter" delim="."/>
         <refState unit="section"/>
     </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+        <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+      </citeStructure>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 <profileDesc>
 <langUsage>
@@ -86,13 +95,14 @@
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change when="2018-04-05" who="Lisa Cerrato">EpiDoc and CTS conversion; merged files</change>
 <change when="2010-03-01" who="RS">tagged and parsed</change>
 </revisionDesc>
 </teiHeader>
 <text xml:lang="grc">
-<body> 
-<div type="edition" n="urn:cts:greekLit:tlg0007.tlg051.perseus-grc1" xml:lang="grc"> 
+<body xml:base="urn:cts:greekLit:tlg0007.tlg051.perseus-grc1"> 
+<div n="urn:cts:greekLit:tlg0007.tlg051.perseus-grc1" type="edition" xml:lang="grc"> 
     <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0007.tlg051.perseus-grc1" n="Agis">
         <head>Ἄγις</head>
         <pb n="p.2"/> 

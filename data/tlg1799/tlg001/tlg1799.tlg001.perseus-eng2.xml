@@ -81,7 +81,18 @@
     <state unit="volume" delim="."/>
     <state unit="page"/>
    </refsDecl>-->
-  </encodingDesc>
+    <refsDecl xml:id="CTS">
+    <citeStructure match="/TEI/text/body" use="@xml:base">
+      <citeStructure unit="translation" delim=":" match="div[@type='translation']" use="@n">
+        <citeStructure unit="book" delim="." match="div[@subtype='book']" use="@n">
+          <citeStructure unit="type" delim="." match="div[@subtype='type']" use="@n">
+            <citeStructure unit="number" delim="." match="div[@subtype='number']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </citeStructure>
+    </citeStructure>
+  </refsDecl>
+</encodingDesc>
   
   <profileDesc>
    <langUsage>
@@ -91,15 +102,16 @@
    </langUsage>
   </profileDesc>
   <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
    <change when="2024-12-06" who="Lisa Cerrato">Epidoc and CTS conversion and header review for best practices</change>
   </revisionDesc>
  </teiHeader>
  
- <text>
+ <text xml:lang="eng">
 
   
-  <body>
-   <div  type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg1799.tlg001.perseus-eng2">
+  <body xml:base="urn:cts:greekLit:tlg1799.tlg001.perseus-eng2">
+   <div n="urn:cts:greekLit:tlg1799.tlg001.perseus-eng2"  type="translation" xml:lang="eng">
    <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg1799.tlg001.perseus-eng2" n="1">
     <pb n="V1_153"/>
     <head>BOOK I.</head>

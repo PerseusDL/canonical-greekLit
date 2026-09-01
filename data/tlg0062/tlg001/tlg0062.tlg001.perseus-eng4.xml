@@ -65,16 +65,26 @@
     <cRefPattern  n="book" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
      <p>This pointer pattern extracts book</p>
     </cRefPattern>
-   </refsDecl></encodingDesc>
+   </refsDecl><refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
 <profileDesc>
 <langUsage>
 <language ident="eng">English</language>
 </langUsage>
 </profileDesc>
+<revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+</revisionDesc>
 </teiHeader>
-<text>
-<body>
-<div type="translation" n="urn:cts:greekLit:tlg0062.tlg001.perseus-eng4" xml:lang="eng">
+<text xml:lang="eng">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-eng4">
+<div n="urn:cts:greekLit:tlg0062.tlg001.perseus-eng4" type="translation" xml:lang="eng">
 <head>PHALARIS, I</head>
 
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-eng4" n="1">

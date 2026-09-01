@@ -61,13 +61,27 @@
             
 </refsDecl>
       
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+        </citeStructure>
+      </refsDecl>
+
+            <refsDecl xml:id="CTS-card">
+                <citeStructure match="/TEI/text/body" use="@xml:base">
+                    <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                        use="@n" n="chunk" />
+                </citeStructure>
+            </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="grc">Greek</language>
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+        <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
          <change when="2017-02-24" who="Lisa Cerrato">adding line numbers and fixing markup inconsistencies; restoring deleted log; fixing structure</change>
          <change when="2016-01-12" who="TDBuck">cleaned up small problems in SS's version</change>
          <change when="2014-06-19" who="Bridget Almas">Added line numbers</change>
@@ -101,8 +115,8 @@ urn:cts:greekLit:tlg0085.tlg003.perseus-grc1.</change>
    </teiHeader>
 
    <text xml:lang="grc">
-      <body>
-         <div type="edition" n="urn:cts:greekLit:tlg0085.tlg003.perseus-grc2" xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0085.tlg003.perseus-grc2">
+         <div n="urn:cts:greekLit:tlg0085.tlg003.perseus-grc2" type="edition" xml:lang="grc">
         
                <milestone n="1" unit="card"/>
                   <div type="textpart" subtype="episode">

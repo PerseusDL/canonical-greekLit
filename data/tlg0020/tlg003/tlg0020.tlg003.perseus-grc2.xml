@@ -54,7 +54,20 @@
         <refsDecl>
             <refState unit="line"/>
         </refsDecl>
-    </encodingDesc>
+        <refsDecl xml:id="CTS">
+      <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure use="@n" match="./milestone[@unit='card']" delim=":" unit="card" n="chunk"/>
+        <citeStructure unit="line" delim=":" match="l" use="@n"/>
+      </citeStructure>
+    </refsDecl>
+
+        <refsDecl xml:id="CTS-card">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+                <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                    use="@n" n="chunk" />
+            </citeStructure>
+        </refsDecl>
+</encodingDesc>
     <profileDesc>
         <langUsage>
             <language ident="grc">Greek</language>
@@ -66,13 +79,15 @@
         <change when="2016-02-18" who="TDBuck">converted to CTS EpiDoc</change>
         <change who="David Smith" when="1991-10">Fix typos from failed morphology.</change>
         <change who="Elli Mylonas" when="1991-08">Revise DTDs and recheck texts.</change>
+      <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
         <change who="Scott Ettinger" notAfter="1991-07">Basic SGML tagging.</change>
         <change who="Bill Merrill" when="1991-07">Check tagging.</change>
         <change notAfter="1991-07">Text keyboarded in the Philippines.</change>
 </revisionDesc>
 </teiHeader>
     <text  xml:lang="grc">
-<body>
+<body xml:base="urn:cts:greekLit:tlg0020.tlg003.perseus-grc2">
     <div n="urn:cts:greekLit:tlg0020.tlg003.perseus-grc2" type="edition" xml:lang="grc">
 <milestone ed="perseus" n="1" unit="card"/>
 <l rend="align(indent)" n="1" xml:base="urn:cts:greekLit:tlg0020.tlg003.perseus-grc2">ἢ οἵη προλιποῦσα δόμους καὶ πατρίδα γαῖαν</l>

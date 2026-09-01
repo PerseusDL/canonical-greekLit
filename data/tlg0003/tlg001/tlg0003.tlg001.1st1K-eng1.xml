@@ -95,6 +95,15 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
 </cRefPattern>
 </refsDecl>
 
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+        <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n" n="chunk"/>
+      </citeStructure>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 
 <profileDesc>
@@ -105,12 +114,13 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"
 </profileDesc>
 
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change when="2023-08-01" who="Gregory Crane">Conversion of long dormant file to CTS/epiDoc</change>
 </revisionDesc>
 </teiHeader>
-<text>
-<body>
-<div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0003.tlg001.1st1K-eng1">
+<text xml:lang="eng">
+<body xml:base="urn:cts:greekLit:tlg0003.tlg001.1st1K-eng1">
+<div n="urn:cts:greekLit:tlg0003.tlg001.1st1K-eng1" type="translation" xml:lang="eng">
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0003.tlg001.1st1K-eng1" n="1">
 
 <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0003.tlg001.1st1K-eng1:1" n="1">

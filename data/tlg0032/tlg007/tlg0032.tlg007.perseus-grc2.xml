@@ -71,7 +71,16 @@
             <state unit="chapter"/>
             <state unit="section"/>
          </refsDecl>-->
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+            <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+              <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       
       <profileDesc>
          <langUsage>
@@ -81,6 +90,7 @@
       </profileDesc>
       
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2016-11-15" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
          <change when="1992-08-11" who="DAS">changed chapters to div2's</change>
          <change when="1992-06-01" who="DAS">inserted section and chapter tags and TEI header; CheckMarked</change>
@@ -89,8 +99,8 @@
    </teiHeader>
    
    <text xml:lang="grc">
-      <body>
-         <div type="edition" n="urn:cts:greekLit:tlg0032.tlg007.perseus-grc2" xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0032.tlg007.perseus-grc2">
+         <div n="urn:cts:greekLit:tlg0032.tlg007.perseus-grc2" type="edition" xml:lang="grc">
             
          <div type="textpart" subtype="book" n="1">
             <head>Κύρου Παιδείας Α</head>

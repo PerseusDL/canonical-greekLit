@@ -52,7 +52,19 @@
                     <p>This pointer pattern extracts lines</p>
                 </cRefPattern>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+          </citeStructure>
+        </refsDecl>
+
+                <refsDecl xml:id="CTS-card">
+                    <citeStructure match="/TEI/text/body" use="@xml:base">
+                        <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                            use="@n" n="chunk" />
+                    </citeStructure>
+                </refsDecl>
+</encodingDesc>
         
         <profileDesc>
             <langUsage>
@@ -60,13 +72,15 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+          <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
             <change when="2020-09-20" who="Lisa Cerrato"/>
         </revisionDesc>
     </teiHeader>
     
 <text xml:lang="grc">
-<body>
-    <div type="edition" n="urn:cts:greekLit:tlg0006.tlg002.perseus-grc2" xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0006.tlg002.perseus-grc2">
+    <div n="urn:cts:greekLit:tlg0006.tlg002.perseus-grc2" type="edition" xml:lang="grc">
         <milestone resp="perseus" n="1" unit="card"/>
         
         <l xml:base="urn:cts:greekLit:tlg0006.tlg002.perseus-grc2" resp="perseus" style="hidden" n="0"/>

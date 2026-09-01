@@ -54,6 +54,12 @@
         <cRefPattern matchPattern="(\w+)" n="line" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:l[@n='$1'])">
             <p>This pointer pattern extracts line.</p></cRefPattern>
     </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure use="@xml:id" match="./pb" delim=":" unit="page" n="chunk"/>
+    <citeStructure unit="line" delim=":" match="l" use="@n"/>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
     
 <encodingDesc>
@@ -66,13 +72,14 @@
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
     <change when="2023-03-21" who="Lisa Cerrato">EpiDoc and CTS conversion; header updates and other text regularization</change>
 </revisionDesc>
 </teiHeader>
     
-<text>
-<body>
-    <div type="edition" n="urn:cts:greekLit:tlg4081.tlg001.perseus-grc2" xml:lang="grc">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg4081.tlg001.perseus-grc2">
+    <div n="urn:cts:greekLit:tlg4081.tlg001.perseus-grc2" type="edition" xml:lang="grc">
 <pb xml:id="p.542"/>
 <l xml:base="urn:cts:greekLit:tlg4081.tlg001.perseus-grc2" n="1">νύμφαι Τρωιάδες, ποταμοῦ Ξάνθοιο γενέθλη,</l>
 <l xml:base="urn:cts:greekLit:tlg4081.tlg001.perseus-grc2" n="2">αἳ πλοκάμων κρήδεμνα καὶ ἱερὰ παίγνια χειρῶν</l>
