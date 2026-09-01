@@ -61,7 +61,14 @@
                 <p>This pointer pattern extracts book</p>
             </cRefPattern>
         </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="book" delim=":" match="div[@subtype='book']" use="@n">
+              <citeStructure unit="card" delim="." match="div[@subtype='card']" use="@n" n="chunk"/>
+            </citeStructure>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="eng">English</language>
@@ -69,6 +76,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="19901001" who="Nancy Sultan">Put in card breaks.</change>
             <change when="19910301" who="Chiara Thayer">Proofread text</change>
             <change when="19990801" who="EM">Revise DTDs and recheck texts.</change>
@@ -76,9 +84,9 @@
             <change when="200151216" who="Bridget Almas">Bumped URN to eng3</change>     
         </revisionDesc>
     </teiHeader>
-    <text>
-        <body>
-            <div type="translation" n="urn:cts:greekLit:tlg0012.tlg002.perseus-eng3" xml:lang="eng">
+    <text xml:lang="eng">
+        <body xml:base="urn:cts:greekLit:tlg0012.tlg002.perseus-eng3">
+            <div n="urn:cts:greekLit:tlg0012.tlg002.perseus-eng3" type="translation" xml:lang="eng">
                 <div type="textpart" subtype="book" n="1">
                     <div type="textpart" subtype="card" n="1">
                         <p>

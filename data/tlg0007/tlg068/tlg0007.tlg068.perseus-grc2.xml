@@ -63,6 +63,11 @@
 <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"> 
 <p>This pointer pattern extracts section.</p></cRefPattern>
 </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 <profileDesc>
 <langUsage>
@@ -71,13 +76,14 @@
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change who="RS" when="2010-05">tagged and parsed</change>
 <change who="CHS 2019 Interns" when="2019-06-05">EpiDoc and CTS Conversion</change>
 </revisionDesc>
 </teiHeader>
-<text>
-<body>
-<div type="edition" xml:lang="grc" n="urn:cts:greekLit:tlg0007.tlg068.perseus-grc2">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0007.tlg068.perseus-grc2">
+<div n="urn:cts:greekLit:tlg0007.tlg068.perseus-grc2" type="edition" xml:lang="grc">
 <pb xml:id="v.1.p.33"/>
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0007.tlg068.perseus-grc2" n="1"><p rend="indent">
 <milestone unit="stephpage" xml:id="stephpage-14d" n="14d"/> εἰ μέν, ὡς Φιλόξενυς ὁ ποιητὴς ἔλεγεν, ὦ Μάρκε Σήδατε,<note xml:lang="eng" resp="editor" place="inline" anchored="true"> <foreign xml:lang="grc">Σήδατε</foreign> Basileensis: <foreign xml:lang="grc">σήδαπε</foreign> </note> τῶν κρεῶν τὰ μὴ κρέα ἥδιστά ἐστι 

@@ -62,13 +62,27 @@
                 </cRefPattern>
                 
             </refsDecl>-->
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" unit="scene" n="chunk"/>
+          </citeStructure>
+        </refsDecl>
+
+                <refsDecl xml:id="CTS-card">
+                    <citeStructure match="/TEI/text/body" use="@xml:base">
+                        <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                            use="@n" n="chunk" />
+                    </citeStructure>
+                </refsDecl>
+</encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="grc">Greek</language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+          <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
             <change when="2017-01-24" who="Lisa Cerrato">improvements to markup; change log, quotes, etc.</change>
             <change when="2016-01-14" who="TDBuck">Hookified</change>
             <change when="2015" who="Stella Dee">converted to EpiDoc</change>
@@ -98,8 +112,8 @@
         </revisionDesc>
     </teiHeader>
     <text xml:lang="grc">
-        <body>
-            <div type="edition" n="urn:cts:greekLit:tlg0011.tlg001.perseus-grc2" xml:lang="grc">
+        <body xml:base="urn:cts:greekLit:tlg0011.tlg001.perseus-grc2">
+            <div n="urn:cts:greekLit:tlg0011.tlg001.perseus-grc2" type="edition" xml:lang="grc">
                 
                     <milestone unit="card" n="1"/>
                        

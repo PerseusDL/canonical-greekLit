@@ -68,13 +68,21 @@
                 <step to="DITTO" from="DESCENDANT (1 DIV2 N %2)" refunit="chapter" delim="."/>
                 <step to="DITTO" from="DESCENDANT (1 MILESTONE N %3)" refunit="verse"/>
             </refsDecl>-->
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+              <citeStructure unit="verse" delim="." match="div[@subtype='verse']" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
         <profileDesc>
             <langUsage>
                 <language ident="eng">English</language>
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change when="2025-03-21" who="Alison Babeu">Metadata and header updates</change>
             <change when="2016-10-27" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
             <change when="2014-08-01" who="Stella Dee">edited markup</change>
@@ -85,8 +93,8 @@
 </revisionDesc>
     </teiHeader>
     <text xml:lang="eng">
-        <body>
-            <div type="translation" xml:lang="eng" n="urn:cts:greekLit:tlg0031.tlg021.perseus-eng2">
+        <body xml:base="urn:cts:greekLit:tlg0031.tlg021.perseus-eng2">
+            <div n="urn:cts:greekLit:tlg0031.tlg021.perseus-eng2" type="translation" xml:lang="eng">
                 <head>Peter's First Letter</head>
                 <div type="textpart" subtype="chapter" n="1">
                    

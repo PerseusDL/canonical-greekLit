@@ -59,7 +59,19 @@
            </cRefPattern>
            
         </refsDecl>
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+        </citeStructure>
+      </refsDecl>
+
+            <refsDecl xml:id="CTS-card">
+                <citeStructure match="/TEI/text/body" use="@xml:base">
+                    <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                        use="@n" n="chunk" />
+                </citeStructure>
+            </refsDecl>
+</encodingDesc>
 
       <profileDesc>
          <langUsage>
@@ -73,6 +85,8 @@
       </profileDesc>
 
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+        <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
          <change when="2017-02-28" who="Lisa Cerrato">reverting back to lines</change>
          <change when="2017-01-18" who="Lisa Cerrato">fixed change log and other minor inconsitencies; fixed line numbering for display functions; fixed front matter; quotation marks. Note that the line numbers are imprecise due to the nature of the translation but I tried to maintain counts within milestones and sections.</change>
          <change when="2016-01-12" who="TDBuck">epidoc to cts</change>
@@ -89,8 +103,8 @@
    <text xml:lang="eng">
       
 
-      <body>
-       <div type="translation" n="urn:cts:greekLit:tlg0085.tlg005.perseus-eng4" xml:lang="eng">
+      <body xml:base="urn:cts:greekLit:tlg0085.tlg005.perseus-eng4">
+       <div n="urn:cts:greekLit:tlg0085.tlg005.perseus-eng4" type="translation" xml:lang="eng">
          <l n="preface">
             Translator’s preface
             

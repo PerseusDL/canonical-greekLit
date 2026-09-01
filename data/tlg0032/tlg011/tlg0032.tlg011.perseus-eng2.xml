@@ -74,7 +74,14 @@
 				<refState unit="chapter"/>
 				<refState unit="section"/>
 			</refsDecl>
-		</encodingDesc>
+				<refsDecl xml:id="CTS">
+		  <citeStructure match="/TEI/text/body" use="@xml:base">
+		    <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+		      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+		    </citeStructure>
+		  </citeStructure>
+		</refsDecl>
+</encodingDesc>
 		<profileDesc>
 			<langUsage>
 				<language ident="eng">English</language>
@@ -82,6 +89,7 @@
 			</langUsage>
 		</profileDesc>
 		<revisionDesc>
+		  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 			<change when="2026-07-27" who="Alison Babeu">Updated header info</change>
 			<change when="2016-12-05" who="Lisa Cerrato">CTS and EpiDoc conversion</change>
 			<change when="2014-08-01" who="Stella Dee">edited markup</change>
@@ -91,10 +99,10 @@
 			<change when="1992-06-01" who="wpm and das">tagged text to conform with prose.e dtd.</change>
 		</revisionDesc>
 	</teiHeader>
-	<text>
+	<text xml:lang="eng">
 
-		<body>
-			<div type="translation" n="urn:cts:greekLit:tlg0032.tlg011.perseus-eng2" xml:lang="eng">
+		<body xml:base="urn:cts:greekLit:tlg0032.tlg011.perseus-eng2">
+			<div n="urn:cts:greekLit:tlg0032.tlg011.perseus-eng2" type="translation" xml:lang="eng">
 			<div type="textpart" subtype="chapter" n="1">
 				<div type="textpart" subtype="section" n="1">
 					<p><milestone unit="para" ed="P"/>For my part I have always held that the

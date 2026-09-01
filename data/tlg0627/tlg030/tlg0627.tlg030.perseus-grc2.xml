@@ -77,6 +77,11 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/t
 <p>This pointer pattern extracts section.</p>
 </cRefPattern>
 </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 
 <profileDesc> 
@@ -85,13 +90,14 @@ replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/t
 </langUsage> 
 </profileDesc> 
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change when="2023-01-06" who="Lisa Cerrato">CTS and EpiDoc conversion.</change>
 </revisionDesc>
 </teiHeader>
 
-<text>
-<body>
-<div type="edition" n="urn:cts:greekLit:tlg0627.tlg030.perseus-grc2" xml:lang="grc">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0627.tlg030.perseus-grc2">
+<div n="urn:cts:greekLit:tlg0627.tlg030.perseus-grc2" type="edition" xml:lang="grc">
 <head rend="align(center)">ΠΕΡΙ ΣΥΡΙΓΓΩΝ.</head> 
 <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg030.perseus-grc2" n="1">
 <label>1.</label> 

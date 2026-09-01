@@ -98,7 +98,14 @@
                     <p>This pointer pattern extracts chapters</p>
                 </cRefPattern>
             </refsDecl>
-        </encodingDesc>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+              <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
 
         <profileDesc>
             <langUsage>
@@ -108,14 +115,15 @@
         </profileDesc>
 
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change who="Chiara Palladino" when="2016-03-04">Made the file CTS compliant</change>
             <change who="Chiara Palladino" when="2016-02-15">Created the XML file</change>
         </revisionDesc>
     </teiHeader>
 
-    <text>
-        <body>
-            <div type="edition" n="urn:cts:greekLit:tlg0090.tlg001.opp-grc1" xml:lang="grc">           
+    <text xml:lang="grc">
+        <body xml:base="urn:cts:greekLit:tlg0090.tlg001.opp-grc1">
+            <div n="urn:cts:greekLit:tlg0090.tlg001.opp-grc1" type="edition" xml:lang="grc">           
               <head>
                   <title type="main">ἈΓΑΘΗΜΕΡΟΥ ΤΟΥ ὌΡΘΩΝΟΣ ΓΕΩΓΡΑΦΊΑΣ ὙΠΟΤΎΠΩΣΙΣ</title>
               </head>

@@ -52,6 +52,18 @@
             
         </refsDecl>
     
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+  </citeStructure>
+</refsDecl>
+
+<refsDecl xml:id="CTS-card">
+    <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+            use="@n" n="chunk" />
+    </citeStructure>
+</refsDecl>
 </encodingDesc>
 <profileDesc>
 <langUsage>
@@ -59,6 +71,8 @@
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+  <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
     <change when="2017-02-22" who="Lisa Cerrato">review of EpiDoc and CTS markup; adding line numbers, fixing change log, etc.</change>
     <change who="TDBuck" when="2016-01-11">p4 to p5</change>
     <change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
@@ -87,9 +101,9 @@
 
 </revisionDesc>
 </teiHeader>
-<text xml:lang="greek">
-<body>
-    <div type="edition" n="urn:cts:greekLit:tlg0085.tlg002.perseus-grc2" xml:lang="grc">
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0085.tlg002.perseus-grc2">
+    <div n="urn:cts:greekLit:tlg0085.tlg002.perseus-grc2" type="edition" xml:lang="grc">
 <milestone n="1" unit="card"/>
 <div type="textpart" subtype="episode">
 <div type="textpart" subtype="anapests">
@@ -424,7 +438,7 @@
 <l n="197">πίπτει δʼ ἐμὸς παῖς, καὶ πατὴρ παρίσταται</l>
 <l n="198">Δαρεῖος οἰκτείρων σφε· τὸν δʼ ὅπως ὁρᾷ</l>
 <l n="199">Ξέρξης, πέπλους ῥήγνυσιν ἀμφὶ σώματι.</l>
-</sp><milestone n="200" unit="card"/><sp>
+<milestone n="200" unit="card"/>
 <l n="200">
 <milestone ed="P" unit="para"/>καὶ ταῦτα μὲν δὴ νυκτὸς εἰσιδεῖν λέγω.</l>
 <l n="201">ἐπεὶ δʼ ἀνέστην καὶ χεροῖν καλλιρρόου</l>
@@ -441,8 +455,8 @@
 <l n="212">πράξας μὲν εὖ θαυμαστὸς ἂν γένοιτʼ ἀνήρ,</l>
 <l n="213">κακῶς δὲ πράξας, οὐχ ὑπεύθυνος πόλει,</l>
 <l n="214">σωθεὶς δʼ ὁμοίως τῆσδε κοιρανεῖ χθονός.</l>
-
-</sp></div>
+</sp>
+</div>
     
     <milestone n="215" unit="card"/>
 

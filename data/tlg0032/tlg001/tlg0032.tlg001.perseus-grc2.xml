@@ -74,7 +74,16 @@
             <state unit="chapter"/>
             <state unit="section"/>
          </refsDecl>-->
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+            <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+              <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="grc">Greek</language>
@@ -82,6 +91,7 @@
          </langUsage>
       </profileDesc>
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2026-07-15" who="Alison Babeu">Updated header to current standards</change>
          <change when="2016-10-31" who="Lisa Cerrato">further CTS work</change>
          <change when="2016-03-21" who="Lisa Cerrato">bumped urn; CTS work</change>
@@ -93,8 +103,8 @@
    </teiHeader>
    
    <text xml:lang="grc">
-      <body>
-         <div type="edition" n="urn:cts:greekLit:tlg0032.tlg001.perseus-grc2" xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0032.tlg001.perseus-grc2">
+         <div n="urn:cts:greekLit:tlg0032.tlg001.perseus-grc2" type="edition" xml:lang="grc">
          <div type="textpart" subtype="book" n="1">
             <head>Ἑλληνικῶν Α</head>
             <div type="textpart" subtype="chapter" n="1">

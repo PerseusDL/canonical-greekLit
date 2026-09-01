@@ -79,7 +79,16 @@
             <state unit="chapter"/>
             <state unit="section"/>
          </refsDecl>-->
-      </encodingDesc>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+            <citeStructure unit="chapter" delim="." match="div[@subtype='chapter']" use="@n">
+              <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
       <profileDesc>
          <langUsage>
             <language ident="grc">Greek</language>
@@ -89,6 +98,7 @@
       </profileDesc>
       
       <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
          <change when="2023-04-04" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
          <change when="1994-06" who="grc">Edited the text to be in comformance with Oldfather</change>
          <change when="1993-09" who="wpm">Corrected failed words, added tei headers, chopped into books</change>
@@ -96,9 +106,9 @@
     </revisionDesc>
    </teiHeader>
    
-   <text>
-      <body>
-<div type="edition" n="urn:cts:greekLit:tlg0060.tlg001.perseus-grc4" xml:lang="grc">      
+   <text xml:lang="grc">
+      <body xml:base="urn:cts:greekLit:tlg0060.tlg001.perseus-grc4">
+<div n="urn:cts:greekLit:tlg0060.tlg001.perseus-grc4" type="edition" xml:lang="grc">      
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0060.tlg001.perseus-grc4" n="11"> 
 <head rend="align(center)" xml:lang="eng">Book XI</head> 
  <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0060.tlg001.perseus-grc4:11" n="arg">

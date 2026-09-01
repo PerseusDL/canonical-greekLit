@@ -63,6 +63,13 @@
 <cRefPattern matchPattern="(\w+)" n="book" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
 <p>This pointer pattern extracts book.</p></cRefPattern>
 </refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
 </encodingDesc>
 
 <profileDesc>
@@ -75,13 +82,14 @@
 </langUsage>
 </profileDesc>
 <revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
 <change when="2024-07-17" who="Lisa Cerrato">EpiDoc and CTS conversion and general header review.</change>
 </revisionDesc>
 </teiHeader>
 
-<text>
-<body>
-<div type="edition" n="urn:cts:greekLit:tlg0057.tlg010.perseus-eng2" xml:lang="grc">
+<text xml:lang="eng">
+<body xml:base="urn:cts:greekLit:tlg0057.tlg010.perseus-eng2">
+<div n="urn:cts:greekLit:tlg0057.tlg010.perseus-eng2" type="edition" xml:lang="grc">
  <pb n="p.3"/>
 <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0057.tlg010.perseus-eng2" n="1"> 
 <head rend="align(center)">ON THE NATURAL FACULTIES Book I</head> 
