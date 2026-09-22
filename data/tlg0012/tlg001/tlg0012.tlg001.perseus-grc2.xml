@@ -83,8 +83,10 @@
 
                 <refsDecl xml:id="CTS-card">
                     <citeStructure match="/TEI/text/body" use="@xml:base">
-                        <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
-                            use="@n" n="chunk" />
+                        <citeStructure unit="book" delim=":" match="div/div[@subtype='Book']" use="@n">
+                            <citeStructure unit="card" delim=":" match=".//milestone[@unit='card']"
+                                use="@n" n="chunk" />
+                        </citeStructure>
                     </citeStructure>
                 </refsDecl>
 </encodingDesc>
@@ -95,6 +97,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
+          <change who="Charles Pletcher" when="2026-09-18">Nest CTS-card citeStructure under book, since card numbers reset each book</change>
           <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
           <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
             <change who="Lisa Cerrato" when="2016-09-20">added missing info in header; reviewed quotes</change>
